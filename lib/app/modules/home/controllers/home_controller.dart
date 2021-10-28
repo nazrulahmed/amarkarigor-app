@@ -1,9 +1,15 @@
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
-  //TODO: Implement HomeController
-
-  final count = 0.obs;
+  List tags = ['New', 'Trending', 'Popular', 'Top Services'];
+  List offers = ['New', 'Trending', 'Popular', 'Top Services'];
+  List categories = [
+    'Commercial Shifting',
+    'Home Shifting',
+    'Home Shifting',
+    'Home Shifting'
+  ];
+  List otherServices = ['Cleaning'];
   @override
   void onInit() {
     super.onInit();
@@ -16,5 +22,4 @@ class HomeController extends GetxController {
 
   @override
   void onClose() {}
-  void increment() => count.value++;
 }
