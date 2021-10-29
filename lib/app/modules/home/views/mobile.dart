@@ -6,7 +6,7 @@ Widget getMobileView(HomeController controller,BoxConstraints constraints) {
   return ListView(
     children: [
      
-      getTags(controller.tags,constraints),
+      getHeader(constraints),
       getOffers(controller.offers,constraints),
       getCategories(controller.categories,constraints),
       getServices(controller.categories,constraints),

@@ -1,5 +1,5 @@
 export 'appbar.dart';
-export 'tags.dart';
+export 'header.dart';
 export 'offers.dart';
 export 'categories.dart';
 export 'services.dart';
