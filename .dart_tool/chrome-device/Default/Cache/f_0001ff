@@ -1,23 +1,20 @@
-define(['dart_sdk', 'packages/flutter/src/painting/basic_types.dart', 'packages/flutter/src/rendering/sliver.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/painting/edge_insets.dart'], (function load__packages__flutter__src__rendering__sliver_padding_dart(dart_sdk, packages__flutter__src__painting__basic_types$46dart, packages__flutter__src__rendering__sliver$46dart, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__painting__edge_insets$46dart) {
+define(['dart_sdk', 'packages/flutter/src/gestures/events.dart', 'packages/flutter/src/gestures/arena.dart', 'packages/flutter/src/gestures/recognizer.dart'], (function load__packages__flutter__src__gestures__force_press_dart(dart_sdk, packages__flutter__src__gestures__events$46dart, packages__flutter__src__gestures__arena$46dart, packages__flutter__src__gestures__recognizer$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const math = dart_sdk.math;
   const ui = dart_sdk.ui;
+  const _internal = dart_sdk._internal;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const basic_types = packages__flutter__src__painting__basic_types$46dart.src__painting__basic_types;
-  const sliver = packages__flutter__src__rendering__sliver$46dart.src__rendering__sliver;
-  const object = packages__flutter__src__rendering__layer$46dart.src__rendering__object;
-  const debug = packages__flutter__src__rendering__layer$46dart.src__rendering__debug;
-  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
-  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
-  var sliver_padding = Object.create(dart.library);
-  var $_equals = dartx._equals;
+  const events = packages__flutter__src__gestures__events$46dart.src__gestures__events;
+  const arena = packages__flutter__src__gestures__arena$46dart.src__gestures__arena;
+  const recognizer = packages__flutter__src__gestures__recognizer$46dart.src__gestures__recognizer;
+  var force_press = Object.create(dart.library);
+  var $isNaN = dartx.isNaN;
+  var $clamp = dartx.clamp;
   dart._checkModuleNullSafetyMode(true);
   var T = {
-    VoidTobool: () => (T.VoidTobool = dart.constFn(dart.fnType(core.bool, [])))(),
-    DiagnosticsPropertyOfEdgeInsetsGeometry: () => (T.DiagnosticsPropertyOfEdgeInsetsGeometry = dart.constFn(diagnostics.DiagnosticsProperty$(edge_insets.EdgeInsetsGeometry)))(),
-    EnumPropertyOfTextDirection: () => (T.EnumPropertyOfTextDirection = dart.constFn(diagnostics.EnumProperty$(ui.TextDirection)))()
+    doubleAnddoubleAnddoubleTodouble: () => (T.doubleAnddoubleAnddoubleTodouble = dart.constFn(dart.fnType(core.double, [core.double, core.double, core.double])))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))()
   };
   const CT = Object.create({
     _: () => (C, CT)
@@ -25,378 +22,336 @@ define(['dart_sdk', 'packages/flutter/src/painting/basic_types.dart', 'packages/
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: basic_types.AxisDirection.prototype,
-        [_name]: "AxisDirection.up",
+        __proto__: force_press._ForceState.prototype,
+        [_name$]: "_ForceState.ready",
         index: 0
       });
     },
     get C1() {
       return C[1] = dart.const({
-        __proto__: basic_types.AxisDirection.prototype,
-        [_name]: "AxisDirection.right",
+        __proto__: force_press._ForceState.prototype,
+        [_name$]: "_ForceState.possible",
         index: 1
       });
     },
     get C2() {
       return C[2] = dart.const({
-        __proto__: basic_types.AxisDirection.prototype,
-        [_name]: "AxisDirection.down",
+        __proto__: force_press._ForceState.prototype,
+        [_name$]: "_ForceState.accepted",
         index: 2
       });
     },
     get C3() {
       return C[3] = dart.const({
-        __proto__: basic_types.AxisDirection.prototype,
-        [_name]: "AxisDirection.left",
+        __proto__: force_press._ForceState.prototype,
+        [_name$]: "_ForceState.started",
         index: 3
       });
     },
     get C4() {
       return C[4] = dart.const({
-        __proto__: basic_types.Axis.prototype,
-        [_name]: "Axis.horizontal",
-        index: 0
+        __proto__: force_press._ForceState.prototype,
+        [_name$]: "_ForceState.peaked",
+        index: 4
       });
     },
     get C5() {
-      return C[5] = dart.const({
-        __proto__: basic_types.Axis.prototype,
-        [_name]: "Axis.vertical",
-        index: 1
-      });
+      return C[5] = dart.constList([C[0] || CT.C0, C[1] || CT.C1, C[2] || CT.C2, C[3] || CT.C3, C[4] || CT.C4], force_press._ForceState);
+    },
+    get C6() {
+      return C[6] = dart.fn(force_press.ForcePressGestureRecognizer._inverseLerp, T.doubleAnddoubleAnddoubleTodouble());
     }
   }, false);
-  var C = Array(6).fill(void 0);
+  var C = Array(7).fill(void 0);
   var I = [
-    "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/rendering/sliver_padding.dart",
-    "package:flutter/src/rendering/sliver_padding.dart"
+    "package:flutter/src/gestures/force_press.dart",
+    "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/gestures/force_press.dart"
   ];
-  var _name = dart.privateName(basic_types, "_name");
-  const RenderSliver_RenderObjectWithChildMixin$36 = class RenderSliver_RenderObjectWithChildMixin extends sliver.RenderSliver {};
-  (RenderSliver_RenderObjectWithChildMixin$36.new = function() {
-    object.RenderObjectWithChildMixin$(sliver.RenderSliver)[dart.mixinNew].call(this);
-    RenderSliver_RenderObjectWithChildMixin$36.__proto__.new.call(this);
-  }).prototype = RenderSliver_RenderObjectWithChildMixin$36.prototype;
-  dart.applyMixin(RenderSliver_RenderObjectWithChildMixin$36, object.RenderObjectWithChildMixin$(sliver.RenderSliver));
-  sliver_padding.RenderSliverEdgeInsetsPadding = class RenderSliverEdgeInsetsPadding extends RenderSliver_RenderObjectWithChildMixin$36 {
-    get beforePadding() {
-      if (!(this.constraints !== null)) dart.assertFailed(null, I[0], 38, 12, "constraints != null");
-      if (!(this.constraints.axisDirection !== null)) dart.assertFailed(null, I[0], 39, 12, "constraints.axisDirection != null");
-      if (!(this.constraints.growthDirection !== null)) dart.assertFailed(null, I[0], 40, 12, "constraints.growthDirection != null");
-      if (!(this.resolvedPadding != null)) dart.assertFailed(null, I[0], 41, 12, "resolvedPadding != null");
-      switch (sliver.applyGrowthDirectionToAxisDirection(this.constraints.axisDirection, this.constraints.growthDirection)) {
-        case C[0] || CT.C0:
-        {
-          return dart.nullCheck(this.resolvedPadding).bottom;
-        }
-        case C[1] || CT.C1:
-        {
-          return dart.nullCheck(this.resolvedPadding).left;
-        }
-        case C[2] || CT.C2:
-        {
-          return dart.nullCheck(this.resolvedPadding).top;
-        }
-        case C[3] || CT.C3:
-        {
-          return dart.nullCheck(this.resolvedPadding).right;
-        }
-      }
-    }
-    get afterPadding() {
-      if (!(this.constraints !== null)) dart.assertFailed(null, I[0], 59, 12, "constraints != null");
-      if (!(this.constraints.axisDirection !== null)) dart.assertFailed(null, I[0], 60, 12, "constraints.axisDirection != null");
-      if (!(this.constraints.growthDirection !== null)) dart.assertFailed(null, I[0], 61, 12, "constraints.growthDirection != null");
-      if (!(this.resolvedPadding != null)) dart.assertFailed(null, I[0], 62, 12, "resolvedPadding != null");
-      switch (sliver.applyGrowthDirectionToAxisDirection(this.constraints.axisDirection, this.constraints.growthDirection)) {
-        case C[0] || CT.C0:
-        {
-          return dart.nullCheck(this.resolvedPadding).top;
-        }
-        case C[1] || CT.C1:
-        {
-          return dart.nullCheck(this.resolvedPadding).right;
-        }
-        case C[2] || CT.C2:
-        {
-          return dart.nullCheck(this.resolvedPadding).bottom;
-        }
-        case C[3] || CT.C3:
-        {
-          return dart.nullCheck(this.resolvedPadding).left;
-        }
-      }
-    }
-    get mainAxisPadding() {
-      if (!(this.constraints !== null)) dart.assertFailed(null, I[0], 82, 12, "constraints != null");
-      if (!(this.constraints.axis !== null)) dart.assertFailed(null, I[0], 83, 12, "constraints.axis != null");
-      if (!(this.resolvedPadding != null)) dart.assertFailed(null, I[0], 84, 12, "resolvedPadding != null");
-      return dart.nullCheck(this.resolvedPadding).along(this.constraints.axis);
-    }
-    get crossAxisPadding() {
-      if (!(this.constraints !== null)) dart.assertFailed(null, I[0], 95, 12, "constraints != null");
-      if (!(this.constraints.axis !== null)) dart.assertFailed(null, I[0], 96, 12, "constraints.axis != null");
-      if (!(this.resolvedPadding != null)) dart.assertFailed(null, I[0], 97, 12, "resolvedPadding != null");
-      switch (this.constraints.axis) {
-        case C[4] || CT.C4:
-        {
-          return dart.nullCheck(this.resolvedPadding).vertical;
-        }
-        case C[5] || CT.C5:
-        {
-          return dart.nullCheck(this.resolvedPadding).horizontal;
-        }
-      }
-    }
-    setupParentData(child) {
-      object.RenderObject.as(child);
-      if (!sliver.SliverPhysicalParentData.is(child.parentData)) child.parentData = new sliver.SliverPhysicalParentData.new();
-    }
-    performLayout() {
-      let constraints = this.constraints;
-      if (!(this.resolvedPadding != null)) dart.assertFailed(null, I[0], 115, 12, "resolvedPadding != null");
-      let beforePadding = this.beforePadding;
-      let afterPadding = this.afterPadding;
-      let mainAxisPadding = this.mainAxisPadding;
-      let crossAxisPadding = this.crossAxisPadding;
-      if (this.child == null) {
-        this.geometry = new sliver.SliverGeometry.new({scrollExtent: mainAxisPadding, paintExtent: math.min(core.double, mainAxisPadding, constraints.remainingPaintExtent), maxPaintExtent: mainAxisPadding});
-        return;
-      }
-      let beforePaddingPaintExtent = this.calculatePaintOffset(constraints, {from: 0.0, to: beforePadding});
-      let overlap = constraints.overlap;
-      if (overlap > 0) {
-        overlap = math.max(core.double, 0.0, constraints.overlap - beforePaddingPaintExtent);
-      }
-      dart.nullCheck(this.child).layout(constraints.copyWith({scrollOffset: math.max(core.double, 0.0, constraints.scrollOffset - beforePadding), cacheOrigin: math.min(core.double, 0.0, constraints.cacheOrigin + beforePadding), overlap: overlap, remainingPaintExtent: constraints.remainingPaintExtent - this.calculatePaintOffset(constraints, {from: 0.0, to: beforePadding}), remainingCacheExtent: constraints.remainingCacheExtent - this.calculateCacheOffset(constraints, {from: 0.0, to: beforePadding}), crossAxisExtent: math.max(core.double, 0.0, constraints.crossAxisExtent - crossAxisPadding), precedingScrollExtent: beforePadding + constraints.precedingScrollExtent}), {parentUsesSize: true});
-      let childLayoutGeometry = dart.nullCheck(dart.nullCheck(this.child).geometry);
-      if (childLayoutGeometry.scrollOffsetCorrection != null) {
-        this.geometry = new sliver.SliverGeometry.new({scrollOffsetCorrection: childLayoutGeometry.scrollOffsetCorrection});
-        return;
-      }
-      let afterPaddingPaintExtent = this.calculatePaintOffset(constraints, {from: beforePadding + childLayoutGeometry.scrollExtent, to: mainAxisPadding + childLayoutGeometry.scrollExtent});
-      let mainAxisPaddingPaintExtent = beforePaddingPaintExtent + afterPaddingPaintExtent;
-      let beforePaddingCacheExtent = this.calculateCacheOffset(constraints, {from: 0.0, to: beforePadding});
-      let afterPaddingCacheExtent = this.calculateCacheOffset(constraints, {from: beforePadding + childLayoutGeometry.scrollExtent, to: mainAxisPadding + childLayoutGeometry.scrollExtent});
-      let mainAxisPaddingCacheExtent = afterPaddingCacheExtent + beforePaddingCacheExtent;
-      let paintExtent = math.min(core.double, beforePaddingPaintExtent + math.max(core.num, childLayoutGeometry.paintExtent, childLayoutGeometry.layoutExtent + afterPaddingPaintExtent), constraints.remainingPaintExtent);
-      this.geometry = new sliver.SliverGeometry.new({paintOrigin: childLayoutGeometry.paintOrigin, scrollExtent: mainAxisPadding + childLayoutGeometry.scrollExtent, paintExtent: paintExtent, layoutExtent: math.min(core.double, mainAxisPaddingPaintExtent + childLayoutGeometry.layoutExtent, paintExtent), cacheExtent: math.min(core.double, mainAxisPaddingCacheExtent + childLayoutGeometry.cacheExtent, constraints.remainingCacheExtent), maxPaintExtent: mainAxisPadding + childLayoutGeometry.maxPaintExtent, hitTestExtent: math.max(core.double, mainAxisPaddingPaintExtent + childLayoutGeometry.paintExtent, beforePaddingPaintExtent + childLayoutGeometry.hitTestExtent), hasVisualOverflow: childLayoutGeometry.hasVisualOverflow});
-      let childParentData = sliver.SliverPhysicalParentData.as(dart.nullCheck(dart.nullCheck(this.child).parentData));
-      if (!(constraints.axisDirection !== null)) dart.assertFailed(null, I[0], 192, 12, "constraints.axisDirection != null");
-      if (!(constraints.growthDirection !== null)) dart.assertFailed(null, I[0], 193, 12, "constraints.growthDirection != null");
-      switch (sliver.applyGrowthDirectionToAxisDirection(constraints.axisDirection, constraints.growthDirection)) {
-        case C[0] || CT.C0:
-        {
-          childParentData.paintOffset = new ui.Offset.new(dart.nullCheck(this.resolvedPadding).left, this.calculatePaintOffset(constraints, {from: dart.nullCheck(this.resolvedPadding).bottom + childLayoutGeometry.scrollExtent, to: dart.nullCheck(this.resolvedPadding).bottom + childLayoutGeometry.scrollExtent + dart.nullCheck(this.resolvedPadding).top}));
-          break;
-        }
-        case C[1] || CT.C1:
-        {
-          childParentData.paintOffset = new ui.Offset.new(this.calculatePaintOffset(constraints, {from: 0.0, to: dart.nullCheck(this.resolvedPadding).left}), dart.nullCheck(this.resolvedPadding).top);
-          break;
-        }
-        case C[2] || CT.C2:
-        {
-          childParentData.paintOffset = new ui.Offset.new(dart.nullCheck(this.resolvedPadding).left, this.calculatePaintOffset(constraints, {from: 0.0, to: dart.nullCheck(this.resolvedPadding).top}));
-          break;
-        }
-        case C[3] || CT.C3:
-        {
-          childParentData.paintOffset = new ui.Offset.new(this.calculatePaintOffset(constraints, {from: dart.nullCheck(this.resolvedPadding).right + childLayoutGeometry.scrollExtent, to: dart.nullCheck(this.resolvedPadding).right + childLayoutGeometry.scrollExtent + dart.nullCheck(this.resolvedPadding).left}), dart.nullCheck(this.resolvedPadding).top);
-          break;
-        }
-      }
-      if (!(childParentData.paintOffset !== null)) dart.assertFailed(null, I[0], 208, 12, "childParentData.paintOffset != null");
-      if (!(beforePadding === this.beforePadding)) dart.assertFailed(null, I[0], 209, 12, "beforePadding == this.beforePadding");
-      if (!(afterPadding === this.afterPadding)) dart.assertFailed(null, I[0], 210, 12, "afterPadding == this.afterPadding");
-      if (!(mainAxisPadding === this.mainAxisPadding)) dart.assertFailed(null, I[0], 211, 12, "mainAxisPadding == this.mainAxisPadding");
-      if (!(crossAxisPadding === this.crossAxisPadding)) dart.assertFailed(null, I[0], 212, 12, "crossAxisPadding == this.crossAxisPadding");
-    }
-    hitTestChildren(result, opts) {
-      let mainAxisPosition = opts && 'mainAxisPosition' in opts ? opts.mainAxisPosition : null;
-      let crossAxisPosition = opts && 'crossAxisPosition' in opts ? opts.crossAxisPosition : null;
-      if (this.child != null && dart.nullCheck(dart.nullCheck(this.child).geometry).hitTestExtent > 0.0) {
-        let childParentData = sliver.SliverPhysicalParentData.as(dart.nullCheck(dart.nullCheck(this.child).parentData));
-        result.addWithAxisOffset({mainAxisPosition: mainAxisPosition, crossAxisPosition: crossAxisPosition, mainAxisOffset: this.childMainAxisPosition(dart.nullCheck(this.child)), crossAxisOffset: this.childCrossAxisPosition(dart.nullCheck(this.child)), paintOffset: childParentData.paintOffset, hitTest: dart.bind(dart.nullCheck(this.child), 'hitTest')});
-      }
-      return false;
-    }
-    childMainAxisPosition(child) {
-      sliver.RenderSliver.as(child);
-      if (!(child !== null)) dart.assertFailed(null, I[0], 233, 12, "child != null");
-      if (!child[$_equals](this.child)) dart.assertFailed(null, I[0], 234, 12, "child == this.child");
-      return this.calculatePaintOffset(this.constraints, {from: 0.0, to: this.beforePadding});
-    }
-    childCrossAxisPosition(child) {
-      sliver.RenderSliver.as(child);
-      if (!(child !== null)) dart.assertFailed(null, I[0], 240, 12, "child != null");
-      if (!child[$_equals](this.child)) dart.assertFailed(null, I[0], 241, 12, "child == this.child");
-      if (!(this.constraints !== null)) dart.assertFailed(null, I[0], 242, 12, "constraints != null");
-      if (!(this.constraints.axisDirection !== null)) dart.assertFailed(null, I[0], 243, 12, "constraints.axisDirection != null");
-      if (!(this.constraints.growthDirection !== null)) dart.assertFailed(null, I[0], 244, 12, "constraints.growthDirection != null");
-      if (!(this.resolvedPadding != null)) dart.assertFailed(null, I[0], 245, 12, "resolvedPadding != null");
-      switch (sliver.applyGrowthDirectionToAxisDirection(this.constraints.axisDirection, this.constraints.growthDirection)) {
-        case C[0] || CT.C0:
-        case C[2] || CT.C2:
-        {
-          return dart.nullCheck(this.resolvedPadding).left;
-        }
-        case C[3] || CT.C3:
-        case C[1] || CT.C1:
-        {
-          return dart.nullCheck(this.resolvedPadding).top;
-        }
-      }
-    }
-    childScrollOffset(child) {
-      object.RenderObject.as(child);
-      if (!dart.equals(child.parent, this)) dart.assertFailed(null, I[0], 258, 12, "child.parent == this");
-      return this.beforePadding;
-    }
-    applyPaintTransform(child, transform) {
-      object.RenderObject.as(child);
-      if (!(child !== null)) dart.assertFailed(null, I[0], 264, 12, "child != null");
-      if (!child[$_equals](this.child)) dart.assertFailed(null, I[0], 265, 12, "child == this.child");
-      let childParentData = sliver.SliverPhysicalParentData.as(dart.nullCheck(child.parentData));
-      childParentData.applyPaintTransform(transform);
-    }
-    paint(context, offset) {
-      if (this.child != null && dart.nullCheck(dart.nullCheck(this.child).geometry).visible) {
-        let childParentData = sliver.SliverPhysicalParentData.as(dart.nullCheck(dart.nullCheck(this.child).parentData));
-        context.paintChild(dart.nullCheck(this.child), offset['+'](childParentData.paintOffset));
-      }
-    }
-    debugPaint(context, offset) {
-      super.debugPaint(context, offset);
-      if (!dart.fn(() => {
-        if (debug.debugPaintSizeEnabled) {
-          let parentSize = this.getAbsoluteSize();
-          let outerRect = offset['&'](parentSize);
-          let innerRect = null;
-          if (this.child != null) {
-            let childSize = dart.nullCheck(this.child).getAbsoluteSize();
-            let childParentData = sliver.SliverPhysicalParentData.as(dart.nullCheck(dart.nullCheck(this.child).parentData));
-            innerRect = offset['+'](childParentData.paintOffset)['&'](childSize);
-            if (!(innerRect.top >= outerRect.top)) dart.assertFailed(null, I[0], 290, 18, "innerRect.top >= outerRect.top");
-            if (!(innerRect.left >= outerRect.left)) dart.assertFailed(null, I[0], 291, 18, "innerRect.left >= outerRect.left");
-            if (!(innerRect.right <= outerRect.right)) dart.assertFailed(null, I[0], 292, 18, "innerRect.right <= outerRect.right");
-            if (!(innerRect.bottom <= outerRect.bottom)) dart.assertFailed(null, I[0], 293, 18, "innerRect.bottom <= outerRect.bottom");
-          }
-          debug.debugPaintPadding(context.canvas, outerRect, innerRect);
-        }
-        return true;
-      }, T.VoidTobool())()) dart.assertFailed(null, I[0], 281, 12, "() {\n      if (debugPaintSizeEnabled) {\n        final Size parentSize = getAbsoluteSize();\n        final Rect outerRect = offset & parentSize;\n        Rect? innerRect;\n        if (child != null) {\n          final Size childSize = child!.getAbsoluteSize();\n          final SliverPhysicalParentData childParentData = child!.parentData! as SliverPhysicalParentData;\n          innerRect = (offset + childParentData.paintOffset) & childSize;\n          assert(innerRect.top >= outerRect.top);\n          assert(innerRect.left >= outerRect.left);\n          assert(innerRect.right <= outerRect.right);\n          assert(innerRect.bottom <= outerRect.bottom);\n        }\n        debugPaintPadding(context.canvas, outerRect, innerRect);\n      }\n      return true;\n    }()");
+  var _name$ = dart.privateName(force_press, "_name");
+  force_press._ForceState = class _ForceState extends core.Object {
+    toString() {
+      return this[_name$];
     }
   };
-  (sliver_padding.RenderSliverEdgeInsetsPadding.new = function() {
-    sliver_padding.RenderSliverEdgeInsetsPadding.__proto__.new.call(this);
+  (force_press._ForceState.new = function(index, _name) {
+    this.index = index;
+    this[_name$] = _name;
     ;
-  }).prototype = sliver_padding.RenderSliverEdgeInsetsPadding.prototype;
-  dart.addTypeTests(sliver_padding.RenderSliverEdgeInsetsPadding);
-  dart.addTypeCaches(sliver_padding.RenderSliverEdgeInsetsPadding);
-  dart.setMethodSignature(sliver_padding.RenderSliverEdgeInsetsPadding, () => ({
-    __proto__: dart.getMethods(sliver_padding.RenderSliverEdgeInsetsPadding.__proto__),
-    performLayout: dart.fnType(dart.void, [])
+  }).prototype = force_press._ForceState.prototype;
+  dart.addTypeTests(force_press._ForceState);
+  dart.addTypeCaches(force_press._ForceState);
+  dart.setLibraryUri(force_press._ForceState, I[0]);
+  dart.setFieldSignature(force_press._ForceState, () => ({
+    __proto__: dart.getFields(force_press._ForceState.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
   }));
-  dart.setGetterSignature(sliver_padding.RenderSliverEdgeInsetsPadding, () => ({
-    __proto__: dart.getGetters(sliver_padding.RenderSliverEdgeInsetsPadding.__proto__),
-    beforePadding: core.double,
-    afterPadding: core.double,
-    mainAxisPadding: core.double,
-    crossAxisPadding: core.double
-  }));
-  dart.setLibraryUri(sliver_padding.RenderSliverEdgeInsetsPadding, I[1]);
-  var _resolvedPadding = dart.privateName(sliver_padding, "_resolvedPadding");
-  var _padding = dart.privateName(sliver_padding, "_padding");
-  var _textDirection = dart.privateName(sliver_padding, "_textDirection");
-  var _resolve = dart.privateName(sliver_padding, "_resolve");
-  var _markNeedsResolution = dart.privateName(sliver_padding, "_markNeedsResolution");
-  sliver_padding.RenderSliverPadding = class RenderSliverPadding extends sliver_padding.RenderSliverEdgeInsetsPadding {
-    get resolvedPadding() {
-      return this[_resolvedPadding];
+  dart.defineExtensionMethods(force_press._ForceState, ['toString']);
+  force_press._ForceState.ready = C[0] || CT.C0;
+  force_press._ForceState.possible = C[1] || CT.C1;
+  force_press._ForceState.accepted = C[2] || CT.C2;
+  force_press._ForceState.started = C[3] || CT.C3;
+  force_press._ForceState.peaked = C[4] || CT.C4;
+  force_press._ForceState.values = C[5] || CT.C5;
+  var globalPosition$ = dart.privateName(force_press, "ForcePressDetails.globalPosition");
+  var localPosition$ = dart.privateName(force_press, "ForcePressDetails.localPosition");
+  var pressure$ = dart.privateName(force_press, "ForcePressDetails.pressure");
+  force_press.ForcePressDetails = class ForcePressDetails extends core.Object {
+    get globalPosition() {
+      return this[globalPosition$];
     }
-    [_resolve]() {
-      if (this.resolvedPadding != null) return;
-      this[_resolvedPadding] = this.padding.resolve(this.textDirection);
-      if (!dart.nullCheck(this.resolvedPadding).isNonNegative) dart.assertFailed(null, I[0], 332, 12, "resolvedPadding!.isNonNegative");
+    set globalPosition(value) {
+      super.globalPosition = value;
     }
-    [_markNeedsResolution]() {
-      this[_resolvedPadding] = null;
-      this.markNeedsLayout();
+    get localPosition() {
+      return this[localPosition$];
     }
-    get padding() {
-      return this[_padding];
+    set localPosition(value) {
+      super.localPosition = value;
     }
-    set padding(value) {
-      if (!(value !== null)) dart.assertFailed(null, I[0], 347, 12, "value != null");
-      if (!this.padding.isNonNegative) dart.assertFailed(null, I[0], 348, 12, "padding.isNonNegative");
-      if (this[_padding]._equals(value)) return;
-      this[_padding] = value;
-      this[_markNeedsResolution]();
+    get pressure() {
+      return this[pressure$];
     }
-    get textDirection() {
-      return this[_textDirection];
-    }
-    set textDirection(value) {
-      if (this[_textDirection] == value) return;
-      this[_textDirection] = value;
-      this[_markNeedsResolution]();
-    }
-    performLayout() {
-      this[_resolve]();
-      super.performLayout();
-    }
-    debugFillProperties(properties) {
-      super.debugFillProperties(properties);
-      properties.add(new (T.DiagnosticsPropertyOfEdgeInsetsGeometry()).new("padding", this.padding));
-      properties.add(new (T.EnumPropertyOfTextDirection()).new("textDirection", this.textDirection, {defaultValue: null}));
+    set pressure(value) {
+      super.pressure = value;
     }
   };
-  (sliver_padding.RenderSliverPadding.new = function(opts) {
-    let padding = opts && 'padding' in opts ? opts.padding : null;
-    let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
-    let child = opts && 'child' in opts ? opts.child : null;
-    this[_resolvedPadding] = null;
-    if (!(padding !== null)) dart.assertFailed(null, I[0], 317, 15, "padding != null");
-    if (!padding.isNonNegative) dart.assertFailed(null, I[0], 318, 15, "padding.isNonNegative");
-    this[_padding] = padding;
-    this[_textDirection] = textDirection;
-    sliver_padding.RenderSliverPadding.__proto__.new.call(this);
-    this.child = child;
-  }).prototype = sliver_padding.RenderSliverPadding.prototype;
-  dart.addTypeTests(sliver_padding.RenderSliverPadding);
-  dart.addTypeCaches(sliver_padding.RenderSliverPadding);
-  dart.setMethodSignature(sliver_padding.RenderSliverPadding, () => ({
-    __proto__: dart.getMethods(sliver_padding.RenderSliverPadding.__proto__),
-    [_resolve]: dart.fnType(dart.void, []),
-    [_markNeedsResolution]: dart.fnType(dart.void, [])
+  (force_press.ForcePressDetails.new = function(opts) {
+    let t0;
+    let globalPosition = opts && 'globalPosition' in opts ? opts.globalPosition : null;
+    let localPosition = opts && 'localPosition' in opts ? opts.localPosition : null;
+    let pressure = opts && 'pressure' in opts ? opts.pressure : null;
+    this[globalPosition$] = globalPosition;
+    this[pressure$] = pressure;
+    if (!(globalPosition !== null)) dart.assertFailed(null, I[1], 50, 15, "globalPosition != null");
+    if (!(pressure !== null)) dart.assertFailed(null, I[1], 51, 15, "pressure != null");
+    this[localPosition$] = (t0 = localPosition, t0 == null ? globalPosition : t0);
+    ;
+  }).prototype = force_press.ForcePressDetails.prototype;
+  dart.addTypeTests(force_press.ForcePressDetails);
+  dart.addTypeCaches(force_press.ForcePressDetails);
+  dart.setLibraryUri(force_press.ForcePressDetails, I[0]);
+  dart.setFieldSignature(force_press.ForcePressDetails, () => ({
+    __proto__: dart.getFields(force_press.ForcePressDetails.__proto__),
+    globalPosition: dart.finalFieldType(ui.Offset),
+    localPosition: dart.finalFieldType(ui.Offset),
+    pressure: dart.finalFieldType(core.double)
   }));
-  dart.setGetterSignature(sliver_padding.RenderSliverPadding, () => ({
-    __proto__: dart.getGetters(sliver_padding.RenderSliverPadding.__proto__),
-    resolvedPadding: dart.nullable(edge_insets.EdgeInsets),
-    padding: edge_insets.EdgeInsetsGeometry,
-    textDirection: dart.nullable(ui.TextDirection)
+  var onStart = dart.privateName(force_press, "ForcePressGestureRecognizer.onStart");
+  var onUpdate = dart.privateName(force_press, "ForcePressGestureRecognizer.onUpdate");
+  var onPeak = dart.privateName(force_press, "ForcePressGestureRecognizer.onPeak");
+  var onEnd = dart.privateName(force_press, "ForcePressGestureRecognizer.onEnd");
+  var startPressure$ = dart.privateName(force_press, "ForcePressGestureRecognizer.startPressure");
+  var peakPressure$ = dart.privateName(force_press, "ForcePressGestureRecognizer.peakPressure");
+  var interpolation$ = dart.privateName(force_press, "ForcePressGestureRecognizer.interpolation");
+  var __ForcePressGestureRecognizer__lastPosition = dart.privateName(force_press, "_#ForcePressGestureRecognizer#_lastPosition");
+  var __ForcePressGestureRecognizer__lastPressure = dart.privateName(force_press, "_#ForcePressGestureRecognizer#_lastPressure");
+  var _state = dart.privateName(force_press, "_state");
+  var _lastPosition = dart.privateName(force_press, "_lastPosition");
+  var _lastPressure = dart.privateName(force_press, "_lastPressure");
+  force_press.ForcePressGestureRecognizer = class ForcePressGestureRecognizer extends recognizer.OneSequenceGestureRecognizer {
+    get onStart() {
+      return this[onStart];
+    }
+    set onStart(value) {
+      this[onStart] = value;
+    }
+    get onUpdate() {
+      return this[onUpdate];
+    }
+    set onUpdate(value) {
+      this[onUpdate] = value;
+    }
+    get onPeak() {
+      return this[onPeak];
+    }
+    set onPeak(value) {
+      this[onPeak] = value;
+    }
+    get onEnd() {
+      return this[onEnd];
+    }
+    set onEnd(value) {
+      this[onEnd] = value;
+    }
+    get startPressure() {
+      return this[startPressure$];
+    }
+    set startPressure(value) {
+      super.startPressure = value;
+    }
+    get peakPressure() {
+      return this[peakPressure$];
+    }
+    set peakPressure(value) {
+      super.peakPressure = value;
+    }
+    get interpolation() {
+      return this[interpolation$];
+    }
+    set interpolation(value) {
+      super.interpolation = value;
+    }
+    get [_lastPosition]() {
+      let t0;
+      t0 = this[__ForcePressGestureRecognizer__lastPosition];
+      return t0 == null ? dart.throw(new _internal.LateError.fieldNI("_lastPosition")) : t0;
+    }
+    set [_lastPosition](t0) {
+      this[__ForcePressGestureRecognizer__lastPosition] = t0;
+    }
+    get [_lastPressure]() {
+      let t1;
+      t1 = this[__ForcePressGestureRecognizer__lastPressure];
+      return t1 == null ? dart.throw(new _internal.LateError.fieldNI("_lastPressure")) : t1;
+    }
+    set [_lastPressure](t1) {
+      this[__ForcePressGestureRecognizer__lastPressure] = t1;
+    }
+    addAllowedPointer(event) {
+      if (!events.PointerUpEvent.is(event) && event.pressureMax <= 1.0) {
+        this.resolve(arena.GestureDisposition.rejected);
+      } else {
+        this.startTrackingPointer(event.pointer, event.transform);
+        if (this[_state] === force_press._ForceState.ready) {
+          this[_state] = force_press._ForceState.possible;
+          this[_lastPosition] = recognizer.OffsetPair.fromEventPosition(event);
+        }
+      }
+    }
+    handleEvent(event) {
+      let t4, t3, t2;
+      if (!(this[_state] !== force_press._ForceState.ready)) dart.assertFailed(null, I[1], 227, 12, "_state != _ForceState.ready");
+      if (events.PointerMoveEvent.is(event) || events.PointerDownEvent.is(event)) {
+        let pressure = (t2 = event.pressureMin, t3 = event.pressureMax, t4 = event.pressure, this.interpolation(t2, t3, t4));
+        if (!(pressure >= 0.0 && pressure <= 1.0 || pressure[$isNaN])) dart.assertFailed(null, I[1], 232, 9, "(pressure >= 0.0 && pressure <= 1.0) || // Interpolated pressure must be between 1.0 and 0.0...\n        pressure.isNaN");
+        this[_lastPosition] = recognizer.OffsetPair.fromEventPosition(event);
+        this[_lastPressure] = pressure;
+        if (this[_state] === force_press._ForceState.possible) {
+          if (pressure > this.startPressure) {
+            this[_state] = force_press._ForceState.started;
+            this.resolve(arena.GestureDisposition.accepted);
+          } else if (event.delta.distanceSquared > events.computeHitSlop(event.kind)) {
+            this.resolve(arena.GestureDisposition.rejected);
+          }
+        }
+        if (pressure > this.startPressure && this[_state] === force_press._ForceState.accepted) {
+          this[_state] = force_press._ForceState.started;
+          if (this.onStart != null) {
+            this.invokeCallback(dart.void, "onStart", dart.fn(() => dart.nullCheck(this.onStart)(new force_press.ForcePressDetails.new({pressure: pressure, globalPosition: this[_lastPosition].global, localPosition: this[_lastPosition].local})), T.VoidTovoid()));
+          }
+        }
+        if (this.onPeak != null && pressure > this.peakPressure && this[_state] === force_press._ForceState.started) {
+          this[_state] = force_press._ForceState.peaked;
+          if (this.onPeak != null) {
+            this.invokeCallback(dart.void, "onPeak", dart.fn(() => dart.nullCheck(this.onPeak)(new force_press.ForcePressDetails.new({pressure: pressure, globalPosition: event.position, localPosition: event.localPosition})), T.VoidTovoid()));
+          }
+        }
+        if (this.onUpdate != null && !pressure[$isNaN] && (this[_state] === force_press._ForceState.started || this[_state] === force_press._ForceState.peaked)) {
+          if (this.onUpdate != null) {
+            this.invokeCallback(dart.void, "onUpdate", dart.fn(() => dart.nullCheck(this.onUpdate)(new force_press.ForcePressDetails.new({pressure: pressure, globalPosition: event.position, localPosition: event.localPosition})), T.VoidTovoid()));
+          }
+        }
+      }
+      this.stopTrackingIfPointerNoLongerDown(event);
+    }
+    acceptGesture(pointer) {
+      if (this[_state] === force_press._ForceState.possible) this[_state] = force_press._ForceState.accepted;
+      if (this.onStart != null && this[_state] === force_press._ForceState.started) {
+        this.invokeCallback(dart.void, "onStart", dart.fn(() => dart.nullCheck(this.onStart)(new force_press.ForcePressDetails.new({pressure: this[_lastPressure], globalPosition: this[_lastPosition].global, localPosition: this[_lastPosition].local})), T.VoidTovoid()));
+      }
+    }
+    didStopTrackingLastPointer(pointer) {
+      let wasAccepted = this[_state] === force_press._ForceState.started || this[_state] === force_press._ForceState.peaked;
+      if (this[_state] === force_press._ForceState.possible) {
+        this.resolve(arena.GestureDisposition.rejected);
+        return;
+      }
+      if (wasAccepted && this.onEnd != null) {
+        if (this.onEnd != null) {
+          this.invokeCallback(dart.void, "onEnd", dart.fn(() => dart.nullCheck(this.onEnd)(new force_press.ForcePressDetails.new({pressure: 0.0, globalPosition: this[_lastPosition].global, localPosition: this[_lastPosition].local})), T.VoidTovoid()));
+        }
+      }
+      this[_state] = force_press._ForceState.ready;
+    }
+    rejectGesture(pointer) {
+      this.stopTrackingPointer(pointer);
+      this.didStopTrackingLastPointer(pointer);
+    }
+    static _inverseLerp(min, max, t) {
+      if (!(min <= max)) dart.assertFailed(null, I[1], 324, 12, "min <= max");
+      let value = (t - min) / (max - min);
+      if (!value[$isNaN]) value = value[$clamp](0.0, 1.0);
+      return value;
+    }
+    get debugDescription() {
+      return "force press";
+    }
+  };
+  (force_press.ForcePressGestureRecognizer.new = function(opts) {
+    let startPressure = opts && 'startPressure' in opts ? opts.startPressure : 0.4;
+    let peakPressure = opts && 'peakPressure' in opts ? opts.peakPressure : 0.85;
+    let interpolation = opts && 'interpolation' in opts ? opts.interpolation : C[6] || CT.C6;
+    let debugOwner = opts && 'debugOwner' in opts ? opts.debugOwner : null;
+    let kind = opts && 'kind' in opts ? opts.kind : null;
+    this[onStart] = null;
+    this[onUpdate] = null;
+    this[onPeak] = null;
+    this[onEnd] = null;
+    this[__ForcePressGestureRecognizer__lastPosition] = null;
+    this[__ForcePressGestureRecognizer__lastPressure] = null;
+    this[_state] = force_press._ForceState.ready;
+    this[startPressure$] = startPressure;
+    this[peakPressure$] = peakPressure;
+    this[interpolation$] = interpolation;
+    if (!(startPressure !== null)) dart.assertFailed(null, I[1], 126, 15, "startPressure != null");
+    if (!(peakPressure !== null)) dart.assertFailed(null, I[1], 127, 15, "peakPressure != null");
+    if (!(interpolation !== null)) dart.assertFailed(null, I[1], 128, 15, "interpolation != null");
+    if (!(peakPressure > startPressure)) dart.assertFailed(null, I[1], 129, 15, "peakPressure > startPressure");
+    force_press.ForcePressGestureRecognizer.__proto__.new.call(this, {debugOwner: debugOwner, kind: kind});
+    ;
+  }).prototype = force_press.ForcePressGestureRecognizer.prototype;
+  dart.addTypeTests(force_press.ForcePressGestureRecognizer);
+  dart.addTypeCaches(force_press.ForcePressGestureRecognizer);
+  dart.setMethodSignature(force_press.ForcePressGestureRecognizer, () => ({
+    __proto__: dart.getMethods(force_press.ForcePressGestureRecognizer.__proto__),
+    addAllowedPointer: dart.fnType(dart.void, [events.PointerEvent]),
+    handleEvent: dart.fnType(dart.void, [events.PointerEvent]),
+    didStopTrackingLastPointer: dart.fnType(dart.void, [core.int])
   }));
-  dart.setSetterSignature(sliver_padding.RenderSliverPadding, () => ({
-    __proto__: dart.getSetters(sliver_padding.RenderSliverPadding.__proto__),
-    padding: edge_insets.EdgeInsetsGeometry,
-    textDirection: dart.nullable(ui.TextDirection)
+  dart.setGetterSignature(force_press.ForcePressGestureRecognizer, () => ({
+    __proto__: dart.getGetters(force_press.ForcePressGestureRecognizer.__proto__),
+    [_lastPosition]: recognizer.OffsetPair,
+    [_lastPressure]: core.double,
+    debugDescription: core.String
   }));
-  dart.setLibraryUri(sliver_padding.RenderSliverPadding, I[1]);
-  dart.setFieldSignature(sliver_padding.RenderSliverPadding, () => ({
-    __proto__: dart.getFields(sliver_padding.RenderSliverPadding.__proto__),
-    [_resolvedPadding]: dart.fieldType(dart.nullable(edge_insets.EdgeInsets)),
-    [_padding]: dart.fieldType(edge_insets.EdgeInsetsGeometry),
-    [_textDirection]: dart.fieldType(dart.nullable(ui.TextDirection))
+  dart.setSetterSignature(force_press.ForcePressGestureRecognizer, () => ({
+    __proto__: dart.getSetters(force_press.ForcePressGestureRecognizer.__proto__),
+    [_lastPosition]: recognizer.OffsetPair,
+    [_lastPressure]: core.double
   }));
-  dart.trackLibraries("packages/flutter/src/rendering/sliver_padding.dart", {
-    "package:flutter/src/rendering/sliver_padding.dart": sliver_padding
+  dart.setLibraryUri(force_press.ForcePressGestureRecognizer, I[0]);
+  dart.setFieldSignature(force_press.ForcePressGestureRecognizer, () => ({
+    __proto__: dart.getFields(force_press.ForcePressGestureRecognizer.__proto__),
+    onStart: dart.fieldType(dart.nullable(dart.fnType(dart.void, [force_press.ForcePressDetails]))),
+    onUpdate: dart.fieldType(dart.nullable(dart.fnType(dart.void, [force_press.ForcePressDetails]))),
+    onPeak: dart.fieldType(dart.nullable(dart.fnType(dart.void, [force_press.ForcePressDetails]))),
+    onEnd: dart.fieldType(dart.nullable(dart.fnType(dart.void, [force_press.ForcePressDetails]))),
+    startPressure: dart.finalFieldType(core.double),
+    peakPressure: dart.finalFieldType(core.double),
+    interpolation: dart.finalFieldType(dart.fnType(core.double, [core.double, core.double, core.double])),
+    [__ForcePressGestureRecognizer__lastPosition]: dart.fieldType(dart.nullable(recognizer.OffsetPair)),
+    [__ForcePressGestureRecognizer__lastPressure]: dart.fieldType(dart.nullable(core.double)),
+    [_state]: dart.fieldType(force_press._ForceState)
+  }));
+  dart.trackLibraries("packages/flutter/src/gestures/force_press.dart", {
+    "package:flutter/src/gestures/force_press.dart": force_press
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["sliver_padding.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/flutter/src/rendering/sliver_padding.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["force_press.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/flutter/src/gestures/force_press.dart.lib.js"}');
   // Exports:
   return {
-    src__rendering__sliver_padding: sliver_padding
+    src__gestures__force_press: force_press
   };
 }));
 
-//# sourceMappingURL=sliver_padding.dart.lib.js.map
+//# sourceMappingURL=force_press.dart.lib.js.map

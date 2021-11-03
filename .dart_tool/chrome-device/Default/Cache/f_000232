@@ -1,652 +1,841 @@
-define(['dart_sdk'], (function load__packages__flutter__src__painting__border_radius_dart(dart_sdk) {
+define(['dart_sdk', 'packages/flutter/src/painting/stadium_border.dart', 'packages/flutter/src/painting/borders.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/animation/curves.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutter/src/widgets/tween_animation_builder.dart', 'packages/flutter/src/animation/listener_helpers.dart', 'packages/flutter/src/widgets/icon_theme.dart', 'packages/flutter/src/widgets/icon_theme_data.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/painting/strut_style.dart'], (function load__packages__salomon_bottom_bar__salomon_bottom_bar_dart(dart_sdk, packages__flutter__src__painting__stadium_border$46dart, packages__flutter__src__painting__borders$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__animation__curves$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutter__src__widgets__tween_animation_builder$46dart, packages__flutter__src__animation__listener_helpers$46dart, packages__flutter__src__widgets__icon_theme$46dart, packages__flutter__src__widgets__icon_theme_data$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__painting__strut_style$46dart) {
   'use strict';
   const core = dart_sdk.core;
   const ui = dart_sdk.ui;
+  const _interceptors = dart_sdk._interceptors;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  var border_radius = Object.create(dart.library);
-  var $toStringAsFixed = dartx.toStringAsFixed;
-  var $runtimeType = dartx.runtimeType;
+  const stadium_border = packages__flutter__src__painting__stadium_border$46dart.src__painting__stadium_border;
+  const borders = packages__flutter__src__painting__borders$46dart.src__painting__borders;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const curves = packages__flutter__src__animation__curves$46dart.src__animation__curves;
+  const theme$ = packages__flutter__src__material__icon_button$46dart.src__material__theme;
+  const material = packages__flutter__src__material__icon_button$46dart.src__material__material;
+  const ink_well = packages__flutter__src__material__icon_button$46dart.src__material__ink_well;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
+  const tween_animation_builder = packages__flutter__src__widgets__tween_animation_builder$46dart.src__widgets__tween_animation_builder;
+  const tween = packages__flutter__src__animation__listener_helpers$46dart.src__animation__tween;
+  const icon_theme = packages__flutter__src__widgets__icon_theme$46dart.src__widgets__icon_theme;
+  const icon_theme_data = packages__flutter__src__widgets__icon_theme_data$46dart.src__widgets__icon_theme_data;
+  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+  var salomon_bottom_bar = Object.create(dart.library);
+  var $indexOf = dartx.indexOf;
+  var $add = dartx.add;
   dart._checkModuleNullSafetyMode(true);
+  var T = {
+    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))(),
+    TweenAnimationBuilderOfdouble: () => (T.TweenAnimationBuilderOfdouble = dart.constFn(tween_animation_builder.TweenAnimationBuilder$(core.double)))(),
+    TweenOfdouble: () => (T.TweenOfdouble = dart.constFn(tween.Tween$(core.double)))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    WidgetN: () => (T.WidgetN = dart.constFn(dart.nullable(framework.Widget)))(),
+    BuildContextAnddoubleAndWidgetNToMaterial: () => (T.BuildContextAnddoubleAndWidgetNToMaterial = dart.constFn(dart.fnType(material.Material, [framework.BuildContext, core.double, T.WidgetN()])))()
+  };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
-    get C0() {
-      return C[0] = dart.const({
-        __proto__: ui.Radius.prototype,
-        [Radius_y]: 0,
-        [Radius_x]: 0
-      });
-    },
-    get C1() {
-      return C[1] = dart.const({
-        __proto__: border_radius.BorderRadius.prototype,
-        [bottomRight$]: C[0] || CT.C0,
-        [bottomLeft$]: C[0] || CT.C0,
-        [topRight$]: C[0] || CT.C0,
-        [topLeft$]: C[0] || CT.C0
-      });
-    },
     get C2() {
       return C[2] = dart.const({
-        __proto__: ui.TextDirection.prototype,
-        [_name]: "TextDirection.rtl",
+        __proto__: borders.BorderStyle.prototype,
+        [_name]: "BorderStyle.none",
         index: 0
       });
     },
     get C3() {
       return C[3] = dart.const({
-        __proto__: ui.TextDirection.prototype,
-        [_name]: "TextDirection.ltr",
-        index: 1
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4278190080.0
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: borders.BorderSide.prototype,
+        [BorderSide_style]: C[2] || CT.C2,
+        [BorderSide_width]: 0,
+        [BorderSide_color]: C[3] || CT.C3
+      });
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: stadium_border.StadiumBorder.prototype,
+        [OutlinedBorder_side]: C[1] || CT.C1
       });
     },
     get C4() {
       return C[4] = dart.const({
-        __proto__: border_radius.BorderRadiusDirectional.prototype,
-        [bottomEnd$]: C[0] || CT.C0,
-        [bottomStart$]: C[0] || CT.C0,
-        [topEnd$]: C[0] || CT.C0,
-        [topStart$]: C[0] || CT.C0
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 8,
+        [EdgeInsets_right]: 8,
+        [EdgeInsets_top]: 8,
+        [EdgeInsets_left]: 8
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 10,
+        [EdgeInsets_right]: 16,
+        [EdgeInsets_top]: 10,
+        [EdgeInsets_left]: 16
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 500000
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: curves.Cubic.prototype,
+        [Cubic_d]: 1,
+        [Cubic_c]: 0.32,
+        [Cubic_b]: 1,
+        [Cubic_a]: 0.23
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 29,
+        [_Location_line]: 99,
+        [_Location_file]: null
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 29,
+        [_Location_line]: 104,
+        [_Location_file]: null
+      });
+    },
+    get C9() {
+      return C[9] = dart.constList([C[10] || CT.C10, C[11] || CT.C11], widget_inspector._Location);
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[9] || CT.C9,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 98,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/salomon_bottom_bar-3.1.0/lib/salomon_bottom_bar.dart"
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 37,
+        [_Location_line]: 123,
+        [_Location_file]: null
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 37,
+        [_Location_line]: 130,
+        [_Location_file]: null
+      });
+    },
+    get C13() {
+      return C[13] = dart.constList([C[14] || CT.C14, C[15] || CT.C15], widget_inspector._Location);
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[13] || CT.C13,
+        [_Location_name]: null,
+        [_Location_column]: 42,
+        [_Location_line]: 122,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/salomon_bottom_bar-3.1.0/lib/salomon_bottom_bar.dart"
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 35,
+        [_Location_line]: 119,
+        [_Location_file]: null
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 35,
+        [_Location_line]: 122,
+        [_Location_file]: null
+      });
+    },
+    get C17() {
+      return C[17] = dart.constList([C[18] || CT.C18, C[19] || CT.C19], widget_inspector._Location);
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[17] || CT.C17,
+        [_Location_name]: null,
+        [_Location_column]: 40,
+        [_Location_line]: 118,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/salomon_bottom_bar-3.1.0/lib/salomon_bottom_bar.dart"
+      });
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "alignment",
+        [_Location_column]: 33,
+        [_Location_line]: 116,
+        [_Location_file]: null
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "widthFactor",
+        [_Location_column]: 33,
+        [_Location_line]: 117,
+        [_Location_file]: null
+      });
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 33,
+        [_Location_line]: 118,
+        [_Location_file]: null
+      });
+    },
+    get C21() {
+      return C[21] = dart.constList([C[22] || CT.C22, C[23] || CT.C23, C[24] || CT.C24], widget_inspector._Location);
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[21] || CT.C21,
+        [_Location_name]: null,
+        [_Location_column]: 38,
+        [_Location_line]: 115,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/salomon_bottom_bar-3.1.0/lib/salomon_bottom_bar.dart"
+      });
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 31,
+        [_Location_line]: 114,
+        [_Location_file]: null
+      });
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 31,
+        [_Location_line]: 115,
+        [_Location_file]: null
+      });
+    },
+    get C26() {
+      return C[26] = dart.constList([C[27] || CT.C27, C[28] || CT.C28], widget_inspector._Location);
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[26] || CT.C26,
+        [_Location_name]: null,
+        [_Location_column]: 36,
+        [_Location_line]: 109,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/salomon_bottom_bar-3.1.0/lib/salomon_bottom_bar.dart"
+      });
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 29,
+        [_Location_line]: 109,
+        [_Location_file]: null
+      });
+    },
+    get C30() {
+      return C[30] = dart.constList([C[31] || CT.C31], widget_inspector._Location);
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[30] || CT.C30,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 108,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/salomon_bottom_bar-3.1.0/lib/salomon_bottom_bar.dart"
+      });
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 25,
+        [_Location_line]: 97,
+        [_Location_file]: null
+      });
+    },
+    get C33() {
+      return C[33] = dart.constList([C[34] || CT.C34], widget_inspector._Location);
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[33] || CT.C33,
+        [_Location_name]: null,
+        [_Location_column]: 30,
+        [_Location_line]: 96,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/salomon_bottom_bar-3.1.0/lib/salomon_bottom_bar.dart"
+      });
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 23,
+        [_Location_line]: 94,
+        [_Location_file]: null
+      });
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 23,
+        [_Location_line]: 96,
+        [_Location_file]: null
+      });
+    },
+    get C36() {
+      return C[36] = dart.constList([C[37] || CT.C37, C[38] || CT.C38], widget_inspector._Location);
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[36] || CT.C36,
+        [_Location_name]: null,
+        [_Location_column]: 28,
+        [_Location_line]: 93,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/salomon_bottom_bar-3.1.0/lib/salomon_bottom_bar.dart"
+      });
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 21,
+        [_Location_line]: 87,
+        [_Location_file]: null
+      });
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "customBorder",
+        [_Location_column]: 21,
+        [_Location_line]: 88,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C[43] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "focusColor",
+        [_Location_column]: 21,
+        [_Location_line]: 89,
+        [_Location_file]: null
+      });
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "highlightColor",
+        [_Location_column]: 21,
+        [_Location_line]: 90,
+        [_Location_file]: null
+      });
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "splashColor",
+        [_Location_column]: 21,
+        [_Location_line]: 91,
+        [_Location_file]: null
+      });
+    },
+    get C46() {
+      return C[46] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "hoverColor",
+        [_Location_column]: 21,
+        [_Location_line]: 92,
+        [_Location_file]: null
+      });
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 21,
+        [_Location_line]: 93,
+        [_Location_file]: null
+      });
+    },
+    get C40() {
+      return C[40] = dart.constList([C[41] || CT.C41, C[42] || CT.C42, C[43] || CT.C43, C[44] || CT.C44, C[45] || CT.C45, C[46] || CT.C46, C[47] || CT.C47], widget_inspector._Location);
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[40] || CT.C40,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 86,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/salomon_bottom_bar-3.1.0/lib/salomon_bottom_bar.dart"
+      });
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 19,
+        [_Location_line]: 81,
+        [_Location_file]: null
+      });
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "shape",
+        [_Location_column]: 19,
+        [_Location_line]: 85,
+        [_Location_file]: null
+      });
+    },
+    get C52() {
+      return C[52] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 19,
+        [_Location_line]: 86,
+        [_Location_file]: null
+      });
+    },
+    get C49() {
+      return C[49] = dart.constList([C[50] || CT.C50, C[51] || CT.C51, C[52] || CT.C52], widget_inspector._Location);
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[49] || CT.C49,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 80,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/salomon_bottom_bar-3.1.0/lib/salomon_bottom_bar.dart"
+      });
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "tween",
+        [_Location_column]: 15,
+        [_Location_line]: 66,
+        [_Location_file]: null
+      });
+    },
+    get C56() {
+      return C[56] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "curve",
+        [_Location_column]: 15,
+        [_Location_line]: 69,
+        [_Location_file]: null
+      });
+    },
+    get C57() {
+      return C[57] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "duration",
+        [_Location_column]: 15,
+        [_Location_line]: 70,
+        [_Location_file]: null
+      });
+    },
+    get C58() {
+      return C[58] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 15,
+        [_Location_line]: 71,
+        [_Location_file]: null
+      });
+    },
+    get C54() {
+      return C[54] = dart.constList([C[55] || CT.C55, C[56] || CT.C56, C[57] || CT.C57, C[58] || CT.C58], widget_inspector._Location);
+    },
+    get C53() {
+      return C[53] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[54] || CT.C54,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 65,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/salomon_bottom_bar-3.1.0/lib/salomon_bottom_bar.dart"
+      });
+    },
+    get C61() {
+      return C[61] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 9,
+        [_Location_line]: 62,
+        [_Location_file]: null
+      });
+    },
+    get C62() {
+      return C[62] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 9,
+        [_Location_line]: 63,
+        [_Location_file]: null
+      });
+    },
+    get C60() {
+      return C[60] = dart.constList([C[61] || CT.C61, C[62] || CT.C62], widget_inspector._Location);
+    },
+    get C59() {
+      return C[59] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[60] || CT.C60,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 61,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/salomon_bottom_bar-3.1.0/lib/salomon_bottom_bar.dart"
+      });
+    },
+    get C65() {
+      return C[65] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 7,
+        [_Location_line]: 60,
+        [_Location_file]: null
+      });
+    },
+    get C66() {
+      return C[66] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 61,
+        [_Location_file]: null
+      });
+    },
+    get C64() {
+      return C[64] = dart.constList([C[65] || CT.C65, C[66] || CT.C66], widget_inspector._Location);
+    },
+    get C63() {
+      return C[63] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[64] || CT.C64,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 59,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/salomon_bottom_bar-3.1.0/lib/salomon_bottom_bar.dart"
       });
     }
   }, false);
-  var C = Array(5).fill(void 0);
-  var I = [
-    "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/painting/border_radius.dart",
-    "package:flutter/src/painting/border_radius.dart"
-  ];
-  var _topLeft = dart.privateName(border_radius, "_topLeft");
-  var _topRight = dart.privateName(border_radius, "_topRight");
-  var _bottomLeft = dart.privateName(border_radius, "_bottomLeft");
-  var _bottomRight = dart.privateName(border_radius, "_bottomRight");
-  var _topStart = dart.privateName(border_radius, "_topStart");
-  var _topEnd = dart.privateName(border_radius, "_topEnd");
-  var _bottomStart = dart.privateName(border_radius, "_bottomStart");
-  var _bottomEnd = dart.privateName(border_radius, "_bottomEnd");
-  border_radius.BorderRadiusGeometry = class BorderRadiusGeometry extends core.Object {
-    subtract(other) {
-      return new border_radius._MixedBorderRadius.new(this[_topLeft]['-'](other[_topLeft]), this[_topRight]['-'](other[_topRight]), this[_bottomLeft]['-'](other[_bottomLeft]), this[_bottomRight]['-'](other[_bottomRight]), this[_topStart]['-'](other[_topStart]), this[_topEnd]['-'](other[_topEnd]), this[_bottomStart]['-'](other[_bottomStart]), this[_bottomEnd]['-'](other[_bottomEnd]));
+  var C = Array(67).fill(void 0);
+  var I = ["package:salomon_bottom_bar/salomon_bottom_bar.dart"];
+  var items$ = dart.privateName(salomon_bottom_bar, "SalomonBottomBar.items");
+  var currentIndex$ = dart.privateName(salomon_bottom_bar, "SalomonBottomBar.currentIndex");
+  var onTap$ = dart.privateName(salomon_bottom_bar, "SalomonBottomBar.onTap");
+  var selectedItemColor$ = dart.privateName(salomon_bottom_bar, "SalomonBottomBar.selectedItemColor");
+  var unselectedItemColor$ = dart.privateName(salomon_bottom_bar, "SalomonBottomBar.unselectedItemColor");
+  var selectedColorOpacity$ = dart.privateName(salomon_bottom_bar, "SalomonBottomBar.selectedColorOpacity");
+  var itemShape$ = dart.privateName(salomon_bottom_bar, "SalomonBottomBar.itemShape");
+  var margin$ = dart.privateName(salomon_bottom_bar, "SalomonBottomBar.margin");
+  var itemPadding$ = dart.privateName(salomon_bottom_bar, "SalomonBottomBar.itemPadding");
+  var duration$ = dart.privateName(salomon_bottom_bar, "SalomonBottomBar.duration");
+  var curve$ = dart.privateName(salomon_bottom_bar, "SalomonBottomBar.curve");
+  var _name = dart.privateName(borders, "_name");
+  var BorderSide_style = dart.privateName(borders, "BorderSide.style");
+  var BorderSide_width = dart.privateName(borders, "BorderSide.width");
+  var Color_value = dart.privateName(ui, "Color.value");
+  var BorderSide_color = dart.privateName(borders, "BorderSide.color");
+  var OutlinedBorder_side = dart.privateName(borders, "OutlinedBorder.side");
+  var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
+  var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
+  var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
+  var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
+  var Duration__duration = dart.privateName(core, "Duration._duration");
+  var Cubic_d = dart.privateName(curves, "Cubic.d");
+  var Cubic_c = dart.privateName(curves, "Cubic.c");
+  var Cubic_b = dart.privateName(curves, "Cubic.b");
+  var Cubic_a = dart.privateName(curves, "Cubic.a");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  salomon_bottom_bar.SalomonBottomBar = class SalomonBottomBar extends framework.StatelessWidget {
+    get items() {
+      return this[items$];
     }
-    add(other) {
-      return new border_radius._MixedBorderRadius.new(this[_topLeft]['+'](other[_topLeft]), this[_topRight]['+'](other[_topRight]), this[_bottomLeft]['+'](other[_bottomLeft]), this[_bottomRight]['+'](other[_bottomRight]), this[_topStart]['+'](other[_topStart]), this[_topEnd]['+'](other[_topEnd]), this[_bottomStart]['+'](other[_bottomStart]), this[_bottomEnd]['+'](other[_bottomEnd]));
+    set items(value) {
+      super.items = value;
     }
-    static lerp(a, b, t) {
-      if (!(t !== null)) dart.assertFailed(null, I[0], 133, 12, "t != null");
-      if (a == null && b == null) return null;
-      a == null ? a = border_radius.BorderRadius.zero : null;
-      b == null ? b = border_radius.BorderRadius.zero : null;
-      return a.add(b.subtract(a)['*'](t));
+    get currentIndex() {
+      return this[currentIndex$];
     }
-    toString() {
-      let visual = null;
-      let logical = null;
-      if (this[_topLeft]._equals(this[_topRight]) && this[_topRight]._equals(this[_bottomLeft]) && this[_bottomLeft]._equals(this[_bottomRight])) {
-        if (!this[_topLeft]._equals(ui.Radius.zero)) {
-          if (this[_topLeft].x === this[_topLeft].y) {
-            visual = "BorderRadius.circular(" + this[_topLeft].x[$toStringAsFixed](1) + ")";
-          } else {
-            visual = "BorderRadius.all(" + dart.str(this[_topLeft]) + ")";
-          }
-        }
-      } else {
-        let result = new core.StringBuffer.new();
-        result.write("BorderRadius.only(");
-        let comma = false;
-        if (!this[_topLeft]._equals(ui.Radius.zero)) {
-          result.write("topLeft: " + dart.str(this[_topLeft]));
-          comma = true;
-        }
-        if (!this[_topRight]._equals(ui.Radius.zero)) {
-          if (comma) result.write(", ");
-          result.write("topRight: " + dart.str(this[_topRight]));
-          comma = true;
-        }
-        if (!this[_bottomLeft]._equals(ui.Radius.zero)) {
-          if (comma) result.write(", ");
-          result.write("bottomLeft: " + dart.str(this[_bottomLeft]));
-          comma = true;
-        }
-        if (!this[_bottomRight]._equals(ui.Radius.zero)) {
-          if (comma) result.write(", ");
-          result.write("bottomRight: " + dart.str(this[_bottomRight]));
-        }
-        result.write(")");
-        visual = result.toString();
-      }
-      if (this[_topStart]._equals(this[_topEnd]) && this[_topEnd]._equals(this[_bottomEnd]) && this[_bottomEnd]._equals(this[_bottomStart])) {
-        if (!this[_topStart]._equals(ui.Radius.zero)) {
-          if (this[_topStart].x === this[_topStart].y) {
-            logical = "BorderRadiusDirectional.circular(" + this[_topStart].x[$toStringAsFixed](1) + ")";
-          } else {
-            logical = "BorderRadiusDirectional.all(" + dart.str(this[_topStart]) + ")";
-          }
-        }
-      } else {
-        let result = new core.StringBuffer.new();
-        result.write("BorderRadiusDirectional.only(");
-        let comma = false;
-        if (!this[_topStart]._equals(ui.Radius.zero)) {
-          result.write("topStart: " + dart.str(this[_topStart]));
-          comma = true;
-        }
-        if (!this[_topEnd]._equals(ui.Radius.zero)) {
-          if (comma) result.write(", ");
-          result.write("topEnd: " + dart.str(this[_topEnd]));
-          comma = true;
-        }
-        if (!this[_bottomStart]._equals(ui.Radius.zero)) {
-          if (comma) result.write(", ");
-          result.write("bottomStart: " + dart.str(this[_bottomStart]));
-          comma = true;
-        }
-        if (!this[_bottomEnd]._equals(ui.Radius.zero)) {
-          if (comma) result.write(", ");
-          result.write("bottomEnd: " + dart.str(this[_bottomEnd]));
-        }
-        result.write(")");
-        logical = result.toString();
-      }
-      if (visual != null && logical != null) return dart.str(visual) + " + " + dart.str(logical);
-      if (visual != null) return visual;
-      if (logical != null) return logical;
-      return "BorderRadius.zero";
+    set currentIndex(value) {
+      super.currentIndex = value;
     }
-    _equals(other) {
-      if (other == null) return false;
-      if (this === other) return true;
-      if (!other[$runtimeType]._equals(this[$runtimeType])) return false;
-      return border_radius.BorderRadiusGeometry.is(other) && other[_topLeft]._equals(this[_topLeft]) && other[_topRight]._equals(this[_topRight]) && other[_bottomLeft]._equals(this[_bottomLeft]) && other[_bottomRight]._equals(this[_bottomRight]) && other[_topStart]._equals(this[_topStart]) && other[_topEnd]._equals(this[_topEnd]) && other[_bottomStart]._equals(this[_bottomStart]) && other[_bottomEnd]._equals(this[_bottomEnd]);
+    get onTap() {
+      return this[onTap$];
     }
-    get hashCode() {
-      return ui.hashValues(this[_topLeft], this[_topRight], this[_bottomLeft], this[_bottomRight], this[_topStart], this[_topEnd], this[_bottomStart], this[_bottomEnd]);
+    set onTap(value) {
+      super.onTap = value;
     }
-  };
-  (border_radius.BorderRadiusGeometry.new = function() {
-    ;
-  }).prototype = border_radius.BorderRadiusGeometry.prototype;
-  dart.addTypeTests(border_radius.BorderRadiusGeometry);
-  dart.addTypeCaches(border_radius.BorderRadiusGeometry);
-  dart.setMethodSignature(border_radius.BorderRadiusGeometry, () => ({
-    __proto__: dart.getMethods(border_radius.BorderRadiusGeometry.__proto__),
-    subtract: dart.fnType(border_radius.BorderRadiusGeometry, [border_radius.BorderRadiusGeometry]),
-    add: dart.fnType(border_radius.BorderRadiusGeometry, [border_radius.BorderRadiusGeometry])
-  }));
-  dart.setLibraryUri(border_radius.BorderRadiusGeometry, I[1]);
-  dart.defineExtensionMethods(border_radius.BorderRadiusGeometry, ['toString', '_equals']);
-  dart.defineExtensionAccessors(border_radius.BorderRadiusGeometry, ['hashCode']);
-  var topLeft$ = dart.privateName(border_radius, "BorderRadius.topLeft");
-  var topRight$ = dart.privateName(border_radius, "BorderRadius.topRight");
-  var bottomLeft$ = dart.privateName(border_radius, "BorderRadius.bottomLeft");
-  var bottomRight$ = dart.privateName(border_radius, "BorderRadius.bottomRight");
-  var Radius_y = dart.privateName(ui, "Radius.y");
-  var Radius_x = dart.privateName(ui, "Radius.x");
-  border_radius.BorderRadius = class BorderRadius extends border_radius.BorderRadiusGeometry {
-    get topLeft() {
-      return this[topLeft$];
+    get selectedItemColor() {
+      return this[selectedItemColor$];
     }
-    set topLeft(value) {
-      super.topLeft = value;
+    set selectedItemColor(value) {
+      super.selectedItemColor = value;
     }
-    get topRight() {
-      return this[topRight$];
+    get unselectedItemColor() {
+      return this[unselectedItemColor$];
     }
-    set topRight(value) {
-      super.topRight = value;
+    set unselectedItemColor(value) {
+      super.unselectedItemColor = value;
     }
-    get bottomLeft() {
-      return this[bottomLeft$];
+    get selectedColorOpacity() {
+      return this[selectedColorOpacity$];
     }
-    set bottomLeft(value) {
-      super.bottomLeft = value;
+    set selectedColorOpacity(value) {
+      super.selectedColorOpacity = value;
     }
-    get bottomRight() {
-      return this[bottomRight$];
+    get itemShape() {
+      return this[itemShape$];
     }
-    set bottomRight(value) {
-      super.bottomRight = value;
+    set itemShape(value) {
+      super.itemShape = value;
     }
-    copyWith(opts) {
-      let t0, t0$, t0$0, t0$1;
-      let topLeft = opts && 'topLeft' in opts ? opts.topLeft : null;
-      let topRight = opts && 'topRight' in opts ? opts.topRight : null;
-      let bottomLeft = opts && 'bottomLeft' in opts ? opts.bottomLeft : null;
-      let bottomRight = opts && 'bottomRight' in opts ? opts.bottomRight : null;
-      return new border_radius.BorderRadius.only({topLeft: (t0 = topLeft, t0 == null ? this.topLeft : t0), topRight: (t0$ = topRight, t0$ == null ? this.topRight : t0$), bottomLeft: (t0$0 = bottomLeft, t0$0 == null ? this.bottomLeft : t0$0), bottomRight: (t0$1 = bottomRight, t0$1 == null ? this.bottomRight : t0$1)});
+    get margin() {
+      return this[margin$];
     }
-    get [_topLeft]() {
-      return this.topLeft;
+    set margin(value) {
+      super.margin = value;
     }
-    get [_topRight]() {
-      return this.topRight;
+    get itemPadding() {
+      return this[itemPadding$];
     }
-    get [_bottomLeft]() {
-      return this.bottomLeft;
+    set itemPadding(value) {
+      super.itemPadding = value;
     }
-    get [_bottomRight]() {
-      return this.bottomRight;
+    get duration() {
+      return this[duration$];
     }
-    get [_topStart]() {
-      return ui.Radius.zero;
+    set duration(value) {
+      super.duration = value;
     }
-    get [_topEnd]() {
-      return ui.Radius.zero;
+    get curve() {
+      return this[curve$];
     }
-    get [_bottomStart]() {
-      return ui.Radius.zero;
+    set curve(value) {
+      super.curve = value;
     }
-    get [_bottomEnd]() {
-      return ui.Radius.zero;
-    }
-    toRRect(rect) {
-      return new ui.RRect.fromRectAndCorners(rect, {topLeft: this.topLeft, topRight: this.topRight, bottomLeft: this.bottomLeft, bottomRight: this.bottomRight});
-    }
-    subtract(other) {
-      if (border_radius.BorderRadius.is(other)) return this['-'](other);
-      return super.subtract(other);
-    }
-    add(other) {
-      if (border_radius.BorderRadius.is(other)) return this['+'](other);
-      return super.add(other);
-    }
-    ['-'](other) {
-      return new border_radius.BorderRadius.only({topLeft: this.topLeft['-'](other.topLeft), topRight: this.topRight['-'](other.topRight), bottomLeft: this.bottomLeft['-'](other.bottomLeft), bottomRight: this.bottomRight['-'](other.bottomRight)});
-    }
-    ['+'](other) {
-      return new border_radius.BorderRadius.only({topLeft: this.topLeft['+'](other.topLeft), topRight: this.topRight['+'](other.topRight), bottomLeft: this.bottomLeft['+'](other.bottomLeft), bottomRight: this.bottomRight['+'](other.bottomRight)});
-    }
-    _negate() {
-      return new border_radius.BorderRadius.only({topLeft: this.topLeft._negate(), topRight: this.topRight._negate(), bottomLeft: this.bottomLeft._negate(), bottomRight: this.bottomRight._negate()});
-    }
-    ['*'](other) {
-      return new border_radius.BorderRadius.only({topLeft: this.topLeft['*'](other), topRight: this.topRight['*'](other), bottomLeft: this.bottomLeft['*'](other), bottomRight: this.bottomRight['*'](other)});
-    }
-    ['/'](other) {
-      return new border_radius.BorderRadius.only({topLeft: this.topLeft['/'](other), topRight: this.topRight['/'](other), bottomLeft: this.bottomLeft['/'](other), bottomRight: this.bottomRight['/'](other)});
-    }
-    ['~/'](other) {
-      return new border_radius.BorderRadius.only({topLeft: this.topLeft['~/'](other), topRight: this.topRight['~/'](other), bottomLeft: this.bottomLeft['~/'](other), bottomRight: this.bottomRight['~/'](other)});
-    }
-    ['%'](other) {
-      return new border_radius.BorderRadius.only({topLeft: this.topLeft['%'](other), topRight: this.topRight['%'](other), bottomLeft: this.bottomLeft['%'](other), bottomRight: this.bottomRight['%'](other)});
-    }
-    static lerp(a, b, t) {
-      if (!(t !== null)) dart.assertFailed(null, I[0], 493, 12, "t != null");
-      if (a == null && b == null) return null;
-      if (a == null) return dart.nullCheck(b)['*'](t);
-      if (b == null) return a['*'](1.0 - t);
-      return new border_radius.BorderRadius.only({topLeft: dart.nullCheck(ui.Radius.lerp(a.topLeft, b.topLeft, t)), topRight: dart.nullCheck(ui.Radius.lerp(a.topRight, b.topRight, t)), bottomLeft: dart.nullCheck(ui.Radius.lerp(a.bottomLeft, b.bottomLeft, t)), bottomRight: dart.nullCheck(ui.Radius.lerp(a.bottomRight, b.bottomRight, t))});
-    }
-    resolve(direction) {
-      return this;
+    build(context) {
+      let theme = theme$.Theme.of(context);
+      return new basic.Padding.new({padding: this.margin, child: new basic.Row.new({mainAxisAlignment: flex.MainAxisAlignment.spaceBetween, children: (() => {
+            let t0 = T.JSArrayOfWidget().of([]);
+            for (let item of this.items)
+              t0[$add](new (T.TweenAnimationBuilderOfdouble()).new({tween: new (T.TweenOfdouble()).new({end: this.items[$indexOf](item) === this.currentIndex ? 1.0 : 0.0}), curve: this.curve, duration: this.duration, builder: dart.fn((context, t, _) => {
+                  let t1, t1$, t1$0, t1$1, t1$2, t1$3;
+                  let _selectedColor = (t1$ = (t1 = item.selectedColor, t1 == null ? this.selectedItemColor : t1), t1$ == null ? theme.primaryColor : t1$);
+                  let _unselectedColor = (t1$1 = (t1$0 = item.unselectedColor, t1$0 == null ? this.unselectedItemColor : t1$0), t1$1 == null ? theme.iconTheme.color : t1$1);
+                  return new material.Material.new({color: ui.Color.lerp(_selectedColor.withOpacity(0.0), _selectedColor.withOpacity((t1$2 = this.selectedColorOpacity, t1$2 == null ? 0.1 : t1$2)), t), shape: this.itemShape, child: new ink_well.InkWell.new({onTap: dart.fn(() => {
+                        let t1;
+                        t1 = this.onTap;
+                        return t1 == null ? null : t1(this.items[$indexOf](item));
+                      }, T.VoidTovoid()), customBorder: this.itemShape, focusColor: _selectedColor.withOpacity(0.1), highlightColor: _selectedColor.withOpacity(0.1), splashColor: _selectedColor.withOpacity(0.1), hoverColor: _selectedColor.withOpacity(0.1), child: new basic.Padding.new({padding: this.itemPadding['-'](new edge_insets.EdgeInsets.only({right: this.itemPadding.right * t})), child: new basic.Row.new({children: T.JSArrayOfWidget().of([new icon_theme.IconTheme.new({data: new icon_theme_data.IconThemeData.new({color: ui.Color.lerp(_unselectedColor, _selectedColor, t), size: 24.0}), child: this.items[$indexOf](item) === this.currentIndex ? (t1$3 = item.activeIcon, t1$3 == null ? item.icon : t1$3) : item.icon, $creationLocationd_0dea112b090073317d4: C[8] || CT.C8}), new basic.ClipRect.new({child: new basic.SizedBox.new({height: 20.0, child: new basic.Align.new({alignment: new alignment.Alignment.new(-0.2, 0.0), widthFactor: t, child: new basic.Padding.new({padding: new edge_insets.EdgeInsets.only({left: this.itemPadding.right / 2, right: this.itemPadding.right}), child: new text.DefaultTextStyle.new({style: new text_style.TextStyle.new({color: ui.Color.lerp(_selectedColor.withOpacity(0.0), _selectedColor, t), fontWeight: ui.FontWeight.w600}), child: item.title, $creationLocationd_0dea112b090073317d4: C[12] || CT.C12}), $creationLocationd_0dea112b090073317d4: C[16] || CT.C16}), $creationLocationd_0dea112b090073317d4: C[20] || CT.C20}), $creationLocationd_0dea112b090073317d4: C[25] || CT.C25}), $creationLocationd_0dea112b090073317d4: C[29] || CT.C29})]), $creationLocationd_0dea112b090073317d4: C[32] || CT.C32}), $creationLocationd_0dea112b090073317d4: C[35] || CT.C35}), $creationLocationd_0dea112b090073317d4: C[39] || CT.C39}), $creationLocationd_0dea112b090073317d4: C[48] || CT.C48});
+                }, T.BuildContextAnddoubleAndWidgetNToMaterial()), $creationLocationd_0dea112b090073317d4: C[53] || CT.C53}));
+            return t0;
+          })(), $creationLocationd_0dea112b090073317d4: C[59] || CT.C59}), $creationLocationd_0dea112b090073317d4: C[63] || CT.C63});
     }
   };
-  (border_radius.BorderRadius.all = function(radius) {
-    border_radius.BorderRadius.only.call(this, {topLeft: radius, topRight: radius, bottomLeft: radius, bottomRight: radius});
-  }).prototype = border_radius.BorderRadius.prototype;
-  (border_radius.BorderRadius.circular = function(radius) {
-    border_radius.BorderRadius.all.call(this, new ui.Radius.circular(radius));
-  }).prototype = border_radius.BorderRadius.prototype;
-  (border_radius.BorderRadius.vertical = function(opts) {
-    let top = opts && 'top' in opts ? opts.top : C[0] || CT.C0;
-    let bottom = opts && 'bottom' in opts ? opts.bottom : C[0] || CT.C0;
-    border_radius.BorderRadius.only.call(this, {topLeft: top, topRight: top, bottomLeft: bottom, bottomRight: bottom});
-  }).prototype = border_radius.BorderRadius.prototype;
-  (border_radius.BorderRadius.horizontal = function(opts) {
-    let left = opts && 'left' in opts ? opts.left : C[0] || CT.C0;
-    let right = opts && 'right' in opts ? opts.right : C[0] || CT.C0;
-    border_radius.BorderRadius.only.call(this, {topLeft: left, topRight: right, bottomLeft: left, bottomRight: right});
-  }).prototype = border_radius.BorderRadius.prototype;
-  (border_radius.BorderRadius.only = function(opts) {
-    let topLeft = opts && 'topLeft' in opts ? opts.topLeft : C[0] || CT.C0;
-    let topRight = opts && 'topRight' in opts ? opts.topRight : C[0] || CT.C0;
-    let bottomLeft = opts && 'bottomLeft' in opts ? opts.bottomLeft : C[0] || CT.C0;
-    let bottomRight = opts && 'bottomRight' in opts ? opts.bottomRight : C[0] || CT.C0;
-    this[topLeft$] = topLeft;
-    this[topRight$] = topRight;
-    this[bottomLeft$] = bottomLeft;
-    this[bottomRight$] = bottomRight;
-    border_radius.BorderRadius.__proto__.new.call(this);
+  (salomon_bottom_bar.SalomonBottomBar.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let items = opts && 'items' in opts ? opts.items : null;
+    let currentIndex = opts && 'currentIndex' in opts ? opts.currentIndex : 0;
+    let onTap = opts && 'onTap' in opts ? opts.onTap : null;
+    let selectedItemColor = opts && 'selectedItemColor' in opts ? opts.selectedItemColor : null;
+    let unselectedItemColor = opts && 'unselectedItemColor' in opts ? opts.unselectedItemColor : null;
+    let selectedColorOpacity = opts && 'selectedColorOpacity' in opts ? opts.selectedColorOpacity : null;
+    let itemShape = opts && 'itemShape' in opts ? opts.itemShape : C[0] || CT.C0;
+    let margin = opts && 'margin' in opts ? opts.margin : C[4] || CT.C4;
+    let itemPadding = opts && 'itemPadding' in opts ? opts.itemPadding : C[5] || CT.C5;
+    let duration = opts && 'duration' in opts ? opts.duration : C[6] || CT.C6;
+    let curve = opts && 'curve' in opts ? opts.curve : C[7] || CT.C7;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[items$] = items;
+    this[currentIndex$] = currentIndex;
+    this[onTap$] = onTap;
+    this[selectedItemColor$] = selectedItemColor;
+    this[unselectedItemColor$] = unselectedItemColor;
+    this[selectedColorOpacity$] = selectedColorOpacity;
+    this[itemShape$] = itemShape;
+    this[margin$] = margin;
+    this[itemPadding$] = itemPadding;
+    this[duration$] = duration;
+    this[curve$] = curve;
+    salomon_bottom_bar.SalomonBottomBar.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
     ;
-  }).prototype = border_radius.BorderRadius.prototype;
-  dart.addTypeTests(border_radius.BorderRadius);
-  dart.addTypeCaches(border_radius.BorderRadius);
-  dart.setMethodSignature(border_radius.BorderRadius, () => ({
-    __proto__: dart.getMethods(border_radius.BorderRadius.__proto__),
-    copyWith: dart.fnType(border_radius.BorderRadius, [], {bottomLeft: dart.nullable(ui.Radius), bottomRight: dart.nullable(ui.Radius), topLeft: dart.nullable(ui.Radius), topRight: dart.nullable(ui.Radius)}, {}),
-    toRRect: dart.fnType(ui.RRect, [ui.Rect]),
-    '-': dart.fnType(border_radius.BorderRadius, [border_radius.BorderRadius]),
-    '+': dart.fnType(border_radius.BorderRadius, [border_radius.BorderRadius]),
-    _negate: dart.fnType(border_radius.BorderRadius, []),
-    '*': dart.fnType(border_radius.BorderRadius, [core.double]),
-    '/': dart.fnType(border_radius.BorderRadius, [core.double]),
-    '~/': dart.fnType(border_radius.BorderRadius, [core.double]),
-    '%': dart.fnType(border_radius.BorderRadius, [core.double]),
-    resolve: dart.fnType(border_radius.BorderRadius, [dart.nullable(ui.TextDirection)])
+  }).prototype = salomon_bottom_bar.SalomonBottomBar.prototype;
+  dart.addTypeTests(salomon_bottom_bar.SalomonBottomBar);
+  dart.addTypeCaches(salomon_bottom_bar.SalomonBottomBar);
+  dart.setMethodSignature(salomon_bottom_bar.SalomonBottomBar, () => ({
+    __proto__: dart.getMethods(salomon_bottom_bar.SalomonBottomBar.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
   }));
-  dart.setGetterSignature(border_radius.BorderRadius, () => ({
-    __proto__: dart.getGetters(border_radius.BorderRadius.__proto__),
-    [_topLeft]: ui.Radius,
-    [_topRight]: ui.Radius,
-    [_bottomLeft]: ui.Radius,
-    [_bottomRight]: ui.Radius,
-    [_topStart]: ui.Radius,
-    [_topEnd]: ui.Radius,
-    [_bottomStart]: ui.Radius,
-    [_bottomEnd]: ui.Radius
+  dart.setLibraryUri(salomon_bottom_bar.SalomonBottomBar, I[0]);
+  dart.setFieldSignature(salomon_bottom_bar.SalomonBottomBar, () => ({
+    __proto__: dart.getFields(salomon_bottom_bar.SalomonBottomBar.__proto__),
+    items: dart.finalFieldType(core.List$(salomon_bottom_bar.SalomonBottomBarItem)),
+    currentIndex: dart.finalFieldType(core.int),
+    onTap: dart.finalFieldType(dart.nullable(dart.fnType(dart.dynamic, [core.int]))),
+    selectedItemColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    unselectedItemColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    selectedColorOpacity: dart.finalFieldType(dart.nullable(core.double)),
+    itemShape: dart.finalFieldType(borders.ShapeBorder),
+    margin: dart.finalFieldType(edge_insets.EdgeInsets),
+    itemPadding: dart.finalFieldType(edge_insets.EdgeInsets),
+    duration: dart.finalFieldType(core.Duration),
+    curve: dart.finalFieldType(curves.Curve)
   }));
-  dart.setLibraryUri(border_radius.BorderRadius, I[1]);
-  dart.setFieldSignature(border_radius.BorderRadius, () => ({
-    __proto__: dart.getFields(border_radius.BorderRadius.__proto__),
-    topLeft: dart.finalFieldType(ui.Radius),
-    topRight: dart.finalFieldType(ui.Radius),
-    bottomLeft: dart.finalFieldType(ui.Radius),
-    bottomRight: dart.finalFieldType(ui.Radius)
-  }));
-  dart.defineLazy(border_radius.BorderRadius, {
-    /*border_radius.BorderRadius.zero*/get zero() {
-      return C[1] || CT.C1;
+  var icon$ = dart.privateName(salomon_bottom_bar, "SalomonBottomBarItem.icon");
+  var activeIcon$ = dart.privateName(salomon_bottom_bar, "SalomonBottomBarItem.activeIcon");
+  var title$ = dart.privateName(salomon_bottom_bar, "SalomonBottomBarItem.title");
+  var selectedColor$ = dart.privateName(salomon_bottom_bar, "SalomonBottomBarItem.selectedColor");
+  var unselectedColor$ = dart.privateName(salomon_bottom_bar, "SalomonBottomBarItem.unselectedColor");
+  salomon_bottom_bar.SalomonBottomBarItem = class SalomonBottomBarItem extends core.Object {
+    get icon() {
+      return this[icon$];
     }
-  }, false);
-  var topStart$ = dart.privateName(border_radius, "BorderRadiusDirectional.topStart");
-  var topEnd$ = dart.privateName(border_radius, "BorderRadiusDirectional.topEnd");
-  var bottomStart$ = dart.privateName(border_radius, "BorderRadiusDirectional.bottomStart");
-  var bottomEnd$ = dart.privateName(border_radius, "BorderRadiusDirectional.bottomEnd");
-  var _name = dart.privateName(ui, "_name");
-  border_radius.BorderRadiusDirectional = class BorderRadiusDirectional extends border_radius.BorderRadiusGeometry {
-    get topStart() {
-      return this[topStart$];
+    set icon(value) {
+      super.icon = value;
     }
-    set topStart(value) {
-      super.topStart = value;
+    get activeIcon() {
+      return this[activeIcon$];
     }
-    get topEnd() {
-      return this[topEnd$];
+    set activeIcon(value) {
+      super.activeIcon = value;
     }
-    set topEnd(value) {
-      super.topEnd = value;
+    get title() {
+      return this[title$];
     }
-    get bottomStart() {
-      return this[bottomStart$];
+    set title(value) {
+      super.title = value;
     }
-    set bottomStart(value) {
-      super.bottomStart = value;
+    get selectedColor() {
+      return this[selectedColor$];
     }
-    get bottomEnd() {
-      return this[bottomEnd$];
+    set selectedColor(value) {
+      super.selectedColor = value;
     }
-    set bottomEnd(value) {
-      super.bottomEnd = value;
+    get unselectedColor() {
+      return this[unselectedColor$];
     }
-    get [_topStart]() {
-      return this.topStart;
-    }
-    get [_topEnd]() {
-      return this.topEnd;
-    }
-    get [_bottomStart]() {
-      return this.bottomStart;
-    }
-    get [_bottomEnd]() {
-      return this.bottomEnd;
-    }
-    get [_topLeft]() {
-      return ui.Radius.zero;
-    }
-    get [_topRight]() {
-      return ui.Radius.zero;
-    }
-    get [_bottomLeft]() {
-      return ui.Radius.zero;
-    }
-    get [_bottomRight]() {
-      return ui.Radius.zero;
-    }
-    subtract(other) {
-      if (border_radius.BorderRadiusDirectional.is(other)) return this['-'](other);
-      return super.subtract(other);
-    }
-    add(other) {
-      if (border_radius.BorderRadiusDirectional.is(other)) return this['+'](other);
-      return super.add(other);
-    }
-    ['-'](other) {
-      return new border_radius.BorderRadiusDirectional.only({topStart: this.topStart['-'](other.topStart), topEnd: this.topEnd['-'](other.topEnd), bottomStart: this.bottomStart['-'](other.bottomStart), bottomEnd: this.bottomEnd['-'](other.bottomEnd)});
-    }
-    ['+'](other) {
-      return new border_radius.BorderRadiusDirectional.only({topStart: this.topStart['+'](other.topStart), topEnd: this.topEnd['+'](other.topEnd), bottomStart: this.bottomStart['+'](other.bottomStart), bottomEnd: this.bottomEnd['+'](other.bottomEnd)});
-    }
-    _negate() {
-      return new border_radius.BorderRadiusDirectional.only({topStart: this.topStart._negate(), topEnd: this.topEnd._negate(), bottomStart: this.bottomStart._negate(), bottomEnd: this.bottomEnd._negate()});
-    }
-    ['*'](other) {
-      return new border_radius.BorderRadiusDirectional.only({topStart: this.topStart['*'](other), topEnd: this.topEnd['*'](other), bottomStart: this.bottomStart['*'](other), bottomEnd: this.bottomEnd['*'](other)});
-    }
-    ['/'](other) {
-      return new border_radius.BorderRadiusDirectional.only({topStart: this.topStart['/'](other), topEnd: this.topEnd['/'](other), bottomStart: this.bottomStart['/'](other), bottomEnd: this.bottomEnd['/'](other)});
-    }
-    ['~/'](other) {
-      return new border_radius.BorderRadiusDirectional.only({topStart: this.topStart['~/'](other), topEnd: this.topEnd['~/'](other), bottomStart: this.bottomStart['~/'](other), bottomEnd: this.bottomEnd['~/'](other)});
-    }
-    ['%'](other) {
-      return new border_radius.BorderRadiusDirectional.only({topStart: this.topStart['%'](other), topEnd: this.topEnd['%'](other), bottomStart: this.bottomStart['%'](other), bottomEnd: this.bottomEnd['%'](other)});
-    }
-    static lerp(a, b, t) {
-      if (!(t !== null)) dart.assertFailed(null, I[0], 710, 12, "t != null");
-      if (a == null && b == null) return null;
-      if (a == null) return dart.nullCheck(b)['*'](t);
-      if (b == null) return a['*'](1.0 - t);
-      return new border_radius.BorderRadiusDirectional.only({topStart: dart.nullCheck(ui.Radius.lerp(a.topStart, b.topStart, t)), topEnd: dart.nullCheck(ui.Radius.lerp(a.topEnd, b.topEnd, t)), bottomStart: dart.nullCheck(ui.Radius.lerp(a.bottomStart, b.bottomStart, t)), bottomEnd: dart.nullCheck(ui.Radius.lerp(a.bottomEnd, b.bottomEnd, t))});
-    }
-    resolve(direction) {
-      if (!(direction != null)) dart.assertFailed(null, I[0], 727, 12, "direction != null");
-      switch (dart.nullCheck(direction)) {
-        case C[2] || CT.C2:
-        {
-          return new border_radius.BorderRadius.only({topLeft: this.topEnd, topRight: this.topStart, bottomLeft: this.bottomEnd, bottomRight: this.bottomStart});
-        }
-        case C[3] || CT.C3:
-        {
-          return new border_radius.BorderRadius.only({topLeft: this.topStart, topRight: this.topEnd, bottomLeft: this.bottomStart, bottomRight: this.bottomEnd});
-        }
-      }
+    set unselectedColor(value) {
+      super.unselectedColor = value;
     }
   };
-  (border_radius.BorderRadiusDirectional.all = function(radius) {
-    border_radius.BorderRadiusDirectional.only.call(this, {topStart: radius, topEnd: radius, bottomStart: radius, bottomEnd: radius});
-  }).prototype = border_radius.BorderRadiusDirectional.prototype;
-  (border_radius.BorderRadiusDirectional.circular = function(radius) {
-    border_radius.BorderRadiusDirectional.all.call(this, new ui.Radius.circular(radius));
-  }).prototype = border_radius.BorderRadiusDirectional.prototype;
-  (border_radius.BorderRadiusDirectional.vertical = function(opts) {
-    let top = opts && 'top' in opts ? opts.top : C[0] || CT.C0;
-    let bottom = opts && 'bottom' in opts ? opts.bottom : C[0] || CT.C0;
-    border_radius.BorderRadiusDirectional.only.call(this, {topStart: top, topEnd: top, bottomStart: bottom, bottomEnd: bottom});
-  }).prototype = border_radius.BorderRadiusDirectional.prototype;
-  (border_radius.BorderRadiusDirectional.horizontal = function(opts) {
-    let start = opts && 'start' in opts ? opts.start : C[0] || CT.C0;
-    let end = opts && 'end' in opts ? opts.end : C[0] || CT.C0;
-    border_radius.BorderRadiusDirectional.only.call(this, {topStart: start, topEnd: end, bottomStart: start, bottomEnd: end});
-  }).prototype = border_radius.BorderRadiusDirectional.prototype;
-  (border_radius.BorderRadiusDirectional.only = function(opts) {
-    let topStart = opts && 'topStart' in opts ? opts.topStart : C[0] || CT.C0;
-    let topEnd = opts && 'topEnd' in opts ? opts.topEnd : C[0] || CT.C0;
-    let bottomStart = opts && 'bottomStart' in opts ? opts.bottomStart : C[0] || CT.C0;
-    let bottomEnd = opts && 'bottomEnd' in opts ? opts.bottomEnd : C[0] || CT.C0;
-    this[topStart$] = topStart;
-    this[topEnd$] = topEnd;
-    this[bottomStart$] = bottomStart;
-    this[bottomEnd$] = bottomEnd;
-    border_radius.BorderRadiusDirectional.__proto__.new.call(this);
+  (salomon_bottom_bar.SalomonBottomBarItem.new = function(opts) {
+    let icon = opts && 'icon' in opts ? opts.icon : null;
+    let title = opts && 'title' in opts ? opts.title : null;
+    let selectedColor = opts && 'selectedColor' in opts ? opts.selectedColor : null;
+    let unselectedColor = opts && 'unselectedColor' in opts ? opts.unselectedColor : null;
+    let activeIcon = opts && 'activeIcon' in opts ? opts.activeIcon : null;
+    this[icon$] = icon;
+    this[title$] = title;
+    this[selectedColor$] = selectedColor;
+    this[unselectedColor$] = unselectedColor;
+    this[activeIcon$] = activeIcon;
     ;
-  }).prototype = border_radius.BorderRadiusDirectional.prototype;
-  dart.addTypeTests(border_radius.BorderRadiusDirectional);
-  dart.addTypeCaches(border_radius.BorderRadiusDirectional);
-  dart.setMethodSignature(border_radius.BorderRadiusDirectional, () => ({
-    __proto__: dart.getMethods(border_radius.BorderRadiusDirectional.__proto__),
-    '-': dart.fnType(border_radius.BorderRadiusDirectional, [border_radius.BorderRadiusDirectional]),
-    '+': dart.fnType(border_radius.BorderRadiusDirectional, [border_radius.BorderRadiusDirectional]),
-    _negate: dart.fnType(border_radius.BorderRadiusDirectional, []),
-    '*': dart.fnType(border_radius.BorderRadiusDirectional, [core.double]),
-    '/': dart.fnType(border_radius.BorderRadiusDirectional, [core.double]),
-    '~/': dart.fnType(border_radius.BorderRadiusDirectional, [core.double]),
-    '%': dart.fnType(border_radius.BorderRadiusDirectional, [core.double]),
-    resolve: dart.fnType(border_radius.BorderRadius, [dart.nullable(ui.TextDirection)])
+  }).prototype = salomon_bottom_bar.SalomonBottomBarItem.prototype;
+  dart.addTypeTests(salomon_bottom_bar.SalomonBottomBarItem);
+  dart.addTypeCaches(salomon_bottom_bar.SalomonBottomBarItem);
+  dart.setLibraryUri(salomon_bottom_bar.SalomonBottomBarItem, I[0]);
+  dart.setFieldSignature(salomon_bottom_bar.SalomonBottomBarItem, () => ({
+    __proto__: dart.getFields(salomon_bottom_bar.SalomonBottomBarItem.__proto__),
+    icon: dart.finalFieldType(framework.Widget),
+    activeIcon: dart.finalFieldType(dart.nullable(framework.Widget)),
+    title: dart.finalFieldType(framework.Widget),
+    selectedColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    unselectedColor: dart.finalFieldType(dart.nullable(ui.Color))
   }));
-  dart.setGetterSignature(border_radius.BorderRadiusDirectional, () => ({
-    __proto__: dart.getGetters(border_radius.BorderRadiusDirectional.__proto__),
-    [_topStart]: ui.Radius,
-    [_topEnd]: ui.Radius,
-    [_bottomStart]: ui.Radius,
-    [_bottomEnd]: ui.Radius,
-    [_topLeft]: ui.Radius,
-    [_topRight]: ui.Radius,
-    [_bottomLeft]: ui.Radius,
-    [_bottomRight]: ui.Radius
-  }));
-  dart.setLibraryUri(border_radius.BorderRadiusDirectional, I[1]);
-  dart.setFieldSignature(border_radius.BorderRadiusDirectional, () => ({
-    __proto__: dart.getFields(border_radius.BorderRadiusDirectional.__proto__),
-    topStart: dart.finalFieldType(ui.Radius),
-    topEnd: dart.finalFieldType(ui.Radius),
-    bottomStart: dart.finalFieldType(ui.Radius),
-    bottomEnd: dart.finalFieldType(ui.Radius)
-  }));
-  dart.defineLazy(border_radius.BorderRadiusDirectional, {
-    /*border_radius.BorderRadiusDirectional.zero*/get zero() {
-      return C[4] || CT.C4;
-    }
-  }, false);
-  var _topLeft$ = dart.privateName(border_radius, "_MixedBorderRadius._topLeft");
-  var _topRight$ = dart.privateName(border_radius, "_MixedBorderRadius._topRight");
-  var _bottomLeft$ = dart.privateName(border_radius, "_MixedBorderRadius._bottomLeft");
-  var _bottomRight$ = dart.privateName(border_radius, "_MixedBorderRadius._bottomRight");
-  var _topStart$ = dart.privateName(border_radius, "_MixedBorderRadius._topStart");
-  var _topEnd$ = dart.privateName(border_radius, "_MixedBorderRadius._topEnd");
-  var _bottomStart$ = dart.privateName(border_radius, "_MixedBorderRadius._bottomStart");
-  var _bottomEnd$ = dart.privateName(border_radius, "_MixedBorderRadius._bottomEnd");
-  border_radius._MixedBorderRadius = class _MixedBorderRadius extends border_radius.BorderRadiusGeometry {
-    get [_topLeft]() {
-      return this[_topLeft$];
-    }
-    set [_topLeft](value) {
-      super[_topLeft] = value;
-    }
-    get [_topRight]() {
-      return this[_topRight$];
-    }
-    set [_topRight](value) {
-      super[_topRight] = value;
-    }
-    get [_bottomLeft]() {
-      return this[_bottomLeft$];
-    }
-    set [_bottomLeft](value) {
-      super[_bottomLeft] = value;
-    }
-    get [_bottomRight]() {
-      return this[_bottomRight$];
-    }
-    set [_bottomRight](value) {
-      super[_bottomRight] = value;
-    }
-    get [_topStart]() {
-      return this[_topStart$];
-    }
-    set [_topStart](value) {
-      super[_topStart] = value;
-    }
-    get [_topEnd]() {
-      return this[_topEnd$];
-    }
-    set [_topEnd](value) {
-      super[_topEnd] = value;
-    }
-    get [_bottomStart]() {
-      return this[_bottomStart$];
-    }
-    set [_bottomStart](value) {
-      super[_bottomStart] = value;
-    }
-    get [_bottomEnd]() {
-      return this[_bottomEnd$];
-    }
-    set [_bottomEnd](value) {
-      super[_bottomEnd] = value;
-    }
-    _negate() {
-      return new border_radius._MixedBorderRadius.new(this[_topLeft]._negate(), this[_topRight]._negate(), this[_bottomLeft]._negate(), this[_bottomRight]._negate(), this[_topStart]._negate(), this[_topEnd]._negate(), this[_bottomStart]._negate(), this[_bottomEnd]._negate());
-    }
-    ['*'](other) {
-      return new border_radius._MixedBorderRadius.new(this[_topLeft]['*'](other), this[_topRight]['*'](other), this[_bottomLeft]['*'](other), this[_bottomRight]['*'](other), this[_topStart]['*'](other), this[_topEnd]['*'](other), this[_bottomStart]['*'](other), this[_bottomEnd]['*'](other));
-    }
-    ['/'](other) {
-      return new border_radius._MixedBorderRadius.new(this[_topLeft]['/'](other), this[_topRight]['/'](other), this[_bottomLeft]['/'](other), this[_bottomRight]['/'](other), this[_topStart]['/'](other), this[_topEnd]['/'](other), this[_bottomStart]['/'](other), this[_bottomEnd]['/'](other));
-    }
-    ['~/'](other) {
-      return new border_radius._MixedBorderRadius.new(this[_topLeft]['~/'](other), this[_topRight]['~/'](other), this[_bottomLeft]['~/'](other), this[_bottomRight]['~/'](other), this[_topStart]['~/'](other), this[_topEnd]['~/'](other), this[_bottomStart]['~/'](other), this[_bottomEnd]['~/'](other));
-    }
-    ['%'](other) {
-      return new border_radius._MixedBorderRadius.new(this[_topLeft]['%'](other), this[_topRight]['%'](other), this[_bottomLeft]['%'](other), this[_bottomRight]['%'](other), this[_topStart]['%'](other), this[_topEnd]['%'](other), this[_bottomStart]['%'](other), this[_bottomEnd]['%'](other));
-    }
-    resolve(direction) {
-      if (!(direction != null)) dart.assertFailed(null, I[0], 856, 12, "direction != null");
-      switch (dart.nullCheck(direction)) {
-        case C[2] || CT.C2:
-        {
-          return new border_radius.BorderRadius.only({topLeft: this[_topLeft]['+'](this[_topEnd]), topRight: this[_topRight]['+'](this[_topStart]), bottomLeft: this[_bottomLeft]['+'](this[_bottomEnd]), bottomRight: this[_bottomRight]['+'](this[_bottomStart])});
-        }
-        case C[3] || CT.C3:
-        {
-          return new border_radius.BorderRadius.only({topLeft: this[_topLeft]['+'](this[_topStart]), topRight: this[_topRight]['+'](this[_topEnd]), bottomLeft: this[_bottomLeft]['+'](this[_bottomStart]), bottomRight: this[_bottomRight]['+'](this[_bottomEnd])});
-        }
-      }
-    }
-  };
-  (border_radius._MixedBorderRadius.new = function(_topLeft, _topRight, _bottomLeft, _bottomRight, _topStart, _topEnd, _bottomStart, _bottomEnd) {
-    this[_topLeft$] = _topLeft;
-    this[_topRight$] = _topRight;
-    this[_bottomLeft$] = _bottomLeft;
-    this[_bottomRight$] = _bottomRight;
-    this[_topStart$] = _topStart;
-    this[_topEnd$] = _topEnd;
-    this[_bottomStart$] = _bottomStart;
-    this[_bottomEnd$] = _bottomEnd;
-    border_radius._MixedBorderRadius.__proto__.new.call(this);
-    ;
-  }).prototype = border_radius._MixedBorderRadius.prototype;
-  dart.addTypeTests(border_radius._MixedBorderRadius);
-  dart.addTypeCaches(border_radius._MixedBorderRadius);
-  dart.setMethodSignature(border_radius._MixedBorderRadius, () => ({
-    __proto__: dart.getMethods(border_radius._MixedBorderRadius.__proto__),
-    _negate: dart.fnType(border_radius._MixedBorderRadius, []),
-    '*': dart.fnType(border_radius._MixedBorderRadius, [core.double]),
-    '/': dart.fnType(border_radius._MixedBorderRadius, [core.double]),
-    '~/': dart.fnType(border_radius._MixedBorderRadius, [core.double]),
-    '%': dart.fnType(border_radius._MixedBorderRadius, [core.double]),
-    resolve: dart.fnType(border_radius.BorderRadius, [dart.nullable(ui.TextDirection)])
-  }));
-  dart.setLibraryUri(border_radius._MixedBorderRadius, I[1]);
-  dart.setFieldSignature(border_radius._MixedBorderRadius, () => ({
-    __proto__: dart.getFields(border_radius._MixedBorderRadius.__proto__),
-    [_topLeft]: dart.finalFieldType(ui.Radius),
-    [_topRight]: dart.finalFieldType(ui.Radius),
-    [_bottomLeft]: dart.finalFieldType(ui.Radius),
-    [_bottomRight]: dart.finalFieldType(ui.Radius),
-    [_topStart]: dart.finalFieldType(ui.Radius),
-    [_topEnd]: dart.finalFieldType(ui.Radius),
-    [_bottomStart]: dart.finalFieldType(ui.Radius),
-    [_bottomEnd]: dart.finalFieldType(ui.Radius)
-  }));
-  dart.trackLibraries("packages/flutter/src/painting/border_radius.dart", {
-    "package:flutter/src/painting/border_radius.dart": border_radius
+  dart.trackLibraries("packages/salomon_bottom_bar/salomon_bottom_bar.dart", {
+    "package:salomon_bottom_bar/salomon_bottom_bar.dart": salomon_bottom_bar
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["border_radius.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/flutter/src/painting/border_radius.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["salomon_bottom_bar.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAsBmC;;;;;;IAGvB;;;;;;IAGW;;;;;;IAGR;;;;;;IAGA;;;;;;IAGC;;;;;;IAGI;;;;;;IAGD;;;;;;IAGA;;;;;;IAGF;;;;;;IAGH;;;;;;UAGc;AAClB,kBAAc,gBAAG,OAAO;AAE9B,YAAO,iCACI,oBACF,sCACgC,+CAC3B;;AACR,qBAAW,OAAQ;AACjB,2EACS,kCACA,AAAM,AAAc,qBAAN,IAAI,MAAK,oBAAe,MAAM,cAE5C,sBACG,wBACD,SAAC,SAAS,GAAG;;AACd,wCACgB,OADoB,KAAnB,AAAK,IAAD,gBAAC,aACxB,8BADsC,cAEtC,AAAM,KAAD;AAEH,0CACkB,QADsB,OAArB,AAAK,IAAD,kBAAC,eAC1B,kCAD0C,eAE1C,AAAM,AAAU,KAAX;AAET,wBAAO,mCACQ,cACT,AAAe,cAAD,aAAa,MAC3B,AAAe,cAAD,cAAkC,kCAArB,eAAwB,cACnD,CAAC,UACE,uBACA,iCACE;;AAAM;mDAAO,GAAK,AAAM,qBAAQ,IAAI;wDAC7B,4BACF,AAAe,cAAD,aAAa,sBACvB,AAAe,cAAD,aAAa,mBAC9B,AAAe,cAAD,aAAa,kBAC5B,AAAe,cAAD,aAAa,aAChC,gCACI,AAAY,sBACN,wCAAY,AAAY,AAAM,yBAAE,CAAC,YACzC,6BACK,wBACR,oCACQ,8CACS,cACT,gBAAgB,EAAE,cAAc,EAAE,CAAC,SACjC,eAED,AAAM,AAAc,qBAAN,IAAI,MAAK,qBACR,OAAhB,AAAK,IAAD,aAAC,eAAc,AAAK,IAAD,gBACvB,AAAK,IAAD,gEAEZ,+BACS,gCAKG,aACD,gCACM,4BAAU,CAAC,KAAK,mBACd,CAAC,SACP,gCACe,uCACV,AAAY,AAAM,yBAAE,UACnB,AAAY,iCAChB,sCACE,qCACQ,cACT,AAAe,cAAD,aAAa,MAC3B,cAAc,EACd,CAAC,eACkB,6BAElB,AAAK,IAAD;;;;IAgB7C;;;QA1IO;QACS;QACT;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;;IAVS;IACT;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;AACF,uEAAW,GAAG;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAoIP;;;;;;IAGC;;;;;;IAGD;;;;;;IAGA;;;;;;IAGA;;;;;;;;QAGG;QACA;QACT;QACA;QACA;IAJS;IACA;IACT;IACA;IACA;;EACL","file":"../../../../../../../../../packages/salomon_bottom_bar/salomon_bottom_bar.dart.lib.js"}');
   // Exports:
   return {
-    src__painting__border_radius: border_radius
+    salomon_bottom_bar: salomon_bottom_bar
   };
 }));
 
-//# sourceMappingURL=border_radius.dart.lib.js.map
+//# sourceMappingURL=salomon_bottom_bar.dart.lib.js.map

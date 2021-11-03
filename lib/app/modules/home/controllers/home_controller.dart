@@ -7,8 +7,15 @@ class HomeController extends GetxController {
     'Commercial Shifting',
     'Home Shifting',
     'Home Shifting',
-    'Home Shifting'
-  ];
+    'Home Shifting',
+    'Commercial Shifting',
+    'Home Shifting',
+    'Home Shifting',
+    'Home Shifting',
+    'Commercial Shifting',
+    'Home Shifting',
+    'Home Shifting',
+    'Home Shifting'  ];
   List otherServices = ['Cleaning'];
   @override
   void onInit() {

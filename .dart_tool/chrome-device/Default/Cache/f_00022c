@@ -1,640 +1,478 @@
-define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/widgets/will_pop_scope.dart'], (function load__packages__flutter__src__widgets__form_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__widgets__will_pop_scope$46dart) {
+define(['dart_sdk', 'packages/get/get_core/src/get_main.dart'], (function load__packages__get__get_utils__src__get_utils__get_utils_dart(dart_sdk, packages__get__get_core__src__get_main$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const async = dart_sdk.async;
+  const _interceptors = dart_sdk._interceptors;
   const collection = dart_sdk.collection;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
-  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
-  const will_pop_scope = packages__flutter__src__widgets__will_pop_scope$46dart.src__widgets__will_pop_scope;
-  var form = Object.create(dart.library);
-  var $any = dartx.any;
+  const get_main = packages__get__get_core__src__get_main$46dart.get_core__src__get_main;
+  var get_utils = Object.create(dart.library);
+  var $toLowerCase = dartx.toLowerCase;
+  var $endsWith = dartx.endsWith;
+  var $replaceAll = dartx.replaceAll;
+  var $_get = dartx._get;
+  var $toString = dartx.toString;
+  var $contains = dartx.contains;
+  var $split = dartx.split;
+  var $map = dartx.map;
+  var $toList = dartx.toList;
+  var $modulo = dartx['%'];
+  var $join = dartx.join;
+  var $toUpperCase = dartx.toUpperCase;
+  var $substring = dartx.substring;
+  var $add = dartx.add;
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $isEmpty = dartx.isEmpty;
+  var $trim = dartx.trim;
   dart._checkModuleNullSafetyMode(true);
-  var T$ = {
-    LinkedHashSetOfFormFieldState: () => (T$.LinkedHashSetOfFormFieldState = dart.constFn(collection.LinkedHashSet$(form.FormFieldState)))(),
-    FormFieldStateTobool: () => (T$.FormFieldStateTobool = dart.constFn(dart.fnType(core.bool, [form.FormFieldState])))(),
-    VoidTovoid: () => (T$.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
-    StringN: () => (T$.StringN = dart.constFn(dart.nullable(core.String)))()
+  var T = {
+    StringToint: () => (T.StringToint = dart.constFn(dart.fnType(core.int, [core.String])))(),
+    StringToNint: () => (T.StringToNint = dart.constFn(dart.nullable(T.StringToint())))(),
+    intN: () => (T.intN = dart.constFn(dart.nullable(core.int)))(),
+    String__Toint: () => (T.String__Toint = dart.constFn(dart.fnType(core.int, [core.String], {onError: T.StringToNint(), radix: T.intN()}, {})))(),
+    IterableOfint: () => (T.IterableOfint = dart.constFn(core.Iterable$(core.int)))(),
+    intToint: () => (T.intToint = dart.constFn(dart.fnType(core.int, [core.int])))(),
+    StringN: () => (T.StringN = dart.constFn(dart.nullable(core.String)))(),
+    StringToStringN: () => (T.StringToStringN = dart.constFn(dart.fnType(T.StringN(), [core.String])))(),
+    JSArrayOfString: () => (T.JSArrayOfString = dart.constFn(_interceptors.JSArray$(core.String)))(),
+    StringToString: () => (T.StringToString = dart.constFn(dart.fnType(core.String, [core.String])))(),
+    dynamicToString: () => (T.dynamicToString = dart.constFn(dart.fnType(core.String, [dart.dynamic])))(),
+    LinkedHashSetOfString: () => (T.LinkedHashSetOfString = dart.constFn(collection.LinkedHashSet$(core.String)))(),
+    boolN: () => (T.boolN = dart.constFn(dart.nullable(core.bool)))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
     get C0() {
-      return C[0] = dart.const({
-        __proto__: form.AutovalidateMode.prototype,
-        [_name$]: "AutovalidateMode.always",
-        index: 1
-      });
+      return C[0] = dart.fn(core.int.parse, T.String__Toint());
     },
     get C1() {
-      return C[1] = dart.const({
-        __proto__: form.AutovalidateMode.prototype,
-        [_name$]: "AutovalidateMode.onUserInteraction",
-        index: 2
-      });
-    },
-    get C2() {
-      return C[2] = dart.const({
-        __proto__: form.AutovalidateMode.prototype,
-        [_name$]: "AutovalidateMode.disabled",
-        index: 0
-      });
-    },
-    get C5() {
-      return C[5] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "formState",
-        [_Location_column]: 9,
-        [_Location_line]: 209,
-        [_Location_file]: null
-      });
-    },
-    get C6() {
-      return C[6] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "generation",
-        [_Location_column]: 9,
-        [_Location_line]: 210,
-        [_Location_file]: null
-      });
-    },
-    get C7() {
-      return C[7] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 211,
-        [_Location_file]: null
-      });
-    },
-    get C4() {
-      return C[4] = dart.constList([C[5] || CT.C5, C[6] || CT.C6, C[7] || CT.C7], widget_inspector._Location);
-    },
-    get C3() {
-      return C[3] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[4] || CT.C4,
-        [_Location_name]: null,
-        [_Location_column]: 14,
-        [_Location_line]: 208,
-        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/widgets/form.dart"
-      });
-    },
-    get C10() {
-      return C[10] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onWillPop",
-        [_Location_column]: 7,
-        [_Location_line]: 207,
-        [_Location_file]: null
-      });
-    },
-    get C11() {
-      return C[11] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 7,
-        [_Location_line]: 208,
-        [_Location_file]: null
-      });
-    },
-    get C9() {
-      return C[9] = dart.constList([C[10] || CT.C10, C[11] || CT.C11], widget_inspector._Location);
-    },
-    get C8() {
-      return C[8] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[9] || CT.C9,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 206,
-        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/widgets/form.dart"
-      });
-    },
-    get C12() {
-      return C[12] = dart.constList([C[2] || CT.C2, C[0] || CT.C0, C[1] || CT.C1], form.AutovalidateMode);
+      return C[1] = dart.fn(get_utils.GetUtils.capitalizeFirst, T.StringToStringN());
     }
   }, false);
-  var C = Array(13).fill(void 0);
-  var I = [
-    "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/widgets/form.dart",
-    "package:flutter/src/widgets/form.dart"
-  ];
-  var child$ = dart.privateName(form, "Form.child");
-  var onWillPop$ = dart.privateName(form, "Form.onWillPop");
-  var onChanged$ = dart.privateName(form, "Form.onChanged");
-  var autovalidateMode$ = dart.privateName(form, "Form.autovalidateMode");
-  var autovalidate$ = dart.privateName(form, "Form.autovalidate");
-  var _formState = dart.privateName(form, "_formState");
-  form.Form = class Form extends framework.StatefulWidget {
-    get child() {
-      return this[child$];
+  var C = Array(2).fill(void 0);
+  var I = ["package:get/get_utils/src/get_utils/get_utils.dart"];
+  get_utils.GetUtils = class GetUtils extends core.Object {
+    static isNull(value) {
+      return value == null;
     }
-    set child(value) {
-      super.child = value;
+    static nil(s) {
+      return s == null ? null : s;
     }
-    get onWillPop() {
-      return this[onWillPop$];
+    static isNullOrBlank(value) {
+      if (get_utils.GetUtils.isNull(value)) {
+        return true;
+      }
+      return get_utils._isEmpty(value);
     }
-    set onWillPop(value) {
-      super.onWillPop = value;
+    static isBlank(value) {
+      return get_utils._isEmpty(value);
     }
-    get onChanged() {
-      return this[onChanged$];
+    static isNum(value) {
+      if (get_utils.GetUtils.isNull(value)) {
+        return false;
+      }
+      return typeof core.num.tryParse(value) == 'number';
     }
-    set onChanged(value) {
-      super.onChanged = value;
+    static isNumericOnly(s) {
+      return get_utils.GetUtils.hasMatch(s, "^\\d+$");
     }
-    get autovalidateMode() {
-      return this[autovalidateMode$];
+    static isAlphabetOnly(s) {
+      return get_utils.GetUtils.hasMatch(s, "^[a-zA-Z]+$");
     }
-    set autovalidateMode(value) {
-      super.autovalidateMode = value;
+    static hasCapitalletter(s) {
+      return get_utils.GetUtils.hasMatch(s, "[A-Z]");
     }
-    get autovalidate() {
-      return this[autovalidate$];
+    static isBool(value) {
+      if (get_utils.GetUtils.isNull(value)) {
+        return false;
+      }
+      return value === "true" || value === "false";
     }
-    set autovalidate(value) {
-      super.autovalidate = value;
+    static isVideo(filePath) {
+      let ext = filePath[$toLowerCase]();
+      return ext[$endsWith](".mp4") || ext[$endsWith](".avi") || ext[$endsWith](".wmv") || ext[$endsWith](".rmvb") || ext[$endsWith](".mpg") || ext[$endsWith](".mpeg") || ext[$endsWith](".3gp");
     }
-    static of(context) {
-      let t0;
-      let scope = context.dependOnInheritedWidgetOfExactType(form._FormScope);
-      t0 = scope;
-      return t0 == null ? null : t0[_formState];
+    static isImage(filePath) {
+      let ext = filePath[$toLowerCase]();
+      return ext[$endsWith](".jpg") || ext[$endsWith](".jpeg") || ext[$endsWith](".png") || ext[$endsWith](".gif") || ext[$endsWith](".bmp");
     }
-    createState() {
-      return new form.FormState.new();
+    static isAudio(filePath) {
+      let ext = filePath[$toLowerCase]();
+      return ext[$endsWith](".mp3") || ext[$endsWith](".wav") || ext[$endsWith](".wma") || ext[$endsWith](".amr") || ext[$endsWith](".ogg");
     }
-  };
-  (form.Form.new = function(opts) {
-    let t0;
-    let key = opts && 'key' in opts ? opts.key : null;
-    let child = opts && 'child' in opts ? opts.child : null;
-    let autovalidate = opts && 'autovalidate' in opts ? opts.autovalidate : false;
-    let onWillPop = opts && 'onWillPop' in opts ? opts.onWillPop : null;
-    let onChanged = opts && 'onChanged' in opts ? opts.onChanged : null;
-    let autovalidateMode = opts && 'autovalidateMode' in opts ? opts.autovalidateMode : null;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[child$] = child;
-    this[autovalidate$] = autovalidate;
-    this[onWillPop$] = onWillPop;
-    this[onChanged$] = onChanged;
-    if (!(child !== null)) dart.assertFailed(null, I[0], 88, 15, "child != null");
-    if (!(autovalidate !== null)) dart.assertFailed(null, I[0], 89, 15, "autovalidate != null");
-    if (!(autovalidate === false || autovalidate === true && autovalidateMode == null)) dart.assertFailed("autovalidate and autovalidateMode should not be used together.", I[0], 91, 10, "autovalidate == false ||\n         autovalidate == true && autovalidateMode == null");
-    this[autovalidateMode$] = (t0 = autovalidateMode, t0 == null ? autovalidate ? form.AutovalidateMode.always : form.AutovalidateMode.disabled : t0);
-    form.Form.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = form.Form.prototype;
-  dart.addTypeTests(form.Form);
-  dart.addTypeCaches(form.Form);
-  dart.setMethodSignature(form.Form, () => ({
-    __proto__: dart.getMethods(form.Form.__proto__),
-    createState: dart.fnType(form.FormState, [])
-  }));
-  dart.setLibraryUri(form.Form, I[1]);
-  dart.setFieldSignature(form.Form, () => ({
-    __proto__: dart.getFields(form.Form.__proto__),
-    child: dart.finalFieldType(framework.Widget),
-    onWillPop: dart.finalFieldType(dart.nullable(dart.fnType(async.Future$(core.bool), []))),
-    onChanged: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
-    autovalidateMode: dart.finalFieldType(form.AutovalidateMode),
-    autovalidate: dart.finalFieldType(core.bool)
-  }));
-  var _generation = dart.privateName(form, "_generation");
-  var _hasInteractedByUser = dart.privateName(form, "_hasInteractedByUser");
-  var _fields = dart.privateName(form, "_fields");
-  var _forceRebuild = dart.privateName(form, "_forceRebuild");
-  var _fieldDidChange = dart.privateName(form, "_fieldDidChange");
-  var _register = dart.privateName(form, "_register");
-  var _unregister = dart.privateName(form, "_unregister");
-  var _validate = dart.privateName(form, "_validate");
-  var _name$ = dart.privateName(form, "_name");
-  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
-  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
-  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
-  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
-  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
-  form.FormState = class FormState extends framework.State$(form.Form) {
-    [_fieldDidChange]() {
-      let t0;
-      t0 = this.widget.onChanged;
-      t0 == null ? null : t0();
-      this[_hasInteractedByUser] = this[_fields][$any](dart.fn(field => field[_hasInteractedByUser], T$.FormFieldStateTobool()));
-      this[_forceRebuild]();
+    static isPPT(filePath) {
+      let ext = filePath[$toLowerCase]();
+      return ext[$endsWith](".ppt") || ext[$endsWith](".pptx");
     }
-    [_forceRebuild]() {
-      this.setState(dart.fn(() => {
-        this[_generation] = this[_generation] + 1;
-      }, T$.VoidTovoid()));
+    static isWord(filePath) {
+      let ext = filePath[$toLowerCase]();
+      return ext[$endsWith](".doc") || ext[$endsWith](".docx");
     }
-    [_register](field) {
-      this[_fields].add(field);
+    static isExcel(filePath) {
+      let ext = filePath[$toLowerCase]();
+      return ext[$endsWith](".xls") || ext[$endsWith](".xlsx");
     }
-    [_unregister](field) {
-      this[_fields].remove(field);
+    static isAPK(filePath) {
+      return filePath[$toLowerCase]()[$endsWith](".apk");
     }
-    build(context) {
-      switch (this.widget.autovalidateMode) {
-        case C[0] || CT.C0:
-        {
-          this[_validate]();
-          break;
-        }
-        case C[1] || CT.C1:
-        {
-          if (this[_hasInteractedByUser]) {
-            this[_validate]();
-          }
-          break;
-        }
-        case C[2] || CT.C2:
-        {
-          break;
+    static isPDF(filePath) {
+      return filePath[$toLowerCase]()[$endsWith](".pdf");
+    }
+    static isTxt(filePath) {
+      return filePath[$toLowerCase]()[$endsWith](".txt");
+    }
+    static isChm(filePath) {
+      return filePath[$toLowerCase]()[$endsWith](".chm");
+    }
+    static isVector(filePath) {
+      return filePath[$toLowerCase]()[$endsWith](".svg");
+    }
+    static isHTML(filePath) {
+      return filePath[$toLowerCase]()[$endsWith](".html");
+    }
+    static isUsername(s) {
+      return get_utils.GetUtils.hasMatch(s, "^[a-zA-Z0-9][a-zA-Z0-9_.]+[a-zA-Z0-9]$");
+    }
+    static isURL(s) {
+      return get_utils.GetUtils.hasMatch(s, "^((((H|h)(T|t)|(F|f))(T|t)(P|p)((S|s)?))\\://)?(www.|[a-zA-Z0-9].)[a-zA-Z0-9\\-\\.]+\\.[a-zA-Z]{2,6}(\\:[0-9]{1,5})*(/($|[a-zA-Z0-9\\.\\,\\;\\?\\'\\\\\\+&amp;%\\$#\\=~_\\-]+))*$");
+    }
+    static isEmail(s) {
+      return get_utils.GetUtils.hasMatch(s, "^(([^<>()[\\]\\\\.,;:\\s@\\\"]+(\\.[^<>()[\\]\\\\.,;:\\s@\\\"]+)*)|(\\\".+\\\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$");
+    }
+    static isPhoneNumber(s) {
+      if (s.length > 16 || s.length < 9) return false;
+      return get_utils.GetUtils.hasMatch(s, "^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s\\./0-9]*$");
+    }
+    static isDateTime(s) {
+      return get_utils.GetUtils.hasMatch(s, "^\\d{4}-\\d{2}-\\d{2}[ T]\\d{2}:\\d{2}:\\d{2}.\\d{3}Z?$");
+    }
+    static isMD5(s) {
+      return get_utils.GetUtils.hasMatch(s, "^[a-f0-9]{32}$");
+    }
+    static isSHA1(s) {
+      return get_utils.GetUtils.hasMatch(s, "(([A-Fa-f0-9]{2}\\:){19}[A-Fa-f0-9]{2}|[A-Fa-f0-9]{40})");
+    }
+    static isSHA256(s) {
+      return get_utils.GetUtils.hasMatch(s, "([A-Fa-f0-9]{2}\\:){31}[A-Fa-f0-9]{2}|[A-Fa-f0-9]{64}");
+    }
+    static isSSN(s) {
+      return get_utils.GetUtils.hasMatch(s, "^(?!0{3}|6{3}|9[0-9]{2})[0-9]{3}-?(?!0{2})[0-9]{2}-?(?!0{4})[0-9]{4}$");
+    }
+    static isBinary(s) {
+      return get_utils.GetUtils.hasMatch(s, "^[0-1]+$");
+    }
+    static isIPv4(s) {
+      return get_utils.GetUtils.hasMatch(s, "^(?:(?:^|\\.)(?:2(?:5[0-5]|[0-4]\\d)|1?\\d?\\d)){4}$");
+    }
+    static isIPv6(s) {
+      return get_utils.GetUtils.hasMatch(s, "^((([0-9A-Fa-f]{1,4}:){7}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){6}:[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){5}:([0-9A-Fa-f]{1,4}:)?[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){4}:([0-9A-Fa-f]{1,4}:){0,2}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){3}:([0-9A-Fa-f]{1,4}:){0,3}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){2}:([0-9A-Fa-f]{1,4}:){0,4}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){6}((\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b)\\.){3}(\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b))|(([0-9A-Fa-f]{1,4}:){0,5}:((\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b)\\.){3}(\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b))|(::([0-9A-Fa-f]{1,4}:){0,5}((\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b)\\.){3}(\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b))|([0-9A-Fa-f]{1,4}::([0-9A-Fa-f]{1,4}:){0,5}[0-9A-Fa-f]{1,4})|(::([0-9A-Fa-f]{1,4}:){0,6}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){1,7}:))$");
+    }
+    static isHexadecimal(s) {
+      return get_utils.GetUtils.hasMatch(s, "^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$");
+    }
+    static isPalindrom(string) {
+      let cleanString = string[$toLowerCase]()[$replaceAll](core.RegExp.new("\\s+"), "")[$replaceAll](core.RegExp.new("[^0-9a-zA-Z]+"), "");
+      for (let i = 0; i < cleanString.length; i = i + 1) {
+        if (cleanString[$_get](i) !== cleanString[$_get](cleanString.length - i - 1)) {
+          return false;
         }
       }
-      return new will_pop_scope.WillPopScope.new({onWillPop: this.widget.onWillPop, child: new form._FormScope.new({formState: this, generation: this[_generation], child: this.widget.child, $creationLocationd_0dea112b090073317d4: C[3] || CT.C3}), $creationLocationd_0dea112b090073317d4: C[8] || CT.C8});
+      return true;
     }
-    save() {
-      for (let field of this[_fields])
-        field.save();
-    }
-    reset() {
-      for (let field of this[_fields])
-        field.reset();
-      this[_hasInteractedByUser] = false;
-      this[_fieldDidChange]();
-    }
-    validate() {
-      this[_hasInteractedByUser] = true;
-      this[_forceRebuild]();
-      return this[_validate]();
-    }
-    [_validate]() {
-      let hasError = false;
-      for (let field of this[_fields])
-        hasError = !field.validate() || hasError;
-      return !hasError;
-    }
-  };
-  (form.FormState.new = function() {
-    this[_generation] = 0;
-    this[_hasInteractedByUser] = false;
-    this[_fields] = T$.LinkedHashSetOfFormFieldState().new();
-    form.FormState.__proto__.new.call(this);
-    ;
-  }).prototype = form.FormState.prototype;
-  dart.addTypeTests(form.FormState);
-  dart.addTypeCaches(form.FormState);
-  dart.setMethodSignature(form.FormState, () => ({
-    __proto__: dart.getMethods(form.FormState.__proto__),
-    [_fieldDidChange]: dart.fnType(dart.void, []),
-    [_forceRebuild]: dart.fnType(dart.void, []),
-    [_register]: dart.fnType(dart.void, [form.FormFieldState]),
-    [_unregister]: dart.fnType(dart.void, [form.FormFieldState]),
-    build: dart.fnType(framework.Widget, [framework.BuildContext]),
-    save: dart.fnType(dart.void, []),
-    reset: dart.fnType(dart.void, []),
-    validate: dart.fnType(core.bool, []),
-    [_validate]: dart.fnType(core.bool, [])
-  }));
-  dart.setLibraryUri(form.FormState, I[1]);
-  dart.setFieldSignature(form.FormState, () => ({
-    __proto__: dart.getFields(form.FormState.__proto__),
-    [_generation]: dart.fieldType(core.int),
-    [_hasInteractedByUser]: dart.fieldType(core.bool),
-    [_fields]: dart.finalFieldType(core.Set$(form.FormFieldState))
-  }));
-  var _formState$ = dart.privateName(form, "_FormScope._formState");
-  var _generation$ = dart.privateName(form, "_FormScope._generation");
-  form._FormScope = class _FormScope extends framework.InheritedWidget {
-    get [_formState]() {
-      return this[_formState$];
-    }
-    set [_formState](value) {
-      super[_formState] = value;
-    }
-    get [_generation]() {
-      return this[_generation$];
-    }
-    set [_generation](value) {
-      super[_generation] = value;
-    }
-    get form() {
-      return this[_formState].widget;
-    }
-    updateShouldNotify(old) {
-      form._FormScope.as(old);
-      return this[_generation] !== old[_generation];
-    }
-  };
-  (form._FormScope.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let child = opts && 'child' in opts ? opts.child : null;
-    let formState = opts && 'formState' in opts ? opts.formState : null;
-    let generation = opts && 'generation' in opts ? opts.generation : null;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[_formState$] = formState;
-    this[_generation$] = generation;
-    form._FormScope.__proto__.new.call(this, {key: key, child: child, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = form._FormScope.prototype;
-  dart.addTypeTests(form._FormScope);
-  dart.addTypeCaches(form._FormScope);
-  dart.setMethodSignature(form._FormScope, () => ({
-    __proto__: dart.getMethods(form._FormScope.__proto__),
-    updateShouldNotify: dart.fnType(core.bool, [dart.nullable(core.Object)])
-  }));
-  dart.setGetterSignature(form._FormScope, () => ({
-    __proto__: dart.getGetters(form._FormScope.__proto__),
-    form: form.Form
-  }));
-  dart.setLibraryUri(form._FormScope, I[1]);
-  dart.setFieldSignature(form._FormScope, () => ({
-    __proto__: dart.getFields(form._FormScope.__proto__),
-    [_formState]: dart.finalFieldType(form.FormState),
-    [_generation]: dart.finalFieldType(core.int)
-  }));
-  var onSaved$ = dart.privateName(form, "FormField.onSaved");
-  var validator$ = dart.privateName(form, "FormField.validator");
-  var builder$ = dart.privateName(form, "FormField.builder");
-  var initialValue$ = dart.privateName(form, "FormField.initialValue");
-  var enabled$ = dart.privateName(form, "FormField.enabled");
-  var autovalidateMode$0 = dart.privateName(form, "FormField.autovalidateMode");
-  var autovalidate$0 = dart.privateName(form, "FormField.autovalidate");
-  const _is_FormField_default = Symbol('_is_FormField_default');
-  form.FormField$ = dart.generic(T => {
-    var FormFieldStateOfT = () => (FormFieldStateOfT = dart.constFn(form.FormFieldState$(T)))();
-    class FormField extends framework.StatefulWidget {
-      get onSaved() {
-        return this[onSaved$];
-      }
-      set onSaved(value) {
-        super.onSaved = value;
-      }
-      get validator() {
-        return this[validator$];
-      }
-      set validator(value) {
-        super.validator = value;
-      }
-      get builder() {
-        return this[builder$];
-      }
-      set builder(value) {
-        super.builder = value;
-      }
-      get initialValue() {
-        return this[initialValue$];
-      }
-      set initialValue(value) {
-        super.initialValue = value;
-      }
-      get enabled() {
-        return this[enabled$];
-      }
-      set enabled(value) {
-        super.enabled = value;
-      }
-      get autovalidateMode() {
-        return this[autovalidateMode$0];
-      }
-      set autovalidateMode(value) {
-        super.autovalidateMode = value;
-      }
-      get autovalidate() {
-        return this[autovalidate$0];
-      }
-      set autovalidate(value) {
-        super.autovalidate = value;
-      }
-      createState() {
-        return new (FormFieldStateOfT()).new();
-      }
-    }
-    (FormField.new = function(opts) {
-      let t0;
-      let key = opts && 'key' in opts ? opts.key : null;
-      let builder = opts && 'builder' in opts ? opts.builder : null;
-      let onSaved = opts && 'onSaved' in opts ? opts.onSaved : null;
-      let validator = opts && 'validator' in opts ? opts.validator : null;
-      let initialValue = opts && 'initialValue' in opts ? opts.initialValue : null;
-      let autovalidate = opts && 'autovalidate' in opts ? opts.autovalidate : false;
-      let enabled = opts && 'enabled' in opts ? opts.enabled : true;
-      let autovalidateMode = opts && 'autovalidateMode' in opts ? opts.autovalidateMode : null;
-      let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-      this[builder$] = builder;
-      this[onSaved$] = onSaved;
-      this[validator$] = validator;
-      this[initialValue$] = initialValue;
-      this[autovalidate$0] = autovalidate;
-      this[enabled$] = enabled;
-      if (!(builder !== null)) dart.assertFailed(null, I[0], 334, 15, "builder != null");
-      if (!(autovalidate === false || autovalidate === true && autovalidateMode == null)) dart.assertFailed("autovalidate and autovalidateMode should not be used together.", I[0], 336, 10, "autovalidate == false ||\n         autovalidate == true && autovalidateMode == null");
-      this[autovalidateMode$0] = (t0 = autovalidateMode, t0 == null ? autovalidate ? form.AutovalidateMode.always : form.AutovalidateMode.disabled : t0);
-      FormField.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-      ;
-    }).prototype = FormField.prototype;
-    dart.addTypeTests(FormField);
-    FormField.prototype[_is_FormField_default] = true;
-    dart.addTypeCaches(FormField);
-    dart.setMethodSignature(FormField, () => ({
-      __proto__: dart.getMethods(FormField.__proto__),
-      createState: dart.fnType(form.FormFieldState$(T), [])
-    }));
-    dart.setLibraryUri(FormField, I[1]);
-    dart.setFieldSignature(FormField, () => ({
-      __proto__: dart.getFields(FormField.__proto__),
-      onSaved: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [dart.nullable(T)]))),
-      validator: dart.finalFieldType(dart.nullable(dart.fnType(dart.nullable(core.String), [dart.nullable(T)]))),
-      builder: dart.finalFieldType(dart.fnType(framework.Widget, [form.FormFieldState$(T)])),
-      initialValue: dart.finalFieldType(dart.nullable(T)),
-      enabled: dart.finalFieldType(core.bool),
-      autovalidateMode: dart.finalFieldType(form.AutovalidateMode),
-      autovalidate: dart.finalFieldType(core.bool)
-    }));
-    return FormField;
-  });
-  form.FormField = form.FormField$();
-  dart.addTypeTests(form.FormField, _is_FormField_default);
-  var _value = dart.privateName(form, "_value");
-  var _errorText = dart.privateName(form, "_errorText");
-  const _is_FormFieldState_default = Symbol('_is_FormFieldState_default');
-  form.FormFieldState$ = dart.generic(T => {
-    var TN = () => (TN = dart.constFn(dart.nullable(T)))();
-    var TNToStringN = () => (TNToStringN = dart.constFn(dart.fnType(T$.StringN(), [TN()])))();
-    var TNToNStringN = () => (TNToNStringN = dart.constFn(dart.nullable(TNToStringN())))();
-    var TNTovoid = () => (TNTovoid = dart.constFn(dart.fnType(dart.void, [TN()])))();
-    var TNToNvoid = () => (TNToNvoid = dart.constFn(dart.nullable(TNTovoid())))();
-    var FormFieldStateOfT = () => (FormFieldStateOfT = dart.constFn(form.FormFieldState$(T)))();
-    var FormFieldStateOfTToWidget = () => (FormFieldStateOfTToWidget = dart.constFn(dart.fnType(framework.Widget, [FormFieldStateOfT()])))();
-    class FormFieldState extends framework.State$(form.FormField$(T)) {
-      get value() {
-        return this[_value];
-      }
-      get errorText() {
-        return this[_errorText];
-      }
-      get hasError() {
-        return this[_errorText] != null;
-      }
-      get isValid() {
-        let t0;
-        return (t0 = TNToNStringN().as(this.widget.validator), t0 == null ? null : t0(this[_value])) == null;
-      }
-      save() {
-        let t0;
-        t0 = TNToNvoid().as(this.widget.onSaved);
-        t0 == null ? null : t0(this.value);
-      }
-      reset() {
-        let t0;
-        this.setState(dart.fn(() => {
-          this[_value] = this.widget.initialValue;
-          this[_hasInteractedByUser] = false;
-          this[_errorText] = null;
-        }, T$.VoidTovoid()));
-        t0 = form.Form.of(this.context);
-        t0 == null ? null : t0[_fieldDidChange]();
-      }
-      validate() {
-        this.setState(dart.fn(() => {
-          this[_validate]();
-        }, T$.VoidTovoid()));
-        return !this.hasError;
-      }
-      [_validate]() {
-        if (TNToNStringN().as(this.widget.validator) != null) this[_errorText] = dart.nullCheck(TNToNStringN().as(this.widget.validator))(this[_value]);
-      }
-      didChange(value) {
-        let t0;
-        TN().as(value);
-        this.setState(dart.fn(() => {
-          this[_value] = value;
-          this[_hasInteractedByUser] = true;
-        }, T$.VoidTovoid()));
-        t0 = form.Form.of(this.context);
-        t0 == null ? null : t0[_fieldDidChange]();
-      }
-      setValue(value) {
-        TN().as(value);
-        this[_value] = value;
-      }
-      initState() {
-        super.initState();
-        this[_value] = this.widget.initialValue;
-      }
-      deactivate() {
-        let t0;
-        t0 = form.Form.of(this.context);
-        t0 == null ? null : t0[_unregister](this);
-        super.deactivate();
-      }
-      build(context) {
-        let t0, t0$;
-        if (this.widget.enabled) {
-          switch (this.widget.autovalidateMode) {
-            case C[0] || CT.C0:
-            {
-              this[_validate]();
-              break;
-            }
-            case C[1] || CT.C1:
-            {
-              if (this[_hasInteractedByUser]) {
-                this[_validate]();
-              }
-              break;
-            }
-            case C[2] || CT.C2:
-            {
-              break;
-            }
+    static isOneAKind(value) {
+      if ((typeof value == 'string' || core.List.is(value)) && !dart.nullCheck(get_utils.GetUtils.isNullOrBlank(value))) {
+        let first = dart.dsend(value, '_get', [0]);
+        let len = core.num.as(dart.dload(value, 'length'));
+        for (let i = 0; i < len; i = i + 1) {
+          if (!dart.equals(dart.dsend(value, '_get', [i]), first)) {
+            return false;
           }
         }
-        t0 = form.Form.of(context);
-        t0 == null ? null : t0[_register](this);
-        t0$ = this.widget;
-        return FormFieldStateOfTToWidget().as(t0$.builder)(this);
+        return true;
       }
+      if (core.int.is(value)) {
+        let stringValue = dart.toString(value);
+        let first = stringValue[$_get](0);
+        for (let i = 0; i < stringValue.length; i = i + 1) {
+          if (stringValue[$_get](i) !== first) {
+            return false;
+          }
+        }
+        return true;
+      }
+      return false;
     }
-    (FormFieldState.new = function() {
-      this[_value] = null;
-      this[_errorText] = null;
-      this[_hasInteractedByUser] = false;
-      FormFieldState.__proto__.new.call(this);
-      ;
-    }).prototype = FormFieldState.prototype;
-    dart.addTypeTests(FormFieldState);
-    FormFieldState.prototype[_is_FormFieldState_default] = true;
-    dart.addTypeCaches(FormFieldState);
-    dart.setMethodSignature(FormFieldState, () => ({
-      __proto__: dart.getMethods(FormFieldState.__proto__),
-      save: dart.fnType(dart.void, []),
-      reset: dart.fnType(dart.void, []),
-      validate: dart.fnType(core.bool, []),
-      [_validate]: dart.fnType(dart.void, []),
-      didChange: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      setValue: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      build: dart.fnType(framework.Widget, [framework.BuildContext])
-    }));
-    dart.setGetterSignature(FormFieldState, () => ({
-      __proto__: dart.getGetters(FormFieldState.__proto__),
-      value: dart.nullable(T),
-      errorText: dart.nullable(core.String),
-      hasError: core.bool,
-      isValid: core.bool
-    }));
-    dart.setLibraryUri(FormFieldState, I[1]);
-    dart.setFieldSignature(FormFieldState, () => ({
-      __proto__: dart.getFields(FormFieldState.__proto__),
-      [_value]: dart.fieldType(dart.nullable(T)),
-      [_errorText]: dart.fieldType(dart.nullable(core.String)),
-      [_hasInteractedByUser]: dart.fieldType(core.bool)
-    }));
-    return FormFieldState;
-  });
-  form.FormFieldState = form.FormFieldState$();
-  dart.addTypeTests(form.FormFieldState, _is_FormFieldState_default);
-  form.AutovalidateMode = class AutovalidateMode extends core.Object {
-    toString() {
-      return this[_name$];
+    static isPassport(s) {
+      return get_utils.GetUtils.hasMatch(s, "^(?!^0+$)[a-zA-Z0-9]{6,9}$");
+    }
+    static isCurrency(s) {
+      return get_utils.GetUtils.hasMatch(s, "^(S?\\$|\\₩|Rp|\\¥|\\€|\\₹|\\₽|fr|R\\$|R)?[ ]?[-]?([0-9]{1,3}[,.]([0-9]{3}[,.])*[0-9]{3}|[0-9]+)([,.][0-9]{1,2})?( ?(USD?|AUD|NZD|CAD|CHF|GBP|CNY|EUR|JPY|IDR|MXN|NOK|KRW|TRY|INR|RUB|BRL|ZAR|SGD|MYR))?$");
+    }
+    static isLengthGreaterThan(value, maxLength) {
+      let length = get_utils._obtainDynamicLength(value);
+      if (length == null) {
+        return false;
+      }
+      return dart.notNull(length) > maxLength;
+    }
+    static isLengthGreaterOrEqual(value, maxLength) {
+      let length = get_utils._obtainDynamicLength(value);
+      if (length == null) {
+        return false;
+      }
+      return dart.notNull(length) >= maxLength;
+    }
+    static isLengthLowerThan(value, maxLength) {
+      return get_utils.GetUtils.isLengthLessThan(value, maxLength);
+    }
+    static isLengthLessThan(value, maxLength) {
+      let length = get_utils._obtainDynamicLength(value);
+      if (length == null) {
+        return false;
+      }
+      return dart.notNull(length) < maxLength;
+    }
+    static isLengthLowerOrEqual(value, maxLength) {
+      return get_utils.GetUtils.isLengthLessOrEqual(value, maxLength);
+    }
+    static isLengthLessOrEqual(value, maxLength) {
+      let length = get_utils._obtainDynamicLength(value);
+      if (length == null) {
+        return false;
+      }
+      return dart.notNull(length) <= maxLength;
+    }
+    static isLengthEqualTo(value, otherLength) {
+      let length = get_utils._obtainDynamicLength(value);
+      if (length == null) {
+        return false;
+      }
+      return length === otherLength;
+    }
+    static isLengthBetween(value, minLength, maxLength) {
+      if (get_utils.GetUtils.isNull(value)) {
+        return false;
+      }
+      return get_utils.GetUtils.isLengthGreaterOrEqual(value, minLength) && get_utils.GetUtils.isLengthLessOrEqual(value, maxLength);
+    }
+    static isCaseInsensitiveContains(a, b) {
+      return a[$toLowerCase]()[$contains](b[$toLowerCase]());
+    }
+    static isCaseInsensitiveContainsAny(a, b) {
+      let lowA = a[$toLowerCase]();
+      let lowB = b[$toLowerCase]();
+      return lowA[$contains](lowB) || lowB[$contains](lowA);
+    }
+    static isLowerThan(a, b) {
+      return a < b;
+    }
+    static isGreaterThan(a, b) {
+      return a > b;
+    }
+    static isEqual(a, b) {
+      return a === b;
+    }
+    static isCnpj(cnpj) {
+      let t0, t0$;
+      let numbers = cnpj[$replaceAll](core.RegExp.new("[^0-9]"), "");
+      if (numbers.length !== 14) {
+        return false;
+      }
+      if (core.RegExp.new("^(\\d)\\1*$").hasMatch(numbers)) {
+        return false;
+      }
+      let digits = numbers[$split]("")[$map](core.int, C[0] || CT.C0)[$toList]();
+      let calcDv1 = 0;
+      let j = 0;
+      let iter = T.IterableOfint().generate(12, dart.fn(i => i < 4 ? 5 - i : 13 - i, T.intToint()));
+      for (let i of iter) {
+        calcDv1 = calcDv1 + digits[$_get]((t0 = j, j = t0 + 1, t0)) * i;
+      }
+      calcDv1 = calcDv1[$modulo](11);
+      let dv1 = calcDv1 < 2 ? 0 : 11 - calcDv1;
+      if (digits[$_get](12) !== dv1) {
+        return false;
+      }
+      let calcDv2 = 0;
+      j = 0;
+      let iter$ = T.IterableOfint().generate(13, dart.fn(i => i < 5 ? 6 - i : 14 - i, T.intToint()));
+      for (let i of iter$) {
+        calcDv2 = calcDv2 + digits[$_get]((t0$ = j, j = t0$ + 1, t0$)) * i;
+      }
+      calcDv2 = calcDv2[$modulo](11);
+      let dv2 = calcDv2 < 2 ? 0 : 11 - calcDv2;
+      if (digits[$_get](13) !== dv2) {
+        return false;
+      }
+      return true;
+    }
+    static isCpf(cpf) {
+      let numbers = cpf[$replaceAll](core.RegExp.new("[^0-9]"), "");
+      if (numbers.length !== 11) {
+        return false;
+      }
+      if (core.RegExp.new("^(\\d)\\1*$").hasMatch(numbers)) {
+        return false;
+      }
+      let digits = numbers[$split]("")[$map](core.int, C[0] || CT.C0)[$toList]();
+      let calcDv1 = 0;
+      let iter = T.IterableOfint().generate(9, dart.fn(i => 10 - i, T.intToint()));
+      for (let i of iter) {
+        calcDv1 = calcDv1 + digits[$_get](10 - i) * i;
+      }
+      calcDv1 = calcDv1[$modulo](11);
+      let dv1 = calcDv1 < 2 ? 0 : 11 - calcDv1;
+      if (digits[$_get](9) !== dv1) {
+        return false;
+      }
+      let calcDv2 = 0;
+      let iter$ = T.IterableOfint().generate(10, dart.fn(i => 11 - i, T.intToint()));
+      for (let i of iter$) {
+        calcDv2 = calcDv2 + digits[$_get](11 - i) * i;
+      }
+      calcDv2 = calcDv2[$modulo](11);
+      let dv2 = calcDv2 < 2 ? 0 : 11 - calcDv2;
+      if (digits[$_get](10) !== dv2) {
+        return false;
+      }
+      return true;
+    }
+    static capitalize(value) {
+      if (get_utils.GetUtils.isNull(value)) return null;
+      if (dart.nullCheck(get_utils.GetUtils.isBlank(value))) return value;
+      return value[$split](" ")[$map](T.StringN(), C[1] || CT.C1)[$join](" ");
+    }
+    static capitalizeFirst(s) {
+      if (get_utils.GetUtils.isNull(s)) return null;
+      if (dart.nullCheck(get_utils.GetUtils.isBlank(s))) return s;
+      return s[$_get](0)[$toUpperCase]() + s[$substring](1)[$toLowerCase]();
+    }
+    static removeAllWhitespace(value) {
+      return value[$replaceAll](" ", "");
+    }
+    static camelCase(value) {
+      if (dart.nullCheck(get_utils.GetUtils.isNullOrBlank(value))) {
+        return null;
+      }
+      let separatedWords = value[$split](core.RegExp.new("[!@#<>?\":`~;[\\]\\\\|=+)(*&^%-\\s_]+"));
+      let newString = "";
+      for (let word of separatedWords) {
+        newString = newString + (word[$_get](0)[$toUpperCase]() + word[$substring](1)[$toLowerCase]());
+      }
+      return newString[$_get](0)[$toLowerCase]() + newString[$substring](1);
+    }
+    static _groupIntoWords(text) {
+      let sb = new core.StringBuffer.new();
+      let words = T.JSArrayOfString().of([]);
+      let isAllCaps = text[$toUpperCase]() === text;
+      for (let i = 0; i < text.length; i = i + 1) {
+        let char = text[$_get](i);
+        let nextChar = i + 1 === text.length ? null : text[$_get](i + 1);
+        if (get_utils.GetUtils._symbolSet.contains(char)) {
+          continue;
+        }
+        sb.write(char);
+        let isEndOfWord = nextChar == null || get_utils.GetUtils._upperAlphaRegex.hasMatch(nextChar) && !isAllCaps || get_utils.GetUtils._symbolSet.contains(nextChar);
+        if (isEndOfWord) {
+          words[$add](dart.str(sb));
+          sb.clear();
+        }
+      }
+      return words;
+    }
+    static snakeCase(text, opts) {
+      let separator = opts && 'separator' in opts ? opts.separator : "_";
+      if (dart.nullCheck(get_utils.GetUtils.isNullOrBlank(text))) {
+        return null;
+      }
+      return get_utils.GetUtils._groupIntoWords(dart.nullCheck(text))[$map](core.String, dart.fn(word => word[$toLowerCase](), T.StringToString()))[$join](separator);
+    }
+    static paramCase(text) {
+      return get_utils.GetUtils.snakeCase(text, {separator: "-"});
+    }
+    static numericOnly(s, opts) {
+      let firstWordOnly = opts && 'firstWordOnly' in opts ? opts.firstWordOnly : false;
+      let numericOnlyStr = "";
+      for (let i = 0; i < s.length; i = i + 1) {
+        if (get_utils.GetUtils.isNumericOnly(s[$_get](i))) {
+          numericOnlyStr = numericOnlyStr + s[$_get](i);
+        }
+        if (firstWordOnly && numericOnlyStr[$isNotEmpty] && s[$_get](i) === " ") {
+          break;
+        }
+      }
+      return numericOnlyStr;
+    }
+    static hasMatch(value, pattern) {
+      return value == null ? false : core.RegExp.new(pattern).hasMatch(value);
+    }
+    static createPath(path, segments = null) {
+      if (segments == null || segments[$isEmpty]) {
+        return path;
+      }
+      let list = segments[$map](core.String, dart.fn(e => "/" + dart.str(e), T.dynamicToString()));
+      return path + list[$join]();
+    }
+    static printFunction(prefix, value, info, opts) {
+      let t2, t1, t0;
+      let isError = opts && 'isError' in opts ? opts.isError : false;
+      t0 = get_main.Get;
+      t1 = (prefix + " " + dart.str(value) + " " + info)[$trim]();
+      t2 = isError;
+      t0.log(t1, {isError: t2});
     }
   };
-  (form.AutovalidateMode.new = function(index, _name) {
-    this.index = index;
-    this[_name$] = _name;
+  (get_utils.GetUtils.__ = function() {
     ;
-  }).prototype = form.AutovalidateMode.prototype;
-  dart.addTypeTests(form.AutovalidateMode);
-  dart.addTypeCaches(form.AutovalidateMode);
-  dart.setLibraryUri(form.AutovalidateMode, I[1]);
-  dart.setFieldSignature(form.AutovalidateMode, () => ({
-    __proto__: dart.getFields(form.AutovalidateMode.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(form.AutovalidateMode, ['toString']);
-  form.AutovalidateMode.disabled = C[2] || CT.C2;
-  form.AutovalidateMode.always = C[0] || CT.C0;
-  form.AutovalidateMode.onUserInteraction = C[1] || CT.C1;
-  form.AutovalidateMode.values = C[12] || CT.C12;
-  dart.trackLibraries("packages/flutter/src/widgets/form.dart", {
-    "package:flutter/src/widgets/form.dart": form
+  }).prototype = get_utils.GetUtils.prototype;
+  dart.addTypeTests(get_utils.GetUtils);
+  dart.addTypeCaches(get_utils.GetUtils);
+  dart.setLibraryUri(get_utils.GetUtils, I[0]);
+  dart.defineLazy(get_utils.GetUtils, {
+    /*get_utils.GetUtils._upperAlphaRegex*/get _upperAlphaRegex() {
+      return core.RegExp.new("[A-Z]");
+    },
+    /*get_utils.GetUtils._symbolSet*/get _symbolSet() {
+      return T.LinkedHashSetOfString().from([" ", ".", "/", "_", "\\", "-"]);
+    }
+  }, false);
+  get_utils._isEmpty = function _isEmpty(value) {
+    if (typeof value == 'string') {
+      return dart.toString(value)[$trim]()[$isEmpty];
+    }
+    if (core.Iterable.is(value) || core.Map.is(value)) {
+      return T.boolN().as(dart.dload(value, 'isEmpty'));
+    }
+    return false;
+  };
+  get_utils._hasLength = function _hasLength(value) {
+    return core.Iterable.is(value) || typeof value == 'string' || core.Map.is(value);
+  };
+  get_utils._obtainDynamicLength = function _obtainDynamicLength(value) {
+    if (value == null) {
+      return null;
+    }
+    if (get_utils._hasLength(value)) {
+      return T.intN().as(dart.dload(value, 'length'));
+    }
+    if (core.int.is(value)) {
+      return dart.toString(value).length;
+    }
+    if (typeof value == 'number') {
+      return dart.toString(value)[$replaceAll](".", "").length;
+    }
+    return null;
+  };
+  dart.trackLibraries("packages/get/get_utils/src/get_utils/get_utils.dart", {
+    "package:get/get_utils/src/get_utils/get_utils.dart": get_utils
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["form.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAoHe;;;;;;IAYU;;;;;;IAMH;;;;;;IAMG;;;;;;IASZ;;;;;;cA3CuB;;AACd,kBAAQ,AAAQ,OAAD;AACjC,WAAO,KAAK;0BAAL,OAAO;IAChB;;AA2C2B;IAAW;;;;QA5E/B;QACS;QAMT;QACA;QACA;QACa;;IATJ;IAMT;IACA;IACA;UAEK,AAAM,KAAD;UACL,AAAa,YAAD;UAEjB,AAAa,AAAS,YAAV,KAAI,SAChB,AAAa,YAAD,KAAI,QAAQ,AAAiB,gBAAD,6BACxC;IAEe,2BAAmB,KAAjB,gBAAgB,EAAhB,aAChB,YAAY,GAAoB,+BAA0B;AAC7D,6CAAW,GAAG;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAyEM,WAAxB,AAAO;mBAAA,OAAW;AAGqD,MADvE,6BAAuB,AAClB,oBAAI,QAAyB,SAAU,AAAM,KAAD;AAClC,MAAf;IACF;;AAKI,MAFF,cAAS;AACM,QAAX,oBAAF,AAAE,oBAAF;;IAEJ;gBAEuC;AACnB,MAAlB,AAAQ,kBAAI,KAAK;IACnB;kBAEyC;AAClB,MAArB,AAAQ,qBAAO,KAAK;IACtB;UAG0B;AACxB,cAAQ,AAAO;;;AAEA,UAAX;AACA;;;;AAEA,cAAI;AACS,YAAX;;AAEF;;;;AAEA;;;AAGJ,YAAO,iDACM,AAAO,8BACX,oCACM,kBACC,0BACL,AAAO;IAGpB;;AAIE,eAAmC,QAAS;AAC9B,QAAZ,AAAM,KAAD;IACT;;AAUE,eAAmC,QAAS;AAC7B,QAAb,AAAM,KAAD;AACqB,MAA5B,6BAAuB;AACN,MAAjB;IACF;;AAO6B,MAA3B,6BAAuB;AACR,MAAf;AACA,YAAO;IACT;;AAGO,qBAAW;AAChB,eAAmC,QAAS;AACF,QAAxC,WAA6B,CAAjB,AAAM,KAAD,eAAe,QAAQ;AAC1C,YAAO,EAAC,QAAQ;IAClB;;;IAxFI,oBAAc;IACb,6BAAuB;IACO,gBAAmC;;;EAuFxE;;;;;;;;;;;;;;;;;;;;;;;;;IAYkB;;;;;;IAIN;;;;;;;AAGO,YAAA,AAAW;IAAM;;yBAGC;AAAQ,YAAA,AAAY,uBAAG,AAAI,GAAD;IAAY;;;QAlBlE;QACW;QACG;QACN;;IACC,oBAAE,SAAS;IACV,qBAAE,UAAU;AACxB,mDAAW,GAAG,SAAS,KAAK;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;MAoFR;;;;;;MAeG;;;;;;MAKH;;;;;;MAGjB;;;;;;MAOE;;;;;;MAeY;;;;;;MASZ;;;;;;;AAGwB;MAAmB;;;;UAlF/C;UACS;UACT;UACA;UACA;UAMA;UACA;UACa;;MAXJ;MACT;MACA;MACA;MAMA;MACA;YAEK,AAAQ,OAAD;YAEZ,AAAa,AAAS,YAAV,KAAI,SAChB,AAAa,YAAD,KAAI,QAAQ,AAAiB,gBAAD,6BACxC;MAEgB,4BAAmB,KAAjB,gBAAgB,EAAhB,aAChB,YAAY,GAAoB,+BAA0B;AAC9D,+CAAW,GAAG;;IAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAwEJ;MAAM;;AAKG;MAAU;;AAGd,cAAA,AAAW;MAAO;;;AAUnB,cAA+B,yBAA/B,AAAO,qCAAA,OAAW,GAAK;MAAe;;;AAI7B,4BAA3B,AAAO;qBAAA,OAAS,GAAK;MACvB;;;AAQI,QAJF,cAAS;AACqB,UAA5B,eAAS,AAAO;AACY,UAA5B,6BAAuB;AACN,UAAjB,mBAAa;;AAEoB,aAA9B,aAAG;qBAAH,OAAa;MACpB;;AAYI,QAFF,cAAS;AACI,UAAX;;AAEF,cAAO,EAAC;MACV;;AAGE,8BAAI,AAAO,gCACT,AAAsC,mBAAT,AAAC,iCAAjB,AAAO,wBAAW;MACnC;gBAQkB;;;AAId,QAHF,cAAS;AACO,UAAd,eAAS,KAAK;AACa,UAA3B,6BAAuB;;AAEU,aAA9B,aAAG;qBAAH,OAAa;MACpB;;gBAUiB;AACD,QAAd,eAAS,KAAK;MAChB;;AAImB,QAAX;AACsB,QAA5B,eAAS,AAAO;MAClB;;;AAIqC,aAA9B,aAAG;qBAAH,OAAa,gBAAY;AACZ,QAAZ;MACR;YAG0B;;AACxB,YAAI,AAAO;AACT,kBAAQ,AAAO;;;AAEA,cAAX;AACA;;;;AAEA,kBAAI;AACS,gBAAX;;AAEF;;;;AAEA;;;;AAG2B,aAA5B,aAAG,OAAO;qBAAV,OAAa,cAAU;AAC5B,cAAO;cAAc,gCAAP,aAAQ;MACxB;;;MAnHG;MACK;MACH,6BAAuB;;;IAkH9B;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAaA;;+CAVK;;;;EAUL","file":"../../../../../../../../../packages/flutter/src/widgets/form.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["get_utils.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../../../packages/get/get_utils/src/get_utils/get_utils.dart.lib.js"}');
   // Exports:
   return {
-    src__widgets__form: form
+    get_utils__src__get_utils__get_utils: get_utils
   };
 }));
 
-//# sourceMappingURL=form.dart.lib.js.map
+//# sourceMappingURL=get_utils.dart.lib.js.map

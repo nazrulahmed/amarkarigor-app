@@ -1,429 +1,863 @@
-define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/rendering/custom_layout.dart'], (function load__packages__flutter__src__widgets__navigation_toolbar_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__rendering__custom_layout$46dart) {
+define(['dart_sdk', 'packages/flutter/src/cupertino/text_theme.dart', 'packages/flutter/src/painting/border_radius.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/animation/listener_helpers.dart', 'packages/flutter/src/animation/animation_controller.dart', 'packages/flutter/src/animation/curves.dart', 'packages/flutter/src/rendering/proxy_box.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/painting/box_decoration.dart', 'packages/flutter/src/widgets/icon_theme.dart', 'packages/flutter/src/widgets/icon_theme_data.dart', 'packages/flutter/src/gestures/tap.dart'], (function load__packages__flutter__src__cupertino__button_dart(dart_sdk, packages__flutter__src__cupertino__text_theme$46dart, packages__flutter__src__painting__border_radius$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__animation__listener_helpers$46dart, packages__flutter__src__animation__animation_controller$46dart, packages__flutter__src__animation__curves$46dart, packages__flutter__src__rendering__proxy_box$46dart, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__painting__box_decoration$46dart, packages__flutter__src__widgets__icon_theme$46dart, packages__flutter__src__widgets__icon_theme_data$46dart, packages__flutter__src__gestures__tap$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const _interceptors = dart_sdk._interceptors;
   const ui = dart_sdk.ui;
-  const math = dart_sdk.math;
+  const _internal = dart_sdk._internal;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const debug = packages__flutter__src__widgets__widget_span$46dart.src__widgets__debug;
-  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const colors = packages__flutter__src__cupertino__text_theme$46dart.src__cupertino__colors;
+  const theme = packages__flutter__src__cupertino__text_theme$46dart.src__cupertino__theme;
+  const border_radius = packages__flutter__src__painting__border_radius$46dart.src__painting__border_radius;
+  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
+  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
   const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const gesture_detector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__gesture_detector;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const transitions = packages__flutter__src__widgets__widget_span$46dart.src__widgets__transitions;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
   const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const ticker_provider = packages__flutter__src__widgets__widget_span$46dart.src__widgets__ticker_provider;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const tween = packages__flutter__src__animation__listener_helpers$46dart.src__animation__tween;
+  const animation = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animation;
+  const animation_controller = packages__flutter__src__animation__animation_controller$46dart.src__animation__animation_controller;
+  const curves = packages__flutter__src__animation__curves$46dart.src__animation__curves;
+  const proxy_box = packages__flutter__src__rendering__proxy_box$46dart.src__rendering__proxy_box;
   const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
-  const custom_layout = packages__flutter__src__rendering__custom_layout$46dart.src__rendering__custom_layout;
-  var navigation_toolbar = Object.create(dart.library);
-  var $add = dartx.add;
+  const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
+  const icon_theme = packages__flutter__src__widgets__icon_theme$46dart.src__widgets__icon_theme;
+  const icon_theme_data = packages__flutter__src__widgets__icon_theme_data$46dart.src__widgets__icon_theme_data;
+  const tap = packages__flutter__src__gestures__tap$46dart.src__gestures__tap;
+  var button = Object.create(dart.library);
   dart._checkModuleNullSafetyMode(true);
   var T = {
-    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))()
+    TweenOfdouble: () => (T.TweenOfdouble = dart.constFn(tween.Tween$(core.double)))(),
+    voidToNull: () => (T.voidToNull = dart.constFn(dart.fnType(core.Null, [dart.void])))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 1115059840
+      });
+    },
     get C2() {
       return C[2] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "id",
-        [_Location_column]: 39,
-        [_Location_line]: 70,
-        [_Location_file]: null
+        __proto__: ui.Color.prototype,
+        [Color_value]: 678720640
       });
     },
     get C3() {
       return C[3] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 65,
-        [_Location_line]: 70,
-        [_Location_file]: null
+        __proto__: ui.Color.prototype,
+        [Color_value]: 762738304
       });
     },
-    get C1() {
-      return C[1] = dart.constList([C[2] || CT.C2, C[3] || CT.C3], widget_inspector._Location);
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 343176320
+      });
     },
     get C0() {
       return C[0] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[1] || CT.C1,
-        [_Location_name]: null,
-        [_Location_column]: 30,
-        [_Location_line]: 70,
-        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/widgets/navigation_toolbar.dart"
+        __proto__: colors.CupertinoDynamicColor.prototype,
+        [Color_value]: 0,
+        [CupertinoDynamicColor_darkHighContrastElevatedColor]: C[1] || CT.C1,
+        [CupertinoDynamicColor_highContrastElevatedColor]: C[2] || CT.C2,
+        [CupertinoDynamicColor_darkElevatedColor]: C[3] || CT.C3,
+        [CupertinoDynamicColor_elevatedColor]: C[4] || CT.C4,
+        [CupertinoDynamicColor_darkHighContrastColor]: C[1] || CT.C1,
+        [CupertinoDynamicColor_highContrastColor]: C[2] || CT.C2,
+        [CupertinoDynamicColor_darkColor]: C[3] || CT.C3,
+        [CupertinoDynamicColor_color]: C[4] || CT.C4,
+        [CupertinoDynamicColor__debugResolveContext]: null,
+        [CupertinoDynamicColor__debugLabel]: "quaternarySystemFill",
+        [CupertinoDynamicColor__effectiveColor]: C[4] || CT.C4
       });
     },
     get C6() {
       return C[6] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "id",
-        [_Location_column]: 38,
-        [_Location_line]: 71,
-        [_Location_file]: null
+        __proto__: ui.Radius.prototype,
+        [Radius_y]: 8,
+        [Radius_x]: 8
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: border_radius.BorderRadius.prototype,
+        [BorderRadius_bottomRight]: C[6] || CT.C6,
+        [BorderRadius_bottomLeft]: C[6] || CT.C6,
+        [BorderRadius_topRight]: C[6] || CT.C6,
+        [BorderRadius_topLeft]: C[6] || CT.C6
       });
     },
     get C7() {
       return C[7] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 63,
-        [_Location_line]: 71,
-        [_Location_file]: null
+        __proto__: alignment.Alignment.prototype,
+        [Alignment_y]: 0,
+        [Alignment_x]: 0
       });
-    },
-    get C5() {
-      return C[5] = dart.constList([C[6] || CT.C6, C[7] || CT.C7], widget_inspector._Location);
-    },
-    get C4() {
-      return C[4] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[5] || CT.C5,
-        [_Location_name]: null,
-        [_Location_column]: 29,
-        [_Location_line]: 71,
-        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/widgets/navigation_toolbar.dart"
-      });
-    },
-    get C10() {
-      return C[10] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "id",
-        [_Location_column]: 40,
-        [_Location_line]: 72,
-        [_Location_file]: null
-      });
-    },
-    get C11() {
-      return C[11] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 67,
-        [_Location_line]: 72,
-        [_Location_file]: null
-      });
-    },
-    get C9() {
-      return C[9] = dart.constList([C[10] || CT.C10, C[11] || CT.C11], widget_inspector._Location);
     },
     get C8() {
       return C[8] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[9] || CT.C9,
-        [_Location_name]: null,
-        [_Location_column]: 31,
-        [_Location_line]: 72,
-        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/widgets/navigation_toolbar.dart"
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 200000
       });
     },
-    get C14() {
-      return C[14] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "delegate",
-        [_Location_column]: 7,
-        [_Location_line]: 64,
-        [_Location_file]: null
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: box.BoxConstraints.prototype,
+        [BoxConstraints_maxHeight]: 1 / 0,
+        [BoxConstraints_minHeight]: 0,
+        [BoxConstraints_maxWidth]: 1 / 0,
+        [BoxConstraints_minWidth]: 0
       });
-    },
-    get C15() {
-      return C[15] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 7,
-        [_Location_line]: 69,
-        [_Location_file]: null
-      });
-    },
-    get C13() {
-      return C[13] = dart.constList([C[14] || CT.C14, C[15] || CT.C15], widget_inspector._Location);
     },
     get C12() {
       return C[12] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[13] || CT.C13,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 23,
+        [_Location_line]: 276,
+        [_Location_file]: null
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 23,
+        [_Location_line]: 277,
+        [_Location_file]: null
+      });
+    },
+    get C11() {
+      return C[11] = dart.constList([C[12] || CT.C12, C[13] || CT.C13], widget_inspector._Location);
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[11] || CT.C11,
         [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 63,
-        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/widgets/navigation_toolbar.dart"
+        [_Location_column]: 28,
+        [_Location_line]: 275,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/cupertino/button.dart"
       });
     },
     get C16() {
       return C[16] = dart.const({
-        __proto__: navigation_toolbar._ToolbarSlot.prototype,
-        [_name$]: "_ToolbarSlot.leading",
-        index: 0
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 21,
+        [_Location_line]: 274,
+        [_Location_file]: null
       });
     },
     get C17() {
       return C[17] = dart.const({
-        __proto__: navigation_toolbar._ToolbarSlot.prototype,
-        [_name$]: "_ToolbarSlot.middle",
-        index: 1
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 21,
+        [_Location_line]: 275,
+        [_Location_file]: null
       });
     },
-    get C18() {
-      return C[18] = dart.const({
-        __proto__: navigation_toolbar._ToolbarSlot.prototype,
-        [_name$]: "_ToolbarSlot.trailing",
-        index: 2
-      });
+    get C15() {
+      return C[15] = dart.constList([C[16] || CT.C16, C[17] || CT.C17], widget_inspector._Location);
     },
-    get C19() {
-      return C[19] = dart.constList([C[16] || CT.C16, C[17] || CT.C17, C[18] || CT.C18], navigation_toolbar._ToolbarSlot);
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[15] || CT.C15,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 273,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/cupertino/button.dart"
+      });
     },
     get C20() {
       return C[20] = dart.const({
-        __proto__: ui.TextDirection.prototype,
-        [_name]: "TextDirection.rtl",
-        index: 0
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "alignment",
+        [_Location_column]: 19,
+        [_Location_line]: 270,
+        [_Location_file]: null
       });
     },
     get C21() {
       return C[21] = dart.const({
-        __proto__: ui.TextDirection.prototype,
-        [_name]: "TextDirection.ltr",
-        index: 1
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "widthFactor",
+        [_Location_column]: 19,
+        [_Location_line]: 271,
+        [_Location_file]: null
+      });
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "heightFactor",
+        [_Location_column]: 19,
+        [_Location_line]: 272,
+        [_Location_file]: null
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 19,
+        [_Location_line]: 273,
+        [_Location_file]: null
+      });
+    },
+    get C19() {
+      return C[19] = dart.constList([C[20] || CT.C20, C[21] || CT.C21, C[22] || CT.C22, C[23] || CT.C23], widget_inspector._Location);
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[19] || CT.C19,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 269,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/cupertino/button.dart"
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 17,
+        [_Location_line]: 266,
+        [_Location_file]: null
+      });
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 17,
+        [_Location_line]: 269,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C[25] = dart.constList([C[26] || CT.C26, C[27] || CT.C27], widget_inspector._Location);
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[25] || CT.C25,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 265,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/cupertino/button.dart"
+      });
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 15,
+        [_Location_line]: 259,
+        [_Location_file]: null
+      });
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 265,
+        [_Location_file]: null
+      });
+    },
+    get C29() {
+      return C[29] = dart.constList([C[30] || CT.C30, C[31] || CT.C31], widget_inspector._Location);
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[29] || CT.C29,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 258,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/cupertino/button.dart"
+      });
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "opacity",
+        [_Location_column]: 13,
+        [_Location_line]: 257,
+        [_Location_file]: null
+      });
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 258,
+        [_Location_file]: null
+      });
+    },
+    get C33() {
+      return C[33] = dart.constList([C[34] || CT.C34, C[35] || CT.C35], widget_inspector._Location);
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[33] || CT.C33,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 256,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/cupertino/button.dart"
+      });
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "constraints",
+        [_Location_column]: 11,
+        [_Location_line]: 250,
+        [_Location_file]: null
+      });
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 256,
+        [_Location_file]: null
+      });
+    },
+    get C37() {
+      return C[37] = dart.constList([C[38] || CT.C38, C[39] || CT.C39], widget_inspector._Location);
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[37] || CT.C37,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 249,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/cupertino/button.dart"
+      });
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "button",
+        [_Location_column]: 9,
+        [_Location_line]: 248,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C[43] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 249,
+        [_Location_file]: null
+      });
+    },
+    get C41() {
+      return C[41] = dart.constList([C[42] || CT.C42, C[43] || CT.C43], widget_inspector._Location);
+    },
+    get C40() {
+      return C[40] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[41] || CT.C41,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 247,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/cupertino/button.dart"
+      });
+    },
+    get C46() {
+      return C[46] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "behavior",
+        [_Location_column]: 7,
+        [_Location_line]: 242,
+        [_Location_file]: null
+      });
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTapDown",
+        [_Location_column]: 7,
+        [_Location_line]: 243,
+        [_Location_file]: null
+      });
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTapUp",
+        [_Location_column]: 7,
+        [_Location_line]: 244,
+        [_Location_file]: null
+      });
+    },
+    get C49() {
+      return C[49] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTapCancel",
+        [_Location_column]: 7,
+        [_Location_line]: 245,
+        [_Location_file]: null
+      });
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 7,
+        [_Location_line]: 246,
+        [_Location_file]: null
+      });
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 247,
+        [_Location_file]: null
+      });
+    },
+    get C45() {
+      return C[45] = dart.constList([C[46] || CT.C46, C[47] || CT.C47, C[48] || CT.C48, C[49] || CT.C49, C[50] || CT.C50, C[51] || CT.C51], widget_inspector._Location);
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[45] || CT.C45,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 241,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/cupertino/button.dart"
+      });
+    },
+    get C52() {
+      return C[52] = dart.const({
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 10000
+      });
+    },
+    get C53() {
+      return C[53] = dart.const({
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 100000
+      });
+    },
+    get C54() {
+      return C[54] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 16,
+        [EdgeInsets_right]: 16,
+        [EdgeInsets_top]: 16,
+        [EdgeInsets_left]: 16
+      });
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 14,
+        [EdgeInsets_right]: 64,
+        [EdgeInsets_top]: 14,
+        [EdgeInsets_left]: 64
       });
     }
   }, false);
-  var C = Array(22).fill(void 0);
+  var C = Array(56).fill(void 0);
   var I = [
-    "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/widgets/navigation_toolbar.dart",
-    "package:flutter/src/widgets/navigation_toolbar.dart"
+    "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/cupertino/button.dart",
+    "package:flutter/src/cupertino/button.dart"
   ];
-  var leading$ = dart.privateName(navigation_toolbar, "NavigationToolbar.leading");
-  var middle$ = dart.privateName(navigation_toolbar, "NavigationToolbar.middle");
-  var trailing$ = dart.privateName(navigation_toolbar, "NavigationToolbar.trailing");
-  var centerMiddle$ = dart.privateName(navigation_toolbar, "NavigationToolbar.centerMiddle");
-  var middleSpacing$ = dart.privateName(navigation_toolbar, "NavigationToolbar.middleSpacing");
+  var child$ = dart.privateName(button, "CupertinoButton.child");
+  var padding$ = dart.privateName(button, "CupertinoButton.padding");
+  var color$ = dart.privateName(button, "CupertinoButton.color");
+  var disabledColor$ = dart.privateName(button, "CupertinoButton.disabledColor");
+  var onPressed$ = dart.privateName(button, "CupertinoButton.onPressed");
+  var minSize$ = dart.privateName(button, "CupertinoButton.minSize");
+  var pressedOpacity$ = dart.privateName(button, "CupertinoButton.pressedOpacity");
+  var borderRadius$ = dart.privateName(button, "CupertinoButton.borderRadius");
+  var alignment$ = dart.privateName(button, "CupertinoButton.alignment");
+  var _filled = dart.privateName(button, "CupertinoButton._filled");
+  var Color_value = dart.privateName(ui, "Color.value");
+  var CupertinoDynamicColor_darkHighContrastElevatedColor = dart.privateName(colors, "CupertinoDynamicColor.darkHighContrastElevatedColor");
+  var CupertinoDynamicColor_highContrastElevatedColor = dart.privateName(colors, "CupertinoDynamicColor.highContrastElevatedColor");
+  var CupertinoDynamicColor_darkElevatedColor = dart.privateName(colors, "CupertinoDynamicColor.darkElevatedColor");
+  var CupertinoDynamicColor_elevatedColor = dart.privateName(colors, "CupertinoDynamicColor.elevatedColor");
+  var CupertinoDynamicColor_darkHighContrastColor = dart.privateName(colors, "CupertinoDynamicColor.darkHighContrastColor");
+  var CupertinoDynamicColor_highContrastColor = dart.privateName(colors, "CupertinoDynamicColor.highContrastColor");
+  var CupertinoDynamicColor_darkColor = dart.privateName(colors, "CupertinoDynamicColor.darkColor");
+  var CupertinoDynamicColor_color = dart.privateName(colors, "CupertinoDynamicColor.color");
+  var CupertinoDynamicColor__debugResolveContext = dart.privateName(colors, "CupertinoDynamicColor._debugResolveContext");
+  var CupertinoDynamicColor__debugLabel = dart.privateName(colors, "CupertinoDynamicColor._debugLabel");
+  var CupertinoDynamicColor__effectiveColor = dart.privateName(colors, "CupertinoDynamicColor._effectiveColor");
+  var Radius_y = dart.privateName(ui, "Radius.y");
+  var Radius_x = dart.privateName(ui, "Radius.x");
+  var BorderRadius_bottomRight = dart.privateName(border_radius, "BorderRadius.bottomRight");
+  var BorderRadius_bottomLeft = dart.privateName(border_radius, "BorderRadius.bottomLeft");
+  var BorderRadius_topRight = dart.privateName(border_radius, "BorderRadius.topRight");
+  var BorderRadius_topLeft = dart.privateName(border_radius, "BorderRadius.topLeft");
+  var Alignment_y = dart.privateName(alignment, "Alignment.y");
+  var Alignment_x = dart.privateName(alignment, "Alignment.x");
+  var _filled$ = dart.privateName(button, "_filled");
+  button.CupertinoButton = class CupertinoButton extends framework.StatefulWidget {
+    get child() {
+      return this[child$];
+    }
+    set child(value) {
+      super.child = value;
+    }
+    get padding() {
+      return this[padding$];
+    }
+    set padding(value) {
+      super.padding = value;
+    }
+    get color() {
+      return this[color$];
+    }
+    set color(value) {
+      super.color = value;
+    }
+    get disabledColor() {
+      return this[disabledColor$];
+    }
+    set disabledColor(value) {
+      super.disabledColor = value;
+    }
+    get onPressed() {
+      return this[onPressed$];
+    }
+    set onPressed(value) {
+      super.onPressed = value;
+    }
+    get minSize() {
+      return this[minSize$];
+    }
+    set minSize(value) {
+      super.minSize = value;
+    }
+    get pressedOpacity() {
+      return this[pressedOpacity$];
+    }
+    set pressedOpacity(value) {
+      super.pressedOpacity = value;
+    }
+    get borderRadius() {
+      return this[borderRadius$];
+    }
+    set borderRadius(value) {
+      super.borderRadius = value;
+    }
+    get alignment() {
+      return this[alignment$];
+    }
+    set alignment(value) {
+      super.alignment = value;
+    }
+    get [_filled$]() {
+      return this[_filled];
+    }
+    set [_filled$](value) {
+      super[_filled$] = value;
+    }
+    get enabled() {
+      return this.onPressed != null;
+    }
+    createState() {
+      return new button._CupertinoButtonState.new();
+    }
+    debugFillProperties(properties) {
+      super.debugFillProperties(properties);
+      properties.add(new diagnostics.FlagProperty.new("enabled", {value: this.enabled, ifFalse: "disabled"}));
+    }
+  };
+  (button.CupertinoButton.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let child = opts && 'child' in opts ? opts.child : null;
+    let padding = opts && 'padding' in opts ? opts.padding : null;
+    let color = opts && 'color' in opts ? opts.color : null;
+    let disabledColor = opts && 'disabledColor' in opts ? opts.disabledColor : C[0] || CT.C0;
+    let minSize = opts && 'minSize' in opts ? opts.minSize : 44;
+    let pressedOpacity = opts && 'pressedOpacity' in opts ? opts.pressedOpacity : 0.4;
+    let borderRadius = opts && 'borderRadius' in opts ? opts.borderRadius : C[5] || CT.C5;
+    let alignment = opts && 'alignment' in opts ? opts.alignment : C[7] || CT.C7;
+    let onPressed = opts && 'onPressed' in opts ? opts.onPressed : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[child$] = child;
+    this[padding$] = padding;
+    this[color$] = color;
+    this[disabledColor$] = disabledColor;
+    this[minSize$] = minSize;
+    this[pressedOpacity$] = pressedOpacity;
+    this[borderRadius$] = borderRadius;
+    this[alignment$] = alignment;
+    this[onPressed$] = onPressed;
+    if (!(pressedOpacity == null || dart.notNull(pressedOpacity) >= 0.0 && dart.notNull(pressedOpacity) <= 1.0)) dart.assertFailed(null, I[0], 45, 15, "pressedOpacity == null || (pressedOpacity >= 0.0 && pressedOpacity <= 1.0)");
+    if (!(disabledColor !== null)) dart.assertFailed(null, I[0], 46, 15, "disabledColor != null");
+    if (!(alignment !== null)) dart.assertFailed(null, I[0], 47, 15, "alignment != null");
+    this[_filled] = false;
+    button.CupertinoButton.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = button.CupertinoButton.prototype;
+  (button.CupertinoButton.filled = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let child = opts && 'child' in opts ? opts.child : null;
+    let padding = opts && 'padding' in opts ? opts.padding : null;
+    let disabledColor = opts && 'disabledColor' in opts ? opts.disabledColor : C[0] || CT.C0;
+    let minSize = opts && 'minSize' in opts ? opts.minSize : 44;
+    let pressedOpacity = opts && 'pressedOpacity' in opts ? opts.pressedOpacity : 0.4;
+    let borderRadius = opts && 'borderRadius' in opts ? opts.borderRadius : C[5] || CT.C5;
+    let alignment = opts && 'alignment' in opts ? opts.alignment : C[7] || CT.C7;
+    let onPressed = opts && 'onPressed' in opts ? opts.onPressed : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[child$] = child;
+    this[padding$] = padding;
+    this[disabledColor$] = disabledColor;
+    this[minSize$] = minSize;
+    this[pressedOpacity$] = pressedOpacity;
+    this[borderRadius$] = borderRadius;
+    this[alignment$] = alignment;
+    this[onPressed$] = onPressed;
+    if (!(pressedOpacity == null || dart.notNull(pressedOpacity) >= 0.0 && dart.notNull(pressedOpacity) <= 1.0)) dart.assertFailed(null, I[0], 67, 15, "pressedOpacity == null || (pressedOpacity >= 0.0 && pressedOpacity <= 1.0)");
+    if (!(disabledColor !== null)) dart.assertFailed(null, I[0], 68, 15, "disabledColor != null");
+    if (!(alignment !== null)) dart.assertFailed(null, I[0], 69, 15, "alignment != null");
+    this[color$] = null;
+    this[_filled] = true;
+    button.CupertinoButton.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = button.CupertinoButton.prototype;
+  dart.addTypeTests(button.CupertinoButton);
+  dart.addTypeCaches(button.CupertinoButton);
+  dart.setMethodSignature(button.CupertinoButton, () => ({
+    __proto__: dart.getMethods(button.CupertinoButton.__proto__),
+    createState: dart.fnType(button._CupertinoButtonState, [])
+  }));
+  dart.setGetterSignature(button.CupertinoButton, () => ({
+    __proto__: dart.getGetters(button.CupertinoButton.__proto__),
+    enabled: core.bool
+  }));
+  dart.setLibraryUri(button.CupertinoButton, I[1]);
+  dart.setFieldSignature(button.CupertinoButton, () => ({
+    __proto__: dart.getFields(button.CupertinoButton.__proto__),
+    child: dart.finalFieldType(framework.Widget),
+    padding: dart.finalFieldType(dart.nullable(edge_insets.EdgeInsetsGeometry)),
+    color: dart.finalFieldType(dart.nullable(ui.Color)),
+    disabledColor: dart.finalFieldType(ui.Color),
+    onPressed: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
+    minSize: dart.finalFieldType(dart.nullable(core.double)),
+    pressedOpacity: dart.finalFieldType(dart.nullable(core.double)),
+    borderRadius: dart.finalFieldType(dart.nullable(border_radius.BorderRadius)),
+    alignment: dart.finalFieldType(alignment.AlignmentGeometry),
+    [_filled$]: dart.finalFieldType(core.bool)
+  }));
+  var _opacityTween = dart.privateName(button, "_opacityTween");
+  var ___CupertinoButtonState__animationController = dart.privateName(button, "_#_CupertinoButtonState#_animationController");
+  var ___CupertinoButtonState__opacityAnimation = dart.privateName(button, "_#_CupertinoButtonState#_opacityAnimation");
+  var _buttonHeldDown = dart.privateName(button, "_buttonHeldDown");
+  var _animationController = dart.privateName(button, "_animationController");
+  var _opacityAnimation = dart.privateName(button, "_opacityAnimation");
+  var Duration__duration = dart.privateName(core, "Duration._duration");
+  var _setTween = dart.privateName(button, "_setTween");
+  var _animate = dart.privateName(button, "_animate");
+  var _handleTapDown = dart.privateName(button, "_handleTapDown");
+  var _handleTapUp = dart.privateName(button, "_handleTapUp");
+  var _handleTapCancel = dart.privateName(button, "_handleTapCancel");
+  var BoxConstraints_maxHeight = dart.privateName(box, "BoxConstraints.maxHeight");
+  var BoxConstraints_minHeight = dart.privateName(box, "BoxConstraints.minHeight");
+  var BoxConstraints_maxWidth = dart.privateName(box, "BoxConstraints.maxWidth");
+  var BoxConstraints_minWidth = dart.privateName(box, "BoxConstraints.minWidth");
   var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
   var _Location_name = dart.privateName(widget_inspector, "_Location.name");
   var _Location_column = dart.privateName(widget_inspector, "_Location.column");
   var _Location_line = dart.privateName(widget_inspector, "_Location.line");
   var _Location_file = dart.privateName(widget_inspector, "_Location.file");
-  navigation_toolbar.NavigationToolbar = class NavigationToolbar extends framework.StatelessWidget {
-    get leading() {
-      return this[leading$];
+  const State_SingleTickerProviderStateMixin$36 = class State_SingleTickerProviderStateMixin extends framework.State$(button.CupertinoButton) {};
+  (State_SingleTickerProviderStateMixin$36.new = function() {
+    ticker_provider.SingleTickerProviderStateMixin$(button.CupertinoButton)[dart.mixinNew].call(this);
+    State_SingleTickerProviderStateMixin$36.__proto__.new.call(this);
+  }).prototype = State_SingleTickerProviderStateMixin$36.prototype;
+  dart.applyMixin(State_SingleTickerProviderStateMixin$36, ticker_provider.SingleTickerProviderStateMixin$(button.CupertinoButton));
+  button._CupertinoButtonState = class _CupertinoButtonState extends State_SingleTickerProviderStateMixin$36 {
+    get [_animationController]() {
+      let t0;
+      t0 = this[___CupertinoButtonState__animationController];
+      return t0 == null ? dart.throw(new _internal.LateError.fieldNI("_animationController")) : t0;
     }
-    set leading(value) {
-      super.leading = value;
+    set [_animationController](t0) {
+      this[___CupertinoButtonState__animationController] = t0;
     }
-    get middle() {
-      return this[middle$];
+    get [_opacityAnimation]() {
+      let t1;
+      t1 = this[___CupertinoButtonState__opacityAnimation];
+      return t1 == null ? dart.throw(new _internal.LateError.fieldNI("_opacityAnimation")) : t1;
     }
-    set middle(value) {
-      super.middle = value;
+    set [_opacityAnimation](t1) {
+      this[___CupertinoButtonState__opacityAnimation] = t1;
     }
-    get trailing() {
-      return this[trailing$];
+    initState() {
+      super.initState();
+      this[_animationController] = new animation_controller.AnimationController.new({duration: C[8] || CT.C8, value: 0.0, vsync: this});
+      this[_opacityAnimation] = this[_animationController].drive(core.double, new tween.CurveTween.new({curve: curves.Curves.decelerate})).drive(core.double, this[_opacityTween]);
+      this[_setTween]();
     }
-    set trailing(value) {
-      super.trailing = value;
+    didUpdateWidget(old) {
+      button.CupertinoButton.as(old);
+      super.didUpdateWidget(old);
+      this[_setTween]();
     }
-    get centerMiddle() {
-      return this[centerMiddle$];
+    [_setTween]() {
+      let t2;
+      this[_opacityTween].end = (t2 = this.widget.pressedOpacity, t2 == null ? 1.0 : t2);
     }
-    set centerMiddle(value) {
-      super.centerMiddle = value;
+    dispose() {
+      this[_animationController].dispose();
+      super.dispose();
     }
-    get middleSpacing() {
-      return this[middleSpacing$];
+    [_handleTapDown](event) {
+      if (!this[_buttonHeldDown]) {
+        this[_buttonHeldDown] = true;
+        this[_animate]();
+      }
     }
-    set middleSpacing(value) {
-      super.middleSpacing = value;
+    [_handleTapUp](event) {
+      if (this[_buttonHeldDown]) {
+        this[_buttonHeldDown] = false;
+        this[_animate]();
+      }
+    }
+    [_handleTapCancel]() {
+      if (this[_buttonHeldDown]) {
+        this[_buttonHeldDown] = false;
+        this[_animate]();
+      }
+    }
+    [_animate]() {
+      if (this[_animationController].isAnimating) return;
+      let wasHeldDown = this[_buttonHeldDown];
+      let ticker = this[_buttonHeldDown] ? this[_animationController].animateTo(1.0, {duration: button._CupertinoButtonState.kFadeOutDuration}) : this[_animationController].animateTo(0.0, {duration: button._CupertinoButtonState.kFadeInDuration});
+      ticker.then(dart.void, dart.fn(value => {
+        if (this.mounted && wasHeldDown !== this[_buttonHeldDown]) this[_animate]();
+      }, T.voidToNull()));
     }
     build(context) {
-      if (!debug.debugCheckHasDirectionality(context)) dart.assertFailed(null, I[0], 61, 12, "debugCheckHasDirectionality(context)");
-      let textDirection = basic.Directionality.of(context);
-      return new basic.CustomMultiChildLayout.new({delegate: new navigation_toolbar._ToolbarLayout.new({centerMiddle: this.centerMiddle, middleSpacing: this.middleSpacing, textDirection: textDirection}), children: (() => {
-          let t0 = T.JSArrayOfWidget().of([]);
-          if (this.leading != null) t0[$add](new basic.LayoutId.new({id: navigation_toolbar._ToolbarSlot.leading, child: dart.nullCheck(this.leading), $creationLocationd_0dea112b090073317d4: C[0] || CT.C0}));
-          if (this.middle != null) t0[$add](new basic.LayoutId.new({id: navigation_toolbar._ToolbarSlot.middle, child: dart.nullCheck(this.middle), $creationLocationd_0dea112b090073317d4: C[4] || CT.C4}));
-          if (this.trailing != null) t0[$add](new basic.LayoutId.new({id: navigation_toolbar._ToolbarSlot.trailing, child: dart.nullCheck(this.trailing), $creationLocationd_0dea112b090073317d4: C[8] || CT.C8}));
-          return t0;
-        })(), $creationLocationd_0dea112b090073317d4: C[12] || CT.C12});
+      let t2;
+      let enabled = this.widget.enabled;
+      let themeData = theme.CupertinoTheme.of(context);
+      let primaryColor = themeData.primaryColor;
+      let backgroundColor = this.widget.color == null ? this.widget[_filled$] ? primaryColor : null : colors.CupertinoDynamicColor.maybeResolve(this.widget.color, context);
+      let foregroundColor = backgroundColor != null ? themeData.primaryContrastingColor : enabled ? primaryColor : colors.CupertinoDynamicColor.resolve(colors.CupertinoColors.placeholderText, context);
+      let textStyle = themeData.textTheme.textStyle.copyWith({color: foregroundColor});
+      return new gesture_detector.GestureDetector.new({behavior: proxy_box.HitTestBehavior.opaque, onTapDown: enabled ? dart.bind(this, _handleTapDown) : null, onTapUp: enabled ? dart.bind(this, _handleTapUp) : null, onTapCancel: enabled ? dart.bind(this, _handleTapCancel) : null, onTap: this.widget.onPressed, child: new basic.Semantics.new({button: true, child: new basic.ConstrainedBox.new({constraints: this.widget.minSize == null ? C[9] || CT.C9 : new box.BoxConstraints.new({minWidth: dart.nullCheck(this.widget.minSize), minHeight: dart.nullCheck(this.widget.minSize)}), child: new transitions.FadeTransition.new({opacity: this[_opacityAnimation], child: new container.DecoratedBox.new({decoration: new box_decoration.BoxDecoration.new({borderRadius: this.widget.borderRadius, color: backgroundColor != null && !enabled ? colors.CupertinoDynamicColor.resolve(this.widget.disabledColor, context) : backgroundColor}), child: new basic.Padding.new({padding: (t2 = this.widget.padding, t2 == null ? backgroundColor != null ? button._kBackgroundButtonPadding : button._kButtonPadding : t2), child: new basic.Align.new({alignment: this.widget.alignment, widthFactor: 1.0, heightFactor: 1.0, child: new text.DefaultTextStyle.new({style: textStyle, child: new icon_theme.IconTheme.new({data: new icon_theme_data.IconThemeData.new({color: foregroundColor}), child: this.widget.child, $creationLocationd_0dea112b090073317d4: C[10] || CT.C10}), $creationLocationd_0dea112b090073317d4: C[14] || CT.C14}), $creationLocationd_0dea112b090073317d4: C[18] || CT.C18}), $creationLocationd_0dea112b090073317d4: C[24] || CT.C24}), $creationLocationd_0dea112b090073317d4: C[28] || CT.C28}), $creationLocationd_0dea112b090073317d4: C[32] || CT.C32}), $creationLocationd_0dea112b090073317d4: C[36] || CT.C36}), $creationLocationd_0dea112b090073317d4: C[40] || CT.C40}), $creationLocationd_0dea112b090073317d4: C[44] || CT.C44});
     }
   };
-  (navigation_toolbar.NavigationToolbar.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let leading = opts && 'leading' in opts ? opts.leading : null;
-    let middle = opts && 'middle' in opts ? opts.middle : null;
-    let trailing = opts && 'trailing' in opts ? opts.trailing : null;
-    let centerMiddle = opts && 'centerMiddle' in opts ? opts.centerMiddle : true;
-    let middleSpacing = opts && 'middleSpacing' in opts ? opts.middleSpacing : 16;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[leading$] = leading;
-    this[middle$] = middle;
-    this[trailing$] = trailing;
-    this[centerMiddle$] = centerMiddle;
-    this[middleSpacing$] = middleSpacing;
-    if (!(centerMiddle !== null)) dart.assertFailed(null, I[0], 33, 15, "centerMiddle != null");
-    if (!(middleSpacing !== null)) dart.assertFailed(null, I[0], 34, 15, "middleSpacing != null");
-    navigation_toolbar.NavigationToolbar.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+  (button._CupertinoButtonState.new = function() {
+    this[_opacityTween] = new (T.TweenOfdouble()).new({begin: 1.0});
+    this[___CupertinoButtonState__animationController] = null;
+    this[___CupertinoButtonState__opacityAnimation] = null;
+    this[_buttonHeldDown] = false;
+    button._CupertinoButtonState.__proto__.new.call(this);
     ;
-  }).prototype = navigation_toolbar.NavigationToolbar.prototype;
-  dart.addTypeTests(navigation_toolbar.NavigationToolbar);
-  dart.addTypeCaches(navigation_toolbar.NavigationToolbar);
-  dart.setMethodSignature(navigation_toolbar.NavigationToolbar, () => ({
-    __proto__: dart.getMethods(navigation_toolbar.NavigationToolbar.__proto__),
+  }).prototype = button._CupertinoButtonState.prototype;
+  dart.addTypeTests(button._CupertinoButtonState);
+  dart.addTypeCaches(button._CupertinoButtonState);
+  dart.setMethodSignature(button._CupertinoButtonState, () => ({
+    __proto__: dart.getMethods(button._CupertinoButtonState.__proto__),
+    [_setTween]: dart.fnType(dart.void, []),
+    [_handleTapDown]: dart.fnType(dart.void, [tap.TapDownDetails]),
+    [_handleTapUp]: dart.fnType(dart.void, [tap.TapUpDetails]),
+    [_handleTapCancel]: dart.fnType(dart.void, []),
+    [_animate]: dart.fnType(dart.void, []),
     build: dart.fnType(framework.Widget, [framework.BuildContext])
   }));
-  dart.setLibraryUri(navigation_toolbar.NavigationToolbar, I[1]);
-  dart.setFieldSignature(navigation_toolbar.NavigationToolbar, () => ({
-    __proto__: dart.getFields(navigation_toolbar.NavigationToolbar.__proto__),
-    leading: dart.finalFieldType(dart.nullable(framework.Widget)),
-    middle: dart.finalFieldType(dart.nullable(framework.Widget)),
-    trailing: dart.finalFieldType(dart.nullable(framework.Widget)),
-    centerMiddle: dart.finalFieldType(core.bool),
-    middleSpacing: dart.finalFieldType(core.double)
+  dart.setGetterSignature(button._CupertinoButtonState, () => ({
+    __proto__: dart.getGetters(button._CupertinoButtonState.__proto__),
+    [_animationController]: animation_controller.AnimationController,
+    [_opacityAnimation]: animation.Animation$(core.double)
   }));
-  dart.defineLazy(navigation_toolbar.NavigationToolbar, {
-    /*navigation_toolbar.NavigationToolbar.kMiddleSpacing*/get kMiddleSpacing() {
-      return 16;
+  dart.setSetterSignature(button._CupertinoButtonState, () => ({
+    __proto__: dart.getSetters(button._CupertinoButtonState.__proto__),
+    [_animationController]: animation_controller.AnimationController,
+    [_opacityAnimation]: animation.Animation$(core.double)
+  }));
+  dart.setLibraryUri(button._CupertinoButtonState, I[1]);
+  dart.setFieldSignature(button._CupertinoButtonState, () => ({
+    __proto__: dart.getFields(button._CupertinoButtonState.__proto__),
+    [_opacityTween]: dart.finalFieldType(tween.Tween$(core.double)),
+    [___CupertinoButtonState__animationController]: dart.fieldType(dart.nullable(animation_controller.AnimationController)),
+    [___CupertinoButtonState__opacityAnimation]: dart.fieldType(dart.nullable(animation.Animation$(core.double))),
+    [_buttonHeldDown]: dart.fieldType(core.bool)
+  }));
+  dart.defineLazy(button._CupertinoButtonState, {
+    /*button._CupertinoButtonState.kFadeOutDuration*/get kFadeOutDuration() {
+      return C[52] || CT.C52;
+    },
+    /*button._CupertinoButtonState.kFadeInDuration*/get kFadeInDuration() {
+      return C[53] || CT.C53;
     }
   }, false);
-  var _name$ = dart.privateName(navigation_toolbar, "_name");
-  navigation_toolbar._ToolbarSlot = class _ToolbarSlot extends core.Object {
-    toString() {
-      return this[_name$];
+  var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
+  var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
+  var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
+  var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
+  dart.defineLazy(button, {
+    /*button._kButtonPadding*/get _kButtonPadding() {
+      return C[54] || CT.C54;
+    },
+    /*button._kBackgroundButtonPadding*/get _kBackgroundButtonPadding() {
+      return C[55] || CT.C55;
     }
-  };
-  (navigation_toolbar._ToolbarSlot.new = function(index, _name) {
-    this.index = index;
-    this[_name$] = _name;
-    ;
-  }).prototype = navigation_toolbar._ToolbarSlot.prototype;
-  dart.addTypeTests(navigation_toolbar._ToolbarSlot);
-  dart.addTypeCaches(navigation_toolbar._ToolbarSlot);
-  dart.setLibraryUri(navigation_toolbar._ToolbarSlot, I[1]);
-  dart.setFieldSignature(navigation_toolbar._ToolbarSlot, () => ({
-    __proto__: dart.getFields(navigation_toolbar._ToolbarSlot.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(navigation_toolbar._ToolbarSlot, ['toString']);
-  navigation_toolbar._ToolbarSlot.leading = C[16] || CT.C16;
-  navigation_toolbar._ToolbarSlot.middle = C[17] || CT.C17;
-  navigation_toolbar._ToolbarSlot.trailing = C[18] || CT.C18;
-  navigation_toolbar._ToolbarSlot.values = C[19] || CT.C19;
-  var _name = dart.privateName(ui, "_name");
-  navigation_toolbar._ToolbarLayout = class _ToolbarLayout extends custom_layout.MultiChildLayoutDelegate {
-    performLayout(size) {
-      let leadingWidth = 0.0;
-      let trailingWidth = 0.0;
-      if (this.hasChild(navigation_toolbar._ToolbarSlot.leading)) {
-        let constraints = new box.BoxConstraints.new({minWidth: 0.0, maxWidth: size.width / 3.0, minHeight: size.height, maxHeight: size.height});
-        leadingWidth = this.layoutChild(navigation_toolbar._ToolbarSlot.leading, constraints).width;
-        let leadingX = null;
-        switch (this.textDirection) {
-          case C[20] || CT.C20:
-          {
-            leadingX = size.width - leadingWidth;
-            break;
-          }
-          case C[21] || CT.C21:
-          {
-            leadingX = 0.0;
-            break;
-          }
-        }
-        this.positionChild(navigation_toolbar._ToolbarSlot.leading, new ui.Offset.new(leadingX, 0.0));
-      }
-      if (this.hasChild(navigation_toolbar._ToolbarSlot.trailing)) {
-        let constraints = new box.BoxConstraints.loose(size);
-        let trailingSize = this.layoutChild(navigation_toolbar._ToolbarSlot.trailing, constraints);
-        let trailingX = null;
-        switch (this.textDirection) {
-          case C[20] || CT.C20:
-          {
-            trailingX = 0.0;
-            break;
-          }
-          case C[21] || CT.C21:
-          {
-            trailingX = size.width - trailingSize.width;
-            break;
-          }
-        }
-        let trailingY = (size.height - trailingSize.height) / 2.0;
-        trailingWidth = trailingSize.width;
-        this.positionChild(navigation_toolbar._ToolbarSlot.trailing, new ui.Offset.new(trailingX, trailingY));
-      }
-      if (this.hasChild(navigation_toolbar._ToolbarSlot.middle)) {
-        let maxWidth = math.max(core.double, size.width - leadingWidth - trailingWidth - this.middleSpacing * 2.0, 0.0);
-        let constraints = new box.BoxConstraints.loose(size).copyWith({maxWidth: maxWidth});
-        let middleSize = this.layoutChild(navigation_toolbar._ToolbarSlot.middle, constraints);
-        let middleStartMargin = leadingWidth + this.middleSpacing;
-        let middleStart = middleStartMargin;
-        let middleY = (size.height - middleSize.height) / 2.0;
-        if (this.centerMiddle) {
-          middleStart = (size.width - middleSize.width) / 2.0;
-          if (middleStart + middleSize.width > size.width - trailingWidth)
-            middleStart = size.width - trailingWidth - middleSize.width;
-          else if (middleStart < middleStartMargin) middleStart = middleStartMargin;
-        }
-        let middleX = null;
-        switch (this.textDirection) {
-          case C[20] || CT.C20:
-          {
-            middleX = size.width - middleSize.width - middleStart;
-            break;
-          }
-          case C[21] || CT.C21:
-          {
-            middleX = middleStart;
-            break;
-          }
-        }
-        this.positionChild(navigation_toolbar._ToolbarSlot.middle, new ui.Offset.new(middleX, middleY));
-      }
-    }
-    shouldRelayout(oldDelegate) {
-      navigation_toolbar._ToolbarLayout.as(oldDelegate);
-      return oldDelegate.centerMiddle !== this.centerMiddle || oldDelegate.middleSpacing !== this.middleSpacing || oldDelegate.textDirection !== this.textDirection;
-    }
-  };
-  (navigation_toolbar._ToolbarLayout.new = function(opts) {
-    let centerMiddle = opts && 'centerMiddle' in opts ? opts.centerMiddle : null;
-    let middleSpacing = opts && 'middleSpacing' in opts ? opts.middleSpacing : null;
-    let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
-    this.centerMiddle = centerMiddle;
-    this.middleSpacing = middleSpacing;
-    this.textDirection = textDirection;
-    if (!(middleSpacing !== null)) dart.assertFailed(null, I[0], 89, 15, "middleSpacing != null");
-    if (!(textDirection !== null)) dart.assertFailed(null, I[0], 90, 15, "textDirection != null");
-    navigation_toolbar._ToolbarLayout.__proto__.new.call(this);
-    ;
-  }).prototype = navigation_toolbar._ToolbarLayout.prototype;
-  dart.addTypeTests(navigation_toolbar._ToolbarLayout);
-  dart.addTypeCaches(navigation_toolbar._ToolbarLayout);
-  dart.setMethodSignature(navigation_toolbar._ToolbarLayout, () => ({
-    __proto__: dart.getMethods(navigation_toolbar._ToolbarLayout.__proto__),
-    performLayout: dart.fnType(dart.void, [ui.Size]),
-    shouldRelayout: dart.fnType(core.bool, [dart.nullable(core.Object)])
-  }));
-  dart.setLibraryUri(navigation_toolbar._ToolbarLayout, I[1]);
-  dart.setFieldSignature(navigation_toolbar._ToolbarLayout, () => ({
-    __proto__: dart.getFields(navigation_toolbar._ToolbarLayout.__proto__),
-    centerMiddle: dart.finalFieldType(core.bool),
-    middleSpacing: dart.finalFieldType(core.double),
-    textDirection: dart.finalFieldType(ui.TextDirection)
-  }));
-  dart.trackLibraries("packages/flutter/src/widgets/navigation_toolbar.dart", {
-    "package:flutter/src/widgets/navigation_toolbar.dart": navigation_toolbar
+  }, false);
+  dart.trackLibraries("packages/flutter/src/cupertino/button.dart", {
+    "package:flutter/src/cupertino/button.dart": button
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["navigation_toolbar.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/flutter/src/widgets/navigation_toolbar.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["button.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IA4Ee;;;;;;IAKa;;;;;;IAQb;;;;;;IAQD;;;;;;IAKQ;;;;;;IAMN;;;;;;IAOA;;;;;;IAKM;;;;;;IAUI;;;;;;IAEb;;;;;;;AAIS,YAAA,AAAU;IAAO;;AAGE;IAAuB;wBAGT;AACd,MAA/B,0BAAoB,UAAU;AACwC,MAA5E,AAAW,UAAD,KAAK,iCAAa,mBAAkB,uBAAkB;IAClE;;;QA/GO;QACS;QACT;QACA;QACA;QACA;QACA;QACA;QACA;QACS;;IARA;IACT;IACA;IACA;IACA;IACA;IACA;IACA;IACS;UACJ,AAAe,AAAQ,cAAT,YAA4B,aAAf,cAAc,KAAI,OAAsB,aAAf,cAAc,KAAI;UACtE,AAAc,aAAD;UACb,AAAU,SAAD;IACR,gBAAE;AACV,0DAAW,GAAG;;EAAC;;QASb;QACS;QACT;QACA;QACA;QACA;QACA;QACA;QACS;;IAPA;IACT;IACA;IACA;IACA;IACA;IACA;IACS;UACJ,AAAe,AAAQ,cAAT,YAA4B,aAAf,cAAc,KAAI,OAAsB,aAAf,cAAc,KAAI;UACtE,AAAc,aAAD;UACb,AAAU,SAAD;IACV,eAAE;IACA,gBAAE;AACV,0DAAW,GAAG;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAmFK;;IAAoB;;AAApB;IAAoB;;;AACtB;;IAAiB;;AAAjB;IAAiB;;AAIrB,MAAX;AAKL,MAJD,6BAAuB,kFAEd,YACA;AAIc,MAFvB,0BAAoB,AACjB,AACA,8CADM,iCAAyB,+CACzB;AACE,MAAX;IACF;;gCAGqC;AACT,MAApB,sBAAgB,GAAG;AACd,MAAX;IACF;;;AAGkD,MAAhD,AAAc,2BAA4B,KAAtB,AAAO,4BAAA,aAAkB;IAC/C;;AAIgC,MAA9B,AAAqB;AACN,MAAT;IACR;qBAImC;AACjC,WAAK;AACmB,QAAtB,wBAAkB;AACR,QAAV;;IAEJ;mBAE+B;AAC7B,UAAI;AACqB,QAAvB,wBAAkB;AACR,QAAV;;IAEJ;;AAGE,UAAI;AACqB,QAAvB,wBAAkB;AACR,QAAV;;IAEJ;;AAGE,UAAI,AAAqB,wCACvB;AACS,wBAAc;AACN,mBAAS,wBACtB,AAAqB,qCAAU,gBAAe,kDAC9C,AAAqB,qCAAU,gBAAe;AAIlD,MAHF,AAAO,MAAD,iBAAY,QAAM;AACtB,YAAI,gBAAW,WAAW,KAAI,uBAC5B,AAAU;;IAEhB;UAG0B;;AACb,oBAAU,AAAO;AACH,sBAA2B,wBAAG,OAAO;AAClD,yBAAe,AAAU,SAAD;AACvB,4BAAkB,AAAO,AAAM,4BACvC,AAAO,wBAAU,YAAY,GAAG,OACX,0CAAa,AAAO,mBAAO,OAAO;AAEhD,4BAAkB,AAAgB,eAAD,WACzC,AAAU,SAAD,2BACT,OAAO,GACL,YAAY,GACU,qCAAwB,wCAAiB,OAAO;AAE5D,sBAAY,AAAU,AAAU,AAAU,SAArB,sCAAqC,eAAe;AAEzF,YAAO,qDACqB,6CACf,OAAO,aAAG,wBAAiB,eAC7B,OAAO,aAAG,sBAAe,mBACrB,OAAO,aAAG,0BAAmB,aACnC,AAAO,8BACP,iCACG,aACD,2CACQ,AAAO,AAAQ,8CAExB,sCAC0B,eAAd,AAAO,iCACQ,eAAd,AAAO,+BAEjB,6CACI,gCACF,4CACO,oDACI,AAAO,iCACd,AAAwB,eAAT,aAAa,OAAO,GAChB,qCAAQ,AAAO,2BAAe,OAAO,IAC3D,eAAe,WAEd,iCACmB,KAAf,AAAO,qBAAA,aAAY,AAAgB,eAAD,WACvC,mCACA,qCACG,gCACM,AAAO,oCACL,mBACC,YACP,sCACE,SAAS,SACT,oCACC,8CAAqB,eAAe,WACnC,AAAO;IAUlC;;;IAtIoB,sBAAgB,oCAAqB;yDAEhC;sDACF;IAgClB,wBAAkB;;;EAoGzB;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MAzIwB,6CAAgB;;;MAChB,4CAAe;;;;;;;;;MA3ItB,sBAAe;;;MACf,gCAAyB","file":"../../../../../../../../../packages/flutter/src/cupertino/button.dart.lib.js"}');
   // Exports:
   return {
-    src__widgets__navigation_toolbar: navigation_toolbar
+    src__cupertino__button: button
   };
 }));
 
-//# sourceMappingURL=navigation_toolbar.dart.lib.js.map
+//# sourceMappingURL=button.dart.lib.js.map

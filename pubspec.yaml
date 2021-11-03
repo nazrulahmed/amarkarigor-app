@@ -1,7 +1,7 @@
-name: amarkarigor
+name: amar_karigor
 version: 1.0.0+1
 publish_to: none
-description: A new Flutter project.
+description: Amar Karigor.
 environment: 
   sdk: '>=2.12.0 <3.0.0'
 
@@ -18,4 +18,6 @@ dev_dependencies:
 
 flutter: 
   uses-material-design: true
+  assets:
+    - assets/icons/
 

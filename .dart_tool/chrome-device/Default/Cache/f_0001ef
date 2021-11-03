@@ -1,18 +1,29 @@
-define(['dart_sdk', 'packages/flutter/src/gestures/velocity_tracker.dart', 'packages/flutter/src/gestures/constants.dart', 'packages/flutter/src/gestures/arena.dart', 'packages/flutter/src/gestures/events.dart', 'packages/flutter/src/gestures/recognizer.dart'], (function load__packages__flutter__src__gestures__long_press_dart(dart_sdk, packages__flutter__src__gestures__velocity_tracker$46dart, packages__flutter__src__gestures__constants$46dart, packages__flutter__src__gestures__arena$46dart, packages__flutter__src__gestures__events$46dart, packages__flutter__src__gestures__recognizer$46dart) {
+define(['dart_sdk', 'packages/flutter/src/foundation/object.dart', 'packages/flutter/src/foundation/collections.dart', 'packages/flutter/src/foundation/debug.dart'], (function load__packages__flutter__src__painting__colors_dart(dart_sdk, packages__flutter__src__foundation__object$46dart, packages__flutter__src__foundation__collections$46dart, packages__flutter__src__foundation__debug$46dart) {
   'use strict';
   const core = dart_sdk.core;
+  const math = dart_sdk.math;
   const ui = dart_sdk.ui;
+  const _js_helper = dart_sdk._js_helper;
+  const _internal = dart_sdk._internal;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const velocity_tracker = packages__flutter__src__gestures__velocity_tracker$46dart.src__gestures__velocity_tracker;
-  const constants = packages__flutter__src__gestures__constants$46dart.src__gestures__constants;
-  const arena = packages__flutter__src__gestures__arena$46dart.src__gestures__arena;
-  const events = packages__flutter__src__gestures__events$46dart.src__gestures__events;
-  const recognizer = packages__flutter__src__gestures__recognizer$46dart.src__gestures__recognizer;
-  var long_press = Object.create(dart.library);
+  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
+  const collections = packages__flutter__src__foundation__collections$46dart.src__foundation__collections;
+  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
+  var colors = Object.create(dart.library);
+  var $modulo = dartx['%'];
+  var $abs = dartx.abs;
+  var $clamp = dartx.clamp;
+  var $_get = dartx._get;
+  var $runtimeType = dartx.runtimeType;
+  var $_set = dartx._set;
+  var $isNaN = dartx.isNaN;
+  var $round = dartx.round;
   dart._checkModuleNullSafetyMode(true);
   var T = {
-    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))()
+    IdentityMapOfString$Object: () => (T.IdentityMapOfString$Object = dart.constFn(_js_helper.IdentityMap$(core.String, core.Object)))(),
+    VoidTodouble: () => (T.VoidTodouble = dart.constFn(dart.fnType(core.double, [])))(),
+    doubleTodynamic: () => (T.doubleTodynamic = dart.constFn(dart.fnType(dart.dynamic, [core.double])))()
   };
   const CT = Object.create({
     _: () => (C, CT)
@@ -20,536 +31,412 @@ define(['dart_sdk', 'packages/flutter/src/gestures/velocity_tracker.dart', 'pack
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: ui.Offset.prototype,
-        [OffsetBase__dy]: 0,
-        [OffsetBase__dx]: 0
+        __proto__: diagnostics._NoDefaultValue.prototype
       });
     },
     get C1() {
       return C[1] = dart.const({
-        __proto__: velocity_tracker.Velocity.prototype,
-        [Velocity_pixelsPerSecond]: C[0] || CT.C0
+        __proto__: diagnostics.DiagnosticsTreeStyle.prototype,
+        [_name]: "DiagnosticsTreeStyle.singleLine",
+        index: 8
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: diagnostics.DiagnosticLevel.prototype,
+        [_name]: "DiagnosticLevel.info",
+        index: 3
       });
     }
   }, false);
-  var C = Array(2).fill(void 0);
+  var C = Array(3).fill(void 0);
   var I = [
-    "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/gestures/long_press.dart",
-    "package:flutter/src/gestures/long_press.dart"
+    "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/painting/colors.dart",
+    "package:flutter/src/painting/colors.dart"
   ];
-  var globalPosition$ = dart.privateName(long_press, "LongPressStartDetails.globalPosition");
-  var localPosition$ = dart.privateName(long_press, "LongPressStartDetails.localPosition");
-  var OffsetBase__dy = dart.privateName(ui, "OffsetBase._dy");
-  var OffsetBase__dx = dart.privateName(ui, "OffsetBase._dx");
-  long_press.LongPressStartDetails = class LongPressStartDetails extends core.Object {
-    get globalPosition() {
-      return this[globalPosition$];
+  var alpha$ = dart.privateName(colors, "HSVColor.alpha");
+  var hue$ = dart.privateName(colors, "HSVColor.hue");
+  var saturation$ = dart.privateName(colors, "HSVColor.saturation");
+  var value$ = dart.privateName(colors, "HSVColor.value");
+  var _scaleAlpha = dart.privateName(colors, "_scaleAlpha");
+  colors.HSVColor = class HSVColor extends core.Object {
+    get alpha() {
+      return this[alpha$];
     }
-    set globalPosition(value) {
-      super.globalPosition = value;
+    set alpha(value) {
+      super.alpha = value;
     }
-    get localPosition() {
-      return this[localPosition$];
+    get hue() {
+      return this[hue$];
     }
-    set localPosition(value) {
-      super.localPosition = value;
+    set hue(value) {
+      super.hue = value;
     }
-  };
-  (long_press.LongPressStartDetails.new = function(opts) {
-    let t0;
-    let globalPosition = opts && 'globalPosition' in opts ? opts.globalPosition : C[0] || CT.C0;
-    let localPosition = opts && 'localPosition' in opts ? opts.localPosition : null;
-    this[globalPosition$] = globalPosition;
-    if (!(globalPosition !== null)) dart.assertFailed(null, I[0], 59, 15, "globalPosition != null");
-    this[localPosition$] = (t0 = localPosition, t0 == null ? globalPosition : t0);
-    ;
-  }).prototype = long_press.LongPressStartDetails.prototype;
-  dart.addTypeTests(long_press.LongPressStartDetails);
-  dart.addTypeCaches(long_press.LongPressStartDetails);
-  dart.setLibraryUri(long_press.LongPressStartDetails, I[1]);
-  dart.setFieldSignature(long_press.LongPressStartDetails, () => ({
-    __proto__: dart.getFields(long_press.LongPressStartDetails.__proto__),
-    globalPosition: dart.finalFieldType(ui.Offset),
-    localPosition: dart.finalFieldType(ui.Offset)
-  }));
-  var globalPosition$0 = dart.privateName(long_press, "LongPressMoveUpdateDetails.globalPosition");
-  var localPosition$0 = dart.privateName(long_press, "LongPressMoveUpdateDetails.localPosition");
-  var offsetFromOrigin$ = dart.privateName(long_press, "LongPressMoveUpdateDetails.offsetFromOrigin");
-  var localOffsetFromOrigin$ = dart.privateName(long_press, "LongPressMoveUpdateDetails.localOffsetFromOrigin");
-  long_press.LongPressMoveUpdateDetails = class LongPressMoveUpdateDetails extends core.Object {
-    get globalPosition() {
-      return this[globalPosition$0];
+    get saturation() {
+      return this[saturation$];
     }
-    set globalPosition(value) {
-      super.globalPosition = value;
+    set saturation(value) {
+      super.saturation = value;
     }
-    get localPosition() {
-      return this[localPosition$0];
+    get value() {
+      return this[value$];
     }
-    set localPosition(value) {
-      super.localPosition = value;
+    set value(value) {
+      super.value = value;
     }
-    get offsetFromOrigin() {
-      return this[offsetFromOrigin$];
+    static fromColor(color) {
+      let red = color.red / 255;
+      let green = color.green / 255;
+      let blue = color.blue / 255;
+      let max = math.max(core.double, red, math.max(core.double, green, blue));
+      let min = math.min(core.double, red, math.min(core.double, green, blue));
+      let delta = max - min;
+      let alpha = color.alpha / 255;
+      let hue = colors._getHue(red, green, blue, max, delta);
+      let saturation = max === 0.0 ? 0.0 : delta / max;
+      return new colors.HSVColor.fromAHSV(alpha, hue, saturation, max);
     }
-    set offsetFromOrigin(value) {
-      super.offsetFromOrigin = value;
+    withAlpha(alpha) {
+      return new colors.HSVColor.fromAHSV(alpha, this.hue, this.saturation, this.value);
     }
-    get localOffsetFromOrigin() {
-      return this[localOffsetFromOrigin$];
+    withHue(hue) {
+      return new colors.HSVColor.fromAHSV(this.alpha, hue, this.saturation, this.value);
     }
-    set localOffsetFromOrigin(value) {
-      super.localOffsetFromOrigin = value;
+    withSaturation(saturation) {
+      return new colors.HSVColor.fromAHSV(this.alpha, this.hue, saturation, this.value);
     }
-  };
-  (long_press.LongPressMoveUpdateDetails.new = function(opts) {
-    let t0, t0$;
-    let globalPosition = opts && 'globalPosition' in opts ? opts.globalPosition : C[0] || CT.C0;
-    let localPosition = opts && 'localPosition' in opts ? opts.localPosition : null;
-    let offsetFromOrigin = opts && 'offsetFromOrigin' in opts ? opts.offsetFromOrigin : C[0] || CT.C0;
-    let localOffsetFromOrigin = opts && 'localOffsetFromOrigin' in opts ? opts.localOffsetFromOrigin : null;
-    this[globalPosition$0] = globalPosition;
-    this[offsetFromOrigin$] = offsetFromOrigin;
-    if (!(globalPosition !== null)) dart.assertFailed(null, I[0], 85, 15, "globalPosition != null");
-    if (!(offsetFromOrigin !== null)) dart.assertFailed(null, I[0], 86, 15, "offsetFromOrigin != null");
-    this[localPosition$0] = (t0 = localPosition, t0 == null ? globalPosition : t0);
-    this[localOffsetFromOrigin$] = (t0$ = localOffsetFromOrigin, t0$ == null ? offsetFromOrigin : t0$);
-    ;
-  }).prototype = long_press.LongPressMoveUpdateDetails.prototype;
-  dart.addTypeTests(long_press.LongPressMoveUpdateDetails);
-  dart.addTypeCaches(long_press.LongPressMoveUpdateDetails);
-  dart.setLibraryUri(long_press.LongPressMoveUpdateDetails, I[1]);
-  dart.setFieldSignature(long_press.LongPressMoveUpdateDetails, () => ({
-    __proto__: dart.getFields(long_press.LongPressMoveUpdateDetails.__proto__),
-    globalPosition: dart.finalFieldType(ui.Offset),
-    localPosition: dart.finalFieldType(ui.Offset),
-    offsetFromOrigin: dart.finalFieldType(ui.Offset),
-    localOffsetFromOrigin: dart.finalFieldType(ui.Offset)
-  }));
-  var globalPosition$1 = dart.privateName(long_press, "LongPressEndDetails.globalPosition");
-  var localPosition$1 = dart.privateName(long_press, "LongPressEndDetails.localPosition");
-  var velocity$ = dart.privateName(long_press, "LongPressEndDetails.velocity");
-  var Velocity_pixelsPerSecond = dart.privateName(velocity_tracker, "Velocity.pixelsPerSecond");
-  long_press.LongPressEndDetails = class LongPressEndDetails extends core.Object {
-    get globalPosition() {
-      return this[globalPosition$1];
+    withValue(value) {
+      return new colors.HSVColor.fromAHSV(this.alpha, this.hue, this.saturation, value);
     }
-    set globalPosition(value) {
-      super.globalPosition = value;
+    toColor() {
+      let chroma = this.saturation * this.value;
+      let secondary = chroma * (1.0 - ((this.hue / 60.0)[$modulo](2.0) - 1.0)[$abs]());
+      let match = this.value - chroma;
+      return colors._colorFromHue(this.alpha, this.hue, chroma, secondary, match);
     }
-    get localPosition() {
-      return this[localPosition$1];
+    [_scaleAlpha](factor) {
+      return this.withAlpha(this.alpha * factor);
     }
-    set localPosition(value) {
-      super.localPosition = value;
+    static lerp(a, b, t) {
+      if (!(t !== null)) dart.assertFailed(null, I[0], 202, 12, "t != null");
+      if (a == null && b == null) return null;
+      if (a == null) return dart.nullCheck(b)[_scaleAlpha](t);
+      if (b == null) return a[_scaleAlpha](1.0 - t);
+      return new colors.HSVColor.fromAHSV(dart.nullCheck(ui.lerpDouble(a.alpha, b.alpha, t))[$clamp](0.0, 1.0), dart.nullCheck(ui.lerpDouble(a.hue, b.hue, t))[$modulo](360.0), dart.nullCheck(ui.lerpDouble(a.saturation, b.saturation, t))[$clamp](0.0, 1.0), dart.nullCheck(ui.lerpDouble(a.value, b.value, t))[$clamp](0.0, 1.0));
     }
-    get velocity() {
-      return this[velocity$];
+    _equals(other) {
+      if (other == null) return false;
+      if (this === other) return true;
+      return colors.HSVColor.is(other) && other.alpha === this.alpha && other.hue === this.hue && other.saturation === this.saturation && other.value === this.value;
     }
-    set velocity(value) {
-      super.velocity = value;
+    get hashCode() {
+      return ui.hashValues(this.alpha, this.hue, this.saturation, this.value);
+    }
+    toString() {
+      return object.objectRuntimeType(this, "HSVColor") + "(" + dart.str(this.alpha) + ", " + dart.str(this.hue) + ", " + dart.str(this.saturation) + ", " + dart.str(this.value) + ")";
     }
   };
-  (long_press.LongPressEndDetails.new = function(opts) {
-    let t0;
-    let globalPosition = opts && 'globalPosition' in opts ? opts.globalPosition : C[0] || CT.C0;
-    let localPosition = opts && 'localPosition' in opts ? opts.localPosition : null;
-    let velocity = opts && 'velocity' in opts ? opts.velocity : C[1] || CT.C1;
-    this[globalPosition$1] = globalPosition;
-    this[velocity$] = velocity;
-    if (!(globalPosition !== null)) dart.assertFailed(null, I[0], 122, 15, "globalPosition != null");
-    this[localPosition$1] = (t0 = localPosition, t0 == null ? globalPosition : t0);
+  (colors.HSVColor.fromAHSV = function(alpha, hue, saturation, value) {
+    this[alpha$] = alpha;
+    this[hue$] = hue;
+    this[saturation$] = saturation;
+    this[value$] = value;
+    if (!(alpha !== null)) dart.assertFailed(null, I[0], 93, 14, "alpha != null");
+    if (!(hue !== null)) dart.assertFailed(null, I[0], 94, 14, "hue != null");
+    if (!(saturation !== null)) dart.assertFailed(null, I[0], 95, 14, "saturation != null");
+    if (!(value !== null)) dart.assertFailed(null, I[0], 96, 14, "value != null");
+    if (!(alpha >= 0.0)) dart.assertFailed(null, I[0], 97, 14, "alpha >= 0.0");
+    if (!(alpha <= 1.0)) dart.assertFailed(null, I[0], 98, 14, "alpha <= 1.0");
+    if (!(hue >= 0.0)) dart.assertFailed(null, I[0], 99, 14, "hue >= 0.0");
+    if (!(hue <= 360.0)) dart.assertFailed(null, I[0], 100, 14, "hue <= 360.0");
+    if (!(saturation >= 0.0)) dart.assertFailed(null, I[0], 101, 14, "saturation >= 0.0");
+    if (!(saturation <= 1.0)) dart.assertFailed(null, I[0], 102, 14, "saturation <= 1.0");
+    if (!(value >= 0.0)) dart.assertFailed(null, I[0], 103, 14, "value >= 0.0");
+    if (!(value <= 1.0)) dart.assertFailed(null, I[0], 104, 14, "value <= 1.0");
     ;
-  }).prototype = long_press.LongPressEndDetails.prototype;
-  dart.addTypeTests(long_press.LongPressEndDetails);
-  dart.addTypeCaches(long_press.LongPressEndDetails);
-  dart.setLibraryUri(long_press.LongPressEndDetails, I[1]);
-  dart.setFieldSignature(long_press.LongPressEndDetails, () => ({
-    __proto__: dart.getFields(long_press.LongPressEndDetails.__proto__),
-    globalPosition: dart.finalFieldType(ui.Offset),
-    localPosition: dart.finalFieldType(ui.Offset),
-    velocity: dart.finalFieldType(velocity_tracker.Velocity)
+  }).prototype = colors.HSVColor.prototype;
+  dart.addTypeTests(colors.HSVColor);
+  dart.addTypeCaches(colors.HSVColor);
+  dart.setMethodSignature(colors.HSVColor, () => ({
+    __proto__: dart.getMethods(colors.HSVColor.__proto__),
+    withAlpha: dart.fnType(colors.HSVColor, [core.double]),
+    withHue: dart.fnType(colors.HSVColor, [core.double]),
+    withSaturation: dart.fnType(colors.HSVColor, [core.double]),
+    withValue: dart.fnType(colors.HSVColor, [core.double]),
+    toColor: dart.fnType(ui.Color, []),
+    [_scaleAlpha]: dart.fnType(colors.HSVColor, [core.double])
   }));
-  var onLongPress = dart.privateName(long_press, "LongPressGestureRecognizer.onLongPress");
-  var onLongPressStart = dart.privateName(long_press, "LongPressGestureRecognizer.onLongPressStart");
-  var onLongPressMoveUpdate = dart.privateName(long_press, "LongPressGestureRecognizer.onLongPressMoveUpdate");
-  var onLongPressUp = dart.privateName(long_press, "LongPressGestureRecognizer.onLongPressUp");
-  var onLongPressEnd = dart.privateName(long_press, "LongPressGestureRecognizer.onLongPressEnd");
-  var onSecondaryLongPress = dart.privateName(long_press, "LongPressGestureRecognizer.onSecondaryLongPress");
-  var onSecondaryLongPressStart = dart.privateName(long_press, "LongPressGestureRecognizer.onSecondaryLongPressStart");
-  var onSecondaryLongPressMoveUpdate = dart.privateName(long_press, "LongPressGestureRecognizer.onSecondaryLongPressMoveUpdate");
-  var onSecondaryLongPressUp = dart.privateName(long_press, "LongPressGestureRecognizer.onSecondaryLongPressUp");
-  var onSecondaryLongPressEnd = dart.privateName(long_press, "LongPressGestureRecognizer.onSecondaryLongPressEnd");
-  var onTertiaryLongPress = dart.privateName(long_press, "LongPressGestureRecognizer.onTertiaryLongPress");
-  var onTertiaryLongPressStart = dart.privateName(long_press, "LongPressGestureRecognizer.onTertiaryLongPressStart");
-  var onTertiaryLongPressMoveUpdate = dart.privateName(long_press, "LongPressGestureRecognizer.onTertiaryLongPressMoveUpdate");
-  var onTertiaryLongPressUp = dart.privateName(long_press, "LongPressGestureRecognizer.onTertiaryLongPressUp");
-  var onTertiaryLongPressEnd = dart.privateName(long_press, "LongPressGestureRecognizer.onTertiaryLongPressEnd");
-  var _longPressAccepted = dart.privateName(long_press, "_longPressAccepted");
-  var _longPressOrigin = dart.privateName(long_press, "_longPressOrigin");
-  var _initialButtons = dart.privateName(long_press, "_initialButtons");
-  var _velocityTracker = dart.privateName(long_press, "_velocityTracker");
-  var _checkLongPressStart = dart.privateName(long_press, "_checkLongPressStart");
-  var _checkLongPressEnd = dart.privateName(long_press, "_checkLongPressEnd");
-  var _reset = dart.privateName(long_press, "_reset");
-  var _checkLongPressMoveUpdate = dart.privateName(long_press, "_checkLongPressMoveUpdate");
-  long_press.LongPressGestureRecognizer = class LongPressGestureRecognizer extends recognizer.PrimaryPointerGestureRecognizer {
-    get onLongPress() {
-      return this[onLongPress];
+  dart.setLibraryUri(colors.HSVColor, I[1]);
+  dart.setFieldSignature(colors.HSVColor, () => ({
+    __proto__: dart.getFields(colors.HSVColor.__proto__),
+    alpha: dart.finalFieldType(core.double),
+    hue: dart.finalFieldType(core.double),
+    saturation: dart.finalFieldType(core.double),
+    value: dart.finalFieldType(core.double)
+  }));
+  dart.defineExtensionMethods(colors.HSVColor, ['_equals', 'toString']);
+  dart.defineExtensionAccessors(colors.HSVColor, ['hashCode']);
+  var alpha$0 = dart.privateName(colors, "HSLColor.alpha");
+  var hue$0 = dart.privateName(colors, "HSLColor.hue");
+  var saturation$0 = dart.privateName(colors, "HSLColor.saturation");
+  var lightness$ = dart.privateName(colors, "HSLColor.lightness");
+  colors.HSLColor = class HSLColor extends core.Object {
+    get alpha() {
+      return this[alpha$0];
     }
-    set onLongPress(value) {
-      this[onLongPress] = value;
+    set alpha(value) {
+      super.alpha = value;
     }
-    get onLongPressStart() {
-      return this[onLongPressStart];
+    get hue() {
+      return this[hue$0];
     }
-    set onLongPressStart(value) {
-      this[onLongPressStart] = value;
+    set hue(value) {
+      super.hue = value;
     }
-    get onLongPressMoveUpdate() {
-      return this[onLongPressMoveUpdate];
+    get saturation() {
+      return this[saturation$0];
     }
-    set onLongPressMoveUpdate(value) {
-      this[onLongPressMoveUpdate] = value;
+    set saturation(value) {
+      super.saturation = value;
     }
-    get onLongPressUp() {
-      return this[onLongPressUp];
+    get lightness() {
+      return this[lightness$];
     }
-    set onLongPressUp(value) {
-      this[onLongPressUp] = value;
+    set lightness(value) {
+      super.lightness = value;
     }
-    get onLongPressEnd() {
-      return this[onLongPressEnd];
+    static fromColor(color) {
+      let red = color.red / 255;
+      let green = color.green / 255;
+      let blue = color.blue / 255;
+      let max = math.max(core.double, red, math.max(core.double, green, blue));
+      let min = math.min(core.double, red, math.min(core.double, green, blue));
+      let delta = max - min;
+      let alpha = color.alpha / 255;
+      let hue = colors._getHue(red, green, blue, max, delta);
+      let lightness = (max + min) / 2.0;
+      let saturation = lightness === 1.0 ? 0.0 : (delta / (1.0 - (2.0 * lightness - 1.0)[$abs]()))[$clamp](0.0, 1.0);
+      return new colors.HSLColor.fromAHSL(alpha, hue, saturation, lightness);
     }
-    set onLongPressEnd(value) {
-      this[onLongPressEnd] = value;
+    withAlpha(alpha) {
+      return new colors.HSLColor.fromAHSL(alpha, this.hue, this.saturation, this.lightness);
     }
-    get onSecondaryLongPress() {
-      return this[onSecondaryLongPress];
+    withHue(hue) {
+      return new colors.HSLColor.fromAHSL(this.alpha, hue, this.saturation, this.lightness);
     }
-    set onSecondaryLongPress(value) {
-      this[onSecondaryLongPress] = value;
+    withSaturation(saturation) {
+      return new colors.HSLColor.fromAHSL(this.alpha, this.hue, saturation, this.lightness);
     }
-    get onSecondaryLongPressStart() {
-      return this[onSecondaryLongPressStart];
+    withLightness(lightness) {
+      return new colors.HSLColor.fromAHSL(this.alpha, this.hue, this.saturation, lightness);
     }
-    set onSecondaryLongPressStart(value) {
-      this[onSecondaryLongPressStart] = value;
+    toColor() {
+      let chroma = (1.0 - (2.0 * this.lightness - 1.0)[$abs]()) * this.saturation;
+      let secondary = chroma * (1.0 - ((this.hue / 60.0)[$modulo](2.0) - 1.0)[$abs]());
+      let match = this.lightness - chroma / 2.0;
+      return colors._colorFromHue(this.alpha, this.hue, chroma, secondary, match);
     }
-    get onSecondaryLongPressMoveUpdate() {
-      return this[onSecondaryLongPressMoveUpdate];
+    [_scaleAlpha](factor) {
+      return this.withAlpha(this.alpha * factor);
     }
-    set onSecondaryLongPressMoveUpdate(value) {
-      this[onSecondaryLongPressMoveUpdate] = value;
+    static lerp(a, b, t) {
+      if (!(t !== null)) dart.assertFailed(null, I[0], 386, 12, "t != null");
+      if (a == null && b == null) return null;
+      if (a == null) return dart.nullCheck(b)[_scaleAlpha](t);
+      if (b == null) return a[_scaleAlpha](1.0 - t);
+      return new colors.HSLColor.fromAHSL(dart.nullCheck(ui.lerpDouble(a.alpha, b.alpha, t))[$clamp](0.0, 1.0), dart.nullCheck(ui.lerpDouble(a.hue, b.hue, t))[$modulo](360.0), dart.nullCheck(ui.lerpDouble(a.saturation, b.saturation, t))[$clamp](0.0, 1.0), dart.nullCheck(ui.lerpDouble(a.lightness, b.lightness, t))[$clamp](0.0, 1.0));
     }
-    get onSecondaryLongPressUp() {
-      return this[onSecondaryLongPressUp];
+    _equals(other) {
+      if (other == null) return false;
+      if (this === other) return true;
+      return colors.HSLColor.is(other) && other.alpha === this.alpha && other.hue === this.hue && other.saturation === this.saturation && other.lightness === this.lightness;
     }
-    set onSecondaryLongPressUp(value) {
-      this[onSecondaryLongPressUp] = value;
+    get hashCode() {
+      return ui.hashValues(this.alpha, this.hue, this.saturation, this.lightness);
     }
-    get onSecondaryLongPressEnd() {
-      return this[onSecondaryLongPressEnd];
-    }
-    set onSecondaryLongPressEnd(value) {
-      this[onSecondaryLongPressEnd] = value;
-    }
-    get onTertiaryLongPress() {
-      return this[onTertiaryLongPress];
-    }
-    set onTertiaryLongPress(value) {
-      this[onTertiaryLongPress] = value;
-    }
-    get onTertiaryLongPressStart() {
-      return this[onTertiaryLongPressStart];
-    }
-    set onTertiaryLongPressStart(value) {
-      this[onTertiaryLongPressStart] = value;
-    }
-    get onTertiaryLongPressMoveUpdate() {
-      return this[onTertiaryLongPressMoveUpdate];
-    }
-    set onTertiaryLongPressMoveUpdate(value) {
-      this[onTertiaryLongPressMoveUpdate] = value;
-    }
-    get onTertiaryLongPressUp() {
-      return this[onTertiaryLongPressUp];
-    }
-    set onTertiaryLongPressUp(value) {
-      this[onTertiaryLongPressUp] = value;
-    }
-    get onTertiaryLongPressEnd() {
-      return this[onTertiaryLongPressEnd];
-    }
-    set onTertiaryLongPressEnd(value) {
-      this[onTertiaryLongPressEnd] = value;
-    }
-    isPointerAllowed(event) {
-      switch (event.buttons) {
-        case 1:
-        {
-          if (this.onLongPressStart == null && this.onLongPress == null && this.onLongPressMoveUpdate == null && this.onLongPressEnd == null && this.onLongPressUp == null) return false;
-          break;
-        }
-        case 2:
-        {
-          if (this.onSecondaryLongPressStart == null && this.onSecondaryLongPress == null && this.onSecondaryLongPressMoveUpdate == null && this.onSecondaryLongPressEnd == null && this.onSecondaryLongPressUp == null) return false;
-          break;
-        }
-        case 4:
-        {
-          if (this.onTertiaryLongPressStart == null && this.onTertiaryLongPress == null && this.onTertiaryLongPressMoveUpdate == null && this.onTertiaryLongPressEnd == null && this.onTertiaryLongPressUp == null) return false;
-          break;
-        }
-        default:
-        {
-          return false;
-        }
-      }
-      return super.isPointerAllowed(event);
-    }
-    didExceedDeadline() {
-      this.resolve(arena.GestureDisposition.accepted);
-      this[_longPressAccepted] = true;
-      super.acceptGesture(dart.nullCheck(this.primaryPointer));
-      this[_checkLongPressStart]();
-    }
-    handlePrimaryPointer(event) {
-      if (!event.synthesized) {
-        if (events.PointerDownEvent.is(event)) {
-          this[_velocityTracker] = new velocity_tracker.VelocityTracker.withKind(event.kind);
-          dart.nullCheck(this[_velocityTracker]).addPosition(event.timeStamp, event.localPosition);
-        }
-        if (events.PointerMoveEvent.is(event)) {
-          if (!(this[_velocityTracker] != null)) dart.assertFailed(null, I[0], 383, 16, "_velocityTracker != null");
-          dart.nullCheck(this[_velocityTracker]).addPosition(event.timeStamp, event.localPosition);
-        }
-      }
-      if (events.PointerUpEvent.is(event)) {
-        if (this[_longPressAccepted] === true) {
-          this[_checkLongPressEnd](event);
-        } else {
-          this.resolve(arena.GestureDisposition.rejected);
-        }
-        this[_reset]();
-      } else if (events.PointerCancelEvent.is(event)) {
-        this[_reset]();
-      } else if (events.PointerDownEvent.is(event)) {
-        this[_longPressOrigin] = recognizer.OffsetPair.fromEventPosition(event);
-        this[_initialButtons] = event.buttons;
-      } else if (events.PointerMoveEvent.is(event)) {
-        if (event.buttons !== this[_initialButtons]) {
-          this.resolve(arena.GestureDisposition.rejected);
-          this.stopTrackingPointer(dart.nullCheck(this.primaryPointer));
-        } else if (this[_longPressAccepted]) {
-          this[_checkLongPressMoveUpdate](event);
-        }
-      }
-    }
-    [_checkLongPressStart]() {
-      switch (this[_initialButtons]) {
-        case 1:
-        {
-          if (this.onLongPressStart != null) {
-            let details = new long_press.LongPressStartDetails.new({globalPosition: dart.nullCheck(this[_longPressOrigin]).global, localPosition: dart.nullCheck(this[_longPressOrigin]).local});
-            this.invokeCallback(dart.void, "onLongPressStart", dart.fn(() => dart.nullCheck(this.onLongPressStart)(details), T.VoidTovoid()));
-          }
-          if (this.onLongPress != null) {
-            this.invokeCallback(dart.void, "onLongPress", dart.nullCheck(this.onLongPress));
-          }
-          break;
-        }
-        case 2:
-        {
-          if (this.onSecondaryLongPressStart != null) {
-            let details = new long_press.LongPressStartDetails.new({globalPosition: dart.nullCheck(this[_longPressOrigin]).global, localPosition: dart.nullCheck(this[_longPressOrigin]).local});
-            this.invokeCallback(dart.void, "onSecondaryLongPressStart", dart.fn(() => dart.nullCheck(this.onSecondaryLongPressStart)(details), T.VoidTovoid()));
-          }
-          if (this.onSecondaryLongPress != null) {
-            this.invokeCallback(dart.void, "onSecondaryLongPress", dart.nullCheck(this.onSecondaryLongPress));
-          }
-          break;
-        }
-        case 4:
-        {
-          if (this.onTertiaryLongPressStart != null) {
-            let details = new long_press.LongPressStartDetails.new({globalPosition: dart.nullCheck(this[_longPressOrigin]).global, localPosition: dart.nullCheck(this[_longPressOrigin]).local});
-            this.invokeCallback(dart.void, "onTertiaryLongPressStart", dart.fn(() => dart.nullCheck(this.onTertiaryLongPressStart)(details), T.VoidTovoid()));
-          }
-          if (this.onTertiaryLongPress != null) {
-            this.invokeCallback(dart.void, "onTertiaryLongPress", dart.nullCheck(this.onTertiaryLongPress));
-          }
-          break;
-        }
-        default:
-        {
-          if (!false) dart.assertFailed("Unhandled button " + dart.str(this[_initialButtons]), I[0], 451, 16, "false");
-        }
-      }
-    }
-    [_checkLongPressMoveUpdate](event) {
-      let details = new long_press.LongPressMoveUpdateDetails.new({globalPosition: event.position, localPosition: event.localPosition, offsetFromOrigin: event.position['-'](dart.nullCheck(this[_longPressOrigin]).global), localOffsetFromOrigin: event.localPosition['-'](dart.nullCheck(this[_longPressOrigin]).local)});
-      switch (this[_initialButtons]) {
-        case 1:
-        {
-          if (this.onLongPressMoveUpdate != null) {
-            this.invokeCallback(dart.void, "onLongPressMoveUpdate", dart.fn(() => dart.nullCheck(this.onLongPressMoveUpdate)(details), T.VoidTovoid()));
-          }
-          break;
-        }
-        case 2:
-        {
-          if (this.onSecondaryLongPressMoveUpdate != null) {
-            this.invokeCallback(dart.void, "onSecondaryLongPressMoveUpdate", dart.fn(() => dart.nullCheck(this.onSecondaryLongPressMoveUpdate)(details), T.VoidTovoid()));
-          }
-          break;
-        }
-        case 4:
-        {
-          if (this.onTertiaryLongPressMoveUpdate != null) {
-            this.invokeCallback(dart.void, "onTertiaryLongPressMoveUpdate", dart.fn(() => dart.nullCheck(this.onTertiaryLongPressMoveUpdate)(details), T.VoidTovoid()));
-          }
-          break;
-        }
-        default:
-        {
-          if (!false) dart.assertFailed("Unhandled button " + dart.str(this[_initialButtons]), I[0], 479, 16, "false");
-        }
-      }
-    }
-    [_checkLongPressEnd](event) {
-      let estimate = dart.nullCheck(this[_velocityTracker]).getVelocityEstimate();
-      let velocity = estimate == null ? velocity_tracker.Velocity.zero : new velocity_tracker.Velocity.new({pixelsPerSecond: estimate.pixelsPerSecond});
-      let details = new long_press.LongPressEndDetails.new({globalPosition: event.position, localPosition: event.localPosition, velocity: velocity});
-      this[_velocityTracker] = null;
-      switch (this[_initialButtons]) {
-        case 1:
-        {
-          if (this.onLongPressEnd != null) {
-            this.invokeCallback(dart.void, "onLongPressEnd", dart.fn(() => dart.nullCheck(this.onLongPressEnd)(details), T.VoidTovoid()));
-          }
-          if (this.onLongPressUp != null) {
-            this.invokeCallback(dart.void, "onLongPressUp", dart.nullCheck(this.onLongPressUp));
-          }
-          break;
-        }
-        case 2:
-        {
-          if (this.onSecondaryLongPressEnd != null) {
-            this.invokeCallback(dart.void, "onSecondaryLongPressEnd", dart.fn(() => dart.nullCheck(this.onSecondaryLongPressEnd)(details), T.VoidTovoid()));
-          }
-          if (this.onSecondaryLongPressUp != null) {
-            this.invokeCallback(dart.void, "onSecondaryLongPressUp", dart.nullCheck(this.onSecondaryLongPressUp));
-          }
-          break;
-        }
-        case 4:
-        {
-          if (this.onTertiaryLongPressEnd != null) {
-            this.invokeCallback(dart.void, "onTertiaryLongPressEnd", dart.fn(() => dart.nullCheck(this.onTertiaryLongPressEnd)(details), T.VoidTovoid()));
-          }
-          if (this.onTertiaryLongPressUp != null) {
-            this.invokeCallback(dart.void, "onTertiaryLongPressUp", dart.nullCheck(this.onTertiaryLongPressUp));
-          }
-          break;
-        }
-        default:
-        {
-          if (!false) dart.assertFailed("Unhandled button " + dart.str(this[_initialButtons]), I[0], 521, 16, "false");
-        }
-      }
-    }
-    [_reset]() {
-      this[_longPressAccepted] = false;
-      this[_longPressOrigin] = null;
-      this[_initialButtons] = null;
-      this[_velocityTracker] = null;
-    }
-    resolve(disposition) {
-      if (this[_longPressAccepted] && disposition === arena.GestureDisposition.rejected) {
-        this[_reset]();
-      }
-      super.resolve(disposition);
-    }
-    acceptGesture(pointer) {
-    }
-    get debugDescription() {
-      return "long press";
+    toString() {
+      return object.objectRuntimeType(this, "HSLColor") + "(" + dart.str(this.alpha) + ", " + dart.str(this.hue) + ", " + dart.str(this.saturation) + ", " + dart.str(this.lightness) + ")";
     }
   };
-  (long_press.LongPressGestureRecognizer.new = function(opts) {
-    let t0;
-    let duration = opts && 'duration' in opts ? opts.duration : null;
-    let postAcceptSlopTolerance = opts && 'postAcceptSlopTolerance' in opts ? opts.postAcceptSlopTolerance : null;
-    let kind = opts && 'kind' in opts ? opts.kind : null;
-    let debugOwner = opts && 'debugOwner' in opts ? opts.debugOwner : null;
-    this[_longPressAccepted] = false;
-    this[_longPressOrigin] = null;
-    this[_initialButtons] = null;
-    this[onLongPress] = null;
-    this[onLongPressStart] = null;
-    this[onLongPressMoveUpdate] = null;
-    this[onLongPressUp] = null;
-    this[onLongPressEnd] = null;
-    this[onSecondaryLongPress] = null;
-    this[onSecondaryLongPressStart] = null;
-    this[onSecondaryLongPressMoveUpdate] = null;
-    this[onSecondaryLongPressUp] = null;
-    this[onSecondaryLongPressEnd] = null;
-    this[onTertiaryLongPress] = null;
-    this[onTertiaryLongPressStart] = null;
-    this[onTertiaryLongPressMoveUpdate] = null;
-    this[onTertiaryLongPressUp] = null;
-    this[onTertiaryLongPressEnd] = null;
-    this[_velocityTracker] = null;
-    long_press.LongPressGestureRecognizer.__proto__.new.call(this, {deadline: (t0 = duration, t0 == null ? constants.kLongPressTimeout : t0), postAcceptSlopTolerance: postAcceptSlopTolerance, kind: kind, debugOwner: debugOwner});
+  (colors.HSLColor.fromAHSL = function(alpha, hue, saturation, lightness) {
+    this[alpha$0] = alpha;
+    this[hue$0] = hue;
+    this[saturation$0] = saturation;
+    this[lightness$] = lightness;
+    if (!(alpha !== null)) dart.assertFailed(null, I[0], 262, 14, "alpha != null");
+    if (!(hue !== null)) dart.assertFailed(null, I[0], 263, 14, "hue != null");
+    if (!(saturation !== null)) dart.assertFailed(null, I[0], 264, 14, "saturation != null");
+    if (!(lightness !== null)) dart.assertFailed(null, I[0], 265, 14, "lightness != null");
+    if (!(alpha >= 0.0)) dart.assertFailed(null, I[0], 266, 14, "alpha >= 0.0");
+    if (!(alpha <= 1.0)) dart.assertFailed(null, I[0], 267, 14, "alpha <= 1.0");
+    if (!(hue >= 0.0)) dart.assertFailed(null, I[0], 268, 14, "hue >= 0.0");
+    if (!(hue <= 360.0)) dart.assertFailed(null, I[0], 269, 14, "hue <= 360.0");
+    if (!(saturation >= 0.0)) dart.assertFailed(null, I[0], 270, 14, "saturation >= 0.0");
+    if (!(saturation <= 1.0)) dart.assertFailed(null, I[0], 271, 14, "saturation <= 1.0");
+    if (!(lightness >= 0.0)) dart.assertFailed(null, I[0], 272, 14, "lightness >= 0.0");
+    if (!(lightness <= 1.0)) dart.assertFailed(null, I[0], 273, 14, "lightness <= 1.0");
     ;
-  }).prototype = long_press.LongPressGestureRecognizer.prototype;
-  dart.addTypeTests(long_press.LongPressGestureRecognizer);
-  dart.addTypeCaches(long_press.LongPressGestureRecognizer);
-  dart.setMethodSignature(long_press.LongPressGestureRecognizer, () => ({
-    __proto__: dart.getMethods(long_press.LongPressGestureRecognizer.__proto__),
-    handlePrimaryPointer: dart.fnType(dart.void, [events.PointerEvent]),
-    [_checkLongPressStart]: dart.fnType(dart.void, []),
-    [_checkLongPressMoveUpdate]: dart.fnType(dart.void, [events.PointerEvent]),
-    [_checkLongPressEnd]: dart.fnType(dart.void, [events.PointerEvent]),
-    [_reset]: dart.fnType(dart.void, [])
+  }).prototype = colors.HSLColor.prototype;
+  dart.addTypeTests(colors.HSLColor);
+  dart.addTypeCaches(colors.HSLColor);
+  dart.setMethodSignature(colors.HSLColor, () => ({
+    __proto__: dart.getMethods(colors.HSLColor.__proto__),
+    withAlpha: dart.fnType(colors.HSLColor, [core.double]),
+    withHue: dart.fnType(colors.HSLColor, [core.double]),
+    withSaturation: dart.fnType(colors.HSLColor, [core.double]),
+    withLightness: dart.fnType(colors.HSLColor, [core.double]),
+    toColor: dart.fnType(ui.Color, []),
+    [_scaleAlpha]: dart.fnType(colors.HSLColor, [core.double])
   }));
-  dart.setGetterSignature(long_press.LongPressGestureRecognizer, () => ({
-    __proto__: dart.getGetters(long_press.LongPressGestureRecognizer.__proto__),
-    debugDescription: core.String
+  dart.setLibraryUri(colors.HSLColor, I[1]);
+  dart.setFieldSignature(colors.HSLColor, () => ({
+    __proto__: dart.getFields(colors.HSLColor.__proto__),
+    alpha: dart.finalFieldType(core.double),
+    hue: dart.finalFieldType(core.double),
+    saturation: dart.finalFieldType(core.double),
+    lightness: dart.finalFieldType(core.double)
   }));
-  dart.setLibraryUri(long_press.LongPressGestureRecognizer, I[1]);
-  dart.setFieldSignature(long_press.LongPressGestureRecognizer, () => ({
-    __proto__: dart.getFields(long_press.LongPressGestureRecognizer.__proto__),
-    [_longPressAccepted]: dart.fieldType(core.bool),
-    [_longPressOrigin]: dart.fieldType(dart.nullable(recognizer.OffsetPair)),
-    [_initialButtons]: dart.fieldType(dart.nullable(core.int)),
-    onLongPress: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
-    onLongPressStart: dart.fieldType(dart.nullable(dart.fnType(dart.void, [long_press.LongPressStartDetails]))),
-    onLongPressMoveUpdate: dart.fieldType(dart.nullable(dart.fnType(dart.void, [long_press.LongPressMoveUpdateDetails]))),
-    onLongPressUp: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
-    onLongPressEnd: dart.fieldType(dart.nullable(dart.fnType(dart.void, [long_press.LongPressEndDetails]))),
-    onSecondaryLongPress: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
-    onSecondaryLongPressStart: dart.fieldType(dart.nullable(dart.fnType(dart.void, [long_press.LongPressStartDetails]))),
-    onSecondaryLongPressMoveUpdate: dart.fieldType(dart.nullable(dart.fnType(dart.void, [long_press.LongPressMoveUpdateDetails]))),
-    onSecondaryLongPressUp: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
-    onSecondaryLongPressEnd: dart.fieldType(dart.nullable(dart.fnType(dart.void, [long_press.LongPressEndDetails]))),
-    onTertiaryLongPress: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
-    onTertiaryLongPressStart: dart.fieldType(dart.nullable(dart.fnType(dart.void, [long_press.LongPressStartDetails]))),
-    onTertiaryLongPressMoveUpdate: dart.fieldType(dart.nullable(dart.fnType(dart.void, [long_press.LongPressMoveUpdateDetails]))),
-    onTertiaryLongPressUp: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
-    onTertiaryLongPressEnd: dart.fieldType(dart.nullable(dart.fnType(dart.void, [long_press.LongPressEndDetails]))),
-    [_velocityTracker]: dart.fieldType(dart.nullable(velocity_tracker.VelocityTracker))
-  }));
-  dart.trackLibraries("packages/flutter/src/gestures/long_press.dart", {
-    "package:flutter/src/gestures/long_press.dart": long_press
+  dart.defineExtensionMethods(colors.HSLColor, ['_equals', 'toString']);
+  dart.defineExtensionAccessors(colors.HSLColor, ['hashCode']);
+  var _swatch$ = dart.privateName(colors, "ColorSwatch._swatch");
+  var _swatch = dart.privateName(colors, "_swatch");
+  const _is_ColorSwatch_default = Symbol('_is_ColorSwatch_default');
+  colors.ColorSwatch$ = dart.generic(T => {
+    var ColorSwatchOfT = () => (ColorSwatchOfT = dart.constFn(colors.ColorSwatch$(T)))();
+    class ColorSwatch extends ui.Color {
+      get [_swatch]() {
+        return this[_swatch$];
+      }
+      set [_swatch](value) {
+        super[_swatch] = value;
+      }
+      _get(index) {
+        T.as(index);
+        return this[_swatch][$_get](index);
+      }
+      _equals(other) {
+        if (other == null) return false;
+        if (this === other) return true;
+        if (!other[$runtimeType]._equals(this[$runtimeType])) return false;
+        return super._equals(other) && ColorSwatchOfT().is(other) && collections.mapEquals(T, ui.Color, other[_swatch], this[_swatch]);
+      }
+      get hashCode() {
+        return ui.hashValues(this[$runtimeType], this.value, this[_swatch]);
+      }
+      toString() {
+        return object.objectRuntimeType(this, "ColorSwatch") + "(primary value: " + super.toString() + ")";
+      }
+    }
+    (ColorSwatch.new = function(primary, _swatch) {
+      this[_swatch$] = _swatch;
+      ColorSwatch.__proto__.new.call(this, primary);
+      ;
+    }).prototype = ColorSwatch.prototype;
+    dart.addTypeTests(ColorSwatch);
+    ColorSwatch.prototype[_is_ColorSwatch_default] = true;
+    dart.addTypeCaches(ColorSwatch);
+    dart.setMethodSignature(ColorSwatch, () => ({
+      __proto__: dart.getMethods(ColorSwatch.__proto__),
+      _get: dart.fnType(dart.nullable(ui.Color), [dart.nullable(core.Object)])
+    }));
+    dart.setLibraryUri(ColorSwatch, I[1]);
+    dart.setFieldSignature(ColorSwatch, () => ({
+      __proto__: dart.getFields(ColorSwatch.__proto__),
+      [_swatch]: dart.finalFieldType(core.Map$(T, ui.Color))
+    }));
+    dart.defineExtensionMethods(ColorSwatch, ['_equals', 'toString']);
+    dart.defineExtensionAccessors(ColorSwatch, ['hashCode']);
+    return ColorSwatch;
+  });
+  colors.ColorSwatch = colors.ColorSwatch$();
+  dart.addTypeTests(colors.ColorSwatch, _is_ColorSwatch_default);
+  var _name = dart.privateName(diagnostics, "_name");
+  colors.ColorProperty = class ColorProperty extends diagnostics.DiagnosticsProperty$(ui.Color) {
+    toJsonMap(delegate) {
+      let json = super.toJsonMap(delegate);
+      if (this.value != null) {
+        json[$_set]("valueProperties", new (T.IdentityMapOfString$Object()).from(["red", dart.nullCheck(this.value).red, "green", dart.nullCheck(this.value).green, "blue", dart.nullCheck(this.value).blue, "alpha", dart.nullCheck(this.value).alpha]));
+      }
+      return json;
+    }
+  };
+  (colors.ColorProperty.new = function(name, value, opts) {
+    let showName = opts && 'showName' in opts ? opts.showName : true;
+    let defaultValue = opts && 'defaultValue' in opts ? opts.defaultValue : C[0] || CT.C0;
+    let style = opts && 'style' in opts ? opts.style : C[1] || CT.C1;
+    let level = opts && 'level' in opts ? opts.level : C[2] || CT.C2;
+    if (!(showName !== null)) dart.assertFailed(null, I[0], 475, 15, "showName != null");
+    if (!(style !== null)) dart.assertFailed(null, I[0], 476, 15, "style != null");
+    if (!(level !== null)) dart.assertFailed(null, I[0], 477, 15, "level != null");
+    colors.ColorProperty.__proto__.new.call(this, name, value, {defaultValue: defaultValue, showName: showName, style: style, level: level});
+    ;
+  }).prototype = colors.ColorProperty.prototype;
+  dart.addTypeTests(colors.ColorProperty);
+  dart.addTypeCaches(colors.ColorProperty);
+  dart.setLibraryUri(colors.ColorProperty, I[1]);
+  colors._getHue = function _getHue(red, green, blue, max, delta) {
+    let hue = null;
+    function hue$35get() {
+      let t1;
+      t1 = hue;
+      return t1 == null ? dart.throw(new _internal.LateError.localNI("hue")) : t1;
+    }
+    dart.fn(hue$35get, T.VoidTodouble());
+    function hue$35set(t2) {
+      return hue = t2;
+    }
+    dart.fn(hue$35set, T.doubleTodynamic());
+    if (max === 0.0) {
+      hue$35set(0.0);
+    } else if (max === red) {
+      hue$35set(60.0 * ((green - blue) / delta)[$modulo](6));
+    } else if (max === green) {
+      hue$35set(60.0 * ((blue - red) / delta + 2));
+    } else if (max === blue) {
+      hue$35set(60.0 * ((red - green) / delta + 4));
+    }
+    hue$35set(hue$35get()[$isNaN] ? 0.0 : hue$35get());
+    return hue$35get();
+  };
+  colors._colorFromHue = function _colorFromHue(alpha, hue, chroma, secondary, match) {
+    let red = null;
+    let green = null;
+    let blue = null;
+    if (hue < 60.0) {
+      red = chroma;
+      green = secondary;
+      blue = 0.0;
+    } else if (hue < 120.0) {
+      red = secondary;
+      green = chroma;
+      blue = 0.0;
+    } else if (hue < 180.0) {
+      red = 0.0;
+      green = chroma;
+      blue = secondary;
+    } else if (hue < 240.0) {
+      red = 0.0;
+      green = secondary;
+      blue = chroma;
+    } else if (hue < 300.0) {
+      red = secondary;
+      green = 0.0;
+      blue = chroma;
+    } else {
+      red = chroma;
+      green = 0.0;
+      blue = secondary;
+    }
+    return new ui.Color.fromARGB((alpha * 255)[$round](), ((red + match) * 255)[$round](), ((green + match) * 255)[$round](), ((blue + match) * 255)[$round]());
+  };
+  dart.trackLibraries("packages/flutter/src/painting/colors.dart", {
+    "package:flutter/src/painting/colors.dart": colors
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["long_press.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/flutter/src/gestures/long_press.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["colors.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/flutter/src/painting/colors.dart.lib.js"}');
   // Exports:
   return {
-    src__gestures__long_press: long_press
+    src__painting__colors: colors
   };
 }));
 
-//# sourceMappingURL=long_press.dart.lib.js.map
+//# sourceMappingURL=colors.dart.lib.js.map

@@ -1,421 +1,331 @@
-define(['dart_sdk', 'packages/flutter/src/services/mouse_cursor.dart', 'packages/flutter/src/painting/borders.dart'], (function load__packages__flutter__src__material__material_state_dart(dart_sdk, packages__flutter__src__services__mouse_cursor$46dart, packages__flutter__src__painting__borders$46dart) {
+define(['dart_sdk', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/rendering/sliver.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/rendering/proxy_box.dart'], (function load__packages__flutter__src__rendering__proxy_sliver_dart(dart_sdk, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__rendering__sliver$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__rendering__proxy_box$46dart) {
   'use strict';
   const core = dart_sdk.core;
   const ui = dart_sdk.ui;
-  const collection = dart_sdk.collection;
+  const _interceptors = dart_sdk._interceptors;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const mouse_cursor = packages__flutter__src__services__mouse_cursor$46dart.src__services__mouse_cursor;
-  const borders = packages__flutter__src__painting__borders$46dart.src__painting__borders;
-  var material_state = Object.create(dart.library);
+  const object = packages__flutter__src__rendering__layer$46dart.src__rendering__object;
+  const layer = packages__flutter__src__rendering__layer$46dart.src__rendering__layer;
+  const sliver = packages__flutter__src__rendering__sliver$46dart.src__rendering__sliver;
+  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
+  const proxy_box = packages__flutter__src__rendering__proxy_box$46dart.src__rendering__proxy_box;
+  var proxy_sliver = Object.create(dart.library);
+  var $_equals = dartx._equals;
   dart._checkModuleNullSafetyMode(true);
   var T = {
-    LinkedHashSetOfMaterialState: () => (T.LinkedHashSetOfMaterialState = dart.constFn(collection.LinkedHashSet$(material_state.MaterialState)))()
+    OpacityLayerN: () => (T.OpacityLayerN = dart.constFn(dart.nullable(layer.OpacityLayer)))(),
+    DiagnosticsPropertyOfbool: () => (T.DiagnosticsPropertyOfbool = dart.constFn(diagnostics.DiagnosticsProperty$(core.bool)))(),
+    JSArrayOfDiagnosticsNode: () => (T.JSArrayOfDiagnosticsNode = dart.constFn(_interceptors.JSArray$(diagnostics.DiagnosticsNode)))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
-  dart.defineLazy(CT, {
-    get C0() {
-      return C[0] = dart.const({
-        __proto__: material_state.MaterialState.prototype,
-        [_name$]: "MaterialState.hovered",
-        index: 0
-      });
-    },
-    get C1() {
-      return C[1] = dart.const({
-        __proto__: material_state.MaterialState.prototype,
-        [_name$]: "MaterialState.focused",
-        index: 1
-      });
-    },
-    get C2() {
-      return C[2] = dart.const({
-        __proto__: material_state.MaterialState.prototype,
-        [_name$]: "MaterialState.pressed",
-        index: 2
-      });
-    },
-    get C3() {
-      return C[3] = dart.const({
-        __proto__: material_state.MaterialState.prototype,
-        [_name$]: "MaterialState.dragged",
-        index: 3
-      });
-    },
-    get C4() {
-      return C[4] = dart.const({
-        __proto__: material_state.MaterialState.prototype,
-        [_name$]: "MaterialState.selected",
-        index: 4
-      });
-    },
-    get C5() {
-      return C[5] = dart.const({
-        __proto__: material_state.MaterialState.prototype,
-        [_name$]: "MaterialState.disabled",
-        index: 5
-      });
-    },
-    get C6() {
-      return C[6] = dart.const({
-        __proto__: material_state.MaterialState.prototype,
-        [_name$]: "MaterialState.error",
-        index: 6
-      });
-    },
-    get C7() {
-      return C[7] = dart.constList([C[0] || CT.C0, C[1] || CT.C1, C[2] || CT.C2, C[3] || CT.C3, C[4] || CT.C4, C[5] || CT.C5, C[6] || CT.C6], material_state.MaterialState);
-    },
-    get C8() {
-      return C[8] = dart.constSet(material_state.MaterialState, []);
-    },
-    get C10() {
-      return C[10] = dart.const({
-        __proto__: mouse_cursor.SystemMouseCursor.prototype,
-        [SystemMouseCursor_kind]: "basic"
-      });
-    },
-    get C11() {
-      return C[11] = dart.const({
-        __proto__: mouse_cursor.SystemMouseCursor.prototype,
-        [SystemMouseCursor_kind]: "click"
-      });
-    },
-    get C9() {
-      return C[9] = dart.const({
-        __proto__: material_state._EnabledAndDisabledMouseCursor.prototype,
-        [_EnabledAndDisabledMouseCursor_name]: "clickable",
-        [_EnabledAndDisabledMouseCursor_disabledCursor]: C[10] || CT.C10,
-        [_EnabledAndDisabledMouseCursor_enabledCursor]: C[11] || CT.C11
-      });
-    },
-    get C13() {
-      return C[13] = dart.const({
-        __proto__: mouse_cursor.SystemMouseCursor.prototype,
-        [SystemMouseCursor_kind]: "text"
-      });
-    },
-    get C12() {
-      return C[12] = dart.const({
-        __proto__: material_state._EnabledAndDisabledMouseCursor.prototype,
-        [_EnabledAndDisabledMouseCursor_name]: "textable",
-        [_EnabledAndDisabledMouseCursor_disabledCursor]: C[10] || CT.C10,
-        [_EnabledAndDisabledMouseCursor_enabledCursor]: C[13] || CT.C13
-      });
+  var I = [
+    "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/rendering/proxy_sliver.dart",
+    "package:flutter/src/rendering/proxy_sliver.dart"
+  ];
+  const RenderSliver_RenderObjectWithChildMixin$36 = class RenderSliver_RenderObjectWithChildMixin extends sliver.RenderSliver {};
+  (RenderSliver_RenderObjectWithChildMixin$36.new = function() {
+    object.RenderObjectWithChildMixin$(sliver.RenderSliver)[dart.mixinNew].call(this);
+    RenderSliver_RenderObjectWithChildMixin$36.__proto__.new.call(this);
+  }).prototype = RenderSliver_RenderObjectWithChildMixin$36.prototype;
+  dart.applyMixin(RenderSliver_RenderObjectWithChildMixin$36, object.RenderObjectWithChildMixin$(sliver.RenderSliver));
+  proxy_sliver.RenderProxySliver = class RenderProxySliver extends RenderSliver_RenderObjectWithChildMixin$36 {
+    setupParentData(child) {
+      object.RenderObject.as(child);
+      if (!sliver.SliverPhysicalParentData.is(child.parentData)) child.parentData = new sliver.SliverPhysicalParentData.new();
     }
-  }, false);
-  var C = Array(14).fill(void 0);
-  var I = ["package:flutter/src/material/material_state.dart"];
-  var _name$ = dart.privateName(material_state, "_name");
-  material_state.MaterialState = class MaterialState extends core.Object {
-    toString() {
-      return this[_name$];
+    performLayout() {
+      if (!(this.child != null)) dart.assertFailed(null, I[0], 51, 12, "child != null");
+      dart.nullCheck(this.child).layout(this.constraints, {parentUsesSize: true});
+      this.geometry = dart.nullCheck(this.child).geometry;
+    }
+    paint(context, offset) {
+      if (this.child != null) context.paintChild(dart.nullCheck(this.child), offset);
+    }
+    hitTestChildren(result, opts) {
+      let mainAxisPosition = opts && 'mainAxisPosition' in opts ? opts.mainAxisPosition : null;
+      let crossAxisPosition = opts && 'crossAxisPosition' in opts ? opts.crossAxisPosition : null;
+      return this.child != null && dart.nullCheck(dart.nullCheck(this.child).geometry).hitTestExtent > 0 && dart.nullCheck(this.child).hitTest(result, {mainAxisPosition: mainAxisPosition, crossAxisPosition: crossAxisPosition});
+    }
+    childMainAxisPosition(child) {
+      sliver.RenderSliver.as(child);
+      if (!(child !== null)) dart.assertFailed(null, I[0], 75, 12, "child != null");
+      if (!child[$_equals](this.child)) dart.assertFailed(null, I[0], 76, 12, "child == this.child");
+      return 0.0;
+    }
+    applyPaintTransform(child, transform) {
+      object.RenderObject.as(child);
+      if (!(child !== null)) dart.assertFailed(null, I[0], 82, 12, "child != null");
+      let childParentData = sliver.SliverPhysicalParentData.as(dart.nullCheck(child.parentData));
+      childParentData.applyPaintTransform(transform);
     }
   };
-  (material_state.MaterialState.new = function(index, _name) {
-    this.index = index;
-    this[_name$] = _name;
-    ;
-  }).prototype = material_state.MaterialState.prototype;
-  dart.addTypeTests(material_state.MaterialState);
-  dart.addTypeCaches(material_state.MaterialState);
-  dart.setLibraryUri(material_state.MaterialState, I[0]);
-  dart.setFieldSignature(material_state.MaterialState, () => ({
-    __proto__: dart.getFields(material_state.MaterialState.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
+  (proxy_sliver.RenderProxySliver.new = function(child = null) {
+    proxy_sliver.RenderProxySliver.__proto__.new.call(this);
+    this.child = child;
+  }).prototype = proxy_sliver.RenderProxySliver.prototype;
+  dart.addTypeTests(proxy_sliver.RenderProxySliver);
+  dart.addTypeCaches(proxy_sliver.RenderProxySliver);
+  dart.setMethodSignature(proxy_sliver.RenderProxySliver, () => ({
+    __proto__: dart.getMethods(proxy_sliver.RenderProxySliver.__proto__),
+    performLayout: dart.fnType(dart.void, [])
   }));
-  dart.defineExtensionMethods(material_state.MaterialState, ['toString']);
-  material_state.MaterialState.hovered = C[0] || CT.C0;
-  material_state.MaterialState.focused = C[1] || CT.C1;
-  material_state.MaterialState.pressed = C[2] || CT.C2;
-  material_state.MaterialState.dragged = C[3] || CT.C3;
-  material_state.MaterialState.selected = C[4] || CT.C4;
-  material_state.MaterialState.disabled = C[5] || CT.C5;
-  material_state.MaterialState.error = C[6] || CT.C6;
-  material_state.MaterialState.values = C[7] || CT.C7;
-  material_state.MaterialStateColor = class MaterialStateColor extends ui.Color {
-    static resolveWith(callback) {
-      return new material_state._MaterialStateColor.new(callback);
+  dart.setLibraryUri(proxy_sliver.RenderProxySliver, I[1]);
+  var _opacity = dart.privateName(proxy_sliver, "_opacity");
+  var _alwaysIncludeSemantics = dart.privateName(proxy_sliver, "_alwaysIncludeSemantics");
+  var _alpha = dart.privateName(proxy_sliver, "_alpha");
+  proxy_sliver.RenderSliverOpacity = class RenderSliverOpacity extends proxy_sliver.RenderProxySliver {
+    get alwaysNeedsCompositing() {
+      return this.child != null && this[_alpha] !== 0 && this[_alpha] !== 255;
     }
-  };
-  (material_state.MaterialStateColor.new = function(defaultValue) {
-    material_state.MaterialStateColor.__proto__.new.call(this, defaultValue);
-    ;
-  }).prototype = material_state.MaterialStateColor.prototype;
-  dart.addTypeTests(material_state.MaterialStateColor);
-  dart.addTypeCaches(material_state.MaterialStateColor);
-  material_state.MaterialStateColor[dart.implements] = () => [material_state.MaterialStateProperty$(ui.Color)];
-  dart.setLibraryUri(material_state.MaterialStateColor, I[0]);
-  var _resolve$ = dart.privateName(material_state, "_resolve");
-  material_state._MaterialStateColor = class _MaterialStateColor extends material_state.MaterialStateColor {
-    resolve(states) {
-      let t0;
-      t0 = states;
-      return this[_resolve$](t0);
+    get opacity() {
+      return this[_opacity];
     }
-  };
-  (material_state._MaterialStateColor.new = function(_resolve) {
-    this[_resolve$] = _resolve;
-    material_state._MaterialStateColor.__proto__.new.call(this, _resolve(material_state._MaterialStateColor._defaultStates).value);
-    ;
-  }).prototype = material_state._MaterialStateColor.prototype;
-  dart.addTypeTests(material_state._MaterialStateColor);
-  dart.addTypeCaches(material_state._MaterialStateColor);
-  dart.setMethodSignature(material_state._MaterialStateColor, () => ({
-    __proto__: dart.getMethods(material_state._MaterialStateColor.__proto__),
-    resolve: dart.fnType(ui.Color, [core.Set$(material_state.MaterialState)])
-  }));
-  dart.setLibraryUri(material_state._MaterialStateColor, I[0]);
-  dart.setFieldSignature(material_state._MaterialStateColor, () => ({
-    __proto__: dart.getFields(material_state._MaterialStateColor.__proto__),
-    [_resolve$]: dart.finalFieldType(dart.fnType(ui.Color, [core.Set$(material_state.MaterialState)]))
-  }));
-  dart.defineLazy(material_state._MaterialStateColor, {
-    /*material_state._MaterialStateColor._defaultStates*/get _defaultStates() {
-      return C[8] || CT.C8;
+    set opacity(value) {
+      if (!(value !== null)) dart.assertFailed(null, I[0], 132, 12, "value != null");
+      if (!(value >= 0.0 && value <= 1.0)) dart.assertFailed(null, I[0], 133, 12, "value >= 0.0 && value <= 1.0");
+      if (this[_opacity] === value) return;
+      let didNeedCompositing = this.alwaysNeedsCompositing;
+      let wasVisible = this[_alpha] !== 0;
+      this[_opacity] = value;
+      this[_alpha] = ui.Color.getAlphaFromOpacity(this[_opacity]);
+      if (didNeedCompositing !== this.alwaysNeedsCompositing) this.markNeedsCompositingBitsUpdate();
+      this.markNeedsPaint();
+      if (wasVisible !== (this[_alpha] !== 0) && !this.alwaysIncludeSemantics) this.markNeedsSemanticsUpdate();
     }
-  }, false);
-  var _EnabledAndDisabledMouseCursor_name = dart.privateName(material_state, "_EnabledAndDisabledMouseCursor.name");
-  var SystemMouseCursor_kind = dart.privateName(mouse_cursor, "SystemMouseCursor.kind");
-  var _EnabledAndDisabledMouseCursor_disabledCursor = dart.privateName(material_state, "_EnabledAndDisabledMouseCursor.disabledCursor");
-  var _EnabledAndDisabledMouseCursor_enabledCursor = dart.privateName(material_state, "_EnabledAndDisabledMouseCursor.enabledCursor");
-  material_state.MaterialStateMouseCursor = class MaterialStateMouseCursor extends mouse_cursor.MouseCursor {
-    createSession(device) {
-      return this.resolve(T.LinkedHashSetOfMaterialState().new()).createSession(device);
+    get alwaysIncludeSemantics() {
+      return this[_alwaysIncludeSemantics];
     }
-  };
-  (material_state.MaterialStateMouseCursor.new = function() {
-    material_state.MaterialStateMouseCursor.__proto__.new.call(this);
-    ;
-  }).prototype = material_state.MaterialStateMouseCursor.prototype;
-  dart.addTypeTests(material_state.MaterialStateMouseCursor);
-  dart.addTypeCaches(material_state.MaterialStateMouseCursor);
-  material_state.MaterialStateMouseCursor[dart.implements] = () => [material_state.MaterialStateProperty$(mouse_cursor.MouseCursor)];
-  dart.setMethodSignature(material_state.MaterialStateMouseCursor, () => ({
-    __proto__: dart.getMethods(material_state.MaterialStateMouseCursor.__proto__),
-    createSession: dart.fnType(mouse_cursor.MouseCursorSession, [core.int])
-  }));
-  dart.setLibraryUri(material_state.MaterialStateMouseCursor, I[0]);
-  dart.defineLazy(material_state.MaterialStateMouseCursor, {
-    /*material_state.MaterialStateMouseCursor.clickable*/get clickable() {
-      return C[9] || CT.C9;
-    },
-    /*material_state.MaterialStateMouseCursor.textable*/get textable() {
-      return C[12] || CT.C12;
+    set alwaysIncludeSemantics(value) {
+      if (value === this[_alwaysIncludeSemantics]) return;
+      this[_alwaysIncludeSemantics] = value;
+      this.markNeedsSemanticsUpdate();
     }
-  }, false);
-  const enabledCursor$ = _EnabledAndDisabledMouseCursor_enabledCursor;
-  const disabledCursor$ = _EnabledAndDisabledMouseCursor_disabledCursor;
-  const name$ = _EnabledAndDisabledMouseCursor_name;
-  material_state._EnabledAndDisabledMouseCursor = class _EnabledAndDisabledMouseCursor extends material_state.MaterialStateMouseCursor {
-    get enabledCursor() {
-      return this[enabledCursor$];
-    }
-    set enabledCursor(value) {
-      super.enabledCursor = value;
-    }
-    get disabledCursor() {
-      return this[disabledCursor$];
-    }
-    set disabledCursor(value) {
-      super.disabledCursor = value;
-    }
-    get name() {
-      return this[name$];
-    }
-    set name(value) {
-      super.name = value;
-    }
-    resolve(states) {
-      if (states.contains(material_state.MaterialState.disabled)) {
-        return this.disabledCursor;
-      }
-      return this.enabledCursor;
-    }
-    get debugDescription() {
-      return "MaterialStateMouseCursor(" + this.name + ")";
-    }
-  };
-  (material_state._EnabledAndDisabledMouseCursor.new = function(opts) {
-    let enabledCursor = opts && 'enabledCursor' in opts ? opts.enabledCursor : null;
-    let disabledCursor = opts && 'disabledCursor' in opts ? opts.disabledCursor : null;
-    let name = opts && 'name' in opts ? opts.name : null;
-    this[enabledCursor$] = enabledCursor;
-    this[disabledCursor$] = disabledCursor;
-    this[name$] = name;
-    material_state._EnabledAndDisabledMouseCursor.__proto__.new.call(this);
-    ;
-  }).prototype = material_state._EnabledAndDisabledMouseCursor.prototype;
-  dart.addTypeTests(material_state._EnabledAndDisabledMouseCursor);
-  dart.addTypeCaches(material_state._EnabledAndDisabledMouseCursor);
-  dart.setMethodSignature(material_state._EnabledAndDisabledMouseCursor, () => ({
-    __proto__: dart.getMethods(material_state._EnabledAndDisabledMouseCursor.__proto__),
-    resolve: dart.fnType(mouse_cursor.MouseCursor, [core.Set$(material_state.MaterialState)])
-  }));
-  dart.setGetterSignature(material_state._EnabledAndDisabledMouseCursor, () => ({
-    __proto__: dart.getGetters(material_state._EnabledAndDisabledMouseCursor.__proto__),
-    debugDescription: core.String
-  }));
-  dart.setLibraryUri(material_state._EnabledAndDisabledMouseCursor, I[0]);
-  dart.setFieldSignature(material_state._EnabledAndDisabledMouseCursor, () => ({
-    __proto__: dart.getFields(material_state._EnabledAndDisabledMouseCursor.__proto__),
-    enabledCursor: dart.finalFieldType(mouse_cursor.MouseCursor),
-    disabledCursor: dart.finalFieldType(mouse_cursor.MouseCursor),
-    name: dart.finalFieldType(core.String)
-  }));
-  material_state.MaterialStateBorderSide = class MaterialStateBorderSide extends borders.BorderSide {
-    static resolveWith(callback) {
-      return new material_state._MaterialStateBorderSide.new(callback);
-    }
-  };
-  (material_state.MaterialStateBorderSide.new = function() {
-    material_state.MaterialStateBorderSide.__proto__.new.call(this);
-    ;
-  }).prototype = material_state.MaterialStateBorderSide.prototype;
-  dart.addTypeTests(material_state.MaterialStateBorderSide);
-  dart.addTypeCaches(material_state.MaterialStateBorderSide);
-  material_state.MaterialStateBorderSide[dart.implements] = () => [material_state.MaterialStateProperty$(dart.nullable(borders.BorderSide))];
-  dart.setLibraryUri(material_state.MaterialStateBorderSide, I[0]);
-  var _resolve$0 = dart.privateName(material_state, "_MaterialStateBorderSide._resolve");
-  material_state._MaterialStateBorderSide = class _MaterialStateBorderSide extends material_state.MaterialStateBorderSide {
-    get [_resolve$]() {
-      return this[_resolve$0];
-    }
-    set [_resolve$](value) {
-      super[_resolve$] = value;
-    }
-    resolve(states) {
-      let t0;
-      t0 = states;
-      return this[_resolve$](t0);
-    }
-  };
-  (material_state._MaterialStateBorderSide.new = function(_resolve) {
-    this[_resolve$0] = _resolve;
-    material_state._MaterialStateBorderSide.__proto__.new.call(this);
-    ;
-  }).prototype = material_state._MaterialStateBorderSide.prototype;
-  dart.addTypeTests(material_state._MaterialStateBorderSide);
-  dart.addTypeCaches(material_state._MaterialStateBorderSide);
-  dart.setMethodSignature(material_state._MaterialStateBorderSide, () => ({
-    __proto__: dart.getMethods(material_state._MaterialStateBorderSide.__proto__),
-    resolve: dart.fnType(dart.nullable(borders.BorderSide), [core.Set$(material_state.MaterialState)])
-  }));
-  dart.setLibraryUri(material_state._MaterialStateBorderSide, I[0]);
-  dart.setFieldSignature(material_state._MaterialStateBorderSide, () => ({
-    __proto__: dart.getFields(material_state._MaterialStateBorderSide.__proto__),
-    [_resolve$]: dart.finalFieldType(dart.fnType(dart.nullable(borders.BorderSide), [core.Set$(material_state.MaterialState)]))
-  }));
-  material_state.MaterialStateOutlinedBorder = class MaterialStateOutlinedBorder extends borders.OutlinedBorder {};
-  (material_state.MaterialStateOutlinedBorder.new = function() {
-    material_state.MaterialStateOutlinedBorder.__proto__.new.call(this);
-    ;
-  }).prototype = material_state.MaterialStateOutlinedBorder.prototype;
-  dart.addTypeTests(material_state.MaterialStateOutlinedBorder);
-  dart.addTypeCaches(material_state.MaterialStateOutlinedBorder);
-  material_state.MaterialStateOutlinedBorder[dart.implements] = () => [material_state.MaterialStateProperty$(dart.nullable(borders.OutlinedBorder))];
-  dart.setLibraryUri(material_state.MaterialStateOutlinedBorder, I[0]);
-  const _is_MaterialStateProperty_default = Symbol('_is_MaterialStateProperty_default');
-  material_state.MaterialStateProperty$ = dart.generic(T => {
-    class MaterialStateProperty extends core.Object {
-      static resolveAs(T, value, states) {
-        if (material_state.MaterialStateProperty$(T).is(value)) {
-          let property = value;
-          return property.resolve(states);
+    paint(context, offset) {
+      if (this.child != null && dart.nullCheck(dart.nullCheck(this.child).geometry).visible) {
+        if (this[_alpha] === 0) {
+          this.layer = null;
+          return;
         }
-        return value;
-      }
-      static resolveWith(T, callback) {
-        return new (material_state._MaterialStatePropertyWith$(T)).new(callback);
-      }
-      static all(T, value) {
-        return new (material_state._MaterialStatePropertyAll$(T)).new(value);
-      }
-    }
-    (MaterialStateProperty.new = function() {
-      ;
-    }).prototype = MaterialStateProperty.prototype;
-    dart.addTypeTests(MaterialStateProperty);
-    MaterialStateProperty.prototype[_is_MaterialStateProperty_default] = true;
-    dart.addTypeCaches(MaterialStateProperty);
-    dart.setLibraryUri(MaterialStateProperty, I[0]);
-    return MaterialStateProperty;
-  });
-  material_state.MaterialStateProperty = material_state.MaterialStateProperty$();
-  dart.addTypeTests(material_state.MaterialStateProperty, _is_MaterialStateProperty_default);
-  const _is__MaterialStatePropertyWith_default = Symbol('_is__MaterialStatePropertyWith_default');
-  material_state._MaterialStatePropertyWith$ = dart.generic(T => {
-    class _MaterialStatePropertyWith extends core.Object {
-      resolve(states) {
-        let t0;
-        t0 = states;
-        return this[_resolve$](t0);
+        if (this[_alpha] === 255) {
+          this.layer = null;
+          context.paintChild(dart.nullCheck(this.child), offset);
+          return;
+        }
+        if (!this.needsCompositing) dart.assertFailed(null, I[0], 175, 14, "needsCompositing");
+        this.layer = context.pushOpacity(offset, this[_alpha], dart.bind(this, 'paint', super.paint), {oldLayer: T.OpacityLayerN().as(this.layer)});
       }
     }
-    (_MaterialStatePropertyWith.new = function(_resolve) {
-      this[_resolve$] = _resolve;
-      ;
-    }).prototype = _MaterialStatePropertyWith.prototype;
-    dart.addTypeTests(_MaterialStatePropertyWith);
-    _MaterialStatePropertyWith.prototype[_is__MaterialStatePropertyWith_default] = true;
-    dart.addTypeCaches(_MaterialStatePropertyWith);
-    _MaterialStatePropertyWith[dart.implements] = () => [material_state.MaterialStateProperty$(T)];
-    dart.setMethodSignature(_MaterialStatePropertyWith, () => ({
-      __proto__: dart.getMethods(_MaterialStatePropertyWith.__proto__),
-      resolve: dart.fnType(T, [core.Set$(material_state.MaterialState)])
-    }));
-    dart.setLibraryUri(_MaterialStatePropertyWith, I[0]);
-    dart.setFieldSignature(_MaterialStatePropertyWith, () => ({
-      __proto__: dart.getFields(_MaterialStatePropertyWith.__proto__),
-      [_resolve$]: dart.finalFieldType(dart.fnType(T, [core.Set$(material_state.MaterialState)]))
-    }));
-    return _MaterialStatePropertyWith;
-  });
-  material_state._MaterialStatePropertyWith = material_state._MaterialStatePropertyWith$();
-  dart.addTypeTests(material_state._MaterialStatePropertyWith, _is__MaterialStatePropertyWith_default);
-  const _is__MaterialStatePropertyAll_default = Symbol('_is__MaterialStatePropertyAll_default');
-  material_state._MaterialStatePropertyAll$ = dart.generic(T => {
-    class _MaterialStatePropertyAll extends core.Object {
-      resolve(states) {
-        return this.value;
-      }
-      toString() {
-        return "MaterialStateProperty.all(" + dart.str(this.value) + ")";
-      }
+    visitChildrenForSemantics(visitor) {
+      if (this.child != null && (this[_alpha] !== 0 || this.alwaysIncludeSemantics)) visitor(dart.nullCheck(this.child));
     }
-    (_MaterialStatePropertyAll.new = function(value) {
-      this.value = value;
-      ;
-    }).prototype = _MaterialStatePropertyAll.prototype;
-    dart.addTypeTests(_MaterialStatePropertyAll);
-    _MaterialStatePropertyAll.prototype[_is__MaterialStatePropertyAll_default] = true;
-    dart.addTypeCaches(_MaterialStatePropertyAll);
-    _MaterialStatePropertyAll[dart.implements] = () => [material_state.MaterialStateProperty$(T)];
-    dart.setMethodSignature(_MaterialStatePropertyAll, () => ({
-      __proto__: dart.getMethods(_MaterialStatePropertyAll.__proto__),
-      resolve: dart.fnType(T, [core.Set$(material_state.MaterialState)])
-    }));
-    dart.setLibraryUri(_MaterialStatePropertyAll, I[0]);
-    dart.setFieldSignature(_MaterialStatePropertyAll, () => ({
-      __proto__: dart.getFields(_MaterialStatePropertyAll.__proto__),
-      value: dart.finalFieldType(T)
-    }));
-    dart.defineExtensionMethods(_MaterialStatePropertyAll, ['toString']);
-    return _MaterialStatePropertyAll;
-  });
-  material_state._MaterialStatePropertyAll = material_state._MaterialStatePropertyAll$();
-  dart.addTypeTests(material_state._MaterialStatePropertyAll, _is__MaterialStatePropertyAll_default);
-  dart.trackLibraries("packages/flutter/src/material/material_state.dart", {
-    "package:flutter/src/material/material_state.dart": material_state
+    debugFillProperties(properties) {
+      super.debugFillProperties(properties);
+      properties.add(new diagnostics.DoubleProperty.new("opacity", this.opacity));
+      properties.add(new diagnostics.FlagProperty.new("alwaysIncludeSemantics", {value: this.alwaysIncludeSemantics, ifTrue: "alwaysIncludeSemantics"}));
+    }
+  };
+  (proxy_sliver.RenderSliverOpacity.new = function(opts) {
+    let opacity = opts && 'opacity' in opts ? opts.opacity : 1;
+    let alwaysIncludeSemantics = opts && 'alwaysIncludeSemantics' in opts ? opts.alwaysIncludeSemantics : false;
+    let sliver = opts && 'sliver' in opts ? opts.sliver : null;
+    if (!(opacity !== null && opacity >= 0.0 && opacity <= 1.0)) dart.assertFailed(null, I[0], 106, 15, "opacity != null && opacity >= 0.0 && opacity <= 1.0");
+    if (!(alwaysIncludeSemantics !== null)) dart.assertFailed(null, I[0], 107, 15, "alwaysIncludeSemantics != null");
+    this[_opacity] = opacity;
+    this[_alwaysIncludeSemantics] = alwaysIncludeSemantics;
+    this[_alpha] = ui.Color.getAlphaFromOpacity(opacity);
+    proxy_sliver.RenderSliverOpacity.__proto__.new.call(this);
+    this.child = sliver;
+  }).prototype = proxy_sliver.RenderSliverOpacity.prototype;
+  dart.addTypeTests(proxy_sliver.RenderSliverOpacity);
+  dart.addTypeCaches(proxy_sliver.RenderSliverOpacity);
+  dart.setGetterSignature(proxy_sliver.RenderSliverOpacity, () => ({
+    __proto__: dart.getGetters(proxy_sliver.RenderSliverOpacity.__proto__),
+    opacity: core.double,
+    alwaysIncludeSemantics: core.bool
+  }));
+  dart.setSetterSignature(proxy_sliver.RenderSliverOpacity, () => ({
+    __proto__: dart.getSetters(proxy_sliver.RenderSliverOpacity.__proto__),
+    opacity: core.double,
+    alwaysIncludeSemantics: core.bool
+  }));
+  dart.setLibraryUri(proxy_sliver.RenderSliverOpacity, I[1]);
+  dart.setFieldSignature(proxy_sliver.RenderSliverOpacity, () => ({
+    __proto__: dart.getFields(proxy_sliver.RenderSliverOpacity.__proto__),
+    [_alpha]: dart.fieldType(core.int),
+    [_opacity]: dart.fieldType(core.double),
+    [_alwaysIncludeSemantics]: dart.fieldType(core.bool)
+  }));
+  var _ignoring = dart.privateName(proxy_sliver, "_ignoring");
+  var _ignoringSemantics = dart.privateName(proxy_sliver, "_ignoringSemantics");
+  var _effectiveIgnoringSemantics = dart.privateName(proxy_sliver, "_effectiveIgnoringSemantics");
+  proxy_sliver.RenderSliverIgnorePointer = class RenderSliverIgnorePointer extends proxy_sliver.RenderProxySliver {
+    get ignoring() {
+      return this[_ignoring];
+    }
+    set ignoring(value) {
+      if (!(value !== null)) dart.assertFailed(null, I[0], 231, 12, "value != null");
+      if (value === this[_ignoring]) return;
+      this[_ignoring] = value;
+      if (this[_ignoringSemantics] == null || !dart.nullCheck(this[_ignoringSemantics])) this.markNeedsSemanticsUpdate();
+    }
+    get ignoringSemantics() {
+      return this[_ignoringSemantics];
+    }
+    set ignoringSemantics(value) {
+      if (value == this[_ignoringSemantics]) return;
+      let oldEffectiveValue = this[_effectiveIgnoringSemantics];
+      this[_ignoringSemantics] = value;
+      if (oldEffectiveValue !== this[_effectiveIgnoringSemantics]) this.markNeedsSemanticsUpdate();
+    }
+    get [_effectiveIgnoringSemantics]() {
+      let t0;
+      t0 = this.ignoringSemantics;
+      return t0 == null ? this.ignoring : t0;
+    }
+    hitTest(result, opts) {
+      let mainAxisPosition = opts && 'mainAxisPosition' in opts ? opts.mainAxisPosition : null;
+      let crossAxisPosition = opts && 'crossAxisPosition' in opts ? opts.crossAxisPosition : null;
+      return !this.ignoring && super.hitTest(result, {mainAxisPosition: mainAxisPosition, crossAxisPosition: crossAxisPosition});
+    }
+    visitChildrenForSemantics(visitor) {
+      if (this.child != null && !this[_effectiveIgnoringSemantics]) visitor(dart.nullCheck(this.child));
+    }
+    debugFillProperties(properties) {
+      super.debugFillProperties(properties);
+      properties.add(new (T.DiagnosticsPropertyOfbool()).new("ignoring", this.ignoring));
+      properties.add(new (T.DiagnosticsPropertyOfbool()).new("ignoringSemantics", this[_effectiveIgnoringSemantics], {description: this.ignoringSemantics == null ? "implicitly " + dart.str(this[_effectiveIgnoringSemantics]) : null}));
+    }
+  };
+  (proxy_sliver.RenderSliverIgnorePointer.new = function(opts) {
+    let sliver = opts && 'sliver' in opts ? opts.sliver : null;
+    let ignoring = opts && 'ignoring' in opts ? opts.ignoring : true;
+    let ignoringSemantics = opts && 'ignoringSemantics' in opts ? opts.ignoringSemantics : null;
+    if (!(ignoring !== null)) dart.assertFailed(null, I[0], 218, 15, "ignoring != null");
+    this[_ignoring] = ignoring;
+    this[_ignoringSemantics] = ignoringSemantics;
+    proxy_sliver.RenderSliverIgnorePointer.__proto__.new.call(this);
+    this.child = sliver;
+  }).prototype = proxy_sliver.RenderSliverIgnorePointer.prototype;
+  dart.addTypeTests(proxy_sliver.RenderSliverIgnorePointer);
+  dart.addTypeCaches(proxy_sliver.RenderSliverIgnorePointer);
+  dart.setGetterSignature(proxy_sliver.RenderSliverIgnorePointer, () => ({
+    __proto__: dart.getGetters(proxy_sliver.RenderSliverIgnorePointer.__proto__),
+    ignoring: core.bool,
+    ignoringSemantics: dart.nullable(core.bool),
+    [_effectiveIgnoringSemantics]: core.bool
+  }));
+  dart.setSetterSignature(proxy_sliver.RenderSliverIgnorePointer, () => ({
+    __proto__: dart.getSetters(proxy_sliver.RenderSliverIgnorePointer.__proto__),
+    ignoring: core.bool,
+    ignoringSemantics: dart.nullable(core.bool)
+  }));
+  dart.setLibraryUri(proxy_sliver.RenderSliverIgnorePointer, I[1]);
+  dart.setFieldSignature(proxy_sliver.RenderSliverIgnorePointer, () => ({
+    __proto__: dart.getFields(proxy_sliver.RenderSliverIgnorePointer.__proto__),
+    [_ignoring]: dart.fieldType(core.bool),
+    [_ignoringSemantics]: dart.fieldType(dart.nullable(core.bool))
+  }));
+  var _offstage = dart.privateName(proxy_sliver, "_offstage");
+  proxy_sliver.RenderSliverOffstage = class RenderSliverOffstage extends proxy_sliver.RenderProxySliver {
+    get offstage() {
+      return this[_offstage];
+    }
+    set offstage(value) {
+      if (!(value !== null)) dart.assertFailed(null, I[0], 306, 12, "value != null");
+      if (value === this[_offstage]) return;
+      this[_offstage] = value;
+      this.markNeedsLayoutForSizedByParentChange();
+    }
+    performLayout() {
+      if (!(this.child != null)) dart.assertFailed(null, I[0], 315, 12, "child != null");
+      dart.nullCheck(this.child).layout(this.constraints, {parentUsesSize: true});
+      if (!this.offstage)
+        this.geometry = dart.nullCheck(this.child).geometry;
+      else
+        this.geometry = sliver.SliverGeometry.zero;
+    }
+    hitTest(result, opts) {
+      let mainAxisPosition = opts && 'mainAxisPosition' in opts ? opts.mainAxisPosition : null;
+      let crossAxisPosition = opts && 'crossAxisPosition' in opts ? opts.crossAxisPosition : null;
+      return !this.offstage && super.hitTest(result, {mainAxisPosition: mainAxisPosition, crossAxisPosition: crossAxisPosition});
+    }
+    hitTestChildren(result, opts) {
+      let mainAxisPosition = opts && 'mainAxisPosition' in opts ? opts.mainAxisPosition : null;
+      let crossAxisPosition = opts && 'crossAxisPosition' in opts ? opts.crossAxisPosition : null;
+      return !this.offstage && this.child != null && dart.nullCheck(dart.nullCheck(this.child).geometry).hitTestExtent > 0 && dart.nullCheck(this.child).hitTest(result, {mainAxisPosition: mainAxisPosition, crossAxisPosition: crossAxisPosition});
+    }
+    paint(context, offset) {
+      if (this.offstage) return;
+      context.paintChild(dart.nullCheck(this.child), offset);
+    }
+    visitChildrenForSemantics(visitor) {
+      if (this.offstage) return;
+      super.visitChildrenForSemantics(visitor);
+    }
+    debugFillProperties(properties) {
+      super.debugFillProperties(properties);
+      properties.add(new (T.DiagnosticsPropertyOfbool()).new("offstage", this.offstage));
+    }
+    debugDescribeChildren() {
+      if (this.child == null) return T.JSArrayOfDiagnosticsNode().of([]);
+      return T.JSArrayOfDiagnosticsNode().of([dart.nullCheck(this.child).toDiagnosticsNode({name: "child", style: this.offstage ? diagnostics.DiagnosticsTreeStyle.offstage : diagnostics.DiagnosticsTreeStyle.sparse})]);
+    }
+  };
+  (proxy_sliver.RenderSliverOffstage.new = function(opts) {
+    let offstage = opts && 'offstage' in opts ? opts.offstage : true;
+    let sliver = opts && 'sliver' in opts ? opts.sliver : null;
+    if (!(offstage !== null)) dart.assertFailed(null, I[0], 290, 15, "offstage != null");
+    this[_offstage] = offstage;
+    proxy_sliver.RenderSliverOffstage.__proto__.new.call(this);
+    this.child = sliver;
+  }).prototype = proxy_sliver.RenderSliverOffstage.prototype;
+  dart.addTypeTests(proxy_sliver.RenderSliverOffstage);
+  dart.addTypeCaches(proxy_sliver.RenderSliverOffstage);
+  dart.setGetterSignature(proxy_sliver.RenderSliverOffstage, () => ({
+    __proto__: dart.getGetters(proxy_sliver.RenderSliverOffstage.__proto__),
+    offstage: core.bool
+  }));
+  dart.setSetterSignature(proxy_sliver.RenderSliverOffstage, () => ({
+    __proto__: dart.getSetters(proxy_sliver.RenderSliverOffstage.__proto__),
+    offstage: core.bool
+  }));
+  dart.setLibraryUri(proxy_sliver.RenderSliverOffstage, I[1]);
+  dart.setFieldSignature(proxy_sliver.RenderSliverOffstage, () => ({
+    __proto__: dart.getFields(proxy_sliver.RenderSliverOffstage.__proto__),
+    [_offstage]: dart.fieldType(core.bool)
+  }));
+  const RenderProxySliver_RenderAnimatedOpacityMixin$36 = class RenderProxySliver_RenderAnimatedOpacityMixin extends proxy_sliver.RenderProxySliver {};
+  (RenderProxySliver_RenderAnimatedOpacityMixin$36.new = function(child) {
+    proxy_box.RenderAnimatedOpacityMixin$(sliver.RenderSliver)[dart.mixinNew].call(this);
+    RenderProxySliver_RenderAnimatedOpacityMixin$36.__proto__.new.call(this, child);
+  }).prototype = RenderProxySliver_RenderAnimatedOpacityMixin$36.prototype;
+  dart.applyMixin(RenderProxySliver_RenderAnimatedOpacityMixin$36, proxy_box.RenderAnimatedOpacityMixin$(sliver.RenderSliver));
+  proxy_sliver.RenderSliverAnimatedOpacity = class RenderSliverAnimatedOpacity extends RenderProxySliver_RenderAnimatedOpacityMixin$36 {};
+  (proxy_sliver.RenderSliverAnimatedOpacity.new = function(opts) {
+    let opacity = opts && 'opacity' in opts ? opts.opacity : null;
+    let alwaysIncludeSemantics = opts && 'alwaysIncludeSemantics' in opts ? opts.alwaysIncludeSemantics : false;
+    let sliver = opts && 'sliver' in opts ? opts.sliver : null;
+    if (!(opacity !== null)) dart.assertFailed(null, I[0], 389, 15, "opacity != null");
+    if (!(alwaysIncludeSemantics !== null)) dart.assertFailed(null, I[0], 390, 15, "alwaysIncludeSemantics != null");
+    proxy_sliver.RenderSliverAnimatedOpacity.__proto__.new.call(this);
+    this.opacity = opacity;
+    this.alwaysIncludeSemantics = alwaysIncludeSemantics;
+    this.child = sliver;
+  }).prototype = proxy_sliver.RenderSliverAnimatedOpacity.prototype;
+  dart.addTypeTests(proxy_sliver.RenderSliverAnimatedOpacity);
+  dart.addTypeCaches(proxy_sliver.RenderSliverAnimatedOpacity);
+  dart.setLibraryUri(proxy_sliver.RenderSliverAnimatedOpacity, I[1]);
+  dart.trackLibraries("packages/flutter/src/rendering/proxy_sliver.dart", {
+    "package:flutter/src/rendering/proxy_sliver.dart": proxy_sliver
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["material_state.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IA6EA;;sDA7CK;;;;EA6CL;;;;;;;;;;;;;;;;;;;uBAoEwE;AAAa,wDAAoB,QAAQ;IAAC;;oDAVnF;AAAgB,+DAAM,YAAY;;EAAC;;;;;;;YAkC/B;;AAAW,WAAS,MAAM;YAAf,AAAQ;IAAQ;;;IARnC;AAAY,gEAAM,AAAQ,AAAiB,QAAjB,CAAC;;EAAsB;;;;;;;;;;;;;MAK1C,iDAAc;;;;;;;;;kBAqET;AACnC,YAAO,AAA2B,cAAJ,sDAAkB,MAAM;IACxD;;;AANM;;EAA0B;;;;;;;;;;MAsBM,iDAAS;;;MAaT,gDAAQ;;;;;;;;IAc5B;;;;;;IACA;;;;;;IACL;;;;;;YAG0B;AACrC,UAAI,AAAO,MAAD,UAAwB;AAChC,cAAO;;AAET,YAAO;IACT;;AAG+B,YAAA,AAAiC,+BAAN,YAAI;IAAE;;;QAlBhD;QACA;QACA;IAFA;IACA;IACA;AAHV;;EAIJ;;;;;;;;;;;;;;;;;;;uBAuG+E;AAC7E,6DAAyB,QAAQ;IAAC;;;AAzChC;;EAAyB;;;;;;;IAsDa;;;;;;YAGL;;AACrC,WAAgB,MAAM;YAAf,AAAQ;IACjB;;;IAPoC;AAA9B;;EAAuC;;;;;;;;;;;;;;AA+DvC;;EAA6B;;;;;;;;0BAkFX,OAA0B;AAChD,YAAU,4CAAN,KAAK;AACwB,yBAAW,KAAK;AAC/C,gBAAO,AAAS,SAAD,SAAS,MAAM;;AAEhC,cAAO,MAAK;MACd;4BAI2E;AAAa,uEAA8B,QAAQ;MAAC;oBAItF;AAAU,sEAA6B,KAAK;MAAC;;;;IACxF;;;;;;;;;;;;cAQ+B;;AAAW,aAAS,MAAM;cAAf,AAAQ;MAAQ;;;MALxB;;IAAS;;;;;;;;;;;;;;;;;;;;;cAcZ;AAAW;MAAK;;AAGxB,cAAA,AAAmC,yCAAP,cAAK;MAAE;;;MARzB;;IAAM","file":"../../../../../../../../../packages/flutter/src/material/material_state.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["proxy_sliver.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/flutter/src/rendering/proxy_sliver.dart.lib.js"}');
   // Exports:
   return {
-    src__material__material_state: material_state
+    src__rendering__proxy_sliver: proxy_sliver
   };
 }));
 
-//# sourceMappingURL=material_state.dart.lib.js.map
+//# sourceMappingURL=proxy_sliver.dart.lib.js.map

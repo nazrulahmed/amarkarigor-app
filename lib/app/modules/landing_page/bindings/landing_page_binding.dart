@@ -1,4 +1,4 @@
-import 'package:amarkarigor/app/modules/home/controllers/home_controller.dart';
+import 'package:amar_karigor/app/modules/home/controllers/home_controller.dart';
 import 'package:get/get.dart';
 
 import '../controllers/landing_page_controller.dart';

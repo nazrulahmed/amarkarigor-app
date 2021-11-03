@@ -1,17 +1,26 @@
-define(['dart_sdk', 'packages/flutter/src/painting/borders.dart', 'packages/flutter/src/painting/colors.dart', 'packages/flutter/src/foundation/debug.dart'], (function load__packages__flutter__src__material__floating_action_button_theme_dart(dart_sdk, packages__flutter__src__painting__borders$46dart, packages__flutter__src__painting__colors$46dart, packages__flutter__src__foundation__debug$46dart) {
+define(['dart_sdk', 'packages/flutter/src/physics/tolerance.dart', 'packages/flutter/src/physics/friction_simulation.dart', 'packages/flutter/src/physics/spring_simulation.dart', 'packages/flutter/src/foundation/object.dart', 'packages/flutter/src/physics/simulation.dart'], (function load__packages__flutter__src__widgets__scroll_simulation_dart(dart_sdk, packages__flutter__src__physics__tolerance$46dart, packages__flutter__src__physics__friction_simulation$46dart, packages__flutter__src__physics__spring_simulation$46dart, packages__flutter__src__foundation__object$46dart, packages__flutter__src__physics__simulation$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const ui = dart_sdk.ui;
+  const math = dart_sdk.math;
+  const _internal = dart_sdk._internal;
+  const _interceptors = dart_sdk._interceptors;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const borders = packages__flutter__src__painting__borders$46dart.src__painting__borders;
-  const colors = packages__flutter__src__painting__colors$46dart.src__painting__colors;
-  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
-  var floating_action_button_theme = Object.create(dart.library);
-  var $runtimeType = dartx.runtimeType;
+  const tolerance = packages__flutter__src__physics__tolerance$46dart.src__physics__tolerance;
+  const friction_simulation = packages__flutter__src__physics__friction_simulation$46dart.src__physics__friction_simulation;
+  const spring_simulation = packages__flutter__src__physics__spring_simulation$46dart.src__physics__spring_simulation;
+  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
+  const simulation = packages__flutter__src__physics__simulation$46dart.src__physics__simulation;
+  var scroll_simulation = Object.create(dart.library);
+  var $isFinite = dartx.isFinite;
+  var $abs = dartx.abs;
+  var $round = dartx.round;
+  var $sign = dartx.sign;
+  var $clamp = dartx.clamp;
+  var $_get = dartx._get;
   dart._checkModuleNullSafetyMode(true);
   var T = {
-    DiagnosticsPropertyOfShapeBorder: () => (T.DiagnosticsPropertyOfShapeBorder = dart.constFn(diagnostics.DiagnosticsProperty$(borders.ShapeBorder)))()
+    JSArrayOfdouble: () => (T.JSArrayOfdouble = dart.constFn(_interceptors.JSArray$(core.double)))()
   };
   const CT = Object.create({
     _: () => (C, CT)
@@ -19,210 +28,408 @@ define(['dart_sdk', 'packages/flutter/src/painting/borders.dart', 'packages/flut
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: floating_action_button_theme.FloatingActionButtonThemeData.prototype,
-        [shape$]: null,
-        [highlightElevation$]: null,
-        [disabledElevation$]: null,
-        [hoverElevation$]: null,
-        [focusElevation$]: null,
-        [elevation$]: null,
-        [splashColor$]: null,
-        [hoverColor$]: null,
-        [focusColor$]: null,
-        [backgroundColor$]: null,
-        [foregroundColor$]: null
+        __proto__: tolerance.Tolerance.prototype,
+        [Tolerance_velocity]: 0.001,
+        [Tolerance_time]: 0.001,
+        [Tolerance_distance]: 0.001
       });
     }
   }, false);
   var C = [void 0];
   var I = [
-    "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/material/floating_action_button_theme.dart",
-    "package:flutter/src/material/floating_action_button_theme.dart"
+    "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/widgets/scroll_simulation.dart",
+    "package:flutter/src/widgets/scroll_simulation.dart"
   ];
-  var foregroundColor$ = dart.privateName(floating_action_button_theme, "FloatingActionButtonThemeData.foregroundColor");
-  var backgroundColor$ = dart.privateName(floating_action_button_theme, "FloatingActionButtonThemeData.backgroundColor");
-  var focusColor$ = dart.privateName(floating_action_button_theme, "FloatingActionButtonThemeData.focusColor");
-  var hoverColor$ = dart.privateName(floating_action_button_theme, "FloatingActionButtonThemeData.hoverColor");
-  var splashColor$ = dart.privateName(floating_action_button_theme, "FloatingActionButtonThemeData.splashColor");
-  var elevation$ = dart.privateName(floating_action_button_theme, "FloatingActionButtonThemeData.elevation");
-  var focusElevation$ = dart.privateName(floating_action_button_theme, "FloatingActionButtonThemeData.focusElevation");
-  var hoverElevation$ = dart.privateName(floating_action_button_theme, "FloatingActionButtonThemeData.hoverElevation");
-  var disabledElevation$ = dart.privateName(floating_action_button_theme, "FloatingActionButtonThemeData.disabledElevation");
-  var highlightElevation$ = dart.privateName(floating_action_button_theme, "FloatingActionButtonThemeData.highlightElevation");
-  var shape$ = dart.privateName(floating_action_button_theme, "FloatingActionButtonThemeData.shape");
-  const Object_Diagnosticable$36 = class Object_Diagnosticable extends core.Object {};
-  (Object_Diagnosticable$36.new = function() {
-  }).prototype = Object_Diagnosticable$36.prototype;
-  dart.applyMixin(Object_Diagnosticable$36, diagnostics.Diagnosticable);
-  floating_action_button_theme.FloatingActionButtonThemeData = class FloatingActionButtonThemeData extends Object_Diagnosticable$36 {
-    get foregroundColor() {
-      return this[foregroundColor$];
+  var leadingExtent$ = dart.privateName(scroll_simulation, "BouncingScrollSimulation.leadingExtent");
+  var trailingExtent$ = dart.privateName(scroll_simulation, "BouncingScrollSimulation.trailingExtent");
+  var spring$ = dart.privateName(scroll_simulation, "BouncingScrollSimulation.spring");
+  var Tolerance_velocity = dart.privateName(tolerance, "Tolerance.velocity");
+  var Tolerance_time = dart.privateName(tolerance, "Tolerance.time");
+  var Tolerance_distance = dart.privateName(tolerance, "Tolerance.distance");
+  var __BouncingScrollSimulation__frictionSimulation = dart.privateName(scroll_simulation, "_#BouncingScrollSimulation#_frictionSimulation");
+  var __BouncingScrollSimulation__springSimulation = dart.privateName(scroll_simulation, "_#BouncingScrollSimulation#_springSimulation");
+  var __BouncingScrollSimulation__springTime = dart.privateName(scroll_simulation, "_#BouncingScrollSimulation#_springTime");
+  var _timeOffset = dart.privateName(scroll_simulation, "_timeOffset");
+  var _springSimulation = dart.privateName(scroll_simulation, "_springSimulation");
+  var _underscrollSimulation = dart.privateName(scroll_simulation, "_underscrollSimulation");
+  var _springTime = dart.privateName(scroll_simulation, "_springTime");
+  var _overscrollSimulation = dart.privateName(scroll_simulation, "_overscrollSimulation");
+  var _frictionSimulation = dart.privateName(scroll_simulation, "_frictionSimulation");
+  var _simulation = dart.privateName(scroll_simulation, "_simulation");
+  scroll_simulation.BouncingScrollSimulation = class BouncingScrollSimulation extends simulation.Simulation {
+    get leadingExtent() {
+      return this[leadingExtent$];
     }
-    set foregroundColor(value) {
-      super.foregroundColor = value;
+    set leadingExtent(value) {
+      super.leadingExtent = value;
     }
-    get backgroundColor() {
-      return this[backgroundColor$];
+    get trailingExtent() {
+      return this[trailingExtent$];
     }
-    set backgroundColor(value) {
-      super.backgroundColor = value;
+    set trailingExtent(value) {
+      super.trailingExtent = value;
     }
-    get focusColor() {
-      return this[focusColor$];
+    get spring() {
+      return this[spring$];
     }
-    set focusColor(value) {
-      super.focusColor = value;
+    set spring(value) {
+      super.spring = value;
     }
-    get hoverColor() {
-      return this[hoverColor$];
+    get [_frictionSimulation]() {
+      let t0;
+      t0 = this[__BouncingScrollSimulation__frictionSimulation];
+      return t0 == null ? dart.throw(new _internal.LateError.fieldNI("_frictionSimulation")) : t0;
     }
-    set hoverColor(value) {
-      super.hoverColor = value;
+    set [_frictionSimulation](t0) {
+      this[__BouncingScrollSimulation__frictionSimulation] = t0;
     }
-    get splashColor() {
-      return this[splashColor$];
+    get [_springSimulation]() {
+      let t1;
+      t1 = this[__BouncingScrollSimulation__springSimulation];
+      return t1 == null ? dart.throw(new _internal.LateError.fieldNI("_springSimulation")) : t1;
     }
-    set splashColor(value) {
-      super.splashColor = value;
+    set [_springSimulation](t1) {
+      this[__BouncingScrollSimulation__springSimulation] = t1;
     }
-    get elevation() {
-      return this[elevation$];
+    get [_springTime]() {
+      let t2;
+      t2 = this[__BouncingScrollSimulation__springTime];
+      return t2 == null ? dart.throw(new _internal.LateError.fieldNI("_springTime")) : t2;
     }
-    set elevation(value) {
-      super.elevation = value;
+    set [_springTime](t2) {
+      this[__BouncingScrollSimulation__springTime] = t2;
     }
-    get focusElevation() {
-      return this[focusElevation$];
+    [_underscrollSimulation](x, dx) {
+      return new spring_simulation.ScrollSpringSimulation.new(this.spring, x, this.leadingExtent, dx);
     }
-    set focusElevation(value) {
-      super.focusElevation = value;
+    [_overscrollSimulation](x, dx) {
+      return new spring_simulation.ScrollSpringSimulation.new(this.spring, x, this.trailingExtent, dx);
     }
-    get hoverElevation() {
-      return this[hoverElevation$];
+    [_simulation](time) {
+      let t3;
+      let simulation = null;
+      if (time > this[_springTime]) {
+        this[_timeOffset] = this[_springTime][$isFinite] ? this[_springTime] : 0.0;
+        simulation = this[_springSimulation];
+      } else {
+        this[_timeOffset] = 0.0;
+        simulation = this[_frictionSimulation];
+      }
+      t3 = simulation;
+      return (() => {
+        t3.tolerance = this.tolerance;
+        return t3;
+      })();
     }
-    set hoverElevation(value) {
-      super.hoverElevation = value;
+    x(time) {
+      return this[_simulation](time).x(time - this[_timeOffset]);
     }
-    get disabledElevation() {
-      return this[disabledElevation$];
+    dx(time) {
+      return this[_simulation](time).dx(time - this[_timeOffset]);
     }
-    set disabledElevation(value) {
-      super.disabledElevation = value;
+    isDone(time) {
+      return this[_simulation](time).isDone(time - this[_timeOffset]);
     }
-    get highlightElevation() {
-      return this[highlightElevation$];
-    }
-    set highlightElevation(value) {
-      super.highlightElevation = value;
-    }
-    get shape() {
-      return this[shape$];
-    }
-    set shape(value) {
-      super.shape = value;
-    }
-    copyWith(opts) {
-      let t0, t0$, t0$0, t0$1, t0$2, t0$3, t0$4, t0$5, t0$6, t0$7, t0$8;
-      let foregroundColor = opts && 'foregroundColor' in opts ? opts.foregroundColor : null;
-      let backgroundColor = opts && 'backgroundColor' in opts ? opts.backgroundColor : null;
-      let focusColor = opts && 'focusColor' in opts ? opts.focusColor : null;
-      let hoverColor = opts && 'hoverColor' in opts ? opts.hoverColor : null;
-      let splashColor = opts && 'splashColor' in opts ? opts.splashColor : null;
-      let elevation = opts && 'elevation' in opts ? opts.elevation : null;
-      let focusElevation = opts && 'focusElevation' in opts ? opts.focusElevation : null;
-      let hoverElevation = opts && 'hoverElevation' in opts ? opts.hoverElevation : null;
-      let disabledElevation = opts && 'disabledElevation' in opts ? opts.disabledElevation : null;
-      let highlightElevation = opts && 'highlightElevation' in opts ? opts.highlightElevation : null;
-      let shape = opts && 'shape' in opts ? opts.shape : null;
-      return new floating_action_button_theme.FloatingActionButtonThemeData.new({foregroundColor: (t0 = foregroundColor, t0 == null ? this.foregroundColor : t0), backgroundColor: (t0$ = backgroundColor, t0$ == null ? this.backgroundColor : t0$), focusColor: (t0$0 = focusColor, t0$0 == null ? this.focusColor : t0$0), hoverColor: (t0$1 = hoverColor, t0$1 == null ? this.hoverColor : t0$1), splashColor: (t0$2 = splashColor, t0$2 == null ? this.splashColor : t0$2), elevation: (t0$3 = elevation, t0$3 == null ? this.elevation : t0$3), focusElevation: (t0$4 = focusElevation, t0$4 == null ? this.focusElevation : t0$4), hoverElevation: (t0$5 = hoverElevation, t0$5 == null ? this.hoverElevation : t0$5), disabledElevation: (t0$6 = disabledElevation, t0$6 == null ? this.disabledElevation : t0$6), highlightElevation: (t0$7 = highlightElevation, t0$7 == null ? this.highlightElevation : t0$7), shape: (t0$8 = shape, t0$8 == null ? this.shape : t0$8)});
-    }
-    static lerp(a, b, t) {
-      let t0, t0$, t0$0, t0$1, t0$2, t0$3, t0$4, t0$5, t0$6, t0$7, t0$8, t0$9, t0$10, t0$11, t0$12, t0$13, t0$14, t0$15, t0$16, t0$17, t0$18, t0$19;
-      if (!(t !== null)) dart.assertFailed(null, I[0], 128, 12, "t != null");
-      if (a == null && b == null) return null;
-      return new floating_action_button_theme.FloatingActionButtonThemeData.new({foregroundColor: ui.Color.lerp((t0 = a, t0 == null ? null : t0.foregroundColor), (t0$ = b, t0$ == null ? null : t0$.foregroundColor), t), backgroundColor: ui.Color.lerp((t0$0 = a, t0$0 == null ? null : t0$0.backgroundColor), (t0$1 = b, t0$1 == null ? null : t0$1.backgroundColor), t), focusColor: ui.Color.lerp((t0$2 = a, t0$2 == null ? null : t0$2.focusColor), (t0$3 = b, t0$3 == null ? null : t0$3.focusColor), t), hoverColor: ui.Color.lerp((t0$4 = a, t0$4 == null ? null : t0$4.hoverColor), (t0$5 = b, t0$5 == null ? null : t0$5.hoverColor), t), splashColor: ui.Color.lerp((t0$6 = a, t0$6 == null ? null : t0$6.splashColor), (t0$7 = b, t0$7 == null ? null : t0$7.splashColor), t), elevation: ui.lerpDouble((t0$8 = a, t0$8 == null ? null : t0$8.elevation), (t0$9 = b, t0$9 == null ? null : t0$9.elevation), t), focusElevation: ui.lerpDouble((t0$10 = a, t0$10 == null ? null : t0$10.focusElevation), (t0$11 = b, t0$11 == null ? null : t0$11.focusElevation), t), hoverElevation: ui.lerpDouble((t0$12 = a, t0$12 == null ? null : t0$12.hoverElevation), (t0$13 = b, t0$13 == null ? null : t0$13.hoverElevation), t), disabledElevation: ui.lerpDouble((t0$14 = a, t0$14 == null ? null : t0$14.disabledElevation), (t0$15 = b, t0$15 == null ? null : t0$15.disabledElevation), t), highlightElevation: ui.lerpDouble((t0$16 = a, t0$16 == null ? null : t0$16.highlightElevation), (t0$17 = b, t0$17 == null ? null : t0$17.highlightElevation), t), shape: borders.ShapeBorder.lerp((t0$18 = a, t0$18 == null ? null : t0$18.shape), (t0$19 = b, t0$19 == null ? null : t0$19.shape), t)});
-    }
-    get hashCode() {
-      return ui.hashValues(this.foregroundColor, this.backgroundColor, this.focusColor, this.hoverColor, this.splashColor, this.elevation, this.focusElevation, this.hoverElevation, this.disabledElevation, this.highlightElevation, this.shape);
-    }
-    _equals(other) {
-      if (other == null) return false;
-      if (this === other) return true;
-      if (!other[$runtimeType]._equals(this[$runtimeType])) return false;
-      return floating_action_button_theme.FloatingActionButtonThemeData.is(other) && dart.equals(other.foregroundColor, this.foregroundColor) && dart.equals(other.backgroundColor, this.backgroundColor) && dart.equals(other.focusColor, this.focusColor) && dart.equals(other.hoverColor, this.hoverColor) && dart.equals(other.splashColor, this.splashColor) && other.elevation == this.elevation && other.focusElevation == this.focusElevation && other.hoverElevation == this.hoverElevation && other.disabledElevation == this.disabledElevation && other.highlightElevation == this.highlightElevation && dart.equals(other.shape, this.shape);
-    }
-    debugFillProperties(properties) {
-      super.debugFillProperties(properties);
-      let defaultData = C[0] || CT.C0;
-      properties.add(new colors.ColorProperty.new("foregroundColor", this.foregroundColor, {defaultValue: defaultData.foregroundColor}));
-      properties.add(new colors.ColorProperty.new("backgroundColor", this.backgroundColor, {defaultValue: defaultData.backgroundColor}));
-      properties.add(new colors.ColorProperty.new("focusColor", this.focusColor, {defaultValue: defaultData.focusColor}));
-      properties.add(new colors.ColorProperty.new("hoverColor", this.hoverColor, {defaultValue: defaultData.hoverColor}));
-      properties.add(new colors.ColorProperty.new("splashColor", this.splashColor, {defaultValue: defaultData.splashColor}));
-      properties.add(new diagnostics.DoubleProperty.new("elevation", this.elevation, {defaultValue: defaultData.elevation}));
-      properties.add(new diagnostics.DoubleProperty.new("focusElevation", this.focusElevation, {defaultValue: defaultData.focusElevation}));
-      properties.add(new diagnostics.DoubleProperty.new("hoverElevation", this.hoverElevation, {defaultValue: defaultData.hoverElevation}));
-      properties.add(new diagnostics.DoubleProperty.new("disabledElevation", this.disabledElevation, {defaultValue: defaultData.disabledElevation}));
-      properties.add(new diagnostics.DoubleProperty.new("highlightElevation", this.highlightElevation, {defaultValue: defaultData.highlightElevation}));
-      properties.add(new (T.DiagnosticsPropertyOfShapeBorder()).new("shape", this.shape, {defaultValue: defaultData.shape}));
+    toString() {
+      return object.objectRuntimeType(this, "BouncingScrollSimulation") + "(leadingExtent: " + dart.str(this.leadingExtent) + ", trailingExtent: " + dart.str(this.trailingExtent) + ")";
     }
   };
-  (floating_action_button_theme.FloatingActionButtonThemeData.new = function(opts) {
-    let foregroundColor = opts && 'foregroundColor' in opts ? opts.foregroundColor : null;
-    let backgroundColor = opts && 'backgroundColor' in opts ? opts.backgroundColor : null;
-    let focusColor = opts && 'focusColor' in opts ? opts.focusColor : null;
-    let hoverColor = opts && 'hoverColor' in opts ? opts.hoverColor : null;
-    let splashColor = opts && 'splashColor' in opts ? opts.splashColor : null;
-    let elevation = opts && 'elevation' in opts ? opts.elevation : null;
-    let focusElevation = opts && 'focusElevation' in opts ? opts.focusElevation : null;
-    let hoverElevation = opts && 'hoverElevation' in opts ? opts.hoverElevation : null;
-    let disabledElevation = opts && 'disabledElevation' in opts ? opts.disabledElevation : null;
-    let highlightElevation = opts && 'highlightElevation' in opts ? opts.highlightElevation : null;
-    let shape = opts && 'shape' in opts ? opts.shape : null;
-    this[foregroundColor$] = foregroundColor;
-    this[backgroundColor$] = backgroundColor;
-    this[focusColor$] = focusColor;
-    this[hoverColor$] = hoverColor;
-    this[splashColor$] = splashColor;
-    this[elevation$] = elevation;
-    this[focusElevation$] = focusElevation;
-    this[hoverElevation$] = hoverElevation;
-    this[disabledElevation$] = disabledElevation;
-    this[highlightElevation$] = highlightElevation;
-    this[shape$] = shape;
-    ;
-  }).prototype = floating_action_button_theme.FloatingActionButtonThemeData.prototype;
-  dart.addTypeTests(floating_action_button_theme.FloatingActionButtonThemeData);
-  dart.addTypeCaches(floating_action_button_theme.FloatingActionButtonThemeData);
-  dart.setMethodSignature(floating_action_button_theme.FloatingActionButtonThemeData, () => ({
-    __proto__: dart.getMethods(floating_action_button_theme.FloatingActionButtonThemeData.__proto__),
-    copyWith: dart.fnType(floating_action_button_theme.FloatingActionButtonThemeData, [], {backgroundColor: dart.nullable(ui.Color), disabledElevation: dart.nullable(core.double), elevation: dart.nullable(core.double), focusColor: dart.nullable(ui.Color), focusElevation: dart.nullable(core.double), foregroundColor: dart.nullable(ui.Color), highlightElevation: dart.nullable(core.double), hoverColor: dart.nullable(ui.Color), hoverElevation: dart.nullable(core.double), shape: dart.nullable(borders.ShapeBorder), splashColor: dart.nullable(ui.Color)}, {})
+  (scroll_simulation.BouncingScrollSimulation.new = function(opts) {
+    let position = opts && 'position' in opts ? opts.position : null;
+    let velocity = opts && 'velocity' in opts ? opts.velocity : null;
+    let leadingExtent = opts && 'leadingExtent' in opts ? opts.leadingExtent : null;
+    let trailingExtent = opts && 'trailingExtent' in opts ? opts.trailingExtent : null;
+    let spring = opts && 'spring' in opts ? opts.spring : null;
+    let tolerance = opts && 'tolerance' in opts ? opts.tolerance : C[0] || CT.C0;
+    this[__BouncingScrollSimulation__frictionSimulation] = null;
+    this[__BouncingScrollSimulation__springSimulation] = null;
+    this[__BouncingScrollSimulation__springTime] = null;
+    this[_timeOffset] = 0.0;
+    this[leadingExtent$] = leadingExtent;
+    this[trailingExtent$] = trailingExtent;
+    this[spring$] = spring;
+    if (!(position !== null)) dart.assertFailed(null, I[0], 38, 15, "position != null");
+    if (!(velocity !== null)) dart.assertFailed(null, I[0], 39, 15, "velocity != null");
+    if (!(leadingExtent !== null)) dart.assertFailed(null, I[0], 40, 15, "leadingExtent != null");
+    if (!(trailingExtent !== null)) dart.assertFailed(null, I[0], 41, 15, "trailingExtent != null");
+    if (!(leadingExtent <= trailingExtent)) dart.assertFailed(null, I[0], 42, 15, "leadingExtent <= trailingExtent");
+    if (!(spring !== null)) dart.assertFailed(null, I[0], 43, 15, "spring != null");
+    scroll_simulation.BouncingScrollSimulation.__proto__.new.call(this, {tolerance: tolerance});
+    if (position < this.leadingExtent) {
+      this[_springSimulation] = this[_underscrollSimulation](position, velocity);
+      this[_springTime] = -1 / 0;
+    } else if (position > this.trailingExtent) {
+      this[_springSimulation] = this[_overscrollSimulation](position, velocity);
+      this[_springTime] = -1 / 0;
+    } else {
+      this[_frictionSimulation] = new friction_simulation.FrictionSimulation.new(0.135, position, velocity);
+      let finalX = this[_frictionSimulation].finalX;
+      if (velocity > 0.0 && finalX > this.trailingExtent) {
+        this[_springTime] = this[_frictionSimulation].timeAtX(this.trailingExtent);
+        this[_springSimulation] = this[_overscrollSimulation](this.trailingExtent, math.min(core.double, this[_frictionSimulation].dx(this[_springTime]), 5000));
+        if (!this[_springTime][$isFinite]) dart.assertFailed(null, I[0], 62, 16, "_springTime.isFinite");
+      } else if (velocity < 0.0 && finalX < this.leadingExtent) {
+        this[_springTime] = this[_frictionSimulation].timeAtX(this.leadingExtent);
+        this[_springSimulation] = this[_underscrollSimulation](this.leadingExtent, math.min(core.double, this[_frictionSimulation].dx(this[_springTime]), 5000));
+        if (!this[_springTime][$isFinite]) dart.assertFailed(null, I[0], 69, 16, "_springTime.isFinite");
+      } else {
+        this[_springTime] = 1 / 0;
+      }
+    }
+    if (!(this[_springTime] !== null)) dart.assertFailed(null, I[0], 74, 12, "_springTime != null");
+  }).prototype = scroll_simulation.BouncingScrollSimulation.prototype;
+  dart.addTypeTests(scroll_simulation.BouncingScrollSimulation);
+  dart.addTypeCaches(scroll_simulation.BouncingScrollSimulation);
+  dart.setMethodSignature(scroll_simulation.BouncingScrollSimulation, () => ({
+    __proto__: dart.getMethods(scroll_simulation.BouncingScrollSimulation.__proto__),
+    [_underscrollSimulation]: dart.fnType(simulation.Simulation, [core.double, core.double]),
+    [_overscrollSimulation]: dart.fnType(simulation.Simulation, [core.double, core.double]),
+    [_simulation]: dart.fnType(simulation.Simulation, [core.double]),
+    x: dart.fnType(core.double, [core.double]),
+    dx: dart.fnType(core.double, [core.double]),
+    isDone: dart.fnType(core.bool, [core.double])
   }));
-  dart.setLibraryUri(floating_action_button_theme.FloatingActionButtonThemeData, I[1]);
-  dart.setFieldSignature(floating_action_button_theme.FloatingActionButtonThemeData, () => ({
-    __proto__: dart.getFields(floating_action_button_theme.FloatingActionButtonThemeData.__proto__),
-    foregroundColor: dart.finalFieldType(dart.nullable(ui.Color)),
-    backgroundColor: dart.finalFieldType(dart.nullable(ui.Color)),
-    focusColor: dart.finalFieldType(dart.nullable(ui.Color)),
-    hoverColor: dart.finalFieldType(dart.nullable(ui.Color)),
-    splashColor: dart.finalFieldType(dart.nullable(ui.Color)),
-    elevation: dart.finalFieldType(dart.nullable(core.double)),
-    focusElevation: dart.finalFieldType(dart.nullable(core.double)),
-    hoverElevation: dart.finalFieldType(dart.nullable(core.double)),
-    disabledElevation: dart.finalFieldType(dart.nullable(core.double)),
-    highlightElevation: dart.finalFieldType(dart.nullable(core.double)),
-    shape: dart.finalFieldType(dart.nullable(borders.ShapeBorder))
+  dart.setGetterSignature(scroll_simulation.BouncingScrollSimulation, () => ({
+    __proto__: dart.getGetters(scroll_simulation.BouncingScrollSimulation.__proto__),
+    [_frictionSimulation]: friction_simulation.FrictionSimulation,
+    [_springSimulation]: simulation.Simulation,
+    [_springTime]: core.double
   }));
-  dart.defineExtensionMethods(floating_action_button_theme.FloatingActionButtonThemeData, ['_equals']);
-  dart.defineExtensionAccessors(floating_action_button_theme.FloatingActionButtonThemeData, ['hashCode']);
-  dart.trackLibraries("packages/flutter/src/material/floating_action_button_theme.dart", {
-    "package:flutter/src/material/floating_action_button_theme.dart": floating_action_button_theme
+  dart.setSetterSignature(scroll_simulation.BouncingScrollSimulation, () => ({
+    __proto__: dart.getSetters(scroll_simulation.BouncingScrollSimulation.__proto__),
+    [_frictionSimulation]: friction_simulation.FrictionSimulation,
+    [_springSimulation]: simulation.Simulation,
+    [_springTime]: core.double
+  }));
+  dart.setLibraryUri(scroll_simulation.BouncingScrollSimulation, I[1]);
+  dart.setFieldSignature(scroll_simulation.BouncingScrollSimulation, () => ({
+    __proto__: dart.getFields(scroll_simulation.BouncingScrollSimulation.__proto__),
+    leadingExtent: dart.finalFieldType(core.double),
+    trailingExtent: dart.finalFieldType(core.double),
+    spring: dart.finalFieldType(spring_simulation.SpringDescription),
+    [__BouncingScrollSimulation__frictionSimulation]: dart.fieldType(dart.nullable(friction_simulation.FrictionSimulation)),
+    [__BouncingScrollSimulation__springSimulation]: dart.fieldType(dart.nullable(simulation.Simulation)),
+    [__BouncingScrollSimulation__springTime]: dart.fieldType(dart.nullable(core.double)),
+    [_timeOffset]: dart.fieldType(core.double)
+  }));
+  dart.defineExtensionMethods(scroll_simulation.BouncingScrollSimulation, ['toString']);
+  dart.defineLazy(scroll_simulation.BouncingScrollSimulation, {
+    /*scroll_simulation.BouncingScrollSimulation.maxSpringTransferVelocity*/get maxSpringTransferVelocity() {
+      return 5000;
+    }
+  }, false);
+  var position$ = dart.privateName(scroll_simulation, "ClampingScrollSimulation.position");
+  var velocity$ = dart.privateName(scroll_simulation, "ClampingScrollSimulation.velocity");
+  var friction$ = dart.privateName(scroll_simulation, "ClampingScrollSimulation.friction");
+  var __ClampingScrollSimulation__duration = dart.privateName(scroll_simulation, "_#ClampingScrollSimulation#_duration");
+  var __ClampingScrollSimulation__distance = dart.privateName(scroll_simulation, "_#ClampingScrollSimulation#_distance");
+  var _duration = dart.privateName(scroll_simulation, "_duration");
+  var _splineFlingDuration = dart.privateName(scroll_simulation, "_splineFlingDuration");
+  var _distance = dart.privateName(scroll_simulation, "_distance");
+  var _splineFlingDistance = dart.privateName(scroll_simulation, "_splineFlingDistance");
+  var _splineDeceleration = dart.privateName(scroll_simulation, "_splineDeceleration");
+  scroll_simulation.ClampingScrollSimulation = class ClampingScrollSimulation extends simulation.Simulation {
+    get position() {
+      return this[position$];
+    }
+    set position(value) {
+      super.position = value;
+    }
+    get velocity() {
+      return this[velocity$];
+    }
+    set velocity(value) {
+      super.velocity = value;
+    }
+    get friction() {
+      return this[friction$];
+    }
+    set friction(value) {
+      super.friction = value;
+    }
+    get [_duration]() {
+      let t3;
+      t3 = this[__ClampingScrollSimulation__duration];
+      return t3 == null ? dart.throw(new _internal.LateError.fieldNI("_duration")) : t3;
+    }
+    set [_duration](t3) {
+      this[__ClampingScrollSimulation__duration] = t3;
+    }
+    get [_distance]() {
+      let t4;
+      t4 = this[__ClampingScrollSimulation__distance];
+      return t4 == null ? dart.throw(new _internal.LateError.fieldNI("_distance")) : t4;
+    }
+    set [_distance](t4) {
+      this[__ClampingScrollSimulation__distance] = t4;
+    }
+    static _decelerationForFriction(friction) {
+      return 9.80665 * 39.37 * friction * 1.0 * 160.0;
+    }
+    [_splineDeceleration](velocity) {
+      return math.log(0.35 * velocity[$abs]() / (this.friction * scroll_simulation.ClampingScrollSimulation._decelerationForFriction(0.84)));
+    }
+    [_splineFlingDuration](velocity) {
+      let deceleration = this[_splineDeceleration](velocity);
+      return (1000 * math.exp(deceleration / (scroll_simulation.ClampingScrollSimulation._kDecelerationRate - 1.0)))[$round]();
+    }
+    [_splineFlingDistance](velocity) {
+      let l = this[_splineDeceleration](velocity);
+      let decelMinusOne = scroll_simulation.ClampingScrollSimulation._kDecelerationRate - 1.0;
+      return this.friction * scroll_simulation.ClampingScrollSimulation._decelerationForFriction(0.84) * math.exp(scroll_simulation.ClampingScrollSimulation._kDecelerationRate / decelMinusOne * l);
+    }
+    x(time) {
+      if (time === 0) {
+        return this.position;
+      }
+      let sample = new scroll_simulation._NBSample.new(time, this[_duration]);
+      return this.position + sample.distanceCoef * this[_distance] * this.velocity[$sign];
+    }
+    dx(time) {
+      if (time === 0) {
+        return this.velocity;
+      }
+      let sample = new scroll_simulation._NBSample.new(time, this[_duration]);
+      return sample.velocityCoef * this[_distance] / this[_duration] * this.velocity[$sign] * 1000.0;
+    }
+    isDone(time) {
+      return time * 1000.0 >= this[_duration];
+    }
+  };
+  (scroll_simulation.ClampingScrollSimulation.new = function(opts) {
+    let position = opts && 'position' in opts ? opts.position : null;
+    let velocity = opts && 'velocity' in opts ? opts.velocity : null;
+    let friction = opts && 'friction' in opts ? opts.friction : 0.015;
+    let tolerance = opts && 'tolerance' in opts ? opts.tolerance : C[0] || CT.C0;
+    this[__ClampingScrollSimulation__duration] = null;
+    this[__ClampingScrollSimulation__distance] = null;
+    this[position$] = position;
+    this[velocity$] = velocity;
+    this[friction$] = friction;
+    scroll_simulation.ClampingScrollSimulation.__proto__.new.call(this, {tolerance: tolerance});
+    this[_duration] = this[_splineFlingDuration](this.velocity);
+    this[_distance] = this[_splineFlingDistance](this.velocity);
+  }).prototype = scroll_simulation.ClampingScrollSimulation.prototype;
+  dart.addTypeTests(scroll_simulation.ClampingScrollSimulation);
+  dart.addTypeCaches(scroll_simulation.ClampingScrollSimulation);
+  dart.setMethodSignature(scroll_simulation.ClampingScrollSimulation, () => ({
+    __proto__: dart.getMethods(scroll_simulation.ClampingScrollSimulation.__proto__),
+    [_splineDeceleration]: dart.fnType(core.double, [core.double]),
+    [_splineFlingDuration]: dart.fnType(core.int, [core.double]),
+    [_splineFlingDistance]: dart.fnType(core.double, [core.double]),
+    x: dart.fnType(core.double, [core.double]),
+    dx: dart.fnType(core.double, [core.double]),
+    isDone: dart.fnType(core.bool, [core.double])
+  }));
+  dart.setGetterSignature(scroll_simulation.ClampingScrollSimulation, () => ({
+    __proto__: dart.getGetters(scroll_simulation.ClampingScrollSimulation.__proto__),
+    [_duration]: core.int,
+    [_distance]: core.double
+  }));
+  dart.setSetterSignature(scroll_simulation.ClampingScrollSimulation, () => ({
+    __proto__: dart.getSetters(scroll_simulation.ClampingScrollSimulation.__proto__),
+    [_duration]: core.int,
+    [_distance]: core.double
+  }));
+  dart.setLibraryUri(scroll_simulation.ClampingScrollSimulation, I[1]);
+  dart.setFieldSignature(scroll_simulation.ClampingScrollSimulation, () => ({
+    __proto__: dart.getFields(scroll_simulation.ClampingScrollSimulation.__proto__),
+    position: dart.finalFieldType(core.double),
+    velocity: dart.finalFieldType(core.double),
+    friction: dart.finalFieldType(core.double),
+    [__ClampingScrollSimulation__duration]: dart.fieldType(dart.nullable(core.int)),
+    [__ClampingScrollSimulation__distance]: dart.fieldType(dart.nullable(core.double))
+  }));
+  dart.defineLazy(scroll_simulation.ClampingScrollSimulation, {
+    /*scroll_simulation.ClampingScrollSimulation._kDecelerationRate*/get _kDecelerationRate() {
+      return math.log(0.78) / math.log(0.9);
+    }
+  }, false);
+  var ___NBSample__velocityCoef = dart.privateName(scroll_simulation, "_#_NBSample#_velocityCoef");
+  var ___NBSample__distanceCoef = dart.privateName(scroll_simulation, "_#_NBSample#_distanceCoef");
+  var _distanceCoef = dart.privateName(scroll_simulation, "_distanceCoef");
+  var _velocityCoef = dart.privateName(scroll_simulation, "_velocityCoef");
+  scroll_simulation._NBSample = class _NBSample extends core.Object {
+    get [_velocityCoef]() {
+      let t5;
+      t5 = this[___NBSample__velocityCoef];
+      return t5 == null ? dart.throw(new _internal.LateError.fieldNI("_velocityCoef")) : t5;
+    }
+    set [_velocityCoef](t5) {
+      this[___NBSample__velocityCoef] = t5;
+    }
+    get velocityCoef() {
+      return this[_velocityCoef];
+    }
+    get [_distanceCoef]() {
+      let t6;
+      t6 = this[___NBSample__distanceCoef];
+      return t6 == null ? dart.throw(new _internal.LateError.fieldNI("_distanceCoef")) : t6;
+    }
+    set [_distanceCoef](t6) {
+      this[___NBSample__distanceCoef] = t6;
+    }
+    get distanceCoef() {
+      return this[_distanceCoef];
+    }
+  };
+  (scroll_simulation._NBSample.new = function(time, duration) {
+    this[___NBSample__velocityCoef] = null;
+    this[___NBSample__distanceCoef] = null;
+    let t = time * 1000.0 / duration;
+    let index = (100 * t)[$clamp](0, 100)[$round]();
+    this[_distanceCoef] = 1.0;
+    this[_velocityCoef] = 0.0;
+    if (index < 100) {
+      let tInf = index / 100;
+      let tSup = (index + 1) / 100;
+      let dInf = scroll_simulation._NBSample._splinePosition[$_get](index);
+      let dSup = scroll_simulation._NBSample._splinePosition[$_get](index + 1);
+      this[_velocityCoef] = (dSup - dInf) / (tSup - tInf);
+      this[_distanceCoef] = dInf + (t - tInf) * this[_velocityCoef];
+    }
+  }).prototype = scroll_simulation._NBSample.prototype;
+  dart.addTypeTests(scroll_simulation._NBSample);
+  dart.addTypeCaches(scroll_simulation._NBSample);
+  dart.setGetterSignature(scroll_simulation._NBSample, () => ({
+    __proto__: dart.getGetters(scroll_simulation._NBSample.__proto__),
+    [_velocityCoef]: core.double,
+    velocityCoef: core.double,
+    [_distanceCoef]: core.double,
+    distanceCoef: core.double
+  }));
+  dart.setSetterSignature(scroll_simulation._NBSample, () => ({
+    __proto__: dart.getSetters(scroll_simulation._NBSample.__proto__),
+    [_velocityCoef]: core.double,
+    [_distanceCoef]: core.double
+  }));
+  dart.setLibraryUri(scroll_simulation._NBSample, I[1]);
+  dart.setFieldSignature(scroll_simulation._NBSample, () => ({
+    __proto__: dart.getFields(scroll_simulation._NBSample.__proto__),
+    [___NBSample__velocityCoef]: dart.fieldType(dart.nullable(core.double)),
+    [___NBSample__distanceCoef]: dart.fieldType(dart.nullable(core.double))
+  }));
+  dart.defineLazy(scroll_simulation._NBSample, {
+    /*scroll_simulation._NBSample._nbSamples*/get _nbSamples() {
+      return 100;
+    },
+    /*scroll_simulation._NBSample._splinePosition*/get _splinePosition() {
+      return T.JSArrayOfdouble().of([0.000022888183591973643, 0.028561000304762274, 0.05705195792956655, 0.08538917797618413, 0.11349556286812107, 0.14129881694635613, 0.16877157254923383, 0.19581093511175632, 0.22239649722992452, 0.24843841866631658, 0.2740024733220569, 0.298967680744136, 0.32333234658228116, 0.34709556909569184, 0.3702249257894571, 0.39272483400399893, 0.41456988647721615, 0.43582889025419114, 0.4564192786416, 0.476410299013587, 0.4957560715637827, 0.5145493169954743, 0.5327205670880077, 0.5502846891191615, 0.5673274324802855, 0.583810881323224, 0.5997478744397482, 0.615194045299478, 0.6301165005270208, 0.6445484042257972, 0.6585198219185201, 0.6720397744233084, 0.6850997688076114, 0.6977281404741683, 0.7099506591298411, 0.7217749311525871, 0.7331784038850426, 0.7442308394229518, 0.7549087205105974, 0.7652471277371271, 0.7752251637549381, 0.7848768260203478, 0.7942056937103814, 0.8032299679689082, 0.8119428702388629, 0.8203713516576219, 0.8285187880808974, 0.8363794492831295, 0.8439768562813565, 0.851322799855549, 0.8584111051351724, 0.8652534074722162, 0.8718525580962131, 0.8782333271742155, 0.8843892099362031, 0.8903155590440985, 0.8960465359221951, 0.9015574505919048, 0.9068736766459904, 0.9119951682409297, 0.9169321898723632, 0.9216747065581234, 0.9262420604674766, 0.9306331858366086, 0.9348476990715433, 0.9389007110754832, 0.9427903495057521, 0.9465220679845756, 0.9500943036519721, 0.9535176728088761, 0.9567898524767604, 0.959924306623116, 0.9629127700159108, 0.9657622101750765, 0.9684818726275105, 0.9710676079044347, 0.9735231939498, 0.9758514437576309, 0.9780599066560445, 0.9801485715370128, 0.9821149805689633, 0.9839677526782791, 0.9857085499421516, 0.9873347811966005, 0.9888547171706613, 0.9902689443512227, 0.9915771042095881, 0.9927840651641069, 0.9938913963715834, 0.9948987305580712, 0.9958114963810524, 0.9966274782266875, 0.997352148697352, 0.9979848677523623, 0.9985285021374979, 0.9989844084453229, 0.9993537595844986, 0.999638729860106, 0.9998403888004533, 0.9999602810470701, 1.0]);
+    }
+  }, false);
+  dart.defineLazy(scroll_simulation, {
+    /*scroll_simulation._inflexion*/get _inflexion() {
+      return 0.35;
+    }
+  }, false);
+  dart.trackLibraries("packages/flutter/src/widgets/scroll_simulation.dart", {
+    "package:flutter/src/widgets/scroll_simulation.dart": scroll_simulation
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["floating_action_button_theme.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/flutter/src/material/floating_action_button_theme.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["scroll_simulation.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/flutter/src/widgets/scroll_simulation.dart.lib.js"}');
   // Exports:
   return {
-    src__material__floating_action_button_theme: floating_action_button_theme
+    src__widgets__scroll_simulation: scroll_simulation
   };
 }));
 
-//# sourceMappingURL=floating_action_button_theme.dart.lib.js.map
+//# sourceMappingURL=scroll_simulation.dart.lib.js.map

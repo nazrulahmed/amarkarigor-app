@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Widget getServices(List services,constraints) {
+Widget getServices(List services, constraints) {
   return Column(
     mainAxisAlignment: MainAxisAlignment.start,
     crossAxisAlignment: CrossAxisAlignment.start,
@@ -10,11 +10,10 @@ Widget getServices(List services,constraints) {
         child: Text('Services'),
       ),
       Container(
-          margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 8),
-          height: 200.0,
           child: ListView.builder(
-              scrollDirection: Axis.horizontal,
               itemCount: services.length,
+              shrinkWrap: true,
+              physics: ClampingScrollPhysics(),
               itemBuilder: (context, index) {
                 return service(services[index]);
               })),
@@ -24,30 +23,30 @@ Widget getServices(List services,constraints) {
 
 Widget service(String category) {
   return Container(
-    width: 100,
-    margin: EdgeInsets.symmetric(horizontal: 8,vertical: 4),
-    child: Column(children: [
-      ClipRRect(
-        borderRadius: BorderRadius.all(Radius.circular(50)),
-        child: Container(
+    child: Card(
+      child: Row(
+        
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+        Container(
           color: Colors.green[50],
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Image.network(
-            'https://www.bajajallianz.com/content/dam/bagic/home-insurance/My-Home-Insurance.png',
-            height: 80,
+              'https://www.bajajallianz.com/content/dam/bagic/home-insurance/My-Home-Insurance.png',
+              height: 40,
             ),
           ),
         ),
-      ),
-      Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Text(
-          category,
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-        ),
-      )
-    ]),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            category,
+            style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+          ),
+        )
+      ]),
+    ),
   );
 }

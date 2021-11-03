@@ -1,21 +1,22 @@
-define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/widgets/will_pop_scope.dart'], (function load__packages__flutter__src__widgets__form_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__widgets__will_pop_scope$46dart) {
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/animation/listener_helpers.dart', 'packages/flutter/src/animation/curves.dart', 'packages/flutter/src/painting/alignment.dart'], (function load__packages__get__get_navigation__src__routes__default_transitions_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__animation__listener_helpers$46dart, packages__flutter__src__animation__curves$46dart, packages__flutter__src__painting__alignment$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const async = dart_sdk.async;
-  const collection = dart_sdk.collection;
+  const ui = dart_sdk.ui;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const transitions = packages__flutter__src__widgets__widget_span$46dart.src__widgets__transitions;
   const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
-  const will_pop_scope = packages__flutter__src__widgets__will_pop_scope$46dart.src__widgets__will_pop_scope;
-  var form = Object.create(dart.library);
-  var $any = dartx.any;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const tween = packages__flutter__src__animation__listener_helpers$46dart.src__animation__tween;
+  const animation = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animation;
+  const animations = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animations;
+  const curves = packages__flutter__src__animation__curves$46dart.src__animation__curves;
+  const alignment$ = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
+  var default_transitions = Object.create(dart.library);
   dart._checkModuleNullSafetyMode(true);
-  var T$ = {
-    LinkedHashSetOfFormFieldState: () => (T$.LinkedHashSetOfFormFieldState = dart.constFn(collection.LinkedHashSet$(form.FormFieldState)))(),
-    FormFieldStateTobool: () => (T$.FormFieldStateTobool = dart.constFn(dart.fnType(core.bool, [form.FormFieldState])))(),
-    VoidTovoid: () => (T$.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
-    StringN: () => (T$.StringN = dart.constFn(dart.nullable(core.String)))()
+  var T = {
+    TweenOfOffset: () => (T.TweenOfOffset = dart.constFn(tween.Tween$(ui.Offset)))()
   };
   const CT = Object.create({
     _: () => (C, CT)
@@ -23,618 +24,648 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: form.AutovalidateMode.prototype,
-        [_name$]: "AutovalidateMode.always",
-        index: 1
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: 0,
+        [OffsetBase__dx]: -1
       });
     },
     get C1() {
       return C[1] = dart.const({
-        __proto__: form.AutovalidateMode.prototype,
-        [_name$]: "AutovalidateMode.onUserInteraction",
-        index: 2
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: 0,
+        [OffsetBase__dx]: 1
       });
     },
-    get C2() {
-      return C[2] = dart.const({
-        __proto__: form.AutovalidateMode.prototype,
-        [_name$]: "AutovalidateMode.disabled",
-        index: 0
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "position",
+        [_Location_column]: 13,
+        [_Location_line]: 20,
+        [_Location_file]: null
       });
     },
     get C5() {
       return C[5] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "formState",
-        [_Location_column]: 9,
-        [_Location_line]: 209,
-        [_Location_file]: null
-      });
-    },
-    get C6() {
-      return C[6] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "generation",
-        [_Location_column]: 9,
-        [_Location_line]: 210,
-        [_Location_file]: null
-      });
-    },
-    get C7() {
-      return C[7] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
         [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 211,
+        [_Location_column]: 13,
+        [_Location_line]: 24,
         [_Location_file]: null
       });
-    },
-    get C4() {
-      return C[4] = dart.constList([C[5] || CT.C5, C[6] || CT.C6, C[7] || CT.C7], widget_inspector._Location);
     },
     get C3() {
-      return C[3] = dart.const({
+      return C[3] = dart.constList([C[4] || CT.C4, C[5] || CT.C5], widget_inspector._Location);
+    },
+    get C2() {
+      return C[2] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[4] || CT.C4,
+        [_Location_parameterLocations]: C[3] || CT.C3,
         [_Location_name]: null,
-        [_Location_column]: 14,
-        [_Location_line]: 208,
-        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/widgets/form.dart"
+        [_Location_column]: 16,
+        [_Location_line]: 19,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.3.8/lib/get_navigation/src/routes/default_transitions.dart"
       });
-    },
-    get C10() {
-      return C[10] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onWillPop",
-        [_Location_column]: 7,
-        [_Location_line]: 207,
-        [_Location_file]: null
-      });
-    },
-    get C11() {
-      return C[11] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 7,
-        [_Location_line]: 208,
-        [_Location_file]: null
-      });
-    },
-    get C9() {
-      return C[9] = dart.constList([C[10] || CT.C10, C[11] || CT.C11], widget_inspector._Location);
     },
     get C8() {
       return C[8] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[9] || CT.C9,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "opacity",
+        [_Location_column]: 9,
+        [_Location_line]: 18,
+        [_Location_file]: null
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 19,
+        [_Location_file]: null
+      });
+    },
+    get C7() {
+      return C[7] = dart.constList([C[8] || CT.C8, C[9] || CT.C9], widget_inspector._Location);
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[7] || CT.C7,
         [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 206,
-        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/widgets/form.dart"
+        [_Location_column]: 14,
+        [_Location_line]: 17,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.3.8/lib/get_navigation/src/routes/default_transitions.dart"
       });
     },
     get C12() {
-      return C[12] = dart.constList([C[2] || CT.C2, C[0] || CT.C0, C[1] || CT.C1], form.AutovalidateMode);
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "position",
+        [_Location_column]: 7,
+        [_Location_line]: 13,
+        [_Location_file]: null
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 17,
+        [_Location_file]: null
+      });
+    },
+    get C11() {
+      return C[11] = dart.constList([C[12] || CT.C12, C[13] || CT.C13], widget_inspector._Location);
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[11] || CT.C11,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 12,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.3.8/lib/get_navigation/src/routes/default_transitions.dart"
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "position",
+        [_Location_column]: 13,
+        [_Location_line]: 46,
+        [_Location_file]: null
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 50,
+        [_Location_file]: null
+      });
+    },
+    get C15() {
+      return C[15] = dart.constList([C[16] || CT.C16, C[17] || CT.C17], widget_inspector._Location);
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[15] || CT.C15,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 45,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.3.8/lib/get_navigation/src/routes/default_transitions.dart"
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "opacity",
+        [_Location_column]: 9,
+        [_Location_line]: 44,
+        [_Location_file]: null
+      });
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 45,
+        [_Location_file]: null
+      });
+    },
+    get C19() {
+      return C[19] = dart.constList([C[20] || CT.C20, C[21] || CT.C21], widget_inspector._Location);
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[19] || CT.C19,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 43,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.3.8/lib/get_navigation/src/routes/default_transitions.dart"
+      });
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "position",
+        [_Location_column]: 7,
+        [_Location_line]: 39,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 43,
+        [_Location_file]: null
+      });
+    },
+    get C23() {
+      return C[23] = dart.constList([C[24] || CT.C24, C[25] || CT.C25], widget_inspector._Location);
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[23] || CT.C23,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 38,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.3.8/lib/get_navigation/src/routes/default_transitions.dart"
+      });
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "opacity",
+        [_Location_column]: 27,
+        [_Location_line]: 76,
+        [_Location_file]: null
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 47,
+        [_Location_line]: 76,
+        [_Location_file]: null
+      });
+    },
+    get C27() {
+      return C[27] = dart.constList([C[28] || CT.C28, C[29] || CT.C29], widget_inspector._Location);
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[27] || CT.C27,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 76,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.3.8/lib/get_navigation/src/routes/default_transitions.dart"
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "position",
+        [_Location_column]: 7,
+        [_Location_line]: 89,
+        [_Location_file]: null
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 93,
+        [_Location_file]: null
+      });
+    },
+    get C31() {
+      return C[31] = dart.constList([C[32] || CT.C32, C[33] || CT.C33], widget_inspector._Location);
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[31] || CT.C31,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 88,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.3.8/lib/get_navigation/src/routes/default_transitions.dart"
+      });
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "position",
+        [_Location_column]: 7,
+        [_Location_line]: 107,
+        [_Location_file]: null
+      });
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 111,
+        [_Location_file]: null
+      });
+    },
+    get C35() {
+      return C[35] = dart.constList([C[36] || CT.C36, C[37] || CT.C37], widget_inspector._Location);
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[35] || CT.C35,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 106,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.3.8/lib/get_navigation/src/routes/default_transitions.dart"
+      });
+    },
+    get C40() {
+      return C[40] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "position",
+        [_Location_column]: 7,
+        [_Location_line]: 125,
+        [_Location_file]: null
+      });
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 129,
+        [_Location_file]: null
+      });
+    },
+    get C39() {
+      return C[39] = dart.constList([C[40] || CT.C40, C[41] || CT.C41], widget_inspector._Location);
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[39] || CT.C39,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 124,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.3.8/lib/get_navigation/src/routes/default_transitions.dart"
+      });
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "position",
+        [_Location_column]: 7,
+        [_Location_line]: 143,
+        [_Location_file]: null
+      });
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 147,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C[43] = dart.constList([C[44] || CT.C44, C[45] || CT.C45], widget_inspector._Location);
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[43] || CT.C43,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 142,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.3.8/lib/get_navigation/src/routes/default_transitions.dart"
+      });
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "scale",
+        [_Location_column]: 7,
+        [_Location_line]: 161,
+        [_Location_file]: null
+      });
+    },
+    get C49() {
+      return C[49] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 162,
+        [_Location_file]: null
+      });
+    },
+    get C47() {
+      return C[47] = dart.constList([C[48] || CT.C48, C[49] || CT.C49], widget_inspector._Location);
+    },
+    get C46() {
+      return C[46] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[47] || CT.C47,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 160,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.3.8/lib/get_navigation/src/routes/default_transitions.dart"
+      });
+    },
+    get C52() {
+      return C[52] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "sizeFactor",
+        [_Location_column]: 9,
+        [_Location_line]: 178,
+        [_Location_file]: null
+      });
+    },
+    get C53() {
+      return C[53] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 182,
+        [_Location_file]: null
+      });
+    },
+    get C51() {
+      return C[51] = dart.constList([C[52] || CT.C52, C[53] || CT.C53], widget_inspector._Location);
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[51] || CT.C51,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 177,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.3.8/lib/get_navigation/src/routes/default_transitions.dart"
+      });
+    },
+    get C56() {
+      return C[56] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "alignment",
+        [_Location_column]: 7,
+        [_Location_line]: 176,
+        [_Location_file]: null
+      });
+    },
+    get C57() {
+      return C[57] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 177,
+        [_Location_file]: null
+      });
+    },
+    get C55() {
+      return C[55] = dart.constList([C[56] || CT.C56, C[57] || CT.C57], widget_inspector._Location);
+    },
+    get C54() {
+      return C[54] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[55] || CT.C55,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 175,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.3.8/lib/get_navigation/src/routes/default_transitions.dart"
+      });
     }
   }, false);
-  var C = Array(13).fill(void 0);
-  var I = [
-    "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/widgets/form.dart",
-    "package:flutter/src/widgets/form.dart"
-  ];
-  var child$ = dart.privateName(form, "Form.child");
-  var onWillPop$ = dart.privateName(form, "Form.onWillPop");
-  var onChanged$ = dart.privateName(form, "Form.onChanged");
-  var autovalidateMode$ = dart.privateName(form, "Form.autovalidateMode");
-  var autovalidate$ = dart.privateName(form, "Form.autovalidate");
-  var _formState = dart.privateName(form, "_formState");
-  form.Form = class Form extends framework.StatefulWidget {
-    get child() {
-      return this[child$];
-    }
-    set child(value) {
-      super.child = value;
-    }
-    get onWillPop() {
-      return this[onWillPop$];
-    }
-    set onWillPop(value) {
-      super.onWillPop = value;
-    }
-    get onChanged() {
-      return this[onChanged$];
-    }
-    set onChanged(value) {
-      super.onChanged = value;
-    }
-    get autovalidateMode() {
-      return this[autovalidateMode$];
-    }
-    set autovalidateMode(value) {
-      super.autovalidateMode = value;
-    }
-    get autovalidate() {
-      return this[autovalidate$];
-    }
-    set autovalidate(value) {
-      super.autovalidate = value;
-    }
-    static of(context) {
-      let t0;
-      let scope = context.dependOnInheritedWidgetOfExactType(form._FormScope);
-      t0 = scope;
-      return t0 == null ? null : t0[_formState];
-    }
-    createState() {
-      return new form.FormState.new();
-    }
-  };
-  (form.Form.new = function(opts) {
-    let t0;
-    let key = opts && 'key' in opts ? opts.key : null;
-    let child = opts && 'child' in opts ? opts.child : null;
-    let autovalidate = opts && 'autovalidate' in opts ? opts.autovalidate : false;
-    let onWillPop = opts && 'onWillPop' in opts ? opts.onWillPop : null;
-    let onChanged = opts && 'onChanged' in opts ? opts.onChanged : null;
-    let autovalidateMode = opts && 'autovalidateMode' in opts ? opts.autovalidateMode : null;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[child$] = child;
-    this[autovalidate$] = autovalidate;
-    this[onWillPop$] = onWillPop;
-    this[onChanged$] = onChanged;
-    if (!(child !== null)) dart.assertFailed(null, I[0], 88, 15, "child != null");
-    if (!(autovalidate !== null)) dart.assertFailed(null, I[0], 89, 15, "autovalidate != null");
-    if (!(autovalidate === false || autovalidate === true && autovalidateMode == null)) dart.assertFailed("autovalidate and autovalidateMode should not be used together.", I[0], 91, 10, "autovalidate == false ||\n         autovalidate == true && autovalidateMode == null");
-    this[autovalidateMode$] = (t0 = autovalidateMode, t0 == null ? autovalidate ? form.AutovalidateMode.always : form.AutovalidateMode.disabled : t0);
-    form.Form.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = form.Form.prototype;
-  dart.addTypeTests(form.Form);
-  dart.addTypeCaches(form.Form);
-  dart.setMethodSignature(form.Form, () => ({
-    __proto__: dart.getMethods(form.Form.__proto__),
-    createState: dart.fnType(form.FormState, [])
-  }));
-  dart.setLibraryUri(form.Form, I[1]);
-  dart.setFieldSignature(form.Form, () => ({
-    __proto__: dart.getFields(form.Form.__proto__),
-    child: dart.finalFieldType(framework.Widget),
-    onWillPop: dart.finalFieldType(dart.nullable(dart.fnType(async.Future$(core.bool), []))),
-    onChanged: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
-    autovalidateMode: dart.finalFieldType(form.AutovalidateMode),
-    autovalidate: dart.finalFieldType(core.bool)
-  }));
-  var _generation = dart.privateName(form, "_generation");
-  var _hasInteractedByUser = dart.privateName(form, "_hasInteractedByUser");
-  var _fields = dart.privateName(form, "_fields");
-  var _forceRebuild = dart.privateName(form, "_forceRebuild");
-  var _fieldDidChange = dart.privateName(form, "_fieldDidChange");
-  var _register = dart.privateName(form, "_register");
-  var _unregister = dart.privateName(form, "_unregister");
-  var _validate = dart.privateName(form, "_validate");
-  var _name$ = dart.privateName(form, "_name");
+  var C = Array(58).fill(void 0);
+  var I = ["package:get/get_navigation/src/routes/default_transitions.dart"];
+  var OffsetBase__dy = dart.privateName(ui, "OffsetBase._dy");
+  var OffsetBase__dx = dart.privateName(ui, "OffsetBase._dx");
   var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
   var _Location_name = dart.privateName(widget_inspector, "_Location.name");
   var _Location_column = dart.privateName(widget_inspector, "_Location.column");
   var _Location_line = dart.privateName(widget_inspector, "_Location.line");
   var _Location_file = dart.privateName(widget_inspector, "_Location.file");
-  form.FormState = class FormState extends framework.State$(form.Form) {
-    [_fieldDidChange]() {
-      let t0;
-      t0 = this.widget.onChanged;
-      t0 == null ? null : t0();
-      this[_hasInteractedByUser] = this[_fields][$any](dart.fn(field => field[_hasInteractedByUser], T$.FormFieldStateTobool()));
-      this[_forceRebuild]();
-    }
-    [_forceRebuild]() {
-      this.setState(dart.fn(() => {
-        this[_generation] = this[_generation] + 1;
-      }, T$.VoidTovoid()));
-    }
-    [_register](field) {
-      this[_fields].add(field);
-    }
-    [_unregister](field) {
-      this[_fields].remove(field);
-    }
-    build(context) {
-      switch (this.widget.autovalidateMode) {
-        case C[0] || CT.C0:
-        {
-          this[_validate]();
-          break;
-        }
-        case C[1] || CT.C1:
-        {
-          if (this[_hasInteractedByUser]) {
-            this[_validate]();
-          }
-          break;
-        }
-        case C[2] || CT.C2:
-        {
-          break;
-        }
-      }
-      return new will_pop_scope.WillPopScope.new({onWillPop: this.widget.onWillPop, child: new form._FormScope.new({formState: this, generation: this[_generation], child: this.widget.child, $creationLocationd_0dea112b090073317d4: C[3] || CT.C3}), $creationLocationd_0dea112b090073317d4: C[8] || CT.C8});
-    }
-    save() {
-      for (let field of this[_fields])
-        field.save();
-    }
-    reset() {
-      for (let field of this[_fields])
-        field.reset();
-      this[_hasInteractedByUser] = false;
-      this[_fieldDidChange]();
-    }
-    validate() {
-      this[_hasInteractedByUser] = true;
-      this[_forceRebuild]();
-      return this[_validate]();
-    }
-    [_validate]() {
-      let hasError = false;
-      for (let field of this[_fields])
-        hasError = !field.validate() || hasError;
-      return !hasError;
+  default_transitions.LeftToRightFadeTransition = class LeftToRightFadeTransition extends core.Object {
+    buildTransitions(context, curve, alignment, animation, secondaryAnimation, child) {
+      return new transitions.SlideTransition.new({position: new (T.TweenOfOffset()).new({begin: C[0] || CT.C0, end: ui.Offset.zero}).animate(animation), child: new transitions.FadeTransition.new({opacity: animation, child: new transitions.SlideTransition.new({position: new (T.TweenOfOffset()).new({begin: ui.Offset.zero, end: C[1] || CT.C1}).animate(secondaryAnimation), child: child, $creationLocationd_0dea112b090073317d4: C[2] || CT.C2}), $creationLocationd_0dea112b090073317d4: C[6] || CT.C6}), $creationLocationd_0dea112b090073317d4: C[10] || CT.C10});
     }
   };
-  (form.FormState.new = function() {
-    this[_generation] = 0;
-    this[_hasInteractedByUser] = false;
-    this[_fields] = T$.LinkedHashSetOfFormFieldState().new();
-    form.FormState.__proto__.new.call(this);
+  (default_transitions.LeftToRightFadeTransition.new = function() {
     ;
-  }).prototype = form.FormState.prototype;
-  dart.addTypeTests(form.FormState);
-  dart.addTypeCaches(form.FormState);
-  dart.setMethodSignature(form.FormState, () => ({
-    __proto__: dart.getMethods(form.FormState.__proto__),
-    [_fieldDidChange]: dart.fnType(dart.void, []),
-    [_forceRebuild]: dart.fnType(dart.void, []),
-    [_register]: dart.fnType(dart.void, [form.FormFieldState]),
-    [_unregister]: dart.fnType(dart.void, [form.FormFieldState]),
-    build: dart.fnType(framework.Widget, [framework.BuildContext]),
-    save: dart.fnType(dart.void, []),
-    reset: dart.fnType(dart.void, []),
-    validate: dart.fnType(core.bool, []),
-    [_validate]: dart.fnType(core.bool, [])
+  }).prototype = default_transitions.LeftToRightFadeTransition.prototype;
+  dart.addTypeTests(default_transitions.LeftToRightFadeTransition);
+  dart.addTypeCaches(default_transitions.LeftToRightFadeTransition);
+  dart.setMethodSignature(default_transitions.LeftToRightFadeTransition, () => ({
+    __proto__: dart.getMethods(default_transitions.LeftToRightFadeTransition.__proto__),
+    buildTransitions: dart.fnType(framework.Widget, [framework.BuildContext, dart.nullable(curves.Curve), dart.nullable(alignment$.Alignment), animation.Animation$(core.double), animation.Animation$(core.double), framework.Widget])
   }));
-  dart.setLibraryUri(form.FormState, I[1]);
-  dart.setFieldSignature(form.FormState, () => ({
-    __proto__: dart.getFields(form.FormState.__proto__),
-    [_generation]: dart.fieldType(core.int),
-    [_hasInteractedByUser]: dart.fieldType(core.bool),
-    [_fields]: dart.finalFieldType(core.Set$(form.FormFieldState))
-  }));
-  var _formState$ = dart.privateName(form, "_FormScope._formState");
-  var _generation$ = dart.privateName(form, "_FormScope._generation");
-  form._FormScope = class _FormScope extends framework.InheritedWidget {
-    get [_formState]() {
-      return this[_formState$];
-    }
-    set [_formState](value) {
-      super[_formState] = value;
-    }
-    get [_generation]() {
-      return this[_generation$];
-    }
-    set [_generation](value) {
-      super[_generation] = value;
-    }
-    get form() {
-      return this[_formState].widget;
-    }
-    updateShouldNotify(old) {
-      form._FormScope.as(old);
-      return this[_generation] !== old[_generation];
+  dart.setLibraryUri(default_transitions.LeftToRightFadeTransition, I[0]);
+  default_transitions.RightToLeftFadeTransition = class RightToLeftFadeTransition extends core.Object {
+    buildTransitions(context, curve, alignment, animation, secondaryAnimation, child) {
+      return new transitions.SlideTransition.new({position: new (T.TweenOfOffset()).new({begin: C[1] || CT.C1, end: ui.Offset.zero}).animate(animation), child: new transitions.FadeTransition.new({opacity: animation, child: new transitions.SlideTransition.new({position: new (T.TweenOfOffset()).new({begin: ui.Offset.zero, end: C[0] || CT.C0}).animate(secondaryAnimation), child: child, $creationLocationd_0dea112b090073317d4: C[14] || CT.C14}), $creationLocationd_0dea112b090073317d4: C[18] || CT.C18}), $creationLocationd_0dea112b090073317d4: C[22] || CT.C22});
     }
   };
-  (form._FormScope.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let child = opts && 'child' in opts ? opts.child : null;
-    let formState = opts && 'formState' in opts ? opts.formState : null;
-    let generation = opts && 'generation' in opts ? opts.generation : null;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[_formState$] = formState;
-    this[_generation$] = generation;
-    form._FormScope.__proto__.new.call(this, {key: key, child: child, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+  (default_transitions.RightToLeftFadeTransition.new = function() {
     ;
-  }).prototype = form._FormScope.prototype;
-  dart.addTypeTests(form._FormScope);
-  dart.addTypeCaches(form._FormScope);
-  dart.setMethodSignature(form._FormScope, () => ({
-    __proto__: dart.getMethods(form._FormScope.__proto__),
-    updateShouldNotify: dart.fnType(core.bool, [dart.nullable(core.Object)])
+  }).prototype = default_transitions.RightToLeftFadeTransition.prototype;
+  dart.addTypeTests(default_transitions.RightToLeftFadeTransition);
+  dart.addTypeCaches(default_transitions.RightToLeftFadeTransition);
+  dart.setMethodSignature(default_transitions.RightToLeftFadeTransition, () => ({
+    __proto__: dart.getMethods(default_transitions.RightToLeftFadeTransition.__proto__),
+    buildTransitions: dart.fnType(framework.Widget, [framework.BuildContext, dart.nullable(curves.Curve), dart.nullable(alignment$.Alignment), animation.Animation$(core.double), animation.Animation$(core.double), framework.Widget])
   }));
-  dart.setGetterSignature(form._FormScope, () => ({
-    __proto__: dart.getGetters(form._FormScope.__proto__),
-    form: form.Form
-  }));
-  dart.setLibraryUri(form._FormScope, I[1]);
-  dart.setFieldSignature(form._FormScope, () => ({
-    __proto__: dart.getFields(form._FormScope.__proto__),
-    [_formState]: dart.finalFieldType(form.FormState),
-    [_generation]: dart.finalFieldType(core.int)
-  }));
-  var onSaved$ = dart.privateName(form, "FormField.onSaved");
-  var validator$ = dart.privateName(form, "FormField.validator");
-  var builder$ = dart.privateName(form, "FormField.builder");
-  var initialValue$ = dart.privateName(form, "FormField.initialValue");
-  var enabled$ = dart.privateName(form, "FormField.enabled");
-  var autovalidateMode$0 = dart.privateName(form, "FormField.autovalidateMode");
-  var autovalidate$0 = dart.privateName(form, "FormField.autovalidate");
-  const _is_FormField_default = Symbol('_is_FormField_default');
-  form.FormField$ = dart.generic(T => {
-    var FormFieldStateOfT = () => (FormFieldStateOfT = dart.constFn(form.FormFieldState$(T)))();
-    class FormField extends framework.StatefulWidget {
-      get onSaved() {
-        return this[onSaved$];
-      }
-      set onSaved(value) {
-        super.onSaved = value;
-      }
-      get validator() {
-        return this[validator$];
-      }
-      set validator(value) {
-        super.validator = value;
-      }
-      get builder() {
-        return this[builder$];
-      }
-      set builder(value) {
-        super.builder = value;
-      }
-      get initialValue() {
-        return this[initialValue$];
-      }
-      set initialValue(value) {
-        super.initialValue = value;
-      }
-      get enabled() {
-        return this[enabled$];
-      }
-      set enabled(value) {
-        super.enabled = value;
-      }
-      get autovalidateMode() {
-        return this[autovalidateMode$0];
-      }
-      set autovalidateMode(value) {
-        super.autovalidateMode = value;
-      }
-      get autovalidate() {
-        return this[autovalidate$0];
-      }
-      set autovalidate(value) {
-        super.autovalidate = value;
-      }
-      createState() {
-        return new (FormFieldStateOfT()).new();
-      }
-    }
-    (FormField.new = function(opts) {
-      let t0;
-      let key = opts && 'key' in opts ? opts.key : null;
-      let builder = opts && 'builder' in opts ? opts.builder : null;
-      let onSaved = opts && 'onSaved' in opts ? opts.onSaved : null;
-      let validator = opts && 'validator' in opts ? opts.validator : null;
-      let initialValue = opts && 'initialValue' in opts ? opts.initialValue : null;
-      let autovalidate = opts && 'autovalidate' in opts ? opts.autovalidate : false;
-      let enabled = opts && 'enabled' in opts ? opts.enabled : true;
-      let autovalidateMode = opts && 'autovalidateMode' in opts ? opts.autovalidateMode : null;
-      let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-      this[builder$] = builder;
-      this[onSaved$] = onSaved;
-      this[validator$] = validator;
-      this[initialValue$] = initialValue;
-      this[autovalidate$0] = autovalidate;
-      this[enabled$] = enabled;
-      if (!(builder !== null)) dart.assertFailed(null, I[0], 334, 15, "builder != null");
-      if (!(autovalidate === false || autovalidate === true && autovalidateMode == null)) dart.assertFailed("autovalidate and autovalidateMode should not be used together.", I[0], 336, 10, "autovalidate == false ||\n         autovalidate == true && autovalidateMode == null");
-      this[autovalidateMode$0] = (t0 = autovalidateMode, t0 == null ? autovalidate ? form.AutovalidateMode.always : form.AutovalidateMode.disabled : t0);
-      FormField.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-      ;
-    }).prototype = FormField.prototype;
-    dart.addTypeTests(FormField);
-    FormField.prototype[_is_FormField_default] = true;
-    dart.addTypeCaches(FormField);
-    dart.setMethodSignature(FormField, () => ({
-      __proto__: dart.getMethods(FormField.__proto__),
-      createState: dart.fnType(form.FormFieldState$(T), [])
-    }));
-    dart.setLibraryUri(FormField, I[1]);
-    dart.setFieldSignature(FormField, () => ({
-      __proto__: dart.getFields(FormField.__proto__),
-      onSaved: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [dart.nullable(T)]))),
-      validator: dart.finalFieldType(dart.nullable(dart.fnType(dart.nullable(core.String), [dart.nullable(T)]))),
-      builder: dart.finalFieldType(dart.fnType(framework.Widget, [form.FormFieldState$(T)])),
-      initialValue: dart.finalFieldType(dart.nullable(T)),
-      enabled: dart.finalFieldType(core.bool),
-      autovalidateMode: dart.finalFieldType(form.AutovalidateMode),
-      autovalidate: dart.finalFieldType(core.bool)
-    }));
-    return FormField;
-  });
-  form.FormField = form.FormField$();
-  dart.addTypeTests(form.FormField, _is_FormField_default);
-  var _value = dart.privateName(form, "_value");
-  var _errorText = dart.privateName(form, "_errorText");
-  const _is_FormFieldState_default = Symbol('_is_FormFieldState_default');
-  form.FormFieldState$ = dart.generic(T => {
-    var TN = () => (TN = dart.constFn(dart.nullable(T)))();
-    var TNToStringN = () => (TNToStringN = dart.constFn(dart.fnType(T$.StringN(), [TN()])))();
-    var TNToNStringN = () => (TNToNStringN = dart.constFn(dart.nullable(TNToStringN())))();
-    var TNTovoid = () => (TNTovoid = dart.constFn(dart.fnType(dart.void, [TN()])))();
-    var TNToNvoid = () => (TNToNvoid = dart.constFn(dart.nullable(TNTovoid())))();
-    var FormFieldStateOfT = () => (FormFieldStateOfT = dart.constFn(form.FormFieldState$(T)))();
-    var FormFieldStateOfTToWidget = () => (FormFieldStateOfTToWidget = dart.constFn(dart.fnType(framework.Widget, [FormFieldStateOfT()])))();
-    class FormFieldState extends framework.State$(form.FormField$(T)) {
-      get value() {
-        return this[_value];
-      }
-      get errorText() {
-        return this[_errorText];
-      }
-      get hasError() {
-        return this[_errorText] != null;
-      }
-      get isValid() {
-        let t0;
-        return (t0 = TNToNStringN().as(this.widget.validator), t0 == null ? null : t0(this[_value])) == null;
-      }
-      save() {
-        let t0;
-        t0 = TNToNvoid().as(this.widget.onSaved);
-        t0 == null ? null : t0(this.value);
-      }
-      reset() {
-        let t0;
-        this.setState(dart.fn(() => {
-          this[_value] = this.widget.initialValue;
-          this[_hasInteractedByUser] = false;
-          this[_errorText] = null;
-        }, T$.VoidTovoid()));
-        t0 = form.Form.of(this.context);
-        t0 == null ? null : t0[_fieldDidChange]();
-      }
-      validate() {
-        this.setState(dart.fn(() => {
-          this[_validate]();
-        }, T$.VoidTovoid()));
-        return !this.hasError;
-      }
-      [_validate]() {
-        if (TNToNStringN().as(this.widget.validator) != null) this[_errorText] = dart.nullCheck(TNToNStringN().as(this.widget.validator))(this[_value]);
-      }
-      didChange(value) {
-        let t0;
-        TN().as(value);
-        this.setState(dart.fn(() => {
-          this[_value] = value;
-          this[_hasInteractedByUser] = true;
-        }, T$.VoidTovoid()));
-        t0 = form.Form.of(this.context);
-        t0 == null ? null : t0[_fieldDidChange]();
-      }
-      setValue(value) {
-        TN().as(value);
-        this[_value] = value;
-      }
-      initState() {
-        super.initState();
-        this[_value] = this.widget.initialValue;
-      }
-      deactivate() {
-        let t0;
-        t0 = form.Form.of(this.context);
-        t0 == null ? null : t0[_unregister](this);
-        super.deactivate();
-      }
-      build(context) {
-        let t0, t0$;
-        if (this.widget.enabled) {
-          switch (this.widget.autovalidateMode) {
-            case C[0] || CT.C0:
-            {
-              this[_validate]();
-              break;
-            }
-            case C[1] || CT.C1:
-            {
-              if (this[_hasInteractedByUser]) {
-                this[_validate]();
-              }
-              break;
-            }
-            case C[2] || CT.C2:
-            {
-              break;
-            }
-          }
-        }
-        t0 = form.Form.of(context);
-        t0 == null ? null : t0[_register](this);
-        t0$ = this.widget;
-        return FormFieldStateOfTToWidget().as(t0$.builder)(this);
-      }
-    }
-    (FormFieldState.new = function() {
-      this[_value] = null;
-      this[_errorText] = null;
-      this[_hasInteractedByUser] = false;
-      FormFieldState.__proto__.new.call(this);
-      ;
-    }).prototype = FormFieldState.prototype;
-    dart.addTypeTests(FormFieldState);
-    FormFieldState.prototype[_is_FormFieldState_default] = true;
-    dart.addTypeCaches(FormFieldState);
-    dart.setMethodSignature(FormFieldState, () => ({
-      __proto__: dart.getMethods(FormFieldState.__proto__),
-      save: dart.fnType(dart.void, []),
-      reset: dart.fnType(dart.void, []),
-      validate: dart.fnType(core.bool, []),
-      [_validate]: dart.fnType(dart.void, []),
-      didChange: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      setValue: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      build: dart.fnType(framework.Widget, [framework.BuildContext])
-    }));
-    dart.setGetterSignature(FormFieldState, () => ({
-      __proto__: dart.getGetters(FormFieldState.__proto__),
-      value: dart.nullable(T),
-      errorText: dart.nullable(core.String),
-      hasError: core.bool,
-      isValid: core.bool
-    }));
-    dart.setLibraryUri(FormFieldState, I[1]);
-    dart.setFieldSignature(FormFieldState, () => ({
-      __proto__: dart.getFields(FormFieldState.__proto__),
-      [_value]: dart.fieldType(dart.nullable(T)),
-      [_errorText]: dart.fieldType(dart.nullable(core.String)),
-      [_hasInteractedByUser]: dart.fieldType(core.bool)
-    }));
-    return FormFieldState;
-  });
-  form.FormFieldState = form.FormFieldState$();
-  dart.addTypeTests(form.FormFieldState, _is_FormFieldState_default);
-  form.AutovalidateMode = class AutovalidateMode extends core.Object {
-    toString() {
-      return this[_name$];
+  dart.setLibraryUri(default_transitions.RightToLeftFadeTransition, I[0]);
+  default_transitions.NoTransition = class NoTransition extends core.Object {
+    buildTransitions(context, curve, alignment, animation, secondaryAnimation, child) {
+      return child;
     }
   };
-  (form.AutovalidateMode.new = function(index, _name) {
-    this.index = index;
-    this[_name$] = _name;
+  (default_transitions.NoTransition.new = function() {
     ;
-  }).prototype = form.AutovalidateMode.prototype;
-  dart.addTypeTests(form.AutovalidateMode);
-  dart.addTypeCaches(form.AutovalidateMode);
-  dart.setLibraryUri(form.AutovalidateMode, I[1]);
-  dart.setFieldSignature(form.AutovalidateMode, () => ({
-    __proto__: dart.getFields(form.AutovalidateMode.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
+  }).prototype = default_transitions.NoTransition.prototype;
+  dart.addTypeTests(default_transitions.NoTransition);
+  dart.addTypeCaches(default_transitions.NoTransition);
+  dart.setMethodSignature(default_transitions.NoTransition, () => ({
+    __proto__: dart.getMethods(default_transitions.NoTransition.__proto__),
+    buildTransitions: dart.fnType(framework.Widget, [framework.BuildContext, curves.Curve, alignment$.Alignment, animation.Animation$(core.double), animation.Animation$(core.double), framework.Widget])
   }));
-  dart.defineExtensionMethods(form.AutovalidateMode, ['toString']);
-  form.AutovalidateMode.disabled = C[2] || CT.C2;
-  form.AutovalidateMode.always = C[0] || CT.C0;
-  form.AutovalidateMode.onUserInteraction = C[1] || CT.C1;
-  form.AutovalidateMode.values = C[12] || CT.C12;
-  dart.trackLibraries("packages/flutter/src/widgets/form.dart", {
-    "package:flutter/src/widgets/form.dart": form
+  dart.setLibraryUri(default_transitions.NoTransition, I[0]);
+  default_transitions.FadeInTransition = class FadeInTransition extends core.Object {
+    buildTransitions(context, curve, alignment, animation, secondaryAnimation, child) {
+      return new transitions.FadeTransition.new({opacity: animation, child: child, $creationLocationd_0dea112b090073317d4: C[26] || CT.C26});
+    }
+  };
+  (default_transitions.FadeInTransition.new = function() {
+    ;
+  }).prototype = default_transitions.FadeInTransition.prototype;
+  dart.addTypeTests(default_transitions.FadeInTransition);
+  dart.addTypeCaches(default_transitions.FadeInTransition);
+  dart.setMethodSignature(default_transitions.FadeInTransition, () => ({
+    __proto__: dart.getMethods(default_transitions.FadeInTransition.__proto__),
+    buildTransitions: dart.fnType(framework.Widget, [framework.BuildContext, dart.nullable(curves.Curve), dart.nullable(alignment$.Alignment), animation.Animation$(core.double), animation.Animation$(core.double), framework.Widget])
+  }));
+  dart.setLibraryUri(default_transitions.FadeInTransition, I[0]);
+  default_transitions.SlideDownTransition = class SlideDownTransition extends core.Object {
+    buildTransitions(context, curve, alignment, animation, secondaryAnimation, child) {
+      return new transitions.SlideTransition.new({position: new (T.TweenOfOffset()).new({begin: new ui.Offset.new(0.0, 1.0), end: ui.Offset.zero}).animate(animation), child: child, $creationLocationd_0dea112b090073317d4: C[30] || CT.C30});
+    }
+  };
+  (default_transitions.SlideDownTransition.new = function() {
+    ;
+  }).prototype = default_transitions.SlideDownTransition.prototype;
+  dart.addTypeTests(default_transitions.SlideDownTransition);
+  dart.addTypeCaches(default_transitions.SlideDownTransition);
+  dart.setMethodSignature(default_transitions.SlideDownTransition, () => ({
+    __proto__: dart.getMethods(default_transitions.SlideDownTransition.__proto__),
+    buildTransitions: dart.fnType(framework.Widget, [framework.BuildContext, dart.nullable(curves.Curve), dart.nullable(alignment$.Alignment), animation.Animation$(core.double), animation.Animation$(core.double), framework.Widget])
+  }));
+  dart.setLibraryUri(default_transitions.SlideDownTransition, I[0]);
+  default_transitions.SlideLeftTransition = class SlideLeftTransition extends core.Object {
+    buildTransitions(context, curve, alignment, animation, secondaryAnimation, child) {
+      return new transitions.SlideTransition.new({position: new (T.TweenOfOffset()).new({begin: new ui.Offset.new(-1.0, 0.0), end: ui.Offset.zero}).animate(animation), child: child, $creationLocationd_0dea112b090073317d4: C[34] || CT.C34});
+    }
+  };
+  (default_transitions.SlideLeftTransition.new = function() {
+    ;
+  }).prototype = default_transitions.SlideLeftTransition.prototype;
+  dart.addTypeTests(default_transitions.SlideLeftTransition);
+  dart.addTypeCaches(default_transitions.SlideLeftTransition);
+  dart.setMethodSignature(default_transitions.SlideLeftTransition, () => ({
+    __proto__: dart.getMethods(default_transitions.SlideLeftTransition.__proto__),
+    buildTransitions: dart.fnType(framework.Widget, [framework.BuildContext, dart.nullable(curves.Curve), dart.nullable(alignment$.Alignment), animation.Animation$(core.double), animation.Animation$(core.double), framework.Widget])
+  }));
+  dart.setLibraryUri(default_transitions.SlideLeftTransition, I[0]);
+  default_transitions.SlideRightTransition = class SlideRightTransition extends core.Object {
+    buildTransitions(context, curve, alignment, animation, secondaryAnimation, child) {
+      return new transitions.SlideTransition.new({position: new (T.TweenOfOffset()).new({begin: new ui.Offset.new(1.0, 0.0), end: ui.Offset.zero}).animate(animation), child: child, $creationLocationd_0dea112b090073317d4: C[38] || CT.C38});
+    }
+  };
+  (default_transitions.SlideRightTransition.new = function() {
+    ;
+  }).prototype = default_transitions.SlideRightTransition.prototype;
+  dart.addTypeTests(default_transitions.SlideRightTransition);
+  dart.addTypeCaches(default_transitions.SlideRightTransition);
+  dart.setMethodSignature(default_transitions.SlideRightTransition, () => ({
+    __proto__: dart.getMethods(default_transitions.SlideRightTransition.__proto__),
+    buildTransitions: dart.fnType(framework.Widget, [framework.BuildContext, dart.nullable(curves.Curve), dart.nullable(alignment$.Alignment), animation.Animation$(core.double), animation.Animation$(core.double), framework.Widget])
+  }));
+  dart.setLibraryUri(default_transitions.SlideRightTransition, I[0]);
+  default_transitions.SlideTopTransition = class SlideTopTransition extends core.Object {
+    buildTransitions(context, curve, alignment, animation, secondaryAnimation, child) {
+      return new transitions.SlideTransition.new({position: new (T.TweenOfOffset()).new({begin: new ui.Offset.new(0.0, -1.0), end: ui.Offset.zero}).animate(animation), child: child, $creationLocationd_0dea112b090073317d4: C[42] || CT.C42});
+    }
+  };
+  (default_transitions.SlideTopTransition.new = function() {
+    ;
+  }).prototype = default_transitions.SlideTopTransition.prototype;
+  dart.addTypeTests(default_transitions.SlideTopTransition);
+  dart.addTypeCaches(default_transitions.SlideTopTransition);
+  dart.setMethodSignature(default_transitions.SlideTopTransition, () => ({
+    __proto__: dart.getMethods(default_transitions.SlideTopTransition.__proto__),
+    buildTransitions: dart.fnType(framework.Widget, [framework.BuildContext, dart.nullable(curves.Curve), dart.nullable(alignment$.Alignment), animation.Animation$(core.double), animation.Animation$(core.double), framework.Widget])
+  }));
+  dart.setLibraryUri(default_transitions.SlideTopTransition, I[0]);
+  default_transitions.ZoomInTransition = class ZoomInTransition extends core.Object {
+    buildTransitions(context, curve, alignment, animation, secondaryAnimation, child) {
+      return new transitions.ScaleTransition.new({scale: animation, child: child, $creationLocationd_0dea112b090073317d4: C[46] || CT.C46});
+    }
+  };
+  (default_transitions.ZoomInTransition.new = function() {
+    ;
+  }).prototype = default_transitions.ZoomInTransition.prototype;
+  dart.addTypeTests(default_transitions.ZoomInTransition);
+  dart.addTypeCaches(default_transitions.ZoomInTransition);
+  dart.setMethodSignature(default_transitions.ZoomInTransition, () => ({
+    __proto__: dart.getMethods(default_transitions.ZoomInTransition.__proto__),
+    buildTransitions: dart.fnType(framework.Widget, [framework.BuildContext, dart.nullable(curves.Curve), dart.nullable(alignment$.Alignment), animation.Animation$(core.double), animation.Animation$(core.double), framework.Widget])
+  }));
+  dart.setLibraryUri(default_transitions.ZoomInTransition, I[0]);
+  default_transitions.SizeTransitions = class SizeTransitions extends core.Object {
+    buildTransitions(context, curve, alignment, animation, secondaryAnimation, child) {
+      return new basic.Align.new({alignment: alignment$.Alignment.center, child: new transitions.SizeTransition.new({sizeFactor: new animations.CurvedAnimation.new({parent: animation, curve: curve}), child: child, $creationLocationd_0dea112b090073317d4: C[50] || CT.C50}), $creationLocationd_0dea112b090073317d4: C[54] || CT.C54});
+    }
+  };
+  (default_transitions.SizeTransitions.new = function() {
+    ;
+  }).prototype = default_transitions.SizeTransitions.prototype;
+  dart.addTypeTests(default_transitions.SizeTransitions);
+  dart.addTypeCaches(default_transitions.SizeTransitions);
+  dart.setMethodSignature(default_transitions.SizeTransitions, () => ({
+    __proto__: dart.getMethods(default_transitions.SizeTransitions.__proto__),
+    buildTransitions: dart.fnType(framework.Widget, [framework.BuildContext, curves.Curve, dart.nullable(alignment$.Alignment), animation.Animation$(core.double), animation.Animation$(core.double), framework.Widget])
+  }));
+  dart.setLibraryUri(default_transitions.SizeTransitions, I[0]);
+  dart.trackLibraries("packages/get/get_navigation/src/routes/default_transitions.dart", {
+    "package:get/get_navigation/src/routes/default_transitions.dart": default_transitions
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["form.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/flutter/src/widgets/form.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["default_transitions.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;qBAKmB,SACN,OACI,WACO,WACA,oBACX;AACT,YAAO,gDACK,AAGR,wDADY,yBACJ,SAAS,UACZ,6CACI,SAAS,SACX,+CACO,AAGR,oCAFc,6CAEN,kBAAkB,UACrB,KAAK;IAGtB;;;;EACF;;;;;;;;;qBAImB,SACN,OACI,WACO,WACA,oBACX;AACT,YAAO,gDACK,AAGR,wDADY,yBACJ,SAAS,UACZ,6CACI,SAAS,SACX,+CACO,AAGR,oCAFc,6CAEN,kBAAkB,UACrB,KAAK;IAGtB;;;;EACF;;;;;;;;;qBAImB,SACP,OACI,WACQ,WACA,oBACX;AACT,YAAO,MAAK;IACd;;;;EACF;;;;;;;;;qBAImB,SACN,OACI,WACO,WACA,oBACX;AACT,YAAO,8CAAwB,SAAS,SAAS,KAAK;IACxD;;;;EACF;;;;;;;;;qBAImB,SACN,OACI,WACO,WACA,oBACX;AACT,YAAO,gDACK,AAGR,oCAFO,kBAAO,KAAK,WACP,yBACJ,SAAS,UACZ,KAAK;IAEhB;;;;EACF;;;;;;;;;qBAImB,SACN,OACI,WACO,WACA,oBACX;AACT,YAAO,gDACK,AAGR,oCAFO,kBAAO,CAAC,KAAK,WACR,yBACJ,SAAS,UACZ,KAAK;IAEhB;;;;EACF;;;;;;;;;qBAImB,SACN,OACI,WACO,WACA,oBACX;AACT,YAAO,gDACK,AAGR,oCAFO,kBAAO,KAAK,WACP,yBACJ,SAAS,UACZ,KAAK;IAEhB;;;;EACF;;;;;;;;;qBAImB,SACN,OACI,WACO,WACA,oBACX;AACT,YAAO,gDACK,AAGR,oCAFO,kBAAO,KAAK,CAAC,WACR,yBACJ,SAAS,UACZ,KAAK;IAEhB;;;;EACF;;;;;;;;;qBAImB,SACN,OACI,WACO,WACA,oBACX;AACT,YAAO,6CACE,SAAS,SACT,KAAK;IAEhB;;;;EACF;;;;;;;;;qBAImB,SACP,OACK,WACO,WACA,oBACX;AACT,YAAO,iCACgB,oCACd,gDACO,4CACF,SAAS,SACV,KAAK,WAEP,KAAK;IAGlB;;;;EACF","file":"../../../../../../../../../../../../packages/get/get_navigation/src/routes/default_transitions.dart.lib.js"}');
   // Exports:
   return {
-    src__widgets__form: form
+    get_navigation__src__routes__default_transitions: default_transitions
   };
 }));
 
-//# sourceMappingURL=form.dart.lib.js.map
+//# sourceMappingURL=default_transitions.dart.lib.js.map

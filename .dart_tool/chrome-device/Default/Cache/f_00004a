@@ -1,367 +1,441 @@
-define(['dart_sdk', 'packages/flutter/src/foundation/object.dart', 'packages/flutter/src/physics/tolerance.dart', 'packages/flutter/src/physics/utils.dart', 'packages/flutter/src/physics/simulation.dart'], (function load__packages__flutter__src__physics__spring_simulation_dart(dart_sdk, packages__flutter__src__foundation__object$46dart, packages__flutter__src__physics__tolerance$46dart, packages__flutter__src__physics__utils$46dart, packages__flutter__src__physics__simulation$46dart) {
+define(['dart_sdk', 'packages/flutter/src/painting/circle_border.dart', 'packages/flutter/src/painting/borders.dart', 'packages/flutter/src/painting/box_border.dart', 'packages/flutter/src/painting/rounded_rectangle_border.dart', 'packages/flutter/src/painting/box_decoration.dart', 'packages/flutter/src/painting/gradient.dart', 'packages/flutter/src/painting/box_shadow.dart', 'packages/flutter/src/foundation/collections.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/painting/colors.dart', 'packages/flutter/src/painting/decoration_image.dart', 'packages/flutter/src/painting/decoration.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/painting/_network_image_web.dart'], (function load__packages__flutter__src__painting__shape_decoration_dart(dart_sdk, packages__flutter__src__painting__circle_border$46dart, packages__flutter__src__painting__borders$46dart, packages__flutter__src__painting__box_border$46dart, packages__flutter__src__painting__rounded_rectangle_border$46dart, packages__flutter__src__painting__box_decoration$46dart, packages__flutter__src__painting__gradient$46dart, packages__flutter__src__painting__box_shadow$46dart, packages__flutter__src__foundation__collections$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__painting__colors$46dart, packages__flutter__src__painting__decoration_image$46dart, packages__flutter__src__painting__decoration$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__painting___network_image_web$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const math = dart_sdk.math;
+  const ui = dart_sdk.ui;
+  const _internal = dart_sdk._internal;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
-  const tolerance = packages__flutter__src__physics__tolerance$46dart.src__physics__tolerance;
-  const utils = packages__flutter__src__physics__utils$46dart.src__physics__utils;
-  const simulation = packages__flutter__src__physics__simulation$46dart.src__physics__simulation;
-  var spring_simulation = Object.create(dart.library);
-  var $toStringAsFixed = dartx.toStringAsFixed;
+  const circle_border = packages__flutter__src__painting__circle_border$46dart.src__painting__circle_border;
+  const borders = packages__flutter__src__painting__borders$46dart.src__painting__borders;
+  const box_border = packages__flutter__src__painting__box_border$46dart.src__painting__box_border;
+  const rounded_rectangle_border = packages__flutter__src__painting__rounded_rectangle_border$46dart.src__painting__rounded_rectangle_border;
+  const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
+  const gradient = packages__flutter__src__painting__gradient$46dart.src__painting__gradient;
+  const box_shadow = packages__flutter__src__painting__box_shadow$46dart.src__painting__box_shadow;
+  const collections = packages__flutter__src__foundation__collections$46dart.src__foundation__collections;
+  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
+  const colors = packages__flutter__src__painting__colors$46dart.src__painting__colors;
+  const decoration_image = packages__flutter__src__painting__decoration_image$46dart.src__painting__decoration_image;
+  const decoration = packages__flutter__src__painting__decoration$46dart.src__painting__decoration;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const image_provider = packages__flutter__src__painting___network_image_web$46dart.src__painting__image_provider;
+  var shape_decoration = Object.create(dart.library);
+  var $runtimeType = dartx.runtimeType;
+  var $_equals = dartx._equals;
+  var $length = dartx.length;
+  var $map = dartx.map;
+  var $_get = dartx._get;
   dart._checkModuleNullSafetyMode(true);
+  var T = {
+    ShapeDecorationN: () => (T.ShapeDecorationN = dart.constFn(dart.nullable(shape_decoration.ShapeDecoration)))(),
+    DiagnosticsPropertyOfGradient: () => (T.DiagnosticsPropertyOfGradient = dart.constFn(diagnostics.DiagnosticsProperty$(gradient.Gradient)))(),
+    DiagnosticsPropertyOfDecorationImage: () => (T.DiagnosticsPropertyOfDecorationImage = dart.constFn(diagnostics.DiagnosticsProperty$(decoration_image.DecorationImage)))(),
+    IterablePropertyOfBoxShadow: () => (T.IterablePropertyOfBoxShadow = dart.constFn(diagnostics.IterableProperty$(box_shadow.BoxShadow)))(),
+    DiagnosticsPropertyOfShapeBorder: () => (T.DiagnosticsPropertyOfShapeBorder = dart.constFn(diagnostics.DiagnosticsProperty$(borders.ShapeBorder)))(),
+    ListOfPaint: () => (T.ListOfPaint = dart.constFn(core.List$(ui.Paint)))(),
+    BoxShadowToPaint: () => (T.BoxShadowToPaint = dart.constFn(dart.fnType(ui.Paint, [box_shadow.BoxShadow])))(),
+    ListOfPath: () => (T.ListOfPath = dart.constFn(core.List$(ui.Path)))(),
+    BoxShadowToPath: () => (T.BoxShadowToPath = dart.constFn(dart.fnType(ui.Path, [box_shadow.BoxShadow])))()
+  };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
-    get C0() {
-      return C[0] = dart.const({
-        __proto__: spring_simulation.SpringType.prototype,
-        [_name$]: "SpringType.criticallyDamped",
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: borders.BorderStyle.prototype,
+        [_name]: "BorderStyle.none",
         index: 0
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4278190080.0
       });
     },
     get C1() {
       return C[1] = dart.const({
-        __proto__: spring_simulation.SpringType.prototype,
-        [_name$]: "SpringType.underDamped",
-        index: 1
+        __proto__: borders.BorderSide.prototype,
+        [BorderSide_style]: C[2] || CT.C2,
+        [BorderSide_width]: 0,
+        [BorderSide_color]: C[3] || CT.C3
       });
     },
-    get C2() {
-      return C[2] = dart.const({
-        __proto__: spring_simulation.SpringType.prototype,
-        [_name$]: "SpringType.overDamped",
-        index: 2
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: circle_border.CircleBorder.prototype,
+        [OutlinedBorder_side]: C[1] || CT.C1
       });
-    },
-    get C3() {
-      return C[3] = dart.constList([C[0] || CT.C0, C[1] || CT.C1, C[2] || CT.C2], spring_simulation.SpringType);
     },
     get C4() {
       return C[4] = dart.const({
-        __proto__: tolerance.Tolerance.prototype,
-        [Tolerance_velocity]: 0.001,
-        [Tolerance_time]: 0.001,
-        [Tolerance_distance]: 0.001
+        __proto__: box_border.BoxShape.prototype,
+        [_name$]: "BoxShape.circle",
+        index: 1
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: box_border.Border.prototype,
+        [Border_left]: C[1] || CT.C1,
+        [Border_bottom]: C[1] || CT.C1,
+        [Border_right]: C[1] || CT.C1,
+        [Border_top]: C[1] || CT.C1
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: box_border.BoxShape.prototype,
+        [_name$]: "BoxShape.rectangle",
+        index: 0
       });
     }
   }, false);
-  var C = Array(5).fill(void 0);
+  var C = Array(7).fill(void 0);
   var I = [
-    "package:flutter/src/physics/spring_simulation.dart",
-    "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/physics/spring_simulation.dart"
+    "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/painting/shape_decoration.dart",
+    "package:flutter/src/painting/shape_decoration.dart"
   ];
-  var mass$ = dart.privateName(spring_simulation, "SpringDescription.mass");
-  var stiffness$ = dart.privateName(spring_simulation, "SpringDescription.stiffness");
-  var damping$ = dart.privateName(spring_simulation, "SpringDescription.damping");
-  spring_simulation.SpringDescription = class SpringDescription extends core.Object {
-    get mass() {
-      return this[mass$];
+  var color$ = dart.privateName(shape_decoration, "ShapeDecoration.color");
+  var gradient$ = dart.privateName(shape_decoration, "ShapeDecoration.gradient");
+  var image$ = dart.privateName(shape_decoration, "ShapeDecoration.image");
+  var shadows$ = dart.privateName(shape_decoration, "ShapeDecoration.shadows");
+  var shape$ = dart.privateName(shape_decoration, "ShapeDecoration.shape");
+  var _name = dart.privateName(borders, "_name");
+  var BorderSide_style = dart.privateName(borders, "BorderSide.style");
+  var BorderSide_width = dart.privateName(borders, "BorderSide.width");
+  var Color_value = dart.privateName(ui, "Color.value");
+  var BorderSide_color = dart.privateName(borders, "BorderSide.color");
+  var OutlinedBorder_side = dart.privateName(borders, "OutlinedBorder.side");
+  var _name$ = dart.privateName(box_border, "_name");
+  var Border_left = dart.privateName(box_border, "Border.left");
+  var Border_bottom = dart.privateName(box_border, "Border.bottom");
+  var Border_right = dart.privateName(box_border, "Border.right");
+  var Border_top = dart.privateName(box_border, "Border.top");
+  shape_decoration.ShapeDecoration = class ShapeDecoration extends decoration.Decoration {
+    get color() {
+      return this[color$];
     }
-    set mass(value) {
-      super.mass = value;
+    set color(value) {
+      super.color = value;
     }
-    get stiffness() {
-      return this[stiffness$];
+    get gradient() {
+      return this[gradient$];
     }
-    set stiffness(value) {
-      super.stiffness = value;
+    set gradient(value) {
+      super.gradient = value;
     }
-    get damping() {
-      return this[damping$];
+    get image() {
+      return this[image$];
     }
-    set damping(value) {
-      super.damping = value;
+    set image(value) {
+      super.image = value;
     }
-    toString() {
-      return object.objectRuntimeType(this, "SpringDescription") + "(mass: " + this.mass[$toStringAsFixed](1) + ", stiffness: " + this.stiffness[$toStringAsFixed](1) + ", damping: " + this.damping[$toStringAsFixed](1) + ")";
+    get shadows() {
+      return this[shadows$];
     }
-  };
-  (spring_simulation.SpringDescription.new = function(opts) {
-    let mass = opts && 'mass' in opts ? opts.mass : null;
-    let stiffness = opts && 'stiffness' in opts ? opts.stiffness : null;
-    let damping = opts && 'damping' in opts ? opts.damping : null;
-    this[mass$] = mass;
-    this[stiffness$] = stiffness;
-    this[damping$] = damping;
-    ;
-  }).prototype = spring_simulation.SpringDescription.prototype;
-  (spring_simulation.SpringDescription.withDampingRatio = function(opts) {
-    let mass = opts && 'mass' in opts ? opts.mass : null;
-    let stiffness = opts && 'stiffness' in opts ? opts.stiffness : null;
-    let ratio = opts && 'ratio' in opts ? opts.ratio : 1;
-    this[mass$] = mass;
-    this[stiffness$] = stiffness;
-    this[damping$] = ratio * 2.0 * math.sqrt(mass * stiffness);
-    ;
-  }).prototype = spring_simulation.SpringDescription.prototype;
-  dart.addTypeTests(spring_simulation.SpringDescription);
-  dart.addTypeCaches(spring_simulation.SpringDescription);
-  dart.setLibraryUri(spring_simulation.SpringDescription, I[0]);
-  dart.setFieldSignature(spring_simulation.SpringDescription, () => ({
-    __proto__: dart.getFields(spring_simulation.SpringDescription.__proto__),
-    mass: dart.finalFieldType(core.double),
-    stiffness: dart.finalFieldType(core.double),
-    damping: dart.finalFieldType(core.double)
-  }));
-  dart.defineExtensionMethods(spring_simulation.SpringDescription, ['toString']);
-  var _name$ = dart.privateName(spring_simulation, "_name");
-  spring_simulation.SpringType = class SpringType extends core.Object {
-    toString() {
-      return this[_name$];
+    set shadows(value) {
+      super.shadows = value;
     }
-  };
-  (spring_simulation.SpringType.new = function(index, _name) {
-    this.index = index;
-    this[_name$] = _name;
-    ;
-  }).prototype = spring_simulation.SpringType.prototype;
-  dart.addTypeTests(spring_simulation.SpringType);
-  dart.addTypeCaches(spring_simulation.SpringType);
-  dart.setLibraryUri(spring_simulation.SpringType, I[0]);
-  dart.setFieldSignature(spring_simulation.SpringType, () => ({
-    __proto__: dart.getFields(spring_simulation.SpringType.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(spring_simulation.SpringType, ['toString']);
-  spring_simulation.SpringType.criticallyDamped = C[0] || CT.C0;
-  spring_simulation.SpringType.underDamped = C[1] || CT.C1;
-  spring_simulation.SpringType.overDamped = C[2] || CT.C2;
-  spring_simulation.SpringType.values = C[3] || CT.C3;
-  var Tolerance_velocity = dart.privateName(tolerance, "Tolerance.velocity");
-  var Tolerance_time = dart.privateName(tolerance, "Tolerance.time");
-  var Tolerance_distance = dart.privateName(tolerance, "Tolerance.distance");
-  var _endPosition = dart.privateName(spring_simulation, "_endPosition");
-  var _solution = dart.privateName(spring_simulation, "_solution");
-  spring_simulation.SpringSimulation = class SpringSimulation extends simulation.Simulation {
-    get type() {
-      return this[_solution].type;
+    get shape() {
+      return this[shape$];
     }
-    x(time) {
-      return this[_endPosition] + this[_solution].x(time);
+    set shape(value) {
+      super.shape = value;
     }
-    dx(time) {
-      return this[_solution].dx(time);
+    static fromBoxDecoration(source) {
+      let t0, t0$, t0$0;
+      let shape = null;
+      if (!(source.shape !== null)) dart.assertFailed(null, I[0], 95, 12, "source.shape != null");
+      switch (source.shape) {
+        case C[4] || CT.C4:
+        {
+          if (source.border != null) {
+            if (!dart.nullCheck(source.border).isUniform) dart.assertFailed(null, I[0], 99, 18, "source.border!.isUniform");
+            shape = new circle_border.CircleBorder.new({side: dart.nullCheck(source.border).top});
+          } else {
+            shape = C[0] || CT.C0;
+          }
+          break;
+        }
+        case C[6] || CT.C6:
+        {
+          if (source.borderRadius != null) {
+            if (!(source.border == null || dart.nullCheck(source.border).isUniform)) dart.assertFailed(null, I[0], 107, 18, "source.border == null || source.border!.isUniform");
+            shape = new rounded_rectangle_border.RoundedRectangleBorder.new({side: (t0$ = (t0 = source.border, t0 == null ? null : t0.top), t0$ == null ? borders.BorderSide.none : t0$), borderRadius: dart.nullCheck(source.borderRadius)});
+          } else {
+            shape = (t0$0 = source.border, t0$0 == null ? C[5] || CT.C5 : t0$0);
+          }
+          break;
+        }
+      }
+      return new shape_decoration.ShapeDecoration.new({color: source.color, image: source.image, gradient: source.gradient, shadows: source.boxShadow, shape: shape});
     }
-    isDone(time) {
-      return utils.nearZero(this[_solution].x(time), this.tolerance.distance) && utils.nearZero(this[_solution].dx(time), this.tolerance.velocity);
+    getClipPath(rect, textDirection) {
+      return this.shape.getOuterPath(rect, {textDirection: textDirection});
     }
-    toString() {
-      return object.objectRuntimeType(this, "SpringSimulation") + "(end: " + dart.str(this[_endPosition]) + ", " + dart.str(this.type) + ")";
+    get padding() {
+      return this.shape.dimensions;
     }
-  };
-  (spring_simulation.SpringSimulation.new = function(spring, start, end, velocity, opts) {
-    let tolerance = opts && 'tolerance' in opts ? opts.tolerance : C[4] || CT.C4;
-    this[_endPosition] = end;
-    this[_solution] = spring_simulation._SpringSolution.new(spring, start - end, velocity);
-    spring_simulation.SpringSimulation.__proto__.new.call(this, {tolerance: tolerance});
-    ;
-  }).prototype = spring_simulation.SpringSimulation.prototype;
-  dart.addTypeTests(spring_simulation.SpringSimulation);
-  dart.addTypeCaches(spring_simulation.SpringSimulation);
-  dart.setMethodSignature(spring_simulation.SpringSimulation, () => ({
-    __proto__: dart.getMethods(spring_simulation.SpringSimulation.__proto__),
-    x: dart.fnType(core.double, [core.double]),
-    dx: dart.fnType(core.double, [core.double]),
-    isDone: dart.fnType(core.bool, [core.double])
-  }));
-  dart.setGetterSignature(spring_simulation.SpringSimulation, () => ({
-    __proto__: dart.getGetters(spring_simulation.SpringSimulation.__proto__),
-    type: spring_simulation.SpringType
-  }));
-  dart.setLibraryUri(spring_simulation.SpringSimulation, I[0]);
-  dart.setFieldSignature(spring_simulation.SpringSimulation, () => ({
-    __proto__: dart.getFields(spring_simulation.SpringSimulation.__proto__),
-    [_endPosition]: dart.finalFieldType(core.double),
-    [_solution]: dart.finalFieldType(spring_simulation._SpringSolution)
-  }));
-  dart.defineExtensionMethods(spring_simulation.SpringSimulation, ['toString']);
-  spring_simulation.ScrollSpringSimulation = class ScrollSpringSimulation extends spring_simulation.SpringSimulation {
-    x(time) {
-      return this.isDone(time) ? this[_endPosition] : super.x(time);
+    get isComplex() {
+      return this.shadows != null;
     }
-  };
-  (spring_simulation.ScrollSpringSimulation.new = function(spring, start, end, velocity, opts) {
-    let tolerance = opts && 'tolerance' in opts ? opts.tolerance : C[4] || CT.C4;
-    spring_simulation.ScrollSpringSimulation.__proto__.new.call(this, spring, start, end, velocity, {tolerance: tolerance});
-    ;
-  }).prototype = spring_simulation.ScrollSpringSimulation.prototype;
-  dart.addTypeTests(spring_simulation.ScrollSpringSimulation);
-  dart.addTypeCaches(spring_simulation.ScrollSpringSimulation);
-  dart.setLibraryUri(spring_simulation.ScrollSpringSimulation, I[0]);
-  spring_simulation._SpringSolution = class _SpringSolution extends core.Object {
-    static new(spring, initialPosition, initialVelocity) {
-      if (!(spring !== null)) dart.assertFailed(null, I[1], 156, 12, "spring != null");
-      if (!(spring.mass !== null)) dart.assertFailed(null, I[1], 157, 12, "spring.mass != null");
-      if (!(spring.stiffness !== null)) dart.assertFailed(null, I[1], 158, 12, "spring.stiffness != null");
-      if (!(spring.damping !== null)) dart.assertFailed(null, I[1], 159, 12, "spring.damping != null");
-      if (!(initialPosition !== null)) dart.assertFailed(null, I[1], 160, 12, "initialPosition != null");
-      if (!(initialVelocity !== null)) dart.assertFailed(null, I[1], 161, 12, "initialVelocity != null");
-      let cmk = spring.damping * spring.damping - 4 * spring.mass * spring.stiffness;
-      if (cmk === 0.0) return spring_simulation._CriticalSolution.new(spring, initialPosition, initialVelocity);
-      if (cmk > 0.0) return spring_simulation._OverdampedSolution.new(spring, initialPosition, initialVelocity);
-      return spring_simulation._UnderdampedSolution.new(spring, initialPosition, initialVelocity);
+    lerpFrom(a, t) {
+      if (box_decoration.BoxDecoration.is(a)) {
+        return shape_decoration.ShapeDecoration.lerp(shape_decoration.ShapeDecoration.fromBoxDecoration(a), this, t);
+      } else if (a == null || shape_decoration.ShapeDecoration.is(a)) {
+        return shape_decoration.ShapeDecoration.lerp(T.ShapeDecorationN().as(a), this, t);
+      }
+      return T.ShapeDecorationN().as(super.lerpFrom(a, t));
+    }
+    lerpTo(b, t) {
+      if (box_decoration.BoxDecoration.is(b)) {
+        return shape_decoration.ShapeDecoration.lerp(this, shape_decoration.ShapeDecoration.fromBoxDecoration(b), t);
+      } else if (b == null || shape_decoration.ShapeDecoration.is(b)) {
+        return shape_decoration.ShapeDecoration.lerp(this, T.ShapeDecorationN().as(b), t);
+      }
+      return T.ShapeDecorationN().as(super.lerpTo(b, t));
+    }
+    static lerp(a, b, t) {
+      let t0, t0$, t0$0, t0$1, t0$2, t0$3, t0$4, t0$5;
+      if (!(t !== null)) dart.assertFailed(null, I[0], 231, 12, "t != null");
+      if (a == null && b == null) return null;
+      if (a != null && b != null) {
+        if (t === 0.0) return a;
+        if (t === 1.0) return b;
+      }
+      return new shape_decoration.ShapeDecoration.new({color: ui.Color.lerp((t0 = a, t0 == null ? null : t0.color), (t0$ = b, t0$ == null ? null : t0$.color), t), gradient: gradient.Gradient.lerp((t0$0 = a, t0$0 == null ? null : t0$0.gradient), (t0$1 = b, t0$1 == null ? null : t0$1.gradient), t), image: t < 0.5 ? dart.nullCheck(a).image : dart.nullCheck(b).image, shadows: box_shadow.BoxShadow.lerpList((t0$2 = a, t0$2 == null ? null : t0$2.shadows), (t0$3 = b, t0$3 == null ? null : t0$3.shadows), t), shape: dart.nullCheck(borders.ShapeBorder.lerp((t0$4 = a, t0$4 == null ? null : t0$4.shape), (t0$5 = b, t0$5 == null ? null : t0$5.shape), t))});
+    }
+    _equals(other) {
+      if (other == null) return false;
+      if (this === other) return true;
+      if (!other[$runtimeType]._equals(this[$runtimeType])) return false;
+      return shape_decoration.ShapeDecoration.is(other) && dart.equals(other.color, this.color) && dart.equals(other.gradient, this.gradient) && dart.equals(other.image, this.image) && collections.listEquals(box_shadow.BoxShadow, other.shadows, this.shadows) && other.shape[$_equals](this.shape);
+    }
+    get hashCode() {
+      return ui.hashValues(this.color, this.gradient, this.image, this.shape, ui.hashList(this.shadows));
+    }
+    debugFillProperties(properties) {
+      super.debugFillProperties(properties);
+      properties.defaultDiagnosticsTreeStyle = diagnostics.DiagnosticsTreeStyle.whitespace;
+      properties.add(new colors.ColorProperty.new("color", this.color, {defaultValue: null}));
+      properties.add(new (T.DiagnosticsPropertyOfGradient()).new("gradient", this.gradient, {defaultValue: null}));
+      properties.add(new (T.DiagnosticsPropertyOfDecorationImage()).new("image", this.image, {defaultValue: null}));
+      properties.add(new (T.IterablePropertyOfBoxShadow()).new("shadows", this.shadows, {defaultValue: null, style: diagnostics.DiagnosticsTreeStyle.whitespace}));
+      properties.add(new (T.DiagnosticsPropertyOfShapeBorder()).new("shape", this.shape));
+    }
+    hitTest(size, position, opts) {
+      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+      return this.shape.getOuterPath(ui.Offset.zero['&'](size), {textDirection: textDirection}).contains(position);
+    }
+    createBoxPainter(onChanged = null) {
+      if (!(onChanged != null || this.image == null)) dart.assertFailed(null, I[0], 292, 12, "onChanged != null || image == null");
+      return new shape_decoration._ShapeDecorationPainter.new(this, dart.nullCheck(onChanged));
     }
   };
-  (spring_simulation._SpringSolution[dart.mixinNew] = function() {
-  }).prototype = spring_simulation._SpringSolution.prototype;
-  dart.addTypeTests(spring_simulation._SpringSolution);
-  dart.addTypeCaches(spring_simulation._SpringSolution);
-  dart.setLibraryUri(spring_simulation._SpringSolution, I[0]);
-  var _r = dart.privateName(spring_simulation, "_r");
-  var _c1 = dart.privateName(spring_simulation, "_c1");
-  var _c2 = dart.privateName(spring_simulation, "_c2");
-  spring_simulation._CriticalSolution = class _CriticalSolution extends core.Object {
-    static new(spring, distance, velocity) {
-      let r = -spring.damping / (2.0 * spring.mass);
-      let c1 = distance;
-      let c2 = velocity / (r * distance);
-      return new spring_simulation._CriticalSolution.withArgs(r, c1, c2);
+  (shape_decoration.ShapeDecoration.new = function(opts) {
+    let color = opts && 'color' in opts ? opts.color : null;
+    let image = opts && 'image' in opts ? opts.image : null;
+    let gradient = opts && 'gradient' in opts ? opts.gradient : null;
+    let shadows = opts && 'shadows' in opts ? opts.shadows : null;
+    let shape = opts && 'shape' in opts ? opts.shape : null;
+    this[color$] = color;
+    this[image$] = image;
+    this[gradient$] = gradient;
+    this[shadows$] = shadows;
+    this[shape$] = shape;
+    if (!!(color != null && gradient != null)) dart.assertFailed(null, I[0], 80, 15, "!(color != null && gradient != null)");
+    if (!(shape !== null)) dart.assertFailed(null, I[0], 81, 15, "shape != null");
+    shape_decoration.ShapeDecoration.__proto__.new.call(this);
+    ;
+  }).prototype = shape_decoration.ShapeDecoration.prototype;
+  dart.addTypeTests(shape_decoration.ShapeDecoration);
+  dart.addTypeCaches(shape_decoration.ShapeDecoration);
+  dart.setMethodSignature(shape_decoration.ShapeDecoration, () => ({
+    __proto__: dart.getMethods(shape_decoration.ShapeDecoration.__proto__),
+    lerpFrom: dart.fnType(dart.nullable(shape_decoration.ShapeDecoration), [dart.nullable(decoration.Decoration), core.double]),
+    lerpTo: dart.fnType(dart.nullable(shape_decoration.ShapeDecoration), [dart.nullable(decoration.Decoration), core.double]),
+    createBoxPainter: dart.fnType(shape_decoration._ShapeDecorationPainter, [], [dart.nullable(dart.fnType(dart.void, []))])
+  }));
+  dart.setGetterSignature(shape_decoration.ShapeDecoration, () => ({
+    __proto__: dart.getGetters(shape_decoration.ShapeDecoration.__proto__),
+    padding: edge_insets.EdgeInsetsGeometry
+  }));
+  dart.setLibraryUri(shape_decoration.ShapeDecoration, I[1]);
+  dart.setFieldSignature(shape_decoration.ShapeDecoration, () => ({
+    __proto__: dart.getFields(shape_decoration.ShapeDecoration.__proto__),
+    color: dart.finalFieldType(dart.nullable(ui.Color)),
+    gradient: dart.finalFieldType(dart.nullable(gradient.Gradient)),
+    image: dart.finalFieldType(dart.nullable(decoration_image.DecorationImage)),
+    shadows: dart.finalFieldType(dart.nullable(core.List$(box_shadow.BoxShadow))),
+    shape: dart.finalFieldType(borders.ShapeBorder)
+  }));
+  dart.defineExtensionMethods(shape_decoration.ShapeDecoration, ['_equals']);
+  dart.defineExtensionAccessors(shape_decoration.ShapeDecoration, ['hashCode']);
+  var _lastRect = dart.privateName(shape_decoration, "_lastRect");
+  var _lastTextDirection = dart.privateName(shape_decoration, "_lastTextDirection");
+  var ___ShapeDecorationPainter__outerPath = dart.privateName(shape_decoration, "_#_ShapeDecorationPainter#_outerPath");
+  var _innerPath = dart.privateName(shape_decoration, "_innerPath");
+  var _interiorPaint = dart.privateName(shape_decoration, "_interiorPaint");
+  var _shadowCount = dart.privateName(shape_decoration, "_shadowCount");
+  var ___ShapeDecorationPainter__shadowPaths = dart.privateName(shape_decoration, "_#_ShapeDecorationPainter#_shadowPaths");
+  var ___ShapeDecorationPainter__shadowPaints = dart.privateName(shape_decoration, "_#_ShapeDecorationPainter#_shadowPaints");
+  var _imagePainter = dart.privateName(shape_decoration, "_imagePainter");
+  var _decoration$ = dart.privateName(shape_decoration, "_decoration");
+  var _outerPath = dart.privateName(shape_decoration, "_outerPath");
+  var _shadowPaths = dart.privateName(shape_decoration, "_shadowPaths");
+  var _shadowPaints = dart.privateName(shape_decoration, "_shadowPaints");
+  var _precache = dart.privateName(shape_decoration, "_precache");
+  var _paintShadows = dart.privateName(shape_decoration, "_paintShadows");
+  var _paintInterior = dart.privateName(shape_decoration, "_paintInterior");
+  var _paintImage = dart.privateName(shape_decoration, "_paintImage");
+  shape_decoration._ShapeDecorationPainter = class _ShapeDecorationPainter extends decoration.BoxPainter {
+    get [_outerPath]() {
+      let t0;
+      t0 = this[___ShapeDecorationPainter__outerPath];
+      return t0 == null ? dart.throw(new _internal.LateError.fieldNI("_outerPath")) : t0;
     }
-    x(time) {
-      return (this[_c1] + this[_c2] * time) * math.pow(2.718281828459045, this[_r] * time);
+    set [_outerPath](t0) {
+      this[___ShapeDecorationPainter__outerPath] = t0;
     }
-    dx(time) {
-      let power = math.pow(2.718281828459045, this[_r] * time);
-      return this[_r] * (this[_c1] + this[_c2] * time) * power + this[_c2] * power;
+    get [_shadowPaths]() {
+      let t1;
+      t1 = this[___ShapeDecorationPainter__shadowPaths];
+      return t1 == null ? dart.throw(new _internal.LateError.fieldNI("_shadowPaths")) : t1;
     }
-    get type() {
-      return spring_simulation.SpringType.criticallyDamped;
+    set [_shadowPaths](t1) {
+      this[___ShapeDecorationPainter__shadowPaths] = t1;
+    }
+    get [_shadowPaints]() {
+      let t2;
+      t2 = this[___ShapeDecorationPainter__shadowPaints];
+      return t2 == null ? dart.throw(new _internal.LateError.fieldNI("_shadowPaints")) : t2;
+    }
+    set [_shadowPaints](t2) {
+      this[___ShapeDecorationPainter__shadowPaints] = t2;
+    }
+    get onChanged() {
+      return dart.nullCheck(super.onChanged);
+    }
+    [_precache](rect, textDirection) {
+      if (!(rect !== null)) dart.assertFailed(null, I[0], 318, 12, "rect != null");
+      if (rect._equals(this[_lastRect]) && textDirection == this[_lastTextDirection]) return;
+      if (this[_interiorPaint] == null && (this[_decoration$].color != null || this[_decoration$].gradient != null)) {
+        this[_interiorPaint] = ui.Paint.new();
+        if (this[_decoration$].color != null) dart.nullCheck(this[_interiorPaint]).color = dart.nullCheck(this[_decoration$].color);
+      }
+      if (this[_decoration$].gradient != null) dart.nullCheck(this[_interiorPaint]).shader = dart.nullCheck(this[_decoration$].gradient).createShader(rect, {textDirection: textDirection});
+      if (this[_decoration$].shadows != null) {
+        if (this[_shadowCount] == null) {
+          this[_shadowCount] = dart.nullCheck(this[_decoration$].shadows)[$length];
+          this[_shadowPaints] = (() => {
+            let t3 = T.ListOfPaint().of(dart.nullCheck(this[_decoration$].shadows)[$map](ui.Paint, dart.fn(shadow => shadow.toPaint(), T.BoxShadowToPaint())));
+            return t3;
+          })();
+        }
+        this[_shadowPaths] = (() => {
+          let t4 = T.ListOfPath().of(dart.nullCheck(this[_decoration$].shadows)[$map](ui.Path, dart.fn(shadow => this[_decoration$].shape.getOuterPath(rect.shift(shadow.offset).inflate(shadow.spreadRadius), {textDirection: textDirection}), T.BoxShadowToPath())));
+          return t4;
+        })();
+      }
+      if (this[_interiorPaint] != null || this[_shadowCount] != null) this[_outerPath] = this[_decoration$].shape.getOuterPath(rect, {textDirection: textDirection});
+      if (this[_decoration$].image != null) this[_innerPath] = this[_decoration$].shape.getInnerPath(rect, {textDirection: textDirection});
+      this[_lastRect] = rect;
+      this[_lastTextDirection] = textDirection;
+    }
+    [_paintShadows](canvas) {
+      if (this[_shadowCount] != null) {
+        for (let index = 0; index < dart.nullCheck(this[_shadowCount]); index = index + 1)
+          canvas.drawPath(this[_shadowPaths][$_get](index), this[_shadowPaints][$_get](index));
+      }
+    }
+    [_paintInterior](canvas) {
+      if (this[_interiorPaint] != null) canvas.drawPath(this[_outerPath], dart.nullCheck(this[_interiorPaint]));
+    }
+    [_paintImage](canvas, configuration) {
+      if (this[_decoration$].image == null) return;
+      this[_imagePainter] == null ? this[_imagePainter] = dart.nullCheck(this[_decoration$].image).createPainter(this.onChanged) : null;
+      dart.nullCheck(this[_imagePainter]).paint(canvas, dart.nullCheck(this[_lastRect]), this[_innerPath], configuration);
+    }
+    dispose() {
+      let t5;
+      t5 = this[_imagePainter];
+      t5 == null ? null : t5.dispose();
+      super.dispose();
+    }
+    paint(canvas, offset, configuration) {
+      if (!(configuration !== null)) dart.assertFailed(null, I[0], 383, 12, "configuration != null");
+      if (!(configuration.size != null)) dart.assertFailed(null, I[0], 384, 12, "configuration.size != null");
+      let rect = offset['&'](dart.nullCheck(configuration.size));
+      let textDirection = configuration.textDirection;
+      this[_precache](rect, textDirection);
+      this[_paintShadows](canvas);
+      this[_paintInterior](canvas);
+      this[_paintImage](canvas, configuration);
+      this[_decoration$].shape.paint(canvas, rect, {textDirection: textDirection});
     }
   };
-  (spring_simulation._CriticalSolution.withArgs = function(r, c1, c2) {
-    this[_r] = r;
-    this[_c1] = c1;
-    this[_c2] = c2;
+  (shape_decoration._ShapeDecorationPainter.new = function(_decoration, onChanged) {
+    this[_lastRect] = null;
+    this[_lastTextDirection] = null;
+    this[___ShapeDecorationPainter__outerPath] = null;
+    this[_innerPath] = null;
+    this[_interiorPaint] = null;
+    this[_shadowCount] = null;
+    this[___ShapeDecorationPainter__shadowPaths] = null;
+    this[___ShapeDecorationPainter__shadowPaints] = null;
+    this[_imagePainter] = null;
+    this[_decoration$] = _decoration;
+    if (!(_decoration !== null)) dart.assertFailed(null, I[0], 300, 14, "_decoration != null");
+    shape_decoration._ShapeDecorationPainter.__proto__.new.call(this, onChanged);
     ;
-  }).prototype = spring_simulation._CriticalSolution.prototype;
-  dart.addTypeTests(spring_simulation._CriticalSolution);
-  dart.addTypeCaches(spring_simulation._CriticalSolution);
-  spring_simulation._CriticalSolution[dart.implements] = () => [spring_simulation._SpringSolution];
-  dart.setMethodSignature(spring_simulation._CriticalSolution, () => ({
-    __proto__: dart.getMethods(spring_simulation._CriticalSolution.__proto__),
-    x: dart.fnType(core.double, [core.double]),
-    dx: dart.fnType(core.double, [core.double])
+  }).prototype = shape_decoration._ShapeDecorationPainter.prototype;
+  dart.addTypeTests(shape_decoration._ShapeDecorationPainter);
+  dart.addTypeCaches(shape_decoration._ShapeDecorationPainter);
+  dart.setMethodSignature(shape_decoration._ShapeDecorationPainter, () => ({
+    __proto__: dart.getMethods(shape_decoration._ShapeDecorationPainter.__proto__),
+    [_precache]: dart.fnType(dart.void, [ui.Rect, dart.nullable(ui.TextDirection)]),
+    [_paintShadows]: dart.fnType(dart.void, [ui.Canvas]),
+    [_paintInterior]: dart.fnType(dart.void, [ui.Canvas]),
+    [_paintImage]: dart.fnType(dart.void, [ui.Canvas, image_provider.ImageConfiguration]),
+    paint: dart.fnType(dart.void, [ui.Canvas, ui.Offset, image_provider.ImageConfiguration])
   }));
-  dart.setGetterSignature(spring_simulation._CriticalSolution, () => ({
-    __proto__: dart.getGetters(spring_simulation._CriticalSolution.__proto__),
-    type: spring_simulation.SpringType
+  dart.setGetterSignature(shape_decoration._ShapeDecorationPainter, () => ({
+    __proto__: dart.getGetters(shape_decoration._ShapeDecorationPainter.__proto__),
+    [_outerPath]: ui.Path,
+    [_shadowPaths]: core.List$(ui.Path),
+    [_shadowPaints]: core.List$(ui.Paint),
+    onChanged: dart.fnType(dart.void, [])
   }));
-  dart.setLibraryUri(spring_simulation._CriticalSolution, I[0]);
-  dart.setFieldSignature(spring_simulation._CriticalSolution, () => ({
-    __proto__: dart.getFields(spring_simulation._CriticalSolution.__proto__),
-    [_r]: dart.finalFieldType(core.double),
-    [_c1]: dart.finalFieldType(core.double),
-    [_c2]: dart.finalFieldType(core.double)
+  dart.setSetterSignature(shape_decoration._ShapeDecorationPainter, () => ({
+    __proto__: dart.getSetters(shape_decoration._ShapeDecorationPainter.__proto__),
+    [_outerPath]: ui.Path,
+    [_shadowPaths]: core.List$(ui.Path),
+    [_shadowPaints]: core.List$(ui.Paint)
   }));
-  var _r1 = dart.privateName(spring_simulation, "_r1");
-  var _r2 = dart.privateName(spring_simulation, "_r2");
-  spring_simulation._OverdampedSolution = class _OverdampedSolution extends core.Object {
-    static new(spring, distance, velocity) {
-      let cmk = spring.damping * spring.damping - 4 * spring.mass * spring.stiffness;
-      let r1 = (-spring.damping - math.sqrt(cmk)) / (2.0 * spring.mass);
-      let r2 = (-spring.damping + math.sqrt(cmk)) / (2.0 * spring.mass);
-      let c2 = (velocity - r1 * distance) / (r2 - r1);
-      let c1 = distance - c2;
-      return new spring_simulation._OverdampedSolution.withArgs(r1, r2, c1, c2);
-    }
-    x(time) {
-      return this[_c1] * math.pow(2.718281828459045, this[_r1] * time) + this[_c2] * math.pow(2.718281828459045, this[_r2] * time);
-    }
-    dx(time) {
-      return this[_c1] * this[_r1] * math.pow(2.718281828459045, this[_r1] * time) + this[_c2] * this[_r2] * math.pow(2.718281828459045, this[_r2] * time);
-    }
-    get type() {
-      return spring_simulation.SpringType.overDamped;
-    }
-  };
-  (spring_simulation._OverdampedSolution.withArgs = function(r1, r2, c1, c2) {
-    this[_r1] = r1;
-    this[_r2] = r2;
-    this[_c1] = c1;
-    this[_c2] = c2;
-    ;
-  }).prototype = spring_simulation._OverdampedSolution.prototype;
-  dart.addTypeTests(spring_simulation._OverdampedSolution);
-  dart.addTypeCaches(spring_simulation._OverdampedSolution);
-  spring_simulation._OverdampedSolution[dart.implements] = () => [spring_simulation._SpringSolution];
-  dart.setMethodSignature(spring_simulation._OverdampedSolution, () => ({
-    __proto__: dart.getMethods(spring_simulation._OverdampedSolution.__proto__),
-    x: dart.fnType(core.double, [core.double]),
-    dx: dart.fnType(core.double, [core.double])
+  dart.setLibraryUri(shape_decoration._ShapeDecorationPainter, I[1]);
+  dart.setFieldSignature(shape_decoration._ShapeDecorationPainter, () => ({
+    __proto__: dart.getFields(shape_decoration._ShapeDecorationPainter.__proto__),
+    [_decoration$]: dart.finalFieldType(shape_decoration.ShapeDecoration),
+    [_lastRect]: dart.fieldType(dart.nullable(ui.Rect)),
+    [_lastTextDirection]: dart.fieldType(dart.nullable(ui.TextDirection)),
+    [___ShapeDecorationPainter__outerPath]: dart.fieldType(dart.nullable(ui.Path)),
+    [_innerPath]: dart.fieldType(dart.nullable(ui.Path)),
+    [_interiorPaint]: dart.fieldType(dart.nullable(ui.Paint)),
+    [_shadowCount]: dart.fieldType(dart.nullable(core.int)),
+    [___ShapeDecorationPainter__shadowPaths]: dart.fieldType(dart.nullable(core.List$(ui.Path))),
+    [___ShapeDecorationPainter__shadowPaints]: dart.fieldType(dart.nullable(core.List$(ui.Paint))),
+    [_imagePainter]: dart.fieldType(dart.nullable(decoration_image.DecorationImagePainter))
   }));
-  dart.setGetterSignature(spring_simulation._OverdampedSolution, () => ({
-    __proto__: dart.getGetters(spring_simulation._OverdampedSolution.__proto__),
-    type: spring_simulation.SpringType
-  }));
-  dart.setLibraryUri(spring_simulation._OverdampedSolution, I[0]);
-  dart.setFieldSignature(spring_simulation._OverdampedSolution, () => ({
-    __proto__: dart.getFields(spring_simulation._OverdampedSolution.__proto__),
-    [_r1]: dart.finalFieldType(core.double),
-    [_r2]: dart.finalFieldType(core.double),
-    [_c1]: dart.finalFieldType(core.double),
-    [_c2]: dart.finalFieldType(core.double)
-  }));
-  var _w = dart.privateName(spring_simulation, "_w");
-  spring_simulation._UnderdampedSolution = class _UnderdampedSolution extends core.Object {
-    static new(spring, distance, velocity) {
-      let w = math.sqrt(4.0 * spring.mass * spring.stiffness - spring.damping * spring.damping) / (2.0 * spring.mass);
-      let r = -(spring.damping / 2.0 * spring.mass);
-      let c1 = distance;
-      let c2 = (velocity - r * distance) / w;
-      return new spring_simulation._UnderdampedSolution.withArgs(w, r, c1, c2);
-    }
-    x(time) {
-      return math.pow(2.718281828459045, this[_r] * time) * (this[_c1] * math.cos(this[_w] * time) + this[_c2] * math.sin(this[_w] * time));
-    }
-    dx(time) {
-      let power = math.pow(2.718281828459045, this[_r] * time);
-      let cosine = math.cos(this[_w] * time);
-      let sine = math.sin(this[_w] * time);
-      return power * (this[_c2] * this[_w] * cosine - this[_c1] * this[_w] * sine) + this[_r] * power * (this[_c2] * sine + this[_c1] * cosine);
-    }
-    get type() {
-      return spring_simulation.SpringType.underDamped;
-    }
-  };
-  (spring_simulation._UnderdampedSolution.withArgs = function(w, r, c1, c2) {
-    this[_w] = w;
-    this[_r] = r;
-    this[_c1] = c1;
-    this[_c2] = c2;
-    ;
-  }).prototype = spring_simulation._UnderdampedSolution.prototype;
-  dart.addTypeTests(spring_simulation._UnderdampedSolution);
-  dart.addTypeCaches(spring_simulation._UnderdampedSolution);
-  spring_simulation._UnderdampedSolution[dart.implements] = () => [spring_simulation._SpringSolution];
-  dart.setMethodSignature(spring_simulation._UnderdampedSolution, () => ({
-    __proto__: dart.getMethods(spring_simulation._UnderdampedSolution.__proto__),
-    x: dart.fnType(core.double, [core.double]),
-    dx: dart.fnType(core.double, [core.double])
-  }));
-  dart.setGetterSignature(spring_simulation._UnderdampedSolution, () => ({
-    __proto__: dart.getGetters(spring_simulation._UnderdampedSolution.__proto__),
-    type: spring_simulation.SpringType
-  }));
-  dart.setLibraryUri(spring_simulation._UnderdampedSolution, I[0]);
-  dart.setFieldSignature(spring_simulation._UnderdampedSolution, () => ({
-    __proto__: dart.getFields(spring_simulation._UnderdampedSolution.__proto__),
-    [_w]: dart.finalFieldType(core.double),
-    [_r]: dart.finalFieldType(core.double),
-    [_c1]: dart.finalFieldType(core.double),
-    [_c2]: dart.finalFieldType(core.double)
-  }));
-  dart.trackLibraries("packages/flutter/src/physics/spring_simulation.dart", {
-    "package:flutter/src/physics/spring_simulation.dart": spring_simulation
+  dart.trackLibraries("packages/flutter/src/painting/shape_decoration.dart", {
+    "package:flutter/src/painting/shape_decoration.dart": shape_decoration
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["spring_simulation.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/flutter/src/physics/spring_simulation.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["shape_decoration.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/flutter/src/painting/shape_decoration.dart.lib.js"}');
   // Exports:
   return {
-    src__physics__spring_simulation: spring_simulation
+    src__painting__shape_decoration: shape_decoration
   };
 }));
 
-//# sourceMappingURL=spring_simulation.dart.lib.js.map
+//# sourceMappingURL=shape_decoration.dart.lib.js.map

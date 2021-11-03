@@ -1,478 +1,315 @@
-define(['dart_sdk', 'packages/get/get_core/src/get_main.dart'], (function load__packages__get__get_utils__src__get_utils__get_utils_dart(dart_sdk, packages__get__get_core__src__get_main$46dart) {
+define(['dart_sdk', 'packages/flutter/src/foundation/object.dart'], (function load__packages__flutter__src__foundation__stack_frame_dart(dart_sdk, packages__flutter__src__foundation__object$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const _interceptors = dart_sdk._interceptors;
-  const collection = dart_sdk.collection;
+  const ui = dart_sdk.ui;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const get_main = packages__get__get_core__src__get_main$46dart.get_core__src__get_main;
-  var get_utils = Object.create(dart.library);
-  var $toLowerCase = dartx.toLowerCase;
-  var $endsWith = dartx.endsWith;
-  var $replaceAll = dartx.replaceAll;
-  var $_get = dartx._get;
-  var $toString = dartx.toString;
-  var $contains = dartx.contains;
-  var $split = dartx.split;
-  var $map = dartx.map;
-  var $toList = dartx.toList;
-  var $modulo = dartx['%'];
-  var $join = dartx.join;
-  var $toUpperCase = dartx.toUpperCase;
-  var $substring = dartx.substring;
-  var $add = dartx.add;
-  var $isNotEmpty = dartx.isNotEmpty;
-  var $isEmpty = dartx.isEmpty;
+  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
+  var stack_frame = Object.create(dart.library);
   var $trim = dartx.trim;
+  var $split = dartx.split;
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $where = dartx.where;
+  var $map = dartx.map;
+  var $whereType = dartx.whereType;
+  var $toList = dartx.toList;
+  var $startsWith = dartx.startsWith;
+  var $_get = dartx._get;
+  var $replaceFirst = dartx.replaceFirst;
+  var $length = dartx.length;
+  var $first = dartx.first;
+  var $skip = dartx.skip;
+  var $join = dartx.join;
+  var $single = dartx.single;
+  var $replaceAll = dartx.replaceAll;
+  var $contains = dartx.contains;
+  var $runtimeType = dartx.runtimeType;
   dart._checkModuleNullSafetyMode(true);
   var T = {
-    StringToint: () => (T.StringToint = dart.constFn(dart.fnType(core.int, [core.String])))(),
-    StringToNint: () => (T.StringToNint = dart.constFn(dart.nullable(T.StringToint())))(),
-    intN: () => (T.intN = dart.constFn(dart.nullable(core.int)))(),
-    String__Toint: () => (T.String__Toint = dart.constFn(dart.fnType(core.int, [core.String], {onError: T.StringToNint(), radix: T.intN()}, {})))(),
-    IterableOfint: () => (T.IterableOfint = dart.constFn(core.Iterable$(core.int)))(),
-    intToint: () => (T.intToint = dart.constFn(dart.fnType(core.int, [core.int])))(),
-    StringN: () => (T.StringN = dart.constFn(dart.nullable(core.String)))(),
-    StringToStringN: () => (T.StringToStringN = dart.constFn(dart.fnType(T.StringN(), [core.String])))(),
-    JSArrayOfString: () => (T.JSArrayOfString = dart.constFn(_interceptors.JSArray$(core.String)))(),
-    StringToString: () => (T.StringToString = dart.constFn(dart.fnType(core.String, [core.String])))(),
-    dynamicToString: () => (T.dynamicToString = dart.constFn(dart.fnType(core.String, [dart.dynamic])))(),
-    LinkedHashSetOfString: () => (T.LinkedHashSetOfString = dart.constFn(collection.LinkedHashSet$(core.String)))(),
-    boolN: () => (T.boolN = dart.constFn(dart.nullable(core.bool)))()
+    StringTobool: () => (T.StringTobool = dart.constFn(dart.fnType(core.bool, [core.String])))(),
+    StackFrameN: () => (T.StackFrameN = dart.constFn(dart.nullable(stack_frame.StackFrame)))(),
+    StringToStackFrameN: () => (T.StringToStackFrameN = dart.constFn(dart.fnType(T.StackFrameN(), [core.String])))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
     get C0() {
-      return C[0] = dart.fn(core.int.parse, T.String__Toint());
+      return C[0] = dart.fn(stack_frame.StackFrame.fromStackTraceLine, T.StringToStackFrameN());
     },
     get C1() {
-      return C[1] = dart.fn(get_utils.GetUtils.capitalizeFirst, T.StringToStringN());
-    }
-  }, false);
-  var C = Array(2).fill(void 0);
-  var I = ["package:get/get_utils/src/get_utils/get_utils.dart"];
-  get_utils.GetUtils = class GetUtils extends core.Object {
-    static isNull(value) {
-      return value == null;
-    }
-    static nil(s) {
-      return s == null ? null : s;
-    }
-    static isNullOrBlank(value) {
-      if (get_utils.GetUtils.isNull(value)) {
-        return true;
-      }
-      return get_utils._isEmpty(value);
-    }
-    static isBlank(value) {
-      return get_utils._isEmpty(value);
-    }
-    static isNum(value) {
-      if (get_utils.GetUtils.isNull(value)) {
-        return false;
-      }
-      return typeof core.num.tryParse(value) == 'number';
-    }
-    static isNumericOnly(s) {
-      return get_utils.GetUtils.hasMatch(s, "^\\d+$");
-    }
-    static isAlphabetOnly(s) {
-      return get_utils.GetUtils.hasMatch(s, "^[a-zA-Z]+$");
-    }
-    static hasCapitalletter(s) {
-      return get_utils.GetUtils.hasMatch(s, "[A-Z]");
-    }
-    static isBool(value) {
-      if (get_utils.GetUtils.isNull(value)) {
-        return false;
-      }
-      return value === "true" || value === "false";
-    }
-    static isVideo(filePath) {
-      let ext = filePath[$toLowerCase]();
-      return ext[$endsWith](".mp4") || ext[$endsWith](".avi") || ext[$endsWith](".wmv") || ext[$endsWith](".rmvb") || ext[$endsWith](".mpg") || ext[$endsWith](".mpeg") || ext[$endsWith](".3gp");
-    }
-    static isImage(filePath) {
-      let ext = filePath[$toLowerCase]();
-      return ext[$endsWith](".jpg") || ext[$endsWith](".jpeg") || ext[$endsWith](".png") || ext[$endsWith](".gif") || ext[$endsWith](".bmp");
-    }
-    static isAudio(filePath) {
-      let ext = filePath[$toLowerCase]();
-      return ext[$endsWith](".mp3") || ext[$endsWith](".wav") || ext[$endsWith](".wma") || ext[$endsWith](".amr") || ext[$endsWith](".ogg");
-    }
-    static isPPT(filePath) {
-      let ext = filePath[$toLowerCase]();
-      return ext[$endsWith](".ppt") || ext[$endsWith](".pptx");
-    }
-    static isWord(filePath) {
-      let ext = filePath[$toLowerCase]();
-      return ext[$endsWith](".doc") || ext[$endsWith](".docx");
-    }
-    static isExcel(filePath) {
-      let ext = filePath[$toLowerCase]();
-      return ext[$endsWith](".xls") || ext[$endsWith](".xlsx");
-    }
-    static isAPK(filePath) {
-      return filePath[$toLowerCase]()[$endsWith](".apk");
-    }
-    static isPDF(filePath) {
-      return filePath[$toLowerCase]()[$endsWith](".pdf");
-    }
-    static isTxt(filePath) {
-      return filePath[$toLowerCase]()[$endsWith](".txt");
-    }
-    static isChm(filePath) {
-      return filePath[$toLowerCase]()[$endsWith](".chm");
-    }
-    static isVector(filePath) {
-      return filePath[$toLowerCase]()[$endsWith](".svg");
-    }
-    static isHTML(filePath) {
-      return filePath[$toLowerCase]()[$endsWith](".html");
-    }
-    static isUsername(s) {
-      return get_utils.GetUtils.hasMatch(s, "^[a-zA-Z0-9][a-zA-Z0-9_.]+[a-zA-Z0-9]$");
-    }
-    static isURL(s) {
-      return get_utils.GetUtils.hasMatch(s, "^((((H|h)(T|t)|(F|f))(T|t)(P|p)((S|s)?))\\://)?(www.|[a-zA-Z0-9].)[a-zA-Z0-9\\-\\.]+\\.[a-zA-Z]{2,6}(\\:[0-9]{1,5})*(/($|[a-zA-Z0-9\\.\\,\\;\\?\\'\\\\\\+&amp;%\\$#\\=~_\\-]+))*$");
-    }
-    static isEmail(s) {
-      return get_utils.GetUtils.hasMatch(s, "^(([^<>()[\\]\\\\.,;:\\s@\\\"]+(\\.[^<>()[\\]\\\\.,;:\\s@\\\"]+)*)|(\\\".+\\\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$");
-    }
-    static isPhoneNumber(s) {
-      if (s.length > 16 || s.length < 9) return false;
-      return get_utils.GetUtils.hasMatch(s, "^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s\\./0-9]*$");
-    }
-    static isDateTime(s) {
-      return get_utils.GetUtils.hasMatch(s, "^\\d{4}-\\d{2}-\\d{2}[ T]\\d{2}:\\d{2}:\\d{2}.\\d{3}Z?$");
-    }
-    static isMD5(s) {
-      return get_utils.GetUtils.hasMatch(s, "^[a-f0-9]{32}$");
-    }
-    static isSHA1(s) {
-      return get_utils.GetUtils.hasMatch(s, "(([A-Fa-f0-9]{2}\\:){19}[A-Fa-f0-9]{2}|[A-Fa-f0-9]{40})");
-    }
-    static isSHA256(s) {
-      return get_utils.GetUtils.hasMatch(s, "([A-Fa-f0-9]{2}\\:){31}[A-Fa-f0-9]{2}|[A-Fa-f0-9]{64}");
-    }
-    static isSSN(s) {
-      return get_utils.GetUtils.hasMatch(s, "^(?!0{3}|6{3}|9[0-9]{2})[0-9]{3}-?(?!0{2})[0-9]{2}-?(?!0{4})[0-9]{4}$");
-    }
-    static isBinary(s) {
-      return get_utils.GetUtils.hasMatch(s, "^[0-1]+$");
-    }
-    static isIPv4(s) {
-      return get_utils.GetUtils.hasMatch(s, "^(?:(?:^|\\.)(?:2(?:5[0-5]|[0-4]\\d)|1?\\d?\\d)){4}$");
-    }
-    static isIPv6(s) {
-      return get_utils.GetUtils.hasMatch(s, "^((([0-9A-Fa-f]{1,4}:){7}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){6}:[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){5}:([0-9A-Fa-f]{1,4}:)?[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){4}:([0-9A-Fa-f]{1,4}:){0,2}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){3}:([0-9A-Fa-f]{1,4}:){0,3}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){2}:([0-9A-Fa-f]{1,4}:){0,4}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){6}((\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b)\\.){3}(\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b))|(([0-9A-Fa-f]{1,4}:){0,5}:((\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b)\\.){3}(\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b))|(::([0-9A-Fa-f]{1,4}:){0,5}((\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b)\\.){3}(\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b))|([0-9A-Fa-f]{1,4}::([0-9A-Fa-f]{1,4}:){0,5}[0-9A-Fa-f]{1,4})|(::([0-9A-Fa-f]{1,4}:){0,6}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){1,7}:))$");
-    }
-    static isHexadecimal(s) {
-      return get_utils.GetUtils.hasMatch(s, "^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$");
-    }
-    static isPalindrom(string) {
-      let cleanString = string[$toLowerCase]()[$replaceAll](core.RegExp.new("\\s+"), "")[$replaceAll](core.RegExp.new("[^0-9a-zA-Z]+"), "");
-      for (let i = 0; i < cleanString.length; i = i + 1) {
-        if (cleanString[$_get](i) !== cleanString[$_get](cleanString.length - i - 1)) {
-          return false;
-        }
-      }
-      return true;
-    }
-    static isOneAKind(value) {
-      if ((typeof value == 'string' || core.List.is(value)) && !dart.nullCheck(get_utils.GetUtils.isNullOrBlank(value))) {
-        let first = dart.dsend(value, '_get', [0]);
-        let len = core.num.as(dart.dload(value, 'length'));
-        for (let i = 0; i < len; i = i + 1) {
-          if (!dart.equals(dart.dsend(value, '_get', [i]), first)) {
-            return false;
-          }
-        }
-        return true;
-      }
-      if (core.int.is(value)) {
-        let stringValue = dart.toString(value);
-        let first = stringValue[$_get](0);
-        for (let i = 0; i < stringValue.length; i = i + 1) {
-          if (stringValue[$_get](i) !== first) {
-            return false;
-          }
-        }
-        return true;
-      }
-      return false;
-    }
-    static isPassport(s) {
-      return get_utils.GetUtils.hasMatch(s, "^(?!^0+$)[a-zA-Z0-9]{6,9}$");
-    }
-    static isCurrency(s) {
-      return get_utils.GetUtils.hasMatch(s, "^(S?\\$|\\₩|Rp|\\¥|\\€|\\₹|\\₽|fr|R\\$|R)?[ ]?[-]?([0-9]{1,3}[,.]([0-9]{3}[,.])*[0-9]{3}|[0-9]+)([,.][0-9]{1,2})?( ?(USD?|AUD|NZD|CAD|CHF|GBP|CNY|EUR|JPY|IDR|MXN|NOK|KRW|TRY|INR|RUB|BRL|ZAR|SGD|MYR))?$");
-    }
-    static isLengthGreaterThan(value, maxLength) {
-      let length = get_utils._obtainDynamicLength(value);
-      if (length == null) {
-        return false;
-      }
-      return dart.notNull(length) > maxLength;
-    }
-    static isLengthGreaterOrEqual(value, maxLength) {
-      let length = get_utils._obtainDynamicLength(value);
-      if (length == null) {
-        return false;
-      }
-      return dart.notNull(length) >= maxLength;
-    }
-    static isLengthLowerThan(value, maxLength) {
-      return get_utils.GetUtils.isLengthLessThan(value, maxLength);
-    }
-    static isLengthLessThan(value, maxLength) {
-      let length = get_utils._obtainDynamicLength(value);
-      if (length == null) {
-        return false;
-      }
-      return dart.notNull(length) < maxLength;
-    }
-    static isLengthLowerOrEqual(value, maxLength) {
-      return get_utils.GetUtils.isLengthLessOrEqual(value, maxLength);
-    }
-    static isLengthLessOrEqual(value, maxLength) {
-      let length = get_utils._obtainDynamicLength(value);
-      if (length == null) {
-        return false;
-      }
-      return dart.notNull(length) <= maxLength;
-    }
-    static isLengthEqualTo(value, otherLength) {
-      let length = get_utils._obtainDynamicLength(value);
-      if (length == null) {
-        return false;
-      }
-      return length === otherLength;
-    }
-    static isLengthBetween(value, minLength, maxLength) {
-      if (get_utils.GetUtils.isNull(value)) {
-        return false;
-      }
-      return get_utils.GetUtils.isLengthGreaterOrEqual(value, minLength) && get_utils.GetUtils.isLengthLessOrEqual(value, maxLength);
-    }
-    static isCaseInsensitiveContains(a, b) {
-      return a[$toLowerCase]()[$contains](b[$toLowerCase]());
-    }
-    static isCaseInsensitiveContainsAny(a, b) {
-      let lowA = a[$toLowerCase]();
-      let lowB = b[$toLowerCase]();
-      return lowA[$contains](lowB) || lowB[$contains](lowA);
-    }
-    static isLowerThan(a, b) {
-      return a < b;
-    }
-    static isGreaterThan(a, b) {
-      return a > b;
-    }
-    static isEqual(a, b) {
-      return a === b;
-    }
-    static isCnpj(cnpj) {
-      let t0, t0$;
-      let numbers = cnpj[$replaceAll](core.RegExp.new("[^0-9]"), "");
-      if (numbers.length !== 14) {
-        return false;
-      }
-      if (core.RegExp.new("^(\\d)\\1*$").hasMatch(numbers)) {
-        return false;
-      }
-      let digits = numbers[$split]("")[$map](core.int, C[0] || CT.C0)[$toList]();
-      let calcDv1 = 0;
-      let j = 0;
-      let iter = T.IterableOfint().generate(12, dart.fn(i => i < 4 ? 5 - i : 13 - i, T.intToint()));
-      for (let i of iter) {
-        calcDv1 = calcDv1 + digits[$_get]((t0 = j, j = t0 + 1, t0)) * i;
-      }
-      calcDv1 = calcDv1[$modulo](11);
-      let dv1 = calcDv1 < 2 ? 0 : 11 - calcDv1;
-      if (digits[$_get](12) !== dv1) {
-        return false;
-      }
-      let calcDv2 = 0;
-      j = 0;
-      let iter$ = T.IterableOfint().generate(13, dart.fn(i => i < 5 ? 6 - i : 14 - i, T.intToint()));
-      for (let i of iter$) {
-        calcDv2 = calcDv2 + digits[$_get]((t0$ = j, j = t0$ + 1, t0$)) * i;
-      }
-      calcDv2 = calcDv2[$modulo](11);
-      let dv2 = calcDv2 < 2 ? 0 : 11 - calcDv2;
-      if (digits[$_get](13) !== dv2) {
-        return false;
-      }
-      return true;
-    }
-    static isCpf(cpf) {
-      let numbers = cpf[$replaceAll](core.RegExp.new("[^0-9]"), "");
-      if (numbers.length !== 11) {
-        return false;
-      }
-      if (core.RegExp.new("^(\\d)\\1*$").hasMatch(numbers)) {
-        return false;
-      }
-      let digits = numbers[$split]("")[$map](core.int, C[0] || CT.C0)[$toList]();
-      let calcDv1 = 0;
-      let iter = T.IterableOfint().generate(9, dart.fn(i => 10 - i, T.intToint()));
-      for (let i of iter) {
-        calcDv1 = calcDv1 + digits[$_get](10 - i) * i;
-      }
-      calcDv1 = calcDv1[$modulo](11);
-      let dv1 = calcDv1 < 2 ? 0 : 11 - calcDv1;
-      if (digits[$_get](9) !== dv1) {
-        return false;
-      }
-      let calcDv2 = 0;
-      let iter$ = T.IterableOfint().generate(10, dart.fn(i => 11 - i, T.intToint()));
-      for (let i of iter$) {
-        calcDv2 = calcDv2 + digits[$_get](11 - i) * i;
-      }
-      calcDv2 = calcDv2[$modulo](11);
-      let dv2 = calcDv2 < 2 ? 0 : 11 - calcDv2;
-      if (digits[$_get](10) !== dv2) {
-        return false;
-      }
-      return true;
-    }
-    static capitalize(value) {
-      if (get_utils.GetUtils.isNull(value)) return null;
-      if (dart.nullCheck(get_utils.GetUtils.isBlank(value))) return value;
-      return value[$split](" ")[$map](T.StringN(), C[1] || CT.C1)[$join](" ");
-    }
-    static capitalizeFirst(s) {
-      if (get_utils.GetUtils.isNull(s)) return null;
-      if (dart.nullCheck(get_utils.GetUtils.isBlank(s))) return s;
-      return s[$_get](0)[$toUpperCase]() + s[$substring](1)[$toLowerCase]();
-    }
-    static removeAllWhitespace(value) {
-      return value[$replaceAll](" ", "");
-    }
-    static camelCase(value) {
-      if (dart.nullCheck(get_utils.GetUtils.isNullOrBlank(value))) {
-        return null;
-      }
-      let separatedWords = value[$split](core.RegExp.new("[!@#<>?\":`~;[\\]\\\\|=+)(*&^%-\\s_]+"));
-      let newString = "";
-      for (let word of separatedWords) {
-        newString = newString + (word[$_get](0)[$toUpperCase]() + word[$substring](1)[$toLowerCase]());
-      }
-      return newString[$_get](0)[$toLowerCase]() + newString[$substring](1);
-    }
-    static _groupIntoWords(text) {
-      let sb = new core.StringBuffer.new();
-      let words = T.JSArrayOfString().of([]);
-      let isAllCaps = text[$toUpperCase]() === text;
-      for (let i = 0; i < text.length; i = i + 1) {
-        let char = text[$_get](i);
-        let nextChar = i + 1 === text.length ? null : text[$_get](i + 1);
-        if (get_utils.GetUtils._symbolSet.contains(char)) {
-          continue;
-        }
-        sb.write(char);
-        let isEndOfWord = nextChar == null || get_utils.GetUtils._upperAlphaRegex.hasMatch(nextChar) && !isAllCaps || get_utils.GetUtils._symbolSet.contains(nextChar);
-        if (isEndOfWord) {
-          words[$add](dart.str(sb));
-          sb.clear();
-        }
-      }
-      return words;
-    }
-    static snakeCase(text, opts) {
-      let separator = opts && 'separator' in opts ? opts.separator : "_";
-      if (dart.nullCheck(get_utils.GetUtils.isNullOrBlank(text))) {
-        return null;
-      }
-      return get_utils.GetUtils._groupIntoWords(dart.nullCheck(text))[$map](core.String, dart.fn(word => word[$toLowerCase](), T.StringToString()))[$join](separator);
-    }
-    static paramCase(text) {
-      return get_utils.GetUtils.snakeCase(text, {separator: "-"});
-    }
-    static numericOnly(s, opts) {
-      let firstWordOnly = opts && 'firstWordOnly' in opts ? opts.firstWordOnly : false;
-      let numericOnlyStr = "";
-      for (let i = 0; i < s.length; i = i + 1) {
-        if (get_utils.GetUtils.isNumericOnly(s[$_get](i))) {
-          numericOnlyStr = numericOnlyStr + s[$_get](i);
-        }
-        if (firstWordOnly && numericOnlyStr[$isNotEmpty] && s[$_get](i) === " ") {
-          break;
-        }
-      }
-      return numericOnlyStr;
-    }
-    static hasMatch(value, pattern) {
-      return value == null ? false : core.RegExp.new(pattern).hasMatch(value);
-    }
-    static createPath(path, segments = null) {
-      if (segments == null || segments[$isEmpty]) {
-        return path;
-      }
-      let list = segments[$map](core.String, dart.fn(e => "/" + dart.str(e), T.dynamicToString()));
-      return path + list[$join]();
-    }
-    static printFunction(prefix, value, info, opts) {
-      let t2, t1, t0;
-      let isError = opts && 'isError' in opts ? opts.isError : false;
-      t0 = get_main.Get;
-      t1 = (prefix + " " + dart.str(value) + " " + info)[$trim]();
-      t2 = isError;
-      t0.log(t1, {isError: t2});
-    }
-  };
-  (get_utils.GetUtils.__ = function() {
-    ;
-  }).prototype = get_utils.GetUtils.prototype;
-  dart.addTypeTests(get_utils.GetUtils);
-  dart.addTypeCaches(get_utils.GetUtils);
-  dart.setLibraryUri(get_utils.GetUtils, I[0]);
-  dart.defineLazy(get_utils.GetUtils, {
-    /*get_utils.GetUtils._upperAlphaRegex*/get _upperAlphaRegex() {
-      return core.RegExp.new("[A-Z]");
+      return C[1] = dart.const({
+        __proto__: stack_frame.StackFrame.prototype,
+        [isConstructor$]: false,
+        [method$]: "asynchronous suspension",
+        [className$]: "",
+        [column$]: -1,
+        [line$]: -1,
+        [packagePath$]: "",
+        [$package$]: "",
+        [packageScheme$]: "",
+        [number$]: -1,
+        [source$]: "<asynchronous suspension>"
+      });
     },
-    /*get_utils.GetUtils._symbolSet*/get _symbolSet() {
-      return T.LinkedHashSetOfString().from([" ", ".", "/", "_", "\\", "-"]);
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: stack_frame.StackFrame.prototype,
+        [isConstructor$]: false,
+        [method$]: "...",
+        [className$]: "",
+        [column$]: -1,
+        [line$]: -1,
+        [packagePath$]: "",
+        [$package$]: "",
+        [packageScheme$]: "",
+        [number$]: -1,
+        [source$]: "..."
+      });
     }
   }, false);
-  get_utils._isEmpty = function _isEmpty(value) {
-    if (typeof value == 'string') {
-      return dart.toString(value)[$trim]()[$isEmpty];
+  var C = Array(3).fill(void 0);
+  var I = [
+    "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/foundation/stack_frame.dart",
+    "package:flutter/src/foundation/stack_frame.dart"
+  ];
+  var source$ = dart.privateName(stack_frame, "StackFrame.source");
+  var number$ = dart.privateName(stack_frame, "StackFrame.number");
+  var packageScheme$ = dart.privateName(stack_frame, "StackFrame.packageScheme");
+  var $package$ = dart.privateName(stack_frame, "StackFrame.package");
+  var packagePath$ = dart.privateName(stack_frame, "StackFrame.packagePath");
+  var line$ = dart.privateName(stack_frame, "StackFrame.line");
+  var column$ = dart.privateName(stack_frame, "StackFrame.column");
+  var className$ = dart.privateName(stack_frame, "StackFrame.className");
+  var method$ = dart.privateName(stack_frame, "StackFrame.method");
+  var isConstructor$ = dart.privateName(stack_frame, "StackFrame.isConstructor");
+  stack_frame.StackFrame = class StackFrame extends core.Object {
+    get source() {
+      return this[source$];
     }
-    if (core.Iterable.is(value) || core.Map.is(value)) {
-      return T.boolN().as(dart.dload(value, 'isEmpty'));
+    set source(value) {
+      super.source = value;
     }
-    return false;
+    get number() {
+      return this[number$];
+    }
+    set number(value) {
+      super.number = value;
+    }
+    get packageScheme() {
+      return this[packageScheme$];
+    }
+    set packageScheme(value) {
+      super.packageScheme = value;
+    }
+    get package() {
+      return this[$package$];
+    }
+    set package(value) {
+      super.package = value;
+    }
+    get packagePath() {
+      return this[packagePath$];
+    }
+    set packagePath(value) {
+      super.packagePath = value;
+    }
+    get line() {
+      return this[line$];
+    }
+    set line(value) {
+      super.line = value;
+    }
+    get column() {
+      return this[column$];
+    }
+    set column(value) {
+      super.column = value;
+    }
+    get className() {
+      return this[className$];
+    }
+    set className(value) {
+      super.className = value;
+    }
+    get method() {
+      return this[method$];
+    }
+    set method(value) {
+      super.method = value;
+    }
+    get isConstructor() {
+      return this[isConstructor$];
+    }
+    set isConstructor(value) {
+      super.isConstructor = value;
+    }
+    static fromStackTrace(stack) {
+      if (!(stack !== null)) dart.assertFailed(null, I[0], 79, 12, "stack != null");
+      return stack_frame.StackFrame.fromStackString(stack.toString());
+    }
+    static fromStackString(stack) {
+      if (!(stack !== null)) dart.assertFailed(null, I[0], 85, 12, "stack != null");
+      return stack[$trim]()[$split]("\n")[$where](dart.fn(line => line[$isNotEmpty], T.StringTobool()))[$map](T.StackFrameN(), C[0] || CT.C0)[$whereType](stack_frame.StackFrame)[$toList]();
+    }
+    static _parseWebFrame(line) {
+      if (true) {
+        return stack_frame.StackFrame._parseWebDebugFrame(line);
+      } else {
+        return stack_frame.StackFrame._parseWebNonDebugFrame(line);
+      }
+    }
+    static _parseWebDebugFrame(line) {
+      let hasPackage = line[$startsWith]("package");
+      let parser = hasPackage ? core.RegExp.new("^(package.+) (\\d+):(\\d+)\\s+(.+)$") : core.RegExp.new("^(.+) (\\d+):(\\d+)\\s+(.+)$");
+      let match = parser.firstMatch(line);
+      if (!(match != null)) dart.assertFailed("Expected " + line + " to match " + dart.str(parser) + ".", I[0], 114, 12, "match != null");
+      match = dart.nullCheck(match);
+      let $package = "<unknown>";
+      let packageScheme = "<unknown>";
+      let packagePath = "<unknown>";
+      if (hasPackage) {
+        packageScheme = "package";
+        let packageUri = core.Uri.parse(dart.nullCheck(match.group(1)));
+        $package = packageUri.pathSegments[$_get](0);
+        packagePath = packageUri.path[$replaceFirst](packageUri.pathSegments[$_get](0) + "/", "");
+      }
+      return new stack_frame.StackFrame.new({number: -1, packageScheme: packageScheme, package: $package, packagePath: packagePath, line: core.int.parse(dart.nullCheck(match.group(2))), column: core.int.parse(dart.nullCheck(match.group(3))), className: "<unknown>", method: dart.nullCheck(match.group(4)), source: line});
+    }
+    static _parseWebNonDebugFrame(line) {
+      let match = stack_frame.StackFrame._webNonDebugFramePattern.firstMatch(line);
+      if (match == null) {
+        return null;
+      }
+      let classAndMethod = dart.nullCheck(match.group(1))[$split](".");
+      let className = classAndMethod[$length] > 1 ? classAndMethod[$first] : "<unknown>";
+      let method = classAndMethod[$length] > 1 ? classAndMethod[$skip](1)[$join](".") : classAndMethod[$single];
+      return new stack_frame.StackFrame.new({number: -1, packageScheme: "<unknown>", package: "<unknown>", packagePath: "<unknown>", line: -1, column: -1, className: className, method: method, source: line});
+    }
+    static fromStackTraceLine(line) {
+      if (!(line !== null)) dart.assertFailed(null, I[0], 186, 12, "line != null");
+      if (line === "<asynchronous suspension>") {
+        return stack_frame.StackFrame.asynchronousSuspension;
+      } else if (line === "...") {
+        return stack_frame.StackFrame.stackOverFlowElision;
+      }
+      if (!(line !== "===== asynchronous gap ===========================")) dart.assertFailed("Got a stack frame from package:stack_trace, where a vm or web frame was expected. " + "This can happen if FlutterError.demangleStackTrace was not set in an environment " + "that propagates non-standard stack traces to the framework, such as during tests.", I[0], 194, 7, "line != '===== asynchronous gap ==========================='");
+      if (!line[$startsWith]("#")) {
+        return stack_frame.StackFrame._parseWebFrame(line);
+      }
+      let parser = core.RegExp.new("^#(\\d+) +(.+) \\((.+?):?(\\d+){0,1}:?(\\d+){0,1}\\)$");
+      let match = parser.firstMatch(line);
+      if (!(match != null)) dart.assertFailed("Expected " + line + " to match " + dart.str(parser) + ".", I[0], 207, 12, "match != null");
+      match = dart.nullCheck(match);
+      let isConstructor = false;
+      let className = "";
+      let method = dart.nullCheck(match.group(2))[$replaceAll](".<anonymous closure>", "");
+      if (method[$startsWith]("new")) {
+        let methodParts = method[$split](" ");
+        className = methodParts[$length] > 1 ? method[$split](" ")[$_get](1) : "<unknown>";
+        method = "";
+        if (className[$contains](".")) {
+          let parts = className[$split](".");
+          className = parts[$_get](0);
+          method = parts[$_get](1);
+        }
+        isConstructor = true;
+      } else if (method[$contains](".")) {
+        let parts = method[$split](".");
+        className = parts[$_get](0);
+        method = parts[$_get](1);
+      }
+      let packageUri = core.Uri.parse(dart.nullCheck(match.group(3)));
+      let $package = "<unknown>";
+      let packagePath = packageUri.path;
+      if (packageUri.scheme === "dart" || packageUri.scheme === "package") {
+        $package = packageUri.pathSegments[$_get](0);
+        packagePath = packageUri.path[$replaceFirst](packageUri.pathSegments[$_get](0) + "/", "");
+      }
+      return new stack_frame.StackFrame.new({number: core.int.parse(dart.nullCheck(match.group(1))), className: className, method: method, packageScheme: packageUri.scheme, package: $package, packagePath: packagePath, line: match.group(4) == null ? -1 : core.int.parse(dart.nullCheck(match.group(4))), column: match.group(5) == null ? -1 : core.int.parse(dart.nullCheck(match.group(5))), isConstructor: isConstructor, source: line});
+    }
+    get hashCode() {
+      return ui.hashValues(this.number, this.package, this.line, this.column, this.className, this.method, this.source);
+    }
+    _equals(other) {
+      if (other == null) return false;
+      if (!other[$runtimeType]._equals(this[$runtimeType])) return false;
+      return stack_frame.StackFrame.is(other) && other.number === this.number && other.package === this.package && other.line === this.line && other.column === this.column && other.className === this.className && other.method === this.method && other.source === this.source;
+    }
+    toString() {
+      return object.objectRuntimeType(this, "StackFrame") + "(#" + dart.str(this.number) + ", " + this.packageScheme + ":" + this.package + "/" + this.packagePath + ":" + dart.str(this.line) + ":" + dart.str(this.column) + ", className: " + this.className + ", method: " + this.method + ")";
+    }
   };
-  get_utils._hasLength = function _hasLength(value) {
-    return core.Iterable.is(value) || typeof value == 'string' || core.Map.is(value);
-  };
-  get_utils._obtainDynamicLength = function _obtainDynamicLength(value) {
-    if (value == null) {
-      return null;
+  (stack_frame.StackFrame.new = function(opts) {
+    let number = opts && 'number' in opts ? opts.number : null;
+    let column = opts && 'column' in opts ? opts.column : null;
+    let line = opts && 'line' in opts ? opts.line : null;
+    let packageScheme = opts && 'packageScheme' in opts ? opts.packageScheme : null;
+    let $package = opts && 'package' in opts ? opts.package : null;
+    let packagePath = opts && 'packagePath' in opts ? opts.packagePath : null;
+    let className = opts && 'className' in opts ? opts.className : "";
+    let method = opts && 'method' in opts ? opts.method : null;
+    let isConstructor = opts && 'isConstructor' in opts ? opts.isConstructor : false;
+    let source = opts && 'source' in opts ? opts.source : null;
+    this[number$] = number;
+    this[column$] = column;
+    this[line$] = line;
+    this[packageScheme$] = packageScheme;
+    this[$package$] = $package;
+    this[packagePath$] = packagePath;
+    this[className$] = className;
+    this[method$] = method;
+    this[isConstructor$] = isConstructor;
+    this[source$] = source;
+    if (!(number !== null)) dart.assertFailed(null, I[0], 40, 16, "number != null");
+    if (!(column !== null)) dart.assertFailed(null, I[0], 41, 16, "column != null");
+    if (!(line !== null)) dart.assertFailed(null, I[0], 42, 16, "line != null");
+    if (!(method !== null)) dart.assertFailed(null, I[0], 43, 16, "method != null");
+    if (!(packageScheme !== null)) dart.assertFailed(null, I[0], 44, 16, "packageScheme != null");
+    if (!($package !== null)) dart.assertFailed(null, I[0], 45, 16, "package != null");
+    if (!(packagePath !== null)) dart.assertFailed(null, I[0], 46, 16, "packagePath != null");
+    if (!(className !== null)) dart.assertFailed(null, I[0], 47, 16, "className != null");
+    if (!(isConstructor !== null)) dart.assertFailed(null, I[0], 48, 16, "isConstructor != null");
+    if (!(source !== null)) dart.assertFailed(null, I[0], 49, 16, "source != null");
+    ;
+  }).prototype = stack_frame.StackFrame.prototype;
+  dart.addTypeTests(stack_frame.StackFrame);
+  dart.addTypeCaches(stack_frame.StackFrame);
+  dart.setLibraryUri(stack_frame.StackFrame, I[1]);
+  dart.setFieldSignature(stack_frame.StackFrame, () => ({
+    __proto__: dart.getFields(stack_frame.StackFrame.__proto__),
+    source: dart.finalFieldType(core.String),
+    number: dart.finalFieldType(core.int),
+    packageScheme: dart.finalFieldType(core.String),
+    package: dart.finalFieldType(core.String),
+    packagePath: dart.finalFieldType(core.String),
+    line: dart.finalFieldType(core.int),
+    column: dart.finalFieldType(core.int),
+    className: dart.finalFieldType(core.String),
+    method: dart.finalFieldType(core.String),
+    isConstructor: dart.finalFieldType(core.bool)
+  }));
+  dart.defineExtensionMethods(stack_frame.StackFrame, ['_equals', 'toString']);
+  dart.defineExtensionAccessors(stack_frame.StackFrame, ['hashCode']);
+  dart.defineLazy(stack_frame.StackFrame, {
+    /*stack_frame.StackFrame.asynchronousSuspension*/get asynchronousSuspension() {
+      return C[1] || CT.C1;
+    },
+    /*stack_frame.StackFrame.stackOverFlowElision*/get stackOverFlowElision() {
+      return C[2] || CT.C2;
+    },
+    /*stack_frame.StackFrame._webNonDebugFramePattern*/get _webNonDebugFramePattern() {
+      return core.RegExp.new("^\\s*at ([^\\s]+).*$");
     }
-    if (get_utils._hasLength(value)) {
-      return T.intN().as(dart.dload(value, 'length'));
-    }
-    if (core.int.is(value)) {
-      return dart.toString(value).length;
-    }
-    if (typeof value == 'number') {
-      return dart.toString(value)[$replaceAll](".", "").length;
-    }
-    return null;
-  };
-  dart.trackLibraries("packages/get/get_utils/src/get_utils/get_utils.dart", {
-    "package:get/get_utils/src/get_utils/get_utils.dart": get_utils
+  }, false);
+  dart.trackLibraries("packages/flutter/src/foundation/stack_frame.dart", {
+    "package:flutter/src/foundation/stack_frame.dart": stack_frame
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["get_utils.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../../../packages/get/get_utils/src/get_utils/get_utils.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["stack_frame.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/flutter/src/foundation/stack_frame.dart.lib.js"}');
   // Exports:
   return {
-    get_utils__src__get_utils__get_utils: get_utils
+    src__foundation__stack_frame: stack_frame
   };
 }));
 
-//# sourceMappingURL=get_utils.dart.lib.js.map
+//# sourceMappingURL=stack_frame.dart.lib.js.map

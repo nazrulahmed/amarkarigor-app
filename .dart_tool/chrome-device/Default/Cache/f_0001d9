@@ -1,68 +1,46 @@
-define(['dart_sdk', 'packages/flutter/src/foundation/synchronous_future.dart', 'packages/flutter/src/painting/image_stream.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/foundation/object.dart', 'packages/flutter/src/painting/image_cache.dart', 'packages/flutter/src/painting/binding.dart', 'packages/flutter/src/services/system_channels.dart', 'packages/flutter/src/foundation/_platform_web.dart'], (function load__packages__flutter__src__painting___network_image_web_dart(dart_sdk, packages__flutter__src__foundation__synchronous_future$46dart, packages__flutter__src__painting__image_stream$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__foundation__object$46dart, packages__flutter__src__painting__image_cache$46dart, packages__flutter__src__painting__binding$46dart, packages__flutter__src__services__system_channels$46dart, packages__flutter__src__foundation___platform_web$46dart) {
+define(['dart_sdk', 'packages/flutter/src/gestures/recognizer.dart', 'packages/flutter/src/rendering/proxy_box.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/painting/basic_types.dart', 'packages/flutter/src/animation/listener_helpers.dart', 'packages/flutter/src/animation/animation_controller.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/gestures/drag_details.dart', 'packages/flutter/src/gestures/velocity_tracker.dart', 'packages/flutter/src/animation/curves.dart'], (function load__packages__flutter__src__widgets__dismissible_dart(dart_sdk, packages__flutter__src__gestures__recognizer$46dart, packages__flutter__src__rendering__proxy_box$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__painting__basic_types$46dart, packages__flutter__src__animation__listener_helpers$46dart, packages__flutter__src__animation__animation_controller$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__gestures__drag_details$46dart, packages__flutter__src__gestures__velocity_tracker$46dart, packages__flutter__src__animation__curves$46dart) {
   'use strict';
   const core = dart_sdk.core;
   const async = dart_sdk.async;
-  const _interceptors = dart_sdk._interceptors;
   const ui = dart_sdk.ui;
-  const _js_helper = dart_sdk._js_helper;
-  const typed_data = dart_sdk.typed_data;
-  const io = dart_sdk.io;
+  const _internal = dart_sdk._internal;
+  const _interceptors = dart_sdk._interceptors;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const synchronous_future = packages__flutter__src__foundation__synchronous_future$46dart.src__foundation__synchronous_future;
-  const image_stream = packages__flutter__src__painting__image_stream$46dart.src__painting__image_stream;
-  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
+  const recognizer = packages__flutter__src__gestures__recognizer$46dart.src__gestures__recognizer;
+  const proxy_box = packages__flutter__src__rendering__proxy_box$46dart.src__rendering__proxy_box;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const debug = packages__flutter__src__widgets__widget_span$46dart.src__widgets__debug;
+  const transitions = packages__flutter__src__widgets__widget_span$46dart.src__widgets__transitions;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const gesture_detector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__gesture_detector;
+  const ticker_provider = packages__flutter__src__widgets__widget_span$46dart.src__widgets__ticker_provider;
+  const automatic_keep_alive = packages__flutter__src__widgets__widget_span$46dart.src__widgets__automatic_keep_alive;
+  const basic_types = packages__flutter__src__painting__basic_types$46dart.src__painting__basic_types;
+  const animation = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animation;
+  const tween = packages__flutter__src__animation__listener_helpers$46dart.src__animation__tween;
+  const animation_controller = packages__flutter__src__animation__animation_controller$46dart.src__animation__animation_controller;
   const assertions = packages__flutter__src__foundation__debug$46dart.src__foundation__assertions;
-  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
-  const image_cache = packages__flutter__src__painting__image_cache$46dart.src__painting__image_cache;
-  const binding = packages__flutter__src__painting__binding$46dart.src__painting__binding;
-  const asset_bundle = packages__flutter__src__services__system_channels$46dart.src__services__asset_bundle;
-  const platform = packages__flutter__src__foundation___platform_web$46dart.src__foundation__platform;
-  var _network_image_web = Object.create(dart.library);
-  var image_provider = Object.create(dart.library);
-  var $runtimeType = dartx.runtimeType;
-  var $toStringAsFixed = dartx.toStringAsFixed;
-  var $_equals = dartx._equals;
-  var $buffer = dartx.buffer;
-  var $asUint8List = dartx.asUint8List;
-  var $lengthInBytes = dartx.lengthInBytes;
-  var $hashCode = dartx.hashCode;
+  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
+  const drag_details = packages__flutter__src__gestures__drag_details$46dart.src__gestures__drag_details;
+  const velocity_tracker = packages__flutter__src__gestures__velocity_tracker$46dart.src__gestures__velocity_tracker;
+  const curves = packages__flutter__src__animation__curves$46dart.src__animation__curves;
+  var dismissible = Object.create(dart.library);
+  var $sign = dartx.sign;
+  var $abs = dartx.abs;
+  var $_get = dartx._get;
+  var $add = dartx.add;
   dart._checkModuleNullSafetyMode(true);
-  var T$ = {
-    SynchronousFutureOfNetworkImage: () => (T$.SynchronousFutureOfNetworkImage = dart.constFn(synchronous_future.SynchronousFuture$(_network_image_web.NetworkImage)))(),
-    StreamControllerOfImageChunkEvent: () => (T$.StreamControllerOfImageChunkEvent = dart.constFn(async.StreamController$(image_stream.ImageChunkEvent)))(),
-    ImageProviderOfObject: () => (T$.ImageProviderOfObject = dart.constFn(image_provider.ImageProvider$(core.Object)))(),
-    DiagnosticsPropertyOfImageProviderOfObject: () => (T$.DiagnosticsPropertyOfImageProviderOfObject = dart.constFn(diagnostics.DiagnosticsProperty$(T$.ImageProviderOfObject())))(),
-    DiagnosticsPropertyOfNetworkImage: () => (T$.DiagnosticsPropertyOfNetworkImage = dart.constFn(diagnostics.DiagnosticsProperty$(_network_image_web.NetworkImage)))(),
-    JSArrayOfDiagnosticsNode: () => (T$.JSArrayOfDiagnosticsNode = dart.constFn(_interceptors.JSArray$(diagnostics.DiagnosticsNode)))(),
-    ListOfDiagnosticsNode: () => (T$.ListOfDiagnosticsNode = dart.constFn(core.List$(diagnostics.DiagnosticsNode)))(),
-    VoidToListOfDiagnosticsNode: () => (T$.VoidToListOfDiagnosticsNode = dart.constFn(dart.fnType(T$.ListOfDiagnosticsNode(), [])))(),
-    VoidTobool: () => (T$.VoidTobool = dart.constFn(dart.fnType(core.bool, [])))(),
-    intAndintTovoid: () => (T$.intAndintTovoid = dart.constFn(dart.fnType(dart.void, [core.int, core.int])))(),
-    StackTraceN: () => (T$.StackTraceN = dart.constFn(dart.nullable(core.StackTrace)))(),
-    ObjectAndStackTraceNTovoid: () => (T$.ObjectAndStackTraceNTovoid = dart.constFn(dart.fnType(dart.void, [core.Object, T$.StackTraceN()])))(),
-    DiagnosticsPropertyOfImageConfiguration: () => (T$.DiagnosticsPropertyOfImageConfiguration = dart.constFn(diagnostics.DiagnosticsProperty$(image_provider.ImageConfiguration)))(),
-    SyncIterableOfDiagnosticsNode: () => (T$.SyncIterableOfDiagnosticsNode = dart.constFn(_js_helper.SyncIterable$(diagnostics.DiagnosticsNode)))(),
-    IterableOfDiagnosticsNode: () => (T$.IterableOfDiagnosticsNode = dart.constFn(core.Iterable$(diagnostics.DiagnosticsNode)))(),
-    VoidToIterableOfDiagnosticsNode: () => (T$.VoidToIterableOfDiagnosticsNode = dart.constFn(dart.fnType(T$.IterableOfDiagnosticsNode(), [])))(),
-    FutureOfvoid: () => (T$.FutureOfvoid = dart.constFn(async.Future$(dart.void)))(),
-    ImageCacheStatusN: () => (T$.ImageCacheStatusN = dart.constFn(dart.nullable(image_cache.ImageCacheStatus)))(),
-    CompleterOfImageCacheStatusN: () => (T$.CompleterOfImageCacheStatusN = dart.constFn(async.Completer$(T$.ImageCacheStatusN())))(),
-    ObjectAndStackTraceNToFutureOfvoid: () => (T$.ObjectAndStackTraceNToFutureOfvoid = dart.constFn(dart.fnType(T$.FutureOfvoid(), [core.Object, T$.StackTraceN()])))(),
-    ZoneAndZoneDelegateAndZone__Tovoid: () => (T$.ZoneAndZoneDelegateAndZone__Tovoid = dart.constFn(dart.fnType(dart.void, [async.Zone, async.ZoneDelegate, async.Zone, core.Object, core.StackTrace])))(),
-    VoidTovoid: () => (T$.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
-    VoidToImageStreamCompleter: () => (T$.VoidToImageStreamCompleter = dart.constFn(dart.fnType(image_stream.ImageStreamCompleter, [])))(),
-    DiagnosticsPropertyOfAssetBundleImageKey: () => (T$.DiagnosticsPropertyOfAssetBundleImageKey = dart.constFn(diagnostics.DiagnosticsProperty$(image_provider.AssetBundleImageKey)))(),
-    FutureOfCodec: () => (T$.FutureOfCodec = dart.constFn(async.Future$(ui.Codec)))(),
-    boolN: () => (T$.boolN = dart.constFn(dart.nullable(core.bool)))(),
-    intN: () => (T$.intN = dart.constFn(dart.nullable(core.int)))(),
-    Uint8List__ToFutureOfCodec: () => (T$.Uint8List__ToFutureOfCodec = dart.constFn(dart.fnType(T$.FutureOfCodec(), [typed_data.Uint8List], {allowUpscaling: T$.boolN(), cacheHeight: T$.intN(), cacheWidth: T$.intN()}, {})))(),
-    SynchronousFutureOf_SizeAwareCacheKey: () => (T$.SynchronousFutureOf_SizeAwareCacheKey = dart.constFn(synchronous_future.SynchronousFuture$(image_provider._SizeAwareCacheKey)))(),
-    ObjectToNull: () => (T$.ObjectToNull = dart.constFn(dart.fnType(core.Null, [core.Object])))(),
-    CompleterOf_SizeAwareCacheKey: () => (T$.CompleterOf_SizeAwareCacheKey = dart.constFn(async.Completer$(image_provider._SizeAwareCacheKey)))(),
-    SynchronousFutureOfFileImage: () => (T$.SynchronousFutureOfFileImage = dart.constFn(synchronous_future.SynchronousFuture$(image_provider.FileImage)))(),
-    SynchronousFutureOfMemoryImage: () => (T$.SynchronousFutureOfMemoryImage = dart.constFn(synchronous_future.SynchronousFuture$(image_provider.MemoryImage)))(),
-    SynchronousFutureOfAssetBundleImageKey: () => (T$.SynchronousFutureOfAssetBundleImageKey = dart.constFn(synchronous_future.SynchronousFuture$(image_provider.AssetBundleImageKey)))()
+  var T = {
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    TweenOfOffset: () => (T.TweenOfOffset = dart.constFn(tween.Tween$(ui.Offset)))(),
+    boolN: () => (T.boolN = dart.constFn(dart.nullable(core.bool)))(),
+    AnimationStatusTovoid: () => (T.AnimationStatusTovoid = dart.constFn(dart.fnType(dart.void, [animation.AnimationStatus])))(),
+    TweenOfdouble: () => (T.TweenOfdouble = dart.constFn(tween.Tween$(core.double)))(),
+    JSArrayOfDiagnosticsNode: () => (T.JSArrayOfDiagnosticsNode = dart.constFn(_interceptors.JSArray$(diagnostics.DiagnosticsNode)))(),
+    VoidTobool: () => (T.VoidTobool = dart.constFn(dart.fnType(core.bool, [])))(),
+    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))()
   };
   const CT = Object.create({
     _: () => (C, CT)
@@ -70,951 +48,1134 @@ define(['dart_sdk', 'packages/flutter/src/foundation/synchronous_future.dart', '
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: image_provider.ImageConfiguration.prototype,
-        [ImageConfiguration_platform]: null,
-        [ImageConfiguration_size]: null,
-        [ImageConfiguration_textDirection]: null,
-        [ImageConfiguration_locale]: null,
-        [ImageConfiguration_devicePixelRatio]: null,
-        [ImageConfiguration_bundle]: null
+        __proto__: dismissible.DismissDirection.prototype,
+        [_name$]: "DismissDirection.vertical",
+        index: 0
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: dismissible.DismissDirection.prototype,
+        [_name$]: "DismissDirection.horizontal",
+        index: 1
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: dismissible.DismissDirection.prototype,
+        [_name$]: "DismissDirection.endToStart",
+        index: 2
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: dismissible.DismissDirection.prototype,
+        [_name$]: "DismissDirection.startToEnd",
+        index: 3
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: dismissible.DismissDirection.prototype,
+        [_name$]: "DismissDirection.up",
+        index: 4
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: dismissible.DismissDirection.prototype,
+        [_name$]: "DismissDirection.down",
+        index: 5
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: dismissible.DismissDirection.prototype,
+        [_name$]: "DismissDirection.none",
+        index: 6
+      });
+    },
+    get C7() {
+      return C[7] = dart.constList([C[0] || CT.C0, C[1] || CT.C1, C[2] || CT.C2, C[3] || CT.C3, C[4] || CT.C4, C[5] || CT.C5, C[6] || CT.C6], dismissible.DismissDirection);
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 300000
+      });
+    },
+    get C9() {
+      return C[9] = dart.constMap(dismissible.DismissDirection, core.double, []);
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 200000
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: recognizer.DragStartBehavior.prototype,
+        [_name]: "DragStartBehavior.start",
+        index: 1
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: proxy_box.HitTestBehavior.prototype,
+        [_name$0]: "HitTestBehavior.opaque",
+        index: 1
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: basic_types.Axis.prototype,
+        [_name$1]: "Axis.horizontal",
+        index: 0
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: basic_types.Axis.prototype,
+        [_name$1]: "Axis.vertical",
+        index: 1
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: dismissible._FlingGestureKind.prototype,
+        [_name$]: "_FlingGestureKind.none",
+        index: 0
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: dismissible._FlingGestureKind.prototype,
+        [_name$]: "_FlingGestureKind.forward",
+        index: 1
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: dismissible._FlingGestureKind.prototype,
+        [_name$]: "_FlingGestureKind.reverse",
+        index: 2
+      });
+    },
+    get C18() {
+      return C[18] = dart.constList([C[15] || CT.C15, C[16] || CT.C16, C[17] || CT.C17], dismissible._FlingGestureKind);
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: ui.TextDirection.prototype,
+        [_name$2]: "TextDirection.rtl",
+        index: 0
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: ui.TextDirection.prototype,
+        [_name$2]: "TextDirection.ltr",
+        index: 1
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 11,
+        [_Location_line]: 585,
+        [_Location_file]: null
+      });
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 11,
+        [_Location_line]: 586,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 587,
+        [_Location_file]: null
+      });
+    },
+    get C22() {
+      return C[22] = dart.constList([C[23] || CT.C23, C[24] || CT.C24, C[25] || CT.C25], widget_inspector._Location);
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[22] || CT.C22,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 584,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/widgets/dismissible.dart"
+      });
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "sizeFactor",
+        [_Location_column]: 9,
+        [_Location_line]: 582,
+        [_Location_file]: null
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "axis",
+        [_Location_column]: 9,
+        [_Location_line]: 583,
+        [_Location_file]: null
+      });
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 584,
+        [_Location_file]: null
+      });
+    },
+    get C27() {
+      return C[27] = dart.constList([C[28] || CT.C28, C[29] || CT.C29, C[30] || CT.C30], widget_inspector._Location);
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[27] || CT.C27,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 581,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/widgets/dismissible.dart"
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "position",
+        [_Location_column]: 7,
+        [_Location_line]: 593,
+        [_Location_file]: null
+      });
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 594,
+        [_Location_file]: null
+      });
+    },
+    get C32() {
+      return C[32] = dart.constList([C[33] || CT.C33, C[34] || CT.C34], widget_inspector._Location);
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[32] || CT.C32,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 592,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/widgets/dismissible.dart"
+      });
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "clipper",
+        [_Location_column]: 15,
+        [_Location_line]: 602,
+        [_Location_file]: null
+      });
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 606,
+        [_Location_file]: null
+      });
+    },
+    get C36() {
+      return C[36] = dart.constList([C[37] || CT.C37, C[38] || CT.C38], widget_inspector._Location);
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[36] || CT.C36,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 601,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/widgets/dismissible.dart"
+      });
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 601,
+        [_Location_file]: null
+      });
+    },
+    get C40() {
+      return C[40] = dart.constList([C[41] || CT.C41], widget_inspector._Location);
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[40] || CT.C40,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 600,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/widgets/dismissible.dart"
+      });
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 23,
+        [_Location_line]: 598,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C[43] = dart.constList([C[44] || CT.C44], widget_inspector._Location);
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[43] || CT.C43,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 598,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/widgets/dismissible.dart"
+      });
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onHorizontalDragStart",
+        [_Location_column]: 7,
+        [_Location_line]: 614,
+        [_Location_file]: null
+      });
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onHorizontalDragUpdate",
+        [_Location_column]: 7,
+        [_Location_line]: 615,
+        [_Location_file]: null
+      });
+    },
+    get C49() {
+      return C[49] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onHorizontalDragEnd",
+        [_Location_column]: 7,
+        [_Location_line]: 616,
+        [_Location_file]: null
+      });
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onVerticalDragStart",
+        [_Location_column]: 7,
+        [_Location_line]: 617,
+        [_Location_file]: null
+      });
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onVerticalDragUpdate",
+        [_Location_column]: 7,
+        [_Location_line]: 618,
+        [_Location_file]: null
+      });
+    },
+    get C52() {
+      return C[52] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onVerticalDragEnd",
+        [_Location_column]: 7,
+        [_Location_line]: 619,
+        [_Location_file]: null
+      });
+    },
+    get C53() {
+      return C[53] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "behavior",
+        [_Location_column]: 7,
+        [_Location_line]: 620,
+        [_Location_file]: null
+      });
+    },
+    get C54() {
+      return C[54] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 621,
+        [_Location_file]: null
+      });
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "dragStartBehavior",
+        [_Location_column]: 7,
+        [_Location_line]: 622,
+        [_Location_file]: null
+      });
+    },
+    get C46() {
+      return C[46] = dart.constList([C[47] || CT.C47, C[48] || CT.C48, C[49] || CT.C49, C[50] || CT.C50, C[51] || CT.C51, C[52] || CT.C52, C[53] || CT.C53, C[54] || CT.C54, C[55] || CT.C55], widget_inspector._Location);
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[46] || CT.C46,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 613,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/widgets/dismissible.dart"
+      });
+    },
+    get C57() {
+      return C[57] = dart.const({
+        __proto__: curves.Cubic.prototype,
+        [Cubic_d]: 1,
+        [Cubic_c]: 0.25,
+        [Cubic_b]: 0.1,
+        [Cubic_a]: 0.25
+      });
+    },
+    get C56() {
+      return C[56] = dart.const({
+        __proto__: curves.Interval.prototype,
+        [Interval_curve]: C[57] || CT.C57,
+        [Interval_end]: 1,
+        [Interval_begin]: 0.4
       });
     }
   }, false);
-  var C = [void 0];
+  var C = Array(58).fill(void 0);
   var I = [
-    "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/painting/_network_image_web.dart",
-    "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/painting/image_provider.dart",
-    "package:flutter/src/painting/image_provider.dart",
-    "package:flutter/src/painting/_network_image_web.dart"
+    "package:flutter/src/widgets/dismissible.dart",
+    "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/widgets/dismissible.dart"
   ];
-  var url$ = dart.privateName(_network_image_web, "NetworkImage.url");
-  var scale$ = dart.privateName(_network_image_web, "NetworkImage.scale");
-  var headers$ = dart.privateName(_network_image_web, "NetworkImage.headers");
-  var _loadAsync = dart.privateName(_network_image_web, "_loadAsync");
-  var _imageStreamInformationCollector = dart.privateName(_network_image_web, "_imageStreamInformationCollector");
-  var _createErrorHandlerAndKey = dart.privateName(image_provider, "_createErrorHandlerAndKey");
-  var ImageConfiguration_platform = dart.privateName(image_provider, "ImageConfiguration.platform");
-  var ImageConfiguration_size = dart.privateName(image_provider, "ImageConfiguration.size");
-  var ImageConfiguration_textDirection = dart.privateName(image_provider, "ImageConfiguration.textDirection");
-  var ImageConfiguration_locale = dart.privateName(image_provider, "ImageConfiguration.locale");
-  var ImageConfiguration_devicePixelRatio = dart.privateName(image_provider, "ImageConfiguration.devicePixelRatio");
-  var ImageConfiguration_bundle = dart.privateName(image_provider, "ImageConfiguration.bundle");
-  const _is_ImageProvider_default = Symbol('_is_ImageProvider_default');
-  image_provider.ImageProvider$ = dart.generic(T => {
-    var TAndFnTovoid = () => (TAndFnTovoid = dart.constFn(dart.fnType(dart.void, [T, T$.ObjectAndStackTraceNTovoid()])))();
-    var DiagnosticsPropertyOfT = () => (DiagnosticsPropertyOfT = dart.constFn(diagnostics.DiagnosticsProperty$(T)))();
-    var TN = () => (TN = dart.constFn(dart.nullable(T)))();
-    var TNAndObjectAndStackTraceNToFutureOfvoid = () => (TNAndObjectAndStackTraceNToFutureOfvoid = dart.constFn(dart.fnType(T$.FutureOfvoid(), [TN(), core.Object, T$.StackTraceN()])))();
-    var TToNull = () => (TToNull = dart.constFn(dart.fnType(core.Null, [T])))();
-    class ImageProvider extends core.Object {
-      resolve(configuration) {
-        if (!(configuration !== null)) dart.assertFailed(null, I[1], 325, 12, "configuration != null");
-        let stream = this.createStream(configuration);
-        this[_createErrorHandlerAndKey](configuration, dart.fn((key, errorHandler) => {
-          this.resolveStreamForKey(configuration, stream, key, errorHandler);
-        }, TAndFnTovoid()), dart.fn((key, exception, stack) => async.async(dart.void, (function*() {
-          yield null;
-          let imageCompleter = new image_provider._ErrorImageCompleter.new();
-          stream.setCompleter(imageCompleter);
-          let collector = null;
-          if (!dart.fn(() => {
-            collector = dart.fn(() => new (T$.SyncIterableOfDiagnosticsNode()).new((function*() {
-              yield new (T$.DiagnosticsPropertyOfImageProviderOfObject()).new("Image provider", this);
-              yield new (T$.DiagnosticsPropertyOfImageConfiguration()).new("Image configuration", configuration);
-              yield new (DiagnosticsPropertyOfT()).new("Image key", key, {defaultValue: null});
-            }).bind(this)), T$.VoidToIterableOfDiagnosticsNode());
-            return true;
-          }, T$.VoidTobool())()) dart.assertFailed(null, I[1], 339, 16, "() {\n          collector = () sync* {\n            yield DiagnosticsProperty<ImageProvider>('Image provider', this);\n            yield DiagnosticsProperty<ImageConfiguration>('Image configuration', configuration);\n            yield DiagnosticsProperty<T>('Image key', key, defaultValue: null);\n          };\n          return true;\n        }()");
-          imageCompleter.setError({exception: exception, stack: stack, context: new assertions.ErrorDescription.new("while resolving an image"), silent: true, informationCollector: collector});
-        }).bind(this)), TNAndObjectAndStackTraceNToFutureOfvoid()));
-        return stream;
-      }
-      createStream(configuration) {
-        return new image_stream.ImageStream.new();
-      }
-      obtainCacheStatus(opts) {
-        let configuration = opts && 'configuration' in opts ? opts.configuration : null;
-        let handleError = opts && 'handleError' in opts ? opts.handleError : null;
-        if (!(configuration !== null)) dart.assertFailed(null, I[1], 383, 12, "configuration != null");
-        let completer = T$.CompleterOfImageCacheStatusN().new();
-        this[_createErrorHandlerAndKey](configuration, dart.fn((key, innerHandleError) => {
-          completer.complete(dart.nullCheck(dart.nullCheck(binding.PaintingBinding.instance).imageCache).statusForKey(key));
-        }, TAndFnTovoid()), dart.fn((key, exception, stack) => async.async(dart.void, (function*() {
-          if (handleError != null) {
-            handleError(exception, stack);
-          } else {
-            let collector = null;
-            if (!dart.fn(() => {
-              collector = dart.fn(() => new (T$.SyncIterableOfDiagnosticsNode()).new((function*() {
-                yield new (T$.DiagnosticsPropertyOfImageProviderOfObject()).new("Image provider", this);
-                yield new (T$.DiagnosticsPropertyOfImageConfiguration()).new("Image configuration", configuration);
-                yield new (DiagnosticsPropertyOfT()).new("Image key", key, {defaultValue: null});
-              }).bind(this)), T$.VoidToIterableOfDiagnosticsNode());
-              return true;
-            }, T$.VoidTobool())()) dart.assertFailed(null, I[1], 395, 18, "() {\n            collector = () sync* {\n              yield DiagnosticsProperty<ImageProvider>('Image provider', this);\n              yield DiagnosticsProperty<ImageConfiguration>('Image configuration', configuration);\n              yield DiagnosticsProperty<T>('Image key', key, defaultValue: null);\n            };\n            return true;\n          }()");
-            assertions.FlutterError.reportError(new assertions.FlutterErrorDetails.new({context: new assertions.ErrorDescription.new("while checking the cache location of an image"), informationCollector: collector, exception: exception, stack: stack}));
-            completer.complete(null);
-          }
-        }).bind(this)), TNAndObjectAndStackTraceNToFutureOfvoid()));
-        return completer.future;
-      }
-      [_createErrorHandlerAndKey](configuration, successCallback, errorCallback) {
-        let obtainedKey = null;
-        let didError = false;
-        function handleError(exception, stack) {
-          return async.async(dart.void, function* handleError() {
-            if (didError) {
-              return;
-            }
-            if (!didError) {
-              errorCallback(obtainedKey, exception, stack);
-            }
-            didError = true;
-          });
+  var _name$ = dart.privateName(dismissible, "_name");
+  dismissible.DismissDirection = class DismissDirection extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (dismissible.DismissDirection.new = function(index, _name) {
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = dismissible.DismissDirection.prototype;
+  dart.addTypeTests(dismissible.DismissDirection);
+  dart.addTypeCaches(dismissible.DismissDirection);
+  dart.setLibraryUri(dismissible.DismissDirection, I[0]);
+  dart.setFieldSignature(dismissible.DismissDirection, () => ({
+    __proto__: dart.getFields(dismissible.DismissDirection.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(dismissible.DismissDirection, ['toString']);
+  dismissible.DismissDirection.vertical = C[0] || CT.C0;
+  dismissible.DismissDirection.horizontal = C[1] || CT.C1;
+  dismissible.DismissDirection.endToStart = C[2] || CT.C2;
+  dismissible.DismissDirection.startToEnd = C[3] || CT.C3;
+  dismissible.DismissDirection.up = C[4] || CT.C4;
+  dismissible.DismissDirection.down = C[5] || CT.C5;
+  dismissible.DismissDirection.none = C[6] || CT.C6;
+  dismissible.DismissDirection.values = C[7] || CT.C7;
+  var child$ = dart.privateName(dismissible, "Dismissible.child");
+  var background$ = dart.privateName(dismissible, "Dismissible.background");
+  var secondaryBackground$ = dart.privateName(dismissible, "Dismissible.secondaryBackground");
+  var confirmDismiss$ = dart.privateName(dismissible, "Dismissible.confirmDismiss");
+  var onResize$ = dart.privateName(dismissible, "Dismissible.onResize");
+  var onDismissed$ = dart.privateName(dismissible, "Dismissible.onDismissed");
+  var direction$ = dart.privateName(dismissible, "Dismissible.direction");
+  var resizeDuration$ = dart.privateName(dismissible, "Dismissible.resizeDuration");
+  var dismissThresholds$ = dart.privateName(dismissible, "Dismissible.dismissThresholds");
+  var movementDuration$ = dart.privateName(dismissible, "Dismissible.movementDuration");
+  var crossAxisEndOffset$ = dart.privateName(dismissible, "Dismissible.crossAxisEndOffset");
+  var dragStartBehavior$ = dart.privateName(dismissible, "Dismissible.dragStartBehavior");
+  var behavior$ = dart.privateName(dismissible, "Dismissible.behavior");
+  var Duration__duration = dart.privateName(core, "Duration._duration");
+  var _name = dart.privateName(recognizer, "_name");
+  var _name$0 = dart.privateName(proxy_box, "_name");
+  dismissible.Dismissible = class Dismissible extends framework.StatefulWidget {
+    get child() {
+      return this[child$];
+    }
+    set child(value) {
+      super.child = value;
+    }
+    get background() {
+      return this[background$];
+    }
+    set background(value) {
+      super.background = value;
+    }
+    get secondaryBackground() {
+      return this[secondaryBackground$];
+    }
+    set secondaryBackground(value) {
+      super.secondaryBackground = value;
+    }
+    get confirmDismiss() {
+      return this[confirmDismiss$];
+    }
+    set confirmDismiss(value) {
+      super.confirmDismiss = value;
+    }
+    get onResize() {
+      return this[onResize$];
+    }
+    set onResize(value) {
+      super.onResize = value;
+    }
+    get onDismissed() {
+      return this[onDismissed$];
+    }
+    set onDismissed(value) {
+      super.onDismissed = value;
+    }
+    get direction() {
+      return this[direction$];
+    }
+    set direction(value) {
+      super.direction = value;
+    }
+    get resizeDuration() {
+      return this[resizeDuration$];
+    }
+    set resizeDuration(value) {
+      super.resizeDuration = value;
+    }
+    get dismissThresholds() {
+      return this[dismissThresholds$];
+    }
+    set dismissThresholds(value) {
+      super.dismissThresholds = value;
+    }
+    get movementDuration() {
+      return this[movementDuration$];
+    }
+    set movementDuration(value) {
+      super.movementDuration = value;
+    }
+    get crossAxisEndOffset() {
+      return this[crossAxisEndOffset$];
+    }
+    set crossAxisEndOffset(value) {
+      super.crossAxisEndOffset = value;
+    }
+    get dragStartBehavior() {
+      return this[dragStartBehavior$];
+    }
+    set dragStartBehavior(value) {
+      super.dragStartBehavior = value;
+    }
+    get behavior() {
+      return this[behavior$];
+    }
+    set behavior(value) {
+      super.behavior = value;
+    }
+    createState() {
+      return new dismissible._DismissibleState.new();
+    }
+  };
+  (dismissible.Dismissible.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let child = opts && 'child' in opts ? opts.child : null;
+    let background = opts && 'background' in opts ? opts.background : null;
+    let secondaryBackground = opts && 'secondaryBackground' in opts ? opts.secondaryBackground : null;
+    let confirmDismiss = opts && 'confirmDismiss' in opts ? opts.confirmDismiss : null;
+    let onResize = opts && 'onResize' in opts ? opts.onResize : null;
+    let onDismissed = opts && 'onDismissed' in opts ? opts.onDismissed : null;
+    let direction = opts && 'direction' in opts ? opts.direction : C[1] || CT.C1;
+    let resizeDuration = opts && 'resizeDuration' in opts ? opts.resizeDuration : C[8] || CT.C8;
+    let dismissThresholds = opts && 'dismissThresholds' in opts ? opts.dismissThresholds : C[9] || CT.C9;
+    let movementDuration = opts && 'movementDuration' in opts ? opts.movementDuration : C[10] || CT.C10;
+    let crossAxisEndOffset = opts && 'crossAxisEndOffset' in opts ? opts.crossAxisEndOffset : 0;
+    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : C[11] || CT.C11;
+    let behavior = opts && 'behavior' in opts ? opts.behavior : C[12] || CT.C12;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[child$] = child;
+    this[background$] = background;
+    this[secondaryBackground$] = secondaryBackground;
+    this[confirmDismiss$] = confirmDismiss;
+    this[onResize$] = onResize;
+    this[onDismissed$] = onDismissed;
+    this[direction$] = direction;
+    this[resizeDuration$] = resizeDuration;
+    this[dismissThresholds$] = dismissThresholds;
+    this[movementDuration$] = movementDuration;
+    this[crossAxisEndOffset$] = crossAxisEndOffset;
+    this[dragStartBehavior$] = dragStartBehavior;
+    this[behavior$] = behavior;
+    if (!(key !== null)) dart.assertFailed(null, I[1], 138, 15, "key != null");
+    if (!(secondaryBackground == null || background != null)) dart.assertFailed(null, I[1], 139, 15, "secondaryBackground == null || background != null");
+    if (!(dragStartBehavior !== null)) dart.assertFailed(null, I[1], 140, 15, "dragStartBehavior != null");
+    dismissible.Dismissible.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = dismissible.Dismissible.prototype;
+  dart.addTypeTests(dismissible.Dismissible);
+  dart.addTypeCaches(dismissible.Dismissible);
+  dart.setMethodSignature(dismissible.Dismissible, () => ({
+    __proto__: dart.getMethods(dismissible.Dismissible.__proto__),
+    createState: dart.fnType(dismissible._DismissibleState, [])
+  }));
+  dart.setLibraryUri(dismissible.Dismissible, I[0]);
+  dart.setFieldSignature(dismissible.Dismissible, () => ({
+    __proto__: dart.getFields(dismissible.Dismissible.__proto__),
+    child: dart.finalFieldType(framework.Widget),
+    background: dart.finalFieldType(dart.nullable(framework.Widget)),
+    secondaryBackground: dart.finalFieldType(dart.nullable(framework.Widget)),
+    confirmDismiss: dart.finalFieldType(dart.nullable(dart.fnType(async.Future$(dart.nullable(core.bool)), [dismissible.DismissDirection]))),
+    onResize: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
+    onDismissed: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [dismissible.DismissDirection]))),
+    direction: dart.finalFieldType(dismissible.DismissDirection),
+    resizeDuration: dart.finalFieldType(dart.nullable(core.Duration)),
+    dismissThresholds: dart.finalFieldType(core.Map$(dismissible.DismissDirection, core.double)),
+    movementDuration: dart.finalFieldType(core.Duration),
+    crossAxisEndOffset: dart.finalFieldType(core.double),
+    dragStartBehavior: dart.finalFieldType(recognizer.DragStartBehavior),
+    behavior: dart.finalFieldType(proxy_box.HitTestBehavior)
+  }));
+  var _name$1 = dart.privateName(basic_types, "_name");
+  dismissible._DismissibleClipper = class _DismissibleClipper extends proxy_box.CustomClipper$(ui.Rect) {
+    getClip(size) {
+      if (!(this.axis !== null)) dart.assertFailed(null, I[1], 251, 12, "axis != null");
+      switch (this.axis) {
+        case C[13] || CT.C13:
+        {
+          let offset = this.moveAnimation.value.dx * size.width;
+          if (offset < 0) return new ui.Rect.fromLTRB(size.width + offset, 0.0, size.width, size.height);
+          return new ui.Rect.fromLTRB(0.0, 0.0, offset, size.height);
         }
-        dart.fn(handleError, T$.ObjectAndStackTraceNToFutureOfvoid());
-        let dangerZone = async.Zone.current.fork({specification: new async._ZoneSpecification.new({handleUncaughtError: dart.fn((zone, delegate, parent, error, stackTrace) => {
-              handleError(error, stackTrace);
-            }, T$.ZoneAndZoneDelegateAndZone__Tovoid())})});
-        dangerZone.runGuarded(dart.fn(() => {
-          let key = null;
-          try {
-            key = this.obtainKey(configuration);
-          } catch (e) {
-            let error = dart.getThrown(e);
-            let stackTrace = dart.stackTrace(e);
-            if (core.Object.is(error)) {
-              handleError(error, stackTrace);
-              return;
-            } else
-              throw e;
-          }
-          key.then(dart.void, dart.fn(key => {
-            obtainedKey = key;
-            try {
-              successCallback(key, handleError);
-            } catch (e) {
-              let error = dart.getThrown(e);
-              let stackTrace = dart.stackTrace(e);
-              if (core.Object.is(error)) {
-                handleError(error, stackTrace);
-              } else
-                throw e;
-            }
-          }, TToNull())).catchError(handleError);
-        }, T$.VoidTovoid()));
+        case C[14] || CT.C14:
+        {
+          let offset = this.moveAnimation.value.dy * size.height;
+          if (offset < 0) return new ui.Rect.fromLTRB(0.0, size.height + offset, size.width, size.height);
+          return new ui.Rect.fromLTRB(0.0, 0.0, size.width, offset);
+        }
       }
-      resolveStreamForKey(configuration, stream, key, handleError) {
-        T.as(key);
-        if (stream.completer != null) {
-          let completer = dart.nullCheck(dart.nullCheck(binding.PaintingBinding.instance).imageCache).putIfAbsent(key, dart.fn(() => dart.nullCheck(stream.completer), T$.VoidToImageStreamCompleter()), {onError: handleError});
-          if (!(completer == stream.completer)) dart.assertFailed(null, I[1], 498, 14, "identical(completer, stream.completer)");
+    }
+    getApproximateClipRect(size) {
+      return this.getClip(size);
+    }
+    shouldReclip(oldClipper) {
+      dismissible._DismissibleClipper.as(oldClipper);
+      return oldClipper.axis !== this.axis || !oldClipper.moveAnimation.value._equals(this.moveAnimation.value);
+    }
+  };
+  (dismissible._DismissibleClipper.new = function(opts) {
+    let axis = opts && 'axis' in opts ? opts.axis : null;
+    let moveAnimation = opts && 'moveAnimation' in opts ? opts.moveAnimation : null;
+    this.axis = axis;
+    this.moveAnimation = moveAnimation;
+    if (!(axis !== null)) dart.assertFailed(null, I[1], 242, 15, "axis != null");
+    if (!(moveAnimation !== null)) dart.assertFailed(null, I[1], 243, 15, "moveAnimation != null");
+    dismissible._DismissibleClipper.__proto__.new.call(this, {reclip: moveAnimation});
+    ;
+  }).prototype = dismissible._DismissibleClipper.prototype;
+  dart.addTypeTests(dismissible._DismissibleClipper);
+  dart.addTypeCaches(dismissible._DismissibleClipper);
+  dart.setMethodSignature(dismissible._DismissibleClipper, () => ({
+    __proto__: dart.getMethods(dismissible._DismissibleClipper.__proto__),
+    getClip: dart.fnType(ui.Rect, [ui.Size]),
+    shouldReclip: dart.fnType(core.bool, [dart.nullable(core.Object)])
+  }));
+  dart.setLibraryUri(dismissible._DismissibleClipper, I[0]);
+  dart.setFieldSignature(dismissible._DismissibleClipper, () => ({
+    __proto__: dart.getFields(dismissible._DismissibleClipper.__proto__),
+    axis: dart.finalFieldType(basic_types.Axis),
+    moveAnimation: dart.finalFieldType(animation.Animation$(ui.Offset))
+  }));
+  dismissible._FlingGestureKind = class _FlingGestureKind extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (dismissible._FlingGestureKind.new = function(index, _name) {
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = dismissible._FlingGestureKind.prototype;
+  dart.addTypeTests(dismissible._FlingGestureKind);
+  dart.addTypeCaches(dismissible._FlingGestureKind);
+  dart.setLibraryUri(dismissible._FlingGestureKind, I[0]);
+  dart.setFieldSignature(dismissible._FlingGestureKind, () => ({
+    __proto__: dart.getFields(dismissible._FlingGestureKind.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(dismissible._FlingGestureKind, ['toString']);
+  dismissible._FlingGestureKind.none = C[15] || CT.C15;
+  dismissible._FlingGestureKind.forward = C[16] || CT.C16;
+  dismissible._FlingGestureKind.reverse = C[17] || CT.C17;
+  dismissible._FlingGestureKind.values = C[18] || CT.C18;
+  var _moveController = dart.privateName(dismissible, "_moveController");
+  var ___DismissibleState__moveAnimation = dart.privateName(dismissible, "_#_DismissibleState#_moveAnimation");
+  var _resizeController = dart.privateName(dismissible, "_resizeController");
+  var _resizeAnimation = dart.privateName(dismissible, "_resizeAnimation");
+  var _dragExtent = dart.privateName(dismissible, "_dragExtent");
+  var _dragUnderway = dart.privateName(dismissible, "_dragUnderway");
+  var _sizePriorToCollapse = dart.privateName(dismissible, "_sizePriorToCollapse");
+  var _handleDismissStatusChanged = dart.privateName(dismissible, "_handleDismissStatusChanged");
+  var _updateMoveAnimation = dart.privateName(dismissible, "_updateMoveAnimation");
+  var _moveAnimation = dart.privateName(dismissible, "_moveAnimation");
+  var _directionIsXAxis = dart.privateName(dismissible, "_directionIsXAxis");
+  var _name$2 = dart.privateName(ui, "_name");
+  var _extentToDirection = dart.privateName(dismissible, "_extentToDirection");
+  var _dismissDirection = dart.privateName(dismissible, "_dismissDirection");
+  var _isActive = dart.privateName(dismissible, "_isActive");
+  var _overallDragAxisExtent = dart.privateName(dismissible, "_overallDragAxisExtent");
+  var _handleDragStart = dart.privateName(dismissible, "_handleDragStart");
+  var _handleDragUpdate = dart.privateName(dismissible, "_handleDragUpdate");
+  var _describeFlingGesture = dart.privateName(dismissible, "_describeFlingGesture");
+  var _confirmStartResizeAnimation = dart.privateName(dismissible, "_confirmStartResizeAnimation");
+  var _startResizeAnimation = dart.privateName(dismissible, "_startResizeAnimation");
+  var _handleDragEnd = dart.privateName(dismissible, "_handleDragEnd");
+  var _handleResizeProgressChanged = dart.privateName(dismissible, "_handleResizeProgressChanged");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  const State_TickerProviderStateMixin$36 = class State_TickerProviderStateMixin extends framework.State$(dismissible.Dismissible) {};
+  (State_TickerProviderStateMixin$36.new = function() {
+    ticker_provider.TickerProviderStateMixin$(dismissible.Dismissible)[dart.mixinNew].call(this);
+    State_TickerProviderStateMixin$36.__proto__.new.call(this);
+  }).prototype = State_TickerProviderStateMixin$36.prototype;
+  dart.applyMixin(State_TickerProviderStateMixin$36, ticker_provider.TickerProviderStateMixin$(dismissible.Dismissible));
+  const State_AutomaticKeepAliveClientMixin$36 = class State_AutomaticKeepAliveClientMixin extends State_TickerProviderStateMixin$36 {};
+  (State_AutomaticKeepAliveClientMixin$36.new = function() {
+    automatic_keep_alive.AutomaticKeepAliveClientMixin$(dismissible.Dismissible)[dart.mixinNew].call(this);
+    State_AutomaticKeepAliveClientMixin$36.__proto__.new.call(this);
+  }).prototype = State_AutomaticKeepAliveClientMixin$36.prototype;
+  dart.applyMixin(State_AutomaticKeepAliveClientMixin$36, automatic_keep_alive.AutomaticKeepAliveClientMixin$(dismissible.Dismissible));
+  dismissible._DismissibleState = class _DismissibleState extends State_AutomaticKeepAliveClientMixin$36 {
+    initState() {
+      let t0;
+      super.initState();
+      this[_moveController] = (t0 = new animation_controller.AnimationController.new({duration: this.widget.movementDuration, vsync: this}), (() => {
+        t0.addStatusListener(dart.bind(this, _handleDismissStatusChanged));
+        return t0;
+      })());
+      this[_updateMoveAnimation]();
+    }
+    get [_moveAnimation]() {
+      let t0;
+      t0 = this[___DismissibleState__moveAnimation];
+      return t0 == null ? dart.throw(new _internal.LateError.fieldNI("_moveAnimation")) : t0;
+    }
+    set [_moveAnimation](t0) {
+      this[___DismissibleState__moveAnimation] = t0;
+    }
+    get wantKeepAlive() {
+      let t1, t1$;
+      return (t1 = this[_moveController], t1 == null ? null : t1.isAnimating) === true || (t1$ = this[_resizeController], t1$ == null ? null : t1$.isAnimating) === true;
+    }
+    dispose() {
+      let t1;
+      dart.nullCheck(this[_moveController]).dispose();
+      t1 = this[_resizeController];
+      t1 == null ? null : t1.dispose();
+      super.dispose();
+    }
+    get [_directionIsXAxis]() {
+      return this.widget.direction === dismissible.DismissDirection.horizontal || this.widget.direction === dismissible.DismissDirection.endToStart || this.widget.direction === dismissible.DismissDirection.startToEnd;
+    }
+    [_extentToDirection](extent) {
+      if (extent === 0.0) return dismissible.DismissDirection.none;
+      if (this[_directionIsXAxis]) {
+        switch (basic.Directionality.of(this.context)) {
+          case C[19] || CT.C19:
+          {
+            return extent < 0 ? dismissible.DismissDirection.startToEnd : dismissible.DismissDirection.endToStart;
+          }
+          case C[20] || CT.C20:
+          {
+            return extent > 0 ? dismissible.DismissDirection.startToEnd : dismissible.DismissDirection.endToStart;
+          }
+        }
+      }
+      return extent > 0 ? dismissible.DismissDirection.down : dismissible.DismissDirection.up;
+    }
+    get [_dismissDirection]() {
+      return this[_extentToDirection](this[_dragExtent]);
+    }
+    get [_isActive]() {
+      return this[_dragUnderway] || dart.nullCheck(this[_moveController]).isAnimating;
+    }
+    get [_overallDragAxisExtent]() {
+      let size = dart.nullCheck(this.context.size);
+      return this[_directionIsXAxis] ? size.width : size.height;
+    }
+    [_handleDragStart](details) {
+      this[_dragUnderway] = true;
+      if (dart.nullCheck(this[_moveController]).isAnimating) {
+        this[_dragExtent] = dart.nullCheck(this[_moveController]).value * this[_overallDragAxisExtent] * this[_dragExtent][$sign];
+        dart.nullCheck(this[_moveController]).stop();
+      } else {
+        this[_dragExtent] = 0.0;
+        dart.nullCheck(this[_moveController]).value = 0.0;
+      }
+      this.setState(dart.fn(() => {
+        this[_updateMoveAnimation]();
+      }, T.VoidTovoid()));
+    }
+    [_handleDragUpdate](details) {
+      if (!this[_isActive] || dart.nullCheck(this[_moveController]).isAnimating) return;
+      let delta = dart.nullCheck(details.primaryDelta);
+      let oldDragExtent = this[_dragExtent];
+      switch (this.widget.direction) {
+        case C[1] || CT.C1:
+        case C[0] || CT.C0:
+        {
+          this[_dragExtent] = this[_dragExtent] + delta;
+          break;
+        }
+        case C[4] || CT.C4:
+        {
+          if (this[_dragExtent] + delta < 0) this[_dragExtent] = this[_dragExtent] + delta;
+          break;
+        }
+        case C[5] || CT.C5:
+        {
+          if (this[_dragExtent] + delta > 0) this[_dragExtent] = this[_dragExtent] + delta;
+          break;
+        }
+        case C[2] || CT.C2:
+        {
+          switch (basic.Directionality.of(this.context)) {
+            case C[19] || CT.C19:
+            {
+              if (this[_dragExtent] + delta > 0) this[_dragExtent] = this[_dragExtent] + delta;
+              break;
+            }
+            case C[20] || CT.C20:
+            {
+              if (this[_dragExtent] + delta < 0) this[_dragExtent] = this[_dragExtent] + delta;
+              break;
+            }
+          }
+          break;
+        }
+        case C[3] || CT.C3:
+        {
+          switch (basic.Directionality.of(this.context)) {
+            case C[19] || CT.C19:
+            {
+              if (this[_dragExtent] + delta < 0) this[_dragExtent] = this[_dragExtent] + delta;
+              break;
+            }
+            case C[20] || CT.C20:
+            {
+              if (this[_dragExtent] + delta > 0) this[_dragExtent] = this[_dragExtent] + delta;
+              break;
+            }
+          }
+          break;
+        }
+        case C[6] || CT.C6:
+        {
+          this[_dragExtent] = 0.0;
+          break;
+        }
+      }
+      if (oldDragExtent[$sign] !== this[_dragExtent][$sign]) {
+        this.setState(dart.fn(() => {
+          this[_updateMoveAnimation]();
+        }, T.VoidTovoid()));
+      }
+      if (!dart.nullCheck(this[_moveController]).isAnimating) {
+        dart.nullCheck(this[_moveController]).value = this[_dragExtent][$abs]() / this[_overallDragAxisExtent];
+      }
+    }
+    [_updateMoveAnimation]() {
+      let end = this[_dragExtent][$sign];
+      this[_moveAnimation] = dart.nullCheck(this[_moveController]).drive(ui.Offset, new (T.TweenOfOffset()).new({begin: ui.Offset.zero, end: this[_directionIsXAxis] ? new ui.Offset.new(end, this.widget.crossAxisEndOffset) : new ui.Offset.new(this.widget.crossAxisEndOffset, end)}));
+    }
+    [_describeFlingGesture](velocity) {
+      if (!(this.widget.direction !== null)) dart.assertFailed(null, I[1], 427, 12, "widget.direction != null");
+      if (this[_dragExtent] === 0.0) {
+        return dismissible._FlingGestureKind.none;
+      }
+      let vx = velocity.pixelsPerSecond.dx;
+      let vy = velocity.pixelsPerSecond.dy;
+      let flingDirection = null;
+      if (this[_directionIsXAxis]) {
+        if (vx[$abs]() - vy[$abs]() < 400 || vx[$abs]() < 700) return dismissible._FlingGestureKind.none;
+        if (!(vx !== 0.0)) dart.assertFailed(null, I[1], 443, 14, "vx != 0.0");
+        flingDirection = this[_extentToDirection](vx);
+      } else {
+        if (vy[$abs]() - vx[$abs]() < 400 || vy[$abs]() < 700) return dismissible._FlingGestureKind.none;
+        if (!(vy !== 0.0)) dart.assertFailed(null, I[1], 448, 14, "vy != 0.0");
+        flingDirection = this[_extentToDirection](vy);
+      }
+      if (!(this[_dismissDirection] !== null)) dart.assertFailed(null, I[1], 451, 12, "_dismissDirection != null");
+      if (flingDirection === this[_dismissDirection]) return dismissible._FlingGestureKind.forward;
+      return dismissible._FlingGestureKind.reverse;
+    }
+    [_handleDragEnd](details) {
+      return async.async(dart.void, (function* _handleDragEnd() {
+        let t1, t1$;
+        if (!this[_isActive] || dart.nullCheck(this[_moveController]).isAnimating) return;
+        this[_dragUnderway] = false;
+        if (dart.nullCheck(this[_moveController]).isCompleted && (yield this[_confirmStartResizeAnimation]()) === true) {
+          this[_startResizeAnimation]();
           return;
         }
-        let completer = dart.nullCheck(dart.nullCheck(binding.PaintingBinding.instance).imageCache).putIfAbsent(key, dart.fn(() => this.load(key, dart.bind(dart.nullCheck(binding.PaintingBinding.instance), 'instantiateImageCodec')), T$.VoidToImageStreamCompleter()), {onError: handleError});
-        if (completer != null) {
-          stream.setCompleter(completer);
+        let flingVelocity = this[_directionIsXAxis] ? details.velocity.pixelsPerSecond.dx : details.velocity.pixelsPerSecond.dy;
+        switch (this[_describeFlingGesture](details.velocity)) {
+          case C[16] || CT.C16:
+          {
+            if (!(this[_dragExtent] !== 0.0)) dart.assertFailed(null, I[1], 468, 16, "_dragExtent != 0.0");
+            if (!!dart.nullCheck(this[_moveController]).isDismissed) dart.assertFailed(null, I[1], 469, 16, "!_moveController!.isDismissed");
+            if (dart.notNull((t1 = this.widget.dismissThresholds[$_get](this[_dismissDirection]), t1 == null ? 0.4 : t1)) >= 1.0) {
+              dart.nullCheck(this[_moveController]).reverse();
+              break;
+            }
+            this[_dragExtent] = flingVelocity[$sign];
+            dart.nullCheck(this[_moveController]).fling({velocity: flingVelocity[$abs]() * 0.0033333333333333335});
+            break;
+          }
+          case C[17] || CT.C17:
+          {
+            if (!(this[_dragExtent] !== 0.0)) dart.assertFailed(null, I[1], 478, 16, "_dragExtent != 0.0");
+            if (!!dart.nullCheck(this[_moveController]).isDismissed) dart.assertFailed(null, I[1], 479, 16, "!_moveController!.isDismissed");
+            this[_dragExtent] = flingVelocity[$sign];
+            dart.nullCheck(this[_moveController]).fling({velocity: -flingVelocity[$abs]() * 0.0033333333333333335});
+            break;
+          }
+          case C[15] || CT.C15:
+          {
+            if (!dart.nullCheck(this[_moveController]).isDismissed) {
+              if (dart.nullCheck(this[_moveController]).value > dart.notNull((t1$ = this.widget.dismissThresholds[$_get](this[_dismissDirection]), t1$ == null ? 0.4 : t1$))) {
+                dart.nullCheck(this[_moveController]).forward();
+              } else {
+                dart.nullCheck(this[_moveController]).reverse();
+              }
+            }
+            break;
+          }
         }
-      }
-      evict(opts) {
-        let cache = opts && 'cache' in opts ? opts.cache : null;
-        let configuration = opts && 'configuration' in opts ? opts.configuration : C[0] || CT.C0;
-        return async.async(core.bool, (function* evict() {
-          cache == null ? cache = binding.imageCache : null;
-          let key = (yield this.obtainKey(configuration));
-          return dart.nullCheck(cache).evict(key);
-        }).bind(this));
-      }
-      toString() {
-        return object.objectRuntimeType(this, "ImageConfiguration") + "()";
-      }
-    }
-    (ImageProvider.new = function() {
-      ;
-    }).prototype = ImageProvider.prototype;
-    dart.addTypeTests(ImageProvider);
-    ImageProvider.prototype[_is_ImageProvider_default] = true;
-    dart.addTypeCaches(ImageProvider);
-    dart.setMethodSignature(ImageProvider, () => ({
-      __proto__: dart.getMethods(ImageProvider.__proto__),
-      resolve: dart.fnType(image_stream.ImageStream, [image_provider.ImageConfiguration]),
-      createStream: dart.fnType(image_stream.ImageStream, [image_provider.ImageConfiguration]),
-      obtainCacheStatus: dart.fnType(async.Future$(dart.nullable(image_cache.ImageCacheStatus)), [], {handleError: dart.nullable(dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)]))}, {configuration: image_provider.ImageConfiguration}),
-      [_createErrorHandlerAndKey]: dart.fnType(dart.void, [image_provider.ImageConfiguration, dart.fnType(dart.void, [T, dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)])]), dart.fnType(async.Future$(dart.void), [dart.nullable(T), core.Object, dart.nullable(core.StackTrace)])]),
-      resolveStreamForKey: dart.fnType(dart.void, [image_provider.ImageConfiguration, image_stream.ImageStream, dart.nullable(core.Object), dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)])]),
-      evict: dart.fnType(async.Future$(core.bool), [], {cache: dart.nullable(image_cache.ImageCache), configuration: image_provider.ImageConfiguration}, {})
-    }));
-    dart.setLibraryUri(ImageProvider, I[2]);
-    dart.defineExtensionMethods(ImageProvider, ['toString']);
-    return ImageProvider;
-  });
-  image_provider.ImageProvider = image_provider.ImageProvider$();
-  dart.addTypeTests(image_provider.ImageProvider, _is_ImageProvider_default);
-  image_provider.NetworkImage = class NetworkImage extends image_provider.ImageProvider {};
-  dart.addTypeTests(image_provider.NetworkImage);
-  dart.addTypeCaches(image_provider.NetworkImage);
-  dart.setLibraryUri(image_provider.NetworkImage, I[2]);
-  _network_image_web.NetworkImage = class NetworkImage extends image_provider.ImageProvider$(image_provider.NetworkImage) {
-    get url() {
-      return this[url$];
-    }
-    set url(value) {
-      super.url = value;
-    }
-    get scale() {
-      return this[scale$];
-    }
-    set scale(value) {
-      super.scale = value;
-    }
-    get headers() {
-      return this[headers$];
-    }
-    set headers(value) {
-      super.headers = value;
-    }
-    obtainKey(configuration) {
-      return new (T$.SynchronousFutureOfNetworkImage()).new(this);
-    }
-    load(key, decode) {
-      image_provider.NetworkImage.as(key);
-      let chunkEvents = T$.StreamControllerOfImageChunkEvent().new();
-      return new image_stream.MultiFrameImageStreamCompleter.new({chunkEvents: chunkEvents.stream, codec: this[_loadAsync](_network_image_web.NetworkImage.as(key), decode, chunkEvents), scale: key.scale, debugLabel: key.url, informationCollector: this[_imageStreamInformationCollector](key)});
-    }
-    [_imageStreamInformationCollector](key) {
-      let collector = null;
-      if (!dart.fn(() => {
-        collector = dart.fn(() => T$.JSArrayOfDiagnosticsNode().of([new (T$.DiagnosticsPropertyOfImageProviderOfObject()).new("Image provider", this), new (T$.DiagnosticsPropertyOfNetworkImage()).new("Image key", _network_image_web.NetworkImage.as(key))]), T$.VoidToListOfDiagnosticsNode());
-        return true;
-      }, T$.VoidTobool())()) dart.assertFailed(null, I[0], 61, 12, "() {\n      collector = () {\n        return <DiagnosticsNode>[\n          DiagnosticsProperty<image_provider.ImageProvider>('Image provider', this),\n          DiagnosticsProperty<NetworkImage>('Image key', key as NetworkImage),\n        ];\n      };\n      return true;\n    }()");
-      return collector;
-    }
-    [_loadAsync](key, decode, chunkEvents) {
-      if (!key._equals(this)) dart.assertFailed(null, I[0], 84, 12, "key == this");
-      let resolved = core.Uri.base.resolve(key.url);
-      return ui.webOnlyInstantiateImageCodecFromUrl(resolved, {chunkCallback: dart.fn((bytes, total) => {
-          chunkEvents.add(new image_stream.ImageChunkEvent.new({cumulativeBytesLoaded: bytes, expectedTotalBytes: total}));
-        }, T$.intAndintTovoid())});
-    }
-    _equals(other) {
-      if (other == null) return false;
-      if (!other[$runtimeType]._equals(this[$runtimeType])) {
-        return false;
-      }
-      return _network_image_web.NetworkImage.is(other) && other.url === this.url && other.scale === this.scale;
-    }
-    get hashCode() {
-      return ui.hashValues(this.url, this.scale);
-    }
-    toString() {
-      return object.objectRuntimeType(this, "NetworkImage") + "(\"" + this.url + "\", scale: " + dart.str(this.scale) + ")";
-    }
-  };
-  (_network_image_web.NetworkImage.new = function(url, opts) {
-    let scale = opts && 'scale' in opts ? opts.scale : 1;
-    let headers = opts && 'headers' in opts ? opts.headers : null;
-    this[url$] = url;
-    this[scale$] = scale;
-    this[headers$] = headers;
-    if (!(url !== null)) dart.assertFailed(null, I[0], 25, 16, "url != null");
-    if (!(scale !== null)) dart.assertFailed(null, I[0], 26, 16, "scale != null");
-    _network_image_web.NetworkImage.__proto__.new.call(this);
-    ;
-  }).prototype = _network_image_web.NetworkImage.prototype;
-  dart.addTypeTests(_network_image_web.NetworkImage);
-  dart.addTypeCaches(_network_image_web.NetworkImage);
-  _network_image_web.NetworkImage[dart.implements] = () => [image_provider.NetworkImage];
-  dart.setMethodSignature(_network_image_web.NetworkImage, () => ({
-    __proto__: dart.getMethods(_network_image_web.NetworkImage.__proto__),
-    obtainKey: dart.fnType(async.Future$(_network_image_web.NetworkImage), [image_provider.ImageConfiguration]),
-    load: dart.fnType(image_stream.ImageStreamCompleter, [dart.nullable(core.Object), dart.fnType(async.Future$(ui.Codec), [typed_data.Uint8List], {allowUpscaling: core.bool, cacheHeight: dart.nullable(core.int), cacheWidth: dart.nullable(core.int)}, {})]),
-    [_imageStreamInformationCollector]: dart.fnType(dart.nullable(dart.fnType(core.Iterable$(diagnostics.DiagnosticsNode), [])), [image_provider.NetworkImage]),
-    [_loadAsync]: dart.fnType(async.Future$(ui.Codec), [_network_image_web.NetworkImage, dart.fnType(async.Future$(ui.Codec), [typed_data.Uint8List], {allowUpscaling: core.bool, cacheHeight: dart.nullable(core.int), cacheWidth: dart.nullable(core.int)}, {}), async.StreamController$(image_stream.ImageChunkEvent)])
-  }));
-  dart.setLibraryUri(_network_image_web.NetworkImage, I[3]);
-  dart.setFieldSignature(_network_image_web.NetworkImage, () => ({
-    __proto__: dart.getFields(_network_image_web.NetworkImage.__proto__),
-    url: dart.finalFieldType(core.String),
-    scale: dart.finalFieldType(core.double),
-    headers: dart.finalFieldType(dart.nullable(core.Map$(core.String, core.String)))
-  }));
-  dart.defineExtensionMethods(_network_image_web.NetworkImage, ['_equals', 'toString']);
-  dart.defineExtensionAccessors(_network_image_web.NetworkImage, ['hashCode']);
-  const bundle$ = ImageConfiguration_bundle;
-  const devicePixelRatio$ = ImageConfiguration_devicePixelRatio;
-  const locale$ = ImageConfiguration_locale;
-  const textDirection$ = ImageConfiguration_textDirection;
-  const size$ = ImageConfiguration_size;
-  const platform$ = ImageConfiguration_platform;
-  image_provider.ImageConfiguration = class ImageConfiguration extends core.Object {
-    get bundle() {
-      return this[bundle$];
-    }
-    set bundle(value) {
-      super.bundle = value;
-    }
-    get devicePixelRatio() {
-      return this[devicePixelRatio$];
-    }
-    set devicePixelRatio(value) {
-      super.devicePixelRatio = value;
-    }
-    get locale() {
-      return this[locale$];
-    }
-    set locale(value) {
-      super.locale = value;
-    }
-    get textDirection() {
-      return this[textDirection$];
-    }
-    set textDirection(value) {
-      super.textDirection = value;
-    }
-    get size() {
-      return this[size$];
-    }
-    set size(value) {
-      super.size = value;
-    }
-    get platform() {
-      return this[platform$];
-    }
-    set platform(value) {
-      super.platform = value;
-    }
-    copyWith(opts) {
-      let t2, t2$, t2$0, t2$1, t2$2, t2$3;
-      let bundle = opts && 'bundle' in opts ? opts.bundle : null;
-      let devicePixelRatio = opts && 'devicePixelRatio' in opts ? opts.devicePixelRatio : null;
-      let locale = opts && 'locale' in opts ? opts.locale : null;
-      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
-      let size = opts && 'size' in opts ? opts.size : null;
-      let platform = opts && 'platform' in opts ? opts.platform : null;
-      return new image_provider.ImageConfiguration.new({bundle: (t2 = bundle, t2 == null ? this.bundle : t2), devicePixelRatio: (t2$ = devicePixelRatio, t2$ == null ? this.devicePixelRatio : t2$), locale: (t2$0 = locale, t2$0 == null ? this.locale : t2$0), textDirection: (t2$1 = textDirection, t2$1 == null ? this.textDirection : t2$1), size: (t2$2 = size, t2$2 == null ? this.size : t2$2), platform: (t2$3 = platform, t2$3 == null ? this.platform : t2$3)});
-    }
-    _equals(other) {
-      if (other == null) return false;
-      if (!other[$runtimeType]._equals(this[$runtimeType])) return false;
-      return image_provider.ImageConfiguration.is(other) && dart.equals(other.bundle, this.bundle) && other.devicePixelRatio == this.devicePixelRatio && dart.equals(other.locale, this.locale) && other.textDirection == this.textDirection && dart.equals(other.size, this.size) && other.platform == this.platform;
-    }
-    get hashCode() {
-      return ui.hashValues(this.bundle, this.devicePixelRatio, this.locale, this.size, this.platform);
-    }
-    toString() {
-      let result = new core.StringBuffer.new();
-      result.write("ImageConfiguration(");
-      let hasArguments = false;
-      if (this.bundle != null) {
-        result.write("bundle: " + dart.str(this.bundle));
-        hasArguments = true;
-      }
-      if (this.devicePixelRatio != null) {
-        if (hasArguments) result.write(", ");
-        result.write("devicePixelRatio: " + dart.nullCheck(this.devicePixelRatio)[$toStringAsFixed](1));
-        hasArguments = true;
-      }
-      if (this.locale != null) {
-        if (hasArguments) result.write(", ");
-        result.write("locale: " + dart.str(this.locale));
-        hasArguments = true;
-      }
-      if (this.textDirection != null) {
-        if (hasArguments) result.write(", ");
-        result.write("textDirection: " + dart.str(this.textDirection));
-        hasArguments = true;
-      }
-      if (this.size != null) {
-        if (hasArguments) result.write(", ");
-        result.write("size: " + dart.str(this.size));
-        hasArguments = true;
-      }
-      if (this.platform != null) {
-        if (hasArguments) result.write(", ");
-        result.write("platform: " + diagnostics.describeEnum(dart.nullCheck(this.platform)));
-        hasArguments = true;
-      }
-      result.write(")");
-      return result.toString();
-    }
-  };
-  (image_provider.ImageConfiguration.new = function(opts) {
-    let bundle = opts && 'bundle' in opts ? opts.bundle : null;
-    let devicePixelRatio = opts && 'devicePixelRatio' in opts ? opts.devicePixelRatio : null;
-    let locale = opts && 'locale' in opts ? opts.locale : null;
-    let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
-    let size = opts && 'size' in opts ? opts.size : null;
-    let platform = opts && 'platform' in opts ? opts.platform : null;
-    this[bundle$] = bundle;
-    this[devicePixelRatio$] = devicePixelRatio;
-    this[locale$] = locale;
-    this[textDirection$] = textDirection;
-    this[size$] = size;
-    this[platform$] = platform;
-    ;
-  }).prototype = image_provider.ImageConfiguration.prototype;
-  dart.addTypeTests(image_provider.ImageConfiguration);
-  dart.addTypeCaches(image_provider.ImageConfiguration);
-  dart.setMethodSignature(image_provider.ImageConfiguration, () => ({
-    __proto__: dart.getMethods(image_provider.ImageConfiguration.__proto__),
-    copyWith: dart.fnType(image_provider.ImageConfiguration, [], {bundle: dart.nullable(asset_bundle.AssetBundle), devicePixelRatio: dart.nullable(core.double), locale: dart.nullable(ui.Locale), platform: dart.nullable(platform.TargetPlatform), size: dart.nullable(ui.Size), textDirection: dart.nullable(ui.TextDirection)}, {})
-  }));
-  dart.setLibraryUri(image_provider.ImageConfiguration, I[2]);
-  dart.setFieldSignature(image_provider.ImageConfiguration, () => ({
-    __proto__: dart.getFields(image_provider.ImageConfiguration.__proto__),
-    bundle: dart.finalFieldType(dart.nullable(asset_bundle.AssetBundle)),
-    devicePixelRatio: dart.finalFieldType(dart.nullable(core.double)),
-    locale: dart.finalFieldType(dart.nullable(ui.Locale)),
-    textDirection: dart.finalFieldType(dart.nullable(ui.TextDirection)),
-    size: dart.finalFieldType(dart.nullable(ui.Size)),
-    platform: dart.finalFieldType(dart.nullable(platform.TargetPlatform))
-  }));
-  dart.defineExtensionMethods(image_provider.ImageConfiguration, ['_equals', 'toString']);
-  dart.defineExtensionAccessors(image_provider.ImageConfiguration, ['hashCode']);
-  dart.defineLazy(image_provider.ImageConfiguration, {
-    /*image_provider.ImageConfiguration.empty*/get empty() {
-      return C[0] || CT.C0;
-    }
-  }, false);
-  var bundle$0 = dart.privateName(image_provider, "AssetBundleImageKey.bundle");
-  var name$ = dart.privateName(image_provider, "AssetBundleImageKey.name");
-  var scale$0 = dart.privateName(image_provider, "AssetBundleImageKey.scale");
-  image_provider.AssetBundleImageKey = class AssetBundleImageKey extends core.Object {
-    get bundle() {
-      return this[bundle$0];
-    }
-    set bundle(value) {
-      super.bundle = value;
-    }
-    get name() {
-      return this[name$];
-    }
-    set name(value) {
-      super.name = value;
-    }
-    get scale() {
-      return this[scale$0];
-    }
-    set scale(value) {
-      super.scale = value;
-    }
-    _equals(other) {
-      if (other == null) return false;
-      if (!other[$runtimeType]._equals(this[$runtimeType])) return false;
-      return image_provider.AssetBundleImageKey.is(other) && other.bundle[$_equals](this.bundle) && other.name === this.name && other.scale === this.scale;
-    }
-    get hashCode() {
-      return ui.hashValues(this.bundle, this.name, this.scale);
-    }
-    toString() {
-      return object.objectRuntimeType(this, "AssetBundleImageKey") + "(bundle: " + dart.str(this.bundle) + ", name: \"" + this.name + "\", scale: " + dart.str(this.scale) + ")";
-    }
-  };
-  (image_provider.AssetBundleImageKey.new = function(opts) {
-    let bundle = opts && 'bundle' in opts ? opts.bundle : null;
-    let name = opts && 'name' in opts ? opts.name : null;
-    let scale = opts && 'scale' in opts ? opts.scale : null;
-    this[bundle$0] = bundle;
-    this[name$] = name;
-    this[scale$0] = scale;
-    if (!(bundle !== null)) dart.assertFailed(null, I[1], 599, 15, "bundle != null");
-    if (!(name !== null)) dart.assertFailed(null, I[1], 600, 15, "name != null");
-    if (!(scale !== null)) dart.assertFailed(null, I[1], 601, 15, "scale != null");
-    ;
-  }).prototype = image_provider.AssetBundleImageKey.prototype;
-  dart.addTypeTests(image_provider.AssetBundleImageKey);
-  dart.addTypeCaches(image_provider.AssetBundleImageKey);
-  dart.setLibraryUri(image_provider.AssetBundleImageKey, I[2]);
-  dart.setFieldSignature(image_provider.AssetBundleImageKey, () => ({
-    __proto__: dart.getFields(image_provider.AssetBundleImageKey.__proto__),
-    bundle: dart.finalFieldType(asset_bundle.AssetBundle),
-    name: dart.finalFieldType(core.String),
-    scale: dart.finalFieldType(core.double)
-  }));
-  dart.defineExtensionMethods(image_provider.AssetBundleImageKey, ['_equals', 'toString']);
-  dart.defineExtensionAccessors(image_provider.AssetBundleImageKey, ['hashCode']);
-  var _loadAsync$ = dart.privateName(image_provider, "_loadAsync");
-  image_provider.AssetBundleImageProvider = class AssetBundleImageProvider extends image_provider.ImageProvider$(image_provider.AssetBundleImageKey) {
-    load(key, decode) {
-      image_provider.AssetBundleImageKey.as(key);
-      let collector = null;
-      if (!dart.fn(() => {
-        collector = dart.fn(() => new (T$.SyncIterableOfDiagnosticsNode()).new((function*() {
-          yield new (T$.DiagnosticsPropertyOfImageProviderOfObject()).new("Image provider", this);
-          yield new (T$.DiagnosticsPropertyOfAssetBundleImageKey()).new("Image key", key);
-        }).bind(this)), T$.VoidToIterableOfDiagnosticsNode());
-        return true;
-      }, T$.VoidTobool())()) dart.assertFailed(null, I[1], 647, 12, "() {\n      collector = () sync* {\n        yield DiagnosticsProperty<ImageProvider>('Image provider', this);\n        yield DiagnosticsProperty<AssetBundleImageKey>('Image key', key);\n      };\n      return true;\n    }()");
-      return new image_stream.MultiFrameImageStreamCompleter.new({codec: this[_loadAsync$](key, decode), scale: key.scale, debugLabel: key.name, informationCollector: collector});
-    }
-    [_loadAsync$](key, decode) {
-      return async.async(ui.Codec, function* _loadAsync() {
-        let data = null;
-        try {
-          data = (yield key.bundle.load(key.name));
-        } catch (e) {
-          let ex = dart.getThrown(e);
-          if (assertions.FlutterError.is(ex)) {
-            dart.nullCheck(dart.nullCheck(binding.PaintingBinding.instance).imageCache).evict(key);
-            dart.rethrow(e);
-          } else
-            throw e;
-        }
-        if (data == null) {
-          dart.nullCheck(dart.nullCheck(binding.PaintingBinding.instance).imageCache).evict(key);
-          dart.throw(new core.StateError.new("Unable to read data"));
-        }
-        return decode(data[$buffer][$asUint8List]());
-      });
-    }
-  };
-  (image_provider.AssetBundleImageProvider.new = function() {
-    image_provider.AssetBundleImageProvider.__proto__.new.call(this);
-    ;
-  }).prototype = image_provider.AssetBundleImageProvider.prototype;
-  dart.addTypeTests(image_provider.AssetBundleImageProvider);
-  dart.addTypeCaches(image_provider.AssetBundleImageProvider);
-  dart.setMethodSignature(image_provider.AssetBundleImageProvider, () => ({
-    __proto__: dart.getMethods(image_provider.AssetBundleImageProvider.__proto__),
-    load: dart.fnType(image_stream.ImageStreamCompleter, [dart.nullable(core.Object), dart.fnType(async.Future$(ui.Codec), [typed_data.Uint8List], {allowUpscaling: core.bool, cacheHeight: dart.nullable(core.int), cacheWidth: dart.nullable(core.int)}, {})]),
-    [_loadAsync$]: dart.fnType(async.Future$(ui.Codec), [image_provider.AssetBundleImageKey, dart.fnType(async.Future$(ui.Codec), [typed_data.Uint8List], {allowUpscaling: core.bool, cacheHeight: dart.nullable(core.int), cacheWidth: dart.nullable(core.int)}, {})])
-  }));
-  dart.setLibraryUri(image_provider.AssetBundleImageProvider, I[2]);
-  var providerCacheKey$ = dart.privateName(image_provider, "_SizeAwareCacheKey.providerCacheKey");
-  var width$ = dart.privateName(image_provider, "_SizeAwareCacheKey.width");
-  var height$ = dart.privateName(image_provider, "_SizeAwareCacheKey.height");
-  image_provider._SizeAwareCacheKey = class _SizeAwareCacheKey extends core.Object {
-    get providerCacheKey() {
-      return this[providerCacheKey$];
-    }
-    set providerCacheKey(value) {
-      super.providerCacheKey = value;
-    }
-    get width() {
-      return this[width$];
-    }
-    set width(value) {
-      super.width = value;
-    }
-    get height() {
-      return this[height$];
-    }
-    set height(value) {
-      super.height = value;
-    }
-    _equals(other) {
-      if (other == null) return false;
-      if (!other[$runtimeType]._equals(this[$runtimeType])) return false;
-      return image_provider._SizeAwareCacheKey.is(other) && other.providerCacheKey[$_equals](this.providerCacheKey) && other.width == this.width && other.height == this.height;
-    }
-    get hashCode() {
-      return ui.hashValues(this.providerCacheKey, this.width, this.height);
-    }
-  };
-  (image_provider._SizeAwareCacheKey.new = function(providerCacheKey, width, height) {
-    this[providerCacheKey$] = providerCacheKey;
-    this[width$] = width;
-    this[height$] = height;
-    ;
-  }).prototype = image_provider._SizeAwareCacheKey.prototype;
-  dart.addTypeTests(image_provider._SizeAwareCacheKey);
-  dart.addTypeCaches(image_provider._SizeAwareCacheKey);
-  dart.setLibraryUri(image_provider._SizeAwareCacheKey, I[2]);
-  dart.setFieldSignature(image_provider._SizeAwareCacheKey, () => ({
-    __proto__: dart.getFields(image_provider._SizeAwareCacheKey.__proto__),
-    providerCacheKey: dart.finalFieldType(core.Object),
-    width: dart.finalFieldType(dart.nullable(core.int)),
-    height: dart.finalFieldType(dart.nullable(core.int))
-  }));
-  dart.defineExtensionMethods(image_provider._SizeAwareCacheKey, ['_equals']);
-  dart.defineExtensionAccessors(image_provider._SizeAwareCacheKey, ['hashCode']);
-  var imageProvider$ = dart.privateName(image_provider, "ResizeImage.imageProvider");
-  var width$0 = dart.privateName(image_provider, "ResizeImage.width");
-  var height$0 = dart.privateName(image_provider, "ResizeImage.height");
-  var allowUpscaling$ = dart.privateName(image_provider, "ResizeImage.allowUpscaling");
-  image_provider.ResizeImage = class ResizeImage extends image_provider.ImageProvider$(image_provider._SizeAwareCacheKey) {
-    get imageProvider() {
-      return this[imageProvider$];
-    }
-    set imageProvider(value) {
-      super.imageProvider = value;
-    }
-    get width() {
-      return this[width$0];
-    }
-    set width(value) {
-      super.width = value;
-    }
-    get height() {
-      return this[height$0];
-    }
-    set height(value) {
-      super.height = value;
-    }
-    get allowUpscaling() {
-      return this[allowUpscaling$];
-    }
-    set allowUpscaling(value) {
-      super.allowUpscaling = value;
-    }
-    static resizeIfNeeded(cacheWidth, cacheHeight, provider) {
-      if (cacheWidth != null || cacheHeight != null) {
-        return new image_provider.ResizeImage.new(provider, {width: cacheWidth, height: cacheHeight});
-      }
-      return provider;
-    }
-    load(key, decode) {
-      image_provider._SizeAwareCacheKey.as(key);
-      const decodeResize = (bytes, opts) => {
-        let allowUpscaling = opts && 'allowUpscaling' in opts ? opts.allowUpscaling : null;
-        let cacheHeight = opts && 'cacheHeight' in opts ? opts.cacheHeight : null;
-        let cacheWidth = opts && 'cacheWidth' in opts ? opts.cacheWidth : null;
-        if (!(cacheWidth == null && cacheHeight == null && allowUpscaling == null)) dart.assertFailed("ResizeImage cannot be composed with another ImageProvider that applies " + "cacheWidth, cacheHeight, or allowUpscaling.", I[1], 765, 9, "cacheWidth == null && cacheHeight == null && allowUpscaling == null");
-        return decode(bytes, {cacheWidth: this.width, cacheHeight: this.height, allowUpscaling: this.allowUpscaling});
-      };
-      dart.fn(decodeResize, T$.Uint8List__ToFutureOfCodec());
-      let completer = this.imageProvider.load(key.providerCacheKey, decodeResize);
-      if (!false) {
-        completer.debugLabel = dart.str(completer.debugLabel) + " - Resized(" + dart.str(key.width) + "×" + dart.str(key.height) + ")";
-      }
-      return completer;
-    }
-    obtainKey(configuration) {
-      let completer = null;
-      let result = null;
-      this.imageProvider.obtainKey(configuration).then(core.Null, dart.fn(key => {
-        if (completer == null) {
-          result = new (T$.SynchronousFutureOf_SizeAwareCacheKey()).new(new image_provider._SizeAwareCacheKey.new(key, this.width, this.height));
-        } else {
-          completer.complete(new image_provider._SizeAwareCacheKey.new(key, this.width, this.height));
-        }
-      }, T$.ObjectToNull()));
-      if (result != null) {
-        return dart.nullCheck(result);
-      }
-      completer = T$.CompleterOf_SizeAwareCacheKey().new();
-      return completer.future;
-    }
-  };
-  (image_provider.ResizeImage.new = function(imageProvider, opts) {
-    let width = opts && 'width' in opts ? opts.width : null;
-    let height = opts && 'height' in opts ? opts.height : null;
-    let allowUpscaling = opts && 'allowUpscaling' in opts ? opts.allowUpscaling : false;
-    this[imageProvider$] = imageProvider;
-    this[width$0] = width;
-    this[height$0] = height;
-    this[allowUpscaling$] = allowUpscaling;
-    if (!(width != null || height != null)) dart.assertFailed(null, I[1], 728, 15, "width != null || height != null");
-    if (!(allowUpscaling !== null)) dart.assertFailed(null, I[1], 729, 15, "allowUpscaling != null");
-    image_provider.ResizeImage.__proto__.new.call(this);
-    ;
-  }).prototype = image_provider.ResizeImage.prototype;
-  dart.addTypeTests(image_provider.ResizeImage);
-  dart.addTypeCaches(image_provider.ResizeImage);
-  dart.setMethodSignature(image_provider.ResizeImage, () => ({
-    __proto__: dart.getMethods(image_provider.ResizeImage.__proto__),
-    load: dart.fnType(image_stream.ImageStreamCompleter, [dart.nullable(core.Object), dart.fnType(async.Future$(ui.Codec), [typed_data.Uint8List], {allowUpscaling: core.bool, cacheHeight: dart.nullable(core.int), cacheWidth: dart.nullable(core.int)}, {})]),
-    obtainKey: dart.fnType(async.Future$(image_provider._SizeAwareCacheKey), [image_provider.ImageConfiguration])
-  }));
-  dart.setLibraryUri(image_provider.ResizeImage, I[2]);
-  dart.setFieldSignature(image_provider.ResizeImage, () => ({
-    __proto__: dart.getFields(image_provider.ResizeImage.__proto__),
-    imageProvider: dart.finalFieldType(image_provider.ImageProvider$(core.Object)),
-    width: dart.finalFieldType(dart.nullable(core.int)),
-    height: dart.finalFieldType(dart.nullable(core.int)),
-    allowUpscaling: dart.finalFieldType(core.bool)
-  }));
-  var file$ = dart.privateName(image_provider, "FileImage.file");
-  var scale$1 = dart.privateName(image_provider, "FileImage.scale");
-  image_provider.FileImage = class FileImage extends image_provider.ImageProvider {
-    get file() {
-      return this[file$];
-    }
-    set file(value) {
-      super.file = value;
-    }
-    get scale() {
-      return this[scale$1];
-    }
-    set scale(value) {
-      super.scale = value;
-    }
-    obtainKey(configuration) {
-      return new (T$.SynchronousFutureOfFileImage()).new(this);
-    }
-    load(key, decode) {
-      image_provider.FileImage.as(key);
-      return new image_stream.MultiFrameImageStreamCompleter.new({codec: this[_loadAsync$](key, decode), scale: key.scale, debugLabel: key.file.path, informationCollector: dart.fn(() => new (T$.SyncIterableOfDiagnosticsNode()).new((function*() {
-          yield new assertions.ErrorDescription.new("Path: " + this.file.path);
-        }).bind(this)), T$.VoidToIterableOfDiagnosticsNode())});
-    }
-    [_loadAsync$](key, decode) {
-      return async.async(ui.Codec, (function* _loadAsync() {
-        if (!key._equals(this)) dart.assertFailed(null, I[1], 882, 12, "key == this");
-        let bytes = (yield this.file.readAsBytes());
-        if (bytes[$lengthInBytes] === 0) {
-          dart.nullCheck(dart.nullCheck(binding.PaintingBinding.instance).imageCache).evict(key);
-          dart.throw(new core.StateError.new(dart.str(this.file) + " is empty and cannot be loaded as an image."));
-        }
-        return decode(bytes);
       }).bind(this));
     }
-    _equals(other) {
-      if (other == null) return false;
-      if (!other[$runtimeType]._equals(this[$runtimeType])) return false;
-      return image_provider.FileImage.is(other) && other.file.path === this.file.path && other.scale === this.scale;
+    [_handleDismissStatusChanged](status) {
+      return async.async(dart.void, (function* _handleDismissStatusChanged() {
+        if (status === animation.AnimationStatus.completed && !this[_dragUnderway]) {
+          if ((yield this[_confirmStartResizeAnimation]()) === true)
+            this[_startResizeAnimation]();
+          else
+            dart.nullCheck(this[_moveController]).reverse();
+        }
+        this.updateKeepAlive();
+      }).bind(this));
     }
-    get hashCode() {
-      return ui.hashValues(this.file.path, this.scale);
+    [_confirmStartResizeAnimation]() {
+      return async.async(T.boolN(), (function* _confirmStartResizeAnimation() {
+        if (this.widget.confirmDismiss != null) {
+          let direction = this[_dismissDirection];
+          return dart.nullCheck(this.widget.confirmDismiss)(direction);
+        }
+        return true;
+      }).bind(this));
     }
-    toString() {
-      return object.objectRuntimeType(this, "FileImage") + "(\"" + this.file.path + "\", scale: " + dart.str(this.scale) + ")";
+    [_startResizeAnimation]() {
+      let t1;
+      if (!(this[_moveController] != null)) dart.assertFailed(null, I[1], 514, 12, "_moveController != null");
+      if (!dart.nullCheck(this[_moveController]).isCompleted) dart.assertFailed(null, I[1], 515, 12, "_moveController!.isCompleted");
+      if (!(this[_resizeController] == null)) dart.assertFailed(null, I[1], 516, 12, "_resizeController == null");
+      if (!(this[_sizePriorToCollapse] == null)) dart.assertFailed(null, I[1], 517, 12, "_sizePriorToCollapse == null");
+      if (this.widget.resizeDuration == null) {
+        if (this.widget.onDismissed != null) {
+          let direction = this[_dismissDirection];
+          dart.nullCheck(this.widget.onDismissed)(direction);
+        }
+      } else {
+        this[_resizeController] = (t1 = new animation_controller.AnimationController.new({duration: this.widget.resizeDuration, vsync: this}), (() => {
+          t1.addListener(dart.bind(this, _handleResizeProgressChanged));
+          t1.addStatusListener(dart.fn(status => this.updateKeepAlive(), T.AnimationStatusTovoid()));
+          return t1;
+        })());
+        dart.nullCheck(this[_resizeController]).forward();
+        this.setState(dart.fn(() => {
+          this[_sizePriorToCollapse] = this.context.size;
+          this[_resizeAnimation] = dart.nullCheck(this[_resizeController]).drive(core.double, new tween.CurveTween.new({curve: dismissible._kResizeTimeCurve})).drive(core.double, new (T.TweenOfdouble()).new({begin: 1.0, end: 0.0}));
+        }, T.VoidTovoid()));
+      }
     }
-  };
-  (image_provider.FileImage.new = function(file, opts) {
-    let scale = opts && 'scale' in opts ? opts.scale : 1;
-    this[file$] = file;
-    this[scale$1] = scale;
-    if (!(file !== null)) dart.assertFailed(null, I[1], 855, 14, "file != null");
-    if (!(scale !== null)) dart.assertFailed(null, I[1], 856, 14, "scale != null");
-    image_provider.FileImage.__proto__.new.call(this);
-    ;
-  }).prototype = image_provider.FileImage.prototype;
-  dart.addTypeTests(image_provider.FileImage);
-  dart.addTypeCaches(image_provider.FileImage);
-  dart.setMethodSignature(image_provider.FileImage, () => ({
-    __proto__: dart.getMethods(image_provider.FileImage.__proto__),
-    obtainKey: dart.fnType(async.Future$(image_provider.FileImage), [image_provider.ImageConfiguration]),
-    load: dart.fnType(image_stream.ImageStreamCompleter, [dart.nullable(core.Object), dart.fnType(async.Future$(ui.Codec), [typed_data.Uint8List], {allowUpscaling: core.bool, cacheHeight: dart.nullable(core.int), cacheWidth: dart.nullable(core.int)}, {})]),
-    [_loadAsync$]: dart.fnType(async.Future$(ui.Codec), [image_provider.FileImage, dart.fnType(async.Future$(ui.Codec), [typed_data.Uint8List], {allowUpscaling: core.bool, cacheHeight: dart.nullable(core.int), cacheWidth: dart.nullable(core.int)}, {})])
-  }));
-  dart.setLibraryUri(image_provider.FileImage, I[2]);
-  dart.setFieldSignature(image_provider.FileImage, () => ({
-    __proto__: dart.getFields(image_provider.FileImage.__proto__),
-    file: dart.finalFieldType(io.File),
-    scale: dart.finalFieldType(core.double)
-  }));
-  dart.defineExtensionMethods(image_provider.FileImage, ['_equals', 'toString']);
-  dart.defineExtensionAccessors(image_provider.FileImage, ['hashCode']);
-  var bytes$ = dart.privateName(image_provider, "MemoryImage.bytes");
-  var scale$2 = dart.privateName(image_provider, "MemoryImage.scale");
-  image_provider.MemoryImage = class MemoryImage extends image_provider.ImageProvider {
-    get bytes() {
-      return this[bytes$];
+    [_handleResizeProgressChanged]() {
+      let t1, t1$;
+      if (dart.nullCheck(this[_resizeController]).isCompleted) {
+        t1 = this.widget.onDismissed;
+        t1 == null ? null : t1(this[_dismissDirection]);
+      } else {
+        t1$ = this.widget.onResize;
+        t1$ == null ? null : t1$();
+      }
     }
-    set bytes(value) {
-      super.bytes = value;
-    }
-    get scale() {
-      return this[scale$2];
-    }
-    set scale(value) {
-      super.scale = value;
-    }
-    obtainKey(configuration) {
-      return new (T$.SynchronousFutureOfMemoryImage()).new(this);
-    }
-    load(key, decode) {
-      image_provider.MemoryImage.as(key);
-      return new image_stream.MultiFrameImageStreamCompleter.new({codec: this[_loadAsync$](key, decode), scale: key.scale, debugLabel: "MemoryImage(" + diagnostics.describeIdentity(key.bytes) + ")"});
-    }
-    [_loadAsync$](key, decode) {
-      if (!key._equals(this)) dart.assertFailed(null, I[1], 965, 12, "key == this");
-      return decode(this.bytes);
-    }
-    _equals(other) {
-      if (other == null) return false;
-      if (!other[$runtimeType]._equals(this[$runtimeType])) return false;
-      return image_provider.MemoryImage.is(other) && other.bytes[$_equals](this.bytes) && other.scale === this.scale;
-    }
-    get hashCode() {
-      return ui.hashValues(this.bytes[$hashCode], this.scale);
-    }
-    toString() {
-      return object.objectRuntimeType(this, "MemoryImage") + "(" + diagnostics.describeIdentity(this.bytes) + ", scale: " + dart.str(this.scale) + ")";
-    }
-  };
-  (image_provider.MemoryImage.new = function(bytes, opts) {
-    let scale = opts && 'scale' in opts ? opts.scale : 1;
-    this[bytes$] = bytes;
-    this[scale$2] = scale;
-    if (!(bytes !== null)) dart.assertFailed(null, I[1], 929, 14, "bytes != null");
-    if (!(scale !== null)) dart.assertFailed(null, I[1], 930, 14, "scale != null");
-    image_provider.MemoryImage.__proto__.new.call(this);
-    ;
-  }).prototype = image_provider.MemoryImage.prototype;
-  dart.addTypeTests(image_provider.MemoryImage);
-  dart.addTypeCaches(image_provider.MemoryImage);
-  dart.setMethodSignature(image_provider.MemoryImage, () => ({
-    __proto__: dart.getMethods(image_provider.MemoryImage.__proto__),
-    obtainKey: dart.fnType(async.Future$(image_provider.MemoryImage), [image_provider.ImageConfiguration]),
-    load: dart.fnType(image_stream.ImageStreamCompleter, [dart.nullable(core.Object), dart.fnType(async.Future$(ui.Codec), [typed_data.Uint8List], {allowUpscaling: core.bool, cacheHeight: dart.nullable(core.int), cacheWidth: dart.nullable(core.int)}, {})]),
-    [_loadAsync$]: dart.fnType(async.Future$(ui.Codec), [image_provider.MemoryImage, dart.fnType(async.Future$(ui.Codec), [typed_data.Uint8List], {allowUpscaling: core.bool, cacheHeight: dart.nullable(core.int), cacheWidth: dart.nullable(core.int)}, {})])
-  }));
-  dart.setLibraryUri(image_provider.MemoryImage, I[2]);
-  dart.setFieldSignature(image_provider.MemoryImage, () => ({
-    __proto__: dart.getFields(image_provider.MemoryImage.__proto__),
-    bytes: dart.finalFieldType(typed_data.Uint8List),
-    scale: dart.finalFieldType(core.double)
-  }));
-  dart.defineExtensionMethods(image_provider.MemoryImage, ['_equals', 'toString']);
-  dart.defineExtensionAccessors(image_provider.MemoryImage, ['hashCode']);
-  var assetName$ = dart.privateName(image_provider, "ExactAssetImage.assetName");
-  var scale$3 = dart.privateName(image_provider, "ExactAssetImage.scale");
-  var bundle$1 = dart.privateName(image_provider, "ExactAssetImage.bundle");
-  var $package$ = dart.privateName(image_provider, "ExactAssetImage.package");
-  image_provider.ExactAssetImage = class ExactAssetImage extends image_provider.AssetBundleImageProvider {
-    get assetName() {
-      return this[assetName$];
-    }
-    set assetName(value) {
-      super.assetName = value;
-    }
-    get scale() {
-      return this[scale$3];
-    }
-    set scale(value) {
-      super.scale = value;
-    }
-    get bundle() {
-      return this[bundle$1];
-    }
-    set bundle(value) {
-      super.bundle = value;
-    }
-    get package() {
-      return this[$package$];
-    }
-    set package(value) {
-      super.package = value;
-    }
-    get keyName() {
-      return this.package == null ? this.assetName : "packages/" + dart.str(this.package) + "/" + this.assetName;
-    }
-    obtainKey(configuration) {
-      let t4, t4$;
-      return new (T$.SynchronousFutureOfAssetBundleImageKey()).new(new image_provider.AssetBundleImageKey.new({bundle: (t4$ = (t4 = this.bundle, t4 == null ? configuration.bundle : t4), t4$ == null ? asset_bundle.rootBundle : t4$), name: this.keyName, scale: this.scale}));
-    }
-    _equals(other) {
-      if (other == null) return false;
-      if (!other[$runtimeType]._equals(this[$runtimeType])) return false;
-      return image_provider.ExactAssetImage.is(other) && other.keyName === this.keyName && other.scale === this.scale && dart.equals(other.bundle, this.bundle);
-    }
-    get hashCode() {
-      return ui.hashValues(this.keyName, this.scale, this.bundle);
-    }
-    toString() {
-      return object.objectRuntimeType(this, "ExactAssetImage") + "(name: \"" + this.keyName + "\", scale: " + dart.str(this.scale) + ", bundle: " + dart.str(this.bundle) + ")";
+    build(context) {
+      super.build(context);
+      if (!(!this[_directionIsXAxis] || debug.debugCheckHasDirectionality(context))) dart.assertFailed(null, I[1], 556, 12, "!_directionIsXAxis || debugCheckHasDirectionality(context)");
+      let background = this.widget.background;
+      if (this.widget.secondaryBackground != null) {
+        let direction = this[_dismissDirection];
+        if (direction === dismissible.DismissDirection.endToStart || direction === dismissible.DismissDirection.up) background = this.widget.secondaryBackground;
+      }
+      if (this[_resizeAnimation] != null) {
+        if (!dart.fn(() => {
+          if (dart.nullCheck(this[_resizeAnimation]).status !== animation.AnimationStatus.forward) {
+            if (!(dart.nullCheck(this[_resizeAnimation]).status === animation.AnimationStatus.completed)) dart.assertFailed(null, I[1], 569, 18, "_resizeAnimation!.status == AnimationStatus.completed");
+            dart.throw(new assertions.FlutterError.fromParts(T.JSArrayOfDiagnosticsNode().of([new assertions.ErrorSummary.new("A dismissed Dismissible widget is still part of the tree."), new assertions.ErrorHint.new("Make sure to implement the onDismissed handler and to immediately remove the Dismissible " + "widget from the application once that handler has fired.")])));
+          }
+          return true;
+        }, T.VoidTobool())()) dart.assertFailed(null, I[1], 567, 14, "() {\n        if (_resizeAnimation!.status != AnimationStatus.forward) {\n          assert(_resizeAnimation!.status == AnimationStatus.completed);\n          throw FlutterError.fromParts(<DiagnosticsNode>[\n            ErrorSummary('A dismissed Dismissible widget is still part of the tree.'),\n            ErrorHint(\n              'Make sure to implement the onDismissed handler and to immediately remove the Dismissible '\n              'widget from the application once that handler has fired.',\n            ),\n          ]);\n        }\n        return true;\n      }()");
+        return new transitions.SizeTransition.new({sizeFactor: dart.nullCheck(this[_resizeAnimation]), axis: this[_directionIsXAxis] ? basic_types.Axis.vertical : basic_types.Axis.horizontal, child: new basic.SizedBox.new({width: dart.nullCheck(this[_sizePriorToCollapse]).width, height: dart.nullCheck(this[_sizePriorToCollapse]).height, child: background, $creationLocationd_0dea112b090073317d4: C[21] || CT.C21}), $creationLocationd_0dea112b090073317d4: C[26] || CT.C26});
+      }
+      let content = new transitions.SlideTransition.new({position: this[_moveAnimation], child: this.widget.child, $creationLocationd_0dea112b090073317d4: C[31] || CT.C31});
+      if (background != null) {
+        content = new basic.Stack.new({children: (() => {
+            let t1 = T.JSArrayOfWidget().of([]);
+            if (!this[_moveAnimation].isDismissed) t1[$add](new basic.Positioned.fill({child: new basic.ClipRect.new({clipper: new dismissible._DismissibleClipper.new({axis: this[_directionIsXAxis] ? basic_types.Axis.horizontal : basic_types.Axis.vertical, moveAnimation: this[_moveAnimation]}), child: background, $creationLocationd_0dea112b090073317d4: C[35] || CT.C35}), $creationLocationd_0dea112b090073317d4: C[39] || CT.C39}));
+            t1[$add](content);
+            return t1;
+          })(), $creationLocationd_0dea112b090073317d4: C[42] || CT.C42});
+      }
+      return new gesture_detector.GestureDetector.new({onHorizontalDragStart: this[_directionIsXAxis] ? dart.bind(this, _handleDragStart) : null, onHorizontalDragUpdate: this[_directionIsXAxis] ? dart.bind(this, _handleDragUpdate) : null, onHorizontalDragEnd: this[_directionIsXAxis] ? dart.bind(this, _handleDragEnd) : null, onVerticalDragStart: this[_directionIsXAxis] ? null : dart.bind(this, _handleDragStart), onVerticalDragUpdate: this[_directionIsXAxis] ? null : dart.bind(this, _handleDragUpdate), onVerticalDragEnd: this[_directionIsXAxis] ? null : dart.bind(this, _handleDragEnd), behavior: this.widget.behavior, child: content, dragStartBehavior: this.widget.dragStartBehavior, $creationLocationd_0dea112b090073317d4: C[45] || CT.C45});
     }
   };
-  (image_provider.ExactAssetImage.new = function(assetName, opts) {
-    let scale = opts && 'scale' in opts ? opts.scale : 1;
-    let bundle = opts && 'bundle' in opts ? opts.bundle : null;
-    let $package = opts && 'package' in opts ? opts.package : null;
-    this[assetName$] = assetName;
-    this[scale$3] = scale;
-    this[bundle$1] = bundle;
-    this[$package$] = $package;
-    if (!(assetName !== null)) dart.assertFailed(null, I[1], 1072, 15, "assetName != null");
-    if (!(scale !== null)) dart.assertFailed(null, I[1], 1073, 15, "scale != null");
-    image_provider.ExactAssetImage.__proto__.new.call(this);
+  (dismissible._DismissibleState.new = function() {
+    this[_moveController] = null;
+    this[___DismissibleState__moveAnimation] = null;
+    this[_resizeController] = null;
+    this[_resizeAnimation] = null;
+    this[_dragExtent] = 0.0;
+    this[_dragUnderway] = false;
+    this[_sizePriorToCollapse] = null;
+    dismissible._DismissibleState.__proto__.new.call(this);
     ;
-  }).prototype = image_provider.ExactAssetImage.prototype;
-  dart.addTypeTests(image_provider.ExactAssetImage);
-  dart.addTypeCaches(image_provider.ExactAssetImage);
-  dart.setMethodSignature(image_provider.ExactAssetImage, () => ({
-    __proto__: dart.getMethods(image_provider.ExactAssetImage.__proto__),
-    obtainKey: dart.fnType(async.Future$(image_provider.AssetBundleImageKey), [image_provider.ImageConfiguration])
+  }).prototype = dismissible._DismissibleState.prototype;
+  dart.addTypeTests(dismissible._DismissibleState);
+  dart.addTypeCaches(dismissible._DismissibleState);
+  dart.setMethodSignature(dismissible._DismissibleState, () => ({
+    __proto__: dart.getMethods(dismissible._DismissibleState.__proto__),
+    [_extentToDirection]: dart.fnType(dismissible.DismissDirection, [core.double]),
+    [_handleDragStart]: dart.fnType(dart.void, [drag_details.DragStartDetails]),
+    [_handleDragUpdate]: dart.fnType(dart.void, [drag_details.DragUpdateDetails]),
+    [_updateMoveAnimation]: dart.fnType(dart.void, []),
+    [_describeFlingGesture]: dart.fnType(dismissible._FlingGestureKind, [velocity_tracker.Velocity]),
+    [_handleDragEnd]: dart.fnType(async.Future$(dart.void), [drag_details.DragEndDetails]),
+    [_handleDismissStatusChanged]: dart.fnType(async.Future$(dart.void), [animation.AnimationStatus]),
+    [_confirmStartResizeAnimation]: dart.fnType(async.Future$(dart.nullable(core.bool)), []),
+    [_startResizeAnimation]: dart.fnType(dart.void, []),
+    [_handleResizeProgressChanged]: dart.fnType(dart.void, [])
   }));
-  dart.setGetterSignature(image_provider.ExactAssetImage, () => ({
-    __proto__: dart.getGetters(image_provider.ExactAssetImage.__proto__),
-    keyName: core.String
+  dart.setGetterSignature(dismissible._DismissibleState, () => ({
+    __proto__: dart.getGetters(dismissible._DismissibleState.__proto__),
+    [_moveAnimation]: animation.Animation$(ui.Offset),
+    wantKeepAlive: core.bool,
+    [_directionIsXAxis]: core.bool,
+    [_dismissDirection]: dismissible.DismissDirection,
+    [_isActive]: core.bool,
+    [_overallDragAxisExtent]: core.double
   }));
-  dart.setLibraryUri(image_provider.ExactAssetImage, I[2]);
-  dart.setFieldSignature(image_provider.ExactAssetImage, () => ({
-    __proto__: dart.getFields(image_provider.ExactAssetImage.__proto__),
-    assetName: dart.finalFieldType(core.String),
-    scale: dart.finalFieldType(core.double),
-    bundle: dart.finalFieldType(dart.nullable(asset_bundle.AssetBundle)),
-    package: dart.finalFieldType(dart.nullable(core.String))
+  dart.setSetterSignature(dismissible._DismissibleState, () => ({
+    __proto__: dart.getSetters(dismissible._DismissibleState.__proto__),
+    [_moveAnimation]: animation.Animation$(ui.Offset)
   }));
-  dart.defineExtensionMethods(image_provider.ExactAssetImage, ['_equals', 'toString']);
-  dart.defineExtensionAccessors(image_provider.ExactAssetImage, ['hashCode']);
-  image_provider._ErrorImageCompleter = class _ErrorImageCompleter extends image_stream.ImageStreamCompleter {
-    setError(opts) {
-      let context = opts && 'context' in opts ? opts.context : null;
-      let exception = opts && 'exception' in opts ? opts.exception : null;
-      let stack = opts && 'stack' in opts ? opts.stack : null;
-      let informationCollector = opts && 'informationCollector' in opts ? opts.informationCollector : null;
-      let silent = opts && 'silent' in opts ? opts.silent : false;
-      this.reportError({context: context, exception: exception, stack: stack, informationCollector: informationCollector, silent: silent});
-    }
-  };
-  (image_provider._ErrorImageCompleter.new = function() {
-    image_provider._ErrorImageCompleter.__proto__.new.call(this);
-    ;
-  }).prototype = image_provider._ErrorImageCompleter.prototype;
-  dart.addTypeTests(image_provider._ErrorImageCompleter);
-  dart.addTypeCaches(image_provider._ErrorImageCompleter);
-  dart.setMethodSignature(image_provider._ErrorImageCompleter, () => ({
-    __proto__: dart.getMethods(image_provider._ErrorImageCompleter.__proto__),
-    setError: dart.fnType(dart.void, [], {context: dart.nullable(diagnostics.DiagnosticsNode), informationCollector: dart.nullable(dart.fnType(core.Iterable$(diagnostics.DiagnosticsNode), [])), silent: core.bool, stack: dart.nullable(core.StackTrace)}, {exception: core.Object})
+  dart.setLibraryUri(dismissible._DismissibleState, I[0]);
+  dart.setFieldSignature(dismissible._DismissibleState, () => ({
+    __proto__: dart.getFields(dismissible._DismissibleState.__proto__),
+    [_moveController]: dart.fieldType(dart.nullable(animation_controller.AnimationController)),
+    [___DismissibleState__moveAnimation]: dart.fieldType(dart.nullable(animation.Animation$(ui.Offset))),
+    [_resizeController]: dart.fieldType(dart.nullable(animation_controller.AnimationController)),
+    [_resizeAnimation]: dart.fieldType(dart.nullable(animation.Animation$(core.double))),
+    [_dragExtent]: dart.fieldType(core.double),
+    [_dragUnderway]: dart.fieldType(core.bool),
+    [_sizePriorToCollapse]: dart.fieldType(dart.nullable(ui.Size))
   }));
-  dart.setLibraryUri(image_provider._ErrorImageCompleter, I[2]);
-  var statusCode$ = dart.privateName(image_provider, "NetworkImageLoadException.statusCode");
-  var uri$ = dart.privateName(image_provider, "NetworkImageLoadException.uri");
-  var _message = dart.privateName(image_provider, "_message");
-  image_provider.NetworkImageLoadException = class NetworkImageLoadException extends core.Object {
-    get statusCode() {
-      return this[statusCode$];
+  var Cubic_d = dart.privateName(curves, "Cubic.d");
+  var Cubic_c = dart.privateName(curves, "Cubic.c");
+  var Cubic_b = dart.privateName(curves, "Cubic.b");
+  var Cubic_a = dart.privateName(curves, "Cubic.a");
+  var Interval_curve = dart.privateName(curves, "Interval.curve");
+  var Interval_end = dart.privateName(curves, "Interval.end");
+  var Interval_begin = dart.privateName(curves, "Interval.begin");
+  dart.defineLazy(dismissible, {
+    /*dismissible._kResizeTimeCurve*/get _kResizeTimeCurve() {
+      return C[56] || CT.C56;
+    },
+    /*dismissible._kMinFlingVelocity*/get _kMinFlingVelocity() {
+      return 700;
+    },
+    /*dismissible._kMinFlingVelocityDelta*/get _kMinFlingVelocityDelta() {
+      return 400;
+    },
+    /*dismissible._kFlingVelocityScale*/get _kFlingVelocityScale() {
+      return 0.0033333333333333335;
+    },
+    /*dismissible._kDismissThreshold*/get _kDismissThreshold() {
+      return 0.4;
     }
-    set statusCode(value) {
-      super.statusCode = value;
-    }
-    get uri() {
-      return this[uri$];
-    }
-    set uri(value) {
-      super.uri = value;
-    }
-    toString() {
-      return this[_message];
-    }
-  };
-  (image_provider.NetworkImageLoadException.new = function(opts) {
-    let statusCode = opts && 'statusCode' in opts ? opts.statusCode : null;
-    let uri = opts && 'uri' in opts ? opts.uri : null;
-    this[statusCode$] = statusCode;
-    this[uri$] = uri;
-    if (!(uri !== null)) dart.assertFailed(null, I[1], 1151, 16, "uri != null");
-    if (!(statusCode !== null)) dart.assertFailed(null, I[1], 1152, 16, "statusCode != null");
-    this[_message] = "HTTP request failed, statusCode: " + dart.str(statusCode) + ", " + dart.str(uri);
-    ;
-  }).prototype = image_provider.NetworkImageLoadException.prototype;
-  dart.addTypeTests(image_provider.NetworkImageLoadException);
-  dart.addTypeCaches(image_provider.NetworkImageLoadException);
-  image_provider.NetworkImageLoadException[dart.implements] = () => [core.Exception];
-  dart.setLibraryUri(image_provider.NetworkImageLoadException, I[2]);
-  dart.setFieldSignature(image_provider.NetworkImageLoadException, () => ({
-    __proto__: dart.getFields(image_provider.NetworkImageLoadException.__proto__),
-    statusCode: dart.finalFieldType(core.int),
-    [_message]: dart.finalFieldType(core.String),
-    uri: dart.finalFieldType(core.Uri)
-  }));
-  dart.defineExtensionMethods(image_provider.NetworkImageLoadException, ['toString']);
-  dart.setBaseClass(image_provider.NetworkImage, image_provider.ImageProvider$(image_provider.NetworkImage));
-  dart.setBaseClass(image_provider.FileImage, image_provider.ImageProvider$(image_provider.FileImage));
-  dart.setBaseClass(image_provider.MemoryImage, image_provider.ImageProvider$(image_provider.MemoryImage));
-  dart.trackLibraries("packages/flutter/src/painting/_network_image_web.dart", {
-    "package:flutter/src/painting/_network_image_web.dart": _network_image_web,
-    "package:flutter/src/painting/image_provider.dart": image_provider
+  }, false);
+  dart.trackLibraries("packages/flutter/src/widgets/dismissible.dart", {
+    "package:flutter/src/widgets/dismissible.dart": dismissible
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["image_provider.dart","_network_image_web.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/flutter/src/painting/_network_image_web.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["dismissible.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/flutter/src/widgets/dismissible.dart.lib.js"}');
   // Exports:
   return {
-    src__painting___network_image_web: _network_image_web,
-    src__painting__image_provider: image_provider
+    src__widgets__dismissible: dismissible
   };
 }));
 
-//# sourceMappingURL=_network_image_web.dart.lib.js.map
+//# sourceMappingURL=dismissible.dart.lib.js.map

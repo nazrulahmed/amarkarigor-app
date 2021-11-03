@@ -19,16 +19,16 @@ define("main_module.bootstrap", ["web_entrypoint.dart", "dart_sdk"], function(ap
          main();
       });
     }
-    window.$dartAppId = "Za5JzgU1mUH0w70wRXGnAg==";
+    window.$dartAppId = "6Y0IqjxVoNEzdZlaYtG+cQ==";
 window.$dartReloadConfiguration = "ReloadConfiguration.none";
 window.$dartModuleStrategy = "require-js";
 window.$loadModuleConfig = require;
 window.$dwdsVersion = "11.0.2";
-window.$dwdsDevHandlerPath = "http://localhost:49362/$dwdsSseHandler";
+window.$dwdsDevHandlerPath = "http://localhost:58541/$dwdsSseHandler";
 window.$dwdsEnableDevtoolsLaunch = true;
 window.$dartEntrypointPath = "main_module.bootstrap.js";
 window.$requireLoader.forceLoadModule("dwds/src/injected/client");
-window.$dartExtensionUri = "http://127.0.0.1:49364/$debug";
+window.$dartExtensionUri = "http://127.0.0.1:58543/$debug";
 
   } else {
     if(window.$dartMainExecuted){
@@ -82,10 +82,8 @@ var baseUrl = (function () {
 
 let modulePaths = {
  "web_entrypoint.dart": "web_entrypoint.dart.lib",
- "packages/amarkarigor/main.dart": "packages/amarkarigor/main.dart.lib",
- "packages/amarkarigor/app/routes/app_pages.dart": "packages/amarkarigor/app/routes/app_pages.dart.lib",
- "packages/amarkarigor/app/modules/splash_screen/views/splash_screen_view.dart": "packages/amarkarigor/app/modules/splash_screen/views/splash_screen_view.dart.lib",
- "packages/amarkarigor/app/modules/splash_screen/controllers/splash_screen_controller.dart": "packages/amarkarigor/app/modules/splash_screen/controllers/splash_screen_controller.dart.lib",
+ "packages/amar_karigor/main.dart": "packages/amar_karigor/main.dart.lib",
+ "packages/amar_karigor/app/routes/app_pages.dart": "packages/amar_karigor/app/routes/app_pages.dart.lib",
  "packages/get/get_navigation/src/root/get_material_app.dart": "packages/get/get_navigation/src/root/get_material_app.dart.lib",
  "packages/get/get_core/get_core.dart": "packages/get/get_core/get_core.dart.lib",
  "packages/get/get_core/src/typedefs.dart": "packages/get/get_core/src/typedefs.dart.lib",
@@ -485,35 +483,35 @@ let modulePaths = {
  "packages/get/get_connect/http/src/utils/utils.dart": "packages/get/get_connect/http/src/utils/utils.dart.lib",
  "packages/get/get_connect/http/src/exceptions/exceptions.dart": "packages/get/get_connect/http/src/exceptions/exceptions.dart.lib",
  "packages/get/get_connect/http/src/certificates/certificates.dart": "packages/get/get_connect/http/src/certificates/certificates.dart.lib",
- "packages/amarkarigor/app/modules/splash_screen/bindings/splash_screen_binding.dart": "packages/amarkarigor/app/modules/splash_screen/bindings/splash_screen_binding.dart.lib",
- "packages/amarkarigor/app/modules/landing_page/views/landing_page_view.dart": "packages/amarkarigor/app/modules/landing_page/views/landing_page_view.dart.lib",
- "packages/amarkarigor/app/modules/landing_page/controllers/landing_page_controller.dart": "packages/amarkarigor/app/modules/landing_page/controllers/landing_page_controller.dart.lib",
- "packages/amarkarigor/app/modules/home/views/home_view.dart": "packages/amarkarigor/app/modules/home/views/home_view.dart.lib",
- "packages/amarkarigor/app/modules/home/views/desktop.dart": "packages/amarkarigor/app/modules/home/views/desktop.dart.lib",
- "packages/amarkarigor/app/modules/home/views/widget/mobile/imports.dart": "packages/amarkarigor/app/modules/home/views/widget/mobile/imports.dart.lib",
- "packages/amarkarigor/app/modules/home/views/widget/mobile/services.dart": "packages/amarkarigor/app/modules/home/views/widget/mobile/services.dart.lib",
- "packages/amarkarigor/app/modules/home/views/widget/mobile/categories.dart": "packages/amarkarigor/app/modules/home/views/widget/mobile/categories.dart.lib",
- "packages/amarkarigor/app/modules/home/views/widget/mobile/offers.dart": "packages/amarkarigor/app/modules/home/views/widget/mobile/offers.dart.lib",
- "packages/amarkarigor/app/modules/home/views/widget/mobile/tags.dart": "packages/amarkarigor/app/modules/home/views/widget/mobile/tags.dart.lib",
- "packages/amarkarigor/app/global/config/app_color.dart": "packages/amarkarigor/app/global/config/app_color.dart.lib",
- "packages/amarkarigor/app/modules/home/views/widget/mobile/appbar.dart": "packages/amarkarigor/app/modules/home/views/widget/mobile/appbar.dart.lib",
- "packages/amarkarigor/app/modules/home/controllers/home_controller.dart": "packages/amarkarigor/app/modules/home/controllers/home_controller.dart.lib",
- "packages/amarkarigor/app/modules/home/views/mobile.dart": "packages/amarkarigor/app/modules/home/views/mobile.dart.lib",
- "packages/amarkarigor/app/modules/auth/views/auth_view.dart": "packages/amarkarigor/app/modules/auth/views/auth_view.dart.lib",
- "packages/amarkarigor/app/modules/auth/controllers/auth_controller.dart": "packages/amarkarigor/app/modules/auth/controllers/auth_controller.dart.lib",
- "packages/amarkarigor/app/global/widget/bottom_nav.dart": "packages/amarkarigor/app/global/widget/bottom_nav.dart.lib",
+ "packages/amar_karigor/app/modules/splash_screen/views/splash_screen_view.dart": "packages/amar_karigor/app/modules/splash_screen/views/splash_screen_view.dart.lib",
+ "packages/amar_karigor/app/modules/splash_screen/controllers/splash_screen_controller.dart": "packages/amar_karigor/app/modules/splash_screen/controllers/splash_screen_controller.dart.lib",
+ "packages/amar_karigor/app/modules/splash_screen/bindings/splash_screen_binding.dart": "packages/amar_karigor/app/modules/splash_screen/bindings/splash_screen_binding.dart.lib",
+ "packages/amar_karigor/app/modules/landing_page/views/landing_page_view.dart": "packages/amar_karigor/app/modules/landing_page/views/landing_page_view.dart.lib",
+ "packages/amar_karigor/app/modules/landing_page/controllers/landing_page_controller.dart": "packages/amar_karigor/app/modules/landing_page/controllers/landing_page_controller.dart.lib",
+ "packages/amar_karigor/app/modules/home/views/home_view.dart": "packages/amar_karigor/app/modules/home/views/home_view.dart.lib",
+ "packages/amar_karigor/app/modules/home/views/widget/mobile/appbar.dart": "packages/amar_karigor/app/modules/home/views/widget/mobile/appbar.dart.lib",
+ "packages/amar_karigor/app/modules/home/views/desktop.dart": "packages/amar_karigor/app/modules/home/views/desktop.dart.lib",
+ "packages/amar_karigor/app/modules/home/views/widget/mobile/imports.dart": "packages/amar_karigor/app/modules/home/views/widget/mobile/imports.dart.lib",
+ "packages/amar_karigor/app/modules/home/views/widget/mobile/services.dart": "packages/amar_karigor/app/modules/home/views/widget/mobile/services.dart.lib",
+ "packages/amar_karigor/app/modules/home/views/widget/mobile/categories.dart": "packages/amar_karigor/app/modules/home/views/widget/mobile/categories.dart.lib",
+ "packages/amar_karigor/app/modules/home/views/widget/mobile/offers.dart": "packages/amar_karigor/app/modules/home/views/widget/mobile/offers.dart.lib",
+ "packages/amar_karigor/app/modules/home/views/widget/mobile/header.dart": "packages/amar_karigor/app/modules/home/views/widget/mobile/header.dart.lib",
+ "packages/amar_karigor/app/global/config/app_style.dart": "packages/amar_karigor/app/global/config/app_style.dart.lib",
+ "packages/amar_karigor/app/modules/home/controllers/home_controller.dart": "packages/amar_karigor/app/modules/home/controllers/home_controller.dart.lib",
+ "packages/amar_karigor/app/modules/home/views/mobile.dart": "packages/amar_karigor/app/modules/home/views/mobile.dart.lib",
+ "packages/amar_karigor/app/modules/auth/views/auth_view.dart": "packages/amar_karigor/app/modules/auth/views/auth_view.dart.lib",
+ "packages/amar_karigor/app/modules/auth/controllers/auth_controller.dart": "packages/amar_karigor/app/modules/auth/controllers/auth_controller.dart.lib",
+ "packages/amar_karigor/app/global/widget/bottom_nav.dart": "packages/amar_karigor/app/global/widget/bottom_nav.dart.lib",
  "packages/salomon_bottom_bar/salomon_bottom_bar.dart": "packages/salomon_bottom_bar/salomon_bottom_bar.dart.lib",
- "packages/amarkarigor/app/global/config/constant.dart": "packages/amarkarigor/app/global/config/constant.dart.lib",
- "packages/amarkarigor/app/modules/landing_page/bindings/landing_page_binding.dart": "packages/amarkarigor/app/modules/landing_page/bindings/landing_page_binding.dart.lib",
- "packages/amarkarigor/app/modules/home/bindings/home_binding.dart": "packages/amarkarigor/app/modules/home/bindings/home_binding.dart.lib",
- "packages/amarkarigor/app/modules/auth/bindings/auth_binding.dart": "packages/amarkarigor/app/modules/auth/bindings/auth_binding.dart.lib"
+ "packages/amar_karigor/app/global/config/constant.dart": "packages/amar_karigor/app/global/config/constant.dart.lib",
+ "packages/amar_karigor/app/modules/landing_page/bindings/landing_page_binding.dart": "packages/amar_karigor/app/modules/landing_page/bindings/landing_page_binding.dart.lib",
+ "packages/amar_karigor/app/modules/home/bindings/home_binding.dart": "packages/amar_karigor/app/modules/home/bindings/home_binding.dart.lib",
+ "packages/amar_karigor/app/modules/auth/bindings/auth_binding.dart": "packages/amar_karigor/app/modules/auth/bindings/auth_binding.dart.lib"
 };
 let moduleNames = {
  "web_entrypoint.dart.lib": "web_entrypoint.dart",
- "packages/amarkarigor/main.dart.lib": "packages/amarkarigor/main.dart",
- "packages/amarkarigor/app/routes/app_pages.dart.lib": "packages/amarkarigor/app/routes/app_pages.dart",
- "packages/amarkarigor/app/modules/splash_screen/views/splash_screen_view.dart.lib": "packages/amarkarigor/app/modules/splash_screen/views/splash_screen_view.dart",
- "packages/amarkarigor/app/modules/splash_screen/controllers/splash_screen_controller.dart.lib": "packages/amarkarigor/app/modules/splash_screen/controllers/splash_screen_controller.dart",
+ "packages/amar_karigor/main.dart.lib": "packages/amar_karigor/main.dart",
+ "packages/amar_karigor/app/routes/app_pages.dart.lib": "packages/amar_karigor/app/routes/app_pages.dart",
  "packages/get/get_navigation/src/root/get_material_app.dart.lib": "packages/get/get_navigation/src/root/get_material_app.dart",
  "packages/get/get_core/get_core.dart.lib": "packages/get/get_core/get_core.dart",
  "packages/get/get_core/src/typedefs.dart.lib": "packages/get/get_core/src/typedefs.dart",
@@ -913,28 +911,30 @@ let moduleNames = {
  "packages/get/get_connect/http/src/utils/utils.dart.lib": "packages/get/get_connect/http/src/utils/utils.dart",
  "packages/get/get_connect/http/src/exceptions/exceptions.dart.lib": "packages/get/get_connect/http/src/exceptions/exceptions.dart",
  "packages/get/get_connect/http/src/certificates/certificates.dart.lib": "packages/get/get_connect/http/src/certificates/certificates.dart",
- "packages/amarkarigor/app/modules/splash_screen/bindings/splash_screen_binding.dart.lib": "packages/amarkarigor/app/modules/splash_screen/bindings/splash_screen_binding.dart",
- "packages/amarkarigor/app/modules/landing_page/views/landing_page_view.dart.lib": "packages/amarkarigor/app/modules/landing_page/views/landing_page_view.dart",
- "packages/amarkarigor/app/modules/landing_page/controllers/landing_page_controller.dart.lib": "packages/amarkarigor/app/modules/landing_page/controllers/landing_page_controller.dart",
- "packages/amarkarigor/app/modules/home/views/home_view.dart.lib": "packages/amarkarigor/app/modules/home/views/home_view.dart",
- "packages/amarkarigor/app/modules/home/views/desktop.dart.lib": "packages/amarkarigor/app/modules/home/views/desktop.dart",
- "packages/amarkarigor/app/modules/home/views/widget/mobile/imports.dart.lib": "packages/amarkarigor/app/modules/home/views/widget/mobile/imports.dart",
- "packages/amarkarigor/app/modules/home/views/widget/mobile/services.dart.lib": "packages/amarkarigor/app/modules/home/views/widget/mobile/services.dart",
- "packages/amarkarigor/app/modules/home/views/widget/mobile/categories.dart.lib": "packages/amarkarigor/app/modules/home/views/widget/mobile/categories.dart",
- "packages/amarkarigor/app/modules/home/views/widget/mobile/offers.dart.lib": "packages/amarkarigor/app/modules/home/views/widget/mobile/offers.dart",
- "packages/amarkarigor/app/modules/home/views/widget/mobile/tags.dart.lib": "packages/amarkarigor/app/modules/home/views/widget/mobile/tags.dart",
- "packages/amarkarigor/app/global/config/app_color.dart.lib": "packages/amarkarigor/app/global/config/app_color.dart",
- "packages/amarkarigor/app/modules/home/views/widget/mobile/appbar.dart.lib": "packages/amarkarigor/app/modules/home/views/widget/mobile/appbar.dart",
- "packages/amarkarigor/app/modules/home/controllers/home_controller.dart.lib": "packages/amarkarigor/app/modules/home/controllers/home_controller.dart",
- "packages/amarkarigor/app/modules/home/views/mobile.dart.lib": "packages/amarkarigor/app/modules/home/views/mobile.dart",
- "packages/amarkarigor/app/modules/auth/views/auth_view.dart.lib": "packages/amarkarigor/app/modules/auth/views/auth_view.dart",
- "packages/amarkarigor/app/modules/auth/controllers/auth_controller.dart.lib": "packages/amarkarigor/app/modules/auth/controllers/auth_controller.dart",
- "packages/amarkarigor/app/global/widget/bottom_nav.dart.lib": "packages/amarkarigor/app/global/widget/bottom_nav.dart",
+ "packages/amar_karigor/app/modules/splash_screen/views/splash_screen_view.dart.lib": "packages/amar_karigor/app/modules/splash_screen/views/splash_screen_view.dart",
+ "packages/amar_karigor/app/modules/splash_screen/controllers/splash_screen_controller.dart.lib": "packages/amar_karigor/app/modules/splash_screen/controllers/splash_screen_controller.dart",
+ "packages/amar_karigor/app/modules/splash_screen/bindings/splash_screen_binding.dart.lib": "packages/amar_karigor/app/modules/splash_screen/bindings/splash_screen_binding.dart",
+ "packages/amar_karigor/app/modules/landing_page/views/landing_page_view.dart.lib": "packages/amar_karigor/app/modules/landing_page/views/landing_page_view.dart",
+ "packages/amar_karigor/app/modules/landing_page/controllers/landing_page_controller.dart.lib": "packages/amar_karigor/app/modules/landing_page/controllers/landing_page_controller.dart",
+ "packages/amar_karigor/app/modules/home/views/home_view.dart.lib": "packages/amar_karigor/app/modules/home/views/home_view.dart",
+ "packages/amar_karigor/app/modules/home/views/widget/mobile/appbar.dart.lib": "packages/amar_karigor/app/modules/home/views/widget/mobile/appbar.dart",
+ "packages/amar_karigor/app/modules/home/views/desktop.dart.lib": "packages/amar_karigor/app/modules/home/views/desktop.dart",
+ "packages/amar_karigor/app/modules/home/views/widget/mobile/imports.dart.lib": "packages/amar_karigor/app/modules/home/views/widget/mobile/imports.dart",
+ "packages/amar_karigor/app/modules/home/views/widget/mobile/services.dart.lib": "packages/amar_karigor/app/modules/home/views/widget/mobile/services.dart",
+ "packages/amar_karigor/app/modules/home/views/widget/mobile/categories.dart.lib": "packages/amar_karigor/app/modules/home/views/widget/mobile/categories.dart",
+ "packages/amar_karigor/app/modules/home/views/widget/mobile/offers.dart.lib": "packages/amar_karigor/app/modules/home/views/widget/mobile/offers.dart",
+ "packages/amar_karigor/app/modules/home/views/widget/mobile/header.dart.lib": "packages/amar_karigor/app/modules/home/views/widget/mobile/header.dart",
+ "packages/amar_karigor/app/global/config/app_style.dart.lib": "packages/amar_karigor/app/global/config/app_style.dart",
+ "packages/amar_karigor/app/modules/home/controllers/home_controller.dart.lib": "packages/amar_karigor/app/modules/home/controllers/home_controller.dart",
+ "packages/amar_karigor/app/modules/home/views/mobile.dart.lib": "packages/amar_karigor/app/modules/home/views/mobile.dart",
+ "packages/amar_karigor/app/modules/auth/views/auth_view.dart.lib": "packages/amar_karigor/app/modules/auth/views/auth_view.dart",
+ "packages/amar_karigor/app/modules/auth/controllers/auth_controller.dart.lib": "packages/amar_karigor/app/modules/auth/controllers/auth_controller.dart",
+ "packages/amar_karigor/app/global/widget/bottom_nav.dart.lib": "packages/amar_karigor/app/global/widget/bottom_nav.dart",
  "packages/salomon_bottom_bar/salomon_bottom_bar.dart.lib": "packages/salomon_bottom_bar/salomon_bottom_bar.dart",
- "packages/amarkarigor/app/global/config/constant.dart.lib": "packages/amarkarigor/app/global/config/constant.dart",
- "packages/amarkarigor/app/modules/landing_page/bindings/landing_page_binding.dart.lib": "packages/amarkarigor/app/modules/landing_page/bindings/landing_page_binding.dart",
- "packages/amarkarigor/app/modules/home/bindings/home_binding.dart.lib": "packages/amarkarigor/app/modules/home/bindings/home_binding.dart",
- "packages/amarkarigor/app/modules/auth/bindings/auth_binding.dart.lib": "packages/amarkarigor/app/modules/auth/bindings/auth_binding.dart"
+ "packages/amar_karigor/app/global/config/constant.dart.lib": "packages/amar_karigor/app/global/config/constant.dart",
+ "packages/amar_karigor/app/modules/landing_page/bindings/landing_page_binding.dart.lib": "packages/amar_karigor/app/modules/landing_page/bindings/landing_page_binding.dart",
+ "packages/amar_karigor/app/modules/home/bindings/home_binding.dart.lib": "packages/amar_karigor/app/modules/home/bindings/home_binding.dart",
+ "packages/amar_karigor/app/modules/auth/bindings/auth_binding.dart.lib": "packages/amar_karigor/app/modules/auth/bindings/auth_binding.dart"
 };
 if(!window.$requireLoader) {
    window.$requireLoader = {
