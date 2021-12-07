@@ -1,564 +1,257 @@
-define(['dart_sdk', 'packages/flutter/src/painting/image_stream.dart', 'packages/flutter/src/foundation/object.dart', 'packages/flutter/src/scheduler/binding.dart', 'packages/flutter/src/foundation/debug.dart'], (function load__packages__flutter__src__painting__image_cache_dart(dart_sdk, packages__flutter__src__painting__image_stream$46dart, packages__flutter__src__foundation__object$46dart, packages__flutter__src__scheduler__binding$46dart, packages__flutter__src__foundation__debug$46dart) {
+define(['dart_sdk', 'packages/get/get_utils/src/get_utils/get_utils.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/material/icon_button.dart'], (function load__packages__get__get_utils__src__platform__platform_web_dart(dart_sdk, packages__get__get_utils__src__get_utils__get_utils$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__material__icon_button$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const _js_helper = dart_sdk._js_helper;
-  const developer = dart_sdk.developer;
-  const _interceptors = dart_sdk._interceptors;
+  const html = dart_sdk.html;
   const ui = dart_sdk.ui;
-  const _internal = dart_sdk._internal;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const image_stream = packages__flutter__src__painting__image_stream$46dart.src__painting__image_stream;
-  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
-  const binding = packages__flutter__src__scheduler__binding$46dart.src__scheduler__binding;
-  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
-  var image_cache = Object.create(dart.library);
-  var $length = dartx.length;
-  var $values = dartx.values;
-  var $clear = dartx.clear;
-  var $remove = dartx.remove;
-  var $_set = dartx._set;
-  var $putIfAbsent = dartx.putIfAbsent;
-  var $toString = dartx.toString;
-  var $_get = dartx._get;
-  var $containsKey = dartx.containsKey;
-  var $first = dartx.first;
-  var $keys = dartx.keys;
-  var $runtimeType = dartx.runtimeType;
+  const get_utils = packages__get__get_utils__src__get_utils__get_utils$46dart.get_utils__src__get_utils__get_utils;
+  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
+  const theme = packages__flutter__src__material__icon_button$46dart.src__material__theme;
+  var platform_web = Object.create(dart.library);
+  var platform = Object.create(dart.library);
+  var context_extensions = Object.create(dart.library);
+  var $export = Object.create(dart.library);
+  var get_utils$ = Object.create(dart.library);
+  var $appVersion = dartx.appVersion;
+  var $contains = dartx.contains;
+  var $navigator = dartx.navigator;
   dart._checkModuleNullSafetyMode(true);
-  var T = {
-    LinkedMapOfObject$_PendingImage: () => (T.LinkedMapOfObject$_PendingImage = dart.constFn(_js_helper.LinkedMap$(core.Object, image_cache._PendingImage)))(),
-    LinkedMapOfObject$_CachedImage: () => (T.LinkedMapOfObject$_CachedImage = dart.constFn(_js_helper.LinkedMap$(core.Object, image_cache._CachedImage)))(),
-    LinkedMapOfObject$_LiveImage: () => (T.LinkedMapOfObject$_LiveImage = dart.constFn(_js_helper.LinkedMap$(core.Object, image_cache._LiveImage)))(),
-    IdentityMapOfString$dynamic: () => (T.IdentityMapOfString$dynamic = dart.constFn(_js_helper.IdentityMap$(core.String, dart.dynamic)))(),
-    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
-    VoidTo_LiveImage: () => (T.VoidTo_LiveImage = dart.constFn(dart.fnType(image_cache._LiveImage, [])))(),
-    ImageInfoN: () => (T.ImageInfoN = dart.constFn(dart.nullable(image_stream.ImageInfo)))(),
-    ImageInfoNAndboolTovoid: () => (T.ImageInfoNAndboolTovoid = dart.constFn(dart.fnType(dart.void, [T.ImageInfoN(), core.bool])))(),
-    JSArrayOfString: () => (T.JSArrayOfString = dart.constFn(_interceptors.JSArray$(core.String)))(),
-    DurationTovoid: () => (T.DurationTovoid = dart.constFn(dart.fnType(dart.void, [core.Duration])))()
+  var T$ = {
+    __Todouble: () => (T$.__Todouble = dart.constFn(dart.fnType(core.double, [], {dividedBy: core.double, reducedBy: core.double}, {})))(),
+    __Todouble$1: () => (T$.__Todouble$1 = dart.constFn(dart.fnType(core.double, [], {dividedBy: core.double, reducedByH: core.double, reducedByW: core.double}, {})))(),
+    ObjectN: () => (T$.ObjectN = dart.constFn(dart.nullable(core.Object)))(),
+    __ToTN: () => (T$.__ToTN = dart.constFn(dart.gFnType(T => {
+      var TN = () => (TN = dart.constFn(dart.nullable(T)))();
+      return [TN(), [], {desktop: TN(), mobile: TN(), tablet: TN(), watch: TN()}, {}];
+    }, T => {
+      var TN = () => (TN = dart.constFn(dart.nullable(T)))();
+      return [T$.ObjectN()];
+    })))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
   var I = [
-    "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/painting/image_cache.dart",
-    "package:flutter/src/painting/image_cache.dart"
+    "package:get/get_utils/src/platform/platform_web.dart",
+    "package:get/get_utils/src/platform/platform.dart"
   ];
-  var _pendingImages = dart.privateName(image_cache, "_pendingImages");
-  var _cache = dart.privateName(image_cache, "_cache");
-  var _liveImages = dart.privateName(image_cache, "_liveImages");
-  var _maximumSize = dart.privateName(image_cache, "_maximumSize");
-  var _maximumSizeBytes = dart.privateName(image_cache, "_maximumSizeBytes");
-  var _currentSizeBytes = dart.privateName(image_cache, "_currentSizeBytes");
-  var _checkCacheSize = dart.privateName(image_cache, "_checkCacheSize");
-  var _touch = dart.privateName(image_cache, "_touch");
-  var _trackLiveImage = dart.privateName(image_cache, "_trackLiveImage");
-  image_cache.ImageCache = class ImageCache extends core.Object {
-    get maximumSize() {
-      return this[_maximumSize];
+  platform_web.GeneralPlatform = class GeneralPlatform extends core.Object {
+    static get isWeb() {
+      return true;
     }
-    set maximumSize(value) {
-      let t0;
-      if (!(value !== null)) dart.assertFailed(null, I[0], 103, 12, "value != null");
-      if (!(value >= 0)) dart.assertFailed(null, I[0], 104, 12, "value >= 0");
-      if (value === this.maximumSize) return;
-      let timelineTask = null;
-      if (!false) {
-        timelineTask = (t0 = new developer.TimelineTask.new(), (() => {
-          t0.start("ImageCache.setMaximumSize", {arguments: new (T.IdentityMapOfString$dynamic()).from(["value", value])});
-          return t0;
-        })());
-      }
-      this[_maximumSize] = value;
-      if (this.maximumSize === 0) {
-        this.clear();
-      } else {
-        this[_checkCacheSize](timelineTask);
-      }
-      if (!false) {
-        dart.nullCheck(timelineTask).finish();
-      }
+    static get isMacOS() {
+      return platform_web._navigator[$appVersion][$contains]("Mac OS") && !platform_web.GeneralPlatform.isIOS;
     }
-    get currentSize() {
-      return this[_cache][$length];
+    static get isWindows() {
+      return platform_web._navigator[$appVersion][$contains]("Win");
     }
-    get maximumSizeBytes() {
-      return this[_maximumSizeBytes];
+    static get isLinux() {
+      return (platform_web._navigator[$appVersion][$contains]("Linux") || platform_web._navigator[$appVersion][$contains]("x11")) && !platform_web.GeneralPlatform.isAndroid;
     }
-    set maximumSizeBytes(value) {
-      let t0;
-      if (!(value !== null)) dart.assertFailed(null, I[0], 142, 12, "value != null");
-      if (!(value >= 0)) dart.assertFailed(null, I[0], 143, 12, "value >= 0");
-      if (value === this[_maximumSizeBytes]) return;
-      let timelineTask = null;
-      if (!false) {
-        timelineTask = (t0 = new developer.TimelineTask.new(), (() => {
-          t0.start("ImageCache.setMaximumSizeBytes", {arguments: new (T.IdentityMapOfString$dynamic()).from(["value", value])});
-          return t0;
-        })());
-      }
-      this[_maximumSizeBytes] = value;
-      if (this[_maximumSizeBytes] === 0) {
-        this.clear();
-      } else {
-        this[_checkCacheSize](timelineTask);
-      }
-      if (!false) {
-        dart.nullCheck(timelineTask).finish();
-      }
+    static get isAndroid() {
+      return platform_web._navigator[$appVersion][$contains]("Android ");
     }
-    get currentSizeBytes() {
-      return this[_currentSizeBytes];
+    static get isIOS() {
+      return get_utils.GetUtils.hasMatch(platform_web._navigator.platform, "/iPad|iPhone|iPod/") || platform_web._navigator.platform === "MacIntel" && dart.nullCheck(platform_web._navigator.maxTouchPoints) > 1;
     }
-    clear() {
-      if (!false) {
-        developer.Timeline.instantSync("ImageCache.clear", {arguments: new (T.IdentityMapOfString$dynamic()).from(["pendingImages", this[_pendingImages][$length], "keepAliveImages", this[_cache][$length], "liveImages", this[_liveImages][$length], "currentSizeInBytes", this[_currentSizeBytes]])});
-      }
-      for (let image of this[_cache][$values]) {
-        image.dispose();
-      }
-      this[_cache][$clear]();
-      this[_pendingImages][$clear]();
-      this[_currentSizeBytes] = 0;
-    }
-    evict(key, opts) {
-      let t0;
-      let includeLive = opts && 'includeLive' in opts ? opts.includeLive : true;
-      if (!(includeLive !== null)) dart.assertFailed(null, I[0], 239, 12, "includeLive != null");
-      if (includeLive) {
-        let image = this[_liveImages][$remove](key);
-        t0 = image;
-        t0 == null ? null : t0.dispose();
-      }
-      let pendingImage = this[_pendingImages][$remove](key);
-      if (pendingImage != null) {
-        if (!false) {
-          developer.Timeline.instantSync("ImageCache.evict", {arguments: new (T.IdentityMapOfString$dynamic()).from(["type", "pending"])});
-        }
-        pendingImage.removeListener();
-        return true;
-      }
-      let image = this[_cache][$remove](key);
-      if (image != null) {
-        if (!false) {
-          developer.Timeline.instantSync("ImageCache.evict", {arguments: new (T.IdentityMapOfString$dynamic()).from(["type", "keepAlive", "sizeInBytes", image.sizeBytes])});
-        }
-        this[_currentSizeBytes] = this[_currentSizeBytes] - dart.nullCheck(image.sizeBytes);
-        image.dispose();
-        return true;
-      }
-      if (!false) {
-        developer.Timeline.instantSync("ImageCache.evict", {arguments: new (T.IdentityMapOfString$dynamic()).from(["type", "miss"])});
-      }
+    static get isFuchsia() {
       return false;
     }
-    [_touch](key, image, timelineTask) {
-      if (!(timelineTask != null)) dart.assertFailed(null, I[0], 285, 12, "timelineTask != null");
-      if (image.sizeBytes != null && dart.nullCheck(image.sizeBytes) <= this.maximumSizeBytes && this.maximumSize > 0) {
-        this[_currentSizeBytes] = this[_currentSizeBytes] + dart.nullCheck(image.sizeBytes);
-        this[_cache][$_set](key, image);
-        this[_checkCacheSize](timelineTask);
-      } else {
-        image.dispose();
-      }
-    }
-    [_trackLiveImage](key, completer, sizeBytes) {
-      let t0;
-      t0 = this[_liveImages][$putIfAbsent](key, dart.fn(() => new image_cache._LiveImage.new(completer, dart.fn(() => {
-        this[_liveImages][$remove](key);
-      }, T.VoidTovoid())), T.VoidTo_LiveImage()));
-      t0.sizeBytes == null ? t0.sizeBytes = sizeBytes : null;
-    }
-    putIfAbsent(key, loader, opts) {
-      let t0, t0$, t1;
-      let onError = opts && 'onError' in opts ? opts.onError : null;
-      if (!(key !== null)) dart.assertFailed(null, I[0], 323, 12, "key != null");
-      if (!(loader !== null)) dart.assertFailed(null, I[0], 324, 12, "loader != null");
-      let timelineTask = null;
-      let listenerTask = null;
-      if (!false) {
-        timelineTask = (t0 = new developer.TimelineTask.new(), (() => {
-          t0.start("ImageCache.putIfAbsent", {arguments: new (T.IdentityMapOfString$dynamic()).from(["key", key[$toString]()])});
-          return t0;
-        })());
-      }
-      let result = (t0$ = this[_pendingImages][$_get](key), t0$ == null ? null : t0$.completer);
-      if (result != null) {
-        if (!false) {
-          dart.nullCheck(timelineTask).finish({arguments: new (T.IdentityMapOfString$dynamic()).from(["result", "pending"])});
-        }
-        return result;
-      }
-      let image = this[_cache][$remove](key);
-      if (image != null) {
-        if (!false) {
-          dart.nullCheck(timelineTask).finish({arguments: new (T.IdentityMapOfString$dynamic()).from(["result", "keepAlive"])});
-        }
-        this[_trackLiveImage](key, image.completer, image.sizeBytes);
-        this[_cache][$_set](key, image);
-        return image.completer;
-      }
-      let liveImage = this[_liveImages][$_get](key);
-      if (liveImage != null) {
-        this[_touch](key, new image_cache._CachedImage.new(liveImage.completer, {sizeBytes: liveImage.sizeBytes}), timelineTask);
-        if (!false) {
-          dart.nullCheck(timelineTask).finish({arguments: new (T.IdentityMapOfString$dynamic()).from(["result", "keepAlive"])});
-        }
-        return liveImage.completer;
-      }
-      try {
-        result = loader();
-        this[_trackLiveImage](key, result, null);
-      } catch (e) {
-        let error = dart.getThrown(e);
-        let stackTrace = dart.stackTrace(e);
-        if (core.Object.is(error)) {
-          if (!false) {
-            dart.nullCheck(timelineTask).finish({arguments: new (T.IdentityMapOfString$dynamic()).from(["result", "error", "error", error[$toString](), "stackTrace", stackTrace.toString()])});
-          }
-          if (onError != null) {
-            onError(error, stackTrace);
-            return null;
-          } else {
-            dart.rethrow(e);
-          }
-        } else
-          throw e;
-      }
-      if (!false) {
-        listenerTask = (t1 = new developer.TimelineTask.new({parent: timelineTask}), (() => {
-          t1.start("listener");
-          return t1;
-        })());
-      }
-      let listenedOnce = false;
-      let untrackedPendingImage = null;
-      const listener = (info, syncCall) => {
-        let t1;
-        let sizeBytes = null;
-        if (info != null) {
-          sizeBytes = info.image.height * info.image.width * 4;
-          info.dispose();
-        }
-        let image = new image_cache._CachedImage.new(dart.nullCheck(result), {sizeBytes: sizeBytes});
-        this[_trackLiveImage](key, result, sizeBytes);
-        if (untrackedPendingImage == null) {
-          this[_touch](key, image, listenerTask);
-        } else {
-          image.dispose();
-        }
-        let pendingImage = (t1 = untrackedPendingImage, t1 == null ? this[_pendingImages][$remove](key) : t1);
-        if (pendingImage != null) {
-          pendingImage.removeListener();
-        }
-        if (!false && !listenedOnce) {
-          dart.nullCheck(listenerTask).finish({arguments: new (T.IdentityMapOfString$dynamic()).from(["syncCall", syncCall, "sizeInBytes", sizeBytes])});
-          dart.nullCheck(timelineTask).finish({arguments: new (T.IdentityMapOfString$dynamic()).from(["currentSizeBytes", this.currentSizeBytes, "currentSize", this.currentSize])});
-        }
-        listenedOnce = true;
-      };
-      dart.fn(listener, T.ImageInfoNAndboolTovoid());
-      let streamListener = new image_stream.ImageStreamListener.new(listener);
-      if (this.maximumSize > 0 && this.maximumSizeBytes > 0) {
-        this[_pendingImages][$_set](key, new image_cache._PendingImage.new(result, streamListener));
-      } else {
-        untrackedPendingImage = new image_cache._PendingImage.new(result, streamListener);
-      }
-      result.addListener(streamListener);
-      return result;
-    }
-    statusForKey(key) {
-      return new image_cache.ImageCacheStatus.__({pending: this[_pendingImages][$containsKey](key), keepAlive: this[_cache][$containsKey](key), live: this[_liveImages][$containsKey](key)});
-    }
-    containsKey(key) {
-      return this[_pendingImages][$_get](key) != null || this[_cache][$_get](key) != null;
-    }
-    get liveImageCount() {
-      return this[_liveImages][$length];
-    }
-    get pendingImageCount() {
-      return this[_pendingImages][$length];
-    }
-    clearLiveImages() {
-      for (let image of this[_liveImages][$values]) {
-        image.dispose();
-      }
-      this[_liveImages][$clear]();
-    }
-    [_checkCacheSize](timelineTask) {
-      let t1;
-      let finishArgs = new (T.IdentityMapOfString$dynamic()).new();
-      let checkCacheTask = null;
-      if (!false) {
-        checkCacheTask = (t1 = new developer.TimelineTask.new({parent: timelineTask}), (() => {
-          t1.start("checkCacheSize");
-          return t1;
-        })());
-        finishArgs[$_set]("evictedKeys", T.JSArrayOfString().of([]));
-        finishArgs[$_set]("currentSize", this.currentSize);
-        finishArgs[$_set]("currentSizeBytes", this.currentSizeBytes);
-      }
-      while (this[_currentSizeBytes] > this[_maximumSizeBytes] || this[_cache][$length] > this[_maximumSize]) {
-        let key = this[_cache][$keys][$first];
-        let image = dart.nullCheck(this[_cache][$_get](key));
-        this[_currentSizeBytes] = this[_currentSizeBytes] - dart.nullCheck(image.sizeBytes);
-        image.dispose();
-        this[_cache][$remove](key);
-        if (!false) {
-          dart.dsend(finishArgs[$_get]("evictedKeys"), 'add', [key[$toString]()]);
-        }
-      }
-      if (!false) {
-        finishArgs[$_set]("endSize", this.currentSize);
-        finishArgs[$_set]("endSizeBytes", this.currentSizeBytes);
-        dart.nullCheck(checkCacheTask).finish({arguments: finishArgs});
-      }
-      if (!(this[_currentSizeBytes] >= 0)) dart.assertFailed(null, I[0], 528, 12, "_currentSizeBytes >= 0");
-      if (!(this[_cache][$length] <= this.maximumSize)) dart.assertFailed(null, I[0], 529, 12, "_cache.length <= maximumSize");
-      if (!(this[_currentSizeBytes] <= this.maximumSizeBytes)) dart.assertFailed(null, I[0], 530, 12, "_currentSizeBytes <= maximumSizeBytes");
+    static get isDesktop() {
+      return platform_web.GeneralPlatform.isMacOS || platform_web.GeneralPlatform.isWindows || platform_web.GeneralPlatform.isLinux;
     }
   };
-  (image_cache.ImageCache.new = function() {
-    this[_pendingImages] = new (T.LinkedMapOfObject$_PendingImage()).new();
-    this[_cache] = new (T.LinkedMapOfObject$_CachedImage()).new();
-    this[_liveImages] = new (T.LinkedMapOfObject$_LiveImage()).new();
-    this[_maximumSize] = 1000;
-    this[_maximumSizeBytes] = 104857600;
-    this[_currentSizeBytes] = 0;
+  (platform_web.GeneralPlatform.new = function() {
     ;
-  }).prototype = image_cache.ImageCache.prototype;
-  dart.addTypeTests(image_cache.ImageCache);
-  dart.addTypeCaches(image_cache.ImageCache);
-  dart.setMethodSignature(image_cache.ImageCache, () => ({
-    __proto__: dart.getMethods(image_cache.ImageCache.__proto__),
-    clear: dart.fnType(dart.void, []),
-    evict: dart.fnType(core.bool, [core.Object], {includeLive: core.bool}, {}),
-    [_touch]: dart.fnType(dart.void, [core.Object, image_cache._CachedImage, dart.nullable(developer.TimelineTask)]),
-    [_trackLiveImage]: dart.fnType(dart.void, [core.Object, image_stream.ImageStreamCompleter, dart.nullable(core.int)]),
-    putIfAbsent: dart.fnType(dart.nullable(image_stream.ImageStreamCompleter), [core.Object, dart.fnType(image_stream.ImageStreamCompleter, [])], {onError: dart.nullable(dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)]))}, {}),
-    statusForKey: dart.fnType(image_cache.ImageCacheStatus, [core.Object]),
-    containsKey: dart.fnType(core.bool, [core.Object]),
-    clearLiveImages: dart.fnType(dart.void, []),
-    [_checkCacheSize]: dart.fnType(dart.void, [dart.nullable(developer.TimelineTask)])
-  }));
-  dart.setGetterSignature(image_cache.ImageCache, () => ({
-    __proto__: dart.getGetters(image_cache.ImageCache.__proto__),
-    maximumSize: core.int,
-    currentSize: core.int,
-    maximumSizeBytes: core.int,
-    currentSizeBytes: core.int,
-    liveImageCount: core.int,
-    pendingImageCount: core.int
-  }));
-  dart.setSetterSignature(image_cache.ImageCache, () => ({
-    __proto__: dart.getSetters(image_cache.ImageCache.__proto__),
-    maximumSize: core.int,
-    maximumSizeBytes: core.int
-  }));
-  dart.setLibraryUri(image_cache.ImageCache, I[1]);
-  dart.setFieldSignature(image_cache.ImageCache, () => ({
-    __proto__: dart.getFields(image_cache.ImageCache.__proto__),
-    [_pendingImages]: dart.finalFieldType(core.Map$(core.Object, image_cache._PendingImage)),
-    [_cache]: dart.finalFieldType(core.Map$(core.Object, image_cache._CachedImage)),
-    [_liveImages]: dart.finalFieldType(core.Map$(core.Object, image_cache._LiveImage)),
-    [_maximumSize]: dart.fieldType(core.int),
-    [_maximumSizeBytes]: dart.fieldType(core.int),
-    [_currentSizeBytes]: dart.fieldType(core.int)
-  }));
-  var pending$ = dart.privateName(image_cache, "ImageCacheStatus.pending");
-  var keepAlive$ = dart.privateName(image_cache, "ImageCacheStatus.keepAlive");
-  var live$ = dart.privateName(image_cache, "ImageCacheStatus.live");
-  image_cache.ImageCacheStatus = class ImageCacheStatus extends core.Object {
-    get pending() {
-      return this[pending$];
-    }
-    set pending(value) {
-      super.pending = value;
-    }
-    get keepAlive() {
-      return this[keepAlive$];
-    }
-    set keepAlive(value) {
-      super.keepAlive = value;
-    }
-    get live() {
-      return this[live$];
-    }
-    set live(value) {
-      super.live = value;
-    }
-    get tracked() {
-      return this.pending || this.keepAlive || this.live;
-    }
-    get untracked() {
-      return !this.pending && !this.keepAlive && !this.live;
-    }
-    _equals(other) {
-      if (other == null) return false;
-      if (!other[$runtimeType]._equals(this[$runtimeType])) {
-        return false;
-      }
-      return image_cache.ImageCacheStatus.is(other) && other.pending === this.pending && other.keepAlive === this.keepAlive && other.live === this.live;
-    }
-    get hashCode() {
-      return ui.hashValues(this.pending, this.keepAlive, this.live);
-    }
-    toString() {
-      return object.objectRuntimeType(this, "ImageCacheStatus") + "(pending: " + dart.str(this.pending) + ", live: " + dart.str(this.live) + ", keepAlive: " + dart.str(this.keepAlive) + ")";
-    }
-  };
-  (image_cache.ImageCacheStatus.__ = function(opts) {
-    let pending = opts && 'pending' in opts ? opts.pending : false;
-    let keepAlive = opts && 'keepAlive' in opts ? opts.keepAlive : false;
-    let live = opts && 'live' in opts ? opts.live : false;
-    this[pending$] = pending;
-    this[keepAlive$] = keepAlive;
-    this[live$] = live;
-    if (!(!pending || !keepAlive)) dart.assertFailed(null, I[0], 557, 15, "!pending || !keepAlive");
-    ;
-  }).prototype = image_cache.ImageCacheStatus.prototype;
-  dart.addTypeTests(image_cache.ImageCacheStatus);
-  dart.addTypeCaches(image_cache.ImageCacheStatus);
-  dart.setGetterSignature(image_cache.ImageCacheStatus, () => ({
-    __proto__: dart.getGetters(image_cache.ImageCacheStatus.__proto__),
-    tracked: core.bool,
-    untracked: core.bool
-  }));
-  dart.setLibraryUri(image_cache.ImageCacheStatus, I[1]);
-  dart.setFieldSignature(image_cache.ImageCacheStatus, () => ({
-    __proto__: dart.getFields(image_cache.ImageCacheStatus.__proto__),
-    pending: dart.finalFieldType(core.bool),
-    keepAlive: dart.finalFieldType(core.bool),
-    live: dart.finalFieldType(core.bool)
-  }));
-  dart.defineExtensionMethods(image_cache.ImageCacheStatus, ['_equals', 'toString']);
-  dart.defineExtensionAccessors(image_cache.ImageCacheStatus, ['hashCode']);
-  image_cache._CachedImageBase = class _CachedImageBase extends core.Object {
-    dispose() {
-      if (!(this.handle != null)) dart.assertFailed(null, I[0], 622, 12, "handle != null");
-      dart.nullCheck(binding.SchedulerBinding.instance).addPostFrameCallback(dart.fn(timeStamp => {
-        let t1;
-        if (!(this.handle != null)) dart.assertFailed(null, I[0], 626, 14, "handle != null");
-        t1 = this.handle;
-        t1 == null ? null : t1.dispose();
-        this.handle = null;
-      }, T.DurationTovoid()));
-    }
-  };
-  (image_cache._CachedImageBase.new = function(completer, opts) {
-    let sizeBytes = opts && 'sizeBytes' in opts ? opts.sizeBytes : null;
-    this.completer = completer;
-    this.sizeBytes = sizeBytes;
-    if (!(completer !== null)) dart.assertFailed(null, I[0], 613, 15, "completer != null");
-    this.handle = completer.keepAlive();
-    ;
-  }).prototype = image_cache._CachedImageBase.prototype;
-  dart.addTypeTests(image_cache._CachedImageBase);
-  dart.addTypeCaches(image_cache._CachedImageBase);
-  dart.setMethodSignature(image_cache._CachedImageBase, () => ({
-    __proto__: dart.getMethods(image_cache._CachedImageBase.__proto__),
-    dispose: dart.fnType(dart.void, [])
-  }));
-  dart.setLibraryUri(image_cache._CachedImageBase, I[1]);
-  dart.setFieldSignature(image_cache._CachedImageBase, () => ({
-    __proto__: dart.getFields(image_cache._CachedImageBase.__proto__),
-    completer: dart.finalFieldType(image_stream.ImageStreamCompleter),
-    sizeBytes: dart.fieldType(dart.nullable(core.int)),
-    handle: dart.fieldType(dart.nullable(image_stream.ImageStreamCompleterHandle))
-  }));
-  image_cache._CachedImage = class _CachedImage extends image_cache._CachedImageBase {};
-  (image_cache._CachedImage.new = function(completer, opts) {
-    let sizeBytes = opts && 'sizeBytes' in opts ? opts.sizeBytes : null;
-    image_cache._CachedImage.__proto__.new.call(this, completer, {sizeBytes: sizeBytes});
-    ;
-  }).prototype = image_cache._CachedImage.prototype;
-  dart.addTypeTests(image_cache._CachedImage);
-  dart.addTypeCaches(image_cache._CachedImage);
-  dart.setLibraryUri(image_cache._CachedImage, I[1]);
-  var ___LiveImage__handleRemove = dart.privateName(image_cache, "_#_LiveImage#_handleRemove");
-  var _handleRemove = dart.privateName(image_cache, "_handleRemove");
-  image_cache._LiveImage = class _LiveImage extends image_cache._CachedImageBase {
-    get [_handleRemove]() {
-      let t1;
-      t1 = this[___LiveImage__handleRemove];
-      return t1 == null ? dart.throw(new _internal.LateError.fieldNI("_handleRemove")) : t1;
-    }
-    set [_handleRemove](t1) {
-      this[___LiveImage__handleRemove] = t1;
-    }
-    dispose() {
-      this.completer.removeOnLastListenerRemovedCallback(this[_handleRemove]);
-      super.dispose();
-    }
-    toString() {
-      return diagnostics.describeIdentity(this);
-    }
-  };
-  (image_cache._LiveImage.new = function(completer, handleRemove, opts) {
-    let sizeBytes = opts && 'sizeBytes' in opts ? opts.sizeBytes : null;
-    this[___LiveImage__handleRemove] = null;
-    image_cache._LiveImage.__proto__.new.call(this, completer, {sizeBytes: sizeBytes});
-    this[_handleRemove] = dart.fn(() => {
-      handleRemove();
-      this.dispose();
-    }, T.VoidTovoid());
-    completer.addOnLastListenerRemovedCallback(this[_handleRemove]);
-  }).prototype = image_cache._LiveImage.prototype;
-  dart.addTypeTests(image_cache._LiveImage);
-  dart.addTypeCaches(image_cache._LiveImage);
-  dart.setGetterSignature(image_cache._LiveImage, () => ({
-    __proto__: dart.getGetters(image_cache._LiveImage.__proto__),
-    [_handleRemove]: dart.fnType(dart.void, [])
-  }));
-  dart.setSetterSignature(image_cache._LiveImage, () => ({
-    __proto__: dart.getSetters(image_cache._LiveImage.__proto__),
-    [_handleRemove]: dart.fnType(dart.void, [])
-  }));
-  dart.setLibraryUri(image_cache._LiveImage, I[1]);
-  dart.setFieldSignature(image_cache._LiveImage, () => ({
-    __proto__: dart.getFields(image_cache._LiveImage.__proto__),
-    [___LiveImage__handleRemove]: dart.fieldType(dart.nullable(dart.fnType(dart.void, [])))
-  }));
-  dart.defineExtensionMethods(image_cache._LiveImage, ['toString']);
-  image_cache._PendingImage = class _PendingImage extends core.Object {
-    removeListener() {
-      this.completer.removeListener(this.listener);
-    }
-  };
-  (image_cache._PendingImage.new = function(completer, listener) {
-    this.completer = completer;
-    this.listener = listener;
-    ;
-  }).prototype = image_cache._PendingImage.prototype;
-  dart.addTypeTests(image_cache._PendingImage);
-  dart.addTypeCaches(image_cache._PendingImage);
-  dart.setMethodSignature(image_cache._PendingImage, () => ({
-    __proto__: dart.getMethods(image_cache._PendingImage.__proto__),
-    removeListener: dart.fnType(dart.void, [])
-  }));
-  dart.setLibraryUri(image_cache._PendingImage, I[1]);
-  dart.setFieldSignature(image_cache._PendingImage, () => ({
-    __proto__: dart.getFields(image_cache._PendingImage.__proto__),
-    completer: dart.finalFieldType(image_stream.ImageStreamCompleter),
-    listener: dart.finalFieldType(image_stream.ImageStreamListener)
-  }));
-  dart.defineLazy(image_cache, {
-    /*image_cache._kDefaultSize*/get _kDefaultSize() {
-      return 1000;
+  }).prototype = platform_web.GeneralPlatform.prototype;
+  dart.addTypeTests(platform_web.GeneralPlatform);
+  dart.addTypeCaches(platform_web.GeneralPlatform);
+  dart.setLibraryUri(platform_web.GeneralPlatform, I[0]);
+  dart.defineLazy(platform_web, {
+    /*platform_web._navigator*/get _navigator() {
+      return html.window[$navigator];
     },
-    /*image_cache._kDefaultSizeBytes*/get _kDefaultSizeBytes() {
-      return 104857600;
-    }
+    set _navigator(_) {}
   }, false);
-  dart.trackLibraries("packages/flutter/src/painting/image_cache.dart", {
-    "package:flutter/src/painting/image_cache.dart": image_cache
+  platform.GetPlatform = class GetPlatform extends core.Object {
+    static get isWeb() {
+      return platform_web.GeneralPlatform.isWeb;
+    }
+    static get isMacOS() {
+      return platform_web.GeneralPlatform.isMacOS;
+    }
+    static get isWindows() {
+      return platform_web.GeneralPlatform.isWindows;
+    }
+    static get isLinux() {
+      return platform_web.GeneralPlatform.isLinux;
+    }
+    static get isAndroid() {
+      return platform_web.GeneralPlatform.isAndroid;
+    }
+    static get isIOS() {
+      return platform_web.GeneralPlatform.isIOS;
+    }
+    static get isFuchsia() {
+      return platform_web.GeneralPlatform.isFuchsia;
+    }
+    static get isMobile() {
+      return platform.GetPlatform.isIOS || platform.GetPlatform.isAndroid;
+    }
+    static get isDesktop() {
+      return platform.GetPlatform.isMacOS || platform.GetPlatform.isWindows || platform.GetPlatform.isLinux;
+    }
+  };
+  (platform.GetPlatform.new = function() {
+    ;
+  }).prototype = platform.GetPlatform.prototype;
+  dart.addTypeTests(platform.GetPlatform);
+  dart.addTypeCaches(platform.GetPlatform);
+  dart.setLibraryUri(platform.GetPlatform, I[1]);
+  context_extensions['ContextExtensionss|get#mediaQuerySize'] = function ContextExtensionss$124get$35mediaQuerySize($this) {
+    return media_query.MediaQuery.of($this).size;
+  };
+  context_extensions['ContextExtensionss|get#height'] = function ContextExtensionss$124get$35height($this) {
+    return context_extensions['ContextExtensionss|get#mediaQuerySize']($this).height;
+  };
+  context_extensions['ContextExtensionss|get#width'] = function ContextExtensionss$124get$35width($this) {
+    return context_extensions['ContextExtensionss|get#mediaQuerySize']($this).width;
+  };
+  context_extensions['ContextExtensionss|heightTransformer'] = function ContextExtensionss$124heightTransformer($this, opts) {
+    let dividedBy = opts && 'dividedBy' in opts ? opts.dividedBy : 1;
+    let reducedBy = opts && 'reducedBy' in opts ? opts.reducedBy : 0;
+    return (context_extensions['ContextExtensionss|get#mediaQuerySize']($this).height - context_extensions['ContextExtensionss|get#mediaQuerySize']($this).height / 100 * reducedBy) / dividedBy;
+  };
+  context_extensions['ContextExtensionss|get#heightTransformer'] = function ContextExtensionss$124get$35heightTransformer($this) {
+    return dart.fn(opts => {
+      let dividedBy = opts && 'dividedBy' in opts ? opts.dividedBy : 1;
+      let reducedBy = opts && 'reducedBy' in opts ? opts.reducedBy : 0;
+      return context_extensions['ContextExtensionss|heightTransformer']($this, {dividedBy: dividedBy, reducedBy: reducedBy});
+    }, T$.__Todouble());
+  };
+  context_extensions['ContextExtensionss|widthTransformer'] = function ContextExtensionss$124widthTransformer($this, opts) {
+    let dividedBy = opts && 'dividedBy' in opts ? opts.dividedBy : 1;
+    let reducedBy = opts && 'reducedBy' in opts ? opts.reducedBy : 0;
+    return (context_extensions['ContextExtensionss|get#mediaQuerySize']($this).width - context_extensions['ContextExtensionss|get#mediaQuerySize']($this).width / 100 * reducedBy) / dividedBy;
+  };
+  context_extensions['ContextExtensionss|get#widthTransformer'] = function ContextExtensionss$124get$35widthTransformer($this) {
+    return dart.fn(opts => {
+      let dividedBy = opts && 'dividedBy' in opts ? opts.dividedBy : 1;
+      let reducedBy = opts && 'reducedBy' in opts ? opts.reducedBy : 0;
+      return context_extensions['ContextExtensionss|widthTransformer']($this, {dividedBy: dividedBy, reducedBy: reducedBy});
+    }, T$.__Todouble());
+  };
+  context_extensions['ContextExtensionss|ratio'] = function ContextExtensionss$124ratio($this, opts) {
+    let dividedBy = opts && 'dividedBy' in opts ? opts.dividedBy : 1;
+    let reducedByW = opts && 'reducedByW' in opts ? opts.reducedByW : 0;
+    let reducedByH = opts && 'reducedByH' in opts ? opts.reducedByH : 0;
+    return context_extensions['ContextExtensionss|heightTransformer']($this, {dividedBy: dividedBy, reducedBy: reducedByH}) / context_extensions['ContextExtensionss|widthTransformer']($this, {dividedBy: dividedBy, reducedBy: reducedByW});
+  };
+  context_extensions['ContextExtensionss|get#ratio'] = function ContextExtensionss$124get$35ratio($this) {
+    return dart.fn(opts => {
+      let dividedBy = opts && 'dividedBy' in opts ? opts.dividedBy : 1;
+      let reducedByW = opts && 'reducedByW' in opts ? opts.reducedByW : 0;
+      let reducedByH = opts && 'reducedByH' in opts ? opts.reducedByH : 0;
+      return context_extensions['ContextExtensionss|ratio']($this, {dividedBy: dividedBy, reducedByW: reducedByW, reducedByH: reducedByH});
+    }, T$.__Todouble$1());
+  };
+  context_extensions['ContextExtensionss|get#theme'] = function ContextExtensionss$124get$35theme($this) {
+    return theme.Theme.of($this);
+  };
+  context_extensions['ContextExtensionss|get#isDarkMode'] = function ContextExtensionss$124get$35isDarkMode($this) {
+    return context_extensions['ContextExtensionss|get#theme']($this).brightness === ui.Brightness.dark;
+  };
+  context_extensions['ContextExtensionss|get#iconColor'] = function ContextExtensionss$124get$35iconColor($this) {
+    return context_extensions['ContextExtensionss|get#theme']($this).iconTheme.color;
+  };
+  context_extensions['ContextExtensionss|get#textTheme'] = function ContextExtensionss$124get$35textTheme($this) {
+    return theme.Theme.of($this).textTheme;
+  };
+  context_extensions['ContextExtensionss|get#mediaQueryPadding'] = function ContextExtensionss$124get$35mediaQueryPadding($this) {
+    return media_query.MediaQuery.of($this).padding;
+  };
+  context_extensions['ContextExtensionss|get#mediaQuery'] = function ContextExtensionss$124get$35mediaQuery($this) {
+    return media_query.MediaQuery.of($this);
+  };
+  context_extensions['ContextExtensionss|get#mediaQueryViewPadding'] = function ContextExtensionss$124get$35mediaQueryViewPadding($this) {
+    return media_query.MediaQuery.of($this).viewPadding;
+  };
+  context_extensions['ContextExtensionss|get#mediaQueryViewInsets'] = function ContextExtensionss$124get$35mediaQueryViewInsets($this) {
+    return media_query.MediaQuery.of($this).viewInsets;
+  };
+  context_extensions['ContextExtensionss|get#orientation'] = function ContextExtensionss$124get$35orientation($this) {
+    return media_query.MediaQuery.of($this).orientation;
+  };
+  context_extensions['ContextExtensionss|get#isLandscape'] = function ContextExtensionss$124get$35isLandscape($this) {
+    return context_extensions['ContextExtensionss|get#orientation']($this) === media_query.Orientation.landscape;
+  };
+  context_extensions['ContextExtensionss|get#isPortrait'] = function ContextExtensionss$124get$35isPortrait($this) {
+    return context_extensions['ContextExtensionss|get#orientation']($this) === media_query.Orientation.portrait;
+  };
+  context_extensions['ContextExtensionss|get#devicePixelRatio'] = function ContextExtensionss$124get$35devicePixelRatio($this) {
+    return media_query.MediaQuery.of($this).devicePixelRatio;
+  };
+  context_extensions['ContextExtensionss|get#textScaleFactor'] = function ContextExtensionss$124get$35textScaleFactor($this) {
+    return media_query.MediaQuery.of($this).textScaleFactor;
+  };
+  context_extensions['ContextExtensionss|get#mediaQueryShortestSide'] = function ContextExtensionss$124get$35mediaQueryShortestSide($this) {
+    return context_extensions['ContextExtensionss|get#mediaQuerySize']($this).shortestSide;
+  };
+  context_extensions['ContextExtensionss|get#showNavbar'] = function ContextExtensionss$124get$35showNavbar($this) {
+    return context_extensions['ContextExtensionss|get#width']($this) > 800;
+  };
+  context_extensions['ContextExtensionss|get#isPhone'] = function ContextExtensionss$124get$35isPhone($this) {
+    return context_extensions['ContextExtensionss|get#mediaQueryShortestSide']($this) < 600;
+  };
+  context_extensions['ContextExtensionss|get#isSmallTablet'] = function ContextExtensionss$124get$35isSmallTablet($this) {
+    return context_extensions['ContextExtensionss|get#mediaQueryShortestSide']($this) >= 600;
+  };
+  context_extensions['ContextExtensionss|get#isLargeTablet'] = function ContextExtensionss$124get$35isLargeTablet($this) {
+    return context_extensions['ContextExtensionss|get#mediaQueryShortestSide']($this) >= 720;
+  };
+  context_extensions['ContextExtensionss|get#isTablet'] = function ContextExtensionss$124get$35isTablet($this) {
+    return context_extensions['ContextExtensionss|get#isSmallTablet']($this) || context_extensions['ContextExtensionss|get#isLargeTablet']($this);
+  };
+  context_extensions['ContextExtensionss|responsiveValue'] = function ContextExtensionss$124responsiveValue(T, $this, opts) {
+    let mobile = opts && 'mobile' in opts ? opts.mobile : null;
+    let tablet = opts && 'tablet' in opts ? opts.tablet : null;
+    let desktop = opts && 'desktop' in opts ? opts.desktop : null;
+    let watch = opts && 'watch' in opts ? opts.watch : null;
+    let deviceWidth = context_extensions['ContextExtensionss|get#mediaQuerySize']($this).shortestSide;
+    if (platform.GetPlatform.isDesktop) {
+      deviceWidth = context_extensions['ContextExtensionss|get#mediaQuerySize']($this).width;
+    }
+    if (deviceWidth >= 1200 && desktop != null) return desktop;
+    if (deviceWidth >= 600 && tablet != null) return tablet;
+    if (deviceWidth < 300 && watch != null) return watch;
+    return mobile;
+  };
+  context_extensions['ContextExtensionss|get#responsiveValue'] = function ContextExtensionss$124get$35responsiveValue($this) {
+    return dart.fn((T, opts) => {
+      let mobile = opts && 'mobile' in opts ? opts.mobile : null;
+      let tablet = opts && 'tablet' in opts ? opts.tablet : null;
+      let desktop = opts && 'desktop' in opts ? opts.desktop : null;
+      let watch = opts && 'watch' in opts ? opts.watch : null;
+      return context_extensions['ContextExtensionss|responsiveValue'](T, $this, {mobile: mobile, tablet: tablet, desktop: desktop, watch: watch});
+    }, T$.__ToTN());
+  };
+  dart.trackLibraries("packages/get/get_utils/src/platform/platform_web.dart", {
+    "package:get/get_utils/src/platform/platform_web.dart": platform_web,
+    "package:get/get_utils/src/platform/platform.dart": platform,
+    "package:get/get_utils/src/extensions/context_extensions.dart": context_extensions,
+    "package:get/get_utils/src/extensions/export.dart": $export,
+    "package:get/get_utils/get_utils.dart": get_utils$
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["image_cache.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AA6FyB;IAAY;oBAQf;;AAClB,YAAO,AAAM,KAAD;AACZ,YAAO,AAAM,KAAD,IAAI;AAChB,UAAI,AAAM,KAAD,KAAI,kBACX;AACY;AACd;AAIG,QAHA,uDAAe;AAAgB,mBAC9B,yCAC4B,4CAAC,SAAS,KAAK;;;;AAG3B,MAApB,qBAAe,KAAK;AACpB,UAAI,AAAY,qBAAG;AACV,QAAP;;AAE6B,QAA7B,sBAAgB,YAAY;;AAE9B;AACwB,QAAV,AAAE,eAAd,YAAY;;IAEhB;;AAGuB,YAAA,AAAO;IAAM;;AAOR;IAAiB;yBAQpB;;AACvB,YAAO,AAAM,KAAD;AACZ,YAAO,AAAM,KAAD,IAAI;AAChB,UAAI,AAAM,KAAD,KAAI,yBACX;AACY;AACd;AAIG,QAHD,uDAAe;AAAgB,mBAC7B,8CAC4B,4CAAC,SAAS,KAAK;;;;AAGtB,MAAzB,0BAAoB,KAAK;AACzB,UAAI,AAAkB,4BAAG;AAChB,QAAP;;AAE6B,QAA7B,sBAAgB,YAAY;;AAE9B;AACwB,QAAV,AAAE,eAAd,YAAY;;IAEhB;;AAG4B;IAAiB;;AAiB3C;AASG,QARQ,+BACP,gCAC4B,4CAC1B,iBAAiB,AAAe,+BAChC,mBAAmB,AAAO,uBAC1B,cAAc,AAAY,4BAC1B,sBAAsB;;AAI5B,eAAwB,QAAS,AAAO;AACvB,QAAf,AAAM,KAAD;;AAEO,MAAd,AAAO;AACe,MAAtB,AAAe;AACM,MAArB,0BAAoB;IACtB;UAuCkB;;UAAY;AAC5B,YAAO,AAAY,WAAD;AAClB,UAAI,WAAW;AAMK,oBAAQ,AAAY,2BAAO,GAAG;AAChC,aAAhB,KAAK;qBAAL,OAAO;;AAEY,yBAAe,AAAe,8BAAO,GAAG;AAC7D,UAAI,YAAY;AACd;AAGI,UAFO,+BAAY,gCAAgD,4CACnE,QAAQ;;AAGiB,QAA7B,AAAa,YAAD;AACZ,cAAO;;AAEW,kBAAQ,AAAO,sBAAO,GAAG;AAC7C,UAAI,KAAK;AACP;AAII,UAHO,+BAAY,gCAAgD,4CACnE,QAAQ,aACR,eAAe,AAAM,KAAD;;AAGa,QAArC,0BAAA,AAAkB,0BAAkB,eAAf,AAAM,KAAD;AACX,QAAf,AAAM,KAAD;AACL,cAAO;;AAET;AAGI,QAFO,+BAAY,gCAAgD,4CACnE,QAAQ;;AAGZ,YAAO;IACT;aAOmB,KAAkB,OAAqB;AACxD,YAAO,AAAa,YAAD;AACnB,UAAI,AAAM,KAAD,sBAAqC,AAAE,eAAjB,AAAM,KAAD,eAAe,yBAAoB,AAAY,mBAAE;AAC9C,QAArC,0BAAA,AAAkB,0BAAkB,eAAf,AAAM,KAAD;AACP,QAAnB,AAAM,oBAAC,GAAG,EAAI,KAAK;AACU,QAA7B,sBAAgB,YAAY;;AAEb,QAAf,AAAM,KAAD;;IAET;sBAE4B,KAA0B,WAAgB;;AAc1C,WAZ1B,AAAY,gCAAY,GAAG,EAAE,cAMpB,+BACL,SAAS,EACT;AACyB,QAAvB,AAAY,2BAAO,GAAG;;MAGf,uBAAV,eAAc,SAAS,GAAb;IACf;gBAYyC,KAAqC;;UAA8B;AAC1G,YAAO,AAAI,GAAD;AACV,YAAO,AAAO,MAAD;AACC;AACA;AACd;AAMG,QALD,uDAAe;AAAgB,mBAC7B,sCAC4B,4CAC1B,OAAO,AAAI,GAAD;;;;AAIM,0BAAS,AAAc,4BAAC,GAAG,iBAAJ,OAAO;AAEpD,UAAI,MAAM;AACR;AACyE,UAA3D,AAAE,eAAd,YAAY,qBAAqC,4CAAC,UAAU;;AAE9D,cAAO,OAAM;;AAMK,kBAAQ,AAAO,sBAAO,GAAG;AAC7C,UAAI,KAAK;AACP;AAC2E,UAA7D,AAAE,eAAd,YAAY,qBAAqC,4CAAC,UAAU;;AAQ7D,QAJD,sBACE,GAAG,EACH,AAAM,KAAD,YACL,AAAM,KAAD;AAEY,QAAnB,AAAM,oBAAC,GAAG,EAAI,KAAK;AACnB,cAAO,AAAM,MAAD;;AAGI,sBAAY,AAAW,yBAAC,GAAG;AAC7C,UAAI,SAAS;AAQV,QAPD,aACE,GAAG,EACH,iCACE,AAAU,SAAD,wBACE,AAAU,SAAD,cAEtB,YAAY;AAEd;AAC2E,UAA7D,AAAE,eAAd,YAAY,qBAAqC,4CAAC,UAAU;;AAE9D,cAAO,AAAU,UAAD;;AAGlB;AACmB,QAAjB,SAAS,AAAM,MAAA;AACmB,QAAlC,sBAAgB,GAAG,EAAE,MAAM,EAAE;;YACtB;YAAO;AAAd;AACA;AAKI,YAJU,AAAE,eAAd,YAAY,qBAAqC,4CAC/C,UAAU,SACV,SAAS,AAAM,KAAD,eACd,cAAc,AAAW,UAAD;;AAG5B,cAAI,OAAO;AACiB,YAA1B,AAAO,OAAA,CAAC,KAAK,EAAE,UAAU;AACzB,kBAAO;;AAEA,YAAP;;;;;AAIJ;AACsE,QAApE,qBAAe,wCAAqB,YAAY,IAAjC;AAAoC,mBAAM;;;;AAKtD,yBAAe;AAML;AACf,YAAK,YAAoB,MAAW;;AAC7B;AACL,YAAI,IAAI;AAC8C,UAApD,YAAY,AAAK,AAAM,AAAO,AAAmB,IAAjC,gBAAgB,AAAK,AAAM,IAAP,eAAe;AACrC,UAAd,AAAK,IAAD;;AAEa,oBAAQ,iCACnB,eAAN,MAAM,eACK,SAAS;AAGiB,QAAvC,sBAAgB,GAAG,EAAE,MAAM,EAAE,SAAS;AAGtC,YAAI,AAAsB,qBAAD;AACS,UAAhC,aAAO,GAAG,EAAE,KAAK,EAAE,YAAY;;AAEhB,UAAf,AAAM,KAAD;;AAGc,4BAAqC,KAAtB,qBAAqB,EAArB,aAAyB,AAAe,8BAAO,GAAG;AACtF,YAAI,YAAY;AACe,UAA7B,AAAa,YAAD;;AAEd,uBAAsB,YAAY;AAI9B,UAHU,AAAE,eAAd,YAAY,qBAAqC,4CAC/C,YAAY,QAAQ,EACpB,eAAe,SAAS;AAKxB,UAHU,AAAE,eAAd,YAAY,qBAAqC,4CAC/C,oBAAoB,uBACpB,eAAe;;AAGA,QAAnB,eAAe;;;AAGS,2BAAiB,yCAAoB,QAAQ;AACvE,UAAI,AAAY,mBAAE,KAAK,AAAiB,wBAAE;AACmB,QAA3D,AAAc,4BAAC,GAAG,EAAI,kCAAc,MAAM,EAAE,cAAc;;AAEG,QAA7D,wBAAwB,kCAAc,MAAM,EAAE,cAAc;;AAG5B,MAAlC,AAAO,MAAD,aAAa,cAAc;AAEjC,YAAO,OAAM;IACf;iBAGqC;AACnC,YAAwB,+CACb,AAAe,mCAAY,GAAG,cAC5B,AAAO,2BAAY,GAAG,SAC3B,AAAY,gCAAY,GAAG;IAErC;gBAGwB;AACtB,YAAO,AAAc,AAAc,6BAAb,GAAG,aAAa,AAAM,oBAAC,GAAG;IAClD;;AAK0B,YAAA,AAAY;IAAM;;AAKf,YAAA,AAAe;IAAM;;AAchD,eAAsB,QAAS,AAAY;AAC1B,QAAf,AAAM,KAAD;;AAEY,MAAnB,AAAY;IACd;sBAImC;;AACN,uBAA8B;AAC3C;AACd;AAC8E,QAA5E,uBAAiB,wCAAqB,YAAY,IAAjC;AAAoC,mBAAM;;;AACrB,QAAtC,AAAU,UAAA,QAAC,eAAyB;AACG,QAAvC,AAAU,UAAA,QAAC,eAAiB;AACqB,QAAjD,AAAU,UAAA,QAAC,oBAAsB;;AAEnC,aAAO,AAAkB,0BAAE,2BAAqB,AAAO,AAAO,wBAAE;AACjD,kBAAM,AAAO,AAAK;AACZ,oBAAmB,eAAX,AAAM,oBAAC,GAAG;AACA,QAArC,0BAAA,AAAkB,0BAAkB,eAAf,AAAM,KAAD;AACX,QAAf,AAAM,KAAD;AACa,QAAlB,AAAO,sBAAO,GAAG;AACjB;AAC+C,UAAnB,WAA1B,AAAU,UAAA,QAAC,wBAAmB,AAAI,GAAD;;;AAGrC;AACqC,QAAnC,AAAU,UAAA,QAAC,WAAa;AACqB,QAA7C,AAAU,UAAA,QAAC,gBAAkB;AACgB,QAA/B,AAAE,eAAhB,cAAc,qBAAoB,UAAU;;AAE9C,YAAO,AAAkB,2BAAG;AAC5B,YAAO,AAAO,AAAO,yBAAG;AACxB,YAAO,AAAkB,2BAAG;IAC9B;;;IAjciC,uBAAwC;IACzC,eAA+B;IAKjC,oBAAkC;IAO5D;IAuCA;IAgCA,0BAAoB;;EA8W1B;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IA6Ba;;;;;;IAQA;;;;;;IAOA;;;;;;;AAIS,YAAA,AAAqB,iBAAV,kBAAa;IAAI;;AAK1B,YAAuB,EAAtB,iBAAY,mBAAc;IAAI;;UAG7B;AACtB,WAAI,AAAM,KAAD,uBAAgB;AACvB,cAAO;;AAET,YAAa,AAGT,iCAHG,KAAK,KACL,AAAM,AAAQ,KAAT,aAAY,gBACjB,AAAM,AAAU,KAAX,eAAc,kBACnB,AAAM,AAAK,KAAN,UAAS;IACvB;;AAGoB,2BAAW,cAAS,gBAAW;IAAK;;AAGnC,YAAG,AAAoG,0BAAlF,MAAM,sBAAoB,wBAAW,gBAAO,sBAAS,aAAI,2BAAc,kBAAS;IAAE;;;QAhDrH;QACA;QACA;IAFA;IACA;IACA;UACc,CAAR,OAAO,KAAK,SAAS;;EAAC;;;;;;;;;;;;;;;;;;;AAiEjC,YAAO,AAAO;AAOZ,MAJuB,AAAE,eAAV,wDAA+B,QAAU;;AACxD,cAAO,AAAO;AACG,aAAjB;4BAAQ;AACK,QAAb,cAAS;;IAEb;;+CAnBO;QACA;IADA;IACA;UACK,AAAU,SAAD;IACT,cAAE,AAAU,SAAD;;EAAY;;;;;;;;;;;;;;;2CAoBD;QAAiB;AAC7C,sDAAM,SAAS,cAAa,SAAS;;EAAC;;;;;;;;;AAa1B;;IAAa;;AAAb;IAAa;;AAI+B,MAA5D,AAAU,mDAAoC;AAC/B,MAAT;IACR;;AAGqB,0CAAiB;IAAK;;yCAlBX,WAAwB;QAAoB;uCAS1D;AARZ,oDAAM,SAAS,cAAa,SAAS;AAIxC,IAHD,sBAAgB;AACA,MAAd,AAAY,YAAA;AACH,MAAT;;AAEuD,IAAzD,AAAU,SAAD,kCAAkC;EAC7C;;;;;;;;;;;;;;;;;;;AAqBoC,MAAlC,AAAU,8BAAe;IAC3B;;4CAPmB,WAAgB;IAAhB;IAAgB;;EAAS;;;;;;;;;;;;;;MAxoBpC,yBAAa;;;MACb,8BAAkB","file":"../../../../../../../../../packages/flutter/src/painting/image_cache.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["platform_web.dart","platform.dart","../extensions/context_extensions.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAU2B;IAAI;;AAGzB,YAAA,AAAW,AAAW,AAAmB,iDAAV,cAA8B;IAAK;;AAEzC,YAAA,AAAW,AAAW,iDAAS;IAAM;;AAG9D,YAC2C,EAD1C,AAAW,AAAW,gDAAS,YAC5B,AAAW,AAAW,gDAAS,YAClC;IAAS;;AAGe,YAAA,AAAW,AAAW,iDAAS;IAAW;;AAIrE,YAAgB,AAAqD,6BAA5C,AAAW,kCAAU,yBACzC,AAAW,AAAS,qCAAG,cAAuC,AAAE,eAA3B,AAAW,0CAAkB;IACzE;;AAE6B;IAAK;;AAEL,YAAA,AAAqB,yCAAV,0CAAa;IAAO;;;;EAC9D;;;;;MA5Be,uBAAU;YAAQ,AAAO;;;;;;ACFb,YAAgB;IAAK;;AAEnB,YAAgB;IAAO;;AAErB,YAAgB;IAAS;;AAE3B,YAAgB;IAAO;;AAErB,YAAgB;IAAS;;AAE7B,YAAgB;IAAK;;AAEjB,YAAgB;IAAS;;AAE1B,YAAY,AAAM,+BAAe;IAAS;;AAGlE,YAAY,AAAiC,iCAAV,kCAAyB;IAAO;;;;EACzE;;;;;ACf6B,UAAW,AAAS;EAAI;;AAK9B,UAAA,AAAe;EAAM;;AAKtB,UAAA,AAAe;EAAK;;QAWP;QAAsB;AACrD,UACqD,EAD7C,AAAe,AAAO,4EACpB,AAAe,AAAO,AAAO,4EAAL,MAAO,SAAS,IAC9C,SAAS;EACf;;AAJO;UAA0B;UAAsB;AAAhD,oGAAS,aAAT,SAAS;;EAIhB;;QAWgC;QAAsB;AACpD,UAA2E,EAAnE,AAAe,AAAM,2EAAI,AAAe,AAAM,AAAO,2EAAL,MAAO,SAAS,IACpE,SAAS;EACf;;AAHO;UAAyB;UAAsB;AAA/C,mGAAS,aAAT,SAAS;;EAGhB;;QAIS;QACA;QACA;AAEP,UAAO,AAA+D,+EAAlC,SAAS,aAAa,UAAU,KAChE,6EAA4B,SAAS,aAAa,UAAU;EAClE;;AAPO;UACE;UACA;UACA;AAHF,wFACR,cADQ,UACP,cADO,UACP;;EAMA;;AAGuB,UAAM;EAAQ;;AAGd,UAAC,AAAM,AAAW,0EAAc;EAAK;;AAGpC,UAAA,AAAM,AAAU;EAAK;;AAGlB,UAAM,AAAS;EAAS;;AAGf,UAAW,AAAS;EAAO;;AAG9B,UAAW;EAAQ;;AAGZ,UAAW,AAAS;EAAW;;AAGhC,UAAW,AAAS;EAAU;;AAGtC,UAAW,AAAS;EAAW;;AAGtC,UAAA,AAAY,qEAAe;EAAS;;AAGrC,UAAA,AAAY,qEAAe;EAAQ;;AAG3B,UAAW,AAAS;EAAgB;;AAGrC,UAAW,AAAS;EAAe;;AAG5B,UAAA,AAAe;EAAY;;AAGzC,UAAC,AAAM,6DAAE;EAAI;;AAGhB,UAAC,AAAuB,8EAAE;EAAI;;AAGxB,UAAC,AAAuB,+EAAG;EAAI;;AAG/B,UAAC,AAAuB,+EAAG;EAAI;;AAGpC,UAAA,AAAc,sEAAG;EAAa;;QAS9C;QACA;QACA;QACA;AAEC,sBAAc,AAAe;AACjC,QAAgB;AACoB,MAAlC,cAAc,AAAe;;AAE/B,QAAI,AAAY,WAAD,IAAI,QAAQ,OAAO,UAAU,MAAO,QAAO;AAC1D,QAAI,AAAY,WAAD,IAAI,OAAO,MAAM,UAAU,MAAO,OAAM;AACvD,QAAI,AAAY,WAAD,GAAG,OAAO,KAAK,UAAU,MAAO,MAAK;AACpD,UAAO,OAAM;EACf;;AAdG;UACE;UACA;UACA;UACA;AAJF,+FAAM,UAAN,MAAM,WAAN,OAAO,SAAP,KAAK;;EAcR","file":"../../../../../../../../../../../../packages/get/get_utils/src/platform/platform_web.dart.lib.js"}');
   // Exports:
   return {
-    src__painting__image_cache: image_cache
+    get_utils__src__platform__platform_web: platform_web,
+    get_utils__src__platform__platform: platform,
+    get_utils__src__extensions__context_extensions: context_extensions,
+    get_utils__src__extensions__export: $export,
+    get_utils__get_utils: get_utils$
   };
 }));
 
-//# sourceMappingURL=image_cache.dart.lib.js.map
+//# sourceMappingURL=platform_web.dart.lib.js.map

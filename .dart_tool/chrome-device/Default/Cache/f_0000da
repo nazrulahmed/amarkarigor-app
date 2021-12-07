@@ -1,435 +1,435 @@
-define(['dart_sdk', 'packages/flutter/src/physics/tolerance.dart', 'packages/flutter/src/physics/friction_simulation.dart', 'packages/flutter/src/physics/spring_simulation.dart', 'packages/flutter/src/foundation/object.dart', 'packages/flutter/src/physics/simulation.dart'], (function load__packages__flutter__src__widgets__scroll_simulation_dart(dart_sdk, packages__flutter__src__physics__tolerance$46dart, packages__flutter__src__physics__friction_simulation$46dart, packages__flutter__src__physics__spring_simulation$46dart, packages__flutter__src__foundation__object$46dart, packages__flutter__src__physics__simulation$46dart) {
+define(['dart_sdk', 'packages/get/get_core/src/get_main.dart'], (function load__packages__get__get_utils__src__get_utils__get_utils_dart(dart_sdk, packages__get__get_core__src__get_main$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const math = dart_sdk.math;
-  const _internal = dart_sdk._internal;
-  const _interceptors = dart_sdk._interceptors;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const tolerance = packages__flutter__src__physics__tolerance$46dart.src__physics__tolerance;
-  const friction_simulation = packages__flutter__src__physics__friction_simulation$46dart.src__physics__friction_simulation;
-  const spring_simulation = packages__flutter__src__physics__spring_simulation$46dart.src__physics__spring_simulation;
-  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
-  const simulation = packages__flutter__src__physics__simulation$46dart.src__physics__simulation;
-  var scroll_simulation = Object.create(dart.library);
-  var $isFinite = dartx.isFinite;
-  var $abs = dartx.abs;
-  var $round = dartx.round;
-  var $sign = dartx.sign;
-  var $clamp = dartx.clamp;
+  const get_main = packages__get__get_core__src__get_main$46dart.get_core__src__get_main;
+  var get_utils = Object.create(dart.library);
+  var $toLowerCase = dartx.toLowerCase;
+  var $endsWith = dartx.endsWith;
+  var $replaceAll = dartx.replaceAll;
   var $_get = dartx._get;
+  var $toString = dartx.toString;
+  var $contains = dartx.contains;
+  var $split = dartx.split;
+  var $map = dartx.map;
+  var $toList = dartx.toList;
+  var $modulo = dartx['%'];
+  var $join = dartx.join;
+  var $toUpperCase = dartx.toUpperCase;
+  var $substring = dartx.substring;
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $isEmpty = dartx.isEmpty;
+  var $trim = dartx.trim;
   dart._checkModuleNullSafetyMode(true);
   var T = {
-    JSArrayOfdouble: () => (T.JSArrayOfdouble = dart.constFn(_interceptors.JSArray$(core.double)))()
+    StringToint: () => (T.StringToint = dart.constFn(dart.fnType(core.int, [core.String])))(),
+    StringToNint: () => (T.StringToNint = dart.constFn(dart.nullable(T.StringToint())))(),
+    intN: () => (T.intN = dart.constFn(dart.nullable(core.int)))(),
+    String__Toint: () => (T.String__Toint = dart.constFn(dart.fnType(core.int, [core.String], {onError: T.StringToNint(), radix: T.intN()}, {})))(),
+    IterableOfint: () => (T.IterableOfint = dart.constFn(core.Iterable$(core.int)))(),
+    intToint: () => (T.intToint = dart.constFn(dart.fnType(core.int, [core.int])))(),
+    StringN: () => (T.StringN = dart.constFn(dart.nullable(core.String)))(),
+    StringToStringN: () => (T.StringToStringN = dart.constFn(dart.fnType(T.StringN(), [core.String])))(),
+    dynamicToString: () => (T.dynamicToString = dart.constFn(dart.fnType(core.String, [dart.dynamic])))(),
+    boolN: () => (T.boolN = dart.constFn(dart.nullable(core.bool)))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
     get C0() {
-      return C[0] = dart.const({
-        __proto__: tolerance.Tolerance.prototype,
-        [Tolerance_velocity]: 0.001,
-        [Tolerance_time]: 0.001,
-        [Tolerance_distance]: 0.001
-      });
-    }
-  }, false);
-  var C = [void 0];
-  var I = [
-    "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/widgets/scroll_simulation.dart",
-    "package:flutter/src/widgets/scroll_simulation.dart"
-  ];
-  var leadingExtent$ = dart.privateName(scroll_simulation, "BouncingScrollSimulation.leadingExtent");
-  var trailingExtent$ = dart.privateName(scroll_simulation, "BouncingScrollSimulation.trailingExtent");
-  var spring$ = dart.privateName(scroll_simulation, "BouncingScrollSimulation.spring");
-  var Tolerance_velocity = dart.privateName(tolerance, "Tolerance.velocity");
-  var Tolerance_time = dart.privateName(tolerance, "Tolerance.time");
-  var Tolerance_distance = dart.privateName(tolerance, "Tolerance.distance");
-  var __BouncingScrollSimulation__frictionSimulation = dart.privateName(scroll_simulation, "_#BouncingScrollSimulation#_frictionSimulation");
-  var __BouncingScrollSimulation__springSimulation = dart.privateName(scroll_simulation, "_#BouncingScrollSimulation#_springSimulation");
-  var __BouncingScrollSimulation__springTime = dart.privateName(scroll_simulation, "_#BouncingScrollSimulation#_springTime");
-  var _timeOffset = dart.privateName(scroll_simulation, "_timeOffset");
-  var _springSimulation = dart.privateName(scroll_simulation, "_springSimulation");
-  var _underscrollSimulation = dart.privateName(scroll_simulation, "_underscrollSimulation");
-  var _springTime = dart.privateName(scroll_simulation, "_springTime");
-  var _overscrollSimulation = dart.privateName(scroll_simulation, "_overscrollSimulation");
-  var _frictionSimulation = dart.privateName(scroll_simulation, "_frictionSimulation");
-  var _simulation = dart.privateName(scroll_simulation, "_simulation");
-  scroll_simulation.BouncingScrollSimulation = class BouncingScrollSimulation extends simulation.Simulation {
-    get leadingExtent() {
-      return this[leadingExtent$];
-    }
-    set leadingExtent(value) {
-      super.leadingExtent = value;
-    }
-    get trailingExtent() {
-      return this[trailingExtent$];
-    }
-    set trailingExtent(value) {
-      super.trailingExtent = value;
-    }
-    get spring() {
-      return this[spring$];
-    }
-    set spring(value) {
-      super.spring = value;
-    }
-    get [_frictionSimulation]() {
-      let t0;
-      t0 = this[__BouncingScrollSimulation__frictionSimulation];
-      return t0 == null ? dart.throw(new _internal.LateError.fieldNI("_frictionSimulation")) : t0;
-    }
-    set [_frictionSimulation](t0) {
-      this[__BouncingScrollSimulation__frictionSimulation] = t0;
-    }
-    get [_springSimulation]() {
-      let t1;
-      t1 = this[__BouncingScrollSimulation__springSimulation];
-      return t1 == null ? dart.throw(new _internal.LateError.fieldNI("_springSimulation")) : t1;
-    }
-    set [_springSimulation](t1) {
-      this[__BouncingScrollSimulation__springSimulation] = t1;
-    }
-    get [_springTime]() {
-      let t2;
-      t2 = this[__BouncingScrollSimulation__springTime];
-      return t2 == null ? dart.throw(new _internal.LateError.fieldNI("_springTime")) : t2;
-    }
-    set [_springTime](t2) {
-      this[__BouncingScrollSimulation__springTime] = t2;
-    }
-    [_underscrollSimulation](x, dx) {
-      return new spring_simulation.ScrollSpringSimulation.new(this.spring, x, this.leadingExtent, dx);
-    }
-    [_overscrollSimulation](x, dx) {
-      return new spring_simulation.ScrollSpringSimulation.new(this.spring, x, this.trailingExtent, dx);
-    }
-    [_simulation](time) {
-      let t3;
-      let simulation = null;
-      if (time > this[_springTime]) {
-        this[_timeOffset] = this[_springTime][$isFinite] ? this[_springTime] : 0.0;
-        simulation = this[_springSimulation];
-      } else {
-        this[_timeOffset] = 0.0;
-        simulation = this[_frictionSimulation];
-      }
-      t3 = simulation;
-      return (() => {
-        t3.tolerance = this.tolerance;
-        return t3;
-      })();
-    }
-    x(time) {
-      return this[_simulation](time).x(time - this[_timeOffset]);
-    }
-    dx(time) {
-      return this[_simulation](time).dx(time - this[_timeOffset]);
-    }
-    isDone(time) {
-      return this[_simulation](time).isDone(time - this[_timeOffset]);
-    }
-    toString() {
-      return object.objectRuntimeType(this, "BouncingScrollSimulation") + "(leadingExtent: " + dart.str(this.leadingExtent) + ", trailingExtent: " + dart.str(this.trailingExtent) + ")";
-    }
-  };
-  (scroll_simulation.BouncingScrollSimulation.new = function(opts) {
-    let position = opts && 'position' in opts ? opts.position : null;
-    let velocity = opts && 'velocity' in opts ? opts.velocity : null;
-    let leadingExtent = opts && 'leadingExtent' in opts ? opts.leadingExtent : null;
-    let trailingExtent = opts && 'trailingExtent' in opts ? opts.trailingExtent : null;
-    let spring = opts && 'spring' in opts ? opts.spring : null;
-    let tolerance = opts && 'tolerance' in opts ? opts.tolerance : C[0] || CT.C0;
-    this[__BouncingScrollSimulation__frictionSimulation] = null;
-    this[__BouncingScrollSimulation__springSimulation] = null;
-    this[__BouncingScrollSimulation__springTime] = null;
-    this[_timeOffset] = 0.0;
-    this[leadingExtent$] = leadingExtent;
-    this[trailingExtent$] = trailingExtent;
-    this[spring$] = spring;
-    if (!(position !== null)) dart.assertFailed(null, I[0], 38, 15, "position != null");
-    if (!(velocity !== null)) dart.assertFailed(null, I[0], 39, 15, "velocity != null");
-    if (!(leadingExtent !== null)) dart.assertFailed(null, I[0], 40, 15, "leadingExtent != null");
-    if (!(trailingExtent !== null)) dart.assertFailed(null, I[0], 41, 15, "trailingExtent != null");
-    if (!(leadingExtent <= trailingExtent)) dart.assertFailed(null, I[0], 42, 15, "leadingExtent <= trailingExtent");
-    if (!(spring !== null)) dart.assertFailed(null, I[0], 43, 15, "spring != null");
-    scroll_simulation.BouncingScrollSimulation.__proto__.new.call(this, {tolerance: tolerance});
-    if (position < this.leadingExtent) {
-      this[_springSimulation] = this[_underscrollSimulation](position, velocity);
-      this[_springTime] = -1 / 0;
-    } else if (position > this.trailingExtent) {
-      this[_springSimulation] = this[_overscrollSimulation](position, velocity);
-      this[_springTime] = -1 / 0;
-    } else {
-      this[_frictionSimulation] = new friction_simulation.FrictionSimulation.new(0.135, position, velocity);
-      let finalX = this[_frictionSimulation].finalX;
-      if (velocity > 0.0 && finalX > this.trailingExtent) {
-        this[_springTime] = this[_frictionSimulation].timeAtX(this.trailingExtent);
-        this[_springSimulation] = this[_overscrollSimulation](this.trailingExtent, math.min(core.double, this[_frictionSimulation].dx(this[_springTime]), 5000));
-        if (!this[_springTime][$isFinite]) dart.assertFailed(null, I[0], 62, 16, "_springTime.isFinite");
-      } else if (velocity < 0.0 && finalX < this.leadingExtent) {
-        this[_springTime] = this[_frictionSimulation].timeAtX(this.leadingExtent);
-        this[_springSimulation] = this[_underscrollSimulation](this.leadingExtent, math.min(core.double, this[_frictionSimulation].dx(this[_springTime]), 5000));
-        if (!this[_springTime][$isFinite]) dart.assertFailed(null, I[0], 69, 16, "_springTime.isFinite");
-      } else {
-        this[_springTime] = 1 / 0;
-      }
-    }
-    if (!(this[_springTime] !== null)) dart.assertFailed(null, I[0], 74, 12, "_springTime != null");
-  }).prototype = scroll_simulation.BouncingScrollSimulation.prototype;
-  dart.addTypeTests(scroll_simulation.BouncingScrollSimulation);
-  dart.addTypeCaches(scroll_simulation.BouncingScrollSimulation);
-  dart.setMethodSignature(scroll_simulation.BouncingScrollSimulation, () => ({
-    __proto__: dart.getMethods(scroll_simulation.BouncingScrollSimulation.__proto__),
-    [_underscrollSimulation]: dart.fnType(simulation.Simulation, [core.double, core.double]),
-    [_overscrollSimulation]: dart.fnType(simulation.Simulation, [core.double, core.double]),
-    [_simulation]: dart.fnType(simulation.Simulation, [core.double]),
-    x: dart.fnType(core.double, [core.double]),
-    dx: dart.fnType(core.double, [core.double]),
-    isDone: dart.fnType(core.bool, [core.double])
-  }));
-  dart.setGetterSignature(scroll_simulation.BouncingScrollSimulation, () => ({
-    __proto__: dart.getGetters(scroll_simulation.BouncingScrollSimulation.__proto__),
-    [_frictionSimulation]: friction_simulation.FrictionSimulation,
-    [_springSimulation]: simulation.Simulation,
-    [_springTime]: core.double
-  }));
-  dart.setSetterSignature(scroll_simulation.BouncingScrollSimulation, () => ({
-    __proto__: dart.getSetters(scroll_simulation.BouncingScrollSimulation.__proto__),
-    [_frictionSimulation]: friction_simulation.FrictionSimulation,
-    [_springSimulation]: simulation.Simulation,
-    [_springTime]: core.double
-  }));
-  dart.setLibraryUri(scroll_simulation.BouncingScrollSimulation, I[1]);
-  dart.setFieldSignature(scroll_simulation.BouncingScrollSimulation, () => ({
-    __proto__: dart.getFields(scroll_simulation.BouncingScrollSimulation.__proto__),
-    leadingExtent: dart.finalFieldType(core.double),
-    trailingExtent: dart.finalFieldType(core.double),
-    spring: dart.finalFieldType(spring_simulation.SpringDescription),
-    [__BouncingScrollSimulation__frictionSimulation]: dart.fieldType(dart.nullable(friction_simulation.FrictionSimulation)),
-    [__BouncingScrollSimulation__springSimulation]: dart.fieldType(dart.nullable(simulation.Simulation)),
-    [__BouncingScrollSimulation__springTime]: dart.fieldType(dart.nullable(core.double)),
-    [_timeOffset]: dart.fieldType(core.double)
-  }));
-  dart.defineExtensionMethods(scroll_simulation.BouncingScrollSimulation, ['toString']);
-  dart.defineLazy(scroll_simulation.BouncingScrollSimulation, {
-    /*scroll_simulation.BouncingScrollSimulation.maxSpringTransferVelocity*/get maxSpringTransferVelocity() {
-      return 5000;
-    }
-  }, false);
-  var position$ = dart.privateName(scroll_simulation, "ClampingScrollSimulation.position");
-  var velocity$ = dart.privateName(scroll_simulation, "ClampingScrollSimulation.velocity");
-  var friction$ = dart.privateName(scroll_simulation, "ClampingScrollSimulation.friction");
-  var __ClampingScrollSimulation__duration = dart.privateName(scroll_simulation, "_#ClampingScrollSimulation#_duration");
-  var __ClampingScrollSimulation__distance = dart.privateName(scroll_simulation, "_#ClampingScrollSimulation#_distance");
-  var _duration = dart.privateName(scroll_simulation, "_duration");
-  var _splineFlingDuration = dart.privateName(scroll_simulation, "_splineFlingDuration");
-  var _distance = dart.privateName(scroll_simulation, "_distance");
-  var _splineFlingDistance = dart.privateName(scroll_simulation, "_splineFlingDistance");
-  var _splineDeceleration = dart.privateName(scroll_simulation, "_splineDeceleration");
-  scroll_simulation.ClampingScrollSimulation = class ClampingScrollSimulation extends simulation.Simulation {
-    get position() {
-      return this[position$];
-    }
-    set position(value) {
-      super.position = value;
-    }
-    get velocity() {
-      return this[velocity$];
-    }
-    set velocity(value) {
-      super.velocity = value;
-    }
-    get friction() {
-      return this[friction$];
-    }
-    set friction(value) {
-      super.friction = value;
-    }
-    get [_duration]() {
-      let t3;
-      t3 = this[__ClampingScrollSimulation__duration];
-      return t3 == null ? dart.throw(new _internal.LateError.fieldNI("_duration")) : t3;
-    }
-    set [_duration](t3) {
-      this[__ClampingScrollSimulation__duration] = t3;
-    }
-    get [_distance]() {
-      let t4;
-      t4 = this[__ClampingScrollSimulation__distance];
-      return t4 == null ? dart.throw(new _internal.LateError.fieldNI("_distance")) : t4;
-    }
-    set [_distance](t4) {
-      this[__ClampingScrollSimulation__distance] = t4;
-    }
-    static _decelerationForFriction(friction) {
-      return 9.80665 * 39.37 * friction * 1.0 * 160.0;
-    }
-    [_splineDeceleration](velocity) {
-      return math.log(0.35 * velocity[$abs]() / (this.friction * scroll_simulation.ClampingScrollSimulation._decelerationForFriction(0.84)));
-    }
-    [_splineFlingDuration](velocity) {
-      let deceleration = this[_splineDeceleration](velocity);
-      return (1000 * math.exp(deceleration / (scroll_simulation.ClampingScrollSimulation._kDecelerationRate - 1.0)))[$round]();
-    }
-    [_splineFlingDistance](velocity) {
-      let l = this[_splineDeceleration](velocity);
-      let decelMinusOne = scroll_simulation.ClampingScrollSimulation._kDecelerationRate - 1.0;
-      return this.friction * scroll_simulation.ClampingScrollSimulation._decelerationForFriction(0.84) * math.exp(scroll_simulation.ClampingScrollSimulation._kDecelerationRate / decelMinusOne * l);
-    }
-    x(time) {
-      if (time === 0) {
-        return this.position;
-      }
-      let sample = new scroll_simulation._NBSample.new(time, this[_duration]);
-      return this.position + sample.distanceCoef * this[_distance] * this.velocity[$sign];
-    }
-    dx(time) {
-      if (time === 0) {
-        return this.velocity;
-      }
-      let sample = new scroll_simulation._NBSample.new(time, this[_duration]);
-      return sample.velocityCoef * this[_distance] / this[_duration] * this.velocity[$sign] * 1000.0;
-    }
-    isDone(time) {
-      return time * 1000.0 >= this[_duration];
-    }
-  };
-  (scroll_simulation.ClampingScrollSimulation.new = function(opts) {
-    let position = opts && 'position' in opts ? opts.position : null;
-    let velocity = opts && 'velocity' in opts ? opts.velocity : null;
-    let friction = opts && 'friction' in opts ? opts.friction : 0.015;
-    let tolerance = opts && 'tolerance' in opts ? opts.tolerance : C[0] || CT.C0;
-    this[__ClampingScrollSimulation__duration] = null;
-    this[__ClampingScrollSimulation__distance] = null;
-    this[position$] = position;
-    this[velocity$] = velocity;
-    this[friction$] = friction;
-    scroll_simulation.ClampingScrollSimulation.__proto__.new.call(this, {tolerance: tolerance});
-    this[_duration] = this[_splineFlingDuration](this.velocity);
-    this[_distance] = this[_splineFlingDistance](this.velocity);
-  }).prototype = scroll_simulation.ClampingScrollSimulation.prototype;
-  dart.addTypeTests(scroll_simulation.ClampingScrollSimulation);
-  dart.addTypeCaches(scroll_simulation.ClampingScrollSimulation);
-  dart.setMethodSignature(scroll_simulation.ClampingScrollSimulation, () => ({
-    __proto__: dart.getMethods(scroll_simulation.ClampingScrollSimulation.__proto__),
-    [_splineDeceleration]: dart.fnType(core.double, [core.double]),
-    [_splineFlingDuration]: dart.fnType(core.int, [core.double]),
-    [_splineFlingDistance]: dart.fnType(core.double, [core.double]),
-    x: dart.fnType(core.double, [core.double]),
-    dx: dart.fnType(core.double, [core.double]),
-    isDone: dart.fnType(core.bool, [core.double])
-  }));
-  dart.setGetterSignature(scroll_simulation.ClampingScrollSimulation, () => ({
-    __proto__: dart.getGetters(scroll_simulation.ClampingScrollSimulation.__proto__),
-    [_duration]: core.int,
-    [_distance]: core.double
-  }));
-  dart.setSetterSignature(scroll_simulation.ClampingScrollSimulation, () => ({
-    __proto__: dart.getSetters(scroll_simulation.ClampingScrollSimulation.__proto__),
-    [_duration]: core.int,
-    [_distance]: core.double
-  }));
-  dart.setLibraryUri(scroll_simulation.ClampingScrollSimulation, I[1]);
-  dart.setFieldSignature(scroll_simulation.ClampingScrollSimulation, () => ({
-    __proto__: dart.getFields(scroll_simulation.ClampingScrollSimulation.__proto__),
-    position: dart.finalFieldType(core.double),
-    velocity: dart.finalFieldType(core.double),
-    friction: dart.finalFieldType(core.double),
-    [__ClampingScrollSimulation__duration]: dart.fieldType(dart.nullable(core.int)),
-    [__ClampingScrollSimulation__distance]: dart.fieldType(dart.nullable(core.double))
-  }));
-  dart.defineLazy(scroll_simulation.ClampingScrollSimulation, {
-    /*scroll_simulation.ClampingScrollSimulation._kDecelerationRate*/get _kDecelerationRate() {
-      return math.log(0.78) / math.log(0.9);
-    }
-  }, false);
-  var ___NBSample__velocityCoef = dart.privateName(scroll_simulation, "_#_NBSample#_velocityCoef");
-  var ___NBSample__distanceCoef = dart.privateName(scroll_simulation, "_#_NBSample#_distanceCoef");
-  var _distanceCoef = dart.privateName(scroll_simulation, "_distanceCoef");
-  var _velocityCoef = dart.privateName(scroll_simulation, "_velocityCoef");
-  scroll_simulation._NBSample = class _NBSample extends core.Object {
-    get [_velocityCoef]() {
-      let t5;
-      t5 = this[___NBSample__velocityCoef];
-      return t5 == null ? dart.throw(new _internal.LateError.fieldNI("_velocityCoef")) : t5;
-    }
-    set [_velocityCoef](t5) {
-      this[___NBSample__velocityCoef] = t5;
-    }
-    get velocityCoef() {
-      return this[_velocityCoef];
-    }
-    get [_distanceCoef]() {
-      let t6;
-      t6 = this[___NBSample__distanceCoef];
-      return t6 == null ? dart.throw(new _internal.LateError.fieldNI("_distanceCoef")) : t6;
-    }
-    set [_distanceCoef](t6) {
-      this[___NBSample__distanceCoef] = t6;
-    }
-    get distanceCoef() {
-      return this[_distanceCoef];
-    }
-  };
-  (scroll_simulation._NBSample.new = function(time, duration) {
-    this[___NBSample__velocityCoef] = null;
-    this[___NBSample__distanceCoef] = null;
-    let t = time * 1000.0 / duration;
-    let index = (100 * t)[$clamp](0, 100)[$round]();
-    this[_distanceCoef] = 1.0;
-    this[_velocityCoef] = 0.0;
-    if (index < 100) {
-      let tInf = index / 100;
-      let tSup = (index + 1) / 100;
-      let dInf = scroll_simulation._NBSample._splinePosition[$_get](index);
-      let dSup = scroll_simulation._NBSample._splinePosition[$_get](index + 1);
-      this[_velocityCoef] = (dSup - dInf) / (tSup - tInf);
-      this[_distanceCoef] = dInf + (t - tInf) * this[_velocityCoef];
-    }
-  }).prototype = scroll_simulation._NBSample.prototype;
-  dart.addTypeTests(scroll_simulation._NBSample);
-  dart.addTypeCaches(scroll_simulation._NBSample);
-  dart.setGetterSignature(scroll_simulation._NBSample, () => ({
-    __proto__: dart.getGetters(scroll_simulation._NBSample.__proto__),
-    [_velocityCoef]: core.double,
-    velocityCoef: core.double,
-    [_distanceCoef]: core.double,
-    distanceCoef: core.double
-  }));
-  dart.setSetterSignature(scroll_simulation._NBSample, () => ({
-    __proto__: dart.getSetters(scroll_simulation._NBSample.__proto__),
-    [_velocityCoef]: core.double,
-    [_distanceCoef]: core.double
-  }));
-  dart.setLibraryUri(scroll_simulation._NBSample, I[1]);
-  dart.setFieldSignature(scroll_simulation._NBSample, () => ({
-    __proto__: dart.getFields(scroll_simulation._NBSample.__proto__),
-    [___NBSample__velocityCoef]: dart.fieldType(dart.nullable(core.double)),
-    [___NBSample__distanceCoef]: dart.fieldType(dart.nullable(core.double))
-  }));
-  dart.defineLazy(scroll_simulation._NBSample, {
-    /*scroll_simulation._NBSample._nbSamples*/get _nbSamples() {
-      return 100;
+      return C[0] = dart.fn(core.int.parse, T.String__Toint());
     },
-    /*scroll_simulation._NBSample._splinePosition*/get _splinePosition() {
-      return T.JSArrayOfdouble().of([0.000022888183591973643, 0.028561000304762274, 0.05705195792956655, 0.08538917797618413, 0.11349556286812107, 0.14129881694635613, 0.16877157254923383, 0.19581093511175632, 0.22239649722992452, 0.24843841866631658, 0.2740024733220569, 0.298967680744136, 0.32333234658228116, 0.34709556909569184, 0.3702249257894571, 0.39272483400399893, 0.41456988647721615, 0.43582889025419114, 0.4564192786416, 0.476410299013587, 0.4957560715637827, 0.5145493169954743, 0.5327205670880077, 0.5502846891191615, 0.5673274324802855, 0.583810881323224, 0.5997478744397482, 0.615194045299478, 0.6301165005270208, 0.6445484042257972, 0.6585198219185201, 0.6720397744233084, 0.6850997688076114, 0.6977281404741683, 0.7099506591298411, 0.7217749311525871, 0.7331784038850426, 0.7442308394229518, 0.7549087205105974, 0.7652471277371271, 0.7752251637549381, 0.7848768260203478, 0.7942056937103814, 0.8032299679689082, 0.8119428702388629, 0.8203713516576219, 0.8285187880808974, 0.8363794492831295, 0.8439768562813565, 0.851322799855549, 0.8584111051351724, 0.8652534074722162, 0.8718525580962131, 0.8782333271742155, 0.8843892099362031, 0.8903155590440985, 0.8960465359221951, 0.9015574505919048, 0.9068736766459904, 0.9119951682409297, 0.9169321898723632, 0.9216747065581234, 0.9262420604674766, 0.9306331858366086, 0.9348476990715433, 0.9389007110754832, 0.9427903495057521, 0.9465220679845756, 0.9500943036519721, 0.9535176728088761, 0.9567898524767604, 0.959924306623116, 0.9629127700159108, 0.9657622101750765, 0.9684818726275105, 0.9710676079044347, 0.9735231939498, 0.9758514437576309, 0.9780599066560445, 0.9801485715370128, 0.9821149805689633, 0.9839677526782791, 0.9857085499421516, 0.9873347811966005, 0.9888547171706613, 0.9902689443512227, 0.9915771042095881, 0.9927840651641069, 0.9938913963715834, 0.9948987305580712, 0.9958114963810524, 0.9966274782266875, 0.997352148697352, 0.9979848677523623, 0.9985285021374979, 0.9989844084453229, 0.9993537595844986, 0.999638729860106, 0.9998403888004533, 0.9999602810470701, 1.0]);
+    get C1() {
+      return C[1] = dart.fn(get_utils.GetUtils.capitalizeFirst, T.StringToStringN());
     }
   }, false);
-  dart.defineLazy(scroll_simulation, {
-    /*scroll_simulation._inflexion*/get _inflexion() {
-      return 0.35;
+  var C = Array(2).fill(void 0);
+  var I = ["package:get/get_utils/src/get_utils/get_utils.dart"];
+  get_utils.GetUtils = class GetUtils extends core.Object {
+    static isNull(value) {
+      return value == null;
     }
-  }, false);
-  dart.trackLibraries("packages/flutter/src/widgets/scroll_simulation.dart", {
-    "package:flutter/src/widgets/scroll_simulation.dart": scroll_simulation
+    static nil(s) {
+      return s == null ? null : s;
+    }
+    static isNullOrBlank(value) {
+      if (get_utils.GetUtils.isNull(value)) {
+        return true;
+      }
+      return get_utils._isEmpty(value);
+    }
+    static isBlank(value) {
+      return get_utils._isEmpty(value);
+    }
+    static isNum(value) {
+      if (get_utils.GetUtils.isNull(value)) {
+        return false;
+      }
+      return typeof core.num.tryParse(value) == 'number';
+    }
+    static isNumericOnly(s) {
+      return get_utils.GetUtils.hasMatch(s, "^\\d+$");
+    }
+    static isAlphabetOnly(s) {
+      return get_utils.GetUtils.hasMatch(s, "^[a-zA-Z]+$");
+    }
+    static hasCapitalletter(s) {
+      return get_utils.GetUtils.hasMatch(s, "[A-Z]");
+    }
+    static isBool(value) {
+      if (get_utils.GetUtils.isNull(value)) {
+        return false;
+      }
+      return value === "true" || value === "false";
+    }
+    static isVideo(filePath) {
+      let ext = filePath[$toLowerCase]();
+      return ext[$endsWith](".mp4") || ext[$endsWith](".avi") || ext[$endsWith](".wmv") || ext[$endsWith](".rmvb") || ext[$endsWith](".mpg") || ext[$endsWith](".mpeg") || ext[$endsWith](".3gp");
+    }
+    static isImage(filePath) {
+      let ext = filePath[$toLowerCase]();
+      return ext[$endsWith](".jpg") || ext[$endsWith](".jpeg") || ext[$endsWith](".png") || ext[$endsWith](".gif") || ext[$endsWith](".bmp");
+    }
+    static isAudio(filePath) {
+      let ext = filePath[$toLowerCase]();
+      return ext[$endsWith](".mp3") || ext[$endsWith](".wav") || ext[$endsWith](".wma") || ext[$endsWith](".amr") || ext[$endsWith](".ogg");
+    }
+    static isPPT(filePath) {
+      let ext = filePath[$toLowerCase]();
+      return ext[$endsWith](".ppt") || ext[$endsWith](".pptx");
+    }
+    static isWord(filePath) {
+      let ext = filePath[$toLowerCase]();
+      return ext[$endsWith](".doc") || ext[$endsWith](".docx");
+    }
+    static isExcel(filePath) {
+      let ext = filePath[$toLowerCase]();
+      return ext[$endsWith](".xls") || ext[$endsWith](".xlsx");
+    }
+    static isAPK(filePath) {
+      return filePath[$toLowerCase]()[$endsWith](".apk");
+    }
+    static isPDF(filePath) {
+      return filePath[$toLowerCase]()[$endsWith](".pdf");
+    }
+    static isTxt(filePath) {
+      return filePath[$toLowerCase]()[$endsWith](".txt");
+    }
+    static isChm(filePath) {
+      return filePath[$toLowerCase]()[$endsWith](".chm");
+    }
+    static isVector(filePath) {
+      return filePath[$toLowerCase]()[$endsWith](".svg");
+    }
+    static isHTML(filePath) {
+      return filePath[$toLowerCase]()[$endsWith](".html");
+    }
+    static isUsername(s) {
+      return get_utils.GetUtils.hasMatch(s, "^[a-zA-Z0-9][a-zA-Z0-9_.]+[a-zA-Z0-9]$");
+    }
+    static isURL(s) {
+      return get_utils.GetUtils.hasMatch(s, "^((((H|h)(T|t)|(F|f))(T|t)(P|p)((S|s)?))\\://)?(www.|[a-zA-Z0-9].)[a-zA-Z0-9\\-\\.]+\\.[a-zA-Z]{2,6}(\\:[0-9]{1,5})*(/($|[a-zA-Z0-9\\.\\,\\;\\?\\'\\\\\\+&amp;%\\$#\\=~_\\-]+))*$");
+    }
+    static isEmail(s) {
+      return get_utils.GetUtils.hasMatch(s, "^(([^<>()[\\]\\\\.,;:\\s@\\\"]+(\\.[^<>()[\\]\\\\.,;:\\s@\\\"]+)*)|(\\\".+\\\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$");
+    }
+    static isPhoneNumber(s) {
+      if (s.length > 16 || s.length < 9) return false;
+      return get_utils.GetUtils.hasMatch(s, "^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s\\./0-9]*$");
+    }
+    static isDateTime(s) {
+      return get_utils.GetUtils.hasMatch(s, "^\\d{4}-\\d{2}-\\d{2}[ T]\\d{2}:\\d{2}:\\d{2}.\\d{3}Z?$");
+    }
+    static isMD5(s) {
+      return get_utils.GetUtils.hasMatch(s, "^[a-f0-9]{32}$");
+    }
+    static isSHA1(s) {
+      return get_utils.GetUtils.hasMatch(s, "(([A-Fa-f0-9]{2}\\:){19}[A-Fa-f0-9]{2}|[A-Fa-f0-9]{40})");
+    }
+    static isSHA256(s) {
+      return get_utils.GetUtils.hasMatch(s, "([A-Fa-f0-9]{2}\\:){31}[A-Fa-f0-9]{2}|[A-Fa-f0-9]{64}");
+    }
+    static isSSN(s) {
+      return get_utils.GetUtils.hasMatch(s, "^(?!0{3}|6{3}|9[0-9]{2})[0-9]{3}-?(?!0{2})[0-9]{2}-?(?!0{4})[0-9]{4}$");
+    }
+    static isBinary(s) {
+      return get_utils.GetUtils.hasMatch(s, "^[0-1]+$");
+    }
+    static isIPv4(s) {
+      return get_utils.GetUtils.hasMatch(s, "^(?:(?:^|\\.)(?:2(?:5[0-5]|[0-4]\\d)|1?\\d?\\d)){4}$");
+    }
+    static isIPv6(s) {
+      return get_utils.GetUtils.hasMatch(s, "^((([0-9A-Fa-f]{1,4}:){7}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){6}:[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){5}:([0-9A-Fa-f]{1,4}:)?[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){4}:([0-9A-Fa-f]{1,4}:){0,2}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){3}:([0-9A-Fa-f]{1,4}:){0,3}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){2}:([0-9A-Fa-f]{1,4}:){0,4}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){6}((\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b)\\.){3}(\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b))|(([0-9A-Fa-f]{1,4}:){0,5}:((\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b)\\.){3}(\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b))|(::([0-9A-Fa-f]{1,4}:){0,5}((\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b)\\.){3}(\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b))|([0-9A-Fa-f]{1,4}::([0-9A-Fa-f]{1,4}:){0,5}[0-9A-Fa-f]{1,4})|(::([0-9A-Fa-f]{1,4}:){0,6}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){1,7}:))$");
+    }
+    static isHexadecimal(s) {
+      return get_utils.GetUtils.hasMatch(s, "^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$");
+    }
+    static isPalindrom(string) {
+      let cleanString = string[$toLowerCase]()[$replaceAll](core.RegExp.new("\\s+"), "")[$replaceAll](core.RegExp.new("[^0-9a-zA-Z]+"), "");
+      for (let i = 0; i < cleanString.length; i = i + 1) {
+        if (cleanString[$_get](i) !== cleanString[$_get](cleanString.length - i - 1)) {
+          return false;
+        }
+      }
+      return true;
+    }
+    static isOneAKind(value) {
+      if ((typeof value == 'string' || core.List.is(value)) && !dart.nullCheck(get_utils.GetUtils.isNullOrBlank(value))) {
+        let first = dart.dsend(value, '_get', [0]);
+        let len = core.num.as(dart.dload(value, 'length'));
+        for (let i = 0; i < len; i = i + 1) {
+          if (!dart.equals(dart.dsend(value, '_get', [i]), first)) {
+            return false;
+          }
+        }
+        return true;
+      }
+      if (core.int.is(value)) {
+        let stringValue = dart.toString(value);
+        let first = stringValue[$_get](0);
+        for (let i = 0; i < stringValue.length; i = i + 1) {
+          if (stringValue[$_get](i) !== first) {
+            return false;
+          }
+        }
+        return true;
+      }
+      return false;
+    }
+    static isPassport(s) {
+      return get_utils.GetUtils.hasMatch(s, "^(?!^0+$)[a-zA-Z0-9]{6,9}$");
+    }
+    static isCurrency(s) {
+      return get_utils.GetUtils.hasMatch(s, "^(S?\\$|\\₩|Rp|\\¥|\\€|\\₹|\\₽|fr|R\\$|R)?[ ]?[-]?([0-9]{1,3}[,.]([0-9]{3}[,.])*[0-9]{3}|[0-9]+)([,.][0-9]{1,2})?( ?(USD?|AUD|NZD|CAD|CHF|GBP|CNY|EUR|JPY|IDR|MXN|NOK|KRW|TRY|INR|RUB|BRL|ZAR|SGD|MYR))?$");
+    }
+    static isLengthGreaterThan(value, maxLength) {
+      let length = get_utils._obtainDynamicLength(value);
+      if (length == null) {
+        return false;
+      }
+      return dart.notNull(length) > maxLength;
+    }
+    static isLengthGreaterOrEqual(value, maxLength) {
+      let length = get_utils._obtainDynamicLength(value);
+      if (length == null) {
+        return false;
+      }
+      return dart.notNull(length) >= maxLength;
+    }
+    static isLengthLowerThan(value, maxLength) {
+      return get_utils.GetUtils.isLengthLessThan(value, maxLength);
+    }
+    static isLengthLessThan(value, maxLength) {
+      let length = get_utils._obtainDynamicLength(value);
+      if (length == null) {
+        return false;
+      }
+      return dart.notNull(length) < maxLength;
+    }
+    static isLengthLowerOrEqual(value, maxLength) {
+      return get_utils.GetUtils.isLengthLessOrEqual(value, maxLength);
+    }
+    static isLengthLessOrEqual(value, maxLength) {
+      let length = get_utils._obtainDynamicLength(value);
+      if (length == null) {
+        return false;
+      }
+      return dart.notNull(length) <= maxLength;
+    }
+    static isLengthEqualTo(value, otherLength) {
+      let length = get_utils._obtainDynamicLength(value);
+      if (length == null) {
+        return false;
+      }
+      return length === otherLength;
+    }
+    static isLengthBetween(value, minLength, maxLength) {
+      if (get_utils.GetUtils.isNull(value)) {
+        return false;
+      }
+      return get_utils.GetUtils.isLengthGreaterOrEqual(value, minLength) && get_utils.GetUtils.isLengthLessOrEqual(value, maxLength);
+    }
+    static isCaseInsensitiveContains(a, b) {
+      return a[$toLowerCase]()[$contains](b[$toLowerCase]());
+    }
+    static isCaseInsensitiveContainsAny(a, b) {
+      let lowA = a[$toLowerCase]();
+      let lowB = b[$toLowerCase]();
+      return lowA[$contains](lowB) || lowB[$contains](lowA);
+    }
+    static isLowerThan(a, b) {
+      return a < b;
+    }
+    static isGreaterThan(a, b) {
+      return a > b;
+    }
+    static isEqual(a, b) {
+      return a === b;
+    }
+    static isCnpj(cnpj) {
+      let t0, t0$;
+      let numbers = cnpj[$replaceAll](core.RegExp.new("[^0-9]"), "");
+      if (numbers.length !== 14) {
+        return false;
+      }
+      if (core.RegExp.new("^(\\d)\\1*$").hasMatch(numbers)) {
+        return false;
+      }
+      let digits = numbers[$split]("")[$map](core.int, C[0] || CT.C0)[$toList]();
+      let calcDv1 = 0;
+      let j = 0;
+      let iter = T.IterableOfint().generate(12, dart.fn(i => i < 4 ? 5 - i : 13 - i, T.intToint()));
+      for (let i of iter) {
+        calcDv1 = calcDv1 + digits[$_get]((t0 = j, j = t0 + 1, t0)) * i;
+      }
+      calcDv1 = calcDv1[$modulo](11);
+      let dv1 = calcDv1 < 2 ? 0 : 11 - calcDv1;
+      if (digits[$_get](12) !== dv1) {
+        return false;
+      }
+      let calcDv2 = 0;
+      j = 0;
+      let iter$ = T.IterableOfint().generate(13, dart.fn(i => i < 5 ? 6 - i : 14 - i, T.intToint()));
+      for (let i of iter$) {
+        calcDv2 = calcDv2 + digits[$_get]((t0$ = j, j = t0$ + 1, t0$)) * i;
+      }
+      calcDv2 = calcDv2[$modulo](11);
+      let dv2 = calcDv2 < 2 ? 0 : 11 - calcDv2;
+      if (digits[$_get](13) !== dv2) {
+        return false;
+      }
+      return true;
+    }
+    static isCpf(cpf) {
+      let numbers = cpf[$replaceAll](core.RegExp.new("[^0-9]"), "");
+      if (numbers.length !== 11) {
+        return false;
+      }
+      if (core.RegExp.new("^(\\d)\\1*$").hasMatch(numbers)) {
+        return false;
+      }
+      let digits = numbers[$split]("")[$map](core.int, C[0] || CT.C0)[$toList]();
+      let calcDv1 = 0;
+      let iter = T.IterableOfint().generate(9, dart.fn(i => 10 - i, T.intToint()));
+      for (let i of iter) {
+        calcDv1 = calcDv1 + digits[$_get](10 - i) * i;
+      }
+      calcDv1 = calcDv1[$modulo](11);
+      let dv1 = calcDv1 < 2 ? 0 : 11 - calcDv1;
+      if (digits[$_get](9) !== dv1) {
+        return false;
+      }
+      let calcDv2 = 0;
+      let iter$ = T.IterableOfint().generate(10, dart.fn(i => 11 - i, T.intToint()));
+      for (let i of iter$) {
+        calcDv2 = calcDv2 + digits[$_get](11 - i) * i;
+      }
+      calcDv2 = calcDv2[$modulo](11);
+      let dv2 = calcDv2 < 2 ? 0 : 11 - calcDv2;
+      if (digits[$_get](10) !== dv2) {
+        return false;
+      }
+      return true;
+    }
+    static capitalize(value) {
+      if (get_utils.GetUtils.isNull(value)) return null;
+      if (dart.nullCheck(get_utils.GetUtils.isBlank(value))) return value;
+      return value[$split](" ")[$map](T.StringN(), C[1] || CT.C1)[$join](" ");
+    }
+    static capitalizeFirst(s) {
+      if (get_utils.GetUtils.isNull(s)) return null;
+      if (dart.nullCheck(get_utils.GetUtils.isBlank(s))) return s;
+      return s[$_get](0)[$toUpperCase]() + s[$substring](1)[$toLowerCase]();
+    }
+    static removeAllWhitespace(value) {
+      return value[$replaceAll](" ", "");
+    }
+    static camelCase(value) {
+      if (dart.nullCheck(get_utils.GetUtils.isNullOrBlank(value))) {
+        return null;
+      }
+      let separatedWords = value[$split](core.RegExp.new("[!@#<>?\":`~;[\\]\\\\|=+)(*&^%-\\s_]+"));
+      let newString = "";
+      for (let word of separatedWords) {
+        newString = newString + (word[$_get](0)[$toUpperCase]() + word[$substring](1)[$toLowerCase]());
+      }
+      return newString[$_get](0)[$toLowerCase]() + newString[$substring](1);
+    }
+    static numericOnly(s, opts) {
+      let firstWordOnly = opts && 'firstWordOnly' in opts ? opts.firstWordOnly : false;
+      let numericOnlyStr = "";
+      for (let i = 0; i < s.length; i = i + 1) {
+        if (get_utils.GetUtils.isNumericOnly(s[$_get](i))) {
+          numericOnlyStr = numericOnlyStr + s[$_get](i);
+        }
+        if (firstWordOnly && numericOnlyStr[$isNotEmpty] && s[$_get](i) === " ") {
+          break;
+        }
+      }
+      return numericOnlyStr;
+    }
+    static hasMatch(value, pattern) {
+      return value == null ? false : core.RegExp.new(pattern).hasMatch(value);
+    }
+    static createPath(path, segments = null) {
+      if (segments == null || segments[$isEmpty]) {
+        return path;
+      }
+      let list = segments[$map](core.String, dart.fn(e => "/" + dart.str(e), T.dynamicToString()));
+      return path + list[$join]();
+    }
+    static printFunction(prefix, value, info, opts) {
+      let t2, t1, t0;
+      let isError = opts && 'isError' in opts ? opts.isError : false;
+      t0 = get_main.Get;
+      t1 = (prefix + " " + dart.str(value) + " " + info)[$trim]();
+      t2 = isError;
+      t0.log(t1, {isError: t2});
+    }
+  };
+  (get_utils.GetUtils.__ = function() {
+    ;
+  }).prototype = get_utils.GetUtils.prototype;
+  dart.addTypeTests(get_utils.GetUtils);
+  dart.addTypeCaches(get_utils.GetUtils);
+  dart.setLibraryUri(get_utils.GetUtils, I[0]);
+  get_utils._isEmpty = function _isEmpty(value) {
+    if (typeof value == 'string') {
+      return dart.toString(value)[$trim]()[$isEmpty];
+    }
+    if (core.Iterable.is(value) || core.Map.is(value)) {
+      return T.boolN().as(dart.dload(value, 'isEmpty'));
+    }
+    return false;
+  };
+  get_utils._hasLength = function _hasLength(value) {
+    return core.Iterable.is(value) || typeof value == 'string' || core.Map.is(value);
+  };
+  get_utils._obtainDynamicLength = function _obtainDynamicLength(value) {
+    if (value == null) {
+      return null;
+    }
+    if (get_utils._hasLength(value)) {
+      return T.intN().as(dart.dload(value, 'length'));
+    }
+    if (core.int.is(value)) {
+      return dart.toString(value).length;
+    }
+    if (typeof value == 'number') {
+      return dart.toString(value)[$replaceAll](".", "").length;
+    }
+    return null;
+  };
+  dart.trackLibraries("packages/get/get_utils/src/get_utils/get_utils.dart", {
+    "package:get/get_utils/src/get_utils/get_utils.dart": get_utils
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["scroll_simulation.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/flutter/src/widgets/scroll_simulation.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["get_utils.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../../../packages/get/get_utils/src/get_utils/get_utils.dart.lib.js"}');
   // Exports:
   return {
-    src__widgets__scroll_simulation: scroll_simulation
+    get_utils__src__get_utils__get_utils: get_utils
   };
 }));
 
-//# sourceMappingURL=scroll_simulation.dart.lib.js.map
+//# sourceMappingURL=get_utils.dart.lib.js.map

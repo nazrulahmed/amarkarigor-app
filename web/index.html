@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -26,6 +27,7 @@
   <title>amarkarigor</title>
   <link rel="manifest" href="manifest.json">
 </head>
+
 <body>
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
@@ -94,5 +96,35 @@
       loadMainDartJs();
     }
   </script>
+
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyA73c7cCvApUQQIoDL3xWjV0Wplr7lnnjU",
+
+      authDomain: "amrkarigor.firebaseapp.com",
+
+      databaseURL: "https://amrkarigor-default-rtdb.asia-southeast1.firebasedatabase.app",
+
+      projectId: "amrkarigor",
+
+      storageBucket: "amrkarigor.appspot.com",
+
+      messagingSenderId: "760012543825",
+
+      appId: "1:760012543825:web:0a07d001a1d1817674a570",
+
+      measurementId: "G-N9JXY7D3KV"
+
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
+
+
 </body>
+
 </html>

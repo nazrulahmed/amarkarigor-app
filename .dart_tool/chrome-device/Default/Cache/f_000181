@@ -1,367 +1,822 @@
-define(['dart_sdk', 'packages/flutter/src/foundation/object.dart', 'packages/flutter/src/physics/tolerance.dart', 'packages/flutter/src/physics/utils.dart', 'packages/flutter/src/physics/simulation.dart'], (function load__packages__flutter__src__physics__spring_simulation_dart(dart_sdk, packages__flutter__src__foundation__object$46dart, packages__flutter__src__physics__tolerance$46dart, packages__flutter__src__physics__utils$46dart, packages__flutter__src__physics__simulation$46dart) {
+define(['dart_sdk', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/amar_karigor/app/global/config/app_style.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter/src/material/icons.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/painting/box_decoration.dart', 'packages/flutter/src/painting/box_border.dart', 'packages/flutter/src/painting/border_radius.dart', 'packages/vector_math/vector_math_64.dart', 'packages/flutter/src/material/text_form_field.dart', 'packages/flutter/src/material/input_border.dart'], (function load__packages__amar_karigor__app__modules__home__views__widget__mobile__header_dart(dart_sdk, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__amar_karigor__app__global__config__app_style$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutter__src__widgets__icon$46dart, packages__flutter__src__material__icons$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__painting__box_decoration$46dart, packages__flutter__src__painting__box_border$46dart, packages__flutter__src__painting__border_radius$46dart, packages__vector_math__vector_math_64$46dart, packages__flutter__src__material__text_form_field$46dart, packages__flutter__src__material__input_border$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const math = dart_sdk.math;
+  const _interceptors = dart_sdk._interceptors;
+  const ui = dart_sdk.ui;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
-  const tolerance = packages__flutter__src__physics__tolerance$46dart.src__physics__tolerance;
-  const utils = packages__flutter__src__physics__utils$46dart.src__physics__utils;
-  const simulation = packages__flutter__src__physics__simulation$46dart.src__physics__simulation;
-  var spring_simulation = Object.create(dart.library);
-  var $toStringAsFixed = dartx.toStringAsFixed;
+  const flexible_space_bar = packages__flutter__src__material__icon_button$46dart.src__material__flexible_space_bar;
+  const input_decorator = packages__flutter__src__material__icon_button$46dart.src__material__input_decorator;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const app_style = packages__amar_karigor__app__global__config__app_style$46dart.app__global__config__app_style;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
+  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
+  const icons = packages__flutter__src__material__icons$46dart.src__material__icons;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
+  const box_border = packages__flutter__src__painting__box_border$46dart.src__painting__box_border;
+  const border_radius = packages__flutter__src__painting__border_radius$46dart.src__painting__border_radius;
+  const vector_math_64 = packages__vector_math__vector_math_64$46dart.vector_math_64;
+  const text_form_field = packages__flutter__src__material__text_form_field$46dart.src__material__text_form_field;
+  const input_border = packages__flutter__src__material__input_border$46dart.src__material__input_border;
+  var header = Object.create(dart.library);
   dart._checkModuleNullSafetyMode(true);
+  var T = {
+    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))()
+  };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
-    get C0() {
-      return C[0] = dart.const({
-        __proto__: spring_simulation.SpringType.prototype,
-        [_name$]: "SpringType.criticallyDamped",
-        index: 0
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 23,
+        [_Location_line]: 17,
+        [_Location_file]: null
       });
     },
     get C1() {
-      return C[1] = dart.const({
-        __proto__: spring_simulation.SpringType.prototype,
-        [_name$]: "SpringType.underDamped",
-        index: 1
+      return C[1] = dart.constList([C[2] || CT.C2], widget_inspector._Location);
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 16,
+        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/header.dart"
       });
     },
-    get C2() {
-      return C[2] = dart.const({
-        __proto__: spring_simulation.SpringType.prototype,
-        [_name$]: "SpringType.overDamped",
-        index: 2
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 23,
+        [_Location_line]: 20,
+        [_Location_file]: null
       });
     },
-    get C3() {
-      return C[3] = dart.constList([C[0] || CT.C0, C[1] || CT.C1, C[2] || CT.C2], spring_simulation.SpringType);
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 23,
+        [_Location_line]: 21,
+        [_Location_file]: null
+      });
     },
     get C4() {
-      return C[4] = dart.const({
-        __proto__: tolerance.Tolerance.prototype,
-        [Tolerance_velocity]: 0.001,
-        [Tolerance_time]: 0.001,
-        [Tolerance_distance]: 0.001
+      return C[4] = dart.constList([C[5] || CT.C5, C[6] || CT.C6], widget_inspector._Location);
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[4] || CT.C4,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 19,
+        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/header.dart"
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 23,
+        [_Location_line]: 24,
+        [_Location_file]: null
+      });
+    },
+    get C8() {
+      return C[8] = dart.constList([C[9] || CT.C9], widget_inspector._Location);
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[8] || CT.C8,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 23,
+        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/header.dart"
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 36,
+        [_Location_line]: 28,
+        [_Location_file]: null
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 49,
+        [_Location_line]: 28,
+        [_Location_file]: null
+      });
+    },
+    get C11() {
+      return C[11] = dart.constList([C[12] || CT.C12, C[13] || CT.C13], widget_inspector._Location);
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[11] || CT.C11,
+        [_Location_name]: null,
+        [_Location_column]: 25,
+        [_Location_line]: 28,
+        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/header.dart"
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 30,
+        [_Location_line]: 29,
+        [_Location_file]: null
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 29,
+        [_Location_line]: 30,
+        [_Location_file]: null
+      });
+    },
+    get C15() {
+      return C[15] = dart.constList([C[16] || CT.C16, C[17] || CT.C17], widget_inspector._Location);
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[15] || CT.C15,
+        [_Location_name]: null,
+        [_Location_column]: 25,
+        [_Location_line]: 29,
+        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/header.dart"
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 34,
+        [_Location_line]: 31,
+        [_Location_file]: null
+      });
+    },
+    get C19() {
+      return C[19] = dart.constList([C[20] || CT.C20], widget_inspector._Location);
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[19] || CT.C19,
+        [_Location_name]: null,
+        [_Location_column]: 25,
+        [_Location_line]: 31,
+        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/header.dart"
+      });
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 4,
+        [EdgeInsets_right]: 8,
+        [EdgeInsets_top]: 4,
+        [EdgeInsets_left]: 8
+      });
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 31,
+        [_Location_line]: 41,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 31,
+        [_Location_line]: 42,
+        [_Location_file]: null
+      });
+    },
+    get C23() {
+      return C[23] = dart.constList([C[24] || CT.C24, C[25] || CT.C25], widget_inspector._Location);
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[23] || CT.C23,
+        [_Location_name]: null,
+        [_Location_column]: 36,
+        [_Location_line]: 40,
+        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/header.dart"
+      });
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 29,
+        [_Location_line]: 38,
+        [_Location_file]: null
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 29,
+        [_Location_line]: 40,
+        [_Location_file]: null
+      });
+    },
+    get C27() {
+      return C[27] = dart.constList([C[28] || CT.C28, C[29] || CT.C29], widget_inspector._Location);
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[27] || CT.C27,
+        [_Location_name]: null,
+        [_Location_column]: 34,
+        [_Location_line]: 37,
+        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/header.dart"
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 27,
+        [_Location_line]: 33,
+        [_Location_file]: null
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 27,
+        [_Location_line]: 37,
+        [_Location_file]: null
+      });
+    },
+    get C31() {
+      return C[31] = dart.constList([C[32] || CT.C32, C[33] || CT.C33], widget_inspector._Location);
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[31] || CT.C31,
+        [_Location_name]: null,
+        [_Location_column]: 25,
+        [_Location_line]: 32,
+        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/header.dart"
+      });
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 23,
+        [_Location_line]: 27,
+        [_Location_file]: null
+      });
+    },
+    get C35() {
+      return C[35] = dart.constList([C[36] || CT.C36], widget_inspector._Location);
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[35] || CT.C35,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 26,
+        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/header.dart"
+      });
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 19,
+        [_Location_line]: 13,
+        [_Location_file]: null
+      });
+    },
+    get C40() {
+      return C[40] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "crossAxisAlignment",
+        [_Location_column]: 19,
+        [_Location_line]: 14,
+        [_Location_file]: null
+      });
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 19,
+        [_Location_line]: 15,
+        [_Location_file]: null
+      });
+    },
+    get C38() {
+      return C[38] = dart.constList([C[39] || CT.C39, C[40] || CT.C40, C[41] || CT.C41], widget_inspector._Location);
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[38] || CT.C38,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 12,
+        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/header.dart"
+      });
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 17,
+        [_Location_line]: 11,
+        [_Location_file]: null
+      });
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 17,
+        [_Location_line]: 12,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C[43] = dart.constList([C[44] || CT.C44, C[45] || CT.C45], widget_inspector._Location);
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[43] || CT.C43,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 10,
+        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/header.dart"
+      });
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 24,
+        [_Location_line]: 51,
+        [_Location_file]: null
+      });
+    },
+    get C47() {
+      return C[47] = dart.constList([C[48] || CT.C48], widget_inspector._Location);
+    },
+    get C46() {
+      return C[46] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[47] || CT.C47,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 51,
+        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/header.dart"
+      });
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "transform",
+        [_Location_column]: 23,
+        [_Location_line]: 57,
+        [_Location_file]: null
+      });
+    },
+    get C52() {
+      return C[52] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 23,
+        [_Location_line]: 58,
+        [_Location_file]: null
+      });
+    },
+    get C53() {
+      return C[53] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 23,
+        [_Location_line]: 59,
+        [_Location_file]: null
+      });
+    },
+    get C50() {
+      return C[50] = dart.constList([C[51] || CT.C51, C[52] || CT.C52, C[53] || CT.C53], widget_inspector._Location);
+    },
+    get C49() {
+      return C[49] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[50] || CT.C50,
+        [_Location_name]: null,
+        [_Location_column]: 28,
+        [_Location_line]: 56,
+        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/header.dart"
+      });
+    },
+    get C56() {
+      return C[56] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 21,
+        [_Location_line]: 56,
+        [_Location_file]: null
+      });
+    },
+    get C55() {
+      return C[55] = dart.constList([C[56] || CT.C56], widget_inspector._Location);
+    },
+    get C54() {
+      return C[54] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[55] || CT.C55,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 54,
+        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/header.dart"
+      });
+    },
+    get C57() {
+      return C[57] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 0,
+        [EdgeInsets_right]: 20,
+        [EdgeInsets_top]: 0,
+        [EdgeInsets_left]: 20
+      });
+    },
+    get C58() {
+      return C[58] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 0,
+        [EdgeInsets_right]: 8,
+        [EdgeInsets_top]: 0,
+        [EdgeInsets_left]: 12
+      });
+    },
+    get C61() {
+      return C[61] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 35,
+        [_Location_line]: 77,
+        [_Location_file]: null
+      });
+    },
+    get C60() {
+      return C[60] = dart.constList([C[61] || CT.C61], widget_inspector._Location);
+    },
+    get C59() {
+      return C[59] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[60] || CT.C60,
+        [_Location_name]: null,
+        [_Location_column]: 40,
+        [_Location_line]: 76,
+        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/header.dart"
+      });
+    },
+    get C64() {
+      return C[64] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "flex",
+        [_Location_column]: 33,
+        [_Location_line]: 75,
+        [_Location_file]: null
+      });
+    },
+    get C65() {
+      return C[65] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 33,
+        [_Location_line]: 76,
+        [_Location_file]: null
+      });
+    },
+    get C63() {
+      return C[63] = dart.constList([C[64] || CT.C64, C[65] || CT.C65], widget_inspector._Location);
+    },
+    get C62() {
+      return C[62] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[63] || CT.C63,
+        [_Location_name]: null,
+        [_Location_column]: 31,
+        [_Location_line]: 74,
+        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/header.dart"
+      });
+    },
+    get C68() {
+      return C[68] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 29,
+        [_Location_line]: 73,
+        [_Location_file]: null
+      });
+    },
+    get C67() {
+      return C[67] = dart.constList([C[68] || CT.C68], widget_inspector._Location);
+    },
+    get C66() {
+      return C[66] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[67] || CT.C67,
+        [_Location_name]: null,
+        [_Location_column]: 34,
+        [_Location_line]: 72,
+        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/header.dart"
+      });
+    },
+    get C71() {
+      return C[71] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 27,
+        [_Location_line]: 71,
+        [_Location_file]: null
+      });
+    },
+    get C72() {
+      return C[72] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 27,
+        [_Location_line]: 72,
+        [_Location_file]: null
+      });
+    },
+    get C70() {
+      return C[70] = dart.constList([C[71] || CT.C71, C[72] || CT.C72], widget_inspector._Location);
+    },
+    get C69() {
+      return C[69] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[70] || CT.C70,
+        [_Location_name]: null,
+        [_Location_column]: 32,
+        [_Location_line]: 70,
+        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/header.dart"
+      });
+    },
+    get C75() {
+      return C[75] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 25,
+        [_Location_line]: 65,
+        [_Location_file]: null
+      });
+    },
+    get C76() {
+      return C[76] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 25,
+        [_Location_line]: 70,
+        [_Location_file]: null
+      });
+    },
+    get C74() {
+      return C[74] = dart.constList([C[75] || CT.C75, C[76] || CT.C76], widget_inspector._Location);
+    },
+    get C73() {
+      return C[73] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[74] || CT.C74,
+        [_Location_name]: null,
+        [_Location_column]: 28,
+        [_Location_line]: 64,
+        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/header.dart"
+      });
+    },
+    get C79() {
+      return C[79] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 21,
+        [_Location_line]: 63,
+        [_Location_file]: null
+      });
+    },
+    get C80() {
+      return C[80] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 21,
+        [_Location_line]: 64,
+        [_Location_file]: null
+      });
+    },
+    get C78() {
+      return C[78] = dart.constList([C[79] || CT.C79, C[80] || CT.C80], widget_inspector._Location);
+    },
+    get C77() {
+      return C[77] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[78] || CT.C78,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 62,
+        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/header.dart"
+      });
+    },
+    get C83() {
+      return C[83] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 17,
+        [_Location_line]: 53,
+        [_Location_file]: null
+      });
+    },
+    get C82() {
+      return C[82] = dart.constList([C[83] || CT.C83], widget_inspector._Location);
+    },
+    get C81() {
+      return C[81] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[82] || CT.C82,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 52,
+        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/header.dart"
+      });
+    },
+    get C86() {
+      return C[86] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 13,
+        [_Location_line]: 9,
+        [_Location_file]: null
+      });
+    },
+    get C85() {
+      return C[85] = dart.constList([C[86] || CT.C86], widget_inspector._Location);
+    },
+    get C84() {
+      return C[84] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[85] || CT.C85,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 8,
+        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/header.dart"
+      });
+    },
+    get C89() {
+      return C[89] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 7,
+        [_Location_file]: null
+      });
+    },
+    get C90() {
+      return C[90] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 8,
+        [_Location_file]: null
+      });
+    },
+    get C88() {
+      return C[88] = dart.constList([C[89] || CT.C89, C[90] || CT.C90], widget_inspector._Location);
+    },
+    get C87() {
+      return C[87] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[88] || CT.C88,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 6,
+        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/header.dart"
+      });
+    },
+    get C93() {
+      return C[93] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "background",
+        [_Location_column]: 7,
+        [_Location_line]: 6,
+        [_Location_file]: null
+      });
+    },
+    get C92() {
+      return C[92] = dart.constList([C[93] || CT.C93], widget_inspector._Location);
+    },
+    get C91() {
+      return C[91] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[92] || CT.C92,
+        [_Location_name]: null,
+        [_Location_column]: 10,
+        [_Location_line]: 5,
+        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/header.dart"
       });
     }
   }, false);
-  var C = Array(5).fill(void 0);
-  var I = [
-    "package:flutter/src/physics/spring_simulation.dart",
-    "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/physics/spring_simulation.dart"
-  ];
-  var mass$ = dart.privateName(spring_simulation, "SpringDescription.mass");
-  var stiffness$ = dart.privateName(spring_simulation, "SpringDescription.stiffness");
-  var damping$ = dart.privateName(spring_simulation, "SpringDescription.damping");
-  spring_simulation.SpringDescription = class SpringDescription extends core.Object {
-    get mass() {
-      return this[mass$];
-    }
-    set mass(value) {
-      super.mass = value;
-    }
-    get stiffness() {
-      return this[stiffness$];
-    }
-    set stiffness(value) {
-      super.stiffness = value;
-    }
-    get damping() {
-      return this[damping$];
-    }
-    set damping(value) {
-      super.damping = value;
-    }
-    toString() {
-      return object.objectRuntimeType(this, "SpringDescription") + "(mass: " + this.mass[$toStringAsFixed](1) + ", stiffness: " + this.stiffness[$toStringAsFixed](1) + ", damping: " + this.damping[$toStringAsFixed](1) + ")";
-    }
+  var C = Array(94).fill(void 0);
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
+  var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
+  var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
+  var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
+  header.getHeader = function getHeader() {
+    return new flexible_space_bar.FlexibleSpaceBar.new({background: new container.Container.new({color: app_style.MyColors.colorPrimary, child: new basic.Column.new({children: T.JSArrayOfWidget().of([new basic.Padding.new({padding: new edge_insets.EdgeInsets.symmetric({horizontal: 20.0}), child: new basic.Column.new({mainAxisAlignment: flex.MainAxisAlignment.start, crossAxisAlignment: flex.CrossAxisAlignment.start, children: T.JSArrayOfWidget().of([new basic.SizedBox.new({height: 60.0, $creationLocationd_0dea112b090073317d4: C[0] || CT.C0}), new text.Text.new("Location for service", {style: app_style.MyTextStyle.textWhiteMedium, $creationLocationd_0dea112b090073317d4: C[3] || CT.C3}), new basic.SizedBox.new({height: 10.0, $creationLocationd_0dea112b090073317d4: C[7] || CT.C7}), new basic.Row.new({children: T.JSArrayOfWidget().of([new icon.Icon.new(icons.Icons.location_on, {color: colors.Colors.white, $creationLocationd_0dea112b090073317d4: C[10] || CT.C10}), new text.Text.new("Sylhet, Bangladesh", {style: app_style.MyTextStyle.textWhiteLargeBold, $creationLocationd_0dea112b090073317d4: C[14] || CT.C14}), new basic.SizedBox.new({width: 16.0, $creationLocationd_0dea112b090073317d4: C[18] || CT.C18}), new container.Container.new({decoration: new box_decoration.BoxDecoration.new({border: box_border.Border.all({color: colors.Colors.white, width: 1.0}), borderRadius: new border_radius.BorderRadius.circular(20.0)}), child: new basic.Padding.new({padding: C[21] || CT.C21, child: new text.Text.new("change", {style: app_style.MyTextStyle.textWhiteSmall, $creationLocationd_0dea112b090073317d4: C[22] || CT.C22}), $creationLocationd_0dea112b090073317d4: C[26] || CT.C26}), $creationLocationd_0dea112b090073317d4: C[30] || CT.C30})]), $creationLocationd_0dea112b090073317d4: C[34] || CT.C34})]), $creationLocationd_0dea112b090073317d4: C[37] || CT.C37}), $creationLocationd_0dea112b090073317d4: C[42] || CT.C42}), new basic.SizedBox.new({height: 10.0, $creationLocationd_0dea112b090073317d4: C[46] || CT.C46}), new basic.Stack.new({children: T.JSArrayOfWidget().of([new basic.Positioned.new({child: new container.Container.new({transform: vector_math_64.Matrix4.translationValues(0.0, 25.0, 0.0), color: colors.Colors.grey._get(50), height: 30.0, $creationLocationd_0dea112b090073317d4: C[49] || CT.C49}), $creationLocationd_0dea112b090073317d4: C[54] || CT.C54}), new basic.Padding.new({padding: C[57] || CT.C57, child: new container.Container.new({decoration: new box_decoration.BoxDecoration.new({color: colors.Colors.grey._get(50), border: box_border.Border.all({color: new ui.Color.new(4293848814)}), borderRadius: new border_radius.BorderRadius.all(new ui.Radius.circular(16.0))}), child: new basic.Padding.new({padding: C[58] || CT.C58, child: new basic.Row.new({children: T.JSArrayOfWidget().of([new basic.Expanded.new({flex: 10, child: new text_form_field.TextFormField.new({decoration: new input_decorator.InputDecoration.new({border: input_border.InputBorder.none, hintText: "Search Here"}), $creationLocationd_0dea112b090073317d4: C[59] || CT.C59}), $creationLocationd_0dea112b090073317d4: C[62] || CT.C62})]), $creationLocationd_0dea112b090073317d4: C[66] || CT.C66}), $creationLocationd_0dea112b090073317d4: C[69] || CT.C69}), $creationLocationd_0dea112b090073317d4: C[73] || CT.C73}), $creationLocationd_0dea112b090073317d4: C[77] || CT.C77})]), $creationLocationd_0dea112b090073317d4: C[81] || CT.C81})]), $creationLocationd_0dea112b090073317d4: C[84] || CT.C84}), $creationLocationd_0dea112b090073317d4: C[87] || CT.C87}), $creationLocationd_0dea112b090073317d4: C[91] || CT.C91});
   };
-  (spring_simulation.SpringDescription.new = function(opts) {
-    let mass = opts && 'mass' in opts ? opts.mass : null;
-    let stiffness = opts && 'stiffness' in opts ? opts.stiffness : null;
-    let damping = opts && 'damping' in opts ? opts.damping : null;
-    this[mass$] = mass;
-    this[stiffness$] = stiffness;
-    this[damping$] = damping;
-    ;
-  }).prototype = spring_simulation.SpringDescription.prototype;
-  (spring_simulation.SpringDescription.withDampingRatio = function(opts) {
-    let mass = opts && 'mass' in opts ? opts.mass : null;
-    let stiffness = opts && 'stiffness' in opts ? opts.stiffness : null;
-    let ratio = opts && 'ratio' in opts ? opts.ratio : 1;
-    this[mass$] = mass;
-    this[stiffness$] = stiffness;
-    this[damping$] = ratio * 2.0 * math.sqrt(mass * stiffness);
-    ;
-  }).prototype = spring_simulation.SpringDescription.prototype;
-  dart.addTypeTests(spring_simulation.SpringDescription);
-  dart.addTypeCaches(spring_simulation.SpringDescription);
-  dart.setLibraryUri(spring_simulation.SpringDescription, I[0]);
-  dart.setFieldSignature(spring_simulation.SpringDescription, () => ({
-    __proto__: dart.getFields(spring_simulation.SpringDescription.__proto__),
-    mass: dart.finalFieldType(core.double),
-    stiffness: dart.finalFieldType(core.double),
-    damping: dart.finalFieldType(core.double)
-  }));
-  dart.defineExtensionMethods(spring_simulation.SpringDescription, ['toString']);
-  var _name$ = dart.privateName(spring_simulation, "_name");
-  spring_simulation.SpringType = class SpringType extends core.Object {
-    toString() {
-      return this[_name$];
-    }
-  };
-  (spring_simulation.SpringType.new = function(index, _name) {
-    this.index = index;
-    this[_name$] = _name;
-    ;
-  }).prototype = spring_simulation.SpringType.prototype;
-  dart.addTypeTests(spring_simulation.SpringType);
-  dart.addTypeCaches(spring_simulation.SpringType);
-  dart.setLibraryUri(spring_simulation.SpringType, I[0]);
-  dart.setFieldSignature(spring_simulation.SpringType, () => ({
-    __proto__: dart.getFields(spring_simulation.SpringType.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(spring_simulation.SpringType, ['toString']);
-  spring_simulation.SpringType.criticallyDamped = C[0] || CT.C0;
-  spring_simulation.SpringType.underDamped = C[1] || CT.C1;
-  spring_simulation.SpringType.overDamped = C[2] || CT.C2;
-  spring_simulation.SpringType.values = C[3] || CT.C3;
-  var Tolerance_velocity = dart.privateName(tolerance, "Tolerance.velocity");
-  var Tolerance_time = dart.privateName(tolerance, "Tolerance.time");
-  var Tolerance_distance = dart.privateName(tolerance, "Tolerance.distance");
-  var _endPosition = dart.privateName(spring_simulation, "_endPosition");
-  var _solution = dart.privateName(spring_simulation, "_solution");
-  spring_simulation.SpringSimulation = class SpringSimulation extends simulation.Simulation {
-    get type() {
-      return this[_solution].type;
-    }
-    x(time) {
-      return this[_endPosition] + this[_solution].x(time);
-    }
-    dx(time) {
-      return this[_solution].dx(time);
-    }
-    isDone(time) {
-      return utils.nearZero(this[_solution].x(time), this.tolerance.distance) && utils.nearZero(this[_solution].dx(time), this.tolerance.velocity);
-    }
-    toString() {
-      return object.objectRuntimeType(this, "SpringSimulation") + "(end: " + dart.str(this[_endPosition]) + ", " + dart.str(this.type) + ")";
-    }
-  };
-  (spring_simulation.SpringSimulation.new = function(spring, start, end, velocity, opts) {
-    let tolerance = opts && 'tolerance' in opts ? opts.tolerance : C[4] || CT.C4;
-    this[_endPosition] = end;
-    this[_solution] = spring_simulation._SpringSolution.new(spring, start - end, velocity);
-    spring_simulation.SpringSimulation.__proto__.new.call(this, {tolerance: tolerance});
-    ;
-  }).prototype = spring_simulation.SpringSimulation.prototype;
-  dart.addTypeTests(spring_simulation.SpringSimulation);
-  dart.addTypeCaches(spring_simulation.SpringSimulation);
-  dart.setMethodSignature(spring_simulation.SpringSimulation, () => ({
-    __proto__: dart.getMethods(spring_simulation.SpringSimulation.__proto__),
-    x: dart.fnType(core.double, [core.double]),
-    dx: dart.fnType(core.double, [core.double]),
-    isDone: dart.fnType(core.bool, [core.double])
-  }));
-  dart.setGetterSignature(spring_simulation.SpringSimulation, () => ({
-    __proto__: dart.getGetters(spring_simulation.SpringSimulation.__proto__),
-    type: spring_simulation.SpringType
-  }));
-  dart.setLibraryUri(spring_simulation.SpringSimulation, I[0]);
-  dart.setFieldSignature(spring_simulation.SpringSimulation, () => ({
-    __proto__: dart.getFields(spring_simulation.SpringSimulation.__proto__),
-    [_endPosition]: dart.finalFieldType(core.double),
-    [_solution]: dart.finalFieldType(spring_simulation._SpringSolution)
-  }));
-  dart.defineExtensionMethods(spring_simulation.SpringSimulation, ['toString']);
-  spring_simulation.ScrollSpringSimulation = class ScrollSpringSimulation extends spring_simulation.SpringSimulation {
-    x(time) {
-      return this.isDone(time) ? this[_endPosition] : super.x(time);
-    }
-  };
-  (spring_simulation.ScrollSpringSimulation.new = function(spring, start, end, velocity, opts) {
-    let tolerance = opts && 'tolerance' in opts ? opts.tolerance : C[4] || CT.C4;
-    spring_simulation.ScrollSpringSimulation.__proto__.new.call(this, spring, start, end, velocity, {tolerance: tolerance});
-    ;
-  }).prototype = spring_simulation.ScrollSpringSimulation.prototype;
-  dart.addTypeTests(spring_simulation.ScrollSpringSimulation);
-  dart.addTypeCaches(spring_simulation.ScrollSpringSimulation);
-  dart.setLibraryUri(spring_simulation.ScrollSpringSimulation, I[0]);
-  spring_simulation._SpringSolution = class _SpringSolution extends core.Object {
-    static new(spring, initialPosition, initialVelocity) {
-      if (!(spring !== null)) dart.assertFailed(null, I[1], 156, 12, "spring != null");
-      if (!(spring.mass !== null)) dart.assertFailed(null, I[1], 157, 12, "spring.mass != null");
-      if (!(spring.stiffness !== null)) dart.assertFailed(null, I[1], 158, 12, "spring.stiffness != null");
-      if (!(spring.damping !== null)) dart.assertFailed(null, I[1], 159, 12, "spring.damping != null");
-      if (!(initialPosition !== null)) dart.assertFailed(null, I[1], 160, 12, "initialPosition != null");
-      if (!(initialVelocity !== null)) dart.assertFailed(null, I[1], 161, 12, "initialVelocity != null");
-      let cmk = spring.damping * spring.damping - 4 * spring.mass * spring.stiffness;
-      if (cmk === 0.0) return spring_simulation._CriticalSolution.new(spring, initialPosition, initialVelocity);
-      if (cmk > 0.0) return spring_simulation._OverdampedSolution.new(spring, initialPosition, initialVelocity);
-      return spring_simulation._UnderdampedSolution.new(spring, initialPosition, initialVelocity);
-    }
-  };
-  (spring_simulation._SpringSolution[dart.mixinNew] = function() {
-  }).prototype = spring_simulation._SpringSolution.prototype;
-  dart.addTypeTests(spring_simulation._SpringSolution);
-  dart.addTypeCaches(spring_simulation._SpringSolution);
-  dart.setLibraryUri(spring_simulation._SpringSolution, I[0]);
-  var _r = dart.privateName(spring_simulation, "_r");
-  var _c1 = dart.privateName(spring_simulation, "_c1");
-  var _c2 = dart.privateName(spring_simulation, "_c2");
-  spring_simulation._CriticalSolution = class _CriticalSolution extends core.Object {
-    static new(spring, distance, velocity) {
-      let r = -spring.damping / (2.0 * spring.mass);
-      let c1 = distance;
-      let c2 = velocity / (r * distance);
-      return new spring_simulation._CriticalSolution.withArgs(r, c1, c2);
-    }
-    x(time) {
-      return (this[_c1] + this[_c2] * time) * math.pow(2.718281828459045, this[_r] * time);
-    }
-    dx(time) {
-      let power = math.pow(2.718281828459045, this[_r] * time);
-      return this[_r] * (this[_c1] + this[_c2] * time) * power + this[_c2] * power;
-    }
-    get type() {
-      return spring_simulation.SpringType.criticallyDamped;
-    }
-  };
-  (spring_simulation._CriticalSolution.withArgs = function(r, c1, c2) {
-    this[_r] = r;
-    this[_c1] = c1;
-    this[_c2] = c2;
-    ;
-  }).prototype = spring_simulation._CriticalSolution.prototype;
-  dart.addTypeTests(spring_simulation._CriticalSolution);
-  dart.addTypeCaches(spring_simulation._CriticalSolution);
-  spring_simulation._CriticalSolution[dart.implements] = () => [spring_simulation._SpringSolution];
-  dart.setMethodSignature(spring_simulation._CriticalSolution, () => ({
-    __proto__: dart.getMethods(spring_simulation._CriticalSolution.__proto__),
-    x: dart.fnType(core.double, [core.double]),
-    dx: dart.fnType(core.double, [core.double])
-  }));
-  dart.setGetterSignature(spring_simulation._CriticalSolution, () => ({
-    __proto__: dart.getGetters(spring_simulation._CriticalSolution.__proto__),
-    type: spring_simulation.SpringType
-  }));
-  dart.setLibraryUri(spring_simulation._CriticalSolution, I[0]);
-  dart.setFieldSignature(spring_simulation._CriticalSolution, () => ({
-    __proto__: dart.getFields(spring_simulation._CriticalSolution.__proto__),
-    [_r]: dart.finalFieldType(core.double),
-    [_c1]: dart.finalFieldType(core.double),
-    [_c2]: dart.finalFieldType(core.double)
-  }));
-  var _r1 = dart.privateName(spring_simulation, "_r1");
-  var _r2 = dart.privateName(spring_simulation, "_r2");
-  spring_simulation._OverdampedSolution = class _OverdampedSolution extends core.Object {
-    static new(spring, distance, velocity) {
-      let cmk = spring.damping * spring.damping - 4 * spring.mass * spring.stiffness;
-      let r1 = (-spring.damping - math.sqrt(cmk)) / (2.0 * spring.mass);
-      let r2 = (-spring.damping + math.sqrt(cmk)) / (2.0 * spring.mass);
-      let c2 = (velocity - r1 * distance) / (r2 - r1);
-      let c1 = distance - c2;
-      return new spring_simulation._OverdampedSolution.withArgs(r1, r2, c1, c2);
-    }
-    x(time) {
-      return this[_c1] * math.pow(2.718281828459045, this[_r1] * time) + this[_c2] * math.pow(2.718281828459045, this[_r2] * time);
-    }
-    dx(time) {
-      return this[_c1] * this[_r1] * math.pow(2.718281828459045, this[_r1] * time) + this[_c2] * this[_r2] * math.pow(2.718281828459045, this[_r2] * time);
-    }
-    get type() {
-      return spring_simulation.SpringType.overDamped;
-    }
-  };
-  (spring_simulation._OverdampedSolution.withArgs = function(r1, r2, c1, c2) {
-    this[_r1] = r1;
-    this[_r2] = r2;
-    this[_c1] = c1;
-    this[_c2] = c2;
-    ;
-  }).prototype = spring_simulation._OverdampedSolution.prototype;
-  dart.addTypeTests(spring_simulation._OverdampedSolution);
-  dart.addTypeCaches(spring_simulation._OverdampedSolution);
-  spring_simulation._OverdampedSolution[dart.implements] = () => [spring_simulation._SpringSolution];
-  dart.setMethodSignature(spring_simulation._OverdampedSolution, () => ({
-    __proto__: dart.getMethods(spring_simulation._OverdampedSolution.__proto__),
-    x: dart.fnType(core.double, [core.double]),
-    dx: dart.fnType(core.double, [core.double])
-  }));
-  dart.setGetterSignature(spring_simulation._OverdampedSolution, () => ({
-    __proto__: dart.getGetters(spring_simulation._OverdampedSolution.__proto__),
-    type: spring_simulation.SpringType
-  }));
-  dart.setLibraryUri(spring_simulation._OverdampedSolution, I[0]);
-  dart.setFieldSignature(spring_simulation._OverdampedSolution, () => ({
-    __proto__: dart.getFields(spring_simulation._OverdampedSolution.__proto__),
-    [_r1]: dart.finalFieldType(core.double),
-    [_r2]: dart.finalFieldType(core.double),
-    [_c1]: dart.finalFieldType(core.double),
-    [_c2]: dart.finalFieldType(core.double)
-  }));
-  var _w = dart.privateName(spring_simulation, "_w");
-  spring_simulation._UnderdampedSolution = class _UnderdampedSolution extends core.Object {
-    static new(spring, distance, velocity) {
-      let w = math.sqrt(4.0 * spring.mass * spring.stiffness - spring.damping * spring.damping) / (2.0 * spring.mass);
-      let r = -(spring.damping / 2.0 * spring.mass);
-      let c1 = distance;
-      let c2 = (velocity - r * distance) / w;
-      return new spring_simulation._UnderdampedSolution.withArgs(w, r, c1, c2);
-    }
-    x(time) {
-      return math.pow(2.718281828459045, this[_r] * time) * (this[_c1] * math.cos(this[_w] * time) + this[_c2] * math.sin(this[_w] * time));
-    }
-    dx(time) {
-      let power = math.pow(2.718281828459045, this[_r] * time);
-      let cosine = math.cos(this[_w] * time);
-      let sine = math.sin(this[_w] * time);
-      return power * (this[_c2] * this[_w] * cosine - this[_c1] * this[_w] * sine) + this[_r] * power * (this[_c2] * sine + this[_c1] * cosine);
-    }
-    get type() {
-      return spring_simulation.SpringType.underDamped;
-    }
-  };
-  (spring_simulation._UnderdampedSolution.withArgs = function(w, r, c1, c2) {
-    this[_w] = w;
-    this[_r] = r;
-    this[_c1] = c1;
-    this[_c2] = c2;
-    ;
-  }).prototype = spring_simulation._UnderdampedSolution.prototype;
-  dart.addTypeTests(spring_simulation._UnderdampedSolution);
-  dart.addTypeCaches(spring_simulation._UnderdampedSolution);
-  spring_simulation._UnderdampedSolution[dart.implements] = () => [spring_simulation._SpringSolution];
-  dart.setMethodSignature(spring_simulation._UnderdampedSolution, () => ({
-    __proto__: dart.getMethods(spring_simulation._UnderdampedSolution.__proto__),
-    x: dart.fnType(core.double, [core.double]),
-    dx: dart.fnType(core.double, [core.double])
-  }));
-  dart.setGetterSignature(spring_simulation._UnderdampedSolution, () => ({
-    __proto__: dart.getGetters(spring_simulation._UnderdampedSolution.__proto__),
-    type: spring_simulation.SpringType
-  }));
-  dart.setLibraryUri(spring_simulation._UnderdampedSolution, I[0]);
-  dart.setFieldSignature(spring_simulation._UnderdampedSolution, () => ({
-    __proto__: dart.getFields(spring_simulation._UnderdampedSolution.__proto__),
-    [_w]: dart.finalFieldType(core.double),
-    [_r]: dart.finalFieldType(core.double),
-    [_c1]: dart.finalFieldType(core.double),
-    [_c2]: dart.finalFieldType(core.double)
-  }));
-  dart.trackLibraries("packages/flutter/src/physics/spring_simulation.dart", {
-    "package:flutter/src/physics/spring_simulation.dart": spring_simulation
+  dart.trackLibraries("packages/amar_karigor/app/modules/home/views/widget/mobile/header.dart", {
+    "package:amar_karigor/app/modules/home/views/widget/mobile/header.dart": header
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["spring_simulation.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/flutter/src/physics/spring_simulation.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["header.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAIE,UAAO,0DACS,oCACQ,wCACT,gCACK,wBACR,gCACsB,kDAAsB,eACnC,yCACgC,kDACE,yCAC7B,wBACR,gCACU,+DAEV,kBACE,gCACmB,gGAErB,gCACU,+DAEV,6BACY,wBACR,kBAAW,iCAA2B,gFACtC,kBAAK,8BACkB,qGACvB,+BAAgB,iEAChB,yCACc,8CACK,8BAAkB,4BAAc,qBACpB,wCAAS,gBAE/B,wDAGE,kBACL,kBACmB,4YASnC,gCAAiB,iEACjB,+BACY,wBACR,iCAES,wCACc,yCAAkB,KAAK,MAAM,aAClC,AAAI,wBAAC,aACX,4HAGZ,wDAES,yCACS,6CACM,AAAI,wBAAC,aACJ,8BAAW,iBAAM,6BAEf,mCAAW,uBAAS,iBAClC,wDAEE,6BACK,wBACR,8BACQ,WACC,mDACO,iDACU,yCACV;EAY9C","file":"../../../../../../../../../../../packages/amar_karigor/app/modules/home/views/widget/mobile/header.dart.lib.js"}');
   // Exports:
   return {
-    src__physics__spring_simulation: spring_simulation
+    app__modules__home__views__widget__mobile__header: header
   };
 }));
 
-//# sourceMappingURL=spring_simulation.dart.lib.js.map
+//# sourceMappingURL=header.dart.lib.js.map

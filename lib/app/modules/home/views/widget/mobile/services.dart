@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Widget getServices(List services, constraints) {
+Widget getServices(List services) {
   return Column(
     mainAxisAlignment: MainAxisAlignment.start,
     crossAxisAlignment: CrossAxisAlignment.start,

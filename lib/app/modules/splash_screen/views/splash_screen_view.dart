@@ -8,16 +8,15 @@ class SplashScreenView extends GetView<SplashScreenController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('SplashScreenView'),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: Text(
-          'SplashScreenView is working',
-          style: TextStyle(fontSize: 20),
-        ),
-      ),
-    );
+        body: Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Center(
+            child: Image.asset('assets/images/ak_vertical.png', height: 250)),
+
+            Center(child: CircularProgressIndicator())
+      ],
+    ));
   }
 }

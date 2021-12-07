@@ -1,1297 +1,2145 @@
-define(['dart_sdk', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/painting/basic_types.dart', 'packages/flutter/src/rendering/layout_helper.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/rendering/debug_overflow_indicator.dart'], (function load__packages__flutter__src__rendering__flex_dart(dart_sdk, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__painting__basic_types$46dart, packages__flutter__src__rendering__layout_helper$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__rendering__debug_overflow_indicator$46dart) {
-  'use strict';
-  const core = dart_sdk.core;
-  const ui = dart_sdk.ui;
-  const math = dart_sdk.math;
-  const _internal = dart_sdk._internal;
-  const _interceptors = dart_sdk._interceptors;
-  const dart = dart_sdk.dart;
-  const dartx = dart_sdk.dartx;
-  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
-  const object = packages__flutter__src__rendering__layer$46dart.src__rendering__object;
-  const layer = packages__flutter__src__rendering__layer$46dart.src__rendering__layer;
-  const basic_types = packages__flutter__src__painting__basic_types$46dart.src__painting__basic_types;
-  const layout_helper = packages__flutter__src__rendering__layout_helper$46dart.src__rendering__layout_helper;
-  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
-  const assertions = packages__flutter__src__foundation__debug$46dart.src__foundation__assertions;
-  const debug_overflow_indicator = packages__flutter__src__rendering__debug_overflow_indicator$46dart.src__rendering__debug_overflow_indicator;
-  var flex$ = Object.create(dart.library);
-  var $runtimeType = dartx.runtimeType;
-  var $add = dartx.add;
-  var $addAll = dartx.addAll;
-  dart._checkModuleNullSafetyMode(true);
-  var T = {
-    VoidTodouble: () => (T.VoidTodouble = dart.constFn(dart.fnType(core.double, [])))(),
-    doubleTodynamic: () => (T.doubleTodynamic = dart.constFn(dart.fnType(dart.dynamic, [core.double])))(),
-    RenderBoxAnddoubleTodouble: () => (T.RenderBoxAnddoubleTodouble = dart.constFn(dart.fnType(core.double, [box.RenderBox, core.double])))(),
-    VoidTobool: () => (T.VoidTobool = dart.constFn(dart.fnType(core.bool, [])))(),
-    RenderBoxAndBoxConstraintsToSize: () => (T.RenderBoxAndBoxConstraintsToSize = dart.constFn(dart.fnType(ui.Size, [box.RenderBox, box.BoxConstraints])))(),
-    JSArrayOfDiagnosticsNode: () => (T.JSArrayOfDiagnosticsNode = dart.constFn(_interceptors.JSArray$(diagnostics.DiagnosticsNode)))(),
-    EnumPropertyOfAxis: () => (T.EnumPropertyOfAxis = dart.constFn(diagnostics.EnumProperty$(basic_types.Axis)))(),
-    EnumPropertyOfMainAxisAlignment: () => (T.EnumPropertyOfMainAxisAlignment = dart.constFn(diagnostics.EnumProperty$(flex$.MainAxisAlignment)))(),
-    EnumPropertyOfMainAxisSize: () => (T.EnumPropertyOfMainAxisSize = dart.constFn(diagnostics.EnumProperty$(flex$.MainAxisSize)))(),
-    EnumPropertyOfCrossAxisAlignment: () => (T.EnumPropertyOfCrossAxisAlignment = dart.constFn(diagnostics.EnumProperty$(flex$.CrossAxisAlignment)))(),
-    EnumPropertyOfTextDirection: () => (T.EnumPropertyOfTextDirection = dart.constFn(diagnostics.EnumProperty$(ui.TextDirection)))(),
-    EnumPropertyOfVerticalDirection: () => (T.EnumPropertyOfVerticalDirection = dart.constFn(diagnostics.EnumProperty$(basic_types.VerticalDirection)))(),
-    EnumPropertyOfTextBaseline: () => (T.EnumPropertyOfTextBaseline = dart.constFn(diagnostics.EnumProperty$(ui.TextBaseline)))()
-  };
-  const CT = Object.create({
-    _: () => (C, CT)
-  });
-  dart.defineLazy(CT, {
-    get C0() {
-      return C[0] = dart.const({
-        __proto__: flex$.FlexFit.prototype,
-        [_name$]: "FlexFit.tight",
-        index: 0
-      });
-    },
-    get C1() {
-      return C[1] = dart.const({
-        __proto__: flex$.FlexFit.prototype,
-        [_name$]: "FlexFit.loose",
-        index: 1
-      });
-    },
-    get C2() {
-      return C[2] = dart.constList([C[0] || CT.C0, C[1] || CT.C1], flex$.FlexFit);
-    },
-    get C3() {
-      return C[3] = dart.const({
-        __proto__: flex$.MainAxisSize.prototype,
-        [_name$]: "MainAxisSize.min",
-        index: 0
-      });
-    },
-    get C4() {
-      return C[4] = dart.const({
-        __proto__: flex$.MainAxisSize.prototype,
-        [_name$]: "MainAxisSize.max",
-        index: 1
-      });
-    },
-    get C5() {
-      return C[5] = dart.constList([C[3] || CT.C3, C[4] || CT.C4], flex$.MainAxisSize);
-    },
-    get C6() {
-      return C[6] = dart.const({
-        __proto__: flex$.MainAxisAlignment.prototype,
-        [_name$]: "MainAxisAlignment.start",
-        index: 0
-      });
-    },
-    get C7() {
-      return C[7] = dart.const({
-        __proto__: flex$.MainAxisAlignment.prototype,
-        [_name$]: "MainAxisAlignment.end",
-        index: 1
-      });
-    },
-    get C8() {
-      return C[8] = dart.const({
-        __proto__: flex$.MainAxisAlignment.prototype,
-        [_name$]: "MainAxisAlignment.center",
-        index: 2
-      });
-    },
-    get C9() {
-      return C[9] = dart.const({
-        __proto__: flex$.MainAxisAlignment.prototype,
-        [_name$]: "MainAxisAlignment.spaceBetween",
-        index: 3
-      });
-    },
-    get C10() {
-      return C[10] = dart.const({
-        __proto__: flex$.MainAxisAlignment.prototype,
-        [_name$]: "MainAxisAlignment.spaceAround",
-        index: 4
-      });
-    },
-    get C11() {
-      return C[11] = dart.const({
-        __proto__: flex$.MainAxisAlignment.prototype,
-        [_name$]: "MainAxisAlignment.spaceEvenly",
-        index: 5
-      });
-    },
-    get C12() {
-      return C[12] = dart.constList([C[6] || CT.C6, C[7] || CT.C7, C[8] || CT.C8, C[9] || CT.C9, C[10] || CT.C10, C[11] || CT.C11], flex$.MainAxisAlignment);
-    },
-    get C13() {
-      return C[13] = dart.const({
-        __proto__: flex$.CrossAxisAlignment.prototype,
-        [_name$]: "CrossAxisAlignment.start",
-        index: 0
-      });
-    },
-    get C14() {
-      return C[14] = dart.const({
-        __proto__: flex$.CrossAxisAlignment.prototype,
-        [_name$]: "CrossAxisAlignment.end",
-        index: 1
-      });
-    },
-    get C15() {
-      return C[15] = dart.const({
-        __proto__: flex$.CrossAxisAlignment.prototype,
-        [_name$]: "CrossAxisAlignment.center",
-        index: 2
-      });
-    },
-    get C16() {
-      return C[16] = dart.const({
-        __proto__: flex$.CrossAxisAlignment.prototype,
-        [_name$]: "CrossAxisAlignment.stretch",
-        index: 3
-      });
-    },
-    get C17() {
-      return C[17] = dart.const({
-        __proto__: flex$.CrossAxisAlignment.prototype,
-        [_name$]: "CrossAxisAlignment.baseline",
-        index: 4
-      });
-    },
-    get C18() {
-      return C[18] = dart.constList([C[13] || CT.C13, C[14] || CT.C14, C[15] || CT.C15, C[16] || CT.C16, C[17] || CT.C17], flex$.CrossAxisAlignment);
-    },
-    get C19() {
-      return C[19] = dart.const({
-        __proto__: basic_types.Axis.prototype,
-        [_name]: "Axis.horizontal",
-        index: 0
-      });
-    },
-    get C20() {
-      return C[20] = dart.const({
-        __proto__: basic_types.VerticalDirection.prototype,
-        [_name]: "VerticalDirection.down",
-        index: 1
-      });
-    },
-    get C21() {
-      return C[21] = dart.const({
-        __proto__: ui.Clip.prototype,
-        [_name$0]: "Clip.none",
-        index: 0
-      });
-    },
-    get C22() {
-      return C[22] = dart.const({
-        __proto__: basic_types.Axis.prototype,
-        [_name]: "Axis.vertical",
-        index: 1
-      });
-    },
-    get C23() {
-      return C[23] = dart.fn(layout_helper.ChildLayoutHelper.dryLayoutChild, T.RenderBoxAndBoxConstraintsToSize());
-    },
-    get C24() {
-      return C[24] = dart.fn(layout_helper.ChildLayoutHelper.layoutChild, T.RenderBoxAndBoxConstraintsToSize());
-    },
-    get C25() {
-      return C[25] = dart.const({
-        __proto__: ui.TextDirection.prototype,
-        [_name$0]: "TextDirection.ltr",
-        index: 1
-      });
-    },
-    get C26() {
-      return C[26] = dart.const({
-        __proto__: ui.TextDirection.prototype,
-        [_name$0]: "TextDirection.rtl",
-        index: 0
-      });
-    },
-    get C27() {
-      return C[27] = dart.const({
-        __proto__: basic_types.VerticalDirection.prototype,
-        [_name]: "VerticalDirection.up",
-        index: 0
-      });
-    }
-  }, false);
-  var C = Array(28).fill(void 0);
-  var I = [
-    "package:flutter/src/rendering/flex.dart",
-    "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/rendering/flex.dart"
-  ];
-  var _name$ = dart.privateName(flex$, "_name");
-  flex$.FlexFit = class FlexFit extends core.Object {
-    toString() {
-      return this[_name$];
-    }
-  };
-  (flex$.FlexFit.new = function(index, _name) {
-    this.index = index;
-    this[_name$] = _name;
-    ;
-  }).prototype = flex$.FlexFit.prototype;
-  dart.addTypeTests(flex$.FlexFit);
-  dart.addTypeCaches(flex$.FlexFit);
-  dart.setLibraryUri(flex$.FlexFit, I[0]);
-  dart.setFieldSignature(flex$.FlexFit, () => ({
-    __proto__: dart.getFields(flex$.FlexFit.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(flex$.FlexFit, ['toString']);
-  flex$.FlexFit.tight = C[0] || CT.C0;
-  flex$.FlexFit.loose = C[1] || CT.C1;
-  flex$.FlexFit.values = C[2] || CT.C2;
-  var flex = dart.privateName(flex$, "FlexParentData.flex");
-  var fit = dart.privateName(flex$, "FlexParentData.fit");
-  flex$.FlexParentData = class FlexParentData extends box.ContainerBoxParentData$(box.RenderBox) {
-    get flex() {
-      return this[flex];
-    }
-    set flex(value) {
-      this[flex] = value;
-    }
-    get fit() {
-      return this[fit];
-    }
-    set fit(value) {
-      this[fit] = value;
-    }
-    toString() {
-      return super.toString() + "; flex=" + dart.str(this.flex) + "; fit=" + dart.str(this.fit);
-    }
-  };
-  (flex$.FlexParentData.new = function() {
-    this[flex] = null;
-    this[fit] = null;
-    flex$.FlexParentData.__proto__.new.call(this);
-    ;
-  }).prototype = flex$.FlexParentData.prototype;
-  dart.addTypeTests(flex$.FlexParentData);
-  dart.addTypeCaches(flex$.FlexParentData);
-  dart.setLibraryUri(flex$.FlexParentData, I[0]);
-  dart.setFieldSignature(flex$.FlexParentData, () => ({
-    __proto__: dart.getFields(flex$.FlexParentData.__proto__),
-    flex: dart.fieldType(dart.nullable(core.int)),
-    fit: dart.fieldType(dart.nullable(flex$.FlexFit))
-  }));
-  dart.defineExtensionMethods(flex$.FlexParentData, ['toString']);
-  flex$.MainAxisSize = class MainAxisSize extends core.Object {
-    toString() {
-      return this[_name$];
-    }
-  };
-  (flex$.MainAxisSize.new = function(index, _name) {
-    this.index = index;
-    this[_name$] = _name;
-    ;
-  }).prototype = flex$.MainAxisSize.prototype;
-  dart.addTypeTests(flex$.MainAxisSize);
-  dart.addTypeCaches(flex$.MainAxisSize);
-  dart.setLibraryUri(flex$.MainAxisSize, I[0]);
-  dart.setFieldSignature(flex$.MainAxisSize, () => ({
-    __proto__: dart.getFields(flex$.MainAxisSize.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(flex$.MainAxisSize, ['toString']);
-  flex$.MainAxisSize.min = C[3] || CT.C3;
-  flex$.MainAxisSize.max = C[4] || CT.C4;
-  flex$.MainAxisSize.values = C[5] || CT.C5;
-  flex$.MainAxisAlignment = class MainAxisAlignment extends core.Object {
-    toString() {
-      return this[_name$];
-    }
-  };
-  (flex$.MainAxisAlignment.new = function(index, _name) {
-    this.index = index;
-    this[_name$] = _name;
-    ;
-  }).prototype = flex$.MainAxisAlignment.prototype;
-  dart.addTypeTests(flex$.MainAxisAlignment);
-  dart.addTypeCaches(flex$.MainAxisAlignment);
-  dart.setLibraryUri(flex$.MainAxisAlignment, I[0]);
-  dart.setFieldSignature(flex$.MainAxisAlignment, () => ({
-    __proto__: dart.getFields(flex$.MainAxisAlignment.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(flex$.MainAxisAlignment, ['toString']);
-  flex$.MainAxisAlignment.start = C[6] || CT.C6;
-  flex$.MainAxisAlignment.end = C[7] || CT.C7;
-  flex$.MainAxisAlignment.center = C[8] || CT.C8;
-  flex$.MainAxisAlignment.spaceBetween = C[9] || CT.C9;
-  flex$.MainAxisAlignment.spaceAround = C[10] || CT.C10;
-  flex$.MainAxisAlignment.spaceEvenly = C[11] || CT.C11;
-  flex$.MainAxisAlignment.values = C[12] || CT.C12;
-  flex$.CrossAxisAlignment = class CrossAxisAlignment extends core.Object {
-    toString() {
-      return this[_name$];
-    }
-  };
-  (flex$.CrossAxisAlignment.new = function(index, _name) {
-    this.index = index;
-    this[_name$] = _name;
-    ;
-  }).prototype = flex$.CrossAxisAlignment.prototype;
-  dart.addTypeTests(flex$.CrossAxisAlignment);
-  dart.addTypeCaches(flex$.CrossAxisAlignment);
-  dart.setLibraryUri(flex$.CrossAxisAlignment, I[0]);
-  dart.setFieldSignature(flex$.CrossAxisAlignment, () => ({
-    __proto__: dart.getFields(flex$.CrossAxisAlignment.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(flex$.CrossAxisAlignment, ['toString']);
-  flex$.CrossAxisAlignment.start = C[13] || CT.C13;
-  flex$.CrossAxisAlignment.end = C[14] || CT.C14;
-  flex$.CrossAxisAlignment.center = C[15] || CT.C15;
-  flex$.CrossAxisAlignment.stretch = C[16] || CT.C16;
-  flex$.CrossAxisAlignment.baseline = C[17] || CT.C17;
-  flex$.CrossAxisAlignment.values = C[18] || CT.C18;
-  var _name = dart.privateName(basic_types, "_name");
-  var _name$0 = dart.privateName(ui, "_name");
-  var _overflow = dart.privateName(flex$, "_overflow");
-  var _clipBehavior = dart.privateName(flex$, "_clipBehavior");
-  var _clipRectLayer = dart.privateName(flex$, "_clipRectLayer");
-  var _direction = dart.privateName(flex$, "_direction");
-  var _mainAxisAlignment = dart.privateName(flex$, "_mainAxisAlignment");
-  var _mainAxisSize = dart.privateName(flex$, "_mainAxisSize");
-  var _crossAxisAlignment = dart.privateName(flex$, "_crossAxisAlignment");
-  var _textDirection = dart.privateName(flex$, "_textDirection");
-  var _verticalDirection = dart.privateName(flex$, "_verticalDirection");
-  var _textBaseline = dart.privateName(flex$, "_textBaseline");
-  var _debugHasNecessaryDirections = dart.privateName(flex$, "_debugHasNecessaryDirections");
-  var _hasOverflow = dart.privateName(flex$, "_hasOverflow");
-  var _canComputeIntrinsics = dart.privateName(flex$, "_canComputeIntrinsics");
-  var _getFlex = dart.privateName(flex$, "_getFlex");
-  var _getIntrinsicSize = dart.privateName(flex$, "_getIntrinsicSize");
-  var _getFit = dart.privateName(flex$, "_getFit");
-  var _getCrossSize = dart.privateName(flex$, "_getCrossSize");
-  var _getMainSize = dart.privateName(flex$, "_getMainSize");
-  var _debugCheckConstraints = dart.privateName(flex$, "_debugCheckConstraints");
-  var _computeSizes = dart.privateName(flex$, "_computeSizes");
-  const RenderBox_ContainerRenderObjectMixin$36 = class RenderBox_ContainerRenderObjectMixin extends box.RenderBox {};
-  (RenderBox_ContainerRenderObjectMixin$36.new = function() {
-    object.ContainerRenderObjectMixin$(box.RenderBox, flex$.FlexParentData)[dart.mixinNew].call(this);
-    RenderBox_ContainerRenderObjectMixin$36.__proto__.new.call(this);
-  }).prototype = RenderBox_ContainerRenderObjectMixin$36.prototype;
-  dart.applyMixin(RenderBox_ContainerRenderObjectMixin$36, object.ContainerRenderObjectMixin$(box.RenderBox, flex$.FlexParentData));
-  const RenderBox_RenderBoxContainerDefaultsMixin$36 = class RenderBox_RenderBoxContainerDefaultsMixin extends RenderBox_ContainerRenderObjectMixin$36 {};
-  (RenderBox_RenderBoxContainerDefaultsMixin$36.new = function() {
-    RenderBox_RenderBoxContainerDefaultsMixin$36.__proto__.new.call(this);
-  }).prototype = RenderBox_RenderBoxContainerDefaultsMixin$36.prototype;
-  dart.applyMixin(RenderBox_RenderBoxContainerDefaultsMixin$36, box.RenderBoxContainerDefaultsMixin$(box.RenderBox, flex$.FlexParentData));
-  const RenderBox_DebugOverflowIndicatorMixin$36 = class RenderBox_DebugOverflowIndicatorMixin extends RenderBox_RenderBoxContainerDefaultsMixin$36 {};
-  (RenderBox_DebugOverflowIndicatorMixin$36.new = function() {
-    debug_overflow_indicator.DebugOverflowIndicatorMixin[dart.mixinNew].call(this);
-    RenderBox_DebugOverflowIndicatorMixin$36.__proto__.new.call(this);
-  }).prototype = RenderBox_DebugOverflowIndicatorMixin$36.prototype;
-  dart.applyMixin(RenderBox_DebugOverflowIndicatorMixin$36, debug_overflow_indicator.DebugOverflowIndicatorMixin);
-  flex$.RenderFlex = class RenderFlex extends RenderBox_DebugOverflowIndicatorMixin$36 {
-    get direction() {
-      return this[_direction];
-    }
-    set direction(value) {
-      if (!(value !== null)) dart.assertFailed(null, I[1], 312, 12, "value != null");
-      if (this[_direction] !== value) {
-        this[_direction] = value;
-        this.markNeedsLayout();
-      }
-    }
-    get mainAxisAlignment() {
-      return this[_mainAxisAlignment];
-    }
-    set mainAxisAlignment(value) {
-      if (!(value !== null)) dart.assertFailed(null, I[1], 331, 12, "value != null");
-      if (this[_mainAxisAlignment] !== value) {
-        this[_mainAxisAlignment] = value;
-        this.markNeedsLayout();
-      }
-    }
-    get mainAxisSize() {
-      return this[_mainAxisSize];
-    }
-    set mainAxisSize(value) {
-      if (!(value !== null)) dart.assertFailed(null, I[1], 351, 12, "value != null");
-      if (this[_mainAxisSize] !== value) {
-        this[_mainAxisSize] = value;
-        this.markNeedsLayout();
-      }
-    }
-    get crossAxisAlignment() {
-      return this[_crossAxisAlignment];
-    }
-    set crossAxisAlignment(value) {
-      if (!(value !== null)) dart.assertFailed(null, I[1], 370, 12, "value != null");
-      if (this[_crossAxisAlignment] !== value) {
-        this[_crossAxisAlignment] = value;
-        this.markNeedsLayout();
-      }
-    }
-    get textDirection() {
-      return this[_textDirection];
-    }
-    set textDirection(value) {
-      if (this[_textDirection] != value) {
-        this[_textDirection] = value;
-        this.markNeedsLayout();
-      }
-    }
-    get verticalDirection() {
-      return this[_verticalDirection];
-    }
-    set verticalDirection(value) {
-      if (this[_verticalDirection] !== value) {
-        this[_verticalDirection] = value;
-        this.markNeedsLayout();
-      }
-    }
-    get textBaseline() {
-      return this[_textBaseline];
-    }
-    set textBaseline(value) {
-      if (!(this[_crossAxisAlignment] !== flex$.CrossAxisAlignment.baseline || value != null)) dart.assertFailed(null, I[1], 439, 12, "_crossAxisAlignment != CrossAxisAlignment.baseline || value != null");
-      if (this[_textBaseline] != value) {
-        this[_textBaseline] = value;
-        this.markNeedsLayout();
-      }
-    }
-    get [_debugHasNecessaryDirections]() {
-      if (!(this.direction !== null)) dart.assertFailed(null, I[1], 447, 12, "direction != null");
-      if (!(this.crossAxisAlignment !== null)) dart.assertFailed(null, I[1], 448, 12, "crossAxisAlignment != null");
-      if (this.firstChild != null && !dart.equals(this.lastChild, this.firstChild)) {
-        switch (this.direction) {
-          case C[19] || CT.C19:
-          {
-            if (!(this.textDirection != null)) dart.assertFailed("Horizontal " + dart.str(this[$runtimeType]) + " with multiple children has a null textDirection, so the layout order is undefined.", I[1], 453, 18, "textDirection != null");
-            break;
-          }
-          case C[22] || CT.C22:
-          {
-            if (!(this.verticalDirection !== null)) dart.assertFailed("Vertical " + dart.str(this[$runtimeType]) + " with multiple children has a null verticalDirection, so the layout order is undefined.", I[1], 456, 18, "verticalDirection != null");
-            break;
-          }
-        }
-      }
-      if (this.mainAxisAlignment === flex$.MainAxisAlignment.start || this.mainAxisAlignment === flex$.MainAxisAlignment.end) {
-        switch (this.direction) {
-          case C[19] || CT.C19:
-          {
-            if (!(this.textDirection != null)) dart.assertFailed("Horizontal " + dart.str(this[$runtimeType]) + " with " + dart.str(this.mainAxisAlignment) + " has a null textDirection, so the alignment cannot be resolved.", I[1], 464, 18, "textDirection != null");
-            break;
-          }
-          case C[22] || CT.C22:
-          {
-            if (!(this.verticalDirection !== null)) dart.assertFailed("Vertical " + dart.str(this[$runtimeType]) + " with " + dart.str(this.mainAxisAlignment) + " has a null verticalDirection, so the alignment cannot be resolved.", I[1], 467, 18, "verticalDirection != null");
-            break;
-          }
-        }
-      }
-      if (this.crossAxisAlignment === flex$.CrossAxisAlignment.start || this.crossAxisAlignment === flex$.CrossAxisAlignment.end) {
-        switch (this.direction) {
-          case C[19] || CT.C19:
-          {
-            if (!(this.verticalDirection !== null)) dart.assertFailed("Horizontal " + dart.str(this[$runtimeType]) + " with " + dart.str(this.crossAxisAlignment) + " has a null verticalDirection, so the alignment cannot be resolved.", I[1], 475, 18, "verticalDirection != null");
-            break;
-          }
-          case C[22] || CT.C22:
-          {
-            if (!(this.textDirection != null)) dart.assertFailed("Vertical " + dart.str(this[$runtimeType]) + " with " + dart.str(this.crossAxisAlignment) + " has a null textDirection, so the alignment cannot be resolved.", I[1], 478, 18, "textDirection != null");
-            break;
-          }
-        }
-      }
-      return true;
-    }
-    get [_hasOverflow]() {
-      return this[_overflow] > 1e-10;
-    }
-    get clipBehavior() {
-      return this[_clipBehavior];
-    }
-    set clipBehavior(value) {
-      if (!(value !== null)) dart.assertFailed(null, I[1], 497, 12, "value != null");
-      if (value !== this[_clipBehavior]) {
-        this[_clipBehavior] = value;
-        this.markNeedsPaint();
-        this.markNeedsSemanticsUpdate();
-      }
-    }
-    setupParentData(child) {
-      box.RenderBox.as(child);
-      if (!flex$.FlexParentData.is(child.parentData)) child.parentData = new flex$.FlexParentData.new();
-    }
-    get [_canComputeIntrinsics]() {
-      return this.crossAxisAlignment !== flex$.CrossAxisAlignment.baseline;
-    }
-    [_getIntrinsicSize](opts) {
-      let sizingDirection = opts && 'sizingDirection' in opts ? opts.sizingDirection : null;
-      let extent = opts && 'extent' in opts ? opts.extent : null;
-      let childSize = opts && 'childSize' in opts ? opts.childSize : null;
-      if (!this[_canComputeIntrinsics]) {
-        if (!object.RenderObject.debugCheckingIntrinsics) dart.assertFailed("Intrinsics are not available for CrossAxisAlignment.baseline.", I[1], 523, 9, "RenderObject.debugCheckingIntrinsics");
-        return 0.0;
-      }
-      if (this[_direction] === sizingDirection) {
-        let totalFlex = 0.0;
-        let inflexibleSpace = 0.0;
-        let maxFlexFractionSoFar = 0.0;
-        let child = this.firstChild;
-        while (child != null) {
-          let flex = this[_getFlex](child);
-          totalFlex = totalFlex + flex;
-          if (flex > 0) {
-            let flexFraction = childSize(child, extent) / this[_getFlex](child);
-            maxFlexFractionSoFar = math.max(core.double, maxFlexFractionSoFar, flexFraction);
-          } else {
-            inflexibleSpace = inflexibleSpace + childSize(child, extent);
-          }
-          let childParentData = flex$.FlexParentData.as(dart.nullCheck(child.parentData));
-          child = childParentData.nextSibling;
-        }
-        return maxFlexFractionSoFar * totalFlex + inflexibleSpace;
-      } else {
-        let availableMainSpace = extent;
-        let totalFlex = 0;
-        let inflexibleSpace = 0.0;
-        let maxCrossSize = 0.0;
-        let child = this.firstChild;
-        while (child != null) {
-          let flex = this[_getFlex](child);
-          totalFlex = totalFlex + flex;
-          let mainSize = null;
-          function mainSize$35get() {
-            let t1;
-            t1 = mainSize;
-            return t1 == null ? dart.throw(new _internal.LateError.localNI("mainSize")) : t1;
-          }
-          dart.fn(mainSize$35get, T.VoidTodouble());
-          function mainSize$35set(t2) {
-            if (mainSize == null)
-              return mainSize = t2;
-            else
-              dart.throw(new _internal.LateError.localAI("mainSize"));
-          }
-          dart.fn(mainSize$35set, T.doubleTodynamic());
-          let crossSize = null;
-          function crossSize$35get() {
-            let t5;
-            t5 = crossSize;
-            return t5 == null ? dart.throw(new _internal.LateError.localNI("crossSize")) : t5;
-          }
-          dart.fn(crossSize$35get, T.VoidTodouble());
-          function crossSize$35set(t6) {
-            if (crossSize == null)
-              return crossSize = t6;
-            else
-              dart.throw(new _internal.LateError.localAI("crossSize"));
-          }
-          dart.fn(crossSize$35set, T.doubleTodynamic());
-          if (flex === 0) {
-            switch (this[_direction]) {
-              case C[19] || CT.C19:
-              {
-                mainSize$35set(child.getMaxIntrinsicWidth(1 / 0));
-                crossSize$35set(childSize(child, mainSize$35get()));
-                break;
-              }
-              case C[22] || CT.C22:
-              {
-                mainSize$35set(child.getMaxIntrinsicHeight(1 / 0));
-                crossSize$35set(childSize(child, mainSize$35get()));
-                break;
-              }
-            }
-            inflexibleSpace = inflexibleSpace + mainSize$35get();
-            maxCrossSize = math.max(core.double, maxCrossSize, crossSize$35get());
-          }
-          let childParentData = flex$.FlexParentData.as(dart.nullCheck(child.parentData));
-          child = childParentData.nextSibling;
-        }
-        let spacePerFlex = math.max(core.double, 0.0, (availableMainSpace - inflexibleSpace) / totalFlex);
-        child = this.firstChild;
-        while (child != null) {
-          let flex = this[_getFlex](child);
-          if (flex > 0) maxCrossSize = math.max(core.double, maxCrossSize, childSize(child, spacePerFlex * flex));
-          let childParentData = flex$.FlexParentData.as(dart.nullCheck(child.parentData));
-          child = childParentData.nextSibling;
-        }
-        return maxCrossSize;
-      }
-    }
-    computeMinIntrinsicWidth(height) {
-      return this[_getIntrinsicSize]({sizingDirection: basic_types.Axis.horizontal, extent: height, childSize: dart.fn((child, extent) => child.getMinIntrinsicWidth(extent), T.RenderBoxAnddoubleTodouble())});
-    }
-    computeMaxIntrinsicWidth(height) {
-      return this[_getIntrinsicSize]({sizingDirection: basic_types.Axis.horizontal, extent: height, childSize: dart.fn((child, extent) => child.getMaxIntrinsicWidth(extent), T.RenderBoxAnddoubleTodouble())});
-    }
-    computeMinIntrinsicHeight(width) {
-      return this[_getIntrinsicSize]({sizingDirection: basic_types.Axis.vertical, extent: width, childSize: dart.fn((child, extent) => child.getMinIntrinsicHeight(extent), T.RenderBoxAnddoubleTodouble())});
-    }
-    computeMaxIntrinsicHeight(width) {
-      return this[_getIntrinsicSize]({sizingDirection: basic_types.Axis.vertical, extent: width, childSize: dart.fn((child, extent) => child.getMaxIntrinsicHeight(extent), T.RenderBoxAnddoubleTodouble())});
-    }
-    computeDistanceToActualBaseline(baseline) {
-      if (this[_direction] === basic_types.Axis.horizontal) return this.defaultComputeDistanceToHighestActualBaseline(baseline);
-      return this.defaultComputeDistanceToFirstActualBaseline(baseline);
-    }
-    [_getFlex](child) {
-      let t8;
-      let childParentData = flex$.FlexParentData.as(dart.nullCheck(child.parentData));
-      t8 = childParentData.flex;
-      return t8 == null ? 0 : t8;
-    }
-    [_getFit](child) {
-      let t8;
-      let childParentData = flex$.FlexParentData.as(dart.nullCheck(child.parentData));
-      t8 = childParentData.fit;
-      return t8 == null ? flex$.FlexFit.tight : t8;
-    }
-    [_getCrossSize](size) {
-      switch (this[_direction]) {
-        case C[19] || CT.C19:
-        {
-          return size.height;
-        }
-        case C[22] || CT.C22:
-        {
-          return size.width;
-        }
-      }
-    }
-    [_getMainSize](size) {
-      switch (this[_direction]) {
-        case C[19] || CT.C19:
-        {
-          return size.width;
-        }
-        case C[22] || CT.C22:
-        {
-          return size.height;
-        }
-      }
-    }
-    computeDryLayout(constraints) {
-      if (!this[_canComputeIntrinsics]) {
-        if (!this.debugCannotComputeDryLayout({reason: "Dry layout cannot be computed for CrossAxisAlignment.baseline, which requires a full layout."})) dart.assertFailed(null, I[1], 676, 14, "debugCannotComputeDryLayout(\n        reason: 'Dry layout cannot be computed for CrossAxisAlignment.baseline, which requires a full layout.',\n      )");
-        return ui.Size.zero;
-      }
-      let constraintsError = null;
-      if (!dart.fn(() => {
-        constraintsError = this[_debugCheckConstraints]({constraints: constraints, reportParentConstraints: false});
-        return true;
-      }, T.VoidTobool())()) dart.assertFailed(null, I[1], 682, 12, "() {\n      constraintsError = _debugCheckConstraints(\n        constraints: constraints,\n        reportParentConstraints: false,\n      );\n      return true;\n    }()");
-      if (constraintsError != null) {
-        if (!this.debugCannotComputeDryLayout({error: constraintsError})) dart.assertFailed(null, I[1], 690, 14, "debugCannotComputeDryLayout(error: constraintsError)");
-        return ui.Size.zero;
-      }
-      let sizes = this[_computeSizes]({layoutChild: C[23] || CT.C23, constraints: constraints});
-      switch (this[_direction]) {
-        case C[19] || CT.C19:
-        {
-          return constraints.constrain(new ui.Size.new(sizes.mainSize, sizes.crossSize));
-        }
-        case C[22] || CT.C22:
-        {
-          return constraints.constrain(new ui.Size.new(sizes.crossSize, sizes.mainSize));
-        }
-      }
-    }
-    [_debugCheckConstraints](opts) {
-      let constraints = opts && 'constraints' in opts ? opts.constraints : null;
-      let reportParentConstraints = opts && 'reportParentConstraints' in opts ? opts.reportParentConstraints : null;
-      let result = null;
-      if (!dart.fn(() => {
-        let maxMainSize = this[_direction] === basic_types.Axis.horizontal ? constraints.maxWidth : constraints.maxHeight;
-        let canFlex = maxMainSize < 1 / 0;
-        let child = this.firstChild;
-        while (child != null) {
-          let flex = this[_getFlex](child);
-          if (flex > 0) {
-            let identity = this[_direction] === basic_types.Axis.horizontal ? "row" : "column";
-            let axis = this[_direction] === basic_types.Axis.horizontal ? "horizontal" : "vertical";
-            let dimension = this[_direction] === basic_types.Axis.horizontal ? "width" : "height";
-            let error = null;
-            let message = null;
-            let addendum = T.JSArrayOfDiagnosticsNode().of([]);
-            if (!canFlex && (this.mainAxisSize === flex$.MainAxisSize.max || this[_getFit](child) === flex$.FlexFit.tight)) {
-              error = new assertions.ErrorSummary.new("RenderFlex children have non-zero flex but incoming " + dimension + " constraints are unbounded.");
-              message = new assertions.ErrorDescription.new("When a " + identity + " is in a parent that does not provide a finite " + dimension + " constraint, for example " + "if it is in a " + axis + " scrollable, it will try to shrink-wrap its children along the " + axis + " " + "axis. Setting a flex on a child (e.g. using Expanded) indicates that the child is to " + "expand to fill the remaining space in the " + axis + " direction.");
-              if (reportParentConstraints) {
-                let node = this;
-                switch (this[_direction]) {
-                  case C[19] || CT.C19:
-                  {
-                    while (!dart.nullCheck(node).constraints.hasBoundedWidth && box.RenderBox.is(node.parent))
-                      node = box.RenderBox.as(dart.nullCheck(node.parent));
-                    if (!node.constraints.hasBoundedWidth) node = null;
-                    break;
-                  }
-                  case C[22] || CT.C22:
-                  {
-                    while (!dart.nullCheck(node).constraints.hasBoundedHeight && box.RenderBox.is(node.parent))
-                      node = box.RenderBox.as(dart.nullCheck(node.parent));
-                    if (!node.constraints.hasBoundedHeight) node = null;
-                    break;
-                  }
-                }
-                if (node != null) {
-                  addendum[$add](node.describeForError("The nearest ancestor providing an unbounded width constraint is"));
-                }
-              }
-              addendum[$add](new assertions.ErrorHint.new("See also: https://flutter.dev/layout/"));
-            } else {
-              return true;
-            }
-            result = new assertions.FlutterError.fromParts((() => {
-              let t8 = T.JSArrayOfDiagnosticsNode().of([error, message, new assertions.ErrorDescription.new("These two directives are mutually exclusive. If a parent is to shrink-wrap its child, the child " + "cannot simultaneously expand to fit its parent."), new assertions.ErrorHint.new("Consider setting mainAxisSize to MainAxisSize.min and using FlexFit.loose fits for the flexible " + "children (using Flexible rather than Expanded). This will allow the flexible children " + "to size themselves to less than the infinite remaining space they would otherwise be " + "forced to take, and then will cause the RenderFlex to shrink-wrap the children " + "rather than expanding to fit the maximum constraints provided by the parent."), new assertions.ErrorDescription.new("If this message did not help you determine the problem, consider using debugDumpRenderTree():\n" + "  https://flutter.dev/debugging/#rendering-layer\n" + "  http://api.flutter.dev/flutter/rendering/debugDumpRenderTree.html"), this.describeForError("The affected RenderFlex is", {style: diagnostics.DiagnosticsTreeStyle.errorProperty}), new diagnostics.DiagnosticsProperty.new("The creator information is set to", this.debugCreator, {style: diagnostics.DiagnosticsTreeStyle.errorProperty})]);
-              t8[$addAll](addendum);
-              t8[$add](new assertions.ErrorDescription.new("If none of the above helps enough to fix this problem, please don't hesitate to file a bug:\n" + "  https://github.com/flutter/flutter/issues/new?template=2_bug.md"));
-              return t8;
-            })());
-            return true;
-          }
-          child = this.childAfter(child);
-        }
-        return true;
-      }, T.VoidTobool())()) dart.assertFailed(null, I[1], 709, 12, "() {\n      final double maxMainSize = _direction == Axis.horizontal ? constraints.maxWidth : constraints.maxHeight;\n      final bool canFlex = maxMainSize < double.infinity;\n      RenderBox? child = firstChild;\n      while (child != null) {\n        final int flex = _getFlex(child);\n        if (flex > 0) {\n          final String identity = _direction == Axis.horizontal ? 'row' : 'column';\n          final String axis = _direction == Axis.horizontal ? 'horizontal' : 'vertical';\n          final String dimension = _direction == Axis.horizontal ? 'width' : 'height';\n          DiagnosticsNode error, message;\n          final List<DiagnosticsNode> addendum = <DiagnosticsNode>[];\n          if (!canFlex && (mainAxisSize == MainAxisSize.max || _getFit(child) == FlexFit.tight)) {\n            error = ErrorSummary('RenderFlex children have non-zero flex but incoming $dimension constraints are unbounded.');\n            message = ErrorDescription(\n              'When a $identity is in a parent that does not provide a finite $dimension constraint, for example '\n              'if it is in a $axis scrollable, it will try to shrink-wrap its children along the $axis '\n              'axis. Setting a flex on a child (e.g. using Expanded) indicates that the child is to '\n              'expand to fill the remaining space in the $axis direction.',\n            );\n            if (reportParentConstraints) { // Constraints of parents are unavailable in dry layout.\n              RenderBox? node = this;\n              switch (_direction) {\n                case Axis.horizontal:\n                  while (!node!.constraints.hasBoundedWidth && node.parent is RenderBox)\n                    node = node.parent! as RenderBox;\n                  if (!node.constraints.hasBoundedWidth)\n                    node = null;\n                  break;\n                case Axis.vertical:\n                  while (!node!.constraints.hasBoundedHeight && node.parent is RenderBox)\n                    node = node.parent! as RenderBox;\n                  if (!node.constraints.hasBoundedHeight)\n                    node = null;\n                  break;\n              }\n              if (node != null) {\n                addendum.add(node.describeForError('The nearest ancestor providing an unbounded width constraint is'));\n              }\n            }\n            addendum.add(ErrorHint('See also: https://flutter.dev/layout/'));\n          } else {\n            return true;\n          }\n          result = FlutterError.fromParts(<DiagnosticsNode>[\n            error,\n            message,\n            ErrorDescription(\n              'These two directives are mutually exclusive. If a parent is to shrink-wrap its child, the child '\n              'cannot simultaneously expand to fit its parent.',\n            ),\n            ErrorHint(\n              'Consider setting mainAxisSize to MainAxisSize.min and using FlexFit.loose fits for the flexible '\n              'children (using Flexible rather than Expanded). This will allow the flexible children '\n              'to size themselves to less than the infinite remaining space they would otherwise be '\n              'forced to take, and then will cause the RenderFlex to shrink-wrap the children '\n              'rather than expanding to fit the maximum constraints provided by the parent.',\n            ),\n            ErrorDescription(\n              'If this message did not help you determine the problem, consider using debugDumpRenderTree():\\n'\n              '  https://flutter.dev/debugging/#rendering-layer\\n'\n              '  http://api.flutter.dev/flutter/rendering/debugDumpRenderTree.html',\n            ),\n            describeForError('The affected RenderFlex is', style: DiagnosticsTreeStyle.errorProperty),\n            DiagnosticsProperty<dynamic>('The creator information is set to', debugCreator, style: DiagnosticsTreeStyle.errorProperty),\n            ...addendum,\n            ErrorDescription(\n              \"If none of the above helps enough to fix this problem, please don't hesitate to file a bug:\\n\"\n              '  https://github.com/flutter/flutter/issues/new?template=2_bug.md',\n            ),\n          ]);\n          return true;\n        }\n        child = childAfter(child);\n      }\n      return true;\n    }()");
-      return result;
-    }
-    [_computeSizes](opts) {
-      let constraints = opts && 'constraints' in opts ? opts.constraints : null;
-      let layoutChild = opts && 'layoutChild' in opts ? opts.layoutChild : null;
-      if (!this[_debugHasNecessaryDirections]) dart.assertFailed(null, I[1], 790, 12, "_debugHasNecessaryDirections");
-      if (!(constraints !== null)) dart.assertFailed(null, I[1], 791, 12, "constraints != null");
-      let totalFlex = 0;
-      let maxMainSize = this[_direction] === basic_types.Axis.horizontal ? constraints.maxWidth : constraints.maxHeight;
-      let canFlex = maxMainSize < 1 / 0;
-      let crossSize = 0.0;
-      let allocatedSize = 0.0;
-      let child = this.firstChild;
-      let lastFlexChild = null;
-      while (child != null) {
-        let childParentData = flex$.FlexParentData.as(dart.nullCheck(child.parentData));
-        let flex = this[_getFlex](child);
-        if (flex > 0) {
-          totalFlex = totalFlex + flex;
-          lastFlexChild = child;
-        } else {
-          let innerConstraints = null;
-          if (this.crossAxisAlignment === flex$.CrossAxisAlignment.stretch) {
-            switch (this[_direction]) {
-              case C[19] || CT.C19:
-              {
-                innerConstraints = new box.BoxConstraints.tightFor({height: constraints.maxHeight});
-                break;
-              }
-              case C[22] || CT.C22:
-              {
-                innerConstraints = new box.BoxConstraints.tightFor({width: constraints.maxWidth});
-                break;
-              }
-            }
-          } else {
-            switch (this[_direction]) {
-              case C[19] || CT.C19:
-              {
-                innerConstraints = new box.BoxConstraints.new({maxHeight: constraints.maxHeight});
-                break;
-              }
-              case C[22] || CT.C22:
-              {
-                innerConstraints = new box.BoxConstraints.new({maxWidth: constraints.maxWidth});
-                break;
-              }
-            }
-          }
-          let childSize = layoutChild(child, innerConstraints);
-          allocatedSize = allocatedSize + this[_getMainSize](childSize);
-          crossSize = math.max(core.double, crossSize, this[_getCrossSize](childSize));
-        }
-        if (!dart.equals(child.parentData, childParentData)) dart.assertFailed(null, I[1], 833, 14, "child.parentData == childParentData");
-        child = childParentData.nextSibling;
-      }
-      let freeSpace = math.max(core.double, 0.0, (canFlex ? maxMainSize : 0.0) - allocatedSize);
-      let allocatedFlexSpace = 0.0;
-      if (totalFlex > 0) {
-        let spacePerFlex = canFlex ? freeSpace / totalFlex : 0 / 0;
-        child = this.firstChild;
-        while (child != null) {
-          let flex = this[_getFlex](child);
-          if (flex > 0) {
-            let maxChildExtent = canFlex ? dart.equals(child, lastFlexChild) ? freeSpace - allocatedFlexSpace : spacePerFlex * flex : 1 / 0;
-            let minChildExtent = null;
-            function minChildExtent$35get() {
-              let t10;
-              t10 = minChildExtent;
-              return t10 == null ? dart.throw(new _internal.LateError.localNI("minChildExtent")) : t10;
-            }
-            dart.fn(minChildExtent$35get, T.VoidTodouble());
-            function minChildExtent$35set(t11) {
-              if (minChildExtent == null)
-                return minChildExtent = t11;
-              else
-                dart.throw(new _internal.LateError.localAI("minChildExtent"));
-            }
-            dart.fn(minChildExtent$35set, T.doubleTodynamic());
-            switch (this[_getFit](child)) {
-              case C[0] || CT.C0:
-              {
-                if (!(maxChildExtent < 1 / 0)) dart.assertFailed(null, I[1], 850, 22, "maxChildExtent < double.infinity");
-                minChildExtent$35set(maxChildExtent);
-                break;
-              }
-              case C[1] || CT.C1:
-              {
-                minChildExtent$35set(0.0);
-                break;
-              }
-            }
-            if (!(minChildExtent$35get() !== null)) dart.assertFailed(null, I[1], 857, 18, "minChildExtent != null");
-            let innerConstraints = null;
-            if (this.crossAxisAlignment === flex$.CrossAxisAlignment.stretch) {
-              switch (this[_direction]) {
-                case C[19] || CT.C19:
-                {
-                  innerConstraints = new box.BoxConstraints.new({minWidth: minChildExtent$35get(), maxWidth: maxChildExtent, minHeight: constraints.maxHeight, maxHeight: constraints.maxHeight});
-                  break;
-                }
-                case C[22] || CT.C22:
-                {
-                  innerConstraints = new box.BoxConstraints.new({minWidth: constraints.maxWidth, maxWidth: constraints.maxWidth, minHeight: minChildExtent$35get(), maxHeight: maxChildExtent});
-                  break;
-                }
-              }
-            } else {
-              switch (this[_direction]) {
-                case C[19] || CT.C19:
-                {
-                  innerConstraints = new box.BoxConstraints.new({minWidth: minChildExtent$35get(), maxWidth: maxChildExtent, maxHeight: constraints.maxHeight});
-                  break;
-                }
-                case C[22] || CT.C22:
-                {
-                  innerConstraints = new box.BoxConstraints.new({maxWidth: constraints.maxWidth, minHeight: minChildExtent$35get(), maxHeight: maxChildExtent});
-                  break;
-                }
-              }
-            }
-            let childSize = layoutChild(child, innerConstraints);
-            let childMainSize = this[_getMainSize](childSize);
-            if (!(childMainSize <= maxChildExtent)) dart.assertFailed(null, I[1], 898, 18, "childMainSize <= maxChildExtent");
-            allocatedSize = allocatedSize + childMainSize;
-            allocatedFlexSpace = allocatedFlexSpace + maxChildExtent;
-            crossSize = math.max(core.double, crossSize, this[_getCrossSize](childSize));
-          }
-          let childParentData = flex$.FlexParentData.as(dart.nullCheck(child.parentData));
-          child = childParentData.nextSibling;
-        }
-      }
-      let idealSize = canFlex && this.mainAxisSize === flex$.MainAxisSize.max ? maxMainSize : allocatedSize;
-      return new flex$._LayoutSizes.new({mainSize: idealSize, crossSize: crossSize, allocatedSize: allocatedSize});
-    }
-    performLayout() {
-      let t21;
-      if (!this[_debugHasNecessaryDirections]) dart.assertFailed(null, I[1], 918, 12, "_debugHasNecessaryDirections");
-      let constraints = this.constraints;
-      if (!dart.fn(() => {
-        let constraintsError = this[_debugCheckConstraints]({constraints: constraints, reportParentConstraints: true});
-        if (constraintsError != null) {
-          dart.throw(constraintsError);
-        }
-        return true;
-      }, T.VoidTobool())()) dart.assertFailed(null, I[1], 920, 12, "() {\n      final FlutterError? constraintsError = _debugCheckConstraints(\n        constraints: constraints,\n        reportParentConstraints: true,\n      );\n      if (constraintsError != null) {\n        throw constraintsError;\n      }\n      return true;\n    }()");
-      let sizes = this[_computeSizes]({layoutChild: C[24] || CT.C24, constraints: constraints});
-      let allocatedSize = sizes.allocatedSize;
-      let actualSize = sizes.mainSize;
-      let crossSize = sizes.crossSize;
-      let maxBaselineDistance = 0.0;
-      if (this.crossAxisAlignment === flex$.CrossAxisAlignment.baseline) {
-        let child = this.firstChild;
-        let maxSizeAboveBaseline = 0.0;
-        let maxSizeBelowBaseline = 0.0;
-        while (child != null) {
-          if (!dart.fn(() => {
-            if (this.textBaseline == null) dart.throw(assertions.FlutterError.new("To use FlexAlignItems.baseline, you must also specify which baseline to use using the \"baseline\" argument."));
-            return true;
-          }, T.VoidTobool())()) dart.assertFailed(null, I[1], 945, 16, "() {\n          if (textBaseline == null)\n            throw FlutterError('To use FlexAlignItems.baseline, you must also specify which baseline to use using the \"baseline\" argument.');\n          return true;\n        }()");
-          let distance = child.getDistanceToBaseline(dart.nullCheck(this.textBaseline), {onlyReal: true});
-          if (distance != null) {
-            maxBaselineDistance = math.max(core.double, maxBaselineDistance, distance);
-            maxSizeAboveBaseline = math.max(core.double, distance, maxSizeAboveBaseline);
-            maxSizeBelowBaseline = math.max(core.double, child.size.height - dart.notNull(distance), maxSizeBelowBaseline);
-            crossSize = math.max(core.double, maxSizeAboveBaseline + maxSizeBelowBaseline, crossSize);
-          }
-          let childParentData = flex$.FlexParentData.as(dart.nullCheck(child.parentData));
-          child = childParentData.nextSibling;
-        }
-      }
-      switch (this[_direction]) {
-        case C[19] || CT.C19:
-        {
-          this.size = constraints.constrain(new ui.Size.new(actualSize, crossSize));
-          actualSize = this.size.width;
-          crossSize = this.size.height;
-          break;
-        }
-        case C[22] || CT.C22:
-        {
-          this.size = constraints.constrain(new ui.Size.new(crossSize, actualSize));
-          actualSize = this.size.height;
-          crossSize = this.size.width;
-          break;
-        }
-      }
-      let actualSizeDelta = actualSize - allocatedSize;
-      this[_overflow] = math.max(core.double, 0.0, -actualSizeDelta);
-      let remainingSpace = math.max(core.double, 0.0, actualSizeDelta);
-      let leadingSpace = null;
-      function leadingSpace$35get() {
-        let t14;
-        t14 = leadingSpace;
-        return t14 == null ? dart.throw(new _internal.LateError.localNI("leadingSpace")) : t14;
-      }
-      dart.fn(leadingSpace$35get, T.VoidTodouble());
-      function leadingSpace$35set(t15) {
-        if (leadingSpace == null)
-          return leadingSpace = t15;
-        else
-          dart.throw(new _internal.LateError.localAI("leadingSpace"));
-      }
-      dart.fn(leadingSpace$35set, T.doubleTodynamic());
-      let betweenSpace = null;
-      function betweenSpace$35get() {
-        let t18;
-        t18 = betweenSpace;
-        return t18 == null ? dart.throw(new _internal.LateError.localNI("betweenSpace")) : t18;
-      }
-      dart.fn(betweenSpace$35get, T.VoidTodouble());
-      function betweenSpace$35set(t19) {
-        if (betweenSpace == null)
-          return betweenSpace = t19;
-        else
-          dart.throw(new _internal.LateError.localAI("betweenSpace"));
-      }
-      dart.fn(betweenSpace$35set, T.doubleTodynamic());
-      let flipMainAxis = !dart.test((t21 = flex$._startIsTopLeft(this.direction, this.textDirection, this.verticalDirection), t21 == null ? true : t21));
-      switch (this[_mainAxisAlignment]) {
-        case C[6] || CT.C6:
-        {
-          leadingSpace$35set(0.0);
-          betweenSpace$35set(0.0);
-          break;
-        }
-        case C[7] || CT.C7:
-        {
-          leadingSpace$35set(remainingSpace);
-          betweenSpace$35set(0.0);
-          break;
-        }
-        case C[8] || CT.C8:
-        {
-          leadingSpace$35set(remainingSpace / 2.0);
-          betweenSpace$35set(0.0);
-          break;
-        }
-        case C[9] || CT.C9:
-        {
-          leadingSpace$35set(0.0);
-          betweenSpace$35set(this.childCount > 1 ? remainingSpace / (this.childCount - 1) : 0.0);
-          break;
-        }
-        case C[10] || CT.C10:
-        {
-          betweenSpace$35set(this.childCount > 0 ? remainingSpace / this.childCount : 0.0);
-          leadingSpace$35set(betweenSpace$35get() / 2.0);
-          break;
-        }
-        case C[11] || CT.C11:
-        {
-          betweenSpace$35set(this.childCount > 0 ? remainingSpace / (this.childCount + 1) : 0.0);
-          leadingSpace$35set(betweenSpace$35get());
-          break;
-        }
-      }
-      let childMainPosition = flipMainAxis ? actualSize - leadingSpace$35get() : leadingSpace$35get();
-      let child = this.firstChild;
-      while (child != null) {
-        let childParentData = flex$.FlexParentData.as(dart.nullCheck(child.parentData));
-        let childCrossPosition = null;
-        switch (this[_crossAxisAlignment]) {
-          case C[13] || CT.C13:
-          case C[14] || CT.C14:
-          {
-            childCrossPosition = flex$._startIsTopLeft(basic_types.flipAxis(this.direction), this.textDirection, this.verticalDirection) === (this[_crossAxisAlignment] === flex$.CrossAxisAlignment.start) ? 0.0 : crossSize - this[_getCrossSize](child.size);
-            break;
-          }
-          case C[15] || CT.C15:
-          {
-            childCrossPosition = crossSize / 2.0 - this[_getCrossSize](child.size) / 2.0;
-            break;
-          }
-          case C[16] || CT.C16:
-          {
-            childCrossPosition = 0.0;
-            break;
-          }
-          case C[17] || CT.C17:
-          {
-            if (this[_direction] === basic_types.Axis.horizontal) {
-              if (!(this.textBaseline != null)) dart.assertFailed(null, I[1], 1040, 20, "textBaseline != null");
-              let distance = child.getDistanceToBaseline(dart.nullCheck(this.textBaseline), {onlyReal: true});
-              if (distance != null)
-                childCrossPosition = maxBaselineDistance - dart.notNull(distance);
-              else
-                childCrossPosition = 0.0;
-            } else {
-              childCrossPosition = 0.0;
-            }
-            break;
-          }
-        }
-        if (flipMainAxis) childMainPosition = childMainPosition - this[_getMainSize](child.size);
-        switch (this[_direction]) {
-          case C[19] || CT.C19:
-          {
-            childParentData.offset = new ui.Offset.new(childMainPosition, childCrossPosition);
-            break;
-          }
-          case C[22] || CT.C22:
-          {
-            childParentData.offset = new ui.Offset.new(childCrossPosition, childMainPosition);
-            break;
-          }
-        }
-        if (flipMainAxis) {
-          childMainPosition = childMainPosition - betweenSpace$35get();
-        } else {
-          childMainPosition = childMainPosition + (this[_getMainSize](child.size) + betweenSpace$35get());
-        }
-        child = childParentData.nextSibling;
-      }
-    }
-    hitTestChildren(result, opts) {
-      let position = opts && 'position' in opts ? opts.position : null;
-      return this.defaultHitTestChildren(result, {position: position});
-    }
-    paint(context, offset) {
-      if (!this[_hasOverflow]) {
-        this.defaultPaint(context, offset);
-        return;
-      }
-      if (this.size.isEmpty) return;
-      if (this.clipBehavior === ui.Clip.none) {
-        this[_clipRectLayer] = null;
-        this.defaultPaint(context, offset);
-      } else {
-        this[_clipRectLayer] = context.pushClipRect(this.needsCompositing, offset, ui.Offset.zero['&'](this.size), dart.bind(this, 'defaultPaint'), {clipBehavior: this.clipBehavior, oldLayer: this[_clipRectLayer]});
-      }
-      if (!dart.fn(() => {
-        let debugOverflowHints = T.JSArrayOfDiagnosticsNode().of([new assertions.ErrorDescription.new("The overflowing " + dart.str(this[$runtimeType]) + " has an orientation of " + dart.str(this[_direction]) + "."), new assertions.ErrorDescription.new("The edge of the " + dart.str(this[$runtimeType]) + " that is overflowing has been marked " + "in the rendering with a yellow and black striped pattern. This is " + "usually caused by the contents being too big for the " + dart.str(this[$runtimeType]) + "."), new assertions.ErrorHint.new("Consider applying a flex factor (e.g. using an Expanded widget) to " + "force the children of the " + dart.str(this[$runtimeType]) + " to fit within the available " + "space instead of being sized to their natural size."), new assertions.ErrorHint.new("This is considered an error condition because it indicates that there " + "is content that cannot be seen. If the content is legitimately bigger " + "than the available space, consider clipping it with a ClipRect widget " + "before putting it in the flex, or using a scrollable container rather " + "than a Flex, like a ListView.")]);
-        let overflowChildRect = null;
-        switch (this[_direction]) {
-          case C[19] || CT.C19:
-          {
-            overflowChildRect = new ui.Rect.fromLTWH(0.0, 0.0, this.size.width + this[_overflow], 0.0);
-            break;
-          }
-          case C[22] || CT.C22:
-          {
-            overflowChildRect = new ui.Rect.fromLTWH(0.0, 0.0, 0.0, this.size.height + this[_overflow]);
-            break;
-          }
-        }
-        this.paintOverflowIndicator(context, offset, ui.Offset.zero['&'](this.size), overflowChildRect, {overflowHints: debugOverflowHints});
-        return true;
-      }, T.VoidTobool())()) dart.assertFailed(null, I[1], 1101, 12, "() {\n      // Only set this if it's null to save work. It gets reset to null if the\n      // _direction changes.\n      final List<DiagnosticsNode> debugOverflowHints = <DiagnosticsNode>[\n        ErrorDescription(\n          'The overflowing $runtimeType has an orientation of $_direction.',\n        ),\n        ErrorDescription(\n          'The edge of the $runtimeType that is overflowing has been marked '\n          'in the rendering with a yellow and black striped pattern. This is '\n          'usually caused by the contents being too big for the $runtimeType.',\n        ),\n        ErrorHint(\n          'Consider applying a flex factor (e.g. using an Expanded widget) to '\n          'force the children of the $runtimeType to fit within the available '\n          'space instead of being sized to their natural size.',\n        ),\n        ErrorHint(\n          'This is considered an error condition because it indicates that there '\n          'is content that cannot be seen. If the content is legitimately bigger '\n          'than the available space, consider clipping it with a ClipRect widget '\n          'before putting it in the flex, or using a scrollable container rather '\n          'than a Flex, like a ListView.',\n        ),\n      ];\n\n      // Simulate a child rect that overflows by the right amount. This child\n      // rect is never used for drawing, just for determining the overflow\n      // location and amount.\n      final Rect overflowChildRect;\n      switch (_direction) {\n        case Axis.horizontal:\n          overflowChildRect = Rect.fromLTWH(0.0, 0.0, size.width + _overflow, 0.0);\n          break;\n        case Axis.vertical:\n          overflowChildRect = Rect.fromLTWH(0.0, 0.0, 0.0, size.height + _overflow);\n          break;\n      }\n      paintOverflowIndicator(context, offset, Offset.zero & size, overflowChildRect, overflowHints: debugOverflowHints);\n      return true;\n    }()");
-    }
-    describeApproximatePaintClip(child) {
-      object.RenderObject.as(child);
-      return this[_hasOverflow] ? ui.Offset.zero['&'](this.size) : null;
-    }
-    toStringShort() {
-      let header = super.toStringShort();
-      if (this[_hasOverflow]) header = header + " OVERFLOWING";
-      return header;
-    }
-    debugFillProperties(properties) {
-      super.debugFillProperties(properties);
-      properties.add(new (T.EnumPropertyOfAxis()).new("direction", this.direction));
-      properties.add(new (T.EnumPropertyOfMainAxisAlignment()).new("mainAxisAlignment", this.mainAxisAlignment));
-      properties.add(new (T.EnumPropertyOfMainAxisSize()).new("mainAxisSize", this.mainAxisSize));
-      properties.add(new (T.EnumPropertyOfCrossAxisAlignment()).new("crossAxisAlignment", this.crossAxisAlignment));
-      properties.add(new (T.EnumPropertyOfTextDirection()).new("textDirection", this.textDirection, {defaultValue: null}));
-      properties.add(new (T.EnumPropertyOfVerticalDirection()).new("verticalDirection", this.verticalDirection, {defaultValue: null}));
-      properties.add(new (T.EnumPropertyOfTextBaseline()).new("textBaseline", this.textBaseline, {defaultValue: null}));
-    }
-  };
-  (flex$.RenderFlex.new = function(opts) {
-    let children = opts && 'children' in opts ? opts.children : null;
-    let direction = opts && 'direction' in opts ? opts.direction : C[19] || CT.C19;
-    let mainAxisSize = opts && 'mainAxisSize' in opts ? opts.mainAxisSize : C[4] || CT.C4;
-    let mainAxisAlignment = opts && 'mainAxisAlignment' in opts ? opts.mainAxisAlignment : C[6] || CT.C6;
-    let crossAxisAlignment = opts && 'crossAxisAlignment' in opts ? opts.crossAxisAlignment : C[15] || CT.C15;
-    let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
-    let verticalDirection = opts && 'verticalDirection' in opts ? opts.verticalDirection : C[20] || CT.C20;
-    let textBaseline = opts && 'textBaseline' in opts ? opts.textBaseline : null;
-    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[21] || CT.C21;
-    this[_overflow] = 0.0;
-    this[_clipBehavior] = ui.Clip.none;
-    this[_clipRectLayer] = null;
-    if (!(direction !== null)) dart.assertFailed(null, I[1], 292, 15, "direction != null");
-    if (!(mainAxisAlignment !== null)) dart.assertFailed(null, I[1], 293, 15, "mainAxisAlignment != null");
-    if (!(mainAxisSize !== null)) dart.assertFailed(null, I[1], 294, 15, "mainAxisSize != null");
-    if (!(crossAxisAlignment !== null)) dart.assertFailed(null, I[1], 295, 15, "crossAxisAlignment != null");
-    if (!(clipBehavior !== null)) dart.assertFailed(null, I[1], 296, 15, "clipBehavior != null");
-    this[_direction] = direction;
-    this[_mainAxisAlignment] = mainAxisAlignment;
-    this[_mainAxisSize] = mainAxisSize;
-    this[_crossAxisAlignment] = crossAxisAlignment;
-    this[_textDirection] = textDirection;
-    this[_verticalDirection] = verticalDirection;
-    this[_textBaseline] = textBaseline;
-    this[_clipBehavior] = clipBehavior;
-    flex$.RenderFlex.__proto__.new.call(this);
-    this.addAll(children);
-  }).prototype = flex$.RenderFlex.prototype;
-  dart.addTypeTests(flex$.RenderFlex);
-  dart.addTypeCaches(flex$.RenderFlex);
-  dart.setMethodSignature(flex$.RenderFlex, () => ({
-    __proto__: dart.getMethods(flex$.RenderFlex.__proto__),
-    [_getIntrinsicSize]: dart.fnType(core.double, [], {}, {childSize: dart.fnType(core.double, [box.RenderBox, core.double]), extent: core.double, sizingDirection: basic_types.Axis}),
-    [_getFlex]: dart.fnType(core.int, [box.RenderBox]),
-    [_getFit]: dart.fnType(flex$.FlexFit, [box.RenderBox]),
-    [_getCrossSize]: dart.fnType(core.double, [ui.Size]),
-    [_getMainSize]: dart.fnType(core.double, [ui.Size]),
-    [_debugCheckConstraints]: dart.fnType(dart.nullable(assertions.FlutterError), [], {}, {constraints: box.BoxConstraints, reportParentConstraints: core.bool}),
-    [_computeSizes]: dart.fnType(flex$._LayoutSizes, [], {}, {constraints: box.BoxConstraints, layoutChild: dart.fnType(ui.Size, [box.RenderBox, box.BoxConstraints])})
-  }));
-  dart.setGetterSignature(flex$.RenderFlex, () => ({
-    __proto__: dart.getGetters(flex$.RenderFlex.__proto__),
-    direction: basic_types.Axis,
-    mainAxisAlignment: flex$.MainAxisAlignment,
-    mainAxisSize: flex$.MainAxisSize,
-    crossAxisAlignment: flex$.CrossAxisAlignment,
-    textDirection: dart.nullable(ui.TextDirection),
-    verticalDirection: basic_types.VerticalDirection,
-    textBaseline: dart.nullable(ui.TextBaseline),
-    [_debugHasNecessaryDirections]: core.bool,
-    [_hasOverflow]: core.bool,
-    clipBehavior: ui.Clip,
-    [_canComputeIntrinsics]: core.bool
-  }));
-  dart.setSetterSignature(flex$.RenderFlex, () => ({
-    __proto__: dart.getSetters(flex$.RenderFlex.__proto__),
-    direction: basic_types.Axis,
-    mainAxisAlignment: flex$.MainAxisAlignment,
-    mainAxisSize: flex$.MainAxisSize,
-    crossAxisAlignment: flex$.CrossAxisAlignment,
-    textDirection: dart.nullable(ui.TextDirection),
-    verticalDirection: basic_types.VerticalDirection,
-    textBaseline: dart.nullable(ui.TextBaseline),
-    clipBehavior: ui.Clip
-  }));
-  dart.setLibraryUri(flex$.RenderFlex, I[0]);
-  dart.setFieldSignature(flex$.RenderFlex, () => ({
-    __proto__: dart.getFields(flex$.RenderFlex.__proto__),
-    [_direction]: dart.fieldType(basic_types.Axis),
-    [_mainAxisAlignment]: dart.fieldType(flex$.MainAxisAlignment),
-    [_mainAxisSize]: dart.fieldType(flex$.MainAxisSize),
-    [_crossAxisAlignment]: dart.fieldType(flex$.CrossAxisAlignment),
-    [_textDirection]: dart.fieldType(dart.nullable(ui.TextDirection)),
-    [_verticalDirection]: dart.fieldType(basic_types.VerticalDirection),
-    [_textBaseline]: dart.fieldType(dart.nullable(ui.TextBaseline)),
-    [_overflow]: dart.fieldType(core.double),
-    [_clipBehavior]: dart.fieldType(ui.Clip),
-    [_clipRectLayer]: dart.fieldType(dart.nullable(layer.ClipRectLayer))
-  }));
-  var mainSize$ = dart.privateName(flex$, "_LayoutSizes.mainSize");
-  var crossSize$ = dart.privateName(flex$, "_LayoutSizes.crossSize");
-  var allocatedSize$ = dart.privateName(flex$, "_LayoutSizes.allocatedSize");
-  flex$._LayoutSizes = class _LayoutSizes extends core.Object {
-    get mainSize() {
-      return this[mainSize$];
-    }
-    set mainSize(value) {
-      super.mainSize = value;
-    }
-    get crossSize() {
-      return this[crossSize$];
-    }
-    set crossSize(value) {
-      super.crossSize = value;
-    }
-    get allocatedSize() {
-      return this[allocatedSize$];
-    }
-    set allocatedSize(value) {
-      super.allocatedSize = value;
-    }
-  };
-  (flex$._LayoutSizes.new = function(opts) {
-    let mainSize = opts && 'mainSize' in opts ? opts.mainSize : null;
-    let crossSize = opts && 'crossSize' in opts ? opts.crossSize : null;
-    let allocatedSize = opts && 'allocatedSize' in opts ? opts.allocatedSize : null;
-    this[mainSize$] = mainSize;
-    this[crossSize$] = crossSize;
-    this[allocatedSize$] = allocatedSize;
-    ;
-  }).prototype = flex$._LayoutSizes.prototype;
-  dart.addTypeTests(flex$._LayoutSizes);
-  dart.addTypeCaches(flex$._LayoutSizes);
-  dart.setLibraryUri(flex$._LayoutSizes, I[0]);
-  dart.setFieldSignature(flex$._LayoutSizes, () => ({
-    __proto__: dart.getFields(flex$._LayoutSizes.__proto__),
-    mainSize: dart.finalFieldType(core.double),
-    crossSize: dart.finalFieldType(core.double),
-    allocatedSize: dart.finalFieldType(core.double)
-  }));
-  flex$._startIsTopLeft = function _startIsTopLeft(direction, textDirection, verticalDirection) {
-    if (!(direction !== null)) dart.assertFailed(null, I[1], 202, 10, "direction != null");
-    switch (direction) {
-      case C[19] || CT.C19:
-      {
-        switch (textDirection) {
-          case C[25] || CT.C25:
-          {
-            return true;
-          }
-          case C[26] || CT.C26:
-          {
-            return false;
-          }
-          case null:
-          {
-            return null;
-          }
-        }
-      }
-      case C[22] || CT.C22:
-      {
-        switch (verticalDirection) {
-          case C[20] || CT.C20:
-          {
-            return true;
-          }
-          case C[27] || CT.C27:
-          {
-            return false;
-          }
-          case null:
-          {
-            return null;
-          }
-        }
-      }
-    }
-  };
-  dart.trackLibraries("packages/flutter/src/rendering/flex.dart", {
-    "package:flutter/src/rendering/flex.dart": flex$
-  }, {
-  }, '{"version":3,"sourceRoot":"","sources":["flex.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/flutter/src/rendering/flex.dart.lib.js"}');
-  // Exports:
-  return {
-    src__rendering__flex: flex$
-  };
-}));
+/** vim: et:ts=4:sw=4:sts=4
+ * @license RequireJS 2.3.3 Copyright jQuery Foundation and other contributors.
+ * Released under MIT license, https://github.com/requirejs/requirejs/blob/master/LICENSE
+ */
+//Not using strict: uneven strict support in browsers, #392, and causes
+//problems with requirejs.exec()/transpiler plugins that may not be strict.
+/*jslint regexp: true, nomen: true, sloppy: true */
+/*global window, navigator, document, importScripts, setTimeout, opera */
 
-//# sourceMappingURL=flex.dart.lib.js.map
+var requirejs, require, define;
+(function (global, setTimeout) {
+    var req, s, head, baseElement, dataMain, src,
+        interactiveScript, currentlyAddingScript, mainScript, subPath,
+        version = '2.3.3',
+        commentRegExp = /\/\*[\s\S]*?\*\/|([^:"'=]|^)\/\/.*$/mg,
+        cjsRequireRegExp = /[^.]\s*require\s*\(\s*["']([^'"\s]+)["']\s*\)/g,
+        jsSuffixRegExp = /\.js$/,
+        currDirRegExp = /^\.\//,
+        op = Object.prototype,
+        ostring = op.toString,
+        hasOwn = op.hasOwnProperty,
+        isBrowser = !!(typeof window !== 'undefined' && typeof navigator !== 'undefined' && window.document),
+        isWebWorker = !isBrowser && typeof importScripts !== 'undefined',
+        //PS3 indicates loaded and complete, but need to wait for complete
+        //specifically. Sequence is 'loading', 'loaded', execution,
+        // then 'complete'. The UA check is unfortunate, but not sure how
+        //to feature test w/o causing perf issues.
+        readyRegExp = isBrowser && navigator.platform === 'PLAYSTATION 3' ?
+                      /^complete$/ : /^(complete|loaded)$/,
+        defContextName = '_',
+        //Oh the tragedy, detecting opera. See the usage of isOpera for reason.
+        isOpera = typeof opera !== 'undefined' && opera.toString() === '[object Opera]',
+        contexts = {},
+        cfg = {},
+        globalDefQueue = [],
+        useInteractive = false;
+
+    //Could match something like ')//comment', do not lose the prefix to comment.
+    function commentReplace(match, singlePrefix) {
+        return singlePrefix || '';
+    }
+
+    function isFunction(it) {
+        return ostring.call(it) === '[object Function]';
+    }
+
+    function isArray(it) {
+        return ostring.call(it) === '[object Array]';
+    }
+
+    /**
+     * Helper function for iterating over an array. If the func returns
+     * a true value, it will break out of the loop.
+     */
+    function each(ary, func) {
+        if (ary) {
+            var i;
+            for (i = 0; i < ary.length; i += 1) {
+                if (ary[i] && func(ary[i], i, ary)) {
+                    break;
+                }
+            }
+        }
+    }
+
+    /**
+     * Helper function for iterating over an array backwards. If the func
+     * returns a true value, it will break out of the loop.
+     */
+    function eachReverse(ary, func) {
+        if (ary) {
+            var i;
+            for (i = ary.length - 1; i > -1; i -= 1) {
+                if (ary[i] && func(ary[i], i, ary)) {
+                    break;
+                }
+            }
+        }
+    }
+
+    function hasProp(obj, prop) {
+        return hasOwn.call(obj, prop);
+    }
+
+    function getOwn(obj, prop) {
+        return hasProp(obj, prop) && obj[prop];
+    }
+
+    /**
+     * Cycles over properties in an object and calls a function for each
+     * property value. If the function returns a truthy value, then the
+     * iteration is stopped.
+     */
+    function eachProp(obj, func) {
+        var prop;
+        for (prop in obj) {
+            if (hasProp(obj, prop)) {
+                if (func(obj[prop], prop)) {
+                    break;
+                }
+            }
+        }
+    }
+
+    /**
+     * Simple function to mix in properties from source into target,
+     * but only if target does not already have a property of the same name.
+     */
+    function mixin(target, source, force, deepStringMixin) {
+        if (source) {
+            eachProp(source, function (value, prop) {
+                if (force || !hasProp(target, prop)) {
+                    if (deepStringMixin && typeof value === 'object' && value &&
+                        !isArray(value) && !isFunction(value) &&
+                        !(value instanceof RegExp)) {
+
+                        if (!target[prop]) {
+                            target[prop] = {};
+                        }
+                        mixin(target[prop], value, force, deepStringMixin);
+                    } else {
+                        target[prop] = value;
+                    }
+                }
+            });
+        }
+        return target;
+    }
+
+    //Similar to Function.prototype.bind, but the 'this' object is specified
+    //first, since it is easier to read/figure out what 'this' will be.
+    function bind(obj, fn) {
+        return function () {
+            return fn.apply(obj, arguments);
+        };
+    }
+
+    function scripts() {
+        return document.getElementsByTagName('script');
+    }
+
+    function defaultOnError(err) {
+        throw err;
+    }
+
+    //Allow getting a global that is expressed in
+    //dot notation, like 'a.b.c'.
+    function getGlobal(value) {
+        if (!value) {
+            return value;
+        }
+        var g = global;
+        each(value.split('.'), function (part) {
+            g = g[part];
+        });
+        return g;
+    }
+
+    /**
+     * Constructs an error with a pointer to an URL with more information.
+     * @param {String} id the error ID that maps to an ID on a web page.
+     * @param {String} message human readable error.
+     * @param {Error} [err] the original error, if there is one.
+     *
+     * @returns {Error}
+     */
+    function makeError(id, msg, err, requireModules) {
+        var e = new Error(msg + '\nhttp://requirejs.org/docs/errors.html#' + id);
+        e.requireType = id;
+        e.requireModules = requireModules;
+        if (err) {
+            e.originalError = err;
+        }
+        return e;
+    }
+
+    if (typeof define !== 'undefined') {
+        //If a define is already in play via another AMD loader,
+        //do not overwrite.
+        return;
+    }
+
+    if (typeof requirejs !== 'undefined') {
+        if (isFunction(requirejs)) {
+            //Do not overwrite an existing requirejs instance.
+            return;
+        }
+        cfg = requirejs;
+        requirejs = undefined;
+    }
+
+    //Allow for a require config object
+    if (typeof require !== 'undefined' && !isFunction(require)) {
+        //assume it is a config object.
+        cfg = require;
+        require = undefined;
+    }
+
+    function newContext(contextName) {
+        var inCheckLoaded, Module, context, handlers,
+            checkLoadedTimeoutId,
+            config = {
+                //Defaults. Do not set a default for map
+                //config to speed up normalize(), which
+                //will run faster if there is no default.
+                waitSeconds: 7,
+                baseUrl: './',
+                paths: {},
+                bundles: {},
+                pkgs: {},
+                shim: {},
+                config: {}
+            },
+            registry = {},
+            //registry of just enabled modules, to speed
+            //cycle breaking code when lots of modules
+            //are registered, but not activated.
+            enabledRegistry = {},
+            undefEvents = {},
+            defQueue = [],
+            defined = {},
+            urlFetched = {},
+            bundlesMap = {},
+            requireCounter = 1,
+            unnormalizedCounter = 1;
+
+        /**
+         * Trims the . and .. from an array of path segments.
+         * It will keep a leading path segment if a .. will become
+         * the first path segment, to help with module name lookups,
+         * which act like paths, but can be remapped. But the end result,
+         * all paths that use this function should look normalized.
+         * NOTE: this method MODIFIES the input array.
+         * @param {Array} ary the array of path segments.
+         */
+        function trimDots(ary) {
+            var i, part;
+            for (i = 0; i < ary.length; i++) {
+                part = ary[i];
+                if (part === '.') {
+                    ary.splice(i, 1);
+                    i -= 1;
+                } else if (part === '..') {
+                    // If at the start, or previous value is still ..,
+                    // keep them so that when converted to a path it may
+                    // still work when converted to a path, even though
+                    // as an ID it is less than ideal. In larger point
+                    // releases, may be better to just kick out an error.
+                    if (i === 0 || (i === 1 && ary[2] === '..') || ary[i - 1] === '..') {
+                        continue;
+                    } else if (i > 0) {
+                        ary.splice(i - 1, 2);
+                        i -= 2;
+                    }
+                }
+            }
+        }
+
+        /**
+         * Given a relative module name, like ./something, normalize it to
+         * a real name that can be mapped to a path.
+         * @param {String} name the relative name
+         * @param {String} baseName a real name that the name arg is relative
+         * to.
+         * @param {Boolean} applyMap apply the map config to the value. Should
+         * only be done if this normalization is for a dependency ID.
+         * @returns {String} normalized name
+         */
+        function normalize(name, baseName, applyMap) {
+            var pkgMain, mapValue, nameParts, i, j, nameSegment, lastIndex,
+                foundMap, foundI, foundStarMap, starI, normalizedBaseParts,
+                baseParts = (baseName && baseName.split('/')),
+                map = config.map,
+                starMap = map && map['*'];
+
+            //Adjust any relative paths.
+            if (name) {
+                name = name.split('/');
+                lastIndex = name.length - 1;
+
+                // If wanting node ID compatibility, strip .js from end
+                // of IDs. Have to do this here, and not in nameToUrl
+                // because node allows either .js or non .js to map
+                // to same file.
+                if (config.nodeIdCompat && jsSuffixRegExp.test(name[lastIndex])) {
+                    name[lastIndex] = name[lastIndex].replace(jsSuffixRegExp, '');
+                }
+
+                // Starts with a '.' so need the baseName
+                if (name[0].charAt(0) === '.' && baseParts) {
+                    //Convert baseName to array, and lop off the last part,
+                    //so that . matches that 'directory' and not name of the baseName's
+                    //module. For instance, baseName of 'one/two/three', maps to
+                    //'one/two/three.js', but we want the directory, 'one/two' for
+                    //this normalization.
+                    normalizedBaseParts = baseParts.slice(0, baseParts.length - 1);
+                    name = normalizedBaseParts.concat(name);
+                }
+
+                trimDots(name);
+                name = name.join('/');
+            }
+
+            //Apply map config if available.
+            if (applyMap && map && (baseParts || starMap)) {
+                nameParts = name.split('/');
+
+                outerLoop: for (i = nameParts.length; i > 0; i -= 1) {
+                    nameSegment = nameParts.slice(0, i).join('/');
+
+                    if (baseParts) {
+                        //Find the longest baseName segment match in the config.
+                        //So, do joins on the biggest to smallest lengths of baseParts.
+                        for (j = baseParts.length; j > 0; j -= 1) {
+                            mapValue = getOwn(map, baseParts.slice(0, j).join('/'));
+
+                            //baseName segment has config, find if it has one for
+                            //this name.
+                            if (mapValue) {
+                                mapValue = getOwn(mapValue, nameSegment);
+                                if (mapValue) {
+                                    //Match, update name to the new value.
+                                    foundMap = mapValue;
+                                    foundI = i;
+                                    break outerLoop;
+                                }
+                            }
+                        }
+                    }
+
+                    //Check for a star map match, but just hold on to it,
+                    //if there is a shorter segment match later in a matching
+                    //config, then favor over this star map.
+                    if (!foundStarMap && starMap && getOwn(starMap, nameSegment)) {
+                        foundStarMap = getOwn(starMap, nameSegment);
+                        starI = i;
+                    }
+                }
+
+                if (!foundMap && foundStarMap) {
+                    foundMap = foundStarMap;
+                    foundI = starI;
+                }
+
+                if (foundMap) {
+                    nameParts.splice(0, foundI, foundMap);
+                    name = nameParts.join('/');
+                }
+            }
+
+            // If the name points to a package's name, use
+            // the package main instead.
+            pkgMain = getOwn(config.pkgs, name);
+
+            return pkgMain ? pkgMain : name;
+        }
+
+        function removeScript(name) {
+            if (isBrowser) {
+                each(scripts(), function (scriptNode) {
+                    if (scriptNode.getAttribute('data-requiremodule') === name &&
+                            scriptNode.getAttribute('data-requirecontext') === context.contextName) {
+                        scriptNode.parentNode.removeChild(scriptNode);
+                        return true;
+                    }
+                });
+            }
+        }
+
+        function hasPathFallback(id) {
+            var pathConfig = getOwn(config.paths, id);
+            if (pathConfig && isArray(pathConfig) && pathConfig.length > 1) {
+                //Pop off the first array value, since it failed, and
+                //retry
+                pathConfig.shift();
+                context.require.undef(id);
+
+                //Custom require that does not do map translation, since
+                //ID is "absolute", already mapped/resolved.
+                context.makeRequire(null, {
+                    skipMap: true
+                })([id]);
+
+                return true;
+            }
+        }
+
+        //Turns a plugin!resource to [plugin, resource]
+        //with the plugin being undefined if the name
+        //did not have a plugin prefix.
+        function splitPrefix(name) {
+            var prefix,
+                index = name ? name.indexOf('!') : -1;
+            if (index > -1) {
+                prefix = name.substring(0, index);
+                name = name.substring(index + 1, name.length);
+            }
+            return [prefix, name];
+        }
+
+        /**
+         * Creates a module mapping that includes plugin prefix, module
+         * name, and path. If parentModuleMap is provided it will
+         * also normalize the name via require.normalize()
+         *
+         * @param {String} name the module name
+         * @param {String} [parentModuleMap] parent module map
+         * for the module name, used to resolve relative names.
+         * @param {Boolean} isNormalized: is the ID already normalized.
+         * This is true if this call is done for a define() module ID.
+         * @param {Boolean} applyMap: apply the map config to the ID.
+         * Should only be true if this map is for a dependency.
+         *
+         * @returns {Object}
+         */
+        function makeModuleMap(name, parentModuleMap, isNormalized, applyMap) {
+            var url, pluginModule, suffix, nameParts,
+                prefix = null,
+                parentName = parentModuleMap ? parentModuleMap.name : null,
+                originalName = name,
+                isDefine = true,
+                normalizedName = '';
+
+            //If no name, then it means it is a require call, generate an
+            //internal name.
+            if (!name) {
+                isDefine = false;
+                name = '_@r' + (requireCounter += 1);
+            }
+
+            nameParts = splitPrefix(name);
+            prefix = nameParts[0];
+            name = nameParts[1];
+
+            if (prefix) {
+                prefix = normalize(prefix, parentName, applyMap);
+                pluginModule = getOwn(defined, prefix);
+            }
+
+            //Account for relative paths if there is a base name.
+            if (name) {
+                if (prefix) {
+                    if (isNormalized) {
+                        normalizedName = name;
+                    } else if (pluginModule && pluginModule.normalize) {
+                        //Plugin is loaded, use its normalize method.
+                        normalizedName = pluginModule.normalize(name, function (name) {
+                            return normalize(name, parentName, applyMap);
+                        });
+                    } else {
+                        // If nested plugin references, then do not try to
+                        // normalize, as it will not normalize correctly. This
+                        // places a restriction on resourceIds, and the longer
+                        // term solution is not to normalize until plugins are
+                        // loaded and all normalizations to allow for async
+                        // loading of a loader plugin. But for now, fixes the
+                        // common uses. Details in #1131
+                        normalizedName = name.indexOf('!') === -1 ?
+                                         normalize(name, parentName, applyMap) :
+                                         name;
+                    }
+                } else {
+                    //A regular module.
+                    normalizedName = normalize(name, parentName, applyMap);
+
+                    //Normalized name may be a plugin ID due to map config
+                    //application in normalize. The map config values must
+                    //already be normalized, so do not need to redo that part.
+                    nameParts = splitPrefix(normalizedName);
+                    prefix = nameParts[0];
+                    normalizedName = nameParts[1];
+                    isNormalized = true;
+
+                    url = context.nameToUrl(normalizedName);
+                }
+            }
+
+            //If the id is a plugin id that cannot be determined if it needs
+            //normalization, stamp it with a unique ID so two matching relative
+            //ids that may conflict can be separate.
+            suffix = prefix && !pluginModule && !isNormalized ?
+                     '_unnormalized' + (unnormalizedCounter += 1) :
+                     '';
+
+            return {
+                prefix: prefix,
+                name: normalizedName,
+                parentMap: parentModuleMap,
+                unnormalized: !!suffix,
+                url: url,
+                originalName: originalName,
+                isDefine: isDefine,
+                id: (prefix ?
+                        prefix + '!' + normalizedName :
+                        normalizedName) + suffix
+            };
+        }
+
+        function getModule(depMap) {
+            var id = depMap.id,
+                mod = getOwn(registry, id);
+
+            if (!mod) {
+                mod = registry[id] = new context.Module(depMap);
+            }
+
+            return mod;
+        }
+
+        function on(depMap, name, fn) {
+            var id = depMap.id,
+                mod = getOwn(registry, id);
+
+            if (hasProp(defined, id) &&
+                    (!mod || mod.defineEmitComplete)) {
+                if (name === 'defined') {
+                    fn(defined[id]);
+                }
+            } else {
+                mod = getModule(depMap);
+                if (mod.error && name === 'error') {
+                    fn(mod.error);
+                } else {
+                    mod.on(name, fn);
+                }
+            }
+        }
+
+        function onError(err, errback) {
+            var ids = err.requireModules,
+                notified = false;
+
+            if (errback) {
+                errback(err);
+            } else {
+                each(ids, function (id) {
+                    var mod = getOwn(registry, id);
+                    if (mod) {
+                        //Set error on module, so it skips timeout checks.
+                        mod.error = err;
+                        if (mod.events.error) {
+                            notified = true;
+                            mod.emit('error', err);
+                        }
+                    }
+                });
+
+                if (!notified) {
+                    req.onError(err);
+                }
+            }
+        }
+
+        /**
+         * Internal method to transfer globalQueue items to this context's
+         * defQueue.
+         */
+        function takeGlobalQueue() {
+            //Push all the globalDefQueue items into the context's defQueue
+            if (globalDefQueue.length) {
+                each(globalDefQueue, function(queueItem) {
+                    var id = queueItem[0];
+                    if (typeof id === 'string') {
+                        context.defQueueMap[id] = true;
+                    }
+                    defQueue.push(queueItem);
+                });
+                globalDefQueue = [];
+            }
+        }
+
+        handlers = {
+            'require': function (mod) {
+                if (mod.require) {
+                    return mod.require;
+                } else {
+                    return (mod.require = context.makeRequire(mod.map));
+                }
+            },
+            'exports': function (mod) {
+                mod.usingExports = true;
+                if (mod.map.isDefine) {
+                    if (mod.exports) {
+                        return (defined[mod.map.id] = mod.exports);
+                    } else {
+                        return (mod.exports = defined[mod.map.id] = {});
+                    }
+                }
+            },
+            'module': function (mod) {
+                if (mod.module) {
+                    return mod.module;
+                } else {
+                    return (mod.module = {
+                        id: mod.map.id,
+                        uri: mod.map.url,
+                        config: function () {
+                            return getOwn(config.config, mod.map.id) || {};
+                        },
+                        exports: mod.exports || (mod.exports = {})
+                    });
+                }
+            }
+        };
+
+        function cleanRegistry(id) {
+            //Clean up machinery used for waiting modules.
+            delete registry[id];
+            delete enabledRegistry[id];
+        }
+
+        function breakCycle(mod, traced, processed) {
+            var id = mod.map.id;
+
+            if (mod.error) {
+                mod.emit('error', mod.error);
+            } else {
+                traced[id] = true;
+                each(mod.depMaps, function (depMap, i) {
+                    var depId = depMap.id,
+                        dep = getOwn(registry, depId);
+
+                    //Only force things that have not completed
+                    //being defined, so still in the registry,
+                    //and only if it has not been matched up
+                    //in the module already.
+                    if (dep && !mod.depMatched[i] && !processed[depId]) {
+                        if (getOwn(traced, depId)) {
+                            mod.defineDep(i, defined[depId]);
+                            mod.check(); //pass false?
+                        } else {
+                            breakCycle(dep, traced, processed);
+                        }
+                    }
+                });
+                processed[id] = true;
+            }
+        }
+
+        function checkLoaded() {
+            var err, usingPathFallback,
+                waitInterval = config.waitSeconds * 1000,
+                //It is possible to disable the wait interval by using waitSeconds of 0.
+                expired = waitInterval && (context.startTime + waitInterval) < new Date().getTime(),
+                noLoads = [],
+                reqCalls = [],
+                stillLoading = false,
+                needCycleCheck = true;
+
+            //Do not bother if this call was a result of a cycle break.
+            if (inCheckLoaded) {
+                return;
+            }
+
+            inCheckLoaded = true;
+
+            //Figure out the state of all the modules.
+            eachProp(enabledRegistry, function (mod) {
+                var map = mod.map,
+                    modId = map.id;
+
+                //Skip things that are not enabled or in error state.
+                if (!mod.enabled) {
+                    return;
+                }
+
+                if (!map.isDefine) {
+                    reqCalls.push(mod);
+                }
+
+                if (!mod.error) {
+                    //If the module should be executed, and it has not
+                    //been inited and time is up, remember it.
+                    if (!mod.inited && expired) {
+                        if (hasPathFallback(modId)) {
+                            usingPathFallback = true;
+                            stillLoading = true;
+                        } else {
+                            noLoads.push(modId);
+                            removeScript(modId);
+                        }
+                    } else if (!mod.inited && mod.fetched && map.isDefine) {
+                        stillLoading = true;
+                        if (!map.prefix) {
+                            //No reason to keep looking for unfinished
+                            //loading. If the only stillLoading is a
+                            //plugin resource though, keep going,
+                            //because it may be that a plugin resource
+                            //is waiting on a non-plugin cycle.
+                            return (needCycleCheck = false);
+                        }
+                    }
+                }
+            });
+
+            if (expired && noLoads.length) {
+                //If wait time expired, throw error of unloaded modules.
+                err = makeError('timeout', 'Load timeout for modules: ' + noLoads, null, noLoads);
+                err.contextName = context.contextName;
+                return onError(err);
+            }
+
+            //Not expired, check for a cycle.
+            if (needCycleCheck) {
+                each(reqCalls, function (mod) {
+                    breakCycle(mod, {}, {});
+                });
+            }
+
+            //If still waiting on loads, and the waiting load is something
+            //other than a plugin resource, or there are still outstanding
+            //scripts, then just try back later.
+            if ((!expired || usingPathFallback) && stillLoading) {
+                //Something is still waiting to load. Wait for it, but only
+                //if a timeout is not already in effect.
+                if ((isBrowser || isWebWorker) && !checkLoadedTimeoutId) {
+                    checkLoadedTimeoutId = setTimeout(function () {
+                        checkLoadedTimeoutId = 0;
+                        checkLoaded();
+                    }, 50);
+                }
+            }
+
+            inCheckLoaded = false;
+        }
+
+        Module = function (map) {
+            this.events = getOwn(undefEvents, map.id) || {};
+            this.map = map;
+            this.shim = getOwn(config.shim, map.id);
+            this.depExports = [];
+            this.depMaps = [];
+            this.depMatched = [];
+            this.pluginMaps = {};
+            this.depCount = 0;
+
+            /* this.exports this.factory
+               this.depMaps = [],
+               this.enabled, this.fetched
+            */
+        };
+
+        Module.prototype = {
+            init: function (depMaps, factory, errback, options) {
+                options = options || {};
+
+                //Do not do more inits if already done. Can happen if there
+                //are multiple define calls for the same module. That is not
+                //a normal, common case, but it is also not unexpected.
+                if (this.inited) {
+                    return;
+                }
+
+                this.factory = factory;
+
+                if (errback) {
+                    //Register for errors on this module.
+                    this.on('error', errback);
+                } else if (this.events.error) {
+                    //If no errback already, but there are error listeners
+                    //on this module, set up an errback to pass to the deps.
+                    errback = bind(this, function (err) {
+                        this.emit('error', err);
+                    });
+                }
+
+                //Do a copy of the dependency array, so that
+                //source inputs are not modified. For example
+                //"shim" deps are passed in here directly, and
+                //doing a direct modification of the depMaps array
+                //would affect that config.
+                this.depMaps = depMaps && depMaps.slice(0);
+
+                this.errback = errback;
+
+                //Indicate this module has be initialized
+                this.inited = true;
+
+                this.ignore = options.ignore;
+
+                //Could have option to init this module in enabled mode,
+                //or could have been previously marked as enabled. However,
+                //the dependencies are not known until init is called. So
+                //if enabled previously, now trigger dependencies as enabled.
+                if (options.enabled || this.enabled) {
+                    //Enable this module and dependencies.
+                    //Will call this.check()
+                    this.enable();
+                } else {
+                    this.check();
+                }
+            },
+
+            defineDep: function (i, depExports) {
+                //Because of cycles, defined callback for a given
+                //export can be called more than once.
+                if (!this.depMatched[i]) {
+                    this.depMatched[i] = true;
+                    this.depCount -= 1;
+                    this.depExports[i] = depExports;
+                }
+            },
+
+            fetch: function () {
+                if (this.fetched) {
+                    return;
+                }
+                this.fetched = true;
+
+                context.startTime = (new Date()).getTime();
+
+                var map = this.map;
+
+                //If the manager is for a plugin managed resource,
+                //ask the plugin to load it now.
+                if (this.shim) {
+                    context.makeRequire(this.map, {
+                        enableBuildCallback: true
+                    })(this.shim.deps || [], bind(this, function () {
+                        return map.prefix ? this.callPlugin() : this.load();
+                    }));
+                } else {
+                    //Regular dependency.
+                    return map.prefix ? this.callPlugin() : this.load();
+                }
+            },
+
+            load: function () {
+                var url = this.map.url;
+
+                //Regular dependency.
+                if (!urlFetched[url]) {
+                    urlFetched[url] = true;
+                    context.load(this.map.id, url);
+                }
+            },
+
+            /**
+             * Checks if the module is ready to define itself, and if so,
+             * define it.
+             */
+            check: function () {
+                if (!this.enabled || this.enabling) {
+                    return;
+                }
+
+                var err, cjsModule,
+                    id = this.map.id,
+                    depExports = this.depExports,
+                    exports = this.exports,
+                    factory = this.factory;
+
+                if (!this.inited) {
+                    // Only fetch if not already in the defQueue.
+                    if (!hasProp(context.defQueueMap, id)) {
+                        this.fetch();
+                    }
+                } else if (this.error) {
+                    this.emit('error', this.error);
+                } else if (!this.defining) {
+                    //The factory could trigger another require call
+                    //that would result in checking this module to
+                    //define itself again. If already in the process
+                    //of doing that, skip this work.
+                    this.defining = true;
+
+                    if (this.depCount < 1 && !this.defined) {
+                        if (isFunction(factory)) {
+                            //If there is an error listener, favor passing
+                            //to that instead of throwing an error. However,
+                            //only do it for define()'d  modules. require
+                            //errbacks should not be called for failures in
+                            //their callbacks (#699). However if a global
+                            //onError is set, use that.
+                            if ((this.events.error && this.map.isDefine) ||
+                                req.onError !== defaultOnError) {
+                                try {
+                                    exports = context.execCb(id, factory, depExports, exports);
+                                } catch (e) {
+                                    err = e;
+                                }
+                            } else {
+                                exports = context.execCb(id, factory, depExports, exports);
+                            }
+
+                            // Favor return value over exports. If node/cjs in play,
+                            // then will not have a return value anyway. Favor
+                            // module.exports assignment over exports object.
+                            if (this.map.isDefine && exports === undefined) {
+                                cjsModule = this.module;
+                                if (cjsModule) {
+                                    exports = cjsModule.exports;
+                                } else if (this.usingExports) {
+                                    //exports already set the defined value.
+                                    exports = this.exports;
+                                }
+                            }
+
+                            if (err) {
+                                err.requireMap = this.map;
+                                err.requireModules = this.map.isDefine ? [this.map.id] : null;
+                                err.requireType = this.map.isDefine ? 'define' : 'require';
+                                return onError((this.error = err));
+                            }
+
+                        } else {
+                            //Just a literal value
+                            exports = factory;
+                        }
+
+                        this.exports = exports;
+
+                        if (this.map.isDefine && !this.ignore) {
+                            defined[id] = exports;
+
+                            if (req.onResourceLoad) {
+                                var resLoadMaps = [];
+                                each(this.depMaps, function (depMap) {
+                                    resLoadMaps.push(depMap.normalizedMap || depMap);
+                                });
+                                req.onResourceLoad(context, this.map, resLoadMaps);
+                            }
+                        }
+
+                        //Clean up
+                        cleanRegistry(id);
+
+                        this.defined = true;
+                    }
+
+                    //Finished the define stage. Allow calling check again
+                    //to allow define notifications below in the case of a
+                    //cycle.
+                    this.defining = false;
+
+                    if (this.defined && !this.defineEmitted) {
+                        this.defineEmitted = true;
+                        this.emit('defined', this.exports);
+                        this.defineEmitComplete = true;
+                    }
+
+                }
+            },
+
+            callPlugin: function () {
+                var map = this.map,
+                    id = map.id,
+                    //Map already normalized the prefix.
+                    pluginMap = makeModuleMap(map.prefix);
+
+                //Mark this as a dependency for this plugin, so it
+                //can be traced for cycles.
+                this.depMaps.push(pluginMap);
+
+                on(pluginMap, 'defined', bind(this, function (plugin) {
+                    var load, normalizedMap, normalizedMod,
+                        bundleId = getOwn(bundlesMap, this.map.id),
+                        name = this.map.name,
+                        parentName = this.map.parentMap ? this.map.parentMap.name : null,
+                        localRequire = context.makeRequire(map.parentMap, {
+                            enableBuildCallback: true
+                        });
+
+                    //If current map is not normalized, wait for that
+                    //normalized name to load instead of continuing.
+                    if (this.map.unnormalized) {
+                        //Normalize the ID if the plugin allows it.
+                        if (plugin.normalize) {
+                            name = plugin.normalize(name, function (name) {
+                                return normalize(name, parentName, true);
+                            }) || '';
+                        }
+
+                        //prefix and name should already be normalized, no need
+                        //for applying map config again either.
+                        normalizedMap = makeModuleMap(map.prefix + '!' + name,
+                                                      this.map.parentMap,
+                                                      true);
+                        on(normalizedMap,
+                            'defined', bind(this, function (value) {
+                                this.map.normalizedMap = normalizedMap;
+                                this.init([], function () { return value; }, null, {
+                                    enabled: true,
+                                    ignore: true
+                                });
+                            }));
+
+                        normalizedMod = getOwn(registry, normalizedMap.id);
+                        if (normalizedMod) {
+                            //Mark this as a dependency for this plugin, so it
+                            //can be traced for cycles.
+                            this.depMaps.push(normalizedMap);
+
+                            if (this.events.error) {
+                                normalizedMod.on('error', bind(this, function (err) {
+                                    this.emit('error', err);
+                                }));
+                            }
+                            normalizedMod.enable();
+                        }
+
+                        return;
+                    }
+
+                    //If a paths config, then just load that file instead to
+                    //resolve the plugin, as it is built into that paths layer.
+                    if (bundleId) {
+                        this.map.url = context.nameToUrl(bundleId);
+                        this.load();
+                        return;
+                    }
+
+                    load = bind(this, function (value) {
+                        this.init([], function () { return value; }, null, {
+                            enabled: true
+                        });
+                    });
+
+                    load.error = bind(this, function (err) {
+                        this.inited = true;
+                        this.error = err;
+                        err.requireModules = [id];
+
+                        //Remove temp unnormalized modules for this module,
+                        //since they will never be resolved otherwise now.
+                        eachProp(registry, function (mod) {
+                            if (mod.map.id.indexOf(id + '_unnormalized') === 0) {
+                                cleanRegistry(mod.map.id);
+                            }
+                        });
+
+                        onError(err);
+                    });
+
+                    //Allow plugins to load other code without having to know the
+                    //context or how to 'complete' the load.
+                    load.fromText = bind(this, function (text, textAlt) {
+                        /*jslint evil: true */
+                        var moduleName = map.name,
+                            moduleMap = makeModuleMap(moduleName),
+                            hasInteractive = useInteractive;
+
+                        //As of 2.1.0, support just passing the text, to reinforce
+                        //fromText only being called once per resource. Still
+                        //support old style of passing moduleName but discard
+                        //that moduleName in favor of the internal ref.
+                        if (textAlt) {
+                            text = textAlt;
+                        }
+
+                        //Turn off interactive script matching for IE for any define
+                        //calls in the text, then turn it back on at the end.
+                        if (hasInteractive) {
+                            useInteractive = false;
+                        }
+
+                        //Prime the system by creating a module instance for
+                        //it.
+                        getModule(moduleMap);
+
+                        //Transfer any config to this other module.
+                        if (hasProp(config.config, id)) {
+                            config.config[moduleName] = config.config[id];
+                        }
+
+                        try {
+                            req.exec(text);
+                        } catch (e) {
+                            return onError(makeError('fromtexteval',
+                                             'fromText eval for ' + id +
+                                            ' failed: ' + e,
+                                             e,
+                                             [id]));
+                        }
+
+                        if (hasInteractive) {
+                            useInteractive = true;
+                        }
+
+                        //Mark this as a dependency for the plugin
+                        //resource
+                        this.depMaps.push(moduleMap);
+
+                        //Support anonymous modules.
+                        context.completeLoad(moduleName);
+
+                        //Bind the value of that module to the value for this
+                        //resource ID.
+                        localRequire([moduleName], load);
+                    });
+
+                    //Use parentName here since the plugin's name is not reliable,
+                    //could be some weird string with no path that actually wants to
+                    //reference the parentName's path.
+                    plugin.load(map.name, localRequire, load, config);
+                }));
+
+                context.enable(pluginMap, this);
+                this.pluginMaps[pluginMap.id] = pluginMap;
+            },
+
+            enable: function () {
+                enabledRegistry[this.map.id] = this;
+                this.enabled = true;
+
+                //Set flag mentioning that the module is enabling,
+                //so that immediate calls to the defined callbacks
+                //for dependencies do not trigger inadvertent load
+                //with the depCount still being zero.
+                this.enabling = true;
+
+                //Enable each dependency
+                each(this.depMaps, bind(this, function (depMap, i) {
+                    var id, mod, handler;
+
+                    if (typeof depMap === 'string') {
+                        //Dependency needs to be converted to a depMap
+                        //and wired up to this module.
+                        depMap = makeModuleMap(depMap,
+                                               (this.map.isDefine ? this.map : this.map.parentMap),
+                                               false,
+                                               !this.skipMap);
+                        this.depMaps[i] = depMap;
+
+                        handler = getOwn(handlers, depMap.id);
+
+                        if (handler) {
+                            this.depExports[i] = handler(this);
+                            return;
+                        }
+
+                        this.depCount += 1;
+
+                        on(depMap, 'defined', bind(this, function (depExports) {
+                            if (this.undefed) {
+                                return;
+                            }
+                            this.defineDep(i, depExports);
+                            this.check();
+                        }));
+
+                        if (this.errback) {
+                            on(depMap, 'error', bind(this, this.errback));
+                        } else if (this.events.error) {
+                            // No direct errback on this module, but something
+                            // else is listening for errors, so be sure to
+                            // propagate the error correctly.
+                            on(depMap, 'error', bind(this, function(err) {
+                                this.emit('error', err);
+                            }));
+                        }
+                    }
+
+                    id = depMap.id;
+                    mod = registry[id];
+
+                    //Skip special modules like 'require', 'exports', 'module'
+                    //Also, don't call enable if it is already enabled,
+                    //important in circular dependency cases.
+                    if (!hasProp(handlers, id) && mod && !mod.enabled) {
+                        context.enable(depMap, this);
+                    }
+                }));
+
+                //Enable each plugin that is used in
+                //a dependency
+                eachProp(this.pluginMaps, bind(this, function (pluginMap) {
+                    var mod = getOwn(registry, pluginMap.id);
+                    if (mod && !mod.enabled) {
+                        context.enable(pluginMap, this);
+                    }
+                }));
+
+                this.enabling = false;
+
+                this.check();
+            },
+
+            on: function (name, cb) {
+                var cbs = this.events[name];
+                if (!cbs) {
+                    cbs = this.events[name] = [];
+                }
+                cbs.push(cb);
+            },
+
+            emit: function (name, evt) {
+                each(this.events[name], function (cb) {
+                    cb(evt);
+                });
+                if (name === 'error') {
+                    //Now that the error handler was triggered, remove
+                    //the listeners, since this broken Module instance
+                    //can stay around for a while in the registry.
+                    delete this.events[name];
+                }
+            }
+        };
+
+        function callGetModule(args) {
+            //Skip modules already defined.
+            if (!hasProp(defined, args[0])) {
+                getModule(makeModuleMap(args[0], null, true)).init(args[1], args[2]);
+            }
+        }
+
+        function removeListener(node, func, name, ieName) {
+            //Favor detachEvent because of IE9
+            //issue, see attachEvent/addEventListener comment elsewhere
+            //in this file.
+            if (node.detachEvent && !isOpera) {
+                //Probably IE. If not it will throw an error, which will be
+                //useful to know.
+                if (ieName) {
+                    node.detachEvent(ieName, func);
+                }
+            } else {
+                node.removeEventListener(name, func, false);
+            }
+        }
+
+        /**
+         * Given an event from a script node, get the requirejs info from it,
+         * and then removes the event listeners on the node.
+         * @param {Event} evt
+         * @returns {Object}
+         */
+        function getScriptData(evt) {
+            //Using currentTarget instead of target for Firefox 2.0's sake. Not
+            //all old browsers will be supported, but this one was easy enough
+            //to support and still makes sense.
+            var node = evt.currentTarget || evt.srcElement;
+
+            //Remove the listeners once here.
+            removeListener(node, context.onScriptLoad, 'load', 'onreadystatechange');
+            removeListener(node, context.onScriptError, 'error');
+
+            return {
+                node: node,
+                id: node && node.getAttribute('data-requiremodule')
+            };
+        }
+
+        function intakeDefines() {
+            var args;
+
+            //Any defined modules in the global queue, intake them now.
+            takeGlobalQueue();
+
+            //Make sure any remaining defQueue items get properly processed.
+            while (defQueue.length) {
+                args = defQueue.shift();
+                if (args[0] === null) {
+                    return onError(makeError('mismatch', 'Mismatched anonymous define() module: ' +
+                        args[args.length - 1]));
+                } else {
+                    //args are id, deps, factory. Should be normalized by the
+                    //define() function.
+                    callGetModule(args);
+                }
+            }
+            context.defQueueMap = {};
+        }
+
+        context = {
+            config: config,
+            contextName: contextName,
+            registry: registry,
+            defined: defined,
+            urlFetched: urlFetched,
+            defQueue: defQueue,
+            defQueueMap: {},
+            Module: Module,
+            makeModuleMap: makeModuleMap,
+            nextTick: req.nextTick,
+            onError: onError,
+
+            /**
+             * Set a configuration for the context.
+             * @param {Object} cfg config object to integrate.
+             */
+            configure: function (cfg) {
+                //Make sure the baseUrl ends in a slash.
+                if (cfg.baseUrl) {
+                    if (cfg.baseUrl.charAt(cfg.baseUrl.length - 1) !== '/') {
+                        cfg.baseUrl += '/';
+                    }
+                }
+
+                // Convert old style urlArgs string to a function.
+                if (typeof cfg.urlArgs === 'string') {
+                    var urlArgs = cfg.urlArgs;
+                    cfg.urlArgs = function(id, url) {
+                        return (url.indexOf('?') === -1 ? '?' : '&') + urlArgs;
+                    };
+                }
+
+                //Save off the paths since they require special processing,
+                //they are additive.
+                var shim = config.shim,
+                    objs = {
+                        paths: true,
+                        bundles: true,
+                        config: true,
+                        map: true
+                    };
+
+                eachProp(cfg, function (value, prop) {
+                    if (objs[prop]) {
+                        if (!config[prop]) {
+                            config[prop] = {};
+                        }
+                        mixin(config[prop], value, true, true);
+                    } else {
+                        config[prop] = value;
+                    }
+                });
+
+                //Reverse map the bundles
+                if (cfg.bundles) {
+                    eachProp(cfg.bundles, function (value, prop) {
+                        each(value, function (v) {
+                            if (v !== prop) {
+                                bundlesMap[v] = prop;
+                            }
+                        });
+                    });
+                }
+
+                //Merge shim
+                if (cfg.shim) {
+                    eachProp(cfg.shim, function (value, id) {
+                        //Normalize the structure
+                        if (isArray(value)) {
+                            value = {
+                                deps: value
+                            };
+                        }
+                        if ((value.exports || value.init) && !value.exportsFn) {
+                            value.exportsFn = context.makeShimExports(value);
+                        }
+                        shim[id] = value;
+                    });
+                    config.shim = shim;
+                }
+
+                //Adjust packages if necessary.
+                if (cfg.packages) {
+                    each(cfg.packages, function (pkgObj) {
+                        var location, name;
+
+                        pkgObj = typeof pkgObj === 'string' ? {name: pkgObj} : pkgObj;
+
+                        name = pkgObj.name;
+                        location = pkgObj.location;
+                        if (location) {
+                            config.paths[name] = pkgObj.location;
+                        }
+
+                        //Save pointer to main module ID for pkg name.
+                        //Remove leading dot in main, so main paths are normalized,
+                        //and remove any trailing .js, since different package
+                        //envs have different conventions: some use a module name,
+                        //some use a file name.
+                        config.pkgs[name] = pkgObj.name + '/' + (pkgObj.main || 'main')
+                                     .replace(currDirRegExp, '')
+                                     .replace(jsSuffixRegExp, '');
+                    });
+                }
+
+                //If there are any "waiting to execute" modules in the registry,
+                //update the maps for them, since their info, like URLs to load,
+                //may have changed.
+                eachProp(registry, function (mod, id) {
+                    //If module already has init called, since it is too
+                    //late to modify them, and ignore unnormalized ones
+                    //since they are transient.
+                    if (!mod.inited && !mod.map.unnormalized) {
+                        mod.map = makeModuleMap(id, null, true);
+                    }
+                });
+
+                //If a deps array or a config callback is specified, then call
+                //require with those args. This is useful when require is defined as a
+                //config object before require.js is loaded.
+                if (cfg.deps || cfg.callback) {
+                    context.require(cfg.deps || [], cfg.callback);
+                }
+            },
+
+            makeShimExports: function (value) {
+                function fn() {
+                    var ret;
+                    if (value.init) {
+                        ret = value.init.apply(global, arguments);
+                    }
+                    return ret || (value.exports && getGlobal(value.exports));
+                }
+                return fn;
+            },
+
+            makeRequire: function (relMap, options) {
+                options = options || {};
+
+                function localRequire(deps, callback, errback) {
+                    var id, map, requireMod;
+
+                    if (options.enableBuildCallback && callback && isFunction(callback)) {
+                        callback.__requireJsBuild = true;
+                    }
+
+                    if (typeof deps === 'string') {
+                        if (isFunction(callback)) {
+                            //Invalid call
+                            return onError(makeError('requireargs', 'Invalid require call'), errback);
+                        }
+
+                        //If require|exports|module are requested, get the
+                        //value for them from the special handlers. Caveat:
+                        //this only works while module is being defined.
+                        if (relMap && hasProp(handlers, deps)) {
+                            return handlers[deps](registry[relMap.id]);
+                        }
+
+                        //Synchronous access to one module. If require.get is
+                        //available (as in the Node adapter), prefer that.
+                        if (req.get) {
+                            return req.get(context, deps, relMap, localRequire);
+                        }
+
+                        //Normalize module name, if it contains . or ..
+                        map = makeModuleMap(deps, relMap, false, true);
+                        id = map.id;
+
+                        if (!hasProp(defined, id)) {
+                            return onError(makeError('notloaded', 'Module name "' +
+                                        id +
+                                        '" has not been loaded yet for context: ' +
+                                        contextName +
+                                        (relMap ? '' : '. Use require([])')));
+                        }
+                        return defined[id];
+                    }
+
+                    //Grab defines waiting in the global queue.
+                    intakeDefines();
+
+                    //Mark all the dependencies as needing to be loaded.
+                    context.nextTick(function () {
+                        //Some defines could have been added since the
+                        //require call, collect them.
+                        intakeDefines();
+
+                        requireMod = getModule(makeModuleMap(null, relMap));
+
+                        //Store if map config should be applied to this require
+                        //call for dependencies.
+                        requireMod.skipMap = options.skipMap;
+
+                        requireMod.init(deps, callback, errback, {
+                            enabled: true
+                        });
+
+                        checkLoaded();
+                    });
+
+                    return localRequire;
+                }
+
+                mixin(localRequire, {
+                    isBrowser: isBrowser,
+
+                    /**
+                     * Converts a module name + .extension into an URL path.
+                     * *Requires* the use of a module name. It does not support using
+                     * plain URLs like nameToUrl.
+                     */
+                    toUrl: function (moduleNamePlusExt) {
+                        var ext,
+                            index = moduleNamePlusExt.lastIndexOf('.'),
+                            segment = moduleNamePlusExt.split('/')[0],
+                            isRelative = segment === '.' || segment === '..';
+
+                        //Have a file extension alias, and it is not the
+                        //dots from a relative path.
+                        if (index !== -1 && (!isRelative || index > 1)) {
+                            ext = moduleNamePlusExt.substring(index, moduleNamePlusExt.length);
+                            moduleNamePlusExt = moduleNamePlusExt.substring(0, index);
+                        }
+
+                        return context.nameToUrl(normalize(moduleNamePlusExt,
+                                                relMap && relMap.id, true), ext,  true);
+                    },
+
+                    defined: function (id) {
+                        return hasProp(defined, makeModuleMap(id, relMap, false, true).id);
+                    },
+
+                    specified: function (id) {
+                        id = makeModuleMap(id, relMap, false, true).id;
+                        return hasProp(defined, id) || hasProp(registry, id);
+                    }
+                });
+
+                //Only allow undef on top level require calls
+                if (!relMap) {
+                    localRequire.undef = function (id) {
+                        //Bind any waiting define() calls to this context,
+                        //fix for #408
+                        takeGlobalQueue();
+
+                        var map = makeModuleMap(id, relMap, true),
+                            mod = getOwn(registry, id);
+
+                        mod.undefed = true;
+                        removeScript(id);
+
+                        delete defined[id];
+                        delete urlFetched[map.url];
+                        delete undefEvents[id];
+
+                        //Clean queued defines too. Go backwards
+                        //in array so that the splices do not
+                        //mess up the iteration.
+                        eachReverse(defQueue, function(args, i) {
+                            if (args[0] === id) {
+                                defQueue.splice(i, 1);
+                            }
+                        });
+                        delete context.defQueueMap[id];
+
+                        if (mod) {
+                            //Hold on to listeners in case the
+                            //module will be attempted to be reloaded
+                            //using a different config.
+                            if (mod.events.defined) {
+                                undefEvents[id] = mod.events;
+                            }
+
+                            cleanRegistry(id);
+                        }
+                    };
+                }
+
+                return localRequire;
+            },
+
+            /**
+             * Called to enable a module if it is still in the registry
+             * awaiting enablement. A second arg, parent, the parent module,
+             * is passed in for context, when this method is overridden by
+             * the optimizer. Not shown here to keep code compact.
+             */
+            enable: function (depMap) {
+                var mod = getOwn(registry, depMap.id);
+                if (mod) {
+                    getModule(depMap).enable();
+                }
+            },
+
+            /**
+             * Internal method used by environment adapters to complete a load event.
+             * A load event could be a script load or just a load pass from a synchronous
+             * load call.
+             * @param {String} moduleName the name of the module to potentially complete.
+             */
+            completeLoad: function (moduleName) {
+                var found, args, mod,
+                    shim = getOwn(config.shim, moduleName) || {},
+                    shExports = shim.exports;
+
+                takeGlobalQueue();
+
+                while (defQueue.length) {
+                    args = defQueue.shift();
+                    if (args[0] === null) {
+                        args[0] = moduleName;
+                        //If already found an anonymous module and bound it
+                        //to this name, then this is some other anon module
+                        //waiting for its completeLoad to fire.
+                        if (found) {
+                            break;
+                        }
+                        found = true;
+                    } else if (args[0] === moduleName) {
+                        //Found matching define call for this script!
+                        found = true;
+                    }
+
+                    callGetModule(args);
+                }
+                context.defQueueMap = {};
+
+                //Do this after the cycle of callGetModule in case the result
+                //of those calls/init calls changes the registry.
+                mod = getOwn(registry, moduleName);
+
+                if (!found && !hasProp(defined, moduleName) && mod && !mod.inited) {
+                    if (config.enforceDefine && (!shExports || !getGlobal(shExports))) {
+                        if (hasPathFallback(moduleName)) {
+                            return;
+                        } else {
+                            return onError(makeError('nodefine',
+                                             'No define call for ' + moduleName,
+                                             null,
+                                             [moduleName]));
+                        }
+                    } else {
+                        //A script that does not call define(), so just simulate
+                        //the call for it.
+                        callGetModule([moduleName, (shim.deps || []), shim.exportsFn]);
+                    }
+                }
+
+                checkLoaded();
+            },
+
+            /**
+             * Converts a module name to a file path. Supports cases where
+             * moduleName may actually be just an URL.
+             * Note that it **does not** call normalize on the moduleName,
+             * it is assumed to have already been normalized. This is an
+             * internal API, not a public one. Use toUrl for the public API.
+             */
+            nameToUrl: function (moduleName, ext, skipExt) {
+                var paths, syms, i, parentModule, url,
+                    parentPath, bundleId,
+                    pkgMain = getOwn(config.pkgs, moduleName);
+
+                if (pkgMain) {
+                    moduleName = pkgMain;
+                }
+
+                bundleId = getOwn(bundlesMap, moduleName);
+
+                if (bundleId) {
+                    return context.nameToUrl(bundleId, ext, skipExt);
+                }
+
+                //If a colon is in the URL, it indicates a protocol is used and it is just
+                //an URL to a file, or if it starts with a slash, contains a query arg (i.e. ?)
+                //or ends with .js, then assume the user meant to use an url and not a module id.
+                //The slash is important for protocol-less URLs as well as full paths.
+                if (req.jsExtRegExp.test(moduleName)) {
+                    //Just a plain path, not module name lookup, so just return it.
+                    //Add extension if it is included. This is a bit wonky, only non-.js things pass
+                    //an extension, this method probably needs to be reworked.
+                    url = moduleName + (ext || '');
+                } else {
+                    //A module that needs to be converted to a path.
+                    paths = config.paths;
+
+                    syms = moduleName.split('/');
+                    //For each module name segment, see if there is a path
+                    //registered for it. Start with most specific name
+                    //and work up from it.
+                    for (i = syms.length; i > 0; i -= 1) {
+                        parentModule = syms.slice(0, i).join('/');
+
+                        parentPath = getOwn(paths, parentModule);
+                        if (parentPath) {
+                            //If an array, it means there are a few choices,
+                            //Choose the one that is desired
+                            if (isArray(parentPath)) {
+                                parentPath = parentPath[0];
+                            }
+                            syms.splice(0, i, parentPath);
+                            break;
+                        }
+                    }
+
+                    //Join the path parts together, then figure out if baseUrl is needed.
+                    url = syms.join('/');
+                    url += (ext || (/^data\:|^blob\:|\?/.test(url) || skipExt ? '' : '.js'));
+                    url = (url.charAt(0) === '/' || url.match(/^[\w\+\.\-]+:/) ? '' : config.baseUrl) + url;
+                }
+
+                return config.urlArgs && !/^blob\:/.test(url) ?
+                       url + config.urlArgs(moduleName, url) : url;
+            },
+
+            //Delegates to req.load. Broken out as a separate function to
+            //allow overriding in the optimizer.
+            load: function (id, url) {
+                req.load(context, id, url);
+            },
+
+            /**
+             * Executes a module callback function. Broken out as a separate function
+             * solely to allow the build system to sequence the files in the built
+             * layer in the right sequence.
+             *
+             * @private
+             */
+            execCb: function (name, callback, args, exports) {
+                return callback.apply(exports, args);
+            },
+
+            /**
+             * callback for script loads, used to check status of loading.
+             *
+             * @param {Event} evt the event from the browser for the script
+             * that was loaded.
+             */
+            onScriptLoad: function (evt) {
+                //Using currentTarget instead of target for Firefox 2.0's sake. Not
+                //all old browsers will be supported, but this one was easy enough
+                //to support and still makes sense.
+                if (evt.type === 'load' ||
+                        (readyRegExp.test((evt.currentTarget || evt.srcElement).readyState))) {
+                    //Reset interactive script so a script node is not held onto for
+                    //to long.
+                    interactiveScript = null;
+
+                    //Pull out the name of the module and the context.
+                    var data = getScriptData(evt);
+                    context.completeLoad(data.id);
+                }
+            },
+
+            /**
+             * Callback for script errors.
+             */
+            onScriptError: function (evt) {
+                var data = getScriptData(evt);
+                if (!hasPathFallback(data.id)) {
+                    var parents = [];
+                    eachProp(registry, function(value, key) {
+                        if (key.indexOf('_@r') !== 0) {
+                            each(value.depMaps, function(depMap) {
+                                if (depMap.id === data.id) {
+                                    parents.push(key);
+                                    return true;
+                                }
+                            });
+                        }
+                    });
+                    return onError(makeError('scripterror', 'Script error for "' + data.id +
+                                             (parents.length ?
+                                             '", needed by: ' + parents.join(', ') :
+                                             '"'), evt, [data.id]));
+                }
+            }
+        };
+
+        context.require = context.makeRequire();
+        return context;
+    }
+
+    /**
+     * Main entry point.
+     *
+     * If the only argument to require is a string, then the module that
+     * is represented by that string is fetched for the appropriate context.
+     *
+     * If the first argument is an array, then it will be treated as an array
+     * of dependency string names to fetch. An optional function callback can
+     * be specified to execute when all of those dependencies are available.
+     *
+     * Make a local req variable to help Caja compliance (it assumes things
+     * on a require that are not standardized), and to give a short
+     * name for minification/local scope use.
+     */
+    req = requirejs = function (deps, callback, errback, optional) {
+
+        //Find the right context, use default
+        var context, config,
+            contextName = defContextName;
+
+        // Determine if have config object in the call.
+        if (!isArray(deps) && typeof deps !== 'string') {
+            // deps is a config object
+            config = deps;
+            if (isArray(callback)) {
+                // Adjust args if there are dependencies
+                deps = callback;
+                callback = errback;
+                errback = optional;
+            } else {
+                deps = [];
+            }
+        }
+
+        if (config && config.context) {
+            contextName = config.context;
+        }
+
+        context = getOwn(contexts, contextName);
+        if (!context) {
+            context = contexts[contextName] = req.s.newContext(contextName);
+        }
+
+        if (config) {
+            context.configure(config);
+        }
+
+        return context.require(deps, callback, errback);
+    };
+
+    /**
+     * Support require.config() to make it easier to cooperate with other
+     * AMD loaders on globally agreed names.
+     */
+    req.config = function (config) {
+        return req(config);
+    };
+
+    /**
+     * Execute something after the current tick
+     * of the event loop. Override for other envs
+     * that have a better solution than setTimeout.
+     * @param  {Function} fn function to execute later.
+     */
+    req.nextTick = typeof setTimeout !== 'undefined' ? function (fn) {
+        setTimeout(fn, 4);
+    } : function (fn) { fn(); };
+
+    /**
+     * Export require as a global, but only if it does not already exist.
+     */
+    if (!require) {
+        require = req;
+    }
+
+    req.version = version;
+
+    //Used to filter out dependencies that are already paths.
+    req.jsExtRegExp = /^\/|:|\?|\.js$/;
+    req.isBrowser = isBrowser;
+    s = req.s = {
+        contexts: contexts,
+        newContext: newContext
+    };
+
+    //Create default context.
+    req({});
+
+    //Exports some context-sensitive methods on global require.
+    each([
+        'toUrl',
+        'undef',
+        'defined',
+        'specified'
+    ], function (prop) {
+        //Reference from contexts instead of early binding to default context,
+        //so that during builds, the latest instance of the default context
+        //with its config gets used.
+        req[prop] = function () {
+            var ctx = contexts[defContextName];
+            return ctx.require[prop].apply(ctx, arguments);
+        };
+    });
+
+    if (isBrowser) {
+        head = s.head = document.getElementsByTagName('head')[0];
+        //If BASE tag is in play, using appendChild is a problem for IE6.
+        //When that browser dies, this can be removed. Details in this jQuery bug:
+        //http://dev.jquery.com/ticket/2709
+        baseElement = document.getElementsByTagName('base')[0];
+        if (baseElement) {
+            head = s.head = baseElement.parentNode;
+        }
+    }
+
+    /**
+     * Any errors that require explicitly generates will be passed to this
+     * function. Intercept/override it if you want custom error handling.
+     * @param {Error} err the error object.
+     */
+    req.onError = defaultOnError;
+
+    /**
+     * Creates the node for the load command. Only used in browser envs.
+     */
+    req.createNode = function (config, moduleName, url) {
+        var node = config.xhtml ?
+                document.createElementNS('http://www.w3.org/1999/xhtml', 'html:script') :
+                document.createElement('script');
+        node.type = config.scriptType || 'text/javascript';
+        node.charset = 'utf-8';
+        node.async = true;
+        return node;
+    };
+
+    /**
+     * Does the request to load a module for the browser case.
+     * Make this a separate function to allow other environments
+     * to override it.
+     *
+     * @param {Object} context the require context to find state.
+     * @param {String} moduleName the name of the module.
+     * @param {Object} url the URL to the module.
+     */
+    req.load = function (context, moduleName, url) {
+        var config = (context && context.config) || {},
+            node;
+        if (isBrowser) {
+            //In the browser so use a script tag
+            node = req.createNode(config, moduleName, url);
+
+            node.setAttribute('data-requirecontext', context.contextName);
+            node.setAttribute('data-requiremodule', moduleName);
+
+            //Set up load listener. Test attachEvent first because IE9 has
+            //a subtle issue in its addEventListener and script onload firings
+            //that do not match the behavior of all other browsers with
+            //addEventListener support, which fire the onload event for a
+            //script right after the script execution. See:
+            //https://connect.microsoft.com/IE/feedback/details/648057/script-onload-event-is-not-fired-immediately-after-script-execution
+            //UNFORTUNATELY Opera implements attachEvent but does not follow the script
+            //script execution mode.
+            if (node.attachEvent &&
+                    //Check if node.attachEvent is artificially added by custom script or
+                    //natively supported by browser
+                    //read https://github.com/requirejs/requirejs/issues/187
+                    //if we can NOT find [native code] then it must NOT natively supported.
+                    //in IE8, node.attachEvent does not have toString()
+                    //Note the test for "[native code" with no closing brace, see:
+                    //https://github.com/requirejs/requirejs/issues/273
+                    !(node.attachEvent.toString && node.attachEvent.toString().indexOf('[native code') < 0) &&
+                    !isOpera) {
+                //Probably IE. IE (at least 6-8) do not fire
+                //script onload right after executing the script, so
+                //we cannot tie the anonymous define call to a name.
+                //However, IE reports the script as being in 'interactive'
+                //readyState at the time of the define call.
+                useInteractive = true;
+
+                node.attachEvent('onreadystatechange', context.onScriptLoad);
+                //It would be great to add an error handler here to catch
+                //404s in IE9+. However, onreadystatechange will fire before
+                //the error handler, so that does not help. If addEventListener
+                //is used, then IE will fire error before load, but we cannot
+                //use that pathway given the connect.microsoft.com issue
+                //mentioned above about not doing the 'script execute,
+                //then fire the script load event listener before execute
+                //next script' that other browsers do.
+                //Best hope: IE10 fixes the issues,
+                //and then destroys all installs of IE 6-9.
+                //node.attachEvent('onerror', context.onScriptError);
+            } else {
+                node.addEventListener('load', context.onScriptLoad, false);
+                node.addEventListener('error', context.onScriptError, false);
+            }
+            node.src = url;
+
+            //Calling onNodeCreated after all properties on the node have been
+            //set, but before it is placed in the DOM.
+            if (config.onNodeCreated) {
+                config.onNodeCreated(node, config, moduleName, url);
+            }
+
+            //For some cache cases in IE 6-8, the script executes before the end
+            //of the appendChild execution, so to tie an anonymous define
+            //call to the module name (which is stored on the node), hold on
+            //to a reference to this node, but clear after the DOM insertion.
+            currentlyAddingScript = node;
+            if (baseElement) {
+                head.insertBefore(node, baseElement);
+            } else {
+                head.appendChild(node);
+            }
+            currentlyAddingScript = null;
+
+            return node;
+        } else if (isWebWorker) {
+            try {
+                //In a web worker, use importScripts. This is not a very
+                //efficient use of importScripts, importScripts will block until
+                //its script is downloaded and evaluated. However, if web workers
+                //are in play, the expectation is that a build has been done so
+                //that only one script needs to be loaded anyway. This may need
+                //to be reevaluated if other use cases become common.
+
+                // Post a task to the event loop to work around a bug in WebKit
+                // where the worker gets garbage-collected after calling
+                // importScripts(): https://webkit.org/b/153317
+                setTimeout(function() {}, 0);
+                importScripts(url);
+
+                //Account for anonymous modules
+                context.completeLoad(moduleName);
+            } catch (e) {
+                context.onError(makeError('importscripts',
+                                'importScripts failed for ' +
+                                    moduleName + ' at ' + url,
+                                e,
+                                [moduleName]));
+            }
+        }
+    };
+
+    function getInteractiveScript() {
+        if (interactiveScript && interactiveScript.readyState === 'interactive') {
+            return interactiveScript;
+        }
+
+        eachReverse(scripts(), function (script) {
+            if (script.readyState === 'interactive') {
+                return (interactiveScript = script);
+            }
+        });
+        return interactiveScript;
+    }
+
+    //Look for a data-main script attribute, which could also adjust the baseUrl.
+    if (isBrowser && !cfg.skipDataMain) {
+        //Figure out baseUrl. Get it from the script tag with require.js in it.
+        eachReverse(scripts(), function (script) {
+            //Set the 'head' where we can append children by
+            //using the script's parent.
+            if (!head) {
+                head = script.parentNode;
+            }
+
+            //Look for a data-main attribute to set main script for the page
+            //to load. If it is there, the path to data main becomes the
+            //baseUrl, if it is not already set.
+            dataMain = script.getAttribute('data-main');
+            if (dataMain) {
+                //Preserve dataMain in case it is a path (i.e. contains '?')
+                mainScript = dataMain;
+
+                //Set final baseUrl if there is not already an explicit one,
+                //but only do so if the data-main value is not a loader plugin
+                //module ID.
+                if (!cfg.baseUrl && mainScript.indexOf('!') === -1) {
+                    //Pull off the directory of data-main for use as the
+                    //baseUrl.
+                    src = mainScript.split('/');
+                    mainScript = src.pop();
+                    subPath = src.length ? src.join('/')  + '/' : './';
+
+                    cfg.baseUrl = subPath;
+                }
+
+                //Strip off any trailing .js since mainScript is now
+                //like a module name.
+                mainScript = mainScript.replace(jsSuffixRegExp, '');
+
+                //If mainScript is still a path, fall back to dataMain
+                if (req.jsExtRegExp.test(mainScript)) {
+                    mainScript = dataMain;
+                }
+
+                //Put the data-main script in the files to load.
+                cfg.deps = cfg.deps ? cfg.deps.concat(mainScript) : [mainScript];
+
+                return true;
+            }
+        });
+    }
+
+    /**
+     * The function that handles definitions of modules. Differs from
+     * require() in that a string for the module should be the first argument,
+     * and the function to execute after dependencies are loaded should
+     * return a value to define the module corresponding to the first argument's
+     * name.
+     */
+    define = function (name, deps, callback) {
+        var node, context;
+
+        //Allow for anonymous modules
+        if (typeof name !== 'string') {
+            //Adjust args appropriately
+            callback = deps;
+            deps = name;
+            name = null;
+        }
+
+        //This module may not have dependencies
+        if (!isArray(deps)) {
+            callback = deps;
+            deps = null;
+        }
+
+        //If no name, and callback is a function, then figure out if it a
+        //CommonJS thing with dependencies.
+        if (!deps && isFunction(callback)) {
+            deps = [];
+            //Remove comments from the callback string,
+            //look for require calls, and pull them into the dependencies,
+            //but only if there are function args.
+            if (callback.length) {
+                callback
+                    .toString()
+                    .replace(commentRegExp, commentReplace)
+                    .replace(cjsRequireRegExp, function (match, dep) {
+                        deps.push(dep);
+                    });
+
+                //May be a CommonJS thing even without require calls, but still
+                //could use exports, and module. Avoid doing exports and module
+                //work though if it just needs require.
+                //REQUIRES the function to expect the CommonJS variables in the
+                //order listed below.
+                deps = (callback.length === 1 ? ['require'] : ['require', 'exports', 'module']).concat(deps);
+            }
+        }
+
+        //If in IE 6-8 and hit an anonymous define() call, do the interactive
+        //work.
+        if (useInteractive) {
+            node = currentlyAddingScript || getInteractiveScript();
+            if (node) {
+                if (!name) {
+                    name = node.getAttribute('data-requiremodule');
+                }
+                context = contexts[node.getAttribute('data-requirecontext')];
+            }
+        }
+
+        //Always save off evaluating the def call until the script onload handler.
+        //This allows multiple modules to be in a file without prematurely
+        //tracing dependencies, and allows for anonymous module support,
+        //where the module name is not known until the script onload event
+        //occurs. If no context, use the global queue, and get it processed
+        //in the onscript load callback.
+        if (context) {
+            context.defQueue.push([name, deps, callback]);
+            context.defQueueMap[name] = true;
+        } else {
+            globalDefQueue.push([name, deps, callback]);
+        }
+    };
+
+    define.amd = {
+        jQuery: true
+    };
+
+    /**
+     * Executes the text. Normally just uses eval, but can be modified
+     * to use a better, environment-specific call. Only used for transpiling
+     * loader plugins, not for plain JS modules.
+     * @param {String} text the text to execute/evaluate.
+     */
+    req.exec = function (text) {
+        /*jslint evil: true */
+        return eval(text);
+    };
+
+    //Set up with config info.
+    req(cfg);
+}(this, (typeof setTimeout === 'undefined' ? undefined : setTimeout)));

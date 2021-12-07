@@ -1,0 +1,36 @@
+import 'package:amar_karigor/app/global/config/api.dart';
+import 'package:http/http.dart' as http;
+/*
+    @author: Nazrul Chowdhury
+    @date: 21 Nov 2021
+
+    |----------------------------------------------------------|
+    | Using http library for API calling instead of GetConnect |
+    |----------------------------------------------------------|
+    
+    * GetConnect (get,post) methods are not working properly in Flutter Web.
+    * Getting response as null instad of actual response. 
+    * Same codebase work well on the Android device.
+
+ */
+
+class AuthProvider {
+  Future<http.Response> createUser(Map<String, dynamic> user) async {
+    String url = '${Api.base_url}${Api.register_url}';
+    http.Response response = await http.post(Uri.parse(url), body: user);
+
+    return response;
+  }
+
+  Future<http.Response> login(Map<String, dynamic> user) async {
+    String url = '${Api.base_url}${Api.login_url}';
+    try {
+      http.Response response = await http.post(Uri.parse(url), body: user);
+
+      return response;
+    } catch (e) {
+      print(e.toString());
+      return  http.Response(e.toString(), 502);
+    }
+  }
+}

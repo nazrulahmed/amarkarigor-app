@@ -1,405 +1,57 @@
-define(['dart_sdk', 'packages/flutter/src/gestures/lsq_solver.dart', 'packages/flutter/src/foundation/debug.dart'], (function load__packages__flutter__src__gestures__velocity_tracker_dart(dart_sdk, packages__flutter__src__gestures__lsq_solver$46dart, packages__flutter__src__foundation__debug$46dart) {
+define(['dart_sdk'], (function load__packages__characters__src__grapheme_clusters__table_dart(dart_sdk) {
   'use strict';
   const core = dart_sdk.core;
-  const ui = dart_sdk.ui;
-  const _interceptors = dart_sdk._interceptors;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const lsq_solver = packages__flutter__src__gestures__lsq_solver$46dart.src__gestures__lsq_solver;
-  const assertions = packages__flutter__src__foundation__debug$46dart.src__foundation__assertions;
-  var velocity_tracker = Object.create(dart.library);
-  var $toStringAsFixed = dartx.toStringAsFixed;
-  var $_set = dartx._set;
-  var $_get = dartx._get;
-  var $toDouble = dartx.toDouble;
-  var $abs = dartx.abs;
-  var $add = dartx.add;
-  var $modulo = dartx['%'];
+  var table = Object.create(dart.library);
+  var $rightShift = dartx['>>'];
+  var $codeUnitAt = dartx.codeUnitAt;
   dart._checkModuleNullSafetyMode(true);
-  var T = {
-    _PointAtTimeN: () => (T._PointAtTimeN = dart.constFn(dart.nullable(velocity_tracker._PointAtTime)))(),
-    ListOf_PointAtTimeN: () => (T.ListOf_PointAtTimeN = dart.constFn(core.List$(T._PointAtTimeN())))(),
-    JSArrayOfdouble: () => (T.JSArrayOfdouble = dart.constFn(_interceptors.JSArray$(core.double)))(),
-    VoidTobool: () => (T.VoidTobool = dart.constFn(dart.fnType(core.bool, [])))()
-  };
   const CT = Object.create({
     _: () => (C, CT)
   });
-  dart.defineLazy(CT, {
-    get C1() {
-      return C[1] = dart.const({
-        __proto__: ui.Offset.prototype,
-        [OffsetBase__dy]: 0,
-        [OffsetBase__dx]: 0
-      });
+  table.low = function low(codeUnit) {
+    let chunkStart = table._start[$codeUnitAt](codeUnit[$rightShift](6));
+    let index = chunkStart + (codeUnit & 63);
+    let bit = index & 1;
+    let pair = table._data[$codeUnitAt](index[$rightShift](1));
+    return (pair[$rightShift](4) & -bit | pair & 15 & bit - 1) >>> 0;
+  };
+  table.high = function high(lead, tail) {
+    let chunkStart = table._start[$codeUnitAt](1024 + (1023 & lead));
+    let index = chunkStart + (1023 & tail);
+    let bit = index & 1;
+    let pair = table._data[$codeUnitAt](index[$rightShift](1));
+    return (pair[$rightShift](4) & -bit | pair & 15 & bit - 1) >>> 0;
+  };
+  table.move = function move(state, inputCategory) {
+    return table._stateMachine[$codeUnitAt]((state & 240 | inputCategory) >>> 0);
+  };
+  table.moveBack = function moveBack(state, inputCategory) {
+    return table._backStateMachine[$codeUnitAt]((state & 240 | inputCategory) >>> 0);
+  };
+  dart.defineLazy(table, {
+    /*table._data*/get _data() {
+      return "\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"3333s3#7333333339433333333333333CDDDDDDDDDDDDDDDDDDDDDDC433DDDDD4DDDDDDDDDDDDDDDDDD3CU33333333333333333333333333334T5333333333333333333333333333CCD3D33CD533333333333333333333333TEDTET53U5UE3333C33333333333333333333333333333CETUTDT5333333333333333333333333SUUUUUEUDDDDD43333433333333333333333333ET533E3333SDD3U3U4333343333C4333333333333CSD33343333333433333333333333333SUUUEDDDTE4333SDDSUSU333343333C43333333333333333s333333333337333333333333wwwww73sw33sww7swwwwwss33373733s33333w33333£ªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªº»»»»»»»»»»»»»»»»»»»ËÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌìîÞîîîîîîîîîîîîîÞîîîîîîîîîîîîîÞîîîîîîîîîîîîî>33333³»»»»»»»;3ÃÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌ334343C33333333333SET333333333333333EDTETD433333333CD33333333333333CD33333CDD4333333333333333333333333CDTDDDCTE43C4CD3C333333333333333D3C3333333333DDDDD42333333333333333333CDDD4333333333333333333333333DDDD433334333C53333333333333333333333C33TEDCSUUU433333333S533333333333333333333333333333CD4DDDDD3D5333333333333333333333333333CSEUCUSE4333D33333C43333333333333CDDD9DDD3DCD433333333CDCDDDDDDEDDD33433C3E433#\"\"\"\"\" \"\"\"\"\"\"\"\"2333333333333333CDUUDU53SEUUUD43SDD3U3U4333C43333C43333333333333SE43CD33333333DD33333CDDDDDDDDDD3333333343333333B!233333333333#\"\"\"333333s3CD533333333333333333333333333CESEU3333333333333333333DDDD433333CD2333333333333333333333333\"\"\"\"23333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333CDD33333333333333333333333333333CDDD3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333SUDDDDUDT43333333333343333333333333333333333333333333333333333TEDDTTEETD333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333CUDD3UUDE43333333333333D33333333333333333333333333333333333333333UEDDDTEE43333333333333333333333333333333333333333333333333333CEUDDDE33333333333333333333333333333333333333333333333333CDUDDEDD3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333D#\"2333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333CSUUUUUUUUUUUUUUUUUUUUUUUUUUU333CD4333333333333333333333333333333333333333333333333333333\"\"\"\"\"\"33EDDCTSE3333333333D33333333333DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDCDDDDDDDD3DDD4DCDD3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333CDDD33333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333CD4333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333CDDDDD333333333333333333333333333333333333333333333333333333333333333333333333333333333333333s73333s33333333333\"\"\"\"\"\"\"\"3333333373s333333333333333333333333333333CTDDDTU5D4DD333C433333D33333333333333DU433333333333333333333DDDUDUD3333S3333333333333333334333333333333s733333s33333333333CD4DDDD4D4DD4333333333sww73333333w3333333333sw3333s33333337333333sw333333333s733333333333333333UTEUS433333333C433333333333333C433333333333334443SUE4333333333333CDDDDDDDD4333333DDDDDT533333£ªªªªªªªªªªªªªª3SDDDDUUT5DDD43333C43333333333333333C33333333333EEDDDCC3DDDDUUUDDDDD3T5333333333333333333333333333CSDDD433E533333333333333333333333333DDDDDDD4333333333333333333333333333CD53333333333333333333333UEDTE433333333333333333333333333333333D433333333333333333CDDEDDD43333333S5333333333333333333333C333333D533333333333333333333333SUDDDDT533CD433333333333333333333333333333333333333333333333UEDUTD33343333333333333333333333333333333333333333333333333333333333333333333333333333333CUEDDD43333333333DU333333333333333333333333333C4TTU5S5SU3333C33333U3DDD43DD4333333333333333333333333333333333333333333333333333333333333333333333DDDDDDD533333333333333333333333DDDTTU43333333333333333333333333333DDD733333s373ss33w7733333ww733333333333ss33333333333333333333333333333ww3333333333333333333333333333wwww33333www33333333333333333333wwww333333333333333wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww333333wwwwwwwwwwwwwwwwwwwwwww7wwwwwswwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww7333swwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww733333333333333333333333swwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww7333333333333333333333333333333333333333333333333333333333swwwww7333333333333333333333333333333333333333333wwwwwwwwwwwwwwwwwwwww7wwwwwwswwwwwwwwwwwwwwwwwwwww73333swwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww7333333w7333333333333333733333333333333333333333333333sww733333s7333333s3wwwww333333333wwwwwwwwwwwwwwwwwwwwwwwwwwwwgffffffffffff6wwwwwww73333s33333333337swwwwsw73333wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwDDDDDDDDDDDDDDDDDDDDDDDD33333333DDDDDDDD33333333DDDDDDDDDDDDDDDD43333333DC44333333333333333333333333333SUDDDDTD33333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333UED4CTUE3S33333333333333DDDDD33333333333333333333DDDDD333343333DDDUD43333333333333333333IDDDDDDE4333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333CDDDDDDDDDDDDDDDDDDDDDDDDDDD33DDDDDDDDDDDDDDDDDDDDDDDDD33334333333C33333333333DD4DDDDDDD43333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333TD43EDD\"\"\"\"DDDD3DDD433333333333333CD43333333333333333333333333333333333333333333333333333333333333333333333333CD33333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333C33333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333433333333333333333333333333333333333333333333333333333333333333333333333333DD4333333333333333333333333333333333333333333333333333333333333333333EDDDCDDT43333333333333333333333333333333333333333CDDDDDDDDDD4EDDDETD3333333333333333333333333333333333333333333333333333333333333DDD3CC4DDD433333333333333333333333333333333SUUC4UT433333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333DU333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333CDDD333333333333333333333333333333333333333333333333333333CDDD3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333CDC433DD33333333333333333333D43C3333333333333333333333333333333333333333333333333333333333333333333333333333333333C4333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333334EDDDD3";
     },
-    get C0() {
-      return C[0] = dart.const({
-        __proto__: velocity_tracker.Velocity.prototype,
-        [pixelsPerSecond$]: C[1] || CT.C1
-      });
+    /*table._start*/get _start() {
+      return "฻᳛אါါါါါါါါါ 㢜ါါါါ䢜ါါါؠ㤫ద໺ါ෋؁㹾⊏౷ⓓ䂲ါᵑ཯⚁ژࡑൣ௦ൣᴪەປݱݜ⮘⏾✇ඡ⩒࣫ഓೣ✒ౢ䶝஗○⬡ٙ䋅ப໅ࢍါহ৙৹ਡါါါါါ䂮ါါါါါါါါါါါါါါୟ▱⏁ߵ࿢ါ⚞ါ๛ါါါ␧⛉❚ါ⭜ྭ଱މࢫါါ෻ါါါᵴါါါါါါါါ༯⍲ါ㣬एါ━ါါါါါ⒩ါ㗈हါါါ⎵ါါ⍅Ⱗ㑗⶝㒑⶝ॹ⯥┬ါါါါါ⌻ါါါါါါါ╦⎢ါါါါါ䂜ါ䊌ါ㶹ါါါါါါါါ⮬ါᛉါါါါါါါⰎါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါത䲕䲃ါါါါଌါ޻☉ృ♁ܟ⒃⑃ಱۡࠑါါါ▃੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱ੹੥੭ੵ੡੩ੱક૎ǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰǰါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါ䊭ါါါါါါါါါါါ㢼ါါ᳛ါါ䲕ᳪ䃎ါ䧎Ὧ❒ᔆ㤿䒟ါါါါါ࿲ါါါါါါါါါါါါᄻᤚါါါါါါါါါါါါါါါါါါါᡩါါါါ㺉ါ㯙ါᶧါ䟏ါ㒡そⱖ⶝ါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါ ǰǰǰါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါါ";
     },
-    get C2() {
-      return C[2] = dart.const({
-        __proto__: ui.PointerDeviceKind.prototype,
-        [_name]: "PointerDeviceKind.touch",
-        index: 0
-      });
+    /*table._stateMachine*/get _stateMachine() {
+      return " 0000 @P`p`p± 0000 @P`p`p° 0000 @P`p`p° 1011 @P`p`p° 1111¡AQaqaq° 1011 @Qapaq° 1011 @Paq`p° 1011 @P`q`p° 01 @P`p`p° 1011 @P`p`p° 10111@P`p`p°!1111¡AQaqaq±";
     },
-    get C4() {
-      return C[4] = dart.const({
-        __proto__: core.Duration.prototype,
-        [Duration__duration]: 0
-      });
-    },
-    get C3() {
-      return C[3] = dart.const({
-        __proto__: velocity_tracker.VelocityEstimate.prototype,
-        [offset$]: C[1] || CT.C1,
-        [duration$]: C[4] || CT.C4,
-        [confidence$]: 0,
-        [pixelsPerSecond$0]: C[1] || CT.C1
-      });
+    /*table._backStateMachine*/get _backStateMachine() {
+      return "@0@@  0P`pPP±@0@@  0P`pPP°@0@@  0P`pPP°@0@@  1P`pPP°A1AA¡ 1QaqQQ°@0@@  1Q`pPP°@0@@  1QapQP°@0@@  1PaqQQ°à0@@  1P`pPP°±±±±±Á±±±±±±±±@0@@Ð 1P`pPP°A1AA¡!1QaqQQ±@0@@ 1P`pPP°";
     }
   }, false);
-  var C = Array(5).fill(void 0);
-  var I = [
-    "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/gestures/velocity_tracker.dart",
-    "package:flutter/src/gestures/velocity_tracker.dart"
-  ];
-  var pixelsPerSecond$ = dart.privateName(velocity_tracker, "Velocity.pixelsPerSecond");
-  var OffsetBase__dy = dart.privateName(ui, "OffsetBase._dy");
-  var OffsetBase__dx = dart.privateName(ui, "OffsetBase._dx");
-  velocity_tracker.Velocity = class Velocity extends core.Object {
-    get pixelsPerSecond() {
-      return this[pixelsPerSecond$];
-    }
-    set pixelsPerSecond(value) {
-      super.pixelsPerSecond = value;
-    }
-    _negate() {
-      return new velocity_tracker.Velocity.new({pixelsPerSecond: this.pixelsPerSecond._negate()});
-    }
-    ['-'](other) {
-      return new velocity_tracker.Velocity.new({pixelsPerSecond: this.pixelsPerSecond['-'](other.pixelsPerSecond)});
-    }
-    ['+'](other) {
-      return new velocity_tracker.Velocity.new({pixelsPerSecond: this.pixelsPerSecond['+'](other.pixelsPerSecond)});
-    }
-    clampMagnitude(minValue, maxValue) {
-      if (!(minValue !== null && minValue >= 0.0)) dart.assertFailed(null, I[0], 53, 12, "minValue != null && minValue >= 0.0");
-      if (!(maxValue !== null && maxValue >= 0.0 && maxValue >= minValue)) dart.assertFailed(null, I[0], 54, 12, "maxValue != null && maxValue >= 0.0 && maxValue >= minValue");
-      let valueSquared = this.pixelsPerSecond.distanceSquared;
-      if (valueSquared > maxValue * maxValue) return new velocity_tracker.Velocity.new({pixelsPerSecond: this.pixelsPerSecond['/'](this.pixelsPerSecond.distance)['*'](maxValue)});
-      if (valueSquared < minValue * minValue) return new velocity_tracker.Velocity.new({pixelsPerSecond: this.pixelsPerSecond['/'](this.pixelsPerSecond.distance)['*'](minValue)});
-      return this;
-    }
-    _equals(other) {
-      if (other == null) return false;
-      return velocity_tracker.Velocity.is(other) && other.pixelsPerSecond._equals(this.pixelsPerSecond);
-    }
-    get hashCode() {
-      return this.pixelsPerSecond.hashCode;
-    }
-    toString() {
-      return "Velocity(" + this.pixelsPerSecond.dx[$toStringAsFixed](1) + ", " + this.pixelsPerSecond.dy[$toStringAsFixed](1) + ")";
-    }
-  };
-  (velocity_tracker.Velocity.new = function(opts) {
-    let pixelsPerSecond = opts && 'pixelsPerSecond' in opts ? opts.pixelsPerSecond : null;
-    this[pixelsPerSecond$] = pixelsPerSecond;
-    if (!(pixelsPerSecond !== null)) dart.assertFailed(null, I[0], 21, 15, "pixelsPerSecond != null");
-    ;
-  }).prototype = velocity_tracker.Velocity.prototype;
-  dart.addTypeTests(velocity_tracker.Velocity);
-  dart.addTypeCaches(velocity_tracker.Velocity);
-  dart.setMethodSignature(velocity_tracker.Velocity, () => ({
-    __proto__: dart.getMethods(velocity_tracker.Velocity.__proto__),
-    _negate: dart.fnType(velocity_tracker.Velocity, []),
-    '-': dart.fnType(velocity_tracker.Velocity, [velocity_tracker.Velocity]),
-    '+': dart.fnType(velocity_tracker.Velocity, [velocity_tracker.Velocity]),
-    clampMagnitude: dart.fnType(velocity_tracker.Velocity, [core.double, core.double])
-  }));
-  dart.setLibraryUri(velocity_tracker.Velocity, I[1]);
-  dart.setFieldSignature(velocity_tracker.Velocity, () => ({
-    __proto__: dart.getFields(velocity_tracker.Velocity.__proto__),
-    pixelsPerSecond: dart.finalFieldType(ui.Offset)
-  }));
-  dart.defineExtensionMethods(velocity_tracker.Velocity, ['_equals', 'toString']);
-  dart.defineExtensionAccessors(velocity_tracker.Velocity, ['hashCode']);
-  dart.defineLazy(velocity_tracker.Velocity, {
-    /*velocity_tracker.Velocity.zero*/get zero() {
-      return C[0] || CT.C0;
-    }
-  }, false);
-  var pixelsPerSecond$0 = dart.privateName(velocity_tracker, "VelocityEstimate.pixelsPerSecond");
-  var confidence$ = dart.privateName(velocity_tracker, "VelocityEstimate.confidence");
-  var duration$ = dart.privateName(velocity_tracker, "VelocityEstimate.duration");
-  var offset$ = dart.privateName(velocity_tracker, "VelocityEstimate.offset");
-  velocity_tracker.VelocityEstimate = class VelocityEstimate extends core.Object {
-    get pixelsPerSecond() {
-      return this[pixelsPerSecond$0];
-    }
-    set pixelsPerSecond(value) {
-      super.pixelsPerSecond = value;
-    }
-    get confidence() {
-      return this[confidence$];
-    }
-    set confidence(value) {
-      super.confidence = value;
-    }
-    get duration() {
-      return this[duration$];
-    }
-    set duration(value) {
-      super.duration = value;
-    }
-    get offset() {
-      return this[offset$];
-    }
-    set offset(value) {
-      super.offset = value;
-    }
-    toString() {
-      return "VelocityEstimate(" + this.pixelsPerSecond.dx[$toStringAsFixed](1) + ", " + this.pixelsPerSecond.dy[$toStringAsFixed](1) + "; offset: " + dart.str(this.offset) + ", duration: " + dart.str(this.duration) + ", confidence: " + this.confidence[$toStringAsFixed](1) + ")";
-    }
-  };
-  (velocity_tracker.VelocityEstimate.new = function(opts) {
-    let pixelsPerSecond = opts && 'pixelsPerSecond' in opts ? opts.pixelsPerSecond : null;
-    let confidence = opts && 'confidence' in opts ? opts.confidence : null;
-    let duration = opts && 'duration' in opts ? opts.duration : null;
-    let offset = opts && 'offset' in opts ? opts.offset : null;
-    this[pixelsPerSecond$0] = pixelsPerSecond;
-    this[confidence$] = confidence;
-    this[duration$] = duration;
-    this[offset$] = offset;
-    if (!(pixelsPerSecond !== null)) dart.assertFailed(null, I[0], 98, 15, "pixelsPerSecond != null");
-    if (!(confidence !== null)) dart.assertFailed(null, I[0], 99, 15, "confidence != null");
-    if (!(duration !== null)) dart.assertFailed(null, I[0], 100, 15, "duration != null");
-    if (!(offset !== null)) dart.assertFailed(null, I[0], 101, 15, "offset != null");
-    ;
-  }).prototype = velocity_tracker.VelocityEstimate.prototype;
-  dart.addTypeTests(velocity_tracker.VelocityEstimate);
-  dart.addTypeCaches(velocity_tracker.VelocityEstimate);
-  dart.setLibraryUri(velocity_tracker.VelocityEstimate, I[1]);
-  dart.setFieldSignature(velocity_tracker.VelocityEstimate, () => ({
-    __proto__: dart.getFields(velocity_tracker.VelocityEstimate.__proto__),
-    pixelsPerSecond: dart.finalFieldType(ui.Offset),
-    confidence: dart.finalFieldType(core.double),
-    duration: dart.finalFieldType(core.Duration),
-    offset: dart.finalFieldType(ui.Offset)
-  }));
-  dart.defineExtensionMethods(velocity_tracker.VelocityEstimate, ['toString']);
-  var time$ = dart.privateName(velocity_tracker, "_PointAtTime.time");
-  var point$ = dart.privateName(velocity_tracker, "_PointAtTime.point");
-  velocity_tracker._PointAtTime = class _PointAtTime extends core.Object {
-    get time() {
-      return this[time$];
-    }
-    set time(value) {
-      super.time = value;
-    }
-    get point() {
-      return this[point$];
-    }
-    set point(value) {
-      super.point = value;
-    }
-    toString() {
-      return "_PointAtTime(" + dart.str(this.point) + " at " + dart.str(this.time) + ")";
-    }
-  };
-  (velocity_tracker._PointAtTime.new = function(point, time) {
-    this[point$] = point;
-    this[time$] = time;
-    if (!(point !== null)) dart.assertFailed(null, I[0], 126, 14, "point != null");
-    if (!(time !== null)) dart.assertFailed(null, I[0], 127, 14, "time != null");
-    ;
-  }).prototype = velocity_tracker._PointAtTime.prototype;
-  dart.addTypeTests(velocity_tracker._PointAtTime);
-  dart.addTypeCaches(velocity_tracker._PointAtTime);
-  dart.setLibraryUri(velocity_tracker._PointAtTime, I[1]);
-  dart.setFieldSignature(velocity_tracker._PointAtTime, () => ({
-    __proto__: dart.getFields(velocity_tracker._PointAtTime.__proto__),
-    time: dart.finalFieldType(core.Duration),
-    point: dart.finalFieldType(ui.Offset)
-  }));
-  dart.defineExtensionMethods(velocity_tracker._PointAtTime, ['toString']);
-  var kind$ = dart.privateName(velocity_tracker, "VelocityTracker.kind");
-  var _name = dart.privateName(ui, "_name");
-  var _samples = dart.privateName(velocity_tracker, "_samples");
-  var _index = dart.privateName(velocity_tracker, "_index");
-  velocity_tracker.VelocityTracker = class VelocityTracker extends core.Object {
-    get kind() {
-      return this[kind$];
-    }
-    set kind(value) {
-      super.kind = value;
-    }
-    addPosition(time, position) {
-      this[_index] = this[_index] + 1;
-      if (this[_index] === 20) this[_index] = 0;
-      this[_samples][$_set](this[_index], new velocity_tracker._PointAtTime.new(position, time));
-    }
-    getVelocityEstimate() {
-      let x = T.JSArrayOfdouble().of([]);
-      let y = T.JSArrayOfdouble().of([]);
-      let w = T.JSArrayOfdouble().of([]);
-      let time = T.JSArrayOfdouble().of([]);
-      let sampleCount = 0;
-      let index = this[_index];
-      let newestSample = this[_samples][$_get](index);
-      if (newestSample == null) return null;
-      let previousSample = newestSample;
-      let oldestSample = newestSample;
-      do {
-        let sample = this[_samples][$_get](index);
-        if (sample == null) break;
-        let age = newestSample.time['-'](sample.time).inMicroseconds[$toDouble]() / 1000;
-        let delta = sample.time['-'](previousSample.time).inMicroseconds[$abs]()[$toDouble]() / 1000;
-        previousSample = sample;
-        if (age > 100 || delta > 40) break;
-        oldestSample = sample;
-        let position = sample.point;
-        x[$add](position.dx);
-        y[$add](position.dy);
-        w[$add](1.0);
-        time[$add](-age);
-        index = (index === 0 ? 20 : index) - 1;
-        sampleCount = sampleCount + 1;
-      } while (sampleCount < 20);
-      if (sampleCount >= 3) {
-        let xSolver = new lsq_solver.LeastSquaresSolver.new(time, x, w);
-        let xFit = xSolver.solve(2);
-        if (xFit != null) {
-          let ySolver = new lsq_solver.LeastSquaresSolver.new(time, y, w);
-          let yFit = ySolver.solve(2);
-          if (yFit != null) {
-            return new velocity_tracker.VelocityEstimate.new({pixelsPerSecond: new ui.Offset.new(xFit.coefficients[$_get](1) * 1000, yFit.coefficients[$_get](1) * 1000), confidence: xFit.confidence * yFit.confidence, duration: newestSample.time['-'](oldestSample.time), offset: newestSample.point['-'](oldestSample.point)});
-          }
-        }
-      }
-      return new velocity_tracker.VelocityEstimate.new({pixelsPerSecond: ui.Offset.zero, confidence: 1.0, duration: newestSample.time['-'](oldestSample.time), offset: newestSample.point['-'](oldestSample.point)});
-    }
-    getVelocity() {
-      let estimate = this.getVelocityEstimate();
-      if (estimate == null || estimate.pixelsPerSecond._equals(ui.Offset.zero)) return velocity_tracker.Velocity.zero;
-      return new velocity_tracker.Velocity.new({pixelsPerSecond: estimate.pixelsPerSecond});
-    }
-  };
-  (velocity_tracker.VelocityTracker.new = function(kind = C[2] || CT.C2) {
-    this[_samples] = T.ListOf_PointAtTimeN().filled(20, null, {growable: false});
-    this[_index] = 0;
-    this[kind$] = kind;
-    ;
-  }).prototype = velocity_tracker.VelocityTracker.prototype;
-  (velocity_tracker.VelocityTracker.withKind = function(kind) {
-    this[_samples] = T.ListOf_PointAtTimeN().filled(20, null, {growable: false});
-    this[_index] = 0;
-    this[kind$] = kind;
-    ;
-  }).prototype = velocity_tracker.VelocityTracker.prototype;
-  dart.addTypeTests(velocity_tracker.VelocityTracker);
-  dart.addTypeCaches(velocity_tracker.VelocityTracker);
-  dart.setMethodSignature(velocity_tracker.VelocityTracker, () => ({
-    __proto__: dart.getMethods(velocity_tracker.VelocityTracker.__proto__),
-    addPosition: dart.fnType(dart.void, [core.Duration, ui.Offset]),
-    getVelocityEstimate: dart.fnType(dart.nullable(velocity_tracker.VelocityEstimate), []),
-    getVelocity: dart.fnType(velocity_tracker.Velocity, [])
-  }));
-  dart.setLibraryUri(velocity_tracker.VelocityTracker, I[1]);
-  dart.setFieldSignature(velocity_tracker.VelocityTracker, () => ({
-    __proto__: dart.getFields(velocity_tracker.VelocityTracker.__proto__),
-    kind: dart.finalFieldType(ui.PointerDeviceKind),
-    [_samples]: dart.finalFieldType(core.List$(dart.nullable(velocity_tracker._PointAtTime))),
-    [_index]: dart.fieldType(core.int)
-  }));
-  dart.defineLazy(velocity_tracker.VelocityTracker, {
-    /*velocity_tracker.VelocityTracker._assumePointerMoveStoppedMilliseconds*/get _assumePointerMoveStoppedMilliseconds() {
-      return 40;
-    },
-    /*velocity_tracker.VelocityTracker._historySize*/get _historySize() {
-      return 20;
-    },
-    /*velocity_tracker.VelocityTracker._horizonMilliseconds*/get _horizonMilliseconds() {
-      return 100;
-    },
-    /*velocity_tracker.VelocityTracker._minSampleSize*/get _minSampleSize() {
-      return 3;
-    }
-  }, false);
-  var _touchSamples = dart.privateName(velocity_tracker, "_touchSamples");
-  var _previousVelocityAt = dart.privateName(velocity_tracker, "_previousVelocityAt");
-  var Duration__duration = dart.privateName(core, "Duration._duration");
-  velocity_tracker.IOSScrollViewFlingVelocityTracker = class IOSScrollViewFlingVelocityTracker extends velocity_tracker.VelocityTracker {
-    addPosition(time, position) {
-      if (!dart.fn(() => {
-        let previousPoint = this[_touchSamples][$_get](this[_index]);
-        if (previousPoint == null || previousPoint.time['<='](time)) return true;
-        dart.throw(assertions.FlutterError.new("The position being added (" + dart.str(position) + ") has a smaller timestamp (" + dart.str(time) + ") " + "than its predecessor: " + dart.str(previousPoint) + "."));
-      }, T.VoidTobool())()) dart.assertFailed(null, I[0], 299, 12, "() {\n      final _PointAtTime? previousPoint = _touchSamples[_index];\n      if (previousPoint == null || previousPoint.time <= time)\n        return true;\n      throw FlutterError(\n        'The position being added ($position) has a smaller timestamp ($time) '\n        'than its predecessor: $previousPoint.',\n      );\n    }()");
-      this[_index] = (this[_index] + 1)[$modulo](20);
-      this[_touchSamples][$_set](this[_index], new velocity_tracker._PointAtTime.new(position, time));
-    }
-    [_previousVelocityAt](index) {
-      let endIndex = (this[_index] + index)[$modulo](20);
-      let startIndex = (this[_index] + index - 1)[$modulo](20);
-      let end = this[_touchSamples][$_get](endIndex);
-      let start = this[_touchSamples][$_get](startIndex);
-      if (end == null || start == null) {
-        return ui.Offset.zero;
-      }
-      let dt = end.time['-'](start.time).inMicroseconds;
-      if (!(dt >= 0)) dart.assertFailed(null, I[0], 326, 12, "dt >= 0");
-      return dt > 0 ? end.point['-'](start.point)['*'](1000.0)['/'](dt[$toDouble]() / 1000) : ui.Offset.zero;
-    }
-    getVelocityEstimate() {
-      let estimatedVelocity = this[_previousVelocityAt](-2)['*'](0.6)['+'](this[_previousVelocityAt](-1)['*'](0.35))['+'](this[_previousVelocityAt](0)['*'](0.05));
-      let newestSample = this[_touchSamples][$_get](this[_index]);
-      let oldestNonNullSample = null;
-      for (let i = 1; i <= 20; i = i + 1) {
-        oldestNonNullSample = this[_touchSamples][$_get]((this[_index] + i)[$modulo](20));
-        if (oldestNonNullSample != null) break;
-      }
-      if (oldestNonNullSample == null || newestSample == null) {
-        if (!false) dart.assertFailed("There must be at least 1 point in _touchSamples: " + dart.str(this[_touchSamples]), I[0], 356, 14, "false");
-        return C[3] || CT.C3;
-      } else {
-        return new velocity_tracker.VelocityEstimate.new({pixelsPerSecond: estimatedVelocity, confidence: 1.0, duration: newestSample.time['-'](oldestNonNullSample.time), offset: newestSample.point['-'](oldestNonNullSample.point)});
-      }
-    }
-  };
-  (velocity_tracker.IOSScrollViewFlingVelocityTracker.new = function(kind) {
-    this[_touchSamples] = T.ListOf_PointAtTimeN().filled(20, null, {growable: false});
-    velocity_tracker.IOSScrollViewFlingVelocityTracker.__proto__.withKind.call(this, kind);
-    ;
-  }).prototype = velocity_tracker.IOSScrollViewFlingVelocityTracker.prototype;
-  dart.addTypeTests(velocity_tracker.IOSScrollViewFlingVelocityTracker);
-  dart.addTypeCaches(velocity_tracker.IOSScrollViewFlingVelocityTracker);
-  dart.setMethodSignature(velocity_tracker.IOSScrollViewFlingVelocityTracker, () => ({
-    __proto__: dart.getMethods(velocity_tracker.IOSScrollViewFlingVelocityTracker.__proto__),
-    [_previousVelocityAt]: dart.fnType(ui.Offset, [core.int]),
-    getVelocityEstimate: dart.fnType(velocity_tracker.VelocityEstimate, [])
-  }));
-  dart.setLibraryUri(velocity_tracker.IOSScrollViewFlingVelocityTracker, I[1]);
-  dart.setFieldSignature(velocity_tracker.IOSScrollViewFlingVelocityTracker, () => ({
-    __proto__: dart.getFields(velocity_tracker.IOSScrollViewFlingVelocityTracker.__proto__),
-    [_touchSamples]: dart.finalFieldType(core.List$(dart.nullable(velocity_tracker._PointAtTime)))
-  }));
-  dart.defineLazy(velocity_tracker.IOSScrollViewFlingVelocityTracker, {
-    /*velocity_tracker.IOSScrollViewFlingVelocityTracker._sampleSize*/get _sampleSize() {
-      return 20;
-    }
-  }, false);
-  dart.trackLibraries("packages/flutter/src/gestures/velocity_tracker.dart", {
-    "package:flutter/src/gestures/velocity_tracker.dart": velocity_tracker
+  dart.trackLibraries("packages/characters/src/grapheme_clusters/table.dart", {
+    "package:characters/src/grapheme_clusters/table.dart": table
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["velocity_tracker.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/flutter/src/gestures/velocity_tracker.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["table.dart"],"names":[],"mappings":";;;;;;;;;;;;2BA8TY;AACN,qBAAa,AAAO,0BAAW,AAAS,QAAD,cAAI;AAC3C,gBAAQ,AAAW,UAAD,IAAI,AAAS,QAAD,GAAG;AACjC,cAAM,AAAM,KAAD,GAAG;AACd,eAAO,AAAM,yBAAW,AAAM,KAAD,cAAI;AACrC,UAA0B,EAAlB,AAAK,AAAM,IAAP,cAAI,KAAK,CAAC,GAAG,GAAI,AAAK,AAAO,IAAR,GAAG,KAAQ,AAAI,GAAD,GAAG;EACpD;6BAEa,MAAU;AACjB,qBAAa,AAAO,0BAAW,AAAK,QAAG,AAAM,OAAE,IAAI;AACnD,gBAAQ,AAAW,UAAD,IAAI,AAAM,OAAE,IAAI;AAClC,cAAM,AAAM,KAAD,GAAG;AACd,eAAO,AAAM,yBAAW,AAAM,KAAD,cAAI;AACrC,UAA0B,EAAlB,AAAK,AAAM,IAAP,cAAI,KAAK,CAAC,GAAG,GAAI,AAAK,AAAO,IAAR,GAAG,KAAQ,AAAI,GAAD,GAAG;EACpD;6BAOa,OAAW;AACpB,UAAA,AAAc,kCAA0B,CAAd,AAAM,KAAD,GAAG,MAAQ,aAAa;EAAC;qCAQ3C,OAAW;AACxB,UAAA,AAAkB,sCAA0B,CAAd,AAAM,KAAD,GAAG,MAAQ,aAAa;EAAC;;MAlVnD,WAAK;;;MAwIL,YAAM;;;MA2Lb,mBAAa;;;MAQb,uBAAiB","file":"../../../../../../../../../../../packages/characters/src/grapheme_clusters/table.dart.lib.js"}');
   // Exports:
   return {
-    src__gestures__velocity_tracker: velocity_tracker
+    src__grapheme_clusters__table: table
   };
 }));
 
-//# sourceMappingURL=velocity_tracker.dart.lib.js.map
+//# sourceMappingURL=table.dart.lib.js.map

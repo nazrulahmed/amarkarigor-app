@@ -1,315 +1,640 @@
-define(['dart_sdk', 'packages/flutter/src/foundation/object.dart'], (function load__packages__flutter__src__foundation__stack_frame_dart(dart_sdk, packages__flutter__src__foundation__object$46dart) {
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/widgets/will_pop_scope.dart'], (function load__packages__flutter__src__widgets__form_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__widgets__will_pop_scope$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const ui = dart_sdk.ui;
+  const async = dart_sdk.async;
+  const collection = dart_sdk.collection;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
-  var stack_frame = Object.create(dart.library);
-  var $trim = dartx.trim;
-  var $split = dartx.split;
-  var $isNotEmpty = dartx.isNotEmpty;
-  var $where = dartx.where;
-  var $map = dartx.map;
-  var $whereType = dartx.whereType;
-  var $toList = dartx.toList;
-  var $startsWith = dartx.startsWith;
-  var $_get = dartx._get;
-  var $replaceFirst = dartx.replaceFirst;
-  var $length = dartx.length;
-  var $first = dartx.first;
-  var $skip = dartx.skip;
-  var $join = dartx.join;
-  var $single = dartx.single;
-  var $replaceAll = dartx.replaceAll;
-  var $contains = dartx.contains;
-  var $runtimeType = dartx.runtimeType;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const will_pop_scope = packages__flutter__src__widgets__will_pop_scope$46dart.src__widgets__will_pop_scope;
+  var form = Object.create(dart.library);
+  var $any = dartx.any;
   dart._checkModuleNullSafetyMode(true);
-  var T = {
-    StringTobool: () => (T.StringTobool = dart.constFn(dart.fnType(core.bool, [core.String])))(),
-    StackFrameN: () => (T.StackFrameN = dart.constFn(dart.nullable(stack_frame.StackFrame)))(),
-    StringToStackFrameN: () => (T.StringToStackFrameN = dart.constFn(dart.fnType(T.StackFrameN(), [core.String])))()
+  var T$ = {
+    LinkedHashSetOfFormFieldState: () => (T$.LinkedHashSetOfFormFieldState = dart.constFn(collection.LinkedHashSet$(form.FormFieldState)))(),
+    FormFieldStateTobool: () => (T$.FormFieldStateTobool = dart.constFn(dart.fnType(core.bool, [form.FormFieldState])))(),
+    VoidTovoid: () => (T$.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    StringN: () => (T$.StringN = dart.constFn(dart.nullable(core.String)))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
     get C0() {
-      return C[0] = dart.fn(stack_frame.StackFrame.fromStackTraceLine, T.StringToStackFrameN());
+      return C[0] = dart.const({
+        __proto__: form.AutovalidateMode.prototype,
+        [_name$]: "AutovalidateMode.always",
+        index: 1
+      });
     },
     get C1() {
       return C[1] = dart.const({
-        __proto__: stack_frame.StackFrame.prototype,
-        [isConstructor$]: false,
-        [method$]: "asynchronous suspension",
-        [className$]: "",
-        [column$]: -1,
-        [line$]: -1,
-        [packagePath$]: "",
-        [$package$]: "",
-        [packageScheme$]: "",
-        [number$]: -1,
-        [source$]: "<asynchronous suspension>"
+        __proto__: form.AutovalidateMode.prototype,
+        [_name$]: "AutovalidateMode.onUserInteraction",
+        index: 2
       });
     },
     get C2() {
       return C[2] = dart.const({
-        __proto__: stack_frame.StackFrame.prototype,
-        [isConstructor$]: false,
-        [method$]: "...",
-        [className$]: "",
-        [column$]: -1,
-        [line$]: -1,
-        [packagePath$]: "",
-        [$package$]: "",
-        [packageScheme$]: "",
-        [number$]: -1,
-        [source$]: "..."
+        __proto__: form.AutovalidateMode.prototype,
+        [_name$]: "AutovalidateMode.disabled",
+        index: 0
       });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "formState",
+        [_Location_column]: 9,
+        [_Location_line]: 209,
+        [_Location_file]: null
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "generation",
+        [_Location_column]: 9,
+        [_Location_line]: 210,
+        [_Location_file]: null
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 211,
+        [_Location_file]: null
+      });
+    },
+    get C4() {
+      return C[4] = dart.constList([C[5] || CT.C5, C[6] || CT.C6, C[7] || CT.C7], widget_inspector._Location);
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[4] || CT.C4,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 208,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/widgets/form.dart"
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onWillPop",
+        [_Location_column]: 7,
+        [_Location_line]: 207,
+        [_Location_file]: null
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 208,
+        [_Location_file]: null
+      });
+    },
+    get C9() {
+      return C[9] = dart.constList([C[10] || CT.C10, C[11] || CT.C11], widget_inspector._Location);
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[9] || CT.C9,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 206,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/widgets/form.dart"
+      });
+    },
+    get C12() {
+      return C[12] = dart.constList([C[2] || CT.C2, C[0] || CT.C0, C[1] || CT.C1], form.AutovalidateMode);
     }
   }, false);
-  var C = Array(3).fill(void 0);
+  var C = Array(13).fill(void 0);
   var I = [
-    "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/foundation/stack_frame.dart",
-    "package:flutter/src/foundation/stack_frame.dart"
+    "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/widgets/form.dart",
+    "package:flutter/src/widgets/form.dart"
   ];
-  var source$ = dart.privateName(stack_frame, "StackFrame.source");
-  var number$ = dart.privateName(stack_frame, "StackFrame.number");
-  var packageScheme$ = dart.privateName(stack_frame, "StackFrame.packageScheme");
-  var $package$ = dart.privateName(stack_frame, "StackFrame.package");
-  var packagePath$ = dart.privateName(stack_frame, "StackFrame.packagePath");
-  var line$ = dart.privateName(stack_frame, "StackFrame.line");
-  var column$ = dart.privateName(stack_frame, "StackFrame.column");
-  var className$ = dart.privateName(stack_frame, "StackFrame.className");
-  var method$ = dart.privateName(stack_frame, "StackFrame.method");
-  var isConstructor$ = dart.privateName(stack_frame, "StackFrame.isConstructor");
-  stack_frame.StackFrame = class StackFrame extends core.Object {
-    get source() {
-      return this[source$];
+  var child$ = dart.privateName(form, "Form.child");
+  var onWillPop$ = dart.privateName(form, "Form.onWillPop");
+  var onChanged$ = dart.privateName(form, "Form.onChanged");
+  var autovalidateMode$ = dart.privateName(form, "Form.autovalidateMode");
+  var autovalidate$ = dart.privateName(form, "Form.autovalidate");
+  var _formState = dart.privateName(form, "_formState");
+  form.Form = class Form extends framework.StatefulWidget {
+    get child() {
+      return this[child$];
     }
-    set source(value) {
-      super.source = value;
+    set child(value) {
+      super.child = value;
     }
-    get number() {
-      return this[number$];
+    get onWillPop() {
+      return this[onWillPop$];
     }
-    set number(value) {
-      super.number = value;
+    set onWillPop(value) {
+      super.onWillPop = value;
     }
-    get packageScheme() {
-      return this[packageScheme$];
+    get onChanged() {
+      return this[onChanged$];
     }
-    set packageScheme(value) {
-      super.packageScheme = value;
+    set onChanged(value) {
+      super.onChanged = value;
     }
-    get package() {
-      return this[$package$];
+    get autovalidateMode() {
+      return this[autovalidateMode$];
     }
-    set package(value) {
-      super.package = value;
+    set autovalidateMode(value) {
+      super.autovalidateMode = value;
     }
-    get packagePath() {
-      return this[packagePath$];
+    get autovalidate() {
+      return this[autovalidate$];
     }
-    set packagePath(value) {
-      super.packagePath = value;
+    set autovalidate(value) {
+      super.autovalidate = value;
     }
-    get line() {
-      return this[line$];
+    static of(context) {
+      let t0;
+      let scope = context.dependOnInheritedWidgetOfExactType(form._FormScope);
+      t0 = scope;
+      return t0 == null ? null : t0[_formState];
     }
-    set line(value) {
-      super.line = value;
-    }
-    get column() {
-      return this[column$];
-    }
-    set column(value) {
-      super.column = value;
-    }
-    get className() {
-      return this[className$];
-    }
-    set className(value) {
-      super.className = value;
-    }
-    get method() {
-      return this[method$];
-    }
-    set method(value) {
-      super.method = value;
-    }
-    get isConstructor() {
-      return this[isConstructor$];
-    }
-    set isConstructor(value) {
-      super.isConstructor = value;
-    }
-    static fromStackTrace(stack) {
-      if (!(stack !== null)) dart.assertFailed(null, I[0], 79, 12, "stack != null");
-      return stack_frame.StackFrame.fromStackString(stack.toString());
-    }
-    static fromStackString(stack) {
-      if (!(stack !== null)) dart.assertFailed(null, I[0], 85, 12, "stack != null");
-      return stack[$trim]()[$split]("\n")[$where](dart.fn(line => line[$isNotEmpty], T.StringTobool()))[$map](T.StackFrameN(), C[0] || CT.C0)[$whereType](stack_frame.StackFrame)[$toList]();
-    }
-    static _parseWebFrame(line) {
-      if (true) {
-        return stack_frame.StackFrame._parseWebDebugFrame(line);
-      } else {
-        return stack_frame.StackFrame._parseWebNonDebugFrame(line);
-      }
-    }
-    static _parseWebDebugFrame(line) {
-      let hasPackage = line[$startsWith]("package");
-      let parser = hasPackage ? core.RegExp.new("^(package.+) (\\d+):(\\d+)\\s+(.+)$") : core.RegExp.new("^(.+) (\\d+):(\\d+)\\s+(.+)$");
-      let match = parser.firstMatch(line);
-      if (!(match != null)) dart.assertFailed("Expected " + line + " to match " + dart.str(parser) + ".", I[0], 114, 12, "match != null");
-      match = dart.nullCheck(match);
-      let $package = "<unknown>";
-      let packageScheme = "<unknown>";
-      let packagePath = "<unknown>";
-      if (hasPackage) {
-        packageScheme = "package";
-        let packageUri = core.Uri.parse(dart.nullCheck(match.group(1)));
-        $package = packageUri.pathSegments[$_get](0);
-        packagePath = packageUri.path[$replaceFirst](packageUri.pathSegments[$_get](0) + "/", "");
-      }
-      return new stack_frame.StackFrame.new({number: -1, packageScheme: packageScheme, package: $package, packagePath: packagePath, line: core.int.parse(dart.nullCheck(match.group(2))), column: core.int.parse(dart.nullCheck(match.group(3))), className: "<unknown>", method: dart.nullCheck(match.group(4)), source: line});
-    }
-    static _parseWebNonDebugFrame(line) {
-      let match = stack_frame.StackFrame._webNonDebugFramePattern.firstMatch(line);
-      if (match == null) {
-        return null;
-      }
-      let classAndMethod = dart.nullCheck(match.group(1))[$split](".");
-      let className = classAndMethod[$length] > 1 ? classAndMethod[$first] : "<unknown>";
-      let method = classAndMethod[$length] > 1 ? classAndMethod[$skip](1)[$join](".") : classAndMethod[$single];
-      return new stack_frame.StackFrame.new({number: -1, packageScheme: "<unknown>", package: "<unknown>", packagePath: "<unknown>", line: -1, column: -1, className: className, method: method, source: line});
-    }
-    static fromStackTraceLine(line) {
-      if (!(line !== null)) dart.assertFailed(null, I[0], 186, 12, "line != null");
-      if (line === "<asynchronous suspension>") {
-        return stack_frame.StackFrame.asynchronousSuspension;
-      } else if (line === "...") {
-        return stack_frame.StackFrame.stackOverFlowElision;
-      }
-      if (!(line !== "===== asynchronous gap ===========================")) dart.assertFailed("Got a stack frame from package:stack_trace, where a vm or web frame was expected. " + "This can happen if FlutterError.demangleStackTrace was not set in an environment " + "that propagates non-standard stack traces to the framework, such as during tests.", I[0], 194, 7, "line != '===== asynchronous gap ==========================='");
-      if (!line[$startsWith]("#")) {
-        return stack_frame.StackFrame._parseWebFrame(line);
-      }
-      let parser = core.RegExp.new("^#(\\d+) +(.+) \\((.+?):?(\\d+){0,1}:?(\\d+){0,1}\\)$");
-      let match = parser.firstMatch(line);
-      if (!(match != null)) dart.assertFailed("Expected " + line + " to match " + dart.str(parser) + ".", I[0], 207, 12, "match != null");
-      match = dart.nullCheck(match);
-      let isConstructor = false;
-      let className = "";
-      let method = dart.nullCheck(match.group(2))[$replaceAll](".<anonymous closure>", "");
-      if (method[$startsWith]("new")) {
-        let methodParts = method[$split](" ");
-        className = methodParts[$length] > 1 ? method[$split](" ")[$_get](1) : "<unknown>";
-        method = "";
-        if (className[$contains](".")) {
-          let parts = className[$split](".");
-          className = parts[$_get](0);
-          method = parts[$_get](1);
-        }
-        isConstructor = true;
-      } else if (method[$contains](".")) {
-        let parts = method[$split](".");
-        className = parts[$_get](0);
-        method = parts[$_get](1);
-      }
-      let packageUri = core.Uri.parse(dart.nullCheck(match.group(3)));
-      let $package = "<unknown>";
-      let packagePath = packageUri.path;
-      if (packageUri.scheme === "dart" || packageUri.scheme === "package") {
-        $package = packageUri.pathSegments[$_get](0);
-        packagePath = packageUri.path[$replaceFirst](packageUri.pathSegments[$_get](0) + "/", "");
-      }
-      return new stack_frame.StackFrame.new({number: core.int.parse(dart.nullCheck(match.group(1))), className: className, method: method, packageScheme: packageUri.scheme, package: $package, packagePath: packagePath, line: match.group(4) == null ? -1 : core.int.parse(dart.nullCheck(match.group(4))), column: match.group(5) == null ? -1 : core.int.parse(dart.nullCheck(match.group(5))), isConstructor: isConstructor, source: line});
-    }
-    get hashCode() {
-      return ui.hashValues(this.number, this.package, this.line, this.column, this.className, this.method, this.source);
-    }
-    _equals(other) {
-      if (other == null) return false;
-      if (!other[$runtimeType]._equals(this[$runtimeType])) return false;
-      return stack_frame.StackFrame.is(other) && other.number === this.number && other.package === this.package && other.line === this.line && other.column === this.column && other.className === this.className && other.method === this.method && other.source === this.source;
-    }
-    toString() {
-      return object.objectRuntimeType(this, "StackFrame") + "(#" + dart.str(this.number) + ", " + this.packageScheme + ":" + this.package + "/" + this.packagePath + ":" + dart.str(this.line) + ":" + dart.str(this.column) + ", className: " + this.className + ", method: " + this.method + ")";
+    createState() {
+      return new form.FormState.new();
     }
   };
-  (stack_frame.StackFrame.new = function(opts) {
-    let number = opts && 'number' in opts ? opts.number : null;
-    let column = opts && 'column' in opts ? opts.column : null;
-    let line = opts && 'line' in opts ? opts.line : null;
-    let packageScheme = opts && 'packageScheme' in opts ? opts.packageScheme : null;
-    let $package = opts && 'package' in opts ? opts.package : null;
-    let packagePath = opts && 'packagePath' in opts ? opts.packagePath : null;
-    let className = opts && 'className' in opts ? opts.className : "";
-    let method = opts && 'method' in opts ? opts.method : null;
-    let isConstructor = opts && 'isConstructor' in opts ? opts.isConstructor : false;
-    let source = opts && 'source' in opts ? opts.source : null;
-    this[number$] = number;
-    this[column$] = column;
-    this[line$] = line;
-    this[packageScheme$] = packageScheme;
-    this[$package$] = $package;
-    this[packagePath$] = packagePath;
-    this[className$] = className;
-    this[method$] = method;
-    this[isConstructor$] = isConstructor;
-    this[source$] = source;
-    if (!(number !== null)) dart.assertFailed(null, I[0], 40, 16, "number != null");
-    if (!(column !== null)) dart.assertFailed(null, I[0], 41, 16, "column != null");
-    if (!(line !== null)) dart.assertFailed(null, I[0], 42, 16, "line != null");
-    if (!(method !== null)) dart.assertFailed(null, I[0], 43, 16, "method != null");
-    if (!(packageScheme !== null)) dart.assertFailed(null, I[0], 44, 16, "packageScheme != null");
-    if (!($package !== null)) dart.assertFailed(null, I[0], 45, 16, "package != null");
-    if (!(packagePath !== null)) dart.assertFailed(null, I[0], 46, 16, "packagePath != null");
-    if (!(className !== null)) dart.assertFailed(null, I[0], 47, 16, "className != null");
-    if (!(isConstructor !== null)) dart.assertFailed(null, I[0], 48, 16, "isConstructor != null");
-    if (!(source !== null)) dart.assertFailed(null, I[0], 49, 16, "source != null");
+  (form.Form.new = function(opts) {
+    let t0;
+    let key = opts && 'key' in opts ? opts.key : null;
+    let child = opts && 'child' in opts ? opts.child : null;
+    let autovalidate = opts && 'autovalidate' in opts ? opts.autovalidate : false;
+    let onWillPop = opts && 'onWillPop' in opts ? opts.onWillPop : null;
+    let onChanged = opts && 'onChanged' in opts ? opts.onChanged : null;
+    let autovalidateMode = opts && 'autovalidateMode' in opts ? opts.autovalidateMode : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[child$] = child;
+    this[autovalidate$] = autovalidate;
+    this[onWillPop$] = onWillPop;
+    this[onChanged$] = onChanged;
+    if (!(child !== null)) dart.assertFailed(null, I[0], 88, 15, "child != null");
+    if (!(autovalidate !== null)) dart.assertFailed(null, I[0], 89, 15, "autovalidate != null");
+    if (!(autovalidate === false || autovalidate === true && autovalidateMode == null)) dart.assertFailed("autovalidate and autovalidateMode should not be used together.", I[0], 91, 10, "autovalidate == false ||\n         autovalidate == true && autovalidateMode == null");
+    this[autovalidateMode$] = (t0 = autovalidateMode, t0 == null ? autovalidate ? form.AutovalidateMode.always : form.AutovalidateMode.disabled : t0);
+    form.Form.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
     ;
-  }).prototype = stack_frame.StackFrame.prototype;
-  dart.addTypeTests(stack_frame.StackFrame);
-  dart.addTypeCaches(stack_frame.StackFrame);
-  dart.setLibraryUri(stack_frame.StackFrame, I[1]);
-  dart.setFieldSignature(stack_frame.StackFrame, () => ({
-    __proto__: dart.getFields(stack_frame.StackFrame.__proto__),
-    source: dart.finalFieldType(core.String),
-    number: dart.finalFieldType(core.int),
-    packageScheme: dart.finalFieldType(core.String),
-    package: dart.finalFieldType(core.String),
-    packagePath: dart.finalFieldType(core.String),
-    line: dart.finalFieldType(core.int),
-    column: dart.finalFieldType(core.int),
-    className: dart.finalFieldType(core.String),
-    method: dart.finalFieldType(core.String),
-    isConstructor: dart.finalFieldType(core.bool)
+  }).prototype = form.Form.prototype;
+  dart.addTypeTests(form.Form);
+  dart.addTypeCaches(form.Form);
+  dart.setMethodSignature(form.Form, () => ({
+    __proto__: dart.getMethods(form.Form.__proto__),
+    createState: dart.fnType(form.FormState, [])
   }));
-  dart.defineExtensionMethods(stack_frame.StackFrame, ['_equals', 'toString']);
-  dart.defineExtensionAccessors(stack_frame.StackFrame, ['hashCode']);
-  dart.defineLazy(stack_frame.StackFrame, {
-    /*stack_frame.StackFrame.asynchronousSuspension*/get asynchronousSuspension() {
-      return C[1] || CT.C1;
-    },
-    /*stack_frame.StackFrame.stackOverFlowElision*/get stackOverFlowElision() {
-      return C[2] || CT.C2;
-    },
-    /*stack_frame.StackFrame._webNonDebugFramePattern*/get _webNonDebugFramePattern() {
-      return core.RegExp.new("^\\s*at ([^\\s]+).*$");
+  dart.setLibraryUri(form.Form, I[1]);
+  dart.setFieldSignature(form.Form, () => ({
+    __proto__: dart.getFields(form.Form.__proto__),
+    child: dart.finalFieldType(framework.Widget),
+    onWillPop: dart.finalFieldType(dart.nullable(dart.fnType(async.Future$(core.bool), []))),
+    onChanged: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
+    autovalidateMode: dart.finalFieldType(form.AutovalidateMode),
+    autovalidate: dart.finalFieldType(core.bool)
+  }));
+  var _generation = dart.privateName(form, "_generation");
+  var _hasInteractedByUser = dart.privateName(form, "_hasInteractedByUser");
+  var _fields = dart.privateName(form, "_fields");
+  var _forceRebuild = dart.privateName(form, "_forceRebuild");
+  var _fieldDidChange = dart.privateName(form, "_fieldDidChange");
+  var _register = dart.privateName(form, "_register");
+  var _unregister = dart.privateName(form, "_unregister");
+  var _validate = dart.privateName(form, "_validate");
+  var _name$ = dart.privateName(form, "_name");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  form.FormState = class FormState extends framework.State$(form.Form) {
+    [_fieldDidChange]() {
+      let t0;
+      t0 = this.widget.onChanged;
+      t0 == null ? null : t0();
+      this[_hasInteractedByUser] = this[_fields][$any](dart.fn(field => field[_hasInteractedByUser], T$.FormFieldStateTobool()));
+      this[_forceRebuild]();
     }
-  }, false);
-  dart.trackLibraries("packages/flutter/src/foundation/stack_frame.dart", {
-    "package:flutter/src/foundation/stack_frame.dart": stack_frame
+    [_forceRebuild]() {
+      this.setState(dart.fn(() => {
+        this[_generation] = this[_generation] + 1;
+      }, T$.VoidTovoid()));
+    }
+    [_register](field) {
+      this[_fields].add(field);
+    }
+    [_unregister](field) {
+      this[_fields].remove(field);
+    }
+    build(context) {
+      switch (this.widget.autovalidateMode) {
+        case C[0] || CT.C0:
+        {
+          this[_validate]();
+          break;
+        }
+        case C[1] || CT.C1:
+        {
+          if (this[_hasInteractedByUser]) {
+            this[_validate]();
+          }
+          break;
+        }
+        case C[2] || CT.C2:
+        {
+          break;
+        }
+      }
+      return new will_pop_scope.WillPopScope.new({onWillPop: this.widget.onWillPop, child: new form._FormScope.new({formState: this, generation: this[_generation], child: this.widget.child, $creationLocationd_0dea112b090073317d4: C[3] || CT.C3}), $creationLocationd_0dea112b090073317d4: C[8] || CT.C8});
+    }
+    save() {
+      for (let field of this[_fields])
+        field.save();
+    }
+    reset() {
+      for (let field of this[_fields])
+        field.reset();
+      this[_hasInteractedByUser] = false;
+      this[_fieldDidChange]();
+    }
+    validate() {
+      this[_hasInteractedByUser] = true;
+      this[_forceRebuild]();
+      return this[_validate]();
+    }
+    [_validate]() {
+      let hasError = false;
+      for (let field of this[_fields])
+        hasError = !field.validate() || hasError;
+      return !hasError;
+    }
+  };
+  (form.FormState.new = function() {
+    this[_generation] = 0;
+    this[_hasInteractedByUser] = false;
+    this[_fields] = T$.LinkedHashSetOfFormFieldState().new();
+    form.FormState.__proto__.new.call(this);
+    ;
+  }).prototype = form.FormState.prototype;
+  dart.addTypeTests(form.FormState);
+  dart.addTypeCaches(form.FormState);
+  dart.setMethodSignature(form.FormState, () => ({
+    __proto__: dart.getMethods(form.FormState.__proto__),
+    [_fieldDidChange]: dart.fnType(dart.void, []),
+    [_forceRebuild]: dart.fnType(dart.void, []),
+    [_register]: dart.fnType(dart.void, [form.FormFieldState]),
+    [_unregister]: dart.fnType(dart.void, [form.FormFieldState]),
+    build: dart.fnType(framework.Widget, [framework.BuildContext]),
+    save: dart.fnType(dart.void, []),
+    reset: dart.fnType(dart.void, []),
+    validate: dart.fnType(core.bool, []),
+    [_validate]: dart.fnType(core.bool, [])
+  }));
+  dart.setLibraryUri(form.FormState, I[1]);
+  dart.setFieldSignature(form.FormState, () => ({
+    __proto__: dart.getFields(form.FormState.__proto__),
+    [_generation]: dart.fieldType(core.int),
+    [_hasInteractedByUser]: dart.fieldType(core.bool),
+    [_fields]: dart.finalFieldType(core.Set$(form.FormFieldState))
+  }));
+  var _formState$ = dart.privateName(form, "_FormScope._formState");
+  var _generation$ = dart.privateName(form, "_FormScope._generation");
+  form._FormScope = class _FormScope extends framework.InheritedWidget {
+    get [_formState]() {
+      return this[_formState$];
+    }
+    set [_formState](value) {
+      super[_formState] = value;
+    }
+    get [_generation]() {
+      return this[_generation$];
+    }
+    set [_generation](value) {
+      super[_generation] = value;
+    }
+    get form() {
+      return this[_formState].widget;
+    }
+    updateShouldNotify(old) {
+      form._FormScope.as(old);
+      return this[_generation] !== old[_generation];
+    }
+  };
+  (form._FormScope.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let child = opts && 'child' in opts ? opts.child : null;
+    let formState = opts && 'formState' in opts ? opts.formState : null;
+    let generation = opts && 'generation' in opts ? opts.generation : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[_formState$] = formState;
+    this[_generation$] = generation;
+    form._FormScope.__proto__.new.call(this, {key: key, child: child, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = form._FormScope.prototype;
+  dart.addTypeTests(form._FormScope);
+  dart.addTypeCaches(form._FormScope);
+  dart.setMethodSignature(form._FormScope, () => ({
+    __proto__: dart.getMethods(form._FormScope.__proto__),
+    updateShouldNotify: dart.fnType(core.bool, [dart.nullable(core.Object)])
+  }));
+  dart.setGetterSignature(form._FormScope, () => ({
+    __proto__: dart.getGetters(form._FormScope.__proto__),
+    form: form.Form
+  }));
+  dart.setLibraryUri(form._FormScope, I[1]);
+  dart.setFieldSignature(form._FormScope, () => ({
+    __proto__: dart.getFields(form._FormScope.__proto__),
+    [_formState]: dart.finalFieldType(form.FormState),
+    [_generation]: dart.finalFieldType(core.int)
+  }));
+  var onSaved$ = dart.privateName(form, "FormField.onSaved");
+  var validator$ = dart.privateName(form, "FormField.validator");
+  var builder$ = dart.privateName(form, "FormField.builder");
+  var initialValue$ = dart.privateName(form, "FormField.initialValue");
+  var enabled$ = dart.privateName(form, "FormField.enabled");
+  var autovalidateMode$0 = dart.privateName(form, "FormField.autovalidateMode");
+  var autovalidate$0 = dart.privateName(form, "FormField.autovalidate");
+  const _is_FormField_default = Symbol('_is_FormField_default');
+  form.FormField$ = dart.generic(T => {
+    var FormFieldStateOfT = () => (FormFieldStateOfT = dart.constFn(form.FormFieldState$(T)))();
+    class FormField extends framework.StatefulWidget {
+      get onSaved() {
+        return this[onSaved$];
+      }
+      set onSaved(value) {
+        super.onSaved = value;
+      }
+      get validator() {
+        return this[validator$];
+      }
+      set validator(value) {
+        super.validator = value;
+      }
+      get builder() {
+        return this[builder$];
+      }
+      set builder(value) {
+        super.builder = value;
+      }
+      get initialValue() {
+        return this[initialValue$];
+      }
+      set initialValue(value) {
+        super.initialValue = value;
+      }
+      get enabled() {
+        return this[enabled$];
+      }
+      set enabled(value) {
+        super.enabled = value;
+      }
+      get autovalidateMode() {
+        return this[autovalidateMode$0];
+      }
+      set autovalidateMode(value) {
+        super.autovalidateMode = value;
+      }
+      get autovalidate() {
+        return this[autovalidate$0];
+      }
+      set autovalidate(value) {
+        super.autovalidate = value;
+      }
+      createState() {
+        return new (FormFieldStateOfT()).new();
+      }
+    }
+    (FormField.new = function(opts) {
+      let t0;
+      let key = opts && 'key' in opts ? opts.key : null;
+      let builder = opts && 'builder' in opts ? opts.builder : null;
+      let onSaved = opts && 'onSaved' in opts ? opts.onSaved : null;
+      let validator = opts && 'validator' in opts ? opts.validator : null;
+      let initialValue = opts && 'initialValue' in opts ? opts.initialValue : null;
+      let autovalidate = opts && 'autovalidate' in opts ? opts.autovalidate : false;
+      let enabled = opts && 'enabled' in opts ? opts.enabled : true;
+      let autovalidateMode = opts && 'autovalidateMode' in opts ? opts.autovalidateMode : null;
+      let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+      this[builder$] = builder;
+      this[onSaved$] = onSaved;
+      this[validator$] = validator;
+      this[initialValue$] = initialValue;
+      this[autovalidate$0] = autovalidate;
+      this[enabled$] = enabled;
+      if (!(builder !== null)) dart.assertFailed(null, I[0], 334, 15, "builder != null");
+      if (!(autovalidate === false || autovalidate === true && autovalidateMode == null)) dart.assertFailed("autovalidate and autovalidateMode should not be used together.", I[0], 336, 10, "autovalidate == false ||\n         autovalidate == true && autovalidateMode == null");
+      this[autovalidateMode$0] = (t0 = autovalidateMode, t0 == null ? autovalidate ? form.AutovalidateMode.always : form.AutovalidateMode.disabled : t0);
+      FormField.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+      ;
+    }).prototype = FormField.prototype;
+    dart.addTypeTests(FormField);
+    FormField.prototype[_is_FormField_default] = true;
+    dart.addTypeCaches(FormField);
+    dart.setMethodSignature(FormField, () => ({
+      __proto__: dart.getMethods(FormField.__proto__),
+      createState: dart.fnType(form.FormFieldState$(T), [])
+    }));
+    dart.setLibraryUri(FormField, I[1]);
+    dart.setFieldSignature(FormField, () => ({
+      __proto__: dart.getFields(FormField.__proto__),
+      onSaved: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [dart.nullable(T)]))),
+      validator: dart.finalFieldType(dart.nullable(dart.fnType(dart.nullable(core.String), [dart.nullable(T)]))),
+      builder: dart.finalFieldType(dart.fnType(framework.Widget, [form.FormFieldState$(T)])),
+      initialValue: dart.finalFieldType(dart.nullable(T)),
+      enabled: dart.finalFieldType(core.bool),
+      autovalidateMode: dart.finalFieldType(form.AutovalidateMode),
+      autovalidate: dart.finalFieldType(core.bool)
+    }));
+    return FormField;
+  });
+  form.FormField = form.FormField$();
+  dart.addTypeTests(form.FormField, _is_FormField_default);
+  var _value = dart.privateName(form, "_value");
+  var _errorText = dart.privateName(form, "_errorText");
+  const _is_FormFieldState_default = Symbol('_is_FormFieldState_default');
+  form.FormFieldState$ = dart.generic(T => {
+    var TN = () => (TN = dart.constFn(dart.nullable(T)))();
+    var TNToStringN = () => (TNToStringN = dart.constFn(dart.fnType(T$.StringN(), [TN()])))();
+    var TNToNStringN = () => (TNToNStringN = dart.constFn(dart.nullable(TNToStringN())))();
+    var TNTovoid = () => (TNTovoid = dart.constFn(dart.fnType(dart.void, [TN()])))();
+    var TNToNvoid = () => (TNToNvoid = dart.constFn(dart.nullable(TNTovoid())))();
+    var FormFieldStateOfT = () => (FormFieldStateOfT = dart.constFn(form.FormFieldState$(T)))();
+    var FormFieldStateOfTToWidget = () => (FormFieldStateOfTToWidget = dart.constFn(dart.fnType(framework.Widget, [FormFieldStateOfT()])))();
+    class FormFieldState extends framework.State$(form.FormField$(T)) {
+      get value() {
+        return this[_value];
+      }
+      get errorText() {
+        return this[_errorText];
+      }
+      get hasError() {
+        return this[_errorText] != null;
+      }
+      get isValid() {
+        let t0;
+        return (t0 = TNToNStringN().as(this.widget.validator), t0 == null ? null : t0(this[_value])) == null;
+      }
+      save() {
+        let t0;
+        t0 = TNToNvoid().as(this.widget.onSaved);
+        t0 == null ? null : t0(this.value);
+      }
+      reset() {
+        let t0;
+        this.setState(dart.fn(() => {
+          this[_value] = this.widget.initialValue;
+          this[_hasInteractedByUser] = false;
+          this[_errorText] = null;
+        }, T$.VoidTovoid()));
+        t0 = form.Form.of(this.context);
+        t0 == null ? null : t0[_fieldDidChange]();
+      }
+      validate() {
+        this.setState(dart.fn(() => {
+          this[_validate]();
+        }, T$.VoidTovoid()));
+        return !this.hasError;
+      }
+      [_validate]() {
+        if (TNToNStringN().as(this.widget.validator) != null) this[_errorText] = dart.nullCheck(TNToNStringN().as(this.widget.validator))(this[_value]);
+      }
+      didChange(value) {
+        let t0;
+        TN().as(value);
+        this.setState(dart.fn(() => {
+          this[_value] = value;
+          this[_hasInteractedByUser] = true;
+        }, T$.VoidTovoid()));
+        t0 = form.Form.of(this.context);
+        t0 == null ? null : t0[_fieldDidChange]();
+      }
+      setValue(value) {
+        TN().as(value);
+        this[_value] = value;
+      }
+      initState() {
+        super.initState();
+        this[_value] = this.widget.initialValue;
+      }
+      deactivate() {
+        let t0;
+        t0 = form.Form.of(this.context);
+        t0 == null ? null : t0[_unregister](this);
+        super.deactivate();
+      }
+      build(context) {
+        let t0, t0$;
+        if (this.widget.enabled) {
+          switch (this.widget.autovalidateMode) {
+            case C[0] || CT.C0:
+            {
+              this[_validate]();
+              break;
+            }
+            case C[1] || CT.C1:
+            {
+              if (this[_hasInteractedByUser]) {
+                this[_validate]();
+              }
+              break;
+            }
+            case C[2] || CT.C2:
+            {
+              break;
+            }
+          }
+        }
+        t0 = form.Form.of(context);
+        t0 == null ? null : t0[_register](this);
+        t0$ = this.widget;
+        return FormFieldStateOfTToWidget().as(t0$.builder)(this);
+      }
+    }
+    (FormFieldState.new = function() {
+      this[_value] = null;
+      this[_errorText] = null;
+      this[_hasInteractedByUser] = false;
+      FormFieldState.__proto__.new.call(this);
+      ;
+    }).prototype = FormFieldState.prototype;
+    dart.addTypeTests(FormFieldState);
+    FormFieldState.prototype[_is_FormFieldState_default] = true;
+    dart.addTypeCaches(FormFieldState);
+    dart.setMethodSignature(FormFieldState, () => ({
+      __proto__: dart.getMethods(FormFieldState.__proto__),
+      save: dart.fnType(dart.void, []),
+      reset: dart.fnType(dart.void, []),
+      validate: dart.fnType(core.bool, []),
+      [_validate]: dart.fnType(dart.void, []),
+      didChange: dart.fnType(dart.void, [dart.nullable(core.Object)]),
+      setValue: dart.fnType(dart.void, [dart.nullable(core.Object)]),
+      build: dart.fnType(framework.Widget, [framework.BuildContext])
+    }));
+    dart.setGetterSignature(FormFieldState, () => ({
+      __proto__: dart.getGetters(FormFieldState.__proto__),
+      value: dart.nullable(T),
+      errorText: dart.nullable(core.String),
+      hasError: core.bool,
+      isValid: core.bool
+    }));
+    dart.setLibraryUri(FormFieldState, I[1]);
+    dart.setFieldSignature(FormFieldState, () => ({
+      __proto__: dart.getFields(FormFieldState.__proto__),
+      [_value]: dart.fieldType(dart.nullable(T)),
+      [_errorText]: dart.fieldType(dart.nullable(core.String)),
+      [_hasInteractedByUser]: dart.fieldType(core.bool)
+    }));
+    return FormFieldState;
+  });
+  form.FormFieldState = form.FormFieldState$();
+  dart.addTypeTests(form.FormFieldState, _is_FormFieldState_default);
+  form.AutovalidateMode = class AutovalidateMode extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (form.AutovalidateMode.new = function(index, _name) {
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = form.AutovalidateMode.prototype;
+  dart.addTypeTests(form.AutovalidateMode);
+  dart.addTypeCaches(form.AutovalidateMode);
+  dart.setLibraryUri(form.AutovalidateMode, I[1]);
+  dart.setFieldSignature(form.AutovalidateMode, () => ({
+    __proto__: dart.getFields(form.AutovalidateMode.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(form.AutovalidateMode, ['toString']);
+  form.AutovalidateMode.disabled = C[2] || CT.C2;
+  form.AutovalidateMode.always = C[0] || CT.C0;
+  form.AutovalidateMode.onUserInteraction = C[1] || CT.C1;
+  form.AutovalidateMode.values = C[12] || CT.C12;
+  dart.trackLibraries("packages/flutter/src/widgets/form.dart", {
+    "package:flutter/src/widgets/form.dart": form
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["stack_frame.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/flutter/src/foundation/stack_frame.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["form.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAoHe;;;;;;IAYU;;;;;;IAMH;;;;;;IAMG;;;;;;IASZ;;;;;;cA3CuB;;AACd,kBAAQ,AAAQ,OAAD;AACjC,WAAO,KAAK;0BAAL,OAAO;IAChB;;AA2C2B;IAAW;;;;QA5E/B;QACS;QAMT;QACA;QACA;QACa;;IATJ;IAMT;IACA;IACA;UAEK,AAAM,KAAD;UACL,AAAa,YAAD;UAEjB,AAAa,AAAS,YAAV,KAAI,SAChB,AAAa,YAAD,KAAI,QAAQ,AAAiB,gBAAD,6BACxC;IAEe,2BAAmB,KAAjB,gBAAgB,EAAhB,aAChB,YAAY,GAAoB,+BAA0B;AAC7D,6CAAW,GAAG;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAyEM,WAAxB,AAAO;mBAAA,OAAW;AAGqD,MADvE,6BAAuB,AAClB,oBAAI,QAAyB,SAAU,AAAM,KAAD;AAClC,MAAf;IACF;;AAKI,MAFF,cAAS;AACM,QAAX,oBAAF,AAAE,oBAAF;;IAEJ;gBAEuC;AACnB,MAAlB,AAAQ,kBAAI,KAAK;IACnB;kBAEyC;AAClB,MAArB,AAAQ,qBAAO,KAAK;IACtB;UAG0B;AACxB,cAAQ,AAAO;;;AAEA,UAAX;AACA;;;;AAEA,cAAI;AACS,YAAX;;AAEF;;;;AAEA;;;AAGJ,YAAO,iDACM,AAAO,8BACX,oCACM,kBACC,0BACL,AAAO;IAGpB;;AAIE,eAAmC,QAAS;AAC9B,QAAZ,AAAM,KAAD;IACT;;AAUE,eAAmC,QAAS;AAC7B,QAAb,AAAM,KAAD;AACqB,MAA5B,6BAAuB;AACN,MAAjB;IACF;;AAO6B,MAA3B,6BAAuB;AACR,MAAf;AACA,YAAO;IACT;;AAGO,qBAAW;AAChB,eAAmC,QAAS;AACF,QAAxC,WAA6B,CAAjB,AAAM,KAAD,eAAe,QAAQ;AAC1C,YAAO,EAAC,QAAQ;IAClB;;;IAxFI,oBAAc;IACb,6BAAuB;IACO,gBAAmC;;;EAuFxE;;;;;;;;;;;;;;;;;;;;;;;;;IAYkB;;;;;;IAIN;;;;;;;AAGO,YAAA,AAAW;IAAM;;yBAGC;AAAQ,YAAA,AAAY,uBAAG,AAAI,GAAD;IAAY;;;QAlBlE;QACW;QACG;QACN;;IACC,oBAAE,SAAS;IACV,qBAAE,UAAU;AACxB,mDAAW,GAAG,SAAS,KAAK;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;MAoFR;;;;;;MAeG;;;;;;MAKH;;;;;;MAGjB;;;;;;MAOE;;;;;;MAeY;;;;;;MASZ;;;;;;;AAGwB;MAAmB;;;;UAlF/C;UACS;UACT;UACA;UACA;UAMA;UACA;UACa;;MAXJ;MACT;MACA;MACA;MAMA;MACA;YAEK,AAAQ,OAAD;YAEZ,AAAa,AAAS,YAAV,KAAI,SAChB,AAAa,YAAD,KAAI,QAAQ,AAAiB,gBAAD,6BACxC;MAEgB,4BAAmB,KAAjB,gBAAgB,EAAhB,aAChB,YAAY,GAAoB,+BAA0B;AAC9D,+CAAW,GAAG;;IAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAwEJ;MAAM;;AAKG;MAAU;;AAGd,cAAA,AAAW;MAAO;;;AAUnB,cAA+B,yBAA/B,AAAO,qCAAA,OAAW,GAAK;MAAe;;;AAI7B,4BAA3B,AAAO;qBAAA,OAAS,GAAK;MACvB;;;AAQI,QAJF,cAAS;AACqB,UAA5B,eAAS,AAAO;AACY,UAA5B,6BAAuB;AACN,UAAjB,mBAAa;;AAEoB,aAA9B,aAAG;qBAAH,OAAa;MACpB;;AAYI,QAFF,cAAS;AACI,UAAX;;AAEF,cAAO,EAAC;MACV;;AAGE,8BAAI,AAAO,gCACT,AAAsC,mBAAT,AAAC,iCAAjB,AAAO,wBAAW;MACnC;gBAQkB;;;AAId,QAHF,cAAS;AACO,UAAd,eAAS,KAAK;AACa,UAA3B,6BAAuB;;AAEU,aAA9B,aAAG;qBAAH,OAAa;MACpB;;gBAUiB;AACD,QAAd,eAAS,KAAK;MAChB;;AAImB,QAAX;AACsB,QAA5B,eAAS,AAAO;MAClB;;;AAIqC,aAA9B,aAAG;qBAAH,OAAa,gBAAY;AACZ,QAAZ;MACR;YAG0B;;AACxB,YAAI,AAAO;AACT,kBAAQ,AAAO;;;AAEA,cAAX;AACA;;;;AAEA,kBAAI;AACS,gBAAX;;AAEF;;;;AAEA;;;;AAG2B,aAA5B,aAAG,OAAO;qBAAV,OAAa,cAAU;AAC5B,cAAO;cAAc,gCAAP,aAAQ;MACxB;;;MAnHG;MACK;MACH,6BAAuB;;;IAkH9B;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAaA;;+CAVK;;;;EAUL","file":"../../../../../../../../../packages/flutter/src/widgets/form.dart.lib.js"}');
   // Exports:
   return {
-    src__foundation__stack_frame: stack_frame
+    src__widgets__form: form
   };
 }));
 
-//# sourceMappingURL=stack_frame.dart.lib.js.map
+//# sourceMappingURL=form.dart.lib.js.map

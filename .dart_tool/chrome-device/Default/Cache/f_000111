@@ -1,473 +1,536 @@
-define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/widgets/scroll_view.dart', 'packages/flutter/src/painting/basic_types.dart', 'packages/flutter/src/painting/box_decoration.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/painting/border_radius.dart', 'packages/flutter/src/painting/strut_style.dart'], (function load__packages__amar_karigor__app__modules__home__views__widget__mobile__categories_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__widgets__scroll_view$46dart, packages__flutter__src__painting__basic_types$46dart, packages__flutter__src__painting__box_decoration$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__painting__border_radius$46dart, packages__flutter__src__painting__strut_style$46dart) {
+define(['dart_sdk', 'packages/get/get_core/src/get_main.dart', 'packages/get/get_core/src/smart_management.dart', 'packages/get/get_instance/src/lifecycle.dart'], (function load__packages__get__get_instance__src__get_instance_dart(dart_sdk, packages__get__get_core__src__get_main$46dart, packages__get__get_core__src__smart_management$46dart, packages__get__get_instance__src__lifecycle$46dart) {
   'use strict';
   const core = dart_sdk.core;
+  const async = dart_sdk.async;
   const _interceptors = dart_sdk._interceptors;
-  const ui = dart_sdk.ui;
+  const collection = dart_sdk.collection;
+  const _js_helper = dart_sdk._js_helper;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
-  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
-  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
-  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
-  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
-  const image = packages__flutter__src__widgets__widget_span$46dart.src__widgets__image;
-  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
-  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
-  const scroll_view = packages__flutter__src__widgets__scroll_view$46dart.src__widgets__scroll_view;
-  const basic_types = packages__flutter__src__painting__basic_types$46dart.src__painting__basic_types;
-  const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
-  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
-  const border_radius = packages__flutter__src__painting__border_radius$46dart.src__painting__border_radius;
-  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
-  var categories$ = Object.create(dart.library);
-  var $length = dartx.length;
+  const get_main = packages__get__get_core__src__get_main$46dart.get_core__src__get_main;
+  const smart_management = packages__get__get_core__src__smart_management$46dart.get_core__src__smart_management;
+  const lifecycle = packages__get__get_instance__src__lifecycle$46dart.get_instance__src__lifecycle;
+  var get_instance = Object.create(dart.library);
+  var $toString = dartx.toString;
+  var $putIfAbsent = dartx.putIfAbsent;
+  var $add = dartx.add;
+  var $forEach = dartx.forEach;
+  var $containsKey = dartx.containsKey;
   var $_get = dartx._get;
+  var $remove = dartx.remove;
+  var $clear = dartx.clear;
+  var $_set = dartx._set;
   dart._checkModuleNullSafetyMode(true);
   var T = {
-    BuildContextAndintToWidget: () => (T.BuildContextAndintToWidget = dart.constFn(dart.fnType(framework.Widget, [framework.BuildContext, core.int])))(),
-    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))()
+    JSArrayOfString: () => (T.JSArrayOfString = dart.constFn(_interceptors.JSArray$(core.String)))(),
+    StringN: () => (T.StringN = dart.constFn(dart.nullable(core.String)))(),
+    StringAndStringNTovoid: () => (T.StringAndStringNTovoid = dart.constFn(dart.fnType(dart.void, [core.String, T.StringN()])))(),
+    VoidToStringN: () => (T.VoidToStringN = dart.constFn(dart.fnType(T.StringN(), [])))(),
+    _HashSetOfFunction: () => (T._HashSetOfFunction = dart.constFn(collection._HashSet$(core.Function)))(),
+    StringAnd_InstanceBuilderFactoryTovoid: () => (T.StringAnd_InstanceBuilderFactoryTovoid = dart.constFn(dart.fnType(dart.void, [core.String, get_instance._InstanceBuilderFactory])))(),
+    IdentityMapOfString$_InstanceBuilderFactory: () => (T.IdentityMapOfString$_InstanceBuilderFactory = dart.constFn(_js_helper.IdentityMap$(core.String, get_instance._InstanceBuilderFactory)))(),
+    IdentityMapOfString$StringN: () => (T.IdentityMapOfString$StringN = dart.constFn(_js_helper.IdentityMap$(core.String, T.StringN())))(),
+    HashSetOfFunction: () => (T.HashSetOfFunction = dart.constFn(collection.HashSet$(core.Function)))(),
+    IdentityMapOfStringN$HashSetOfFunction: () => (T.IdentityMapOfStringN$HashSetOfFunction = dart.constFn(_js_helper.IdentityMap$(T.StringN(), T.HashSetOfFunction())))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
-  dart.defineLazy(CT, {
-    get C0() {
-      return C[0] = dart.const({
-        __proto__: edge_insets.EdgeInsets.prototype,
-        [EdgeInsets_bottom]: 8,
-        [EdgeInsets_right]: 8,
-        [EdgeInsets_top]: 8,
-        [EdgeInsets_left]: 8
-      });
+  var I = ["package:get/get_instance/src/get_instance.dart"];
+  var isPermanent$ = dart.privateName(get_instance, "InstanceInfo.isPermanent");
+  var isSingleton$ = dart.privateName(get_instance, "InstanceInfo.isSingleton");
+  var isRegistered$ = dart.privateName(get_instance, "InstanceInfo.isRegistered");
+  var isPrepared$ = dart.privateName(get_instance, "InstanceInfo.isPrepared");
+  var isInit$ = dart.privateName(get_instance, "InstanceInfo.isInit");
+  get_instance.InstanceInfo = class InstanceInfo extends core.Object {
+    get isPermanent() {
+      return this[isPermanent$];
+    }
+    set isPermanent(value) {
+      super.isPermanent = value;
+    }
+    get isSingleton() {
+      return this[isSingleton$];
+    }
+    set isSingleton(value) {
+      super.isSingleton = value;
+    }
+    get isRegistered() {
+      return this[isRegistered$];
+    }
+    set isRegistered(value) {
+      super.isRegistered = value;
+    }
+    get isPrepared() {
+      return this[isPrepared$];
+    }
+    set isPrepared(value) {
+      super.isPrepared = value;
+    }
+    get isInit() {
+      return this[isInit$];
+    }
+    set isInit(value) {
+      super.isInit = value;
+    }
+    get isCreate() {
+      return !dart.nullCheck(this.isSingleton);
+    }
+  };
+  (get_instance.InstanceInfo.new = function(opts) {
+    let isPermanent = opts && 'isPermanent' in opts ? opts.isPermanent : null;
+    let isSingleton = opts && 'isSingleton' in opts ? opts.isSingleton : null;
+    let isRegistered = opts && 'isRegistered' in opts ? opts.isRegistered : null;
+    let isPrepared = opts && 'isPrepared' in opts ? opts.isPrepared : null;
+    let isInit = opts && 'isInit' in opts ? opts.isInit : null;
+    this[isPermanent$] = isPermanent;
+    this[isSingleton$] = isSingleton;
+    this[isRegistered$] = isRegistered;
+    this[isPrepared$] = isPrepared;
+    this[isInit$] = isInit;
+    ;
+  }).prototype = get_instance.InstanceInfo.prototype;
+  dart.addTypeTests(get_instance.InstanceInfo);
+  dart.addTypeCaches(get_instance.InstanceInfo);
+  dart.setGetterSignature(get_instance.InstanceInfo, () => ({
+    __proto__: dart.getGetters(get_instance.InstanceInfo.__proto__),
+    isCreate: core.bool
+  }));
+  dart.setLibraryUri(get_instance.InstanceInfo, I[0]);
+  dart.setFieldSignature(get_instance.InstanceInfo, () => ({
+    __proto__: dart.getFields(get_instance.InstanceInfo.__proto__),
+    isPermanent: dart.finalFieldType(dart.nullable(core.bool)),
+    isSingleton: dart.finalFieldType(dart.nullable(core.bool)),
+    isRegistered: dart.finalFieldType(core.bool),
+    isPrepared: dart.finalFieldType(core.bool),
+    isInit: dart.finalFieldType(dart.nullable(core.bool))
+  }));
+  var _insert = dart.privateName(get_instance, "_insert");
+  var _getKey = dart.privateName(get_instance, "_getKey");
+  var _startController = dart.privateName(get_instance, "_startController");
+  var _registerRouteInstance = dart.privateName(get_instance, "_registerRouteInstance");
+  var _initDependencies = dart.privateName(get_instance, "_initDependencies");
+  var _getDependency = dart.privateName(get_instance, "_getDependency");
+  get_instance.GetInstance = class GetInstance extends core.Object {
+    static new() {
+      let t0;
+      t0 = get_instance.GetInstance._getInstance;
+      return t0 == null ? get_instance.GetInstance._getInstance = new get_instance.GetInstance.__() : t0;
+    }
+    call(T) {
+      return this.find(T);
+    }
+    printInstanceStack() {
+      let t1, t0;
+      t0 = get_main.Get;
+      t1 = get_instance.GetInstance._routesKey[$toString]();
+      t0.log(t1);
+    }
+    injector(S, fn, opts) {
+      let tag = opts && 'tag' in opts ? opts.tag : null;
+      let fenix = opts && 'fenix' in opts ? opts.fenix : false;
+      this.lazyPut(S, dart.fn(() => fn(this), dart.fnType(S, [])), {tag: tag, fenix: fenix});
+    }
+    putAsync(S, builder, opts) {
+      let tag = opts && 'tag' in opts ? opts.tag : null;
+      let permanent = opts && 'permanent' in opts ? opts.permanent : false;
+      return async.async(S, (function* putAsync() {
+        return this.put(S, yield builder(), {tag: tag, permanent: permanent});
+      }).bind(this));
+    }
+    put(S, dependency, opts) {
+      let t0;
+      let tag = opts && 'tag' in opts ? opts.tag : null;
+      let permanent = opts && 'permanent' in opts ? opts.permanent : false;
+      let builder = opts && 'builder' in opts ? opts.builder : null;
+      this[_insert](S, {isSingleton: true, name: tag, permanent: permanent, builder: (t0 = builder, t0 == null ? dart.fn(() => dependency, dart.fnType(S, [])) : t0)});
+      return this.find(S, {tag: tag});
+    }
+    lazyPut(S, builder, opts) {
+      let t0;
+      let tag = opts && 'tag' in opts ? opts.tag : null;
+      let fenix = opts && 'fenix' in opts ? opts.fenix : null;
+      let permanent = opts && 'permanent' in opts ? opts.permanent : false;
+      this[_insert](S, {isSingleton: true, name: tag, permanent: permanent, builder: builder, fenix: (t0 = fenix, t0 == null ? get_main.Get.smartManagement === smart_management.SmartManagement.keepFactory : t0)});
+    }
+    create(S, builder, opts) {
+      let tag = opts && 'tag' in opts ? opts.tag : null;
+      let permanent = opts && 'permanent' in opts ? opts.permanent : true;
+      this[_insert](S, {isSingleton: false, name: tag, builder: builder, permanent: permanent});
+    }
+    [_insert](S, opts) {
+      let isSingleton = opts && 'isSingleton' in opts ? opts.isSingleton : null;
+      let name = opts && 'name' in opts ? opts.name : null;
+      let permanent = opts && 'permanent' in opts ? opts.permanent : false;
+      let builder = opts && 'builder' in opts ? opts.builder : null;
+      let fenix = opts && 'fenix' in opts ? opts.fenix : false;
+      let key = this[_getKey](dart.wrapType(S), name);
+      get_instance.GetInstance._singl[$putIfAbsent](key, dart.fn(() => new (get_instance._InstanceBuilderFactory$(S)).new(isSingleton, builder, permanent, false, fenix, name), dart.fnType(get_instance._InstanceBuilderFactory$(S), [])));
+    }
+    removeDependencyByRoute(routeName) {
+      let keysToRemove = T.JSArrayOfString().of([]);
+      get_instance.GetInstance._routesKey[$forEach](dart.fn((key, value) => {
+        if (value === routeName) {
+          keysToRemove[$add](key);
+        }
+      }, T.StringAndStringNTovoid()));
+      if (get_instance.GetInstance._routesByCreate[$containsKey](routeName)) {
+        for (let onClose of dart.nullCheck(get_instance.GetInstance._routesByCreate[$_get](routeName))) {
+          dart.dcall(onClose, []);
+        }
+        dart.nullCheck(get_instance.GetInstance._routesByCreate[$_get](routeName)).clear();
+        get_instance.GetInstance._routesByCreate[$remove](routeName);
+      }
+      for (let element of keysToRemove) {
+        this.delete(dart.dynamic, {key: element});
+      }
+      for (let element of keysToRemove) {
+        get_instance.GetInstance._routesKey[$remove](element);
+      }
+      keysToRemove[$clear]();
+    }
+    [_initDependencies](S, opts) {
+      let name = opts && 'name' in opts ? opts.name : null;
+      let key = this[_getKey](dart.wrapType(S), name);
+      let isInit = dart.nullCheck(get_instance.GetInstance._singl[$_get](key)).isInit;
+      let i = null;
+      if (!isInit) {
+        i = this[_startController](S, {tag: name});
+        if (dart.nullCheck(dart.nullCheck(get_instance.GetInstance._singl[$_get](key)).isSingleton)) {
+          dart.nullCheck(get_instance.GetInstance._singl[$_get](key)).isInit = true;
+          if (get_main.Get.smartManagement !== smart_management.SmartManagement.onlyBuilder) {
+            this[_registerRouteInstance](S, {tag: name});
+          }
+        }
+      }
+      return i;
+    }
+    [_registerRouteInstance](S, opts) {
+      let tag = opts && 'tag' in opts ? opts.tag : null;
+      get_instance.GetInstance._routesKey[$putIfAbsent](this[_getKey](dart.wrapType(S), tag), dart.fn(() => get_main.Get.reference, T.VoidToStringN()));
+    }
+    getInstanceInfo(S, opts) {
+      let t0, t0$, t0$0, t0$1, t0$2;
+      let tag = opts && 'tag' in opts ? opts.tag : null;
+      let build = this[_getDependency](S, {tag: tag});
+      return new get_instance.InstanceInfo.new({isPermanent: (t0 = build, t0 == null ? null : t0.permanent), isSingleton: (t0$ = build, t0$ == null ? null : t0$.isSingleton), isRegistered: this.isRegistered(S, {tag: tag}), isPrepared: !dart.test((t0$1 = (t0$0 = build, t0$0 == null ? null : t0$0.isInit), t0$1 == null ? true : t0$1)), isInit: (t0$2 = build, t0$2 == null ? null : t0$2.isInit)});
+    }
+    [_getDependency](S, opts) {
+      let t0, t2, t1, t0$;
+      let tag = opts && 'tag' in opts ? opts.tag : null;
+      let key = opts && 'key' in opts ? opts.key : null;
+      let newKey = (t0 = key, t0 == null ? this[_getKey](dart.wrapType(S), tag) : t0);
+      if (!get_instance.GetInstance._singl[$containsKey](newKey)) {
+        t0$ = get_main.Get;
+        t1 = "Instance \"" + newKey + "\" is not registered.";
+        t2 = true;
+        t0$.log(t1, {isError: t2});
+        return null;
+      } else {
+        return get_instance.GetInstance._singl[$_get](newKey);
+      }
+    }
+    [_startController](S, opts) {
+      let t1, t0, t1$, t0$, t1$0, t0$0, t0$1;
+      let tag = opts && 'tag' in opts ? opts.tag : null;
+      let key = this[_getKey](dart.wrapType(S), tag);
+      let i = S.as(dart.nullCheck(get_instance.GetInstance._singl[$_get](key)).getDependency());
+      if (lifecycle.GetLifeCycleBase.is(i)) {
+        i.onStart.call();
+        if (tag == null) {
+          t0 = get_main.Get;
+          t1 = "Instance \"" + dart.str(dart.wrapType(S)) + "\" has been initialized";
+          t0.log(t1);
+        } else {
+          t0$ = get_main.Get;
+          t1$ = "Instance \"" + dart.str(dart.wrapType(S)) + "\" with tag \"" + dart.str(tag) + "\" has been initialized";
+          t0$.log(t1$);
+        }
+        if (!dart.nullCheck(dart.nullCheck(get_instance.GetInstance._singl[$_get](key)).isSingleton)) {
+          t0$0 = get_instance.GetInstance._routesByCreate;
+          t1$0 = get_main.Get.reference;
+          t0$0[$_get](t1$0) == null ? t0$0[$_set](t1$0, new (T._HashSetOfFunction()).new()) : null;
+          dart.nullCheck(get_instance.GetInstance._routesByCreate[$_get](get_main.Get.reference)).add((t0$1 = i.onDelete, t0$1 === null ? null : dart.bind(t0$1, 'call')));
+        }
+      }
+      return i;
+    }
+    putOrFind(S, dep, opts) {
+      let tag = opts && 'tag' in opts ? opts.tag : null;
+      let key = this[_getKey](dart.wrapType(S), tag);
+      if (get_instance.GetInstance._singl[$containsKey](key)) {
+        return S.as(dart.nullCheck(get_instance.GetInstance._singl[$_get](key)).getDependency());
+      } else {
+        return get_instance.GetInstance.new().put(S, dep(), {tag: tag});
+      }
+    }
+    find(S, opts) {
+      let t0;
+      let tag = opts && 'tag' in opts ? opts.tag : null;
+      let key = this[_getKey](dart.wrapType(S), tag);
+      if (this.isRegistered(S, {tag: tag})) {
+        if (get_instance.GetInstance._singl[$_get](key) == null) {
+          if (tag == null) {
+            dart.throw("Class \"" + dart.str(dart.wrapType(S)) + "\" is not registered");
+          } else {
+            dart.throw("Class \"" + dart.str(dart.wrapType(S)) + "\" with tag \"" + dart.str(tag) + "\" is not registered");
+          }
+        }
+        let i = this[_initDependencies](S, {name: tag});
+        t0 = i;
+        return t0 == null ? S.as(dart.nullCheck(get_instance.GetInstance._singl[$_get](key)).getDependency()) : t0;
+      } else {
+        dart.throw("\"" + dart.str(dart.wrapType(S)) + "\" not found. You need to call \"Get.put(" + dart.str(dart.wrapType(S)) + "())\" or \"Get.lazyPut(()=>" + dart.str(dart.wrapType(S)) + "())\"");
+      }
+    }
+    [_getKey](type, name) {
+      return name == null ? type.toString() : type.toString() + dart.notNull(name);
+    }
+    reset(opts) {
+      let clearFactory = opts && 'clearFactory' in opts ? opts.clearFactory : true;
+      let clearRouteBindings = opts && 'clearRouteBindings' in opts ? opts.clearRouteBindings : true;
+      if (clearRouteBindings) get_instance.GetInstance._routesKey[$clear]();
+      get_instance.GetInstance._singl[$clear]();
+      return true;
+    }
+    delete(S, opts) {
+      let t0, t2, t1, t0$, t2$, t1$, t0$0, t1$0, t0$1, t2$0, t1$1, t0$2, t1$2, t0$3;
+      let tag = opts && 'tag' in opts ? opts.tag : null;
+      let key = opts && 'key' in opts ? opts.key : null;
+      let force = opts && 'force' in opts ? opts.force : false;
+      let newKey = (t0 = key, t0 == null ? this[_getKey](dart.wrapType(S), tag) : t0);
+      if (!get_instance.GetInstance._singl[$containsKey](newKey)) {
+        t0$ = get_main.Get;
+        t1 = "Instance \"" + newKey + "\" already removed.";
+        t2 = true;
+        t0$.log(t1, {isError: t2});
+        return false;
+      }
+      let builder = dart.nullCheck(get_instance.GetInstance._singl[$_get](newKey));
+      if (builder.permanent && !force) {
+        t0$0 = get_main.Get;
+        t1$ = "\"" + newKey + "\" has been marked as permanent, SmartManagement is not authorized to delete it.";
+        t2$ = true;
+        t0$0.log(t1$, {isError: t2$});
+        return false;
+      }
+      let i = builder.dependency;
+      if (lifecycle.GetxServiceMixin.is(i) && !force) {
+        return false;
+      }
+      if (lifecycle.GetLifeCycleBase.is(i)) {
+        i.onDelete.call();
+        t0$1 = get_main.Get;
+        t1$0 = "\"" + newKey + "\" onDelete() called";
+        t0$1.log(t1$0);
+      }
+      if (builder.fenix) {
+        builder.dependency = null;
+        builder.isInit = false;
+      } else {
+        get_instance.GetInstance._singl[$remove](newKey);
+        if (get_instance.GetInstance._singl[$containsKey](newKey)) {
+          t0$2 = get_main.Get;
+          t1$1 = "Error removing object \"" + newKey + "\"";
+          t2$0 = true;
+          t0$2.log(t1$1, {isError: t2$0});
+        } else {
+          t0$3 = get_main.Get;
+          t1$2 = "\"" + newKey + "\" deleted from memory";
+          t0$3.log(t1$2);
+        }
+      }
+      return true;
+    }
+    reloadAll(opts) {
+      let force = opts && 'force' in opts ? opts.force : false;
+      get_instance.GetInstance._singl[$forEach](dart.fn((key, value) => {
+        let t1, t0, t1$, t0$;
+        if (value.permanent && !force) {
+          t0 = get_main.Get;
+          t1 = "Instance \"" + key + "\" is permanent. Skipping reload";
+          t0.log(t1);
+        } else {
+          value.dependency = null;
+          value.isInit = false;
+          t0$ = get_main.Get;
+          t1$ = "Instance \"" + key + "\" was reloaded.";
+          t0$.log(t1$);
+        }
+      }, T.StringAnd_InstanceBuilderFactoryTovoid()));
+    }
+    reload(S, opts) {
+      let t0, t2, t1, t0$, t1$, t0$0;
+      let tag = opts && 'tag' in opts ? opts.tag : null;
+      let key = opts && 'key' in opts ? opts.key : null;
+      let force = opts && 'force' in opts ? opts.force : false;
+      let newKey = (t0 = key, t0 == null ? this[_getKey](dart.wrapType(S), tag) : t0);
+      let builder = this[_getDependency](S, {tag: tag, key: newKey});
+      if (builder == null) return;
+      if (builder.permanent && !force) {
+        t0$ = get_main.Get;
+        t1 = "Instance \"" + newKey + "\" is permanent. Use [force = true] to force the restart.";
+        t2 = true;
+        t0$.log(t1, {isError: t2});
+        return;
+      }
+      builder.dependency = null;
+      builder.isInit = false;
+      t0$0 = get_main.Get;
+      t1$ = "Instance \"" + newKey + "\" was restarted.";
+      t0$0.log(t1$);
+    }
+    isRegistered(S, opts) {
+      let tag = opts && 'tag' in opts ? opts.tag : null;
+      return get_instance.GetInstance._singl[$containsKey](this[_getKey](dart.wrapType(S), tag));
+    }
+    isPrepared(S, opts) {
+      let tag = opts && 'tag' in opts ? opts.tag : null;
+      let newKey = this[_getKey](dart.wrapType(S), tag);
+      let builder = this[_getDependency](S, {tag: tag, key: newKey});
+      if (builder == null) {
+        return false;
+      }
+      if (!builder.isInit) {
+        return true;
+      }
+      return false;
+    }
+  };
+  (get_instance.GetInstance.__ = function() {
+    ;
+  }).prototype = get_instance.GetInstance.prototype;
+  dart.addTypeTests(get_instance.GetInstance);
+  dart.addTypeCaches(get_instance.GetInstance);
+  dart.setMethodSignature(get_instance.GetInstance, () => ({
+    __proto__: dart.getMethods(get_instance.GetInstance.__proto__),
+    call: dart.gFnType(T => [T, []], T => [dart.nullable(core.Object)]),
+    printInstanceStack: dart.fnType(dart.void, []),
+    injector: dart.gFnType(S => [dart.void, [dart.fnType(S, [get_instance.GetInstance])], {fenix: core.bool, tag: dart.nullable(core.String)}, {}], S => [dart.nullable(core.Object)]),
+    putAsync: dart.gFnType(S => [async.Future$(S), [dart.fnType(async.Future$(S), [])], {permanent: core.bool, tag: dart.nullable(core.String)}, {}], S => [dart.nullable(core.Object)]),
+    put: dart.gFnType(S => [S, [S], {builder: dart.nullable(dart.fnType(S, [])), permanent: core.bool, tag: dart.nullable(core.String)}, {}], S => [dart.nullable(core.Object)]),
+    lazyPut: dart.gFnType(S => [dart.void, [dart.fnType(S, [])], {fenix: dart.nullable(core.bool), permanent: core.bool, tag: dart.nullable(core.String)}, {}], S => [dart.nullable(core.Object)]),
+    create: dart.gFnType(S => [dart.void, [dart.fnType(S, [])], {permanent: core.bool, tag: dart.nullable(core.String)}, {}], S => [dart.nullable(core.Object)]),
+    [_insert]: dart.gFnType(S => [dart.void, [], {fenix: core.bool, isSingleton: dart.nullable(core.bool), name: dart.nullable(core.String), permanent: core.bool}, {builder: dart.fnType(S, [])}], S => [dart.nullable(core.Object)]),
+    removeDependencyByRoute: dart.fnType(dart.void, [core.String]),
+    [_initDependencies]: dart.gFnType(S => [dart.nullable(S), [], {name: dart.nullable(core.String)}, {}], S => [dart.nullable(core.Object)]),
+    [_registerRouteInstance]: dart.gFnType(S => [dart.void, [], {tag: dart.nullable(core.String)}, {}], S => [dart.nullable(core.Object)]),
+    getInstanceInfo: dart.gFnType(S => [get_instance.InstanceInfo, [], {tag: dart.nullable(core.String)}, {}], S => [dart.nullable(core.Object)]),
+    [_getDependency]: dart.gFnType(S => [dart.nullable(get_instance._InstanceBuilderFactory), [], {key: dart.nullable(core.String), tag: dart.nullable(core.String)}, {}], S => [dart.nullable(core.Object)]),
+    [_startController]: dart.gFnType(S => [S, [], {tag: dart.nullable(core.String)}, {}], S => [dart.nullable(core.Object)]),
+    putOrFind: dart.gFnType(S => [S, [dart.fnType(S, [])], {tag: dart.nullable(core.String)}, {}], S => [dart.nullable(core.Object)]),
+    find: dart.gFnType(S => [S, [], {tag: dart.nullable(core.String)}, {}], S => [dart.nullable(core.Object)]),
+    [_getKey]: dart.fnType(core.String, [core.Type, dart.nullable(core.String)]),
+    reset: dart.fnType(core.bool, [], {clearFactory: core.bool, clearRouteBindings: core.bool}, {}),
+    delete: dart.gFnType(S => [core.bool, [], {force: core.bool, key: dart.nullable(core.String), tag: dart.nullable(core.String)}, {}], S => [dart.nullable(core.Object)]),
+    reloadAll: dart.fnType(dart.void, [], {force: core.bool}, {}),
+    reload: dart.gFnType(S => [dart.void, [], {force: core.bool, key: dart.nullable(core.String), tag: dart.nullable(core.String)}, {}], S => [dart.nullable(core.Object)]),
+    isRegistered: dart.gFnType(S => [core.bool, [], {tag: dart.nullable(core.String)}, {}], S => [dart.nullable(core.Object)]),
+    isPrepared: dart.gFnType(S => [core.bool, [], {tag: dart.nullable(core.String)}, {}], S => [dart.nullable(core.Object)])
+  }));
+  dart.setLibraryUri(get_instance.GetInstance, I[0]);
+  dart.defineLazy(get_instance.GetInstance, {
+    /*get_instance.GetInstance._getInstance*/get _getInstance() {
+      return null;
     },
-    get C3() {
-      return C[3] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 21,
-        [_Location_line]: 10,
-        [_Location_file]: null
-      });
+    set _getInstance(_) {},
+    /*get_instance.GetInstance._singl*/get _singl() {
+      return new (T.IdentityMapOfString$_InstanceBuilderFactory()).new();
     },
-    get C2() {
-      return C[2] = dart.constList([C[3] || CT.C3], widget_inspector._Location);
+    /*get_instance.GetInstance._routesKey*/get _routesKey() {
+      return new (T.IdentityMapOfString$StringN()).new();
     },
-    get C1() {
-      return C[1] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[2] || CT.C2,
-        [_Location_name]: null,
-        [_Location_column]: 16,
-        [_Location_line]: 10,
-        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/categories.dart"
-      });
-    },
-    get C6() {
-      return C[6] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 9,
-        [_Location_line]: 9,
-        [_Location_file]: null
-      });
-    },
-    get C7() {
-      return C[7] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 10,
-        [_Location_file]: null
-      });
-    },
-    get C5() {
-      return C[5] = dart.constList([C[6] || CT.C6, C[7] || CT.C7], widget_inspector._Location);
-    },
-    get C4() {
-      return C[4] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[5] || CT.C5,
-        [_Location_name]: null,
-        [_Location_column]: 7,
-        [_Location_line]: 8,
-        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/categories.dart"
-      });
-    },
-    get C10() {
-      return C[10] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "scrollDirection",
-        [_Location_column]: 15,
-        [_Location_line]: 16,
-        [_Location_file]: null
-      });
-    },
-    get C11() {
-      return C[11] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "itemCount",
-        [_Location_column]: 15,
-        [_Location_line]: 17,
-        [_Location_file]: null
-      });
-    },
-    get C12() {
-      return C[12] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "itemBuilder",
-        [_Location_column]: 15,
-        [_Location_line]: 18,
-        [_Location_file]: null
-      });
-    },
-    get C9() {
-      return C[9] = dart.constList([C[10] || CT.C10, C[11] || CT.C11, C[12] || CT.C12], widget_inspector._Location);
-    },
-    get C8() {
-      return C[8] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[9] || CT.C9,
-        [_Location_name]: null,
-        [_Location_column]: 27,
-        [_Location_line]: 15,
-        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/categories.dart"
-      });
-    },
-    get C15() {
-      return C[15] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "margin",
-        [_Location_column]: 11,
-        [_Location_line]: 13,
-        [_Location_file]: null
-      });
-    },
-    get C16() {
-      return C[16] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "height",
-        [_Location_column]: 11,
-        [_Location_line]: 14,
-        [_Location_file]: null
-      });
-    },
-    get C17() {
-      return C[17] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 11,
-        [_Location_line]: 15,
-        [_Location_file]: null
-      });
-    },
-    get C14() {
-      return C[14] = dart.constList([C[15] || CT.C15, C[16] || CT.C16, C[17] || CT.C17], widget_inspector._Location);
-    },
-    get C13() {
-      return C[13] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[14] || CT.C14,
-        [_Location_name]: null,
-        [_Location_column]: 7,
-        [_Location_line]: 12,
-        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/categories.dart"
-      });
-    },
-    get C20() {
-      return C[20] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "mainAxisAlignment",
-        [_Location_column]: 5,
-        [_Location_line]: 5,
-        [_Location_file]: null
-      });
-    },
-    get C21() {
-      return C[21] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "crossAxisAlignment",
-        [_Location_column]: 5,
-        [_Location_line]: 6,
-        [_Location_file]: null
-      });
-    },
-    get C22() {
-      return C[22] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 5,
-        [_Location_line]: 7,
-        [_Location_file]: null
-      });
-    },
-    get C19() {
-      return C[19] = dart.constList([C[20] || CT.C20, C[21] || CT.C21, C[22] || CT.C22], widget_inspector._Location);
-    },
-    get C18() {
-      return C[18] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[19] || CT.C19,
-        [_Location_name]: null,
-        [_Location_column]: 10,
-        [_Location_line]: 4,
-        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/categories.dart"
-      });
-    },
-    get C25() {
-      return C[25] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "src",
-        [_Location_column]: 11,
-        [_Location_line]: 37,
-        [_Location_file]: null
-      });
-    },
-    get C26() {
-      return C[26] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "height",
-        [_Location_column]: 97,
-        [_Location_line]: 37,
-        [_Location_file]: null
-      });
-    },
-    get C24() {
-      return C[24] = dart.constList([C[25] || CT.C25, C[26] || CT.C26], widget_inspector._Location);
-    },
-    get C23() {
-      return C[23] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[24] || CT.C24,
-        [_Location_name]: null,
-        [_Location_column]: 24,
-        [_Location_line]: 36,
-        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/categories.dart"
-      });
-    },
-    get C29() {
-      return C[29] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 11,
-        [_Location_line]: 35,
-        [_Location_file]: null
-      });
-    },
-    get C30() {
-      return C[30] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 11,
-        [_Location_line]: 36,
-        [_Location_file]: null
-      });
-    },
-    get C28() {
-      return C[28] = dart.constList([C[29] || CT.C29, C[30] || CT.C30], widget_inspector._Location);
-    },
-    get C27() {
-      return C[27] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[28] || CT.C28,
-        [_Location_name]: null,
-        [_Location_column]: 9,
-        [_Location_line]: 34,
-        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/categories.dart"
-      });
-    },
-    get C33() {
-      return C[33] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 13,
-        [_Location_line]: 42,
-        [_Location_file]: null
-      });
-    },
-    get C34() {
-      return C[34] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "textAlign",
-        [_Location_column]: 13,
-        [_Location_line]: 43,
-        [_Location_file]: null
-      });
-    },
-    get C35() {
-      return C[35] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 13,
-        [_Location_line]: 44,
-        [_Location_file]: null
-      });
-    },
-    get C32() {
-      return C[32] = dart.constList([C[33] || CT.C33, C[34] || CT.C34, C[35] || CT.C35], widget_inspector._Location);
-    },
-    get C31() {
-      return C[31] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[32] || CT.C32,
-        [_Location_name]: null,
-        [_Location_column]: 18,
-        [_Location_line]: 41,
-        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/categories.dart"
-      });
-    },
-    get C38() {
-      return C[38] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 11,
-        [_Location_line]: 40,
-        [_Location_file]: null
-      });
-    },
-    get C39() {
-      return C[39] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 11,
-        [_Location_line]: 41,
-        [_Location_file]: null
-      });
-    },
-    get C37() {
-      return C[37] = dart.constList([C[38] || CT.C38, C[39] || CT.C39], widget_inspector._Location);
-    },
-    get C36() {
-      return C[36] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[37] || CT.C37,
-        [_Location_name]: null,
-        [_Location_column]: 9,
-        [_Location_line]: 39,
-        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/categories.dart"
-      });
-    },
-    get C42() {
-      return C[42] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 21,
-        [_Location_line]: 33,
-        [_Location_file]: null
-      });
-    },
-    get C41() {
-      return C[41] = dart.constList([C[42] || CT.C42], widget_inspector._Location);
-    },
-    get C40() {
-      return C[40] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[41] || CT.C41,
-        [_Location_name]: null,
-        [_Location_column]: 14,
-        [_Location_line]: 33,
-        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/categories.dart"
-      });
-    },
-    get C45() {
-      return C[45] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "decoration",
-        [_Location_column]: 7,
-        [_Location_line]: 27,
-        [_Location_file]: null
-      });
-    },
-    get C46() {
-      return C[46] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "margin",
-        [_Location_column]: 7,
-        [_Location_line]: 31,
-        [_Location_file]: null
-      });
-    },
-    get C47() {
-      return C[47] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "width",
-        [_Location_column]: 7,
-        [_Location_line]: 32,
-        [_Location_file]: null
-      });
-    },
-    get C48() {
-      return C[48] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 7,
-        [_Location_line]: 33,
-        [_Location_file]: null
-      });
-    },
-    get C44() {
-      return C[44] = dart.constList([C[45] || CT.C45, C[46] || CT.C46, C[47] || CT.C47, C[48] || CT.C48], widget_inspector._Location);
-    },
-    get C43() {
-      return C[43] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[44] || CT.C44,
-        [_Location_name]: null,
-        [_Location_column]: 10,
-        [_Location_line]: 26,
-        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/widget/mobile/categories.dart"
-      });
+    /*get_instance.GetInstance._routesByCreate*/get _routesByCreate() {
+      return new (T.IdentityMapOfStringN$HashSetOfFunction()).new();
     }
   }, false);
-  var C = Array(49).fill(void 0);
-  var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
-  var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
-  var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
-  var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
-  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
-  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
-  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
-  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
-  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
-  categories$.getCategories = function getCategories(categories, constraints) {
-    return new basic.Column.new({mainAxisAlignment: flex.MainAxisAlignment.start, crossAxisAlignment: flex.CrossAxisAlignment.start, children: T.JSArrayOfWidget().of([new basic.Padding.new({padding: C[0] || CT.C0, child: new text.Text.new("Categories", {$creationLocationd_0dea112b090073317d4: C[1] || CT.C1}), $creationLocationd_0dea112b090073317d4: C[4] || CT.C4}), new container.Container.new({margin: new edge_insets.EdgeInsets.symmetric({vertical: 10.0, horizontal: 8.0}), height: 120.0, child: new scroll_view.ListView.builder({scrollDirection: basic_types.Axis.horizontal, itemCount: categories[$length], itemBuilder: dart.fn((context, index) => categories$.category(core.String.as(categories[$_get](index))), T.BuildContextAndintToWidget()), $creationLocationd_0dea112b090073317d4: C[8] || CT.C8}), $creationLocationd_0dea112b090073317d4: C[13] || CT.C13})]), $creationLocationd_0dea112b090073317d4: C[18] || CT.C18});
-  };
-  categories$.category = function category(category) {
-    return new container.Container.new({decoration: new box_decoration.BoxDecoration.new({color: colors.Colors.red._get(50), borderRadius: new border_radius.BorderRadius.circular(12.0)}), margin: new edge_insets.EdgeInsets.symmetric({horizontal: 8.0}), width: 150.0, child: new basic.Column.new({children: T.JSArrayOfWidget().of([new basic.Padding.new({padding: C[0] || CT.C0, child: new image.Image.network("https://www.bajajallianz.com/content/dam/bagic/home-insurance/My-Home-Insurance.png", {height: 40.0, $creationLocationd_0dea112b090073317d4: C[23] || CT.C23}), $creationLocationd_0dea112b090073317d4: C[27] || CT.C27}), new basic.Padding.new({padding: C[0] || CT.C0, child: new text.Text.new(category, {textAlign: ui.TextAlign.center, style: new text_style.TextStyle.new({fontSize: 14.0, fontWeight: ui.FontWeight.bold}), $creationLocationd_0dea112b090073317d4: C[31] || CT.C31}), $creationLocationd_0dea112b090073317d4: C[36] || CT.C36})]), $creationLocationd_0dea112b090073317d4: C[40] || CT.C40}), $creationLocationd_0dea112b090073317d4: C[43] || CT.C43});
-  };
-  dart.trackLibraries("packages/amar_karigor/app/modules/home/views/widget/mobile/categories.dart", {
-    "package:amar_karigor/app/modules/home/views/widget/mobile/categories.dart": categories$
+  var dependency = dart.privateName(get_instance, "_InstanceBuilderFactory.dependency");
+  var builderFunc$ = dart.privateName(get_instance, "_InstanceBuilderFactory.builderFunc");
+  var _showInitLog = dart.privateName(get_instance, "_showInitLog");
+  const _is__InstanceBuilderFactory_default = Symbol('_is__InstanceBuilderFactory_default');
+  get_instance._InstanceBuilderFactory$ = dart.generic(S => {
+    var SN = () => (SN = dart.constFn(dart.nullable(S)))();
+    var VoidToS = () => (VoidToS = dart.constFn(dart.fnType(S, [])))();
+    class _InstanceBuilderFactory extends core.Object {
+      get dependency() {
+        return this[dependency];
+      }
+      set dependency(value) {
+        this[dependency] = SN().as(value);
+      }
+      get builderFunc() {
+        return this[builderFunc$];
+      }
+      set builderFunc(value) {
+        this[builderFunc$] = VoidToS().as(value);
+      }
+      [_showInitLog]() {
+        let t1, t0, t1$, t0$;
+        if (this.tag == null) {
+          t0 = get_main.Get;
+          t1 = "Instance \"" + dart.str(dart.wrapType(S)) + "\" has been created";
+          t0.log(t1);
+        } else {
+          t0$ = get_main.Get;
+          t1$ = "Instance \"" + dart.str(dart.wrapType(S)) + "\" has been created with tag \"" + dart.str(this.tag) + "\"";
+          t0$.log(t1$);
+        }
+      }
+      getDependency() {
+        if (dart.nullCheck(this.isSingleton)) {
+          if (this.dependency == null) {
+            this[_showInitLog]();
+            this.dependency = this.builderFunc();
+          }
+          return dart.nullCheck(this.dependency);
+        } else {
+          return this.builderFunc();
+        }
+      }
+    }
+    (_InstanceBuilderFactory.new = function(isSingleton, builderFunc, permanent, isInit, fenix, tag) {
+      this[dependency] = null;
+      this.permanent = false;
+      this.isInit = false;
+      this.isSingleton = isSingleton;
+      this[builderFunc$] = builderFunc;
+      this.permanent = permanent;
+      this.isInit = isInit;
+      this.fenix = fenix;
+      this.tag = tag;
+      ;
+    }).prototype = _InstanceBuilderFactory.prototype;
+    dart.addTypeTests(_InstanceBuilderFactory);
+    _InstanceBuilderFactory.prototype[_is__InstanceBuilderFactory_default] = true;
+    dart.addTypeCaches(_InstanceBuilderFactory);
+    dart.setMethodSignature(_InstanceBuilderFactory, () => ({
+      __proto__: dart.getMethods(_InstanceBuilderFactory.__proto__),
+      [_showInitLog]: dart.fnType(dart.void, []),
+      getDependency: dart.fnType(S, [])
+    }));
+    dart.setLibraryUri(_InstanceBuilderFactory, I[0]);
+    dart.setFieldSignature(_InstanceBuilderFactory, () => ({
+      __proto__: dart.getFields(_InstanceBuilderFactory.__proto__),
+      isSingleton: dart.fieldType(dart.nullable(core.bool)),
+      fenix: dart.fieldType(core.bool),
+      dependency: dart.fieldType(dart.nullable(S)),
+      builderFunc: dart.fieldType(dart.fnType(S, [])),
+      permanent: dart.fieldType(core.bool),
+      isInit: dart.fieldType(core.bool),
+      tag: dart.fieldType(dart.nullable(core.String))
+    }));
+    return _InstanceBuilderFactory;
+  });
+  get_instance._InstanceBuilderFactory = get_instance._InstanceBuilderFactory$();
+  dart.addTypeTests(get_instance._InstanceBuilderFactory, _is__InstanceBuilderFactory_default);
+  dart.trackLibraries("packages/get/get_instance/src/get_instance.dart", {
+    "package:get/get_instance/src/get_instance.dart": get_instance
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["categories.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;qDAE0B,YAAW;AACnC,UAAO,0CACgC,kDACE,yCAC7B,wBACR,sDAES,kBAAK,iIAEd,qCACuB,gDAAoB,kBAAkB,eACjD,cACQ,mDACU,wCACX,AAAW,UAAD,wBACR,SAAC,SAAS,UACd,oCAAS,AAAU,UAAA,QAAC,KAAK;EAIhD;2CAEuB;AACrB,UAAO,0CACS,6CACI,AAAG,uBAAC,mBACS,wCAAS,iBAEnB,kDAAsB,cAClC,cACA,gCAAiB,wBACtB,sDAEe,wBACb,gGAA8F,4HAEhG,sDAES,kBACL,QAAQ,cACa,4BACd,wCAAoB,kBAA2B;EAIlE","file":"../../../../../../../../../../../packages/amar_karigor/app/modules/home/views/widget/mobile/categories.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["get_instance.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../../packages/get/get_instance/src/get_instance.dart.lib.js"}');
   // Exports:
   return {
-    app__modules__home__views__widget__mobile__categories: categories$
+    get_instance__src__get_instance: get_instance
   };
 }));
 
-//# sourceMappingURL=categories.dart.lib.js.map
+//# sourceMappingURL=get_instance.dart.lib.js.map

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "760012543825",
+    "firebase_url": "https://amrkarigor-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "amrkarigor",
+    "storage_bucket": "amrkarigor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:760012543825:android:b2eda0941c69b13a74a570",
+        "android_client_info": {
+          "package_name": "com.amarkarigor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "760012543825-aerrm7k2n5iqufcinoloshfhlblgu6tp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.amarkarigor",
+            "certificate_hash": "c48a960602710f0e2180a8651e36c08f7cdb5027"
+          }
+        },
+        {
+          "client_id": "760012543825-veqa6dtlpkdhhn8oqe64p338fpi7n96k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvCYD35T0iBTKlMNSpWRhPsiksn4KsMPE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "760012543825-veqa6dtlpkdhhn8oqe64p338fpi7n96k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

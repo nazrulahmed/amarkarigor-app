@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Widget getCategories(List categories,constraints) {
+Widget getCategories(List categories) {
   return Column(
     mainAxisAlignment: MainAxisAlignment.start,
     crossAxisAlignment: CrossAxisAlignment.start,

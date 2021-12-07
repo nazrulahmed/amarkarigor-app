@@ -1,478 +1,558 @@
-define(['dart_sdk', 'packages/get/get_core/src/get_main.dart'], (function load__packages__get__get_utils__src__get_utils__get_utils_dart(dart_sdk, packages__get__get_core__src__get_main$46dart) {
+define(['dart_sdk', 'packages/vector_math/vector_math_64.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/foundation/collections.dart', 'packages/flutter/src/foundation/object.dart'], (function load__packages__flutter__src__painting__gradient_dart(dart_sdk, packages__vector_math__vector_math_64$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__foundation__collections$46dart, packages__flutter__src__foundation__object$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const _interceptors = dart_sdk._interceptors;
+  const ui = dart_sdk.ui;
+  const math = dart_sdk.math;
+  const typed_data = dart_sdk.typed_data;
   const collection = dart_sdk.collection;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const get_main = packages__get__get_core__src__get_main$46dart.get_core__src__get_main;
-  var get_utils = Object.create(dart.library);
-  var $toLowerCase = dartx.toLowerCase;
-  var $endsWith = dartx.endsWith;
-  var $replaceAll = dartx.replaceAll;
-  var $_get = dartx._get;
-  var $toString = dartx.toString;
-  var $contains = dartx.contains;
-  var $split = dartx.split;
+  const vector_math_64 = packages__vector_math__vector_math_64$46dart.vector_math_64;
+  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
+  const collections = packages__flutter__src__foundation__collections$46dart.src__foundation__collections;
+  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
+  var gradient = Object.create(dart.library);
+  var $length = dartx.length;
   var $map = dartx.map;
   var $toList = dartx.toList;
-  var $modulo = dartx['%'];
-  var $join = dartx.join;
-  var $toUpperCase = dartx.toUpperCase;
-  var $substring = dartx.substring;
-  var $add = dartx.add;
+  var $runtimeType = dartx.runtimeType;
   var $isNotEmpty = dartx.isNotEmpty;
-  var $isEmpty = dartx.isEmpty;
-  var $trim = dartx.trim;
+  var $first = dartx.first;
+  var $last = dartx.last;
+  var $lastIndexWhere = dartx.lastIndexWhere;
+  var $_get = dartx._get;
   dart._checkModuleNullSafetyMode(true);
   var T = {
-    StringToint: () => (T.StringToint = dart.constFn(dart.fnType(core.int, [core.String])))(),
-    StringToNint: () => (T.StringToNint = dart.constFn(dart.nullable(T.StringToint())))(),
-    intN: () => (T.intN = dart.constFn(dart.nullable(core.int)))(),
-    String__Toint: () => (T.String__Toint = dart.constFn(dart.fnType(core.int, [core.String], {onError: T.StringToNint(), radix: T.intN()}, {})))(),
-    IterableOfint: () => (T.IterableOfint = dart.constFn(core.Iterable$(core.int)))(),
-    intToint: () => (T.intToint = dart.constFn(dart.fnType(core.int, [core.int])))(),
-    StringN: () => (T.StringN = dart.constFn(dart.nullable(core.String)))(),
-    StringToStringN: () => (T.StringToStringN = dart.constFn(dart.fnType(T.StringN(), [core.String])))(),
-    JSArrayOfString: () => (T.JSArrayOfString = dart.constFn(_interceptors.JSArray$(core.String)))(),
-    StringToString: () => (T.StringToString = dart.constFn(dart.fnType(core.String, [core.String])))(),
-    dynamicToString: () => (T.dynamicToString = dart.constFn(dart.fnType(core.String, [dart.dynamic])))(),
-    LinkedHashSetOfString: () => (T.LinkedHashSetOfString = dart.constFn(collection.LinkedHashSet$(core.String)))(),
-    boolN: () => (T.boolN = dart.constFn(dart.nullable(core.bool)))()
+    ListOfdouble: () => (T.ListOfdouble = dart.constFn(core.List$(core.double)))(),
+    intTodouble: () => (T.intTodouble = dart.constFn(dart.fnType(core.double, [core.int])))(),
+    ColorToColor: () => (T.ColorToColor = dart.constFn(dart.fnType(ui.Color, [ui.Color])))(),
+    LinearGradientN: () => (T.LinearGradientN = dart.constFn(dart.nullable(gradient.LinearGradient)))(),
+    RadialGradientN: () => (T.RadialGradientN = dart.constFn(dart.nullable(gradient.RadialGradient)))(),
+    SweepGradientN: () => (T.SweepGradientN = dart.constFn(dart.nullable(gradient.SweepGradient)))(),
+    doubleTobool: () => (T.doubleTobool = dart.constFn(dart.fnType(core.bool, [core.double])))(),
+    SplayTreeSetOfdouble: () => (T.SplayTreeSetOfdouble = dart.constFn(collection.SplayTreeSet$(core.double)))(),
+    doubleToColor: () => (T.doubleToColor = dart.constFn(dart.fnType(ui.Color, [core.double])))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
     get C0() {
-      return C[0] = dart.fn(core.int.parse, T.String__Toint());
+      return C[0] = dart.const({
+        __proto__: alignment.Alignment.prototype,
+        [Alignment_y]: 0,
+        [Alignment_x]: -1
+      });
     },
     get C1() {
-      return C[1] = dart.fn(get_utils.GetUtils.capitalizeFirst, T.StringToStringN());
-    }
-  }, false);
-  var C = Array(2).fill(void 0);
-  var I = ["package:get/get_utils/src/get_utils/get_utils.dart"];
-  get_utils.GetUtils = class GetUtils extends core.Object {
-    static isNull(value) {
-      return value == null;
-    }
-    static nil(s) {
-      return s == null ? null : s;
-    }
-    static isNullOrBlank(value) {
-      if (get_utils.GetUtils.isNull(value)) {
-        return true;
-      }
-      return get_utils._isEmpty(value);
-    }
-    static isBlank(value) {
-      return get_utils._isEmpty(value);
-    }
-    static isNum(value) {
-      if (get_utils.GetUtils.isNull(value)) {
-        return false;
-      }
-      return typeof core.num.tryParse(value) == 'number';
-    }
-    static isNumericOnly(s) {
-      return get_utils.GetUtils.hasMatch(s, "^\\d+$");
-    }
-    static isAlphabetOnly(s) {
-      return get_utils.GetUtils.hasMatch(s, "^[a-zA-Z]+$");
-    }
-    static hasCapitalletter(s) {
-      return get_utils.GetUtils.hasMatch(s, "[A-Z]");
-    }
-    static isBool(value) {
-      if (get_utils.GetUtils.isNull(value)) {
-        return false;
-      }
-      return value === "true" || value === "false";
-    }
-    static isVideo(filePath) {
-      let ext = filePath[$toLowerCase]();
-      return ext[$endsWith](".mp4") || ext[$endsWith](".avi") || ext[$endsWith](".wmv") || ext[$endsWith](".rmvb") || ext[$endsWith](".mpg") || ext[$endsWith](".mpeg") || ext[$endsWith](".3gp");
-    }
-    static isImage(filePath) {
-      let ext = filePath[$toLowerCase]();
-      return ext[$endsWith](".jpg") || ext[$endsWith](".jpeg") || ext[$endsWith](".png") || ext[$endsWith](".gif") || ext[$endsWith](".bmp");
-    }
-    static isAudio(filePath) {
-      let ext = filePath[$toLowerCase]();
-      return ext[$endsWith](".mp3") || ext[$endsWith](".wav") || ext[$endsWith](".wma") || ext[$endsWith](".amr") || ext[$endsWith](".ogg");
-    }
-    static isPPT(filePath) {
-      let ext = filePath[$toLowerCase]();
-      return ext[$endsWith](".ppt") || ext[$endsWith](".pptx");
-    }
-    static isWord(filePath) {
-      let ext = filePath[$toLowerCase]();
-      return ext[$endsWith](".doc") || ext[$endsWith](".docx");
-    }
-    static isExcel(filePath) {
-      let ext = filePath[$toLowerCase]();
-      return ext[$endsWith](".xls") || ext[$endsWith](".xlsx");
-    }
-    static isAPK(filePath) {
-      return filePath[$toLowerCase]()[$endsWith](".apk");
-    }
-    static isPDF(filePath) {
-      return filePath[$toLowerCase]()[$endsWith](".pdf");
-    }
-    static isTxt(filePath) {
-      return filePath[$toLowerCase]()[$endsWith](".txt");
-    }
-    static isChm(filePath) {
-      return filePath[$toLowerCase]()[$endsWith](".chm");
-    }
-    static isVector(filePath) {
-      return filePath[$toLowerCase]()[$endsWith](".svg");
-    }
-    static isHTML(filePath) {
-      return filePath[$toLowerCase]()[$endsWith](".html");
-    }
-    static isUsername(s) {
-      return get_utils.GetUtils.hasMatch(s, "^[a-zA-Z0-9][a-zA-Z0-9_.]+[a-zA-Z0-9]$");
-    }
-    static isURL(s) {
-      return get_utils.GetUtils.hasMatch(s, "^((((H|h)(T|t)|(F|f))(T|t)(P|p)((S|s)?))\\://)?(www.|[a-zA-Z0-9].)[a-zA-Z0-9\\-\\.]+\\.[a-zA-Z]{2,6}(\\:[0-9]{1,5})*(/($|[a-zA-Z0-9\\.\\,\\;\\?\\'\\\\\\+&amp;%\\$#\\=~_\\-]+))*$");
-    }
-    static isEmail(s) {
-      return get_utils.GetUtils.hasMatch(s, "^(([^<>()[\\]\\\\.,;:\\s@\\\"]+(\\.[^<>()[\\]\\\\.,;:\\s@\\\"]+)*)|(\\\".+\\\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$");
-    }
-    static isPhoneNumber(s) {
-      if (s.length > 16 || s.length < 9) return false;
-      return get_utils.GetUtils.hasMatch(s, "^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s\\./0-9]*$");
-    }
-    static isDateTime(s) {
-      return get_utils.GetUtils.hasMatch(s, "^\\d{4}-\\d{2}-\\d{2}[ T]\\d{2}:\\d{2}:\\d{2}.\\d{3}Z?$");
-    }
-    static isMD5(s) {
-      return get_utils.GetUtils.hasMatch(s, "^[a-f0-9]{32}$");
-    }
-    static isSHA1(s) {
-      return get_utils.GetUtils.hasMatch(s, "(([A-Fa-f0-9]{2}\\:){19}[A-Fa-f0-9]{2}|[A-Fa-f0-9]{40})");
-    }
-    static isSHA256(s) {
-      return get_utils.GetUtils.hasMatch(s, "([A-Fa-f0-9]{2}\\:){31}[A-Fa-f0-9]{2}|[A-Fa-f0-9]{64}");
-    }
-    static isSSN(s) {
-      return get_utils.GetUtils.hasMatch(s, "^(?!0{3}|6{3}|9[0-9]{2})[0-9]{3}-?(?!0{2})[0-9]{2}-?(?!0{4})[0-9]{4}$");
-    }
-    static isBinary(s) {
-      return get_utils.GetUtils.hasMatch(s, "^[0-1]+$");
-    }
-    static isIPv4(s) {
-      return get_utils.GetUtils.hasMatch(s, "^(?:(?:^|\\.)(?:2(?:5[0-5]|[0-4]\\d)|1?\\d?\\d)){4}$");
-    }
-    static isIPv6(s) {
-      return get_utils.GetUtils.hasMatch(s, "^((([0-9A-Fa-f]{1,4}:){7}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){6}:[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){5}:([0-9A-Fa-f]{1,4}:)?[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){4}:([0-9A-Fa-f]{1,4}:){0,2}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){3}:([0-9A-Fa-f]{1,4}:){0,3}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){2}:([0-9A-Fa-f]{1,4}:){0,4}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){6}((\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b)\\.){3}(\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b))|(([0-9A-Fa-f]{1,4}:){0,5}:((\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b)\\.){3}(\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b))|(::([0-9A-Fa-f]{1,4}:){0,5}((\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b)\\.){3}(\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b))|([0-9A-Fa-f]{1,4}::([0-9A-Fa-f]{1,4}:){0,5}[0-9A-Fa-f]{1,4})|(::([0-9A-Fa-f]{1,4}:){0,6}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){1,7}:))$");
-    }
-    static isHexadecimal(s) {
-      return get_utils.GetUtils.hasMatch(s, "^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$");
-    }
-    static isPalindrom(string) {
-      let cleanString = string[$toLowerCase]()[$replaceAll](core.RegExp.new("\\s+"), "")[$replaceAll](core.RegExp.new("[^0-9a-zA-Z]+"), "");
-      for (let i = 0; i < cleanString.length; i = i + 1) {
-        if (cleanString[$_get](i) !== cleanString[$_get](cleanString.length - i - 1)) {
-          return false;
-        }
-      }
-      return true;
-    }
-    static isOneAKind(value) {
-      if ((typeof value == 'string' || core.List.is(value)) && !dart.nullCheck(get_utils.GetUtils.isNullOrBlank(value))) {
-        let first = dart.dsend(value, '_get', [0]);
-        let len = core.num.as(dart.dload(value, 'length'));
-        for (let i = 0; i < len; i = i + 1) {
-          if (!dart.equals(dart.dsend(value, '_get', [i]), first)) {
-            return false;
-          }
-        }
-        return true;
-      }
-      if (core.int.is(value)) {
-        let stringValue = dart.toString(value);
-        let first = stringValue[$_get](0);
-        for (let i = 0; i < stringValue.length; i = i + 1) {
-          if (stringValue[$_get](i) !== first) {
-            return false;
-          }
-        }
-        return true;
-      }
-      return false;
-    }
-    static isPassport(s) {
-      return get_utils.GetUtils.hasMatch(s, "^(?!^0+$)[a-zA-Z0-9]{6,9}$");
-    }
-    static isCurrency(s) {
-      return get_utils.GetUtils.hasMatch(s, "^(S?\\$|\\₩|Rp|\\¥|\\€|\\₹|\\₽|fr|R\\$|R)?[ ]?[-]?([0-9]{1,3}[,.]([0-9]{3}[,.])*[0-9]{3}|[0-9]+)([,.][0-9]{1,2})?( ?(USD?|AUD|NZD|CAD|CHF|GBP|CNY|EUR|JPY|IDR|MXN|NOK|KRW|TRY|INR|RUB|BRL|ZAR|SGD|MYR))?$");
-    }
-    static isLengthGreaterThan(value, maxLength) {
-      let length = get_utils._obtainDynamicLength(value);
-      if (length == null) {
-        return false;
-      }
-      return dart.notNull(length) > maxLength;
-    }
-    static isLengthGreaterOrEqual(value, maxLength) {
-      let length = get_utils._obtainDynamicLength(value);
-      if (length == null) {
-        return false;
-      }
-      return dart.notNull(length) >= maxLength;
-    }
-    static isLengthLowerThan(value, maxLength) {
-      return get_utils.GetUtils.isLengthLessThan(value, maxLength);
-    }
-    static isLengthLessThan(value, maxLength) {
-      let length = get_utils._obtainDynamicLength(value);
-      if (length == null) {
-        return false;
-      }
-      return dart.notNull(length) < maxLength;
-    }
-    static isLengthLowerOrEqual(value, maxLength) {
-      return get_utils.GetUtils.isLengthLessOrEqual(value, maxLength);
-    }
-    static isLengthLessOrEqual(value, maxLength) {
-      let length = get_utils._obtainDynamicLength(value);
-      if (length == null) {
-        return false;
-      }
-      return dart.notNull(length) <= maxLength;
-    }
-    static isLengthEqualTo(value, otherLength) {
-      let length = get_utils._obtainDynamicLength(value);
-      if (length == null) {
-        return false;
-      }
-      return length === otherLength;
-    }
-    static isLengthBetween(value, minLength, maxLength) {
-      if (get_utils.GetUtils.isNull(value)) {
-        return false;
-      }
-      return get_utils.GetUtils.isLengthGreaterOrEqual(value, minLength) && get_utils.GetUtils.isLengthLessOrEqual(value, maxLength);
-    }
-    static isCaseInsensitiveContains(a, b) {
-      return a[$toLowerCase]()[$contains](b[$toLowerCase]());
-    }
-    static isCaseInsensitiveContainsAny(a, b) {
-      let lowA = a[$toLowerCase]();
-      let lowB = b[$toLowerCase]();
-      return lowA[$contains](lowB) || lowB[$contains](lowA);
-    }
-    static isLowerThan(a, b) {
-      return a < b;
-    }
-    static isGreaterThan(a, b) {
-      return a > b;
-    }
-    static isEqual(a, b) {
-      return a === b;
-    }
-    static isCnpj(cnpj) {
-      let t0, t0$;
-      let numbers = cnpj[$replaceAll](core.RegExp.new("[^0-9]"), "");
-      if (numbers.length !== 14) {
-        return false;
-      }
-      if (core.RegExp.new("^(\\d)\\1*$").hasMatch(numbers)) {
-        return false;
-      }
-      let digits = numbers[$split]("")[$map](core.int, C[0] || CT.C0)[$toList]();
-      let calcDv1 = 0;
-      let j = 0;
-      let iter = T.IterableOfint().generate(12, dart.fn(i => i < 4 ? 5 - i : 13 - i, T.intToint()));
-      for (let i of iter) {
-        calcDv1 = calcDv1 + digits[$_get]((t0 = j, j = t0 + 1, t0)) * i;
-      }
-      calcDv1 = calcDv1[$modulo](11);
-      let dv1 = calcDv1 < 2 ? 0 : 11 - calcDv1;
-      if (digits[$_get](12) !== dv1) {
-        return false;
-      }
-      let calcDv2 = 0;
-      j = 0;
-      let iter$ = T.IterableOfint().generate(13, dart.fn(i => i < 5 ? 6 - i : 14 - i, T.intToint()));
-      for (let i of iter$) {
-        calcDv2 = calcDv2 + digits[$_get]((t0$ = j, j = t0$ + 1, t0$)) * i;
-      }
-      calcDv2 = calcDv2[$modulo](11);
-      let dv2 = calcDv2 < 2 ? 0 : 11 - calcDv2;
-      if (digits[$_get](13) !== dv2) {
-        return false;
-      }
-      return true;
-    }
-    static isCpf(cpf) {
-      let numbers = cpf[$replaceAll](core.RegExp.new("[^0-9]"), "");
-      if (numbers.length !== 11) {
-        return false;
-      }
-      if (core.RegExp.new("^(\\d)\\1*$").hasMatch(numbers)) {
-        return false;
-      }
-      let digits = numbers[$split]("")[$map](core.int, C[0] || CT.C0)[$toList]();
-      let calcDv1 = 0;
-      let iter = T.IterableOfint().generate(9, dart.fn(i => 10 - i, T.intToint()));
-      for (let i of iter) {
-        calcDv1 = calcDv1 + digits[$_get](10 - i) * i;
-      }
-      calcDv1 = calcDv1[$modulo](11);
-      let dv1 = calcDv1 < 2 ? 0 : 11 - calcDv1;
-      if (digits[$_get](9) !== dv1) {
-        return false;
-      }
-      let calcDv2 = 0;
-      let iter$ = T.IterableOfint().generate(10, dart.fn(i => 11 - i, T.intToint()));
-      for (let i of iter$) {
-        calcDv2 = calcDv2 + digits[$_get](11 - i) * i;
-      }
-      calcDv2 = calcDv2[$modulo](11);
-      let dv2 = calcDv2 < 2 ? 0 : 11 - calcDv2;
-      if (digits[$_get](10) !== dv2) {
-        return false;
-      }
-      return true;
-    }
-    static capitalize(value) {
-      if (get_utils.GetUtils.isNull(value)) return null;
-      if (dart.nullCheck(get_utils.GetUtils.isBlank(value))) return value;
-      return value[$split](" ")[$map](T.StringN(), C[1] || CT.C1)[$join](" ");
-    }
-    static capitalizeFirst(s) {
-      if (get_utils.GetUtils.isNull(s)) return null;
-      if (dart.nullCheck(get_utils.GetUtils.isBlank(s))) return s;
-      return s[$_get](0)[$toUpperCase]() + s[$substring](1)[$toLowerCase]();
-    }
-    static removeAllWhitespace(value) {
-      return value[$replaceAll](" ", "");
-    }
-    static camelCase(value) {
-      if (dart.nullCheck(get_utils.GetUtils.isNullOrBlank(value))) {
-        return null;
-      }
-      let separatedWords = value[$split](core.RegExp.new("[!@#<>?\":`~;[\\]\\\\|=+)(*&^%-\\s_]+"));
-      let newString = "";
-      for (let word of separatedWords) {
-        newString = newString + (word[$_get](0)[$toUpperCase]() + word[$substring](1)[$toLowerCase]());
-      }
-      return newString[$_get](0)[$toLowerCase]() + newString[$substring](1);
-    }
-    static _groupIntoWords(text) {
-      let sb = new core.StringBuffer.new();
-      let words = T.JSArrayOfString().of([]);
-      let isAllCaps = text[$toUpperCase]() === text;
-      for (let i = 0; i < text.length; i = i + 1) {
-        let char = text[$_get](i);
-        let nextChar = i + 1 === text.length ? null : text[$_get](i + 1);
-        if (get_utils.GetUtils._symbolSet.contains(char)) {
-          continue;
-        }
-        sb.write(char);
-        let isEndOfWord = nextChar == null || get_utils.GetUtils._upperAlphaRegex.hasMatch(nextChar) && !isAllCaps || get_utils.GetUtils._symbolSet.contains(nextChar);
-        if (isEndOfWord) {
-          words[$add](dart.str(sb));
-          sb.clear();
-        }
-      }
-      return words;
-    }
-    static snakeCase(text, opts) {
-      let separator = opts && 'separator' in opts ? opts.separator : "_";
-      if (dart.nullCheck(get_utils.GetUtils.isNullOrBlank(text))) {
-        return null;
-      }
-      return get_utils.GetUtils._groupIntoWords(dart.nullCheck(text))[$map](core.String, dart.fn(word => word[$toLowerCase](), T.StringToString()))[$join](separator);
-    }
-    static paramCase(text) {
-      return get_utils.GetUtils.snakeCase(text, {separator: "-"});
-    }
-    static numericOnly(s, opts) {
-      let firstWordOnly = opts && 'firstWordOnly' in opts ? opts.firstWordOnly : false;
-      let numericOnlyStr = "";
-      for (let i = 0; i < s.length; i = i + 1) {
-        if (get_utils.GetUtils.isNumericOnly(s[$_get](i))) {
-          numericOnlyStr = numericOnlyStr + s[$_get](i);
-        }
-        if (firstWordOnly && numericOnlyStr[$isNotEmpty] && s[$_get](i) === " ") {
-          break;
-        }
-      }
-      return numericOnlyStr;
-    }
-    static hasMatch(value, pattern) {
-      return value == null ? false : core.RegExp.new(pattern).hasMatch(value);
-    }
-    static createPath(path, segments = null) {
-      if (segments == null || segments[$isEmpty]) {
-        return path;
-      }
-      let list = segments[$map](core.String, dart.fn(e => "/" + dart.str(e), T.dynamicToString()));
-      return path + list[$join]();
-    }
-    static printFunction(prefix, value, info, opts) {
-      let t2, t1, t0;
-      let isError = opts && 'isError' in opts ? opts.isError : false;
-      t0 = get_main.Get;
-      t1 = (prefix + " " + dart.str(value) + " " + info)[$trim]();
-      t2 = isError;
-      t0.log(t1, {isError: t2});
-    }
-  };
-  (get_utils.GetUtils.__ = function() {
-    ;
-  }).prototype = get_utils.GetUtils.prototype;
-  dart.addTypeTests(get_utils.GetUtils);
-  dart.addTypeCaches(get_utils.GetUtils);
-  dart.setLibraryUri(get_utils.GetUtils, I[0]);
-  dart.defineLazy(get_utils.GetUtils, {
-    /*get_utils.GetUtils._upperAlphaRegex*/get _upperAlphaRegex() {
-      return core.RegExp.new("[A-Z]");
+      return C[1] = dart.const({
+        __proto__: alignment.Alignment.prototype,
+        [Alignment_y]: 0,
+        [Alignment_x]: 1
+      });
     },
-    /*get_utils.GetUtils._symbolSet*/get _symbolSet() {
-      return T.LinkedHashSetOfString().from([" ", ".", "/", "_", "\\", "-"]);
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: ui.TileMode.prototype,
+        [_name]: "TileMode.clamp",
+        index: 0
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: alignment.Alignment.prototype,
+        [Alignment_y]: 0,
+        [Alignment_x]: 0
+      });
     }
   }, false);
-  get_utils._isEmpty = function _isEmpty(value) {
-    if (typeof value == 'string') {
-      return dart.toString(value)[$trim]()[$isEmpty];
+  var C = Array(4).fill(void 0);
+  var I = [
+    "package:flutter/src/painting/gradient.dart",
+    "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/painting/gradient.dart"
+  ];
+  gradient._ColorsAndStops = class _ColorsAndStops extends core.Object {};
+  (gradient._ColorsAndStops.new = function(colors, stops) {
+    this.colors = colors;
+    this.stops = stops;
+    ;
+  }).prototype = gradient._ColorsAndStops.prototype;
+  dart.addTypeTests(gradient._ColorsAndStops);
+  dart.addTypeCaches(gradient._ColorsAndStops);
+  dart.setLibraryUri(gradient._ColorsAndStops, I[0]);
+  dart.setFieldSignature(gradient._ColorsAndStops, () => ({
+    __proto__: dart.getFields(gradient._ColorsAndStops.__proto__),
+    colors: dart.finalFieldType(core.List$(ui.Color)),
+    stops: dart.finalFieldType(core.List$(core.double))
+  }));
+  gradient.GradientTransform = class GradientTransform extends core.Object {};
+  (gradient.GradientTransform.new = function() {
+    ;
+  }).prototype = gradient.GradientTransform.prototype;
+  dart.addTypeTests(gradient.GradientTransform);
+  dart.addTypeCaches(gradient.GradientTransform);
+  dart.setLibraryUri(gradient.GradientTransform, I[0]);
+  var radians$ = dart.privateName(gradient, "GradientRotation.radians");
+  gradient.GradientRotation = class GradientRotation extends gradient.GradientTransform {
+    get radians() {
+      return this[radians$];
     }
-    if (core.Iterable.is(value) || core.Map.is(value)) {
-      return T.boolN().as(dart.dload(value, 'isEmpty'));
+    set radians(value) {
+      super.radians = value;
     }
-    return false;
+    transform(bounds, opts) {
+      let t0;
+      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+      if (!(bounds !== null)) dart.assertFailed(null, I[1], 110, 12, "bounds != null");
+      let sinRadians = math.sin(this.radians);
+      let oneMinusCosRadians = 1 - math.cos(this.radians);
+      let center = bounds.center;
+      let originX = sinRadians * center.dy + oneMinusCosRadians * center.dx;
+      let originY = -sinRadians * center.dx + oneMinusCosRadians * center.dy;
+      t0 = vector_math_64.Matrix4.identity();
+      return (() => {
+        t0.translate(originX, originY);
+        t0.rotateZ(this.radians);
+        return t0;
+      })();
+    }
   };
-  get_utils._hasLength = function _hasLength(value) {
-    return core.Iterable.is(value) || typeof value == 'string' || core.Map.is(value);
-  };
-  get_utils._obtainDynamicLength = function _obtainDynamicLength(value) {
-    if (value == null) {
+  (gradient.GradientRotation.new = function(radians) {
+    this[radians$] = radians;
+    gradient.GradientRotation.__proto__.new.call(this);
+    ;
+  }).prototype = gradient.GradientRotation.prototype;
+  dart.addTypeTests(gradient.GradientRotation);
+  dart.addTypeCaches(gradient.GradientRotation);
+  dart.setMethodSignature(gradient.GradientRotation, () => ({
+    __proto__: dart.getMethods(gradient.GradientRotation.__proto__),
+    transform: dart.fnType(vector_math_64.Matrix4, [ui.Rect], {textDirection: dart.nullable(ui.TextDirection)}, {})
+  }));
+  dart.setLibraryUri(gradient.GradientRotation, I[0]);
+  dart.setFieldSignature(gradient.GradientRotation, () => ({
+    __proto__: dart.getFields(gradient.GradientRotation.__proto__),
+    radians: dart.finalFieldType(core.double)
+  }));
+  var colors$ = dart.privateName(gradient, "Gradient.colors");
+  var stops$ = dart.privateName(gradient, "Gradient.stops");
+  var transform$ = dart.privateName(gradient, "Gradient.transform");
+  var _impliedStops = dart.privateName(gradient, "_impliedStops");
+  var _resolveTransform = dart.privateName(gradient, "_resolveTransform");
+  gradient.Gradient = class Gradient extends core.Object {
+    get colors() {
+      return this[colors$];
+    }
+    set colors(value) {
+      super.colors = value;
+    }
+    get stops() {
+      return this[stops$];
+    }
+    set stops(value) {
+      super.stops = value;
+    }
+    get transform() {
+      return this[transform$];
+    }
+    set transform(value) {
+      super.transform = value;
+    }
+    [_impliedStops]() {
+      if (this.stops != null) return dart.nullCheck(this.stops);
+      if (!(this.colors[$length] >= 2)) dart.assertFailed("colors list must have at least two colors", I[1], 190, 12, "colors.length >= 2");
+      let separation = 1.0 / (this.colors[$length] - 1);
+      return T.ListOfdouble().generate(this.colors[$length], dart.fn(index => index * separation, T.intTodouble()), {growable: false});
+    }
+    lerpFrom(a, t) {
+      if (a == null) return this.scale(t);
       return null;
     }
-    if (get_utils._hasLength(value)) {
-      return T.intN().as(dart.dload(value, 'length'));
+    lerpTo(b, t) {
+      if (b == null) return this.scale(1.0 - t);
+      return null;
     }
-    if (core.int.is(value)) {
-      return dart.toString(value).length;
+    static lerp(a, b, t) {
+      if (!(t !== null)) dart.assertFailed(null, I[1], 291, 12, "t != null");
+      let result = null;
+      if (b != null) result = b.lerpFrom(a, t);
+      if (result == null && a != null) result = a.lerpTo(b, t);
+      if (result != null) return result;
+      if (a == null && b == null) return null;
+      if (!(a != null && b != null)) dart.assertFailed(null, I[1], 301, 12, "a != null && b != null");
+      return t < 0.5 ? dart.nullCheck(a).scale(1.0 - t * 2.0) : dart.nullCheck(b).scale((t - 0.5) * 2.0);
     }
-    if (typeof value == 'number') {
-      return dart.toString(value)[$replaceAll](".", "").length;
+    [_resolveTransform](bounds, textDirection) {
+      let t1, t0;
+      t0 = this.transform;
+      return t0 == null ? null : (t1 = t0.transform(bounds, {textDirection: textDirection}), t1 == null ? null : t1.storage);
     }
-    return null;
   };
-  dart.trackLibraries("packages/get/get_utils/src/get_utils/get_utils.dart", {
-    "package:get/get_utils/src/get_utils/get_utils.dart": get_utils
+  (gradient.Gradient.new = function(opts) {
+    let colors = opts && 'colors' in opts ? opts.colors : null;
+    let stops = opts && 'stops' in opts ? opts.stops : null;
+    let transform = opts && 'transform' in opts ? opts.transform : null;
+    this[colors$] = colors;
+    this[stops$] = stops;
+    this[transform$] = transform;
+    if (!(colors !== null)) dart.assertFailed(null, I[1], 153, 15, "colors != null");
+    ;
+  }).prototype = gradient.Gradient.prototype;
+  dart.addTypeTests(gradient.Gradient);
+  dart.addTypeCaches(gradient.Gradient);
+  dart.setMethodSignature(gradient.Gradient, () => ({
+    __proto__: dart.getMethods(gradient.Gradient.__proto__),
+    [_impliedStops]: dart.fnType(core.List$(core.double), []),
+    lerpFrom: dart.fnType(dart.nullable(gradient.Gradient), [dart.nullable(gradient.Gradient), core.double]),
+    lerpTo: dart.fnType(dart.nullable(gradient.Gradient), [dart.nullable(gradient.Gradient), core.double]),
+    [_resolveTransform]: dart.fnType(dart.nullable(typed_data.Float64List), [ui.Rect, dart.nullable(ui.TextDirection)])
+  }));
+  dart.setLibraryUri(gradient.Gradient, I[0]);
+  dart.setFieldSignature(gradient.Gradient, () => ({
+    __proto__: dart.getFields(gradient.Gradient.__proto__),
+    colors: dart.finalFieldType(core.List$(ui.Color)),
+    stops: dart.finalFieldType(dart.nullable(core.List$(core.double))),
+    transform: dart.finalFieldType(dart.nullable(gradient.GradientTransform))
+  }));
+  var begin$ = dart.privateName(gradient, "LinearGradient.begin");
+  var end$ = dart.privateName(gradient, "LinearGradient.end");
+  var tileMode$ = dart.privateName(gradient, "LinearGradient.tileMode");
+  var Alignment_y = dart.privateName(alignment, "Alignment.y");
+  var Alignment_x = dart.privateName(alignment, "Alignment.x");
+  var _name = dart.privateName(ui, "_name");
+  gradient.LinearGradient = class LinearGradient extends gradient.Gradient {
+    get begin() {
+      return this[begin$];
+    }
+    set begin(value) {
+      super.begin = value;
+    }
+    get end() {
+      return this[end$];
+    }
+    set end(value) {
+      super.end = value;
+    }
+    get tileMode() {
+      return this[tileMode$];
+    }
+    set tileMode(value) {
+      super.tileMode = value;
+    }
+    createShader(rect, opts) {
+      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+      return ui.Gradient.linear(this.begin.resolve(textDirection).withinRect(rect), this.end.resolve(textDirection).withinRect(rect), this.colors, this[_impliedStops](), this.tileMode, this[_resolveTransform](rect, textDirection));
+    }
+    scale(factor) {
+      return new gradient.LinearGradient.new({begin: this.begin, end: this.end, colors: this.colors[$map](ui.Color, dart.fn(color => dart.nullCheck(ui.Color.lerp(null, color, factor)), T.ColorToColor()))[$toList](), stops: this.stops, tileMode: this.tileMode});
+    }
+    lerpFrom(a, t) {
+      if (a == null || gradient.LinearGradient.is(a)) return gradient.LinearGradient.lerp(T.LinearGradientN().as(a), this, t);
+      return super.lerpFrom(a, t);
+    }
+    lerpTo(b, t) {
+      if (b == null || gradient.LinearGradient.is(b)) return gradient.LinearGradient.lerp(this, T.LinearGradientN().as(b), t);
+      return super.lerpTo(b, t);
+    }
+    static lerp(a, b, t) {
+      if (!(t !== null)) dart.assertFailed(null, I[1], 477, 12, "t != null");
+      if (a == null && b == null) return null;
+      if (a == null) return dart.nullCheck(b).scale(t);
+      if (b == null) return a.scale(1.0 - t);
+      let interpolated = gradient._interpolateColorsAndStops(a.colors, a[_impliedStops](), b.colors, b[_impliedStops](), t);
+      return new gradient.LinearGradient.new({begin: dart.nullCheck(alignment.AlignmentGeometry.lerp(a.begin, b.begin, t)), end: dart.nullCheck(alignment.AlignmentGeometry.lerp(a.end, b.end, t)), colors: interpolated.colors, stops: interpolated.stops, tileMode: t < 0.5 ? a.tileMode : b.tileMode});
+    }
+    _equals(other) {
+      if (other == null) return false;
+      if (this === other) return true;
+      if (!other[$runtimeType]._equals(this[$runtimeType])) return false;
+      return gradient.LinearGradient.is(other) && other.begin._equals(this.begin) && other.end._equals(this.end) && other.tileMode === this.tileMode && collections.listEquals(ui.Color, other.colors, this.colors) && collections.listEquals(core.double, other.stops, this.stops);
+    }
+    get hashCode() {
+      return ui.hashValues(this.begin, this.end, this.tileMode, ui.hashList(this.colors), ui.hashList(this.stops));
+    }
+    toString() {
+      return object.objectRuntimeType(this, "LinearGradient") + "(" + dart.str(this.begin) + ", " + dart.str(this.end) + ", " + dart.str(this.colors) + ", " + dart.str(this.stops) + ", " + dart.str(this.tileMode) + ")";
+    }
+  };
+  (gradient.LinearGradient.new = function(opts) {
+    let begin = opts && 'begin' in opts ? opts.begin : C[0] || CT.C0;
+    let end = opts && 'end' in opts ? opts.end : C[1] || CT.C1;
+    let colors = opts && 'colors' in opts ? opts.colors : null;
+    let stops = opts && 'stops' in opts ? opts.stops : null;
+    let tileMode = opts && 'tileMode' in opts ? opts.tileMode : C[2] || CT.C2;
+    let transform = opts && 'transform' in opts ? opts.transform : null;
+    this[begin$] = begin;
+    this[end$] = end;
+    this[tileMode$] = tileMode;
+    if (!(begin !== null)) dart.assertFailed(null, I[1], 374, 15, "begin != null");
+    if (!(end !== null)) dart.assertFailed(null, I[1], 375, 15, "end != null");
+    if (!(tileMode !== null)) dart.assertFailed(null, I[1], 376, 15, "tileMode != null");
+    gradient.LinearGradient.__proto__.new.call(this, {colors: colors, stops: stops, transform: transform});
+    ;
+  }).prototype = gradient.LinearGradient.prototype;
+  dart.addTypeTests(gradient.LinearGradient);
+  dart.addTypeCaches(gradient.LinearGradient);
+  dart.setMethodSignature(gradient.LinearGradient, () => ({
+    __proto__: dart.getMethods(gradient.LinearGradient.__proto__),
+    createShader: dart.fnType(ui.Shader, [ui.Rect], {textDirection: dart.nullable(ui.TextDirection)}, {}),
+    scale: dart.fnType(gradient.LinearGradient, [core.double])
+  }));
+  dart.setLibraryUri(gradient.LinearGradient, I[0]);
+  dart.setFieldSignature(gradient.LinearGradient, () => ({
+    __proto__: dart.getFields(gradient.LinearGradient.__proto__),
+    begin: dart.finalFieldType(alignment.AlignmentGeometry),
+    end: dart.finalFieldType(alignment.AlignmentGeometry),
+    tileMode: dart.finalFieldType(ui.TileMode)
+  }));
+  dart.defineExtensionMethods(gradient.LinearGradient, ['_equals', 'toString']);
+  dart.defineExtensionAccessors(gradient.LinearGradient, ['hashCode']);
+  var center$ = dart.privateName(gradient, "RadialGradient.center");
+  var radius$ = dart.privateName(gradient, "RadialGradient.radius");
+  var tileMode$0 = dart.privateName(gradient, "RadialGradient.tileMode");
+  var focal$ = dart.privateName(gradient, "RadialGradient.focal");
+  var focalRadius$ = dart.privateName(gradient, "RadialGradient.focalRadius");
+  gradient.RadialGradient = class RadialGradient extends gradient.Gradient {
+    get center() {
+      return this[center$];
+    }
+    set center(value) {
+      super.center = value;
+    }
+    get radius() {
+      return this[radius$];
+    }
+    set radius(value) {
+      super.radius = value;
+    }
+    get tileMode() {
+      return this[tileMode$0];
+    }
+    set tileMode(value) {
+      super.tileMode = value;
+    }
+    get focal() {
+      return this[focal$];
+    }
+    set focal(value) {
+      super.focal = value;
+    }
+    get focalRadius() {
+      return this[focalRadius$];
+    }
+    set focalRadius(value) {
+      super.focalRadius = value;
+    }
+    createShader(rect, opts) {
+      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+      return ui.Gradient.radial(this.center.resolve(textDirection).withinRect(rect), this.radius * rect.shortestSide, this.colors, this[_impliedStops](), this.tileMode, this[_resolveTransform](rect, textDirection), this.focal == null ? null : dart.nullCheck(this.focal).resolve(textDirection).withinRect(rect), this.focalRadius * rect.shortestSide);
+    }
+    scale(factor) {
+      return new gradient.RadialGradient.new({center: this.center, radius: this.radius, colors: this.colors[$map](ui.Color, dart.fn(color => dart.nullCheck(ui.Color.lerp(null, color, factor)), T.ColorToColor()))[$toList](), stops: this.stops, tileMode: this.tileMode, focal: this.focal, focalRadius: this.focalRadius});
+    }
+    lerpFrom(a, t) {
+      if (a == null || gradient.RadialGradient.is(a)) return gradient.RadialGradient.lerp(T.RadialGradientN().as(a), this, t);
+      return super.lerpFrom(a, t);
+    }
+    lerpTo(b, t) {
+      if (b == null || gradient.RadialGradient.is(b)) return gradient.RadialGradient.lerp(this, T.RadialGradientN().as(b), t);
+      return super.lerpTo(b, t);
+    }
+    static lerp(a, b, t) {
+      if (!(t !== null)) dart.assertFailed(null, I[1], 735, 12, "t != null");
+      if (a == null && b == null) return null;
+      if (a == null) return dart.nullCheck(b).scale(t);
+      if (b == null) return a.scale(1.0 - t);
+      let interpolated = gradient._interpolateColorsAndStops(a.colors, a[_impliedStops](), b.colors, b[_impliedStops](), t);
+      return new gradient.RadialGradient.new({center: dart.nullCheck(alignment.AlignmentGeometry.lerp(a.center, b.center, t)), radius: math.max(core.double, 0.0, dart.nullCheck(ui.lerpDouble(a.radius, b.radius, t))), colors: interpolated.colors, stops: interpolated.stops, tileMode: t < 0.5 ? a.tileMode : b.tileMode, focal: alignment.AlignmentGeometry.lerp(a.focal, b.focal, t), focalRadius: math.max(core.double, 0.0, dart.nullCheck(ui.lerpDouble(a.focalRadius, b.focalRadius, t)))});
+    }
+    _equals(other) {
+      if (other == null) return false;
+      if (this === other) return true;
+      if (!other[$runtimeType]._equals(this[$runtimeType])) return false;
+      return gradient.RadialGradient.is(other) && other.center._equals(this.center) && other.radius === this.radius && other.tileMode === this.tileMode && collections.listEquals(ui.Color, other.colors, this.colors) && collections.listEquals(core.double, other.stops, this.stops) && dart.equals(other.focal, this.focal) && other.focalRadius === this.focalRadius;
+    }
+    get hashCode() {
+      return ui.hashValues(this.center, this.radius, this.tileMode, ui.hashList(this.colors), ui.hashList(this.stops), this.focal, this.focalRadius);
+    }
+    toString() {
+      return object.objectRuntimeType(this, "RadialGradient") + "(" + dart.str(this.center) + ", " + dart.str(this.radius) + ", " + dart.str(this.colors) + ", " + dart.str(this.stops) + ", " + dart.str(this.tileMode) + ", " + dart.str(this.focal) + ", " + dart.str(this.focalRadius) + ")";
+    }
+  };
+  (gradient.RadialGradient.new = function(opts) {
+    let center = opts && 'center' in opts ? opts.center : C[3] || CT.C3;
+    let radius = opts && 'radius' in opts ? opts.radius : 0.5;
+    let colors = opts && 'colors' in opts ? opts.colors : null;
+    let stops = opts && 'stops' in opts ? opts.stops : null;
+    let tileMode = opts && 'tileMode' in opts ? opts.tileMode : C[2] || CT.C2;
+    let focal = opts && 'focal' in opts ? opts.focal : null;
+    let focalRadius = opts && 'focalRadius' in opts ? opts.focalRadius : 0;
+    let transform = opts && 'transform' in opts ? opts.transform : null;
+    this[center$] = center;
+    this[radius$] = radius;
+    this[tileMode$0] = tileMode;
+    this[focal$] = focal;
+    this[focalRadius$] = focalRadius;
+    if (!(center !== null)) dart.assertFailed(null, I[1], 606, 15, "center != null");
+    if (!(radius !== null)) dart.assertFailed(null, I[1], 607, 15, "radius != null");
+    if (!(tileMode !== null)) dart.assertFailed(null, I[1], 608, 15, "tileMode != null");
+    if (!(focalRadius !== null)) dart.assertFailed(null, I[1], 609, 15, "focalRadius != null");
+    gradient.RadialGradient.__proto__.new.call(this, {colors: colors, stops: stops, transform: transform});
+    ;
+  }).prototype = gradient.RadialGradient.prototype;
+  dart.addTypeTests(gradient.RadialGradient);
+  dart.addTypeCaches(gradient.RadialGradient);
+  dart.setMethodSignature(gradient.RadialGradient, () => ({
+    __proto__: dart.getMethods(gradient.RadialGradient.__proto__),
+    createShader: dart.fnType(ui.Shader, [ui.Rect], {textDirection: dart.nullable(ui.TextDirection)}, {}),
+    scale: dart.fnType(gradient.RadialGradient, [core.double])
+  }));
+  dart.setLibraryUri(gradient.RadialGradient, I[0]);
+  dart.setFieldSignature(gradient.RadialGradient, () => ({
+    __proto__: dart.getFields(gradient.RadialGradient.__proto__),
+    center: dart.finalFieldType(alignment.AlignmentGeometry),
+    radius: dart.finalFieldType(core.double),
+    tileMode: dart.finalFieldType(ui.TileMode),
+    focal: dart.finalFieldType(dart.nullable(alignment.AlignmentGeometry)),
+    focalRadius: dart.finalFieldType(core.double)
+  }));
+  dart.defineExtensionMethods(gradient.RadialGradient, ['_equals', 'toString']);
+  dart.defineExtensionAccessors(gradient.RadialGradient, ['hashCode']);
+  var center$0 = dart.privateName(gradient, "SweepGradient.center");
+  var startAngle$ = dart.privateName(gradient, "SweepGradient.startAngle");
+  var endAngle$ = dart.privateName(gradient, "SweepGradient.endAngle");
+  var tileMode$1 = dart.privateName(gradient, "SweepGradient.tileMode");
+  gradient.SweepGradient = class SweepGradient extends gradient.Gradient {
+    get center() {
+      return this[center$0];
+    }
+    set center(value) {
+      super.center = value;
+    }
+    get startAngle() {
+      return this[startAngle$];
+    }
+    set startAngle(value) {
+      super.startAngle = value;
+    }
+    get endAngle() {
+      return this[endAngle$];
+    }
+    set endAngle(value) {
+      super.endAngle = value;
+    }
+    get tileMode() {
+      return this[tileMode$1];
+    }
+    set tileMode(value) {
+      super.tileMode = value;
+    }
+    createShader(rect, opts) {
+      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+      return ui.Gradient.sweep(this.center.resolve(textDirection).withinRect(rect), this.colors, this[_impliedStops](), this.tileMode, this.startAngle, this.endAngle, this[_resolveTransform](rect, textDirection));
+    }
+    scale(factor) {
+      return new gradient.SweepGradient.new({center: this.center, startAngle: this.startAngle, endAngle: this.endAngle, colors: this.colors[$map](ui.Color, dart.fn(color => dart.nullCheck(ui.Color.lerp(null, color, factor)), T.ColorToColor()))[$toList](), stops: this.stops, tileMode: this.tileMode});
+    }
+    lerpFrom(a, t) {
+      if (a == null || gradient.SweepGradient.is(a)) return gradient.SweepGradient.lerp(T.SweepGradientN().as(a), this, t);
+      return super.lerpFrom(a, t);
+    }
+    lerpTo(b, t) {
+      if (b == null || gradient.SweepGradient.is(b)) return gradient.SweepGradient.lerp(this, T.SweepGradientN().as(b), t);
+      return super.lerpTo(b, t);
+    }
+    static lerp(a, b, t) {
+      if (!(t !== null)) dart.assertFailed(null, I[1], 982, 12, "t != null");
+      if (a == null && b == null) return null;
+      if (a == null) return dart.nullCheck(b).scale(t);
+      if (b == null) return a.scale(1.0 - t);
+      let interpolated = gradient._interpolateColorsAndStops(a.colors, a[_impliedStops](), b.colors, b[_impliedStops](), t);
+      return new gradient.SweepGradient.new({center: dart.nullCheck(alignment.AlignmentGeometry.lerp(a.center, b.center, t)), startAngle: math.max(core.double, 0.0, dart.nullCheck(ui.lerpDouble(a.startAngle, b.startAngle, t))), endAngle: math.max(core.double, 0.0, dart.nullCheck(ui.lerpDouble(a.endAngle, b.endAngle, t))), colors: interpolated.colors, stops: interpolated.stops, tileMode: t < 0.5 ? a.tileMode : b.tileMode});
+    }
+    _equals(other) {
+      if (other == null) return false;
+      if (this === other) return true;
+      if (!other[$runtimeType]._equals(this[$runtimeType])) return false;
+      return gradient.SweepGradient.is(other) && other.center._equals(this.center) && other.startAngle === this.startAngle && other.endAngle === this.endAngle && other.tileMode === this.tileMode && collections.listEquals(ui.Color, other.colors, this.colors) && collections.listEquals(core.double, other.stops, this.stops);
+    }
+    get hashCode() {
+      return ui.hashValues(this.center, this.startAngle, this.endAngle, this.tileMode, ui.hashList(this.colors), ui.hashList(this.stops));
+    }
+    toString() {
+      return object.objectRuntimeType(this, "SweepGradient") + "(" + dart.str(this.center) + ", " + dart.str(this.startAngle) + ", " + dart.str(this.endAngle) + ", " + dart.str(this.colors) + ", " + dart.str(this.stops) + ", " + dart.str(this.tileMode) + ")";
+    }
+  };
+  (gradient.SweepGradient.new = function(opts) {
+    let center = opts && 'center' in opts ? opts.center : C[3] || CT.C3;
+    let startAngle = opts && 'startAngle' in opts ? opts.startAngle : 0;
+    let endAngle = opts && 'endAngle' in opts ? opts.endAngle : 6.283185307179586;
+    let colors = opts && 'colors' in opts ? opts.colors : null;
+    let stops = opts && 'stops' in opts ? opts.stops : null;
+    let tileMode = opts && 'tileMode' in opts ? opts.tileMode : C[2] || CT.C2;
+    let transform = opts && 'transform' in opts ? opts.transform : null;
+    this[center$0] = center;
+    this[startAngle$] = startAngle;
+    this[endAngle$] = endAngle;
+    this[tileMode$1] = tileMode;
+    if (!(center !== null)) dart.assertFailed(null, I[1], 880, 15, "center != null");
+    if (!(startAngle !== null)) dart.assertFailed(null, I[1], 881, 15, "startAngle != null");
+    if (!(endAngle !== null)) dart.assertFailed(null, I[1], 882, 15, "endAngle != null");
+    if (!(tileMode !== null)) dart.assertFailed(null, I[1], 883, 15, "tileMode != null");
+    gradient.SweepGradient.__proto__.new.call(this, {colors: colors, stops: stops, transform: transform});
+    ;
+  }).prototype = gradient.SweepGradient.prototype;
+  dart.addTypeTests(gradient.SweepGradient);
+  dart.addTypeCaches(gradient.SweepGradient);
+  dart.setMethodSignature(gradient.SweepGradient, () => ({
+    __proto__: dart.getMethods(gradient.SweepGradient.__proto__),
+    createShader: dart.fnType(ui.Shader, [ui.Rect], {textDirection: dart.nullable(ui.TextDirection)}, {}),
+    scale: dart.fnType(gradient.SweepGradient, [core.double])
+  }));
+  dart.setLibraryUri(gradient.SweepGradient, I[0]);
+  dart.setFieldSignature(gradient.SweepGradient, () => ({
+    __proto__: dart.getFields(gradient.SweepGradient.__proto__),
+    center: dart.finalFieldType(alignment.AlignmentGeometry),
+    startAngle: dart.finalFieldType(core.double),
+    endAngle: dart.finalFieldType(core.double),
+    tileMode: dart.finalFieldType(ui.TileMode)
+  }));
+  dart.defineExtensionMethods(gradient.SweepGradient, ['_equals', 'toString']);
+  dart.defineExtensionAccessors(gradient.SweepGradient, ['hashCode']);
+  gradient._sample = function _sample(colors, stops, t) {
+    if (!(colors !== null)) dart.assertFailed(null, I[1], 25, 10, "colors != null");
+    if (!colors[$isNotEmpty]) dart.assertFailed(null, I[1], 26, 10, "colors.isNotEmpty");
+    if (!(stops !== null)) dart.assertFailed(null, I[1], 27, 10, "stops != null");
+    if (!stops[$isNotEmpty]) dart.assertFailed(null, I[1], 28, 10, "stops.isNotEmpty");
+    if (!(t !== null)) dart.assertFailed(null, I[1], 29, 10, "t != null");
+    if (t <= stops[$first]) return colors[$first];
+    if (t >= stops[$last]) return colors[$last];
+    let index = stops[$lastIndexWhere](dart.fn(s => s <= t, T.doubleTobool()));
+    if (!(index !== -1)) dart.assertFailed(null, I[1], 35, 10, "index != -1");
+    return dart.nullCheck(ui.Color.lerp(colors[$_get](index), colors[$_get](index + 1), (t - stops[$_get](index)) / (stops[$_get](index + 1) - stops[$_get](index))));
+  };
+  gradient._interpolateColorsAndStops = function _interpolateColorsAndStops(aColors, aStops, bColors, bStops, t) {
+    let t0;
+    if (!(aColors[$length] >= 2)) dart.assertFailed(null, I[1], 49, 10, "aColors.length >= 2");
+    if (!(bColors[$length] >= 2)) dart.assertFailed(null, I[1], 50, 10, "bColors.length >= 2");
+    if (!(aStops[$length] === aColors[$length])) dart.assertFailed(null, I[1], 51, 10, "aStops.length == aColors.length");
+    if (!(bStops[$length] === bColors[$length])) dart.assertFailed(null, I[1], 52, 10, "bStops.length == bColors.length");
+    let stops = (t0 = new (T.SplayTreeSetOfdouble()).new(), (() => {
+      t0.addAll(aStops);
+      t0.addAll(bStops);
+      return t0;
+    })());
+    let interpolatedStops = stops.toList({growable: false});
+    let interpolatedColors = interpolatedStops[$map](ui.Color, dart.fn(stop => dart.nullCheck(ui.Color.lerp(gradient._sample(aColors, aStops, stop), gradient._sample(bColors, bStops, stop), t)), T.doubleToColor()))[$toList]({growable: false});
+    return new gradient._ColorsAndStops.new(interpolatedColors, interpolatedStops);
+  };
+  dart.trackLibraries("packages/flutter/src/painting/gradient.dart", {
+    "package:flutter/src/painting/gradient.dart": gradient
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["get_utils.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../../../packages/get/get_utils/src/get_utils/get_utils.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["gradient.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/flutter/src/painting/gradient.dart.lib.js"}');
   // Exports:
   return {
-    get_utils__src__get_utils__get_utils: get_utils
+    src__painting__gradient: gradient
   };
 }));
 
-//# sourceMappingURL=get_utils.dart.lib.js.map
+//# sourceMappingURL=gradient.dart.lib.js.map

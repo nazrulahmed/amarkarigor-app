@@ -13,5 +13,10 @@ class MyTextStyle {
 
   static final textWhiteMedium = TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.normal);  
   static final textWhiteSmall = TextStyle(
-    color: Colors.white, fontSize: 14, fontWeight: FontWeight.normal);      
+    color: Colors.white, fontSize: 14, fontWeight: FontWeight.normal);
+
+static final textBlackLargerBold =
+      TextStyle(color: Colors.black, fontSize: 24, fontWeight: FontWeight.bold);  
+  static final textBlackLargeBold =
+      TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold);  
 }

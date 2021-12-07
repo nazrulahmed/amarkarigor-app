@@ -1,1 +1,556 @@
-{"web_entrypoint.dart":"361472266","packages/amar_karigor/main.dart":"957041325","packages/amar_karigor/app/routes/app_pages.dart":"55280672","packages/get/get_navigation/src/root/get_material_app.dart":"260599304","packages/get/get_core/get_core.dart":"721895715","packages/get/get_core/src/typedefs.dart":"1070326439","packages/get/get_core/src/smart_management.dart":"236239868","packages/get/get_core/src/get_main.dart":"748173564","packages/flutter/widgets.dart":"1004287900","packages/flutter/src/widgets/will_pop_scope.dart":"3031358","packages/flutter/src/widgets/widget_span.dart":"756761340","packages/flutter/rendering.dart":"1056909168","packages/flutter/src/rendering/wrap.dart":"87697170","packages/flutter/src/rendering/layer.dart":"801800093","packages/flutter/painting.dart":"529459746","packages/flutter/src/painting/strut_style.dart":"541148592","packages/flutter/src/painting/basic_types.dart":"363498285","packages/flutter/foundation.dart":"123783313","packages/flutter/src/foundation/unicode.dart":"741256015","packages/flutter/src/foundation/synchronous_future.dart":"285958803","packages/flutter/src/foundation/stack_frame.dart":"389054395","packages/flutter/src/foundation/object.dart":"158255506","packages/flutter/src/foundation/constants.dart":"368755225","packages/meta/meta.dart":"21961797","packages/meta/meta_meta.dart":"516773869","packages/flutter/src/foundation/serialization.dart":"190621435","packages/typed_data/typed_buffers.dart":"453367157","packages/typed_data/src/typed_buffer.dart":"709908464","packages/flutter/src/foundation/print.dart":"285897585","packages/flutter/src/foundation/_platform_web.dart":"49774467","packages/flutter/src/foundation/observer_list.dart":"315005213","packages/flutter/src/foundation/node.dart":"549421519","packages/flutter/src/foundation/licenses.dart":"931498662","packages/flutter/src/foundation/key.dart":"834027903","packages/flutter/src/foundation/_isolates_web.dart":"325043159","packages/flutter/src/foundation/debug.dart":"894424487","packages/flutter/src/foundation/basic_types.dart":"688226681","packages/flutter/src/foundation/consolidate_response.dart":"332574330","packages/flutter/src/foundation/collections.dart":"14804088","packages/flutter/src/foundation/change_notifier.dart":"303771231","packages/flutter/src/foundation/_bitfield_web.dart":"895012365","packages/flutter/src/foundation/binding.dart":"102845759","packages/flutter/src/foundation/annotations.dart":"618681335","packages/flutter/src/painting/colors.dart":"136389381","packages/flutter/src/painting/placeholder_span.dart":"84445653","packages/flutter/services.dart":"389252476","packages/flutter/src/services/text_input.dart":"811729344","packages/flutter/src/services/text_editing.dart":"557470518","packages/flutter/src/services/system_chrome.dart":"543361119","packages/flutter/src/services/system_channels.dart":"474922640","packages/flutter/scheduler.dart":"294566685","packages/flutter/src/scheduler/ticker.dart":"308204158","packages/flutter/src/scheduler/binding.dart":"1017179400","packages/flutter/src/scheduler/priority.dart":"382746165","packages/flutter/src/scheduler/debug.dart":"313781043","packages/collection/src/union_set_controller.dart":"172146615","packages/collection/src/queue_list.dart":"482904299","packages/collection/src/priority_queue.dart":"526316425","packages/collection/src/utils.dart":"124136279","packages/collection/src/list_extensions.dart":"851297772","packages/collection/src/equality.dart":"434803129","packages/collection/src/comparators.dart":"640416981","packages/collection/src/algorithms.dart":"449617281","packages/collection/src/iterable_zip.dart":"777123769","packages/collection/src/iterable_extensions.dart":"522379779","packages/collection/src/functions.dart":"185400593","packages/collection/src/combined_wrappers/combined_map.dart":"230787565","packages/collection/src/combined_wrappers/combined_iterable.dart":"413077083","packages/collection/src/combined_wrappers/combined_iterator.dart":"1041714330","packages/collection/src/combined_wrappers/combined_list.dart":"488561981","packages/collection/src/canonicalized_map.dart":"742065187","packages/vector_math/vector_math_64.dart":"1040907825","packages/vector_math/hash.dart":"588353626","packages/flutter/src/services/text_formatter.dart":"638560118","packages/characters/characters.dart":"514570728","packages/characters/src/extensions.dart":"338536721","packages/characters/src/characters_impl.dart":"804480793","packages/characters/src/grapheme_clusters/breaks.dart":"1023845163","packages/characters/src/grapheme_clusters/table.dart":"924659841","packages/characters/src/grapheme_clusters/constants.dart":"621793719","packages/flutter/src/services/system_sound.dart":"580117327","packages/flutter/src/services/system_navigator.dart":"844961073","packages/flutter/src/services/raw_keyboard_windows.dart":"537204490","packages/flutter/src/services/keyboard_maps.dart":"171454249","packages/flutter/src/services/keyboard_key.dart":"634581001","packages/flutter/src/services/platform_views.dart":"186357007","packages/flutter/gestures.dart":"876196998","packages/flutter/src/gestures/velocity_tracker.dart":"679011903","packages/flutter/src/gestures/lsq_solver.dart":"366504138","packages/flutter/src/gestures/events.dart":"380454202","packages/flutter/src/gestures/constants.dart":"633366694","packages/flutter/src/gestures/team.dart":"1062084886","packages/flutter/src/gestures/binding.dart":"295434533","packages/flutter/src/gestures/resampler.dart":"636189371","packages/flutter/src/gestures/pointer_signal_resolver.dart":"666033684","packages/flutter/src/gestures/pointer_router.dart":"394146396","packages/flutter/src/gestures/hit_test.dart":"1037990644","packages/flutter/src/gestures/debug.dart":"502200388","packages/flutter/src/gestures/converter.dart":"963978874","packages/flutter/src/gestures/arena.dart":"427466073","packages/flutter/src/gestures/tap.dart":"239981637","packages/flutter/src/gestures/recognizer.dart":"383563385","packages/flutter/src/gestures/scale.dart":"383316334","packages/flutter/src/gestures/multitap.dart":"479315231","packages/flutter/src/gestures/multidrag.dart":"383284818","packages/flutter/src/gestures/drag_details.dart":"915671862","packages/flutter/src/gestures/drag.dart":"465425435","packages/flutter/src/gestures/monodrag.dart":"222462898","packages/flutter/src/gestures/long_press.dart":"190946357","packages/flutter/src/gestures/force_press.dart":"394428118","packages/flutter/src/gestures/eager.dart":"165847050","packages/flutter/src/services/mouse_tracking.dart":"835305886","packages/flutter/src/services/mouse_cursor.dart":"832895796","packages/flutter/src/services/haptic_feedback.dart":"331921069","packages/flutter/src/services/font_loader.dart":"375967154","packages/flutter/src/services/deferred_component.dart":"971142624","packages/flutter/src/services/clipboard.dart":"660993203","packages/flutter/src/painting/stadium_border.dart":"592650881","packages/flutter/src/painting/rounded_rectangle_border.dart":"263653136","packages/flutter/src/painting/edge_insets.dart":"173430250","packages/flutter/src/painting/circle_border.dart":"552711397","packages/flutter/src/painting/borders.dart":"64796501","packages/flutter/src/painting/border_radius.dart":"193080231","packages/flutter/src/painting/shape_decoration.dart":"210985496","packages/flutter/src/painting/_network_image_web.dart":"690803158","packages/flutter/src/painting/image_stream.dart":"278294195","packages/flutter/src/painting/image_cache.dart":"255579052","packages/flutter/src/painting/binding.dart":"378766334","packages/flutter/src/painting/shader_warm_up.dart":"710673912","packages/flutter/src/painting/gradient.dart":"277081709","packages/flutter/src/painting/alignment.dart":"566229003","packages/flutter/src/painting/decoration_image.dart":"709630719","packages/flutter/src/painting/debug.dart":"962140464","packages/flutter/src/painting/box_fit.dart":"533583693","packages/flutter/src/painting/decoration.dart":"257443372","packages/flutter/src/painting/box_shadow.dart":"134631122","packages/flutter/src/painting/box_decoration.dart":"672929158","packages/flutter/src/painting/box_border.dart":"655239884","packages/flutter/src/painting/paint_utilities.dart":"66987727","packages/flutter/src/painting/notched_shapes.dart":"115818826","packages/flutter/src/painting/matrix_utils.dart":"571755405","packages/flutter/src/painting/image_resolution.dart":"63522571","packages/flutter/src/painting/image_decoder.dart":"527313140","packages/flutter/src/painting/geometry.dart":"690600836","packages/flutter/src/painting/fractional_offset.dart":"178664900","packages/flutter/src/painting/flutter_logo.dart":"136113710","packages/flutter/src/painting/continuous_rectangle_border.dart":"412604155","packages/flutter/src/painting/clip.dart":"795725608","packages/flutter/src/painting/beveled_rectangle_border.dart":"234752249","packages/flutter/semantics.dart":"684792077","packages/flutter/src/semantics/semantics_service.dart":"607874000","packages/flutter/src/semantics/semantics_event.dart":"142837664","packages/flutter/src/semantics/semantics.dart":"961241299","packages/flutter/src/semantics/binding.dart":"902076642","packages/flutter/src/semantics/debug.dart":"440104120","packages/flutter/animation.dart":"529053569","packages/flutter/src/animation/tween_sequence.dart":"918395326","packages/flutter/src/animation/listener_helpers.dart":"186747290","packages/flutter/src/animation/curves.dart":"514619653","packages/flutter/src/animation/animation_controller.dart":"153714489","packages/flutter/physics.dart":"377876920","packages/flutter/src/physics/utils.dart":"1002341660","packages/flutter/src/physics/tolerance.dart":"723089234","packages/flutter/src/physics/spring_simulation.dart":"612080267","packages/flutter/src/physics/simulation.dart":"344977142","packages/flutter/src/physics/gravity_simulation.dart":"364759948","packages/flutter/src/physics/friction_simulation.dart":"247171343","packages/flutter/src/physics/clamped_simulation.dart":"749189000","packages/flutter/src/rendering/layout_helper.dart":"293101086","packages/flutter/src/rendering/viewport_offset.dart":"1010291740","packages/flutter/src/rendering/sliver.dart":"673495610","packages/flutter/src/rendering/tweens.dart":"300892825","packages/flutter/src/rendering/texture.dart":"525235651","packages/flutter/src/rendering/table_border.dart":"713914146","packages/flutter/src/rendering/table.dart":"737110807","packages/flutter/src/rendering/stack.dart":"168619090","packages/flutter/src/rendering/sliver_persistent_header.dart":"656538980","packages/flutter/src/rendering/sliver_padding.dart":"154317683","packages/flutter/src/rendering/sliver_multi_box_adaptor.dart":"736493932","packages/flutter/src/rendering/sliver_list.dart":"397310273","packages/flutter/src/rendering/sliver_grid.dart":"281374558","packages/flutter/src/rendering/sliver_fixed_extent_list.dart":"526858508","packages/flutter/src/rendering/sliver_fill.dart":"702977089","packages/flutter/src/rendering/shifted_box.dart":"43991130","packages/flutter/src/rendering/debug_overflow_indicator.dart":"93639821","packages/flutter/src/rendering/rotated_box.dart":"12092761","packages/flutter/src/rendering/proxy_sliver.dart":"107809004","packages/flutter/src/rendering/proxy_box.dart":"860209056","packages/flutter/src/rendering/platform_view.dart":"845035521","packages/flutter/src/rendering/performance_overlay.dart":"475452158","packages/flutter/src/rendering/paragraph.dart":"913892963","packages/flutter/src/rendering/list_wheel_viewport.dart":"565436657","packages/flutter/src/rendering/list_body.dart":"527318629","packages/flutter/src/rendering/image.dart":"435949762","packages/flutter/src/rendering/flow.dart":"874503721","packages/flutter/src/rendering/flex.dart":"113400202","packages/flutter/src/rendering/error.dart":"772738553","packages/flutter/src/rendering/editable.dart":"930095941","packages/flutter/src/rendering/custom_paint.dart":"189694331","packages/flutter/src/rendering/custom_layout.dart":"298317055","packages/flutter/src/rendering/animated_size.dart":"775617610","packages/flutter/src/widgets/constants.dart":"697890387","packages/flutter/src/widgets/scroll_simulation.dart":"530778118","packages/flutter/src/widgets/scroll_metrics.dart":"368507279","packages/flutter/src/widgets/value_listenable_builder.dart":"670506851","packages/flutter/src/widgets/unique_widget.dart":"232020180","packages/flutter/src/widgets/tween_animation_builder.dart":"464631198","packages/flutter/src/widgets/implicit_animations.dart":"30959056","packages/flutter/src/widgets/texture.dart":"819942830","packages/flutter/src/widgets/text_selection_toolbar_layout_delegate.dart":"358051086","packages/flutter/src/widgets/status_transitions.dart":"659878966","packages/flutter/src/widgets/spacer.dart":"786871085","packages/flutter/src/widgets/sliver_prototype_extent_list.dart":"1038778931","packages/flutter/src/widgets/sliver_persistent_header.dart":"64927769","packages/flutter/src/widgets/sliver_layout_builder.dart":"392202701","packages/flutter/src/widgets/layout_builder.dart":"720509645","packages/flutter/src/widgets/sliver_fill.dart":"1009490935","packages/flutter/src/widgets/size_changed_layout_notifier.dart":"1066510782","packages/flutter/src/widgets/single_child_scroll_view.dart":"1070289759","packages/flutter/src/widgets/scroll_view.dart":"324406158","packages/flutter/src/widgets/safe_area.dart":"749562640","packages/flutter/src/widgets/reorderable_list.dart":"461729190","packages/flutter/src/widgets/raw_keyboard_listener.dart":"966291715","packages/flutter/src/widgets/preferred_size.dart":"360562060","packages/flutter/src/widgets/platform_view.dart":"284347634","packages/flutter/src/widgets/page_view.dart":"422505910","packages/flutter/src/widgets/overflow_bar.dart":"742501573","packages/flutter/src/widgets/orientation_builder.dart":"693044713","packages/flutter/src/widgets/nested_scroll_view.dart":"559994748","packages/flutter/src/widgets/navigation_toolbar.dart":"487027258","packages/flutter/src/widgets/list_wheel_scroll_view.dart":"780525710","packages/flutter/src/widgets/interactive_viewer.dart":"231746266","packages/flutter/src/widgets/image_icon.dart":"93202815","packages/flutter/src/widgets/icon_theme_data.dart":"725341487","packages/flutter/src/widgets/icon_theme.dart":"352443240","packages/flutter/src/widgets/icon.dart":"968851545","packages/flutter/src/widgets/icon_data.dart":"706153337","packages/flutter/src/widgets/image_filter.dart":"763091068","packages/flutter/src/widgets/grid_paper.dart":"646131921","packages/flutter/src/widgets/form.dart":"363974543","packages/flutter/src/widgets/fade_in_image.dart":"10034477","packages/flutter/src/widgets/dual_transition_builder.dart":"117905290","packages/flutter/src/widgets/draggable_scrollable_sheet.dart":"671004843","packages/flutter/src/widgets/drag_target.dart":"999731486","packages/flutter/src/widgets/dismissible.dart":"150149755","packages/flutter/src/widgets/desktop_text_selection_toolbar_layout_delegate.dart":"84300983","packages/flutter/src/widgets/color_filter.dart":"967321252","packages/flutter/src/widgets/bottom_navigation_bar_item.dart":"187393673","packages/flutter/src/widgets/autocomplete.dart":"876260551","packages/flutter/src/widgets/async.dart":"711574878","packages/flutter/src/widgets/annotated_region.dart":"559881104","packages/flutter/src/widgets/animated_switcher.dart":"213518380","packages/flutter/src/widgets/animated_size.dart":"824756534","packages/flutter/src/widgets/animated_list.dart":"378604576","packages/flutter/src/widgets/animated_cross_fade.dart":"546752858","packages/flutter/material.dart":"108110517","packages/flutter/src/material/user_accounts_drawer_header.dart":"849565430","packages/flutter/src/material/icon_button.dart":"472196510","packages/flutter/src/material/typography.dart":"813984256","packages/flutter/src/material/colors.dart":"117048994","packages/flutter/src/material/input_border.dart":"1062732064","packages/flutter/src/material/constants.dart":"915551138","packages/flutter/src/material/material_state.dart":"978861054","packages/flutter/src/material/floating_action_button_theme.dart":"731461309","packages/flutter/src/material/curves.dart":"944426648","packages/flutter/src/material/bottom_sheet_theme.dart":"392390899","packages/flutter/src/material/tab_indicator.dart":"521954732","packages/flutter/src/material/tab_controller.dart":"491945409","packages/flutter/src/material/icons.dart":"741175206","packages/flutter/cupertino.dart":"143080411","packages/flutter/src/cupertino/thumb_painter.dart":"737425935","packages/flutter/src/cupertino/text_theme.dart":"264614882","packages/flutter/src/cupertino/interface_level.dart":"373755450","packages/flutter/src/cupertino/text_selection_toolbar_button.dart":"969501107","packages/flutter/src/cupertino/button.dart":"744719836","packages/flutter/src/cupertino/constants.dart":"858640003","packages/flutter/src/cupertino/text_selection_toolbar.dart":"127078554","packages/flutter/src/cupertino/text_selection.dart":"595748275","packages/flutter/src/cupertino/debug.dart":"980753531","packages/flutter/src/cupertino/text_form_field_row.dart":"293340867","packages/flutter/src/cupertino/text_field.dart":"495645767","packages/flutter/src/cupertino/icons.dart":"714125161","packages/flutter/src/cupertino/desktop_text_selection.dart":"461447745","packages/flutter/src/cupertino/form_row.dart":"75086020","packages/flutter/src/cupertino/tab_view.dart":"716873561","packages/flutter/src/cupertino/route.dart":"918333102","packages/flutter/src/cupertino/app.dart":"747347656","packages/flutter/src/cupertino/scrollbar.dart":"484518121","packages/flutter/src/cupertino/tab_scaffold.dart":"462708831","packages/flutter/src/cupertino/bottom_tab_bar.dart":"395015671","packages/flutter/src/cupertino/switch.dart":"295322607","packages/flutter/src/cupertino/sliding_segmented_control.dart":"388983364","packages/flutter/src/cupertino/slider.dart":"117454691","packages/flutter/src/cupertino/segmented_control.dart":"931844874","packages/flutter/src/cupertino/search_field.dart":"1066114076","packages/flutter/src/cupertino/refresh.dart":"295900474","packages/flutter/src/cupertino/activity_indicator.dart":"319047621","packages/flutter/src/cupertino/picker.dart":"430273207","packages/flutter/src/cupertino/page_scaffold.dart":"734821784","packages/flutter/src/cupertino/nav_bar.dart":"97250054","packages/flutter/src/cupertino/form_section.dart":"631477886","packages/flutter/src/cupertino/dialog.dart":"960850893","packages/flutter/src/cupertino/date_picker.dart":"845956627","packages/flutter/src/cupertino/context_menu_action.dart":"1055304746","packages/flutter/src/cupertino/context_menu.dart":"547388987","packages/flutter/src/cupertino/action_sheet.dart":"46375344","packages/flutter/src/material/drawer_header.dart":"814147043","packages/flutter/src/material/toggleable.dart":"1019171040","packages/flutter/src/material/toggle_buttons.dart":"556376145","packages/flutter/src/material/time_picker.dart":"907560461","packages/flutter/src/material/text_form_field.dart":"502422746","packages/flutter/src/material/text_field.dart":"625071894","packages/flutter/src/material/text_selection.dart":"31739908","packages/flutter/src/material/text_selection_toolbar_text_button.dart":"290547249","packages/flutter/src/material/text_selection_toolbar.dart":"126735017","packages/flutter/src/material/selectable_text.dart":"343254525","packages/flutter/src/material/desktop_text_selection.dart":"1027283258","packages/flutter/src/material/button_bar.dart":"278099195","packages/flutter/src/material/switch_list_tile.dart":"791497245","packages/flutter/src/material/switch.dart":"400051098","packages/flutter/src/material/shadows.dart":"942204589","packages/flutter/src/material/stepper.dart":"108050585","packages/flutter/src/material/slider.dart":"127440078","packages/flutter/src/material/search.dart":"901105128","packages/flutter/src/material/scrollbar.dart":"71571332","packages/flutter/src/material/reorderable_list.dart":"780750254","packages/flutter/src/material/refresh_indicator.dart":"15092023","packages/flutter/src/material/progress_indicator.dart":"472743913","packages/flutter/src/material/range_slider.dart":"467008902","packages/flutter/src/material/radio_list_tile.dart":"930234625","packages/flutter/src/material/radio.dart":"896597932","packages/flutter/src/material/popup_menu.dart":"155155409","packages/flutter/src/material/paginated_data_table.dart":"234417984","packages/flutter/src/material/dropdown.dart":"458435148","packages/flutter/src/material/data_table_source.dart":"645427925","packages/flutter/src/material/data_table.dart":"371244756","packages/flutter/src/material/checkbox.dart":"1058671498","packages/flutter/src/material/card.dart":"923644058","packages/flutter/src/material/page.dart":"198834359","packages/flutter/src/material/outlined_button.dart":"1000525712","packages/flutter/src/material/no_splash.dart":"551253887","packages/flutter/src/material/mergeable_material.dart":"1027059425","packages/flutter/src/material/input_date_picker_form_field.dart":"77765640","packages/flutter/src/material/date.dart":"577549070","packages/flutter/src/material/grid_tile_bar.dart":"158427376","packages/flutter/src/material/grid_tile.dart":"330075330","packages/flutter/src/material/flutter_logo.dart":"209525856","packages/flutter/src/material/expansion_tile.dart":"177068626","packages/flutter/src/material/expansion_panel.dart":"1038684767","packages/flutter/src/material/expand_icon.dart":"130063789","packages/flutter/src/material/elevated_button.dart":"721094811","packages/flutter/src/material/date_picker_deprecated.dart":"313194133","packages/flutter/src/material/date_picker.dart":"110682587","packages/flutter/src/material/calendar_date_picker.dart":"608106301","packages/flutter/src/material/circle_avatar.dart":"260865103","packages/flutter/src/material/chip.dart":"405645453","packages/flutter/src/material/checkbox_list_tile.dart":"834811638","packages/flutter/src/material/bottom_app_bar.dart":"492446724","packages/flutter/src/material/banner.dart":"958377660","packages/flutter/src/material/autocomplete.dart":"510606030","packages/flutter/src/material/arc.dart":"986666588","packages/flutter/src/material/app.dart":"240323748","packages/flutter/src/material/animated_icons.dart":"432777430","packages/flutter/src/material/about.dart":"367598619","packages/get/get_navigation/src/routes/transitions_type.dart":"387935216","packages/get/get_navigation/src/routes/default_transitions.dart":"817395763","packages/get/get_navigation/src/routes/custom_transition.dart":"304880274","packages/get/get_instance/src/lifecycle.dart":"811735763","packages/get/get_utils/src/platform/platform_web.dart":"143264439","packages/get/get_utils/src/queue/get_queue.dart":"55739373","packages/get/get_utils/src/get_utils/get_utils.dart":"282515785","packages/get/get_utils/src/extensions/widget_extensions.dart":"854285493","packages/get/get_utils/src/extensions/string_extensions.dart":"234029967","packages/get/get_utils/src/extensions/num_extensions.dart":"620557717","packages/get/get_utils/src/extensions/iterable_extensions.dart":"1038929716","packages/get/get_utils/src/extensions/internacionalization.dart":"976435138","packages/get/get_utils/src/extensions/event_loop_extensions.dart":"672145250","packages/get/get_utils/src/extensions/dynamic_extensions.dart":"264633807","packages/get/get_utils/src/extensions/duration_extensions.dart":"242268119","packages/get/get_utils/src/extensions/double_extensions.dart":"429021861","packages/get/get_state_manager/src/simple/list_notifier.dart":"78600770","packages/get/get_state_manager/src/simple/get_widget_cache.dart":"576189497","packages/get/utils.dart":"131128159","packages/get/get_state_manager/src/rx_flutter/rx_disposable.dart":"732462722","packages/get/get_state_manager/src/rx_flutter/rx_obx_widget.dart":"630897615","packages/get/get_rx/src/rx_types/rx_types.dart":"31819126","packages/get/get_rx/src/rx_typedefs/rx_typedefs.dart":"635042679","packages/get/get_rx/src/rx_stream/rx_stream.dart":"831118837","packages/get/get_navigation/src/root/internacionalization.dart":"281516988","packages/get/get_rx/get_rx.dart":"26981297","packages/get/get_rx/src/rx_workers/rx_workers.dart":"727883308","packages/get/get_rx/src/rx_workers/utils/debouncer.dart":"975492458","packages/get/get_connect/connect.dart":"622792034","packages/get/get_connect/sockets/sockets.dart":"913979749","packages/get/get_connect/sockets/src/sockets_html.dart":"527074808","packages/get/get_connect/sockets/src/socket_notifier.dart":"332041300","packages/get/get_connect/http/src/interceptors/get_modifiers.dart":"982931757","packages/get/get_connect/http/src/status/http_status.dart":"642799446","packages/get/get_connect/http/src/http/html/file_decoder_html.dart":"294052345","packages/get/get_connect/http/src/utils/utils.dart":"437615792","packages/get/get_connect/http/src/exceptions/exceptions.dart":"630938566","packages/get/get_connect/http/src/certificates/certificates.dart":"989843502","packages/amar_karigor/app/modules/splash_screen/views/splash_screen_view.dart":"694008931","packages/amar_karigor/app/modules/splash_screen/controllers/splash_screen_controller.dart":"140872983","packages/amar_karigor/app/modules/splash_screen/bindings/splash_screen_binding.dart":"18181648","packages/amar_karigor/app/modules/landing_page/views/landing_page_view.dart":"58663508","packages/amar_karigor/app/modules/landing_page/controllers/landing_page_controller.dart":"476835526","packages/amar_karigor/app/modules/home/views/home_view.dart":"155772251","packages/amar_karigor/app/modules/home/views/widget/mobile/appbar.dart":"27084813","packages/amar_karigor/app/modules/home/views/widget/mobile/header.dart":"99241193","packages/amar_karigor/app/global/config/app_style.dart":"658645132","packages/amar_karigor/app/modules/home/views/desktop.dart":"79488288","packages/amar_karigor/app/modules/home/views/widget/mobile/imports.dart":"433838661","packages/amar_karigor/app/modules/home/views/widget/mobile/services.dart":"965335226","packages/amar_karigor/app/modules/home/views/widget/mobile/categories.dart":"159334923","packages/amar_karigor/app/modules/home/views/widget/mobile/offers.dart":"220910310","packages/amar_karigor/app/modules/home/controllers/home_controller.dart":"754090906","packages/amar_karigor/app/modules/home/views/mobile.dart":"942263254","packages/amar_karigor/app/modules/auth/views/auth_view.dart":"696699002","packages/amar_karigor/app/modules/auth/controllers/auth_controller.dart":"478329525","packages/amar_karigor/app/global/widget/bottom_nav.dart":"28503052","packages/salomon_bottom_bar/salomon_bottom_bar.dart":"716355670","packages/amar_karigor/app/global/config/constant.dart":"424619850","packages/amar_karigor/app/modules/landing_page/bindings/landing_page_binding.dart":"947918614","packages/amar_karigor/app/modules/home/bindings/home_binding.dart":"327025982","packages/amar_karigor/app/modules/auth/bindings/auth_binding.dart":"809507318"}
+define(['dart_sdk', 'packages/flutter/src/foundation/object.dart', 'packages/flutter/src/animation/listener_helpers.dart'], (function load__packages__flutter__src__material__arc_dart(dart_sdk, packages__flutter__src__foundation__object$46dart, packages__flutter__src__animation__listener_helpers$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const math = dart_sdk.math;
+  const _internal = dart_sdk._internal;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
+  const tween = packages__flutter__src__animation__listener_helpers$46dart.src__animation__tween;
+  var arc = Object.create(dart.library);
+  var $abs = dartx.abs;
+  var $sign = dartx.sign;
+  dart._checkModuleNullSafetyMode(true);
+  var T = {
+    VoidTodouble: () => (T.VoidTodouble = dart.constFn(dart.fnType(core.double, [])))(),
+    OffsetN: () => (T.OffsetN = dart.constFn(dart.nullable(ui.Offset)))(),
+    _DiagonalTodouble: () => (T._DiagonalTodouble = dart.constFn(dart.fnType(core.double, [arc._Diagonal])))(),
+    RectN: () => (T.RectN = dart.constFn(dart.nullable(ui.Rect)))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: arc._CornerId.prototype,
+        [_name$]: "_CornerId.topLeft",
+        index: 0
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: arc._CornerId.prototype,
+        [_name$]: "_CornerId.topRight",
+        index: 1
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: arc._CornerId.prototype,
+        [_name$]: "_CornerId.bottomLeft",
+        index: 2
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: arc._CornerId.prototype,
+        [_name$]: "_CornerId.bottomRight",
+        index: 3
+      });
+    },
+    get C4() {
+      return C[4] = dart.constList([C[0] || CT.C0, C[1] || CT.C1, C[2] || CT.C2, C[3] || CT.C3], arc._CornerId);
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: arc._Diagonal.prototype,
+        [endId$]: C[3] || CT.C3,
+        [beginId$]: C[0] || CT.C0
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: arc._Diagonal.prototype,
+        [endId$]: C[0] || CT.C0,
+        [beginId$]: C[3] || CT.C3
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: arc._Diagonal.prototype,
+        [endId$]: C[2] || CT.C2,
+        [beginId$]: C[1] || CT.C1
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: arc._Diagonal.prototype,
+        [endId$]: C[1] || CT.C1,
+        [beginId$]: C[2] || CT.C2
+      });
+    },
+    get C5() {
+      return C[5] = dart.constList([C[6] || CT.C6, C[7] || CT.C7, C[8] || CT.C8, C[9] || CT.C9], arc._Diagonal);
+    }
+  }, false);
+  var C = Array(10).fill(void 0);
+  var I = [
+    "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/material/arc.dart",
+    "package:flutter/src/material/arc.dart"
+  ];
+  var _dirty = dart.privateName(arc, "_dirty");
+  var _center = dart.privateName(arc, "_center");
+  var _radius = dart.privateName(arc, "_radius");
+  var _beginAngle = dart.privateName(arc, "_beginAngle");
+  var _endAngle = dart.privateName(arc, "_endAngle");
+  var _initialize = dart.privateName(arc, "_initialize");
+  arc.MaterialPointArcTween = class MaterialPointArcTween extends tween.Tween$(ui.Offset) {
+    [_initialize]() {
+      if (!(this.begin != null)) dart.assertFailed(null, I[0], 46, 12, "this.begin != null");
+      if (!(this.end != null)) dart.assertFailed(null, I[0], 47, 12, "this.end != null");
+      let begin = dart.nullCheck(this.begin);
+      let end = dart.nullCheck(this.end);
+      let delta = end['-'](begin);
+      let deltaX = delta.dx[$abs]();
+      let deltaY = delta.dy[$abs]();
+      let distanceFromAtoB = delta.distance;
+      let c = new ui.Offset.new(end.dx, begin.dy);
+      const sweepAngle = () => {
+        return 2.0 * math.asin(distanceFromAtoB / (2.0 * dart.nullCheck(this[_radius])));
+      };
+      dart.fn(sweepAngle, T.VoidTodouble());
+      if (deltaX > 2 && deltaY > 2) {
+        if (deltaX < deltaY) {
+          this[_radius] = distanceFromAtoB * distanceFromAtoB / c['-'](begin).distance / 2.0;
+          this[_center] = new ui.Offset.new(end.dx + dart.nullCheck(this[_radius]) * (begin.dx - end.dx)[$sign], end.dy);
+          if (begin.dx < end.dx) {
+            this[_beginAngle] = sweepAngle() * (begin.dy - end.dy)[$sign];
+            this[_endAngle] = 0.0;
+          } else {
+            this[_beginAngle] = 3.141592653589793 + sweepAngle() * (end.dy - begin.dy)[$sign];
+            this[_endAngle] = 3.141592653589793;
+          }
+        } else {
+          this[_radius] = distanceFromAtoB * distanceFromAtoB / c['-'](end).distance / 2.0;
+          this[_center] = new ui.Offset.new(begin.dx, begin.dy + (end.dy - begin.dy)[$sign] * dart.nullCheck(this[_radius]));
+          if (begin.dy < end.dy) {
+            this[_beginAngle] = -3.141592653589793 / 2.0;
+            this[_endAngle] = dart.nullCheck(this[_beginAngle]) + sweepAngle() * (end.dx - begin.dx)[$sign];
+          } else {
+            this[_beginAngle] = 3.141592653589793 / 2.0;
+            this[_endAngle] = dart.nullCheck(this[_beginAngle]) + sweepAngle() * (begin.dx - end.dx)[$sign];
+          }
+        }
+        if (!(this[_beginAngle] != null)) dart.assertFailed(null, I[0], 83, 14, "_beginAngle != null");
+        if (!(this[_endAngle] != null)) dart.assertFailed(null, I[0], 84, 14, "_endAngle != null");
+      } else {
+        this[_beginAngle] = null;
+        this[_endAngle] = null;
+      }
+      this[_dirty] = false;
+    }
+    get center() {
+      if (this.begin == null || this.end == null) return null;
+      if (this[_dirty]) this[_initialize]();
+      return this[_center];
+    }
+    get radius() {
+      if (this.begin == null || this.end == null) return null;
+      if (this[_dirty]) this[_initialize]();
+      return this[_radius];
+    }
+    get beginAngle() {
+      if (this.begin == null || this.end == null) return null;
+      if (this[_dirty]) this[_initialize]();
+      return this[_beginAngle];
+    }
+    get endAngle() {
+      if (this.begin == null || this.end == null) return null;
+      if (this[_dirty]) this[_initialize]();
+      return this[_beginAngle];
+    }
+    set begin(value) {
+      T.OffsetN().as(value);
+      if (!dart.equals(value, this.begin)) {
+        super.begin = value;
+        this[_dirty] = true;
+      }
+    }
+    get begin() {
+      return super.begin;
+    }
+    set end(value) {
+      T.OffsetN().as(value);
+      if (!dart.equals(value, this.end)) {
+        super.end = value;
+        this[_dirty] = true;
+      }
+    }
+    get end() {
+      return super.end;
+    }
+    lerp(t) {
+      if (this[_dirty]) this[_initialize]();
+      if (t === 0.0) return dart.nullCheck(this.begin);
+      if (t === 1.0) return dart.nullCheck(this.end);
+      if (this[_beginAngle] == null || this[_endAngle] == null) return dart.nullCheck(ui.Offset.lerp(this.begin, this.end, t));
+      let angle = dart.nullCheck(ui.lerpDouble(this[_beginAngle], this[_endAngle], t));
+      let x = math.cos(angle) * dart.nullCheck(this[_radius]);
+      let y = math.sin(angle) * dart.nullCheck(this[_radius]);
+      return dart.nullCheck(this[_center])['+'](new ui.Offset.new(x, y));
+    }
+    toString() {
+      return object.objectRuntimeType(this, "MaterialPointArcTween") + "(" + dart.str(this.begin) + " → " + dart.str(this.end) + "; center=" + dart.str(this.center) + ", radius=" + dart.str(this.radius) + ", beginAngle=" + dart.str(this.beginAngle) + ", endAngle=" + dart.str(this.endAngle) + ")";
+    }
+  };
+  (arc.MaterialPointArcTween.new = function(opts) {
+    let begin = opts && 'begin' in opts ? opts.begin : null;
+    let end = opts && 'end' in opts ? opts.end : null;
+    this[_dirty] = true;
+    this[_center] = null;
+    this[_radius] = null;
+    this[_beginAngle] = null;
+    this[_endAngle] = null;
+    arc.MaterialPointArcTween.__proto__.new.call(this, {begin: begin, end: end});
+    ;
+  }).prototype = arc.MaterialPointArcTween.prototype;
+  dart.addTypeTests(arc.MaterialPointArcTween);
+  dart.addTypeCaches(arc.MaterialPointArcTween);
+  dart.setMethodSignature(arc.MaterialPointArcTween, () => ({
+    __proto__: dart.getMethods(arc.MaterialPointArcTween.__proto__),
+    [_initialize]: dart.fnType(dart.void, [])
+  }));
+  dart.setGetterSignature(arc.MaterialPointArcTween, () => ({
+    __proto__: dart.getGetters(arc.MaterialPointArcTween.__proto__),
+    center: dart.nullable(ui.Offset),
+    radius: dart.nullable(core.double),
+    beginAngle: dart.nullable(core.double),
+    endAngle: dart.nullable(core.double)
+  }));
+  dart.setSetterSignature(arc.MaterialPointArcTween, () => ({
+    __proto__: dart.getSetters(arc.MaterialPointArcTween.__proto__),
+    begin: dart.nullable(core.Object),
+    end: dart.nullable(core.Object)
+  }));
+  dart.setLibraryUri(arc.MaterialPointArcTween, I[1]);
+  dart.setFieldSignature(arc.MaterialPointArcTween, () => ({
+    __proto__: dart.getFields(arc.MaterialPointArcTween.__proto__),
+    [_dirty]: dart.fieldType(core.bool),
+    [_center]: dart.fieldType(dart.nullable(ui.Offset)),
+    [_radius]: dart.fieldType(dart.nullable(core.double)),
+    [_beginAngle]: dart.fieldType(dart.nullable(core.double)),
+    [_endAngle]: dart.fieldType(dart.nullable(core.double))
+  }));
+  dart.defineExtensionMethods(arc.MaterialPointArcTween, ['toString']);
+  var _name$ = dart.privateName(arc, "_name");
+  arc._CornerId = class _CornerId extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (arc._CornerId.new = function(index, _name) {
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = arc._CornerId.prototype;
+  dart.addTypeTests(arc._CornerId);
+  dart.addTypeCaches(arc._CornerId);
+  dart.setLibraryUri(arc._CornerId, I[1]);
+  dart.setFieldSignature(arc._CornerId, () => ({
+    __proto__: dart.getFields(arc._CornerId.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(arc._CornerId, ['toString']);
+  arc._CornerId.topLeft = C[0] || CT.C0;
+  arc._CornerId.topRight = C[1] || CT.C1;
+  arc._CornerId.bottomLeft = C[2] || CT.C2;
+  arc._CornerId.bottomRight = C[3] || CT.C3;
+  arc._CornerId.values = C[4] || CT.C4;
+  var beginId$ = dart.privateName(arc, "_Diagonal.beginId");
+  var endId$ = dart.privateName(arc, "_Diagonal.endId");
+  arc._Diagonal = class _Diagonal extends core.Object {
+    get beginId() {
+      return this[beginId$];
+    }
+    set beginId(value) {
+      super.beginId = value;
+    }
+    get endId() {
+      return this[endId$];
+    }
+    set endId(value) {
+      super.endId = value;
+    }
+  };
+  (arc._Diagonal.new = function(beginId, endId) {
+    this[beginId$] = beginId;
+    this[endId$] = endId;
+    ;
+  }).prototype = arc._Diagonal.prototype;
+  dart.addTypeTests(arc._Diagonal);
+  dart.addTypeCaches(arc._Diagonal);
+  dart.setLibraryUri(arc._Diagonal, I[1]);
+  dart.setFieldSignature(arc._Diagonal, () => ({
+    __proto__: dart.getFields(arc._Diagonal.__proto__),
+    beginId: dart.finalFieldType(arc._CornerId),
+    endId: dart.finalFieldType(arc._CornerId)
+  }));
+  var __MaterialRectArcTween__beginArc = dart.privateName(arc, "_#MaterialRectArcTween#_beginArc");
+  var __MaterialRectArcTween__endArc = dart.privateName(arc, "_#MaterialRectArcTween#_endArc");
+  var _diagonalSupport = dart.privateName(arc, "_diagonalSupport");
+  var _beginArc = dart.privateName(arc, "_beginArc");
+  var _cornerFor = dart.privateName(arc, "_cornerFor");
+  var _endArc = dart.privateName(arc, "_endArc");
+  arc.MaterialRectArcTween = class MaterialRectArcTween extends tween.RectTween {
+    [_initialize]() {
+      if (!(this.begin != null)) dart.assertFailed(null, I[0], 249, 12, "begin != null");
+      if (!(this.end != null)) dart.assertFailed(null, I[0], 250, 12, "end != null");
+      let centersVector = dart.nullCheck(this.end).center['-'](dart.nullCheck(this.begin).center);
+      let diagonal = arc._maxBy(arc._Diagonal, arc._allDiagonals, dart.fn(d => this[_diagonalSupport](centersVector, d), T._DiagonalTodouble()));
+      this[_beginArc] = new arc.MaterialPointArcTween.new({begin: this[_cornerFor](dart.nullCheck(this.begin), diagonal.beginId), end: this[_cornerFor](dart.nullCheck(this.end), diagonal.beginId)});
+      this[_endArc] = new arc.MaterialPointArcTween.new({begin: this[_cornerFor](dart.nullCheck(this.begin), diagonal.endId), end: this[_cornerFor](dart.nullCheck(this.end), diagonal.endId)});
+      this[_dirty] = false;
+    }
+    [_diagonalSupport](centersVector, diagonal) {
+      let delta = this[_cornerFor](dart.nullCheck(this.begin), diagonal.endId)['-'](this[_cornerFor](dart.nullCheck(this.begin), diagonal.beginId));
+      let length = delta.distance;
+      return centersVector.dx * delta.dx / length + centersVector.dy * delta.dy / length;
+    }
+    [_cornerFor](rect, id) {
+      switch (id) {
+        case C[0] || CT.C0:
+        {
+          return rect.topLeft;
+        }
+        case C[1] || CT.C1:
+        {
+          return rect.topRight;
+        }
+        case C[2] || CT.C2:
+        {
+          return rect.bottomLeft;
+        }
+        case C[3] || CT.C3:
+        {
+          return rect.bottomRight;
+        }
+      }
+    }
+    get beginArc() {
+      if (this.begin == null) return null;
+      if (this[_dirty]) this[_initialize]();
+      return this[_beginArc];
+    }
+    get [_beginArc]() {
+      let t0;
+      t0 = this[__MaterialRectArcTween__beginArc];
+      return t0 == null ? dart.throw(new _internal.LateError.fieldNI("_beginArc")) : t0;
+    }
+    set [_beginArc](t0) {
+      this[__MaterialRectArcTween__beginArc] = t0;
+    }
+    get endArc() {
+      if (this.end == null) return null;
+      if (this[_dirty]) this[_initialize]();
+      return this[_endArc];
+    }
+    get [_endArc]() {
+      let t1;
+      t1 = this[__MaterialRectArcTween__endArc];
+      return t1 == null ? dart.throw(new _internal.LateError.fieldNI("_endArc")) : t1;
+    }
+    set [_endArc](t1) {
+      this[__MaterialRectArcTween__endArc] = t1;
+    }
+    set begin(value) {
+      T.RectN().as(value);
+      if (!dart.equals(value, this.begin)) {
+        super.begin = value;
+        this[_dirty] = true;
+      }
+    }
+    get begin() {
+      return super.begin;
+    }
+    set end(value) {
+      T.RectN().as(value);
+      if (!dart.equals(value, this.end)) {
+        super.end = value;
+        this[_dirty] = true;
+      }
+    }
+    get end() {
+      return super.end;
+    }
+    lerp(t) {
+      if (this[_dirty]) this[_initialize]();
+      if (t === 0.0) return dart.nullCheck(this.begin);
+      if (t === 1.0) return dart.nullCheck(this.end);
+      return new ui.Rect.fromPoints(this[_beginArc].lerp(t), this[_endArc].lerp(t));
+    }
+    toString() {
+      return object.objectRuntimeType(this, "MaterialRectArcTween") + "(" + dart.str(this.begin) + " → " + dart.str(this.end) + "; beginArc=" + dart.str(this.beginArc) + ", endArc=" + dart.str(this.endArc) + ")";
+    }
+  };
+  (arc.MaterialRectArcTween.new = function(opts) {
+    let begin = opts && 'begin' in opts ? opts.begin : null;
+    let end = opts && 'end' in opts ? opts.end : null;
+    this[_dirty] = true;
+    this[__MaterialRectArcTween__beginArc] = null;
+    this[__MaterialRectArcTween__endArc] = null;
+    arc.MaterialRectArcTween.__proto__.new.call(this, {begin: begin, end: end});
+    ;
+  }).prototype = arc.MaterialRectArcTween.prototype;
+  dart.addTypeTests(arc.MaterialRectArcTween);
+  dart.addTypeCaches(arc.MaterialRectArcTween);
+  dart.setMethodSignature(arc.MaterialRectArcTween, () => ({
+    __proto__: dart.getMethods(arc.MaterialRectArcTween.__proto__),
+    [_initialize]: dart.fnType(dart.void, []),
+    [_diagonalSupport]: dart.fnType(core.double, [ui.Offset, arc._Diagonal]),
+    [_cornerFor]: dart.fnType(ui.Offset, [ui.Rect, arc._CornerId]),
+    lerp: dart.fnType(ui.Rect, [core.double])
+  }));
+  dart.setGetterSignature(arc.MaterialRectArcTween, () => ({
+    __proto__: dart.getGetters(arc.MaterialRectArcTween.__proto__),
+    beginArc: dart.nullable(arc.MaterialPointArcTween),
+    [_beginArc]: arc.MaterialPointArcTween,
+    endArc: dart.nullable(arc.MaterialPointArcTween),
+    [_endArc]: arc.MaterialPointArcTween
+  }));
+  dart.setSetterSignature(arc.MaterialRectArcTween, () => ({
+    __proto__: dart.getSetters(arc.MaterialRectArcTween.__proto__),
+    [_beginArc]: arc.MaterialPointArcTween,
+    [_endArc]: arc.MaterialPointArcTween,
+    begin: dart.nullable(core.Object),
+    end: dart.nullable(core.Object)
+  }));
+  dart.setLibraryUri(arc.MaterialRectArcTween, I[1]);
+  dart.setFieldSignature(arc.MaterialRectArcTween, () => ({
+    __proto__: dart.getFields(arc.MaterialRectArcTween.__proto__),
+    [_dirty]: dart.fieldType(core.bool),
+    [__MaterialRectArcTween__beginArc]: dart.fieldType(dart.nullable(arc.MaterialPointArcTween)),
+    [__MaterialRectArcTween__endArc]: dart.fieldType(dart.nullable(arc.MaterialPointArcTween))
+  }));
+  dart.defineExtensionMethods(arc.MaterialRectArcTween, ['toString']);
+  var __MaterialRectCenterArcTween__centerArc = dart.privateName(arc, "_#MaterialRectCenterArcTween#_centerArc");
+  var _centerArc = dart.privateName(arc, "_centerArc");
+  arc.MaterialRectCenterArcTween = class MaterialRectCenterArcTween extends tween.RectTween {
+    [_initialize]() {
+      if (!(this.begin != null)) dart.assertFailed(null, I[0], 364, 12, "begin != null");
+      if (!(this.end != null)) dart.assertFailed(null, I[0], 365, 12, "end != null");
+      this[_centerArc] = new arc.MaterialPointArcTween.new({begin: dart.nullCheck(this.begin).center, end: dart.nullCheck(this.end).center});
+      this[_dirty] = false;
+    }
+    get centerArc() {
+      if (this.begin == null || this.end == null) return null;
+      if (this[_dirty]) this[_initialize]();
+      return this[_centerArc];
+    }
+    get [_centerArc]() {
+      let t2;
+      t2 = this[__MaterialRectCenterArcTween__centerArc];
+      return t2 == null ? dart.throw(new _internal.LateError.fieldNI("_centerArc")) : t2;
+    }
+    set [_centerArc](t2) {
+      this[__MaterialRectCenterArcTween__centerArc] = t2;
+    }
+    set begin(value) {
+      T.RectN().as(value);
+      if (!dart.equals(value, this.begin)) {
+        super.begin = value;
+        this[_dirty] = true;
+      }
+    }
+    get begin() {
+      return super.begin;
+    }
+    set end(value) {
+      T.RectN().as(value);
+      if (!dart.equals(value, this.end)) {
+        super.end = value;
+        this[_dirty] = true;
+      }
+    }
+    get end() {
+      return super.end;
+    }
+    lerp(t) {
+      if (this[_dirty]) this[_initialize]();
+      if (t === 0.0) return dart.nullCheck(this.begin);
+      if (t === 1.0) return dart.nullCheck(this.end);
+      let center = this[_centerArc].lerp(t);
+      let width = dart.nullCheck(ui.lerpDouble(dart.nullCheck(this.begin).width, dart.nullCheck(this.end).width, t));
+      let height = dart.nullCheck(ui.lerpDouble(dart.nullCheck(this.begin).height, dart.nullCheck(this.end).height, t));
+      return new ui.Rect.fromLTWH(center.dx - width / 2.0, center.dy - height / 2.0, width, height);
+    }
+    toString() {
+      return object.objectRuntimeType(this, "MaterialRectCenterArcTween") + "(" + dart.str(this.begin) + " → " + dart.str(this.end) + "; centerArc=" + dart.str(this.centerArc) + ")";
+    }
+  };
+  (arc.MaterialRectCenterArcTween.new = function(opts) {
+    let begin = opts && 'begin' in opts ? opts.begin : null;
+    let end = opts && 'end' in opts ? opts.end : null;
+    this[_dirty] = true;
+    this[__MaterialRectCenterArcTween__centerArc] = null;
+    arc.MaterialRectCenterArcTween.__proto__.new.call(this, {begin: begin, end: end});
+    ;
+  }).prototype = arc.MaterialRectCenterArcTween.prototype;
+  dart.addTypeTests(arc.MaterialRectCenterArcTween);
+  dart.addTypeCaches(arc.MaterialRectCenterArcTween);
+  dart.setMethodSignature(arc.MaterialRectCenterArcTween, () => ({
+    __proto__: dart.getMethods(arc.MaterialRectCenterArcTween.__proto__),
+    [_initialize]: dart.fnType(dart.void, []),
+    lerp: dart.fnType(ui.Rect, [core.double])
+  }));
+  dart.setGetterSignature(arc.MaterialRectCenterArcTween, () => ({
+    __proto__: dart.getGetters(arc.MaterialRectCenterArcTween.__proto__),
+    centerArc: dart.nullable(arc.MaterialPointArcTween),
+    [_centerArc]: arc.MaterialPointArcTween
+  }));
+  dart.setSetterSignature(arc.MaterialRectCenterArcTween, () => ({
+    __proto__: dart.getSetters(arc.MaterialRectCenterArcTween.__proto__),
+    [_centerArc]: arc.MaterialPointArcTween,
+    begin: dart.nullable(core.Object),
+    end: dart.nullable(core.Object)
+  }));
+  dart.setLibraryUri(arc.MaterialRectCenterArcTween, I[1]);
+  dart.setFieldSignature(arc.MaterialRectCenterArcTween, () => ({
+    __proto__: dart.getFields(arc.MaterialRectCenterArcTween.__proto__),
+    [_dirty]: dart.fieldType(core.bool),
+    [__MaterialRectCenterArcTween__centerArc]: dart.fieldType(dart.nullable(arc.MaterialPointArcTween))
+  }));
+  dart.defineExtensionMethods(arc.MaterialRectCenterArcTween, ['toString']);
+  arc._maxBy = function _maxBy(T, input, keyFunc) {
+    let maxValue = null;
+    let maxValue$35isSet = false;
+    function maxValue$35get() {
+      return maxValue$35isSet ? maxValue : dart.throw(new _internal.LateError.localNI("maxValue"));
+    }
+    dart.fn(maxValue$35get, dart.fnType(T, []));
+    function maxValue$35set(t6) {
+      maxValue$35isSet = true;
+      return maxValue = t6;
+    }
+    dart.fn(maxValue$35set, dart.fnType(dart.dynamic, [T]));
+    let maxKey = null;
+    for (let value of input) {
+      let key = keyFunc(value);
+      if (maxKey == null || key > dart.notNull(maxKey)) {
+        maxValue$35set(value);
+        maxKey = key;
+      }
+    }
+    return maxValue$35get();
+  };
+  dart.defineLazy(arc, {
+    /*arc._kOnAxisDelta*/get _kOnAxisDelta() {
+      return 2;
+    },
+    /*arc._allDiagonals*/get _allDiagonals() {
+      return C[5] || CT.C5;
+    }
+  }, false);
+  dart.trackLibraries("packages/flutter/src/material/arc.dart", {
+    "package:flutter/src/material/arc.dart": arc
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["arc.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/flutter/src/material/arc.dart.lib.js"}');
+  // Exports:
+  return {
+    src__material__arc: arc
+  };
+}));
+
+//# sourceMappingURL=arc.dart.lib.js.map

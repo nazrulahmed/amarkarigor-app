@@ -1,40 +1,37 @@
-define(['dart_sdk', 'packages/flutter/src/foundation/object.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/foundation/collections.dart'], (function load__packages__flutter__src__painting__borders_dart(dart_sdk, packages__flutter__src__foundation__object$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__foundation__collections$46dart) {
+define(['dart_sdk', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/animation/listener_helpers.dart', 'packages/flutter/src/rendering/custom_paint.dart', 'packages/flutter/src/animation/curves.dart', 'packages/flutter/src/animation/animation_controller.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/cupertino/activity_indicator.dart', 'packages/flutter/src/foundation/_platform_web.dart', 'packages/flutter/src/painting/edge_insets.dart'], (function load__packages__flutter__src__material__progress_indicator_dart(dart_sdk, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__animation__listener_helpers$46dart, packages__flutter__src__rendering__custom_paint$46dart, packages__flutter__src__animation__curves$46dart, packages__flutter__src__animation__animation_controller$46dart, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__cupertino__activity_indicator$46dart, packages__flutter__src__foundation___platform_web$46dart, packages__flutter__src__painting__edge_insets$46dart) {
   'use strict';
   const core = dart_sdk.core;
   const ui = dart_sdk.ui;
+  const _internal = dart_sdk._internal;
   const math = dart_sdk.math;
-  const _interceptors = dart_sdk._interceptors;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
+  const theme$ = packages__flutter__src__material__icon_button$46dart.src__material__theme;
+  const material = packages__flutter__src__material__icon_button$46dart.src__material__material;
+  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const transitions = packages__flutter__src__widgets__widget_span$46dart.src__widgets__transitions;
+  const ticker_provider = packages__flutter__src__widgets__widget_span$46dart.src__widgets__ticker_provider;
+  const animation = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animation;
+  const tween = packages__flutter__src__animation__listener_helpers$46dart.src__animation__tween;
+  const custom_paint = packages__flutter__src__rendering__custom_paint$46dart.src__rendering__custom_paint;
+  const curves = packages__flutter__src__animation__curves$46dart.src__animation__curves;
+  const animation_controller = packages__flutter__src__animation__animation_controller$46dart.src__animation__animation_controller;
+  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
+  const activity_indicator = packages__flutter__src__cupertino__activity_indicator$46dart.src__cupertino__activity_indicator;
+  const platform = packages__flutter__src__foundation___platform_web$46dart.src__foundation__platform;
   const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
-  const collections = packages__flutter__src__foundation__collections$46dart.src__foundation__collections;
-  var borders$ = Object.create(dart.library);
-  var $runtimeType = dartx.runtimeType;
-  var $toStringAsFixed = dartx.toStringAsFixed;
-  var $length = dartx.length;
-  var $any = dartx.any;
-  var $fold = dartx.fold;
-  var $last = dartx.last;
-  var $first = dartx.first;
-  var $_set = dartx._set;
-  var $addAll = dartx.addAll;
-  var $add = dartx.add;
-  var $map = dartx.map;
-  var $toList = dartx.toList;
-  var $_get = dartx._get;
-  var $reversed = dartx.reversed;
-  var $join = dartx.join;
+  var progress_indicator = Object.create(dart.library);
+  var $round = dartx.round;
+  var $clamp = dartx.clamp;
   dart._checkModuleNullSafetyMode(true);
   var T = {
-    JSArrayOfShapeBorder: () => (T.JSArrayOfShapeBorder = dart.constFn(_interceptors.JSArray$(borders$.ShapeBorder)))(),
-    ShapeBorderTobool: () => (T.ShapeBorderTobool = dart.constFn(dart.fnType(core.bool, [borders$.ShapeBorder])))(),
-    EdgeInsetsGeometryAndShapeBorderToEdgeInsetsGeometry: () => (T.EdgeInsetsGeometryAndShapeBorderToEdgeInsetsGeometry = dart.constFn(dart.fnType(edge_insets.EdgeInsetsGeometry, [edge_insets.EdgeInsetsGeometry, borders$.ShapeBorder])))(),
-    ListOfShapeBorder: () => (T.ListOfShapeBorder = dart.constFn(core.List$(borders$.ShapeBorder)))(),
-    ShapeBorderToShapeBorder: () => (T.ShapeBorderToShapeBorder = dart.constFn(dart.fnType(borders$.ShapeBorder, [borders$.ShapeBorder])))(),
-    ShapeBorderN: () => (T.ShapeBorderN = dart.constFn(dart.nullable(borders$.ShapeBorder)))(),
-    JSArrayOfShapeBorderN: () => (T.JSArrayOfShapeBorderN = dart.constFn(_interceptors.JSArray$(T.ShapeBorderN())))(),
-    ShapeBorderToString: () => (T.ShapeBorderToString = dart.constFn(dart.fnType(core.String, [borders$.ShapeBorder])))()
+    doubleAnddoubleTovoid: () => (T.doubleAnddoubleTovoid = dart.constFn(dart.fnType(dart.void, [core.double, core.double])))(),
+    WidgetN: () => (T.WidgetN = dart.constFn(dart.nullable(framework.Widget)))(),
+    BuildContextAndWidgetNToWidget: () => (T.BuildContextAndWidgetNToWidget = dart.constFn(dart.fnType(framework.Widget, [framework.BuildContext, T.WidgetN()])))()
   };
   const CT = Object.create({
     _: () => (C, CT)
@@ -42,540 +39,1407 @@ define(['dart_sdk', 'packages/flutter/src/foundation/object.dart', 'packages/flu
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: borders$.BorderStyle.prototype,
-        [_name$]: "BorderStyle.none",
+        __proto__: progress_indicator._ActivityIndicatorType.prototype,
+        [_name$]: "_ActivityIndicatorType.material",
         index: 0
       });
     },
     get C1() {
       return C[1] = dart.const({
-        __proto__: borders$.BorderStyle.prototype,
-        [_name$]: "BorderStyle.solid",
+        __proto__: progress_indicator._ActivityIndicatorType.prototype,
+        [_name$]: "_ActivityIndicatorType.adaptive",
         index: 1
       });
     },
     get C2() {
-      return C[2] = dart.constList([C[0] || CT.C0, C[1] || CT.C1], borders$.BorderStyle);
-    },
-    get C3() {
-      return C[3] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4278190080.0
-      });
-    },
-    get C4() {
-      return C[4] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 0
-      });
+      return C[2] = dart.constList([C[0] || CT.C0, C[1] || CT.C1], progress_indicator._ActivityIndicatorType);
     },
     get C5() {
       return C[5] = dart.const({
-        __proto__: borders$.BorderSide.prototype,
-        [style$]: C[0] || CT.C0,
-        [width$]: 0,
-        [color$]: C[3] || CT.C3
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "label",
+        [_Location_column]: 7,
+        [_Location_line]: 137,
+        [_Location_file]: null
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "value",
+        [_Location_column]: 7,
+        [_Location_line]: 138,
+        [_Location_file]: null
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 139,
+        [_Location_file]: null
+      });
+    },
+    get C4() {
+      return C[4] = dart.constList([C[5] || CT.C5, C[6] || CT.C6, C[7] || CT.C7], widget_inspector._Location);
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[4] || CT.C4,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 136,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/material/progress_indicator.dart"
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: ui.TextDirection.prototype,
+        [_name]: "TextDirection.rtl",
+        index: 0
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: ui.TextDirection.prototype,
+        [_name]: "TextDirection.ltr",
+        index: 1
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: curves.Cubic.prototype,
+        [Cubic_d]: 1,
+        [Cubic_c]: 0.8,
+        [Cubic_b]: 0,
+        [Cubic_a]: 0.2
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: curves.Interval.prototype,
+        [Interval_curve]: C[11] || CT.C11,
+        [Interval_end]: 0.4166666666666667,
+        [Interval_begin]: 0
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: curves.Cubic.prototype,
+        [Cubic_d]: 1,
+        [Cubic_c]: 1,
+        [Cubic_b]: 0,
+        [Cubic_a]: 0.4
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: curves.Interval.prototype,
+        [Interval_curve]: C[13] || CT.C13,
+        [Interval_end]: 0.6016666666666667,
+        [Interval_begin]: 0.185
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: curves.Cubic.prototype,
+        [Cubic_d]: 1,
+        [Cubic_c]: 0.65,
+        [Cubic_b]: 0,
+        [Cubic_a]: 0
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: curves.Interval.prototype,
+        [Interval_curve]: C[15] || CT.C15,
+        [Interval_end]: 0.8705555555555555,
+        [Interval_begin]: 0.5555555555555556
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: curves.Cubic.prototype,
+        [Cubic_d]: 1,
+        [Cubic_c]: 0.45,
+        [Cubic_b]: 0,
+        [Cubic_a]: 0.1
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: curves.Interval.prototype,
+        [Interval_curve]: C[17] || CT.C17,
+        [Interval_end]: 1,
+        [Interval_begin]: 0.7038888888888889
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 1800000
+      });
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "painter",
+        [_Location_column]: 11,
+        [_Location_line]: 379,
+        [_Location_file]: null
+      });
+    },
+    get C20() {
+      return C[20] = dart.constList([C[21] || CT.C21], widget_inspector._Location);
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[20] || CT.C20,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 378,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/material/progress_indicator.dart"
+      });
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "constraints",
+        [_Location_column]: 9,
+        [_Location_line]: 374,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 378,
+        [_Location_file]: null
+      });
+    },
+    get C23() {
+      return C[23] = dart.constList([C[24] || CT.C24, C[25] || CT.C25], widget_inspector._Location);
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[23] || CT.C23,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 373,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/material/progress_indicator.dart"
+      });
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "animation",
+        [_Location_column]: 7,
+        [_Location_line]: 399,
+        [_Location_file]: null
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 7,
+        [_Location_line]: 400,
+        [_Location_file]: null
+      });
+    },
+    get C27() {
+      return C[27] = dart.constList([C[28] || CT.C28, C[29] || CT.C29], widget_inspector._Location);
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[27] || CT.C27,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 398,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/material/progress_indicator.dart"
+      });
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 2961926000.0
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "key",
+        [_Location_column]: 39,
+        [_Location_line]: 657,
+        [_Location_file]: null
+      });
+    },
+    get C32() {
+      return C[32] = dart.constList([C[33] || CT.C33], widget_inspector._Location);
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[32] || CT.C32,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 657,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/material/progress_indicator.dart"
+      });
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: box.BoxConstraints.prototype,
+        [BoxConstraints_maxHeight]: 1 / 0,
+        [BoxConstraints_minHeight]: 36,
+        [BoxConstraints_maxWidth]: 1 / 0,
+        [BoxConstraints_minWidth]: 36
+      });
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "painter",
+        [_Location_column]: 11,
+        [_Location_line]: 669,
+        [_Location_file]: null
+      });
+    },
+    get C36() {
+      return C[36] = dart.constList([C[37] || CT.C37], widget_inspector._Location);
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[36] || CT.C36,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 668,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/material/progress_indicator.dart"
+      });
+    },
+    get C40() {
+      return C[40] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "constraints",
+        [_Location_column]: 9,
+        [_Location_line]: 664,
+        [_Location_file]: null
+      });
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 668,
+        [_Location_file]: null
+      });
+    },
+    get C39() {
+      return C[39] = dart.constList([C[40] || CT.C40, C[41] || CT.C41], widget_inspector._Location);
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[39] || CT.C39,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 663,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/material/progress_indicator.dart"
+      });
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "animation",
+        [_Location_column]: 7,
+        [_Location_line]: 686,
+        [_Location_file]: null
+      });
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 7,
+        [_Location_line]: 687,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C[43] = dart.constList([C[44] || CT.C44, C[45] || CT.C45], widget_inspector._Location);
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[43] || CT.C43,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 685,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/material/progress_indicator.dart"
+      });
+    },
+    get C46() {
+      return C[46] = dart.const({
+        __proto__: platform.TargetPlatform.prototype,
+        [_name$0]: "TargetPlatform.iOS",
+        index: 2
+      });
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: platform.TargetPlatform.prototype,
+        [_name$0]: "TargetPlatform.macOS",
+        index: 4
+      });
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: platform.TargetPlatform.prototype,
+        [_name$0]: "TargetPlatform.android",
+        index: 0
+      });
+    },
+    get C49() {
+      return C[49] = dart.const({
+        __proto__: platform.TargetPlatform.prototype,
+        [_name$0]: "TargetPlatform.fuchsia",
+        index: 1
+      });
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: platform.TargetPlatform.prototype,
+        [_name$0]: "TargetPlatform.linux",
+        index: 3
+      });
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: platform.TargetPlatform.prototype,
+        [_name$0]: "TargetPlatform.windows",
+        index: 5
+      });
+    },
+    get C53() {
+      return C[53] = dart.const({
+        __proto__: curves.Cubic.prototype,
+        [Cubic_d]: 1,
+        [Cubic_c]: 0.2,
+        [Cubic_b]: 0,
+        [Cubic_a]: 0.4
+      });
+    },
+    get C52() {
+      return C[52] = dart.const({
+        __proto__: curves.Interval.prototype,
+        [Interval_curve]: C[53] || CT.C53,
+        [Interval_end]: 0.5,
+        [Interval_begin]: 0
+      });
+    },
+    get C54() {
+      return C[54] = dart.const({
+        __proto__: curves.SawTooth.prototype,
+        [SawTooth_count]: 2222
+      });
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: curves.Interval.prototype,
+        [Interval_curve]: C[53] || CT.C53,
+        [Interval_end]: 1,
+        [Interval_begin]: 0.5
+      });
+    },
+    get C56() {
+      return C[56] = dart.const({
+        __proto__: curves.SawTooth.prototype,
+        [SawTooth_count]: 1333
+      });
+    },
+    get C57() {
+      return C[57] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 4,
+        [EdgeInsets_right]: 4,
+        [EdgeInsets_top]: 4,
+        [EdgeInsets_left]: 4
+      });
+    },
+    get C58() {
+      return C[58] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 12,
+        [EdgeInsets_right]: 12,
+        [EdgeInsets_top]: 12,
+        [EdgeInsets_left]: 12
+      });
+    },
+    get C61() {
+      return C[61] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "painter",
+        [_Location_column]: 15,
+        [_Location_line]: 856,
+        [_Location_file]: null
+      });
+    },
+    get C60() {
+      return C[60] = dart.constList([C[61] || CT.C61], widget_inspector._Location);
+    },
+    get C59() {
+      return C[59] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[60] || CT.C60,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 855,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/material/progress_indicator.dart"
+      });
+    },
+    get C64() {
+      return C[64] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 13,
+        [_Location_line]: 854,
+        [_Location_file]: null
+      });
+    },
+    get C65() {
+      return C[65] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 855,
+        [_Location_file]: null
+      });
+    },
+    get C63() {
+      return C[63] = dart.constList([C[64] || CT.C64, C[65] || CT.C65], widget_inspector._Location);
+    },
+    get C62() {
+      return C[62] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[63] || CT.C63,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 853,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/material/progress_indicator.dart"
+      });
+    },
+    get C68() {
+      return C[68] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "type",
+        [_Location_column]: 11,
+        [_Location_line]: 850,
+        [_Location_file]: null
+      });
+    },
+    get C69() {
+      return C[69] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 851,
+        [_Location_file]: null
+      });
+    },
+    get C70() {
+      return C[70] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "elevation",
+        [_Location_column]: 11,
+        [_Location_line]: 852,
+        [_Location_file]: null
+      });
+    },
+    get C71() {
+      return C[71] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 853,
+        [_Location_file]: null
+      });
+    },
+    get C67() {
+      return C[67] = dart.constList([C[68] || CT.C68, C[69] || CT.C69, C[70] || CT.C70, C[71] || CT.C71], widget_inspector._Location);
+    },
+    get C66() {
+      return C[66] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[67] || CT.C67,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 849,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/material/progress_indicator.dart"
+      });
+    },
+    get C74() {
+      return C[74] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 9,
+        [_Location_line]: 846,
+        [_Location_file]: null
+      });
+    },
+    get C75() {
+      return C[75] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 9,
+        [_Location_line]: 847,
+        [_Location_file]: null
+      });
+    },
+    get C76() {
+      return C[76] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "margin",
+        [_Location_column]: 9,
+        [_Location_line]: 848,
+        [_Location_file]: null
+      });
+    },
+    get C77() {
+      return C[77] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 849,
+        [_Location_file]: null
+      });
+    },
+    get C73() {
+      return C[73] = dart.constList([C[74] || CT.C74, C[75] || CT.C75, C[76] || CT.C76, C[77] || CT.C77], widget_inspector._Location);
+    },
+    get C72() {
+      return C[72] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[73] || CT.C73,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 845,
+        [_Location_file]: "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/material/progress_indicator.dart"
       });
     }
   }, false);
-  var C = Array(6).fill(void 0);
+  var C = Array(78).fill(void 0);
   var I = [
-    "package:flutter/src/painting/borders.dart",
-    "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/painting/borders.dart"
+    "package:flutter/src/material/progress_indicator.dart",
+    "file:///Volumes/others/sdk/flutter/packages/flutter/lib/src/material/progress_indicator.dart"
   ];
-  var _name$ = dart.privateName(borders$, "_name");
-  borders$.BorderStyle = class BorderStyle extends core.Object {
+  var _name$ = dart.privateName(progress_indicator, "_name");
+  progress_indicator._ActivityIndicatorType = class _ActivityIndicatorType extends core.Object {
     toString() {
       return this[_name$];
     }
   };
-  (borders$.BorderStyle.new = function(index, _name) {
+  (progress_indicator._ActivityIndicatorType.new = function(index, _name) {
     this.index = index;
     this[_name$] = _name;
     ;
-  }).prototype = borders$.BorderStyle.prototype;
-  dart.addTypeTests(borders$.BorderStyle);
-  dart.addTypeCaches(borders$.BorderStyle);
-  dart.setLibraryUri(borders$.BorderStyle, I[0]);
-  dart.setFieldSignature(borders$.BorderStyle, () => ({
-    __proto__: dart.getFields(borders$.BorderStyle.__proto__),
+  }).prototype = progress_indicator._ActivityIndicatorType.prototype;
+  dart.addTypeTests(progress_indicator._ActivityIndicatorType);
+  dart.addTypeCaches(progress_indicator._ActivityIndicatorType);
+  dart.setLibraryUri(progress_indicator._ActivityIndicatorType, I[0]);
+  dart.setFieldSignature(progress_indicator._ActivityIndicatorType, () => ({
+    __proto__: dart.getFields(progress_indicator._ActivityIndicatorType.__proto__),
     index: dart.finalFieldType(core.int),
     [_name$]: dart.finalFieldType(core.String)
   }));
-  dart.defineExtensionMethods(borders$.BorderStyle, ['toString']);
-  borders$.BorderStyle.none = C[0] || CT.C0;
-  borders$.BorderStyle.solid = C[1] || CT.C1;
-  borders$.BorderStyle.values = C[2] || CT.C2;
-  var color$ = dart.privateName(borders$, "BorderSide.color");
-  var width$ = dart.privateName(borders$, "BorderSide.width");
-  var style$ = dart.privateName(borders$, "BorderSide.style");
-  var Color_value = dart.privateName(ui, "Color.value");
-  borders$.BorderSide = class BorderSide extends core.Object {
+  dart.defineExtensionMethods(progress_indicator._ActivityIndicatorType, ['toString']);
+  progress_indicator._ActivityIndicatorType.material = C[0] || CT.C0;
+  progress_indicator._ActivityIndicatorType.adaptive = C[1] || CT.C1;
+  progress_indicator._ActivityIndicatorType.values = C[2] || CT.C2;
+  var value$ = dart.privateName(progress_indicator, "ProgressIndicator.value");
+  var backgroundColor$ = dart.privateName(progress_indicator, "ProgressIndicator.backgroundColor");
+  var color$ = dart.privateName(progress_indicator, "ProgressIndicator.color");
+  var valueColor$ = dart.privateName(progress_indicator, "ProgressIndicator.valueColor");
+  var semanticsLabel$ = dart.privateName(progress_indicator, "ProgressIndicator.semanticsLabel");
+  var semanticsValue$ = dart.privateName(progress_indicator, "ProgressIndicator.semanticsValue");
+  var _getBackgroundColor = dart.privateName(progress_indicator, "_getBackgroundColor");
+  var _getValueColor = dart.privateName(progress_indicator, "_getValueColor");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  var _buildSemanticsWrapper = dart.privateName(progress_indicator, "_buildSemanticsWrapper");
+  progress_indicator.ProgressIndicator = class ProgressIndicator extends framework.StatefulWidget {
+    get value() {
+      return this[value$];
+    }
+    set value(value) {
+      super.value = value;
+    }
+    get backgroundColor() {
+      return this[backgroundColor$];
+    }
+    set backgroundColor(value) {
+      super.backgroundColor = value;
+    }
     get color() {
       return this[color$];
     }
     set color(value) {
       super.color = value;
     }
-    get width() {
-      return this[width$];
+    get valueColor() {
+      return this[valueColor$];
     }
-    set width(value) {
-      super.width = value;
+    set valueColor(value) {
+      super.valueColor = value;
     }
-    get style() {
-      return this[style$];
+    get semanticsLabel() {
+      return this[semanticsLabel$];
     }
-    set style(value) {
-      super.style = value;
+    set semanticsLabel(value) {
+      super.semanticsLabel = value;
     }
-    static merge(a, b) {
-      if (!(a !== null)) dart.assertFailed(null, I[1], 86, 12, "a != null");
-      if (!(b !== null)) dart.assertFailed(null, I[1], 87, 12, "b != null");
-      if (!borders$.BorderSide.canMerge(a, b)) dart.assertFailed(null, I[1], 88, 12, "canMerge(a, b)");
-      let aIsNone = a.style === borders$.BorderStyle.none && a.width === 0.0;
-      let bIsNone = b.style === borders$.BorderStyle.none && b.width === 0.0;
-      if (aIsNone && bIsNone) return borders$.BorderSide.none;
-      if (aIsNone) return b;
-      if (bIsNone) return a;
-      if (!a.color._equals(b.color)) dart.assertFailed(null, I[1], 97, 12, "a.color == b.color");
-      if (!(a.style === b.style)) dart.assertFailed(null, I[1], 98, 12, "a.style == b.style");
-      return new borders$.BorderSide.new({color: a.color, width: a.width + b.width, style: a.style});
+    get semanticsValue() {
+      return this[semanticsValue$];
     }
-    copyWith(opts) {
+    set semanticsValue(value) {
+      super.semanticsValue = value;
+    }
+    [_getBackgroundColor](context) {
+      let t0;
+      t0 = this.backgroundColor;
+      return t0 == null ? theme$.Theme.of(context).colorScheme.background : t0;
+    }
+    [_getValueColor](context) {
       let t0, t0$, t0$0;
-      let color = opts && 'color' in opts ? opts.color : null;
-      let width = opts && 'width' in opts ? opts.width : null;
-      let style = opts && 'style' in opts ? opts.style : null;
-      if (!(width == null || dart.notNull(width) >= 0.0)) dart.assertFailed(null, I[1], 135, 12, "width == null || width >= 0.0");
-      return new borders$.BorderSide.new({color: (t0 = color, t0 == null ? this.color : t0), width: (t0$ = width, t0$ == null ? this.width : t0$), style: (t0$0 = style, t0$0 == null ? this.style : t0$0)});
+      t0$0 = (t0$ = (t0 = this.valueColor, t0 == null ? null : t0.value), t0$ == null ? this.color : t0$);
+      return t0$0 == null ? theme$.Theme.of(context).colorScheme.primary : t0$0;
     }
-    scale(t) {
-      if (!(t !== null)) dart.assertFailed(null, I[1], 160, 12, "t != null");
-      return new borders$.BorderSide.new({color: this.color, width: math.max(core.double, 0.0, this.width * t), style: t <= 0.0 ? borders$.BorderStyle.none : this.style});
+    debugFillProperties(properties) {
+      super.debugFillProperties(properties);
+      properties.add(new diagnostics.PercentProperty.new("value", this.value, {showName: false, ifNull: "<indeterminate>"}));
     }
-    toPaint() {
-      let t0, t0$;
-      switch (this.style) {
-        case C[1] || CT.C1:
-        {
-          t0 = ui.Paint.new();
-          return (() => {
-            t0.color = this.color;
-            t0.strokeWidth = this.width;
-            t0.style = ui.PaintingStyle.stroke;
-            return t0;
-          })();
-        }
-        case C[0] || CT.C0:
-        {
-          t0$ = ui.Paint.new();
-          return (() => {
-            t0$.color = C[4] || CT.C4;
-            t0$.strokeWidth = 0.0;
-            t0$.style = ui.PaintingStyle.stroke;
-            return t0$;
-          })();
-        }
+    [_buildSemanticsWrapper](opts) {
+      let context = opts && 'context' in opts ? opts.context : null;
+      let child = opts && 'child' in opts ? opts.child : null;
+      let expandedSemanticsValue = this.semanticsValue;
+      if (this.value != null) {
+        expandedSemanticsValue == null ? expandedSemanticsValue = dart.str((dart.nullCheck(this.value) * 100)[$round]()) + "%" : null;
       }
-    }
-    static canMerge(a, b) {
-      if (!(a !== null)) dart.assertFailed(null, I[1], 197, 12, "a != null");
-      if (!(b !== null)) dart.assertFailed(null, I[1], 198, 12, "b != null");
-      if (a.style === borders$.BorderStyle.none && a.width === 0.0 || b.style === borders$.BorderStyle.none && b.width === 0.0) return true;
-      return a.style === b.style && a.color._equals(b.color);
-    }
-    static lerp(a, b, t) {
-      if (!(a !== null)) dart.assertFailed(null, I[1], 212, 12, "a != null");
-      if (!(b !== null)) dart.assertFailed(null, I[1], 213, 12, "b != null");
-      if (!(t !== null)) dart.assertFailed(null, I[1], 214, 12, "t != null");
-      if (t === 0.0) return a;
-      if (t === 1.0) return b;
-      let width = dart.nullCheck(ui.lerpDouble(a.width, b.width, t));
-      if (width < 0.0) return borders$.BorderSide.none;
-      if (a.style === b.style) {
-        return new borders$.BorderSide.new({color: dart.nullCheck(ui.Color.lerp(a.color, b.color, t)), width: width, style: a.style});
-      }
-      let colorA = null;
-      let colorB = null;
-      switch (a.style) {
-        case C[1] || CT.C1:
-        {
-          colorA = a.color;
-          break;
-        }
-        case C[0] || CT.C0:
-        {
-          colorA = a.color.withAlpha(0);
-          break;
-        }
-      }
-      switch (b.style) {
-        case C[1] || CT.C1:
-        {
-          colorB = b.color;
-          break;
-        }
-        case C[0] || CT.C0:
-        {
-          colorB = b.color.withAlpha(0);
-          break;
-        }
-      }
-      return new borders$.BorderSide.new({color: dart.nullCheck(ui.Color.lerp(colorA, colorB, t)), width: width, style: borders$.BorderStyle.solid});
-    }
-    _equals(other) {
-      if (other == null) return false;
-      if (this === other) return true;
-      if (!other[$runtimeType]._equals(this[$runtimeType])) return false;
-      return borders$.BorderSide.is(other) && other.color._equals(this.color) && other.width === this.width && other.style === this.style;
-    }
-    get hashCode() {
-      return ui.hashValues(this.color, this.width, this.style);
-    }
-    toString() {
-      return object.objectRuntimeType(this, "BorderSide") + "(" + dart.str(this.color) + ", " + this.width[$toStringAsFixed](1) + ", " + dart.str(this.style) + ")";
+      return new basic.Semantics.new({label: this.semanticsLabel, value: expandedSemanticsValue, child: child, $creationLocationd_0dea112b090073317d4: C[3] || CT.C3});
     }
   };
-  (borders$.BorderSide.new = function(opts) {
-    let color = opts && 'color' in opts ? opts.color : C[3] || CT.C3;
-    let width = opts && 'width' in opts ? opts.width : 1;
-    let style = opts && 'style' in opts ? opts.style : C[1] || CT.C1;
+  (progress_indicator.ProgressIndicator.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let value = opts && 'value' in opts ? opts.value : null;
+    let backgroundColor = opts && 'backgroundColor' in opts ? opts.backgroundColor : null;
+    let color = opts && 'color' in opts ? opts.color : null;
+    let valueColor = opts && 'valueColor' in opts ? opts.valueColor : null;
+    let semanticsLabel = opts && 'semanticsLabel' in opts ? opts.semanticsLabel : null;
+    let semanticsValue = opts && 'semanticsValue' in opts ? opts.semanticsValue : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[value$] = value;
+    this[backgroundColor$] = backgroundColor;
     this[color$] = color;
-    this[width$] = width;
-    this[style$] = style;
-    if (!(color !== null)) dart.assertFailed(null, I[1], 69, 15, "color != null");
-    if (!(width !== null)) dart.assertFailed(null, I[1], 70, 15, "width != null");
-    if (!(width >= 0.0)) dart.assertFailed(null, I[1], 71, 15, "width >= 0.0");
-    if (!(style !== null)) dart.assertFailed(null, I[1], 72, 15, "style != null");
+    this[valueColor$] = valueColor;
+    this[semanticsLabel$] = semanticsLabel;
+    this[semanticsValue$] = semanticsValue;
+    progress_indicator.ProgressIndicator.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
     ;
-  }).prototype = borders$.BorderSide.prototype;
-  dart.addTypeTests(borders$.BorderSide);
-  dart.addTypeCaches(borders$.BorderSide);
-  dart.setMethodSignature(borders$.BorderSide, () => ({
-    __proto__: dart.getMethods(borders$.BorderSide.__proto__),
-    copyWith: dart.fnType(borders$.BorderSide, [], {color: dart.nullable(ui.Color), style: dart.nullable(borders$.BorderStyle), width: dart.nullable(core.double)}, {}),
-    scale: dart.fnType(borders$.BorderSide, [core.double]),
-    toPaint: dart.fnType(ui.Paint, [])
+  }).prototype = progress_indicator.ProgressIndicator.prototype;
+  dart.addTypeTests(progress_indicator.ProgressIndicator);
+  dart.addTypeCaches(progress_indicator.ProgressIndicator);
+  dart.setMethodSignature(progress_indicator.ProgressIndicator, () => ({
+    __proto__: dart.getMethods(progress_indicator.ProgressIndicator.__proto__),
+    [_getBackgroundColor]: dart.fnType(ui.Color, [framework.BuildContext]),
+    [_getValueColor]: dart.fnType(ui.Color, [framework.BuildContext]),
+    [_buildSemanticsWrapper]: dart.fnType(framework.Widget, [], {}, {child: framework.Widget, context: framework.BuildContext})
   }));
-  dart.setLibraryUri(borders$.BorderSide, I[0]);
-  dart.setFieldSignature(borders$.BorderSide, () => ({
-    __proto__: dart.getFields(borders$.BorderSide.__proto__),
-    color: dart.finalFieldType(ui.Color),
-    width: dart.finalFieldType(core.double),
-    style: dart.finalFieldType(borders$.BorderStyle)
+  dart.setLibraryUri(progress_indicator.ProgressIndicator, I[0]);
+  dart.setFieldSignature(progress_indicator.ProgressIndicator, () => ({
+    __proto__: dart.getFields(progress_indicator.ProgressIndicator.__proto__),
+    value: dart.finalFieldType(dart.nullable(core.double)),
+    backgroundColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    color: dart.finalFieldType(dart.nullable(ui.Color)),
+    valueColor: dart.finalFieldType(dart.nullable(animation.Animation$(dart.nullable(ui.Color)))),
+    semanticsLabel: dart.finalFieldType(dart.nullable(core.String)),
+    semanticsValue: dart.finalFieldType(dart.nullable(core.String))
   }));
-  dart.defineExtensionMethods(borders$.BorderSide, ['_equals', 'toString']);
-  dart.defineExtensionAccessors(borders$.BorderSide, ['hashCode']);
-  dart.defineLazy(borders$.BorderSide, {
-    /*borders$.BorderSide.none*/get none() {
-      return C[5] || CT.C5;
+  var backgroundColor$0 = dart.privateName(progress_indicator, "_LinearProgressIndicatorPainter.backgroundColor");
+  var valueColor$0 = dart.privateName(progress_indicator, "_LinearProgressIndicatorPainter.valueColor");
+  var value$0 = dart.privateName(progress_indicator, "_LinearProgressIndicatorPainter.value");
+  var animationValue$ = dart.privateName(progress_indicator, "_LinearProgressIndicatorPainter.animationValue");
+  var textDirection$ = dart.privateName(progress_indicator, "_LinearProgressIndicatorPainter.textDirection");
+  var _name = dart.privateName(ui, "_name");
+  var Cubic_d = dart.privateName(curves, "Cubic.d");
+  var Cubic_c = dart.privateName(curves, "Cubic.c");
+  var Cubic_b = dart.privateName(curves, "Cubic.b");
+  var Cubic_a = dart.privateName(curves, "Cubic.a");
+  var Interval_curve = dart.privateName(curves, "Interval.curve");
+  var Interval_end = dart.privateName(curves, "Interval.end");
+  var Interval_begin = dart.privateName(curves, "Interval.begin");
+  progress_indicator._LinearProgressIndicatorPainter = class _LinearProgressIndicatorPainter extends custom_paint.CustomPainter {
+    get backgroundColor() {
+      return this[backgroundColor$0];
     }
-  }, false);
-  borders$.ShapeBorder = class ShapeBorder extends core.Object {
-    add(other, opts) {
-      let reversed = opts && 'reversed' in opts ? opts.reversed : false;
-      return null;
+    set backgroundColor(value) {
+      super.backgroundColor = value;
     }
-    ['+'](other) {
-      let t0, t0$;
-      t0$ = (t0 = this.add(other), t0 == null ? other.add(this, {reversed: true}) : t0);
-      return t0$ == null ? new borders$._CompoundBorder.new(T.JSArrayOfShapeBorder().of([other, this])) : t0$;
+    get valueColor() {
+      return this[valueColor$0];
     }
-    lerpFrom(a, t) {
-      if (a == null) return this.scale(t);
-      return null;
+    set valueColor(value) {
+      super.valueColor = value;
     }
-    lerpTo(b, t) {
-      if (b == null) return this.scale(1.0 - t);
-      return null;
+    get value() {
+      return this[value$0];
     }
-    static lerp(a, b, t) {
+    set value(value) {
+      super.value = value;
+    }
+    get animationValue() {
+      return this[animationValue$];
+    }
+    set animationValue(value) {
+      super.animationValue = value;
+    }
+    get textDirection() {
+      return this[textDirection$];
+    }
+    set textDirection(value) {
+      super.textDirection = value;
+    }
+    paint(canvas, size) {
       let t0;
-      if (!(t !== null)) dart.assertFailed(null, I[1], 429, 12, "t != null");
-      let result = null;
-      if (b != null) result = b.lerpFrom(a, t);
-      if (result == null && a != null) result = a.lerpTo(b, t);
-      t0 = result;
-      return t0 == null ? t < 0.5 ? a : b : t0;
-    }
-    toString() {
-      return object.objectRuntimeType(this, "ShapeBorder") + "()";
-    }
-  };
-  (borders$.ShapeBorder.new = function() {
-    ;
-  }).prototype = borders$.ShapeBorder.prototype;
-  dart.addTypeTests(borders$.ShapeBorder);
-  dart.addTypeCaches(borders$.ShapeBorder);
-  dart.setMethodSignature(borders$.ShapeBorder, () => ({
-    __proto__: dart.getMethods(borders$.ShapeBorder.__proto__),
-    add: dart.fnType(dart.nullable(borders$.ShapeBorder), [borders$.ShapeBorder], {reversed: core.bool}, {}),
-    '+': dart.fnType(borders$.ShapeBorder, [borders$.ShapeBorder]),
-    lerpFrom: dart.fnType(dart.nullable(borders$.ShapeBorder), [dart.nullable(borders$.ShapeBorder), core.double]),
-    lerpTo: dart.fnType(dart.nullable(borders$.ShapeBorder), [dart.nullable(borders$.ShapeBorder), core.double])
-  }));
-  dart.setLibraryUri(borders$.ShapeBorder, I[0]);
-  dart.defineExtensionMethods(borders$.ShapeBorder, ['toString']);
-  var side$ = dart.privateName(borders$, "OutlinedBorder.side");
-  borders$.OutlinedBorder = class OutlinedBorder extends borders$.ShapeBorder {
-    get side() {
-      return this[side$];
-    }
-    set side(value) {
-      super.side = value;
-    }
-  };
-  (borders$.OutlinedBorder.new = function(opts) {
-    let side = opts && 'side' in opts ? opts.side : C[5] || CT.C5;
-    this[side$] = side;
-    if (!(side !== null)) dart.assertFailed(null, I[1], 502, 66, "side != null");
-    borders$.OutlinedBorder.__proto__.new.call(this);
-    ;
-  }).prototype = borders$.OutlinedBorder.prototype;
-  dart.addTypeTests(borders$.OutlinedBorder);
-  dart.addTypeCaches(borders$.OutlinedBorder);
-  dart.setLibraryUri(borders$.OutlinedBorder, I[0]);
-  dart.setFieldSignature(borders$.OutlinedBorder, () => ({
-    __proto__: dart.getFields(borders$.OutlinedBorder.__proto__),
-    side: dart.finalFieldType(borders$.BorderSide)
-  }));
-  borders$._CompoundBorder = class _CompoundBorder extends borders$.ShapeBorder {
-    get dimensions() {
-      return this.borders[$fold](edge_insets.EdgeInsetsGeometry, edge_insets.EdgeInsets.zero, dart.fn((previousValue, border) => previousValue.add(border.dimensions), T.EdgeInsetsGeometryAndShapeBorderToEdgeInsetsGeometry()));
-    }
-    add(other, opts) {
-      let t0;
-      let reversed = opts && 'reversed' in opts ? opts.reversed : false;
-      if (!borders$._CompoundBorder.is(other)) {
-        let ours = reversed ? this.borders[$last] : this.borders[$first];
-        let merged = (t0 = ours.add(other, {reversed: reversed}), t0 == null ? other.add(ours, {reversed: !reversed}) : t0);
-        if (merged != null) {
-          let result = (() => {
-            let t0 = T.ListOfShapeBorder().of(this.borders);
-            return t0;
-          })();
-          result[$_set](reversed ? result[$length] - 1 : 0, merged);
-          return new borders$._CompoundBorder.new(result);
-        }
-      }
-      let mergedBorders = (() => {
-        let t1 = T.JSArrayOfShapeBorder().of([]);
-        if (reversed) t1[$addAll](this.borders);
-        if (borders$._CompoundBorder.is(other))
-          t1[$addAll](other.borders);
-        else
-          t1[$add](other);
-        if (!reversed) t1[$addAll](this.borders);
-        return t1;
-      })();
-      return new borders$._CompoundBorder.new(mergedBorders);
-    }
-    scale(t) {
-      return new borders$._CompoundBorder.new(this.borders[$map](borders$.ShapeBorder, dart.fn(border => border.scale(t), T.ShapeBorderToShapeBorder()))[$toList]());
-    }
-    lerpFrom(a, t) {
-      return borders$._CompoundBorder.lerp(a, this, t);
-    }
-    lerpTo(b, t) {
-      return borders$._CompoundBorder.lerp(this, b, t);
-    }
-    static lerp(a, b, t) {
-      let t2;
-      if (!(t !== null)) dart.assertFailed(null, I[1], 584, 12, "t != null");
-      if (!(borders$._CompoundBorder.is(a) || borders$._CompoundBorder.is(b))) dart.assertFailed(null, I[1], 585, 12, "a is _CompoundBorder || b is _CompoundBorder");
-      let aList = borders$._CompoundBorder.is(a) ? a.borders : T.JSArrayOfShapeBorderN().of([a]);
-      let bList = borders$._CompoundBorder.is(b) ? b.borders : T.JSArrayOfShapeBorderN().of([b]);
-      let results = T.JSArrayOfShapeBorder().of([]);
-      let length = math.max(core.int, aList[$length], bList[$length]);
-      for (let index = 0; index < length; index = index + 1) {
-        let localA = index < aList[$length] ? aList[$_get](index) : null;
-        let localB = index < bList[$length] ? bList[$_get](index) : null;
-        if (localA != null && localB != null) {
-          let localResult = (t2 = localA.lerpTo(localB, t), t2 == null ? localB.lerpFrom(localA, t) : t2);
-          if (localResult != null) {
-            results[$add](localResult);
-            continue;
+      let paint = (t0 = ui.Paint.new(), (() => {
+        t0.color = this.backgroundColor;
+        t0.style = ui.PaintingStyle.fill;
+        return t0;
+      })());
+      canvas.drawRect(ui.Offset.zero['&'](size), paint);
+      paint.color = this.valueColor;
+      const drawBar = (x, width) => {
+        if (width <= 0.0) return;
+        let left = null;
+        switch (this.textDirection) {
+          case C[8] || CT.C8:
+          {
+            left = size.width - width - x;
+            break;
+          }
+          case C[9] || CT.C9:
+          {
+            left = x;
+            break;
           }
         }
-        if (localB != null) results[$add](localB.scale(t));
-        if (localA != null) results[$add](localA.scale(1.0 - t));
-      }
-      return new borders$._CompoundBorder.new(results);
-    }
-    getInnerPath(rect, opts) {
-      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
-      for (let index = 0; index < this.borders[$length] - 1; index = index + 1)
-        rect = this.borders[$_get](index).dimensions.resolve(textDirection).deflateRect(rect);
-      return this.borders[$last].getInnerPath(rect, {textDirection: textDirection});
-    }
-    getOuterPath(rect, opts) {
-      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
-      return this.borders[$first].getOuterPath(rect, {textDirection: textDirection});
-    }
-    paint(canvas, rect, opts) {
-      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
-      for (let border of this.borders) {
-        border.paint(canvas, rect, {textDirection: textDirection});
-        rect = border.dimensions.resolve(textDirection).deflateRect(rect);
+        canvas.drawRect(new ui.Offset.new(left, 0.0)['&'](new ui.Size.new(width, size.height)), paint);
+      };
+      dart.fn(drawBar, T.doubleAnddoubleTovoid());
+      if (this.value != null) {
+        drawBar(0.0, dart.nullCheck(this.value)[$clamp](0.0, 1.0) * size.width);
+      } else {
+        let x1 = size.width * progress_indicator._LinearProgressIndicatorPainter.line1Tail.transform(this.animationValue);
+        let width1 = size.width * progress_indicator._LinearProgressIndicatorPainter.line1Head.transform(this.animationValue) - x1;
+        let x2 = size.width * progress_indicator._LinearProgressIndicatorPainter.line2Tail.transform(this.animationValue);
+        let width2 = size.width * progress_indicator._LinearProgressIndicatorPainter.line2Head.transform(this.animationValue) - x2;
+        drawBar(x1, width1);
+        drawBar(x2, width2);
       }
     }
-    _equals(other) {
-      if (other == null) return false;
-      if (this === other) return true;
-      if (!other[$runtimeType]._equals(this[$runtimeType])) return false;
-      return borders$._CompoundBorder.is(other) && collections.listEquals(borders$.ShapeBorder, other.borders, this.borders);
-    }
-    get hashCode() {
-      return ui.hashList(this.borders);
-    }
-    toString() {
-      return this.borders[$reversed][$map](core.String, dart.fn(border => border.toString(), T.ShapeBorderToString()))[$join](" + ");
+    shouldRepaint(oldPainter) {
+      progress_indicator._LinearProgressIndicatorPainter.as(oldPainter);
+      return !oldPainter.backgroundColor._equals(this.backgroundColor) || !oldPainter.valueColor._equals(this.valueColor) || oldPainter.value != this.value || oldPainter.animationValue !== this.animationValue || oldPainter.textDirection !== this.textDirection;
     }
   };
-  (borders$._CompoundBorder.new = function(borders) {
-    this.borders = borders;
-    if (!(borders !== null)) dart.assertFailed(null, I[1], 520, 14, "borders != null");
-    if (!(borders[$length] >= 2)) dart.assertFailed(null, I[1], 521, 14, "borders.length >= 2");
-    if (!!borders[$any](dart.fn(border => borders$._CompoundBorder.is(border), T.ShapeBorderTobool()))) dart.assertFailed(null, I[1], 522, 14, "!borders.any((ShapeBorder border) => border is _CompoundBorder)");
-    borders$._CompoundBorder.__proto__.new.call(this);
+  (progress_indicator._LinearProgressIndicatorPainter.new = function(opts) {
+    let backgroundColor = opts && 'backgroundColor' in opts ? opts.backgroundColor : null;
+    let valueColor = opts && 'valueColor' in opts ? opts.valueColor : null;
+    let value = opts && 'value' in opts ? opts.value : null;
+    let animationValue = opts && 'animationValue' in opts ? opts.animationValue : null;
+    let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+    this[backgroundColor$0] = backgroundColor;
+    this[valueColor$0] = valueColor;
+    this[value$0] = value;
+    this[animationValue$] = animationValue;
+    this[textDirection$] = textDirection;
+    if (!(textDirection !== null)) dart.assertFailed(null, I[1], 151, 15, "textDirection != null");
+    progress_indicator._LinearProgressIndicatorPainter.__proto__.new.call(this);
     ;
-  }).prototype = borders$._CompoundBorder.prototype;
-  dart.addTypeTests(borders$._CompoundBorder);
-  dart.addTypeCaches(borders$._CompoundBorder);
-  dart.setMethodSignature(borders$._CompoundBorder, () => ({
-    __proto__: dart.getMethods(borders$._CompoundBorder.__proto__),
-    add: dart.fnType(borders$.ShapeBorder, [borders$.ShapeBorder], {reversed: core.bool}, {}),
-    scale: dart.fnType(borders$.ShapeBorder, [core.double]),
-    getInnerPath: dart.fnType(ui.Path, [ui.Rect], {textDirection: dart.nullable(ui.TextDirection)}, {}),
-    getOuterPath: dart.fnType(ui.Path, [ui.Rect], {textDirection: dart.nullable(ui.TextDirection)}, {}),
-    paint: dart.fnType(dart.void, [ui.Canvas, ui.Rect], {textDirection: dart.nullable(ui.TextDirection)}, {})
+  }).prototype = progress_indicator._LinearProgressIndicatorPainter.prototype;
+  dart.addTypeTests(progress_indicator._LinearProgressIndicatorPainter);
+  dart.addTypeCaches(progress_indicator._LinearProgressIndicatorPainter);
+  dart.setMethodSignature(progress_indicator._LinearProgressIndicatorPainter, () => ({
+    __proto__: dart.getMethods(progress_indicator._LinearProgressIndicatorPainter.__proto__),
+    paint: dart.fnType(dart.void, [ui.Canvas, ui.Size]),
+    shouldRepaint: dart.fnType(core.bool, [dart.nullable(core.Object)])
   }));
-  dart.setGetterSignature(borders$._CompoundBorder, () => ({
-    __proto__: dart.getGetters(borders$._CompoundBorder.__proto__),
-    dimensions: edge_insets.EdgeInsetsGeometry
+  dart.setLibraryUri(progress_indicator._LinearProgressIndicatorPainter, I[0]);
+  dart.setFieldSignature(progress_indicator._LinearProgressIndicatorPainter, () => ({
+    __proto__: dart.getFields(progress_indicator._LinearProgressIndicatorPainter.__proto__),
+    backgroundColor: dart.finalFieldType(ui.Color),
+    valueColor: dart.finalFieldType(ui.Color),
+    value: dart.finalFieldType(dart.nullable(core.double)),
+    animationValue: dart.finalFieldType(core.double),
+    textDirection: dart.finalFieldType(ui.TextDirection)
   }));
-  dart.setLibraryUri(borders$._CompoundBorder, I[0]);
-  dart.setFieldSignature(borders$._CompoundBorder, () => ({
-    __proto__: dart.getFields(borders$._CompoundBorder.__proto__),
-    borders: dart.finalFieldType(core.List$(borders$.ShapeBorder))
+  dart.defineLazy(progress_indicator._LinearProgressIndicatorPainter, {
+    /*progress_indicator._LinearProgressIndicatorPainter.line1Head*/get line1Head() {
+      return C[10] || CT.C10;
+    },
+    /*progress_indicator._LinearProgressIndicatorPainter.line1Tail*/get line1Tail() {
+      return C[12] || CT.C12;
+    },
+    /*progress_indicator._LinearProgressIndicatorPainter.line2Head*/get line2Head() {
+      return C[14] || CT.C14;
+    },
+    /*progress_indicator._LinearProgressIndicatorPainter.line2Tail*/get line2Tail() {
+      return C[16] || CT.C16;
+    }
+  }, false);
+  var minHeight$ = dart.privateName(progress_indicator, "LinearProgressIndicator.minHeight");
+  progress_indicator.LinearProgressIndicator = class LinearProgressIndicator extends progress_indicator.ProgressIndicator {
+    get minHeight() {
+      return this[minHeight$];
+    }
+    set minHeight(value) {
+      super.minHeight = value;
+    }
+    createState() {
+      return new progress_indicator._LinearProgressIndicatorState.new();
+    }
+  };
+  (progress_indicator.LinearProgressIndicator.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let value = opts && 'value' in opts ? opts.value : null;
+    let backgroundColor = opts && 'backgroundColor' in opts ? opts.backgroundColor : null;
+    let color = opts && 'color' in opts ? opts.color : null;
+    let valueColor = opts && 'valueColor' in opts ? opts.valueColor : null;
+    let minHeight = opts && 'minHeight' in opts ? opts.minHeight : null;
+    let semanticsLabel = opts && 'semanticsLabel' in opts ? opts.semanticsLabel : null;
+    let semanticsValue = opts && 'semanticsValue' in opts ? opts.semanticsValue : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[minHeight$] = minHeight;
+    if (!(minHeight == null || dart.notNull(minHeight) > 0)) dart.assertFailed(null, I[1], 321, 15, "minHeight == null || minHeight > 0");
+    progress_indicator.LinearProgressIndicator.__proto__.new.call(this, {key: key, value: value, backgroundColor: backgroundColor, color: color, valueColor: valueColor, semanticsLabel: semanticsLabel, semanticsValue: semanticsValue, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = progress_indicator.LinearProgressIndicator.prototype;
+  dart.addTypeTests(progress_indicator.LinearProgressIndicator);
+  dart.addTypeCaches(progress_indicator.LinearProgressIndicator);
+  dart.setMethodSignature(progress_indicator.LinearProgressIndicator, () => ({
+    __proto__: dart.getMethods(progress_indicator.LinearProgressIndicator.__proto__),
+    createState: dart.fnType(progress_indicator._LinearProgressIndicatorState, [])
   }));
-  dart.defineExtensionMethods(borders$._CompoundBorder, ['_equals', 'toString']);
-  dart.defineExtensionAccessors(borders$._CompoundBorder, ['hashCode']);
-  borders$.paintBorder = function paintBorder(canvas, rect, opts) {
-    let t2;
-    let top = opts && 'top' in opts ? opts.top : C[5] || CT.C5;
-    let right = opts && 'right' in opts ? opts.right : C[5] || CT.C5;
-    let bottom = opts && 'bottom' in opts ? opts.bottom : C[5] || CT.C5;
-    let left = opts && 'left' in opts ? opts.left : C[5] || CT.C5;
-    if (!(canvas !== null)) dart.assertFailed(null, I[1], 680, 10, "canvas != null");
-    if (!(rect !== null)) dart.assertFailed(null, I[1], 681, 10, "rect != null");
-    if (!(top !== null)) dart.assertFailed(null, I[1], 682, 10, "top != null");
-    if (!(right !== null)) dart.assertFailed(null, I[1], 683, 10, "right != null");
-    if (!(bottom !== null)) dart.assertFailed(null, I[1], 684, 10, "bottom != null");
-    if (!(left !== null)) dart.assertFailed(null, I[1], 685, 10, "left != null");
-    let paint = (t2 = ui.Paint.new(), (() => {
-      t2.strokeWidth = 0.0;
-      return t2;
-    })());
-    let path = ui.Path.new();
-    switch (top.style) {
-      case C[1] || CT.C1:
-      {
-        paint.color = top.color;
-        path.reset();
-        path.moveTo(rect.left, rect.top);
-        path.lineTo(rect.right, rect.top);
-        if (top.width === 0.0) {
-          paint.style = ui.PaintingStyle.stroke;
-        } else {
-          paint.style = ui.PaintingStyle.fill;
-          path.lineTo(rect.right - right.width, rect.top + top.width);
-          path.lineTo(rect.left + left.width, rect.top + top.width);
-        }
-        canvas.drawPath(path, paint);
-        break;
-      }
-      case C[0] || CT.C0:
-      {
-        break;
-      }
+  dart.setLibraryUri(progress_indicator.LinearProgressIndicator, I[0]);
+  dart.setFieldSignature(progress_indicator.LinearProgressIndicator, () => ({
+    __proto__: dart.getFields(progress_indicator.LinearProgressIndicator.__proto__),
+    minHeight: dart.finalFieldType(dart.nullable(core.double))
+  }));
+  var ___LinearProgressIndicatorState__controller = dart.privateName(progress_indicator, "_#_LinearProgressIndicatorState#_controller");
+  var _controller = dart.privateName(progress_indicator, "_controller");
+  var Duration__duration = dart.privateName(core, "Duration._duration");
+  var _buildIndicator = dart.privateName(progress_indicator, "_buildIndicator");
+  const State_SingleTickerProviderStateMixin$36 = class State_SingleTickerProviderStateMixin extends framework.State$(progress_indicator.LinearProgressIndicator) {};
+  (State_SingleTickerProviderStateMixin$36.new = function() {
+    ticker_provider.SingleTickerProviderStateMixin$(progress_indicator.LinearProgressIndicator)[dart.mixinNew].call(this);
+    State_SingleTickerProviderStateMixin$36.__proto__.new.call(this);
+  }).prototype = State_SingleTickerProviderStateMixin$36.prototype;
+  dart.applyMixin(State_SingleTickerProviderStateMixin$36, ticker_provider.SingleTickerProviderStateMixin$(progress_indicator.LinearProgressIndicator));
+  progress_indicator._LinearProgressIndicatorState = class _LinearProgressIndicatorState extends State_SingleTickerProviderStateMixin$36 {
+    get [_controller]() {
+      let t0;
+      t0 = this[___LinearProgressIndicatorState__controller];
+      return t0 == null ? dart.throw(new _internal.LateError.fieldNI("_controller")) : t0;
     }
-    switch (right.style) {
-      case C[1] || CT.C1:
-      {
-        paint.color = right.color;
-        path.reset();
-        path.moveTo(rect.right, rect.top);
-        path.lineTo(rect.right, rect.bottom);
-        if (right.width === 0.0) {
-          paint.style = ui.PaintingStyle.stroke;
-        } else {
-          paint.style = ui.PaintingStyle.fill;
-          path.lineTo(rect.right - right.width, rect.bottom - bottom.width);
-          path.lineTo(rect.right - right.width, rect.top + top.width);
-        }
-        canvas.drawPath(path, paint);
-        break;
-      }
-      case C[0] || CT.C0:
-      {
-        break;
-      }
+    set [_controller](t0) {
+      this[___LinearProgressIndicatorState__controller] = t0;
     }
-    switch (bottom.style) {
-      case C[1] || CT.C1:
-      {
-        paint.color = bottom.color;
-        path.reset();
-        path.moveTo(rect.right, rect.bottom);
-        path.lineTo(rect.left, rect.bottom);
-        if (bottom.width === 0.0) {
-          paint.style = ui.PaintingStyle.stroke;
-        } else {
-          paint.style = ui.PaintingStyle.fill;
-          path.lineTo(rect.left + left.width, rect.bottom - bottom.width);
-          path.lineTo(rect.right - right.width, rect.bottom - bottom.width);
-        }
-        canvas.drawPath(path, paint);
-        break;
-      }
-      case C[0] || CT.C0:
-      {
-        break;
-      }
+    initState() {
+      super.initState();
+      this[_controller] = new animation_controller.AnimationController.new({duration: C[18] || CT.C18, vsync: this});
+      if (this.widget.value == null) this[_controller].repeat();
     }
-    switch (left.style) {
-      case C[1] || CT.C1:
-      {
-        paint.color = left.color;
-        path.reset();
-        path.moveTo(rect.left, rect.bottom);
-        path.lineTo(rect.left, rect.top);
-        if (left.width === 0.0) {
-          paint.style = ui.PaintingStyle.stroke;
-        } else {
-          paint.style = ui.PaintingStyle.fill;
-          path.lineTo(rect.left + left.width, rect.top + top.width);
-          path.lineTo(rect.left + left.width, rect.bottom - bottom.width);
-        }
-        canvas.drawPath(path, paint);
-        break;
+    didUpdateWidget(oldWidget) {
+      progress_indicator.LinearProgressIndicator.as(oldWidget);
+      super.didUpdateWidget(oldWidget);
+      if (this.widget.value == null && !this[_controller].isAnimating)
+        this[_controller].repeat();
+      else if (this.widget.value != null && this[_controller].isAnimating) this[_controller].stop();
+    }
+    dispose() {
+      this[_controller].dispose();
+      super.dispose();
+    }
+    [_buildIndicator](context, animationValue, textDirection) {
+      let t1;
+      return this.widget[_buildSemanticsWrapper]({context: context, child: new container.Container.new({constraints: new box.BoxConstraints.new({minWidth: 1 / 0, minHeight: (t1 = this.widget.minHeight, t1 == null ? 4.0 : t1)}), child: new basic.CustomPaint.new({painter: new progress_indicator._LinearProgressIndicatorPainter.new({backgroundColor: this.widget[_getBackgroundColor](context), valueColor: this.widget[_getValueColor](context), value: this.widget.value, animationValue: animationValue, textDirection: textDirection}), $creationLocationd_0dea112b090073317d4: C[19] || CT.C19}), $creationLocationd_0dea112b090073317d4: C[22] || CT.C22})});
+    }
+    build(context) {
+      let textDirection = basic.Directionality.of(context);
+      if (this.widget.value != null) return this[_buildIndicator](context, this[_controller].value, textDirection);
+      return new transitions.AnimatedBuilder.new({animation: this[_controller].view, builder: dart.fn((context, child) => this[_buildIndicator](context, this[_controller].value, textDirection), T.BuildContextAndWidgetNToWidget()), $creationLocationd_0dea112b090073317d4: C[26] || CT.C26});
+    }
+  };
+  (progress_indicator._LinearProgressIndicatorState.new = function() {
+    this[___LinearProgressIndicatorState__controller] = null;
+    progress_indicator._LinearProgressIndicatorState.__proto__.new.call(this);
+    ;
+  }).prototype = progress_indicator._LinearProgressIndicatorState.prototype;
+  dart.addTypeTests(progress_indicator._LinearProgressIndicatorState);
+  dart.addTypeCaches(progress_indicator._LinearProgressIndicatorState);
+  dart.setMethodSignature(progress_indicator._LinearProgressIndicatorState, () => ({
+    __proto__: dart.getMethods(progress_indicator._LinearProgressIndicatorState.__proto__),
+    [_buildIndicator]: dart.fnType(framework.Widget, [framework.BuildContext, core.double, ui.TextDirection]),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setGetterSignature(progress_indicator._LinearProgressIndicatorState, () => ({
+    __proto__: dart.getGetters(progress_indicator._LinearProgressIndicatorState.__proto__),
+    [_controller]: animation_controller.AnimationController
+  }));
+  dart.setSetterSignature(progress_indicator._LinearProgressIndicatorState, () => ({
+    __proto__: dart.getSetters(progress_indicator._LinearProgressIndicatorState.__proto__),
+    [_controller]: animation_controller.AnimationController
+  }));
+  dart.setLibraryUri(progress_indicator._LinearProgressIndicatorState, I[0]);
+  dart.setFieldSignature(progress_indicator._LinearProgressIndicatorState, () => ({
+    __proto__: dart.getFields(progress_indicator._LinearProgressIndicatorState.__proto__),
+    [___LinearProgressIndicatorState__controller]: dart.fieldType(dart.nullable(animation_controller.AnimationController))
+  }));
+  progress_indicator._CircularProgressIndicatorPainter = class _CircularProgressIndicatorPainter extends custom_paint.CustomPainter {
+    paint(canvas, size) {
+      let t1, t1$;
+      let paint = (t1 = ui.Paint.new(), (() => {
+        t1.color = this.valueColor;
+        t1.strokeWidth = this.strokeWidth;
+        t1.style = ui.PaintingStyle.stroke;
+        return t1;
+      })());
+      if (this.backgroundColor != null) {
+        let backgroundPaint = (t1$ = ui.Paint.new(), (() => {
+          t1$.color = dart.nullCheck(this.backgroundColor);
+          t1$.strokeWidth = this.strokeWidth;
+          t1$.style = ui.PaintingStyle.stroke;
+          return t1$;
+        })());
+        canvas.drawArc(ui.Offset.zero['&'](size), 0.0, 6.282185307179586, false, backgroundPaint);
       }
-      case C[0] || CT.C0:
-      {
-        break;
+      if (this.value == null) paint.strokeCap = ui.StrokeCap.square;
+      canvas.drawArc(ui.Offset.zero['&'](size), this.arcStart, this.arcSweep, false, paint);
+    }
+    shouldRepaint(oldPainter) {
+      progress_indicator._CircularProgressIndicatorPainter.as(oldPainter);
+      return !dart.equals(oldPainter.backgroundColor, this.backgroundColor) || !oldPainter.valueColor._equals(this.valueColor) || oldPainter.value != this.value || oldPainter.headValue !== this.headValue || oldPainter.tailValue !== this.tailValue || oldPainter.offsetValue !== this.offsetValue || oldPainter.rotationValue !== this.rotationValue || oldPainter.strokeWidth !== this.strokeWidth;
+    }
+  };
+  (progress_indicator._CircularProgressIndicatorPainter.new = function(opts) {
+    let backgroundColor = opts && 'backgroundColor' in opts ? opts.backgroundColor : null;
+    let valueColor = opts && 'valueColor' in opts ? opts.valueColor : null;
+    let value = opts && 'value' in opts ? opts.value : null;
+    let headValue = opts && 'headValue' in opts ? opts.headValue : null;
+    let tailValue = opts && 'tailValue' in opts ? opts.tailValue : null;
+    let offsetValue = opts && 'offsetValue' in opts ? opts.offsetValue : null;
+    let rotationValue = opts && 'rotationValue' in opts ? opts.rotationValue : null;
+    let strokeWidth = opts && 'strokeWidth' in opts ? opts.strokeWidth : null;
+    this.backgroundColor = backgroundColor;
+    this.valueColor = valueColor;
+    this.value = value;
+    this.headValue = headValue;
+    this.tailValue = tailValue;
+    this.offsetValue = offsetValue;
+    this.rotationValue = rotationValue;
+    this.strokeWidth = strokeWidth;
+    this.arcStart = value != null ? -1.5707963267948966 : -1.5707963267948966 + tailValue * 3 / 2 * 3.141592653589793 + rotationValue * 3.141592653589793 * 2.0 + offsetValue * 0.5 * 3.141592653589793;
+    this.arcSweep = value != null ? value[$clamp](0.0, 1.0) * 6.282185307179586 : math.max(core.double, headValue * 3 / 2 * 3.141592653589793 - tailValue * 3 / 2 * 3.141592653589793, 0.001);
+    progress_indicator._CircularProgressIndicatorPainter.__proto__.new.call(this);
+    ;
+  }).prototype = progress_indicator._CircularProgressIndicatorPainter.prototype;
+  dart.addTypeTests(progress_indicator._CircularProgressIndicatorPainter);
+  dart.addTypeCaches(progress_indicator._CircularProgressIndicatorPainter);
+  dart.setMethodSignature(progress_indicator._CircularProgressIndicatorPainter, () => ({
+    __proto__: dart.getMethods(progress_indicator._CircularProgressIndicatorPainter.__proto__),
+    paint: dart.fnType(dart.void, [ui.Canvas, ui.Size]),
+    shouldRepaint: dart.fnType(core.bool, [dart.nullable(core.Object)])
+  }));
+  dart.setLibraryUri(progress_indicator._CircularProgressIndicatorPainter, I[0]);
+  dart.setFieldSignature(progress_indicator._CircularProgressIndicatorPainter, () => ({
+    __proto__: dart.getFields(progress_indicator._CircularProgressIndicatorPainter.__proto__),
+    backgroundColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    valueColor: dart.finalFieldType(ui.Color),
+    value: dart.finalFieldType(dart.nullable(core.double)),
+    headValue: dart.finalFieldType(core.double),
+    tailValue: dart.finalFieldType(core.double),
+    offsetValue: dart.finalFieldType(core.double),
+    rotationValue: dart.finalFieldType(core.double),
+    strokeWidth: dart.finalFieldType(core.double),
+    arcStart: dart.finalFieldType(core.double),
+    arcSweep: dart.finalFieldType(core.double)
+  }));
+  dart.defineLazy(progress_indicator._CircularProgressIndicatorPainter, {
+    /*progress_indicator._CircularProgressIndicatorPainter._twoPi*/get _twoPi() {
+      return 6.283185307179586;
+    },
+    /*progress_indicator._CircularProgressIndicatorPainter._epsilon*/get _epsilon() {
+      return 0.001;
+    },
+    /*progress_indicator._CircularProgressIndicatorPainter._sweep*/get _sweep() {
+      return 6.282185307179586;
+    },
+    /*progress_indicator._CircularProgressIndicatorPainter._startAngle*/get _startAngle() {
+      return -1.5707963267948966;
+    }
+  }, false);
+  var _indicatorType = dart.privateName(progress_indicator, "CircularProgressIndicator._indicatorType");
+  var strokeWidth$ = dart.privateName(progress_indicator, "CircularProgressIndicator.strokeWidth");
+  var _indicatorType$ = dart.privateName(progress_indicator, "_indicatorType");
+  progress_indicator.CircularProgressIndicator = class CircularProgressIndicator extends progress_indicator.ProgressIndicator {
+    get [_indicatorType$]() {
+      return this[_indicatorType];
+    }
+    set [_indicatorType$](value) {
+      super[_indicatorType$] = value;
+    }
+    get strokeWidth() {
+      return this[strokeWidth$];
+    }
+    set strokeWidth(value) {
+      super.strokeWidth = value;
+    }
+    createState() {
+      return new progress_indicator._CircularProgressIndicatorState.new();
+    }
+  };
+  (progress_indicator.CircularProgressIndicator.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let value = opts && 'value' in opts ? opts.value : null;
+    let backgroundColor = opts && 'backgroundColor' in opts ? opts.backgroundColor : null;
+    let color = opts && 'color' in opts ? opts.color : null;
+    let valueColor = opts && 'valueColor' in opts ? opts.valueColor : null;
+    let strokeWidth = opts && 'strokeWidth' in opts ? opts.strokeWidth : 4;
+    let semanticsLabel = opts && 'semanticsLabel' in opts ? opts.semanticsLabel : null;
+    let semanticsValue = opts && 'semanticsValue' in opts ? opts.semanticsValue : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[strokeWidth$] = strokeWidth;
+    this[_indicatorType] = progress_indicator._ActivityIndicatorType.material;
+    progress_indicator.CircularProgressIndicator.__proto__.new.call(this, {key: key, value: value, backgroundColor: backgroundColor, color: color, valueColor: valueColor, semanticsLabel: semanticsLabel, semanticsValue: semanticsValue, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = progress_indicator.CircularProgressIndicator.prototype;
+  (progress_indicator.CircularProgressIndicator.adaptive = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let value = opts && 'value' in opts ? opts.value : null;
+    let backgroundColor = opts && 'backgroundColor' in opts ? opts.backgroundColor : null;
+    let valueColor = opts && 'valueColor' in opts ? opts.valueColor : null;
+    let strokeWidth = opts && 'strokeWidth' in opts ? opts.strokeWidth : 4;
+    let semanticsLabel = opts && 'semanticsLabel' in opts ? opts.semanticsLabel : null;
+    let semanticsValue = opts && 'semanticsValue' in opts ? opts.semanticsValue : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[strokeWidth$] = strokeWidth;
+    this[_indicatorType] = progress_indicator._ActivityIndicatorType.adaptive;
+    progress_indicator.CircularProgressIndicator.__proto__.new.call(this, {key: key, value: value, backgroundColor: backgroundColor, valueColor: valueColor, semanticsLabel: semanticsLabel, semanticsValue: semanticsValue, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = progress_indicator.CircularProgressIndicator.prototype;
+  dart.addTypeTests(progress_indicator.CircularProgressIndicator);
+  dart.addTypeCaches(progress_indicator.CircularProgressIndicator);
+  dart.setMethodSignature(progress_indicator.CircularProgressIndicator, () => ({
+    __proto__: dart.getMethods(progress_indicator.CircularProgressIndicator.__proto__),
+    createState: dart.fnType(progress_indicator._CircularProgressIndicatorState, [])
+  }));
+  dart.setLibraryUri(progress_indicator.CircularProgressIndicator, I[0]);
+  dart.setFieldSignature(progress_indicator.CircularProgressIndicator, () => ({
+    __proto__: dart.getFields(progress_indicator.CircularProgressIndicator.__proto__),
+    [_indicatorType$]: dart.finalFieldType(progress_indicator._ActivityIndicatorType),
+    strokeWidth: dart.finalFieldType(core.double)
+  }));
+  var ___CircularProgressIndicatorState__controller = dart.privateName(progress_indicator, "_#_CircularProgressIndicatorState#_controller");
+  var _buildCupertinoIndicator = dart.privateName(progress_indicator, "_buildCupertinoIndicator");
+  var BoxConstraints_maxHeight = dart.privateName(box, "BoxConstraints.maxHeight");
+  var BoxConstraints_minHeight = dart.privateName(box, "BoxConstraints.minHeight");
+  var BoxConstraints_maxWidth = dart.privateName(box, "BoxConstraints.maxWidth");
+  var BoxConstraints_minWidth = dart.privateName(box, "BoxConstraints.minWidth");
+  var _buildMaterialIndicator = dart.privateName(progress_indicator, "_buildMaterialIndicator");
+  var _buildAnimation = dart.privateName(progress_indicator, "_buildAnimation");
+  var _name$0 = dart.privateName(platform, "_name");
+  var SawTooth_count = dart.privateName(curves, "SawTooth.count");
+  const State_SingleTickerProviderStateMixin$36$ = class State_SingleTickerProviderStateMixin extends framework.State$(progress_indicator.CircularProgressIndicator) {};
+  (State_SingleTickerProviderStateMixin$36$.new = function() {
+    ticker_provider.SingleTickerProviderStateMixin$(progress_indicator.CircularProgressIndicator)[dart.mixinNew].call(this);
+    State_SingleTickerProviderStateMixin$36$.__proto__.new.call(this);
+  }).prototype = State_SingleTickerProviderStateMixin$36$.prototype;
+  dart.applyMixin(State_SingleTickerProviderStateMixin$36$, ticker_provider.SingleTickerProviderStateMixin$(progress_indicator.CircularProgressIndicator));
+  progress_indicator._CircularProgressIndicatorState = class _CircularProgressIndicatorState extends State_SingleTickerProviderStateMixin$36$ {
+    get [_controller]() {
+      let t1;
+      t1 = this[___CircularProgressIndicatorState__controller];
+      return t1 == null ? dart.throw(new _internal.LateError.fieldNI("_controller")) : t1;
+    }
+    set [_controller](t1) {
+      this[___CircularProgressIndicatorState__controller] = t1;
+    }
+    initState() {
+      super.initState();
+      this[_controller] = new animation_controller.AnimationController.new({duration: C[30] || CT.C30, vsync: this});
+      if (this.widget.value == null) this[_controller].repeat();
+    }
+    didUpdateWidget(oldWidget) {
+      progress_indicator.CircularProgressIndicator.as(oldWidget);
+      super.didUpdateWidget(oldWidget);
+      if (this.widget.value == null && !this[_controller].isAnimating)
+        this[_controller].repeat();
+      else if (this.widget.value != null && this[_controller].isAnimating) this[_controller].stop();
+    }
+    dispose() {
+      this[_controller].dispose();
+      super.dispose();
+    }
+    [_buildCupertinoIndicator](context) {
+      return new activity_indicator.CupertinoActivityIndicator.new({key: this.widget.key, $creationLocationd_0dea112b090073317d4: C[31] || CT.C31});
+    }
+    [_buildMaterialIndicator](context, headValue, tailValue, offsetValue, rotationValue) {
+      return this.widget[_buildSemanticsWrapper]({context: context, child: new container.Container.new({constraints: C[34] || CT.C34, child: new basic.CustomPaint.new({painter: new progress_indicator._CircularProgressIndicatorPainter.new({backgroundColor: this.widget.backgroundColor, valueColor: this.widget[_getValueColor](context), value: this.widget.value, headValue: headValue, tailValue: tailValue, offsetValue: offsetValue, rotationValue: rotationValue, strokeWidth: this.widget.strokeWidth}), $creationLocationd_0dea112b090073317d4: C[35] || CT.C35}), $creationLocationd_0dea112b090073317d4: C[38] || CT.C38})});
+    }
+    [_buildAnimation]() {
+      return new transitions.AnimatedBuilder.new({animation: this[_controller], builder: dart.fn((context, child) => this[_buildMaterialIndicator](context, progress_indicator._CircularProgressIndicatorState._strokeHeadTween.evaluate(this[_controller]), progress_indicator._CircularProgressIndicatorState._strokeTailTween.evaluate(this[_controller]), progress_indicator._CircularProgressIndicatorState._offsetTween.evaluate(this[_controller]), progress_indicator._CircularProgressIndicatorState._rotationTween.evaluate(this[_controller])), T.BuildContextAndWidgetNToWidget()), $creationLocationd_0dea112b090073317d4: C[42] || CT.C42});
+    }
+    build(context) {
+      switch (this.widget[_indicatorType$]) {
+        case C[0] || CT.C0:
+        {
+          if (this.widget.value != null) return this[_buildMaterialIndicator](context, 0.0, 0.0, 0.0, 0.0);
+          return this[_buildAnimation]();
+        }
+        case C[1] || CT.C1:
+        {
+          let theme = theme$.Theme.of(context);
+          if (!(theme.platform !== null)) dart.assertFailed(null, I[1], 708, 16, "theme.platform != null");
+          switch (theme.platform) {
+            case C[46] || CT.C46:
+            case C[47] || CT.C47:
+            {
+              return this[_buildCupertinoIndicator](context);
+            }
+            case C[48] || CT.C48:
+            case C[49] || CT.C49:
+            case C[50] || CT.C50:
+            case C[51] || CT.C51:
+            {
+              if (this.widget.value != null) return this[_buildMaterialIndicator](context, 0.0, 0.0, 0.0, 0.0);
+              return this[_buildAnimation]();
+            }
+          }
+        }
       }
     }
   };
-  dart.trackLibraries("packages/flutter/src/painting/borders.dart", {
-    "package:flutter/src/painting/borders.dart": borders$
+  (progress_indicator._CircularProgressIndicatorState.new = function() {
+    this[___CircularProgressIndicatorState__controller] = null;
+    progress_indicator._CircularProgressIndicatorState.__proto__.new.call(this);
+    ;
+  }).prototype = progress_indicator._CircularProgressIndicatorState.prototype;
+  dart.addTypeTests(progress_indicator._CircularProgressIndicatorState);
+  dart.addTypeCaches(progress_indicator._CircularProgressIndicatorState);
+  dart.setMethodSignature(progress_indicator._CircularProgressIndicatorState, () => ({
+    __proto__: dart.getMethods(progress_indicator._CircularProgressIndicatorState.__proto__),
+    [_buildCupertinoIndicator]: dart.fnType(framework.Widget, [framework.BuildContext]),
+    [_buildMaterialIndicator]: dart.fnType(framework.Widget, [framework.BuildContext, core.double, core.double, core.double, core.double]),
+    [_buildAnimation]: dart.fnType(framework.Widget, []),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setGetterSignature(progress_indicator._CircularProgressIndicatorState, () => ({
+    __proto__: dart.getGetters(progress_indicator._CircularProgressIndicatorState.__proto__),
+    [_controller]: animation_controller.AnimationController
+  }));
+  dart.setSetterSignature(progress_indicator._CircularProgressIndicatorState, () => ({
+    __proto__: dart.getSetters(progress_indicator._CircularProgressIndicatorState.__proto__),
+    [_controller]: animation_controller.AnimationController
+  }));
+  dart.setLibraryUri(progress_indicator._CircularProgressIndicatorState, I[0]);
+  dart.setFieldSignature(progress_indicator._CircularProgressIndicatorState, () => ({
+    __proto__: dart.getFields(progress_indicator._CircularProgressIndicatorState.__proto__),
+    [___CircularProgressIndicatorState__controller]: dart.fieldType(dart.nullable(animation_controller.AnimationController))
+  }));
+  dart.defineLazy(progress_indicator._CircularProgressIndicatorState, {
+    /*progress_indicator._CircularProgressIndicatorState._pathCount*/get _pathCount() {
+      return 2222;
+    },
+    /*progress_indicator._CircularProgressIndicatorState._rotationCount*/get _rotationCount() {
+      return 1333;
+    },
+    /*progress_indicator._CircularProgressIndicatorState._strokeHeadTween*/get _strokeHeadTween() {
+      return new tween.CurveTween.new({curve: C[52] || CT.C52}).chain(new tween.CurveTween.new({curve: C[54] || CT.C54}));
+    },
+    /*progress_indicator._CircularProgressIndicatorState._strokeTailTween*/get _strokeTailTween() {
+      return new tween.CurveTween.new({curve: C[55] || CT.C55}).chain(new tween.CurveTween.new({curve: C[54] || CT.C54}));
+    },
+    /*progress_indicator._CircularProgressIndicatorState._offsetTween*/get _offsetTween() {
+      return new tween.CurveTween.new({curve: C[54] || CT.C54});
+    },
+    /*progress_indicator._CircularProgressIndicatorState._rotationTween*/get _rotationTween() {
+      return new tween.CurveTween.new({curve: C[56] || CT.C56});
+    }
+  }, false);
+  progress_indicator._RefreshProgressIndicatorPainter = class _RefreshProgressIndicatorPainter extends progress_indicator._CircularProgressIndicatorPainter {
+    paintArrowhead(canvas, size) {
+      let t2, t2$;
+      let arcEnd = this.arcStart + this.arcSweep;
+      let ux = math.cos(arcEnd);
+      let uy = math.sin(arcEnd);
+      if (!(size.width === size.height)) dart.assertFailed(null, I[1], 754, 12, "size.width == size.height");
+      let radius = size.width / 2.0;
+      let arrowheadPointX = radius + ux * radius + -uy * this.strokeWidth * 2.0 * this.arrowheadScale;
+      let arrowheadPointY = radius + uy * radius + ux * this.strokeWidth * 2.0 * this.arrowheadScale;
+      let arrowheadRadius = this.strokeWidth * 1.5 * this.arrowheadScale;
+      let innerRadius = radius - arrowheadRadius;
+      let outerRadius = radius + arrowheadRadius;
+      let path = (t2 = ui.Path.new(), (() => {
+        t2.moveTo(radius + ux * innerRadius, radius + uy * innerRadius);
+        t2.lineTo(radius + ux * outerRadius, radius + uy * outerRadius);
+        t2.lineTo(arrowheadPointX, arrowheadPointY);
+        t2.close();
+        return t2;
+      })());
+      let paint = (t2$ = ui.Paint.new(), (() => {
+        t2$.color = this.valueColor;
+        t2$.strokeWidth = this.strokeWidth;
+        t2$.style = ui.PaintingStyle.fill;
+        return t2$;
+      })());
+      canvas.drawPath(path, paint);
+    }
+    paint(canvas, size) {
+      super.paint(canvas, size);
+      if (this.arrowheadScale > 0.0) this.paintArrowhead(canvas, size);
+    }
+  };
+  (progress_indicator._RefreshProgressIndicatorPainter.new = function(opts) {
+    let valueColor = opts && 'valueColor' in opts ? opts.valueColor : null;
+    let value = opts && 'value' in opts ? opts.value : null;
+    let headValue = opts && 'headValue' in opts ? opts.headValue : null;
+    let tailValue = opts && 'tailValue' in opts ? opts.tailValue : null;
+    let offsetValue = opts && 'offsetValue' in opts ? opts.offsetValue : null;
+    let rotationValue = opts && 'rotationValue' in opts ? opts.rotationValue : null;
+    let strokeWidth = opts && 'strokeWidth' in opts ? opts.strokeWidth : null;
+    let arrowheadScale = opts && 'arrowheadScale' in opts ? opts.arrowheadScale : null;
+    this.arrowheadScale = arrowheadScale;
+    progress_indicator._RefreshProgressIndicatorPainter.__proto__.new.call(this, {valueColor: valueColor, value: value, headValue: headValue, tailValue: tailValue, offsetValue: offsetValue, rotationValue: rotationValue, strokeWidth: strokeWidth});
+    ;
+  }).prototype = progress_indicator._RefreshProgressIndicatorPainter.prototype;
+  dart.addTypeTests(progress_indicator._RefreshProgressIndicatorPainter);
+  dart.addTypeCaches(progress_indicator._RefreshProgressIndicatorPainter);
+  dart.setMethodSignature(progress_indicator._RefreshProgressIndicatorPainter, () => ({
+    __proto__: dart.getMethods(progress_indicator._RefreshProgressIndicatorPainter.__proto__),
+    paintArrowhead: dart.fnType(dart.void, [ui.Canvas, ui.Size])
+  }));
+  dart.setLibraryUri(progress_indicator._RefreshProgressIndicatorPainter, I[0]);
+  dart.setFieldSignature(progress_indicator._RefreshProgressIndicatorPainter, () => ({
+    __proto__: dart.getFields(progress_indicator._RefreshProgressIndicatorPainter.__proto__),
+    arrowheadScale: dart.finalFieldType(core.double)
+  }));
+  progress_indicator.RefreshProgressIndicator = class RefreshProgressIndicator extends progress_indicator.CircularProgressIndicator {
+    createState() {
+      return new progress_indicator._RefreshProgressIndicatorState.new();
+    }
+  };
+  (progress_indicator.RefreshProgressIndicator.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let value = opts && 'value' in opts ? opts.value : null;
+    let backgroundColor = opts && 'backgroundColor' in opts ? opts.backgroundColor : null;
+    let valueColor = opts && 'valueColor' in opts ? opts.valueColor : null;
+    let strokeWidth = opts && 'strokeWidth' in opts ? opts.strokeWidth : 2;
+    let semanticsLabel = opts && 'semanticsLabel' in opts ? opts.semanticsLabel : null;
+    let semanticsValue = opts && 'semanticsValue' in opts ? opts.semanticsValue : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    progress_indicator.RefreshProgressIndicator.__proto__.new.call(this, {key: key, value: value, backgroundColor: backgroundColor, valueColor: valueColor, strokeWidth: strokeWidth, semanticsLabel: semanticsLabel, semanticsValue: semanticsValue, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = progress_indicator.RefreshProgressIndicator.prototype;
+  dart.addTypeTests(progress_indicator.RefreshProgressIndicator);
+  dart.addTypeCaches(progress_indicator.RefreshProgressIndicator);
+  dart.setMethodSignature(progress_indicator.RefreshProgressIndicator, () => ({
+    __proto__: dart.getMethods(progress_indicator.RefreshProgressIndicator.__proto__),
+    createState: dart.fnType(progress_indicator._RefreshProgressIndicatorState, [])
+  }));
+  dart.setLibraryUri(progress_indicator.RefreshProgressIndicator, I[0]);
+  var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
+  var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
+  var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
+  var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
+  progress_indicator._RefreshProgressIndicatorState = class _RefreshProgressIndicatorState extends progress_indicator._CircularProgressIndicatorState {
+    build(context) {
+      if (this.widget.value != null)
+        this[_controller].value = dart.nullCheck(this.widget.value) * (1333 / 2 / 2961926);
+      else if (!this[_controller].isAnimating) this[_controller].repeat();
+      return this[_buildAnimation]();
+    }
+    [_buildMaterialIndicator](context, headValue, tailValue, offsetValue, rotationValue) {
+      let t2;
+      let arrowheadScale = this.widget.value == null ? 0.0 : (dart.nullCheck(this.widget.value) * 2.0)[$clamp](0.0, 1.0);
+      return this.widget[_buildSemanticsWrapper]({context: context, child: new container.Container.new({width: 40, height: 40, margin: C[57] || CT.C57, child: new material.Material.new({type: material.MaterialType.circle, color: (t2 = this.widget.backgroundColor, t2 == null ? theme$.Theme.of(context).canvasColor : t2), elevation: 2.0, child: new basic.Padding.new({padding: C[58] || CT.C58, child: new basic.CustomPaint.new({painter: new progress_indicator._RefreshProgressIndicatorPainter.new({valueColor: this.widget[_getValueColor](context), value: null, headValue: headValue, tailValue: tailValue, offsetValue: offsetValue, rotationValue: rotationValue, strokeWidth: this.widget.strokeWidth, arrowheadScale: arrowheadScale}), $creationLocationd_0dea112b090073317d4: C[59] || CT.C59}), $creationLocationd_0dea112b090073317d4: C[62] || CT.C62}), $creationLocationd_0dea112b090073317d4: C[66] || CT.C66}), $creationLocationd_0dea112b090073317d4: C[72] || CT.C72})});
+    }
+  };
+  (progress_indicator._RefreshProgressIndicatorState.new = function() {
+    progress_indicator._RefreshProgressIndicatorState.__proto__.new.call(this);
+    ;
+  }).prototype = progress_indicator._RefreshProgressIndicatorState.prototype;
+  dart.addTypeTests(progress_indicator._RefreshProgressIndicatorState);
+  dart.addTypeCaches(progress_indicator._RefreshProgressIndicatorState);
+  dart.setLibraryUri(progress_indicator._RefreshProgressIndicatorState, I[0]);
+  dart.defineLazy(progress_indicator._RefreshProgressIndicatorState, {
+    /*progress_indicator._RefreshProgressIndicatorState._indicatorSize*/get _indicatorSize() {
+      return 40;
+    }
+  }, false);
+  dart.defineLazy(progress_indicator, {
+    /*progress_indicator._kMinCircularProgressIndicatorSize*/get _kMinCircularProgressIndicatorSize() {
+      return 36;
+    },
+    /*progress_indicator._kIndeterminateLinearDuration*/get _kIndeterminateLinearDuration() {
+      return 1800;
+    },
+    /*progress_indicator._kIndeterminateCircularDuration*/get _kIndeterminateCircularDuration() {
+      return 2961926;
+    }
+  }, false);
+  dart.trackLibraries("packages/flutter/src/material/progress_indicator.dart", {
+    "package:flutter/src/material/progress_indicator.dart": progress_indicator
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["borders.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/flutter/src/painting/borders.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["progress_indicator.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/flutter/src/material/progress_indicator.dart.lib.js"}');
   // Exports:
   return {
-    src__painting__borders: borders$
+    src__material__progress_indicator: progress_indicator
   };
 }));
 
-//# sourceMappingURL=borders.dart.lib.js.map
+//# sourceMappingURL=progress_indicator.dart.lib.js.map

@@ -1,421 +1,337 @@
-define(['dart_sdk', 'packages/flutter/src/services/mouse_cursor.dart', 'packages/flutter/src/painting/borders.dart'], (function load__packages__flutter__src__material__material_state_dart(dart_sdk, packages__flutter__src__services__mouse_cursor$46dart, packages__flutter__src__painting__borders$46dart) {
+define(['dart_sdk', 'packages/firebase_auth_web/src/utils/web_utils.dart', 'packages/firebase_auth_platform_interface/src/types.dart', 'packages/firebase_auth_web/src/interop/auth.dart', 'packages/firebase_auth_platform_interface/src/id_token_result.dart', 'packages/firebase_auth_platform_interface/src/firebase_auth_exception.dart', 'packages/intl/src/intl/date_format.dart'], (function load__packages__firebase_auth_web__src__firebase_auth_web_confirmation_result_dart(dart_sdk, packages__firebase_auth_web__src__utils__web_utils$46dart, packages__firebase_auth_platform_interface__src__types$46dart, packages__firebase_auth_web__src__interop__auth$46dart, packages__firebase_auth_platform_interface__src__id_token_result$46dart, packages__firebase_auth_platform_interface__src__firebase_auth_exception$46dart, packages__intl__src__intl__date_format$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const ui = dart_sdk.ui;
-  const collection = dart_sdk.collection;
+  const async = dart_sdk.async;
+  const _js_helper = dart_sdk._js_helper;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const mouse_cursor = packages__flutter__src__services__mouse_cursor$46dart.src__services__mouse_cursor;
-  const borders = packages__flutter__src__painting__borders$46dart.src__painting__borders;
-  var material_state = Object.create(dart.library);
+  const web_utils = packages__firebase_auth_web__src__utils__web_utils$46dart.src__utils__web_utils;
+  const platform_interface_user_credential = packages__firebase_auth_platform_interface__src__types$46dart.src__platform_interface__platform_interface_user_credential;
+  const platform_interface_confirmation_result = packages__firebase_auth_platform_interface__src__types$46dart.src__platform_interface__platform_interface_confirmation_result;
+  const platform_interface_firebase_auth = packages__firebase_auth_platform_interface__src__types$46dart.src__platform_interface__platform_interface_firebase_auth;
+  const platform_interface_user = packages__firebase_auth_platform_interface__src__types$46dart.src__platform_interface__platform_interface_user;
+  const auth = packages__firebase_auth_web__src__interop__auth$46dart.src__interop__auth;
+  const id_token_result = packages__firebase_auth_platform_interface__src__id_token_result$46dart.src__id_token_result;
+  const firebase_auth_exception = packages__firebase_auth_platform_interface__src__firebase_auth_exception$46dart.src__firebase_auth_exception;
+  const date_format = packages__intl__src__intl__date_format$46dart.src__intl__date_format;
+  var firebase_auth_web_confirmation_result = Object.create(dart.library);
+  var firebase_auth_web_user_credential = Object.create(dart.library);
+  var firebase_auth_web_user = Object.create(dart.library);
+  var $map = dartx.map;
+  var $toList = dartx.toList;
+  var $containsKey = dartx.containsKey;
+  var $_get = dartx._get;
   dart._checkModuleNullSafetyMode(true);
   var T = {
-    LinkedHashSetOfMaterialState: () => (T.LinkedHashSetOfMaterialState = dart.constFn(collection.LinkedHashSet$(material_state.MaterialState)))()
+    IdentityMapOfString$int: () => (T.IdentityMapOfString$int = dart.constFn(_js_helper.IdentityMap$(core.String, core.int)))(),
+    MapOfString$dynamic: () => (T.MapOfString$dynamic = dart.constFn(core.Map$(core.String, dart.dynamic)))(),
+    IdentityMapOfString$dynamic: () => (T.IdentityMapOfString$dynamic = dart.constFn(_js_helper.IdentityMap$(core.String, dart.dynamic)))(),
+    UserInfoOfUserInfoJsImpl: () => (T.UserInfoOfUserInfoJsImpl = dart.constFn(auth.UserInfo$(dart.anonymousJSType("UserInfoJsImpl"))))(),
+    UserInfoOfUserInfoJsImplToMapOfString$dynamic: () => (T.UserInfoOfUserInfoJsImplToMapOfString$dynamic = dart.constFn(dart.fnType(T.MapOfString$dynamic(), [T.UserInfoOfUserInfoJsImpl()])))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
-  dart.defineLazy(CT, {
-    get C0() {
-      return C[0] = dart.const({
-        __proto__: material_state.MaterialState.prototype,
-        [_name$]: "MaterialState.hovered",
-        index: 0
-      });
-    },
-    get C1() {
-      return C[1] = dart.const({
-        __proto__: material_state.MaterialState.prototype,
-        [_name$]: "MaterialState.focused",
-        index: 1
-      });
-    },
-    get C2() {
-      return C[2] = dart.const({
-        __proto__: material_state.MaterialState.prototype,
-        [_name$]: "MaterialState.pressed",
-        index: 2
-      });
-    },
-    get C3() {
-      return C[3] = dart.const({
-        __proto__: material_state.MaterialState.prototype,
-        [_name$]: "MaterialState.dragged",
-        index: 3
-      });
-    },
-    get C4() {
-      return C[4] = dart.const({
-        __proto__: material_state.MaterialState.prototype,
-        [_name$]: "MaterialState.selected",
-        index: 4
-      });
-    },
-    get C5() {
-      return C[5] = dart.const({
-        __proto__: material_state.MaterialState.prototype,
-        [_name$]: "MaterialState.disabled",
-        index: 5
-      });
-    },
-    get C6() {
-      return C[6] = dart.const({
-        __proto__: material_state.MaterialState.prototype,
-        [_name$]: "MaterialState.error",
-        index: 6
-      });
-    },
-    get C7() {
-      return C[7] = dart.constList([C[0] || CT.C0, C[1] || CT.C1, C[2] || CT.C2, C[3] || CT.C3, C[4] || CT.C4, C[5] || CT.C5, C[6] || CT.C6], material_state.MaterialState);
-    },
-    get C8() {
-      return C[8] = dart.constSet(material_state.MaterialState, []);
-    },
-    get C10() {
-      return C[10] = dart.const({
-        __proto__: mouse_cursor.SystemMouseCursor.prototype,
-        [SystemMouseCursor_kind]: "basic"
-      });
-    },
-    get C11() {
-      return C[11] = dart.const({
-        __proto__: mouse_cursor.SystemMouseCursor.prototype,
-        [SystemMouseCursor_kind]: "click"
-      });
-    },
-    get C9() {
-      return C[9] = dart.const({
-        __proto__: material_state._EnabledAndDisabledMouseCursor.prototype,
-        [_EnabledAndDisabledMouseCursor_name]: "clickable",
-        [_EnabledAndDisabledMouseCursor_disabledCursor]: C[10] || CT.C10,
-        [_EnabledAndDisabledMouseCursor_enabledCursor]: C[11] || CT.C11
-      });
-    },
-    get C13() {
-      return C[13] = dart.const({
-        __proto__: mouse_cursor.SystemMouseCursor.prototype,
-        [SystemMouseCursor_kind]: "text"
-      });
-    },
-    get C12() {
-      return C[12] = dart.const({
-        __proto__: material_state._EnabledAndDisabledMouseCursor.prototype,
-        [_EnabledAndDisabledMouseCursor_name]: "textable",
-        [_EnabledAndDisabledMouseCursor_disabledCursor]: C[10] || CT.C10,
-        [_EnabledAndDisabledMouseCursor_enabledCursor]: C[13] || CT.C13
-      });
-    }
-  }, false);
-  var C = Array(14).fill(void 0);
-  var I = ["package:flutter/src/material/material_state.dart"];
-  var _name$ = dart.privateName(material_state, "_name");
-  material_state.MaterialState = class MaterialState extends core.Object {
-    toString() {
-      return this[_name$];
-    }
-  };
-  (material_state.MaterialState.new = function(index, _name) {
-    this.index = index;
-    this[_name$] = _name;
-    ;
-  }).prototype = material_state.MaterialState.prototype;
-  dart.addTypeTests(material_state.MaterialState);
-  dart.addTypeCaches(material_state.MaterialState);
-  dart.setLibraryUri(material_state.MaterialState, I[0]);
-  dart.setFieldSignature(material_state.MaterialState, () => ({
-    __proto__: dart.getFields(material_state.MaterialState.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(material_state.MaterialState, ['toString']);
-  material_state.MaterialState.hovered = C[0] || CT.C0;
-  material_state.MaterialState.focused = C[1] || CT.C1;
-  material_state.MaterialState.pressed = C[2] || CT.C2;
-  material_state.MaterialState.dragged = C[3] || CT.C3;
-  material_state.MaterialState.selected = C[4] || CT.C4;
-  material_state.MaterialState.disabled = C[5] || CT.C5;
-  material_state.MaterialState.error = C[6] || CT.C6;
-  material_state.MaterialState.values = C[7] || CT.C7;
-  material_state.MaterialStateColor = class MaterialStateColor extends ui.Color {
-    static resolveWith(callback) {
-      return new material_state._MaterialStateColor.new(callback);
-    }
-  };
-  (material_state.MaterialStateColor.new = function(defaultValue) {
-    material_state.MaterialStateColor.__proto__.new.call(this, defaultValue);
-    ;
-  }).prototype = material_state.MaterialStateColor.prototype;
-  dart.addTypeTests(material_state.MaterialStateColor);
-  dart.addTypeCaches(material_state.MaterialStateColor);
-  material_state.MaterialStateColor[dart.implements] = () => [material_state.MaterialStateProperty$(ui.Color)];
-  dart.setLibraryUri(material_state.MaterialStateColor, I[0]);
-  var _resolve$ = dart.privateName(material_state, "_resolve");
-  material_state._MaterialStateColor = class _MaterialStateColor extends material_state.MaterialStateColor {
-    resolve(states) {
-      let t0;
-      t0 = states;
-      return this[_resolve$](t0);
-    }
-  };
-  (material_state._MaterialStateColor.new = function(_resolve) {
-    this[_resolve$] = _resolve;
-    material_state._MaterialStateColor.__proto__.new.call(this, _resolve(material_state._MaterialStateColor._defaultStates).value);
-    ;
-  }).prototype = material_state._MaterialStateColor.prototype;
-  dart.addTypeTests(material_state._MaterialStateColor);
-  dart.addTypeCaches(material_state._MaterialStateColor);
-  dart.setMethodSignature(material_state._MaterialStateColor, () => ({
-    __proto__: dart.getMethods(material_state._MaterialStateColor.__proto__),
-    resolve: dart.fnType(ui.Color, [core.Set$(material_state.MaterialState)])
-  }));
-  dart.setLibraryUri(material_state._MaterialStateColor, I[0]);
-  dart.setFieldSignature(material_state._MaterialStateColor, () => ({
-    __proto__: dart.getFields(material_state._MaterialStateColor.__proto__),
-    [_resolve$]: dart.finalFieldType(dart.fnType(ui.Color, [core.Set$(material_state.MaterialState)]))
-  }));
-  dart.defineLazy(material_state._MaterialStateColor, {
-    /*material_state._MaterialStateColor._defaultStates*/get _defaultStates() {
-      return C[8] || CT.C8;
-    }
-  }, false);
-  var _EnabledAndDisabledMouseCursor_name = dart.privateName(material_state, "_EnabledAndDisabledMouseCursor.name");
-  var SystemMouseCursor_kind = dart.privateName(mouse_cursor, "SystemMouseCursor.kind");
-  var _EnabledAndDisabledMouseCursor_disabledCursor = dart.privateName(material_state, "_EnabledAndDisabledMouseCursor.disabledCursor");
-  var _EnabledAndDisabledMouseCursor_enabledCursor = dart.privateName(material_state, "_EnabledAndDisabledMouseCursor.enabledCursor");
-  material_state.MaterialStateMouseCursor = class MaterialStateMouseCursor extends mouse_cursor.MouseCursor {
-    createSession(device) {
-      return this.resolve(T.LinkedHashSetOfMaterialState().new()).createSession(device);
-    }
-  };
-  (material_state.MaterialStateMouseCursor.new = function() {
-    material_state.MaterialStateMouseCursor.__proto__.new.call(this);
-    ;
-  }).prototype = material_state.MaterialStateMouseCursor.prototype;
-  dart.addTypeTests(material_state.MaterialStateMouseCursor);
-  dart.addTypeCaches(material_state.MaterialStateMouseCursor);
-  material_state.MaterialStateMouseCursor[dart.implements] = () => [material_state.MaterialStateProperty$(mouse_cursor.MouseCursor)];
-  dart.setMethodSignature(material_state.MaterialStateMouseCursor, () => ({
-    __proto__: dart.getMethods(material_state.MaterialStateMouseCursor.__proto__),
-    createSession: dart.fnType(mouse_cursor.MouseCursorSession, [core.int])
-  }));
-  dart.setLibraryUri(material_state.MaterialStateMouseCursor, I[0]);
-  dart.defineLazy(material_state.MaterialStateMouseCursor, {
-    /*material_state.MaterialStateMouseCursor.clickable*/get clickable() {
-      return C[9] || CT.C9;
-    },
-    /*material_state.MaterialStateMouseCursor.textable*/get textable() {
-      return C[12] || CT.C12;
-    }
-  }, false);
-  const enabledCursor$ = _EnabledAndDisabledMouseCursor_enabledCursor;
-  const disabledCursor$ = _EnabledAndDisabledMouseCursor_disabledCursor;
-  const name$ = _EnabledAndDisabledMouseCursor_name;
-  material_state._EnabledAndDisabledMouseCursor = class _EnabledAndDisabledMouseCursor extends material_state.MaterialStateMouseCursor {
-    get enabledCursor() {
-      return this[enabledCursor$];
-    }
-    set enabledCursor(value) {
-      super.enabledCursor = value;
-    }
-    get disabledCursor() {
-      return this[disabledCursor$];
-    }
-    set disabledCursor(value) {
-      super.disabledCursor = value;
-    }
-    get name() {
-      return this[name$];
-    }
-    set name(value) {
-      super.name = value;
-    }
-    resolve(states) {
-      if (states.contains(material_state.MaterialState.disabled)) {
-        return this.disabledCursor;
-      }
-      return this.enabledCursor;
-    }
-    get debugDescription() {
-      return "MaterialStateMouseCursor(" + this.name + ")";
-    }
-  };
-  (material_state._EnabledAndDisabledMouseCursor.new = function(opts) {
-    let enabledCursor = opts && 'enabledCursor' in opts ? opts.enabledCursor : null;
-    let disabledCursor = opts && 'disabledCursor' in opts ? opts.disabledCursor : null;
-    let name = opts && 'name' in opts ? opts.name : null;
-    this[enabledCursor$] = enabledCursor;
-    this[disabledCursor$] = disabledCursor;
-    this[name$] = name;
-    material_state._EnabledAndDisabledMouseCursor.__proto__.new.call(this);
-    ;
-  }).prototype = material_state._EnabledAndDisabledMouseCursor.prototype;
-  dart.addTypeTests(material_state._EnabledAndDisabledMouseCursor);
-  dart.addTypeCaches(material_state._EnabledAndDisabledMouseCursor);
-  dart.setMethodSignature(material_state._EnabledAndDisabledMouseCursor, () => ({
-    __proto__: dart.getMethods(material_state._EnabledAndDisabledMouseCursor.__proto__),
-    resolve: dart.fnType(mouse_cursor.MouseCursor, [core.Set$(material_state.MaterialState)])
-  }));
-  dart.setGetterSignature(material_state._EnabledAndDisabledMouseCursor, () => ({
-    __proto__: dart.getGetters(material_state._EnabledAndDisabledMouseCursor.__proto__),
-    debugDescription: core.String
-  }));
-  dart.setLibraryUri(material_state._EnabledAndDisabledMouseCursor, I[0]);
-  dart.setFieldSignature(material_state._EnabledAndDisabledMouseCursor, () => ({
-    __proto__: dart.getFields(material_state._EnabledAndDisabledMouseCursor.__proto__),
-    enabledCursor: dart.finalFieldType(mouse_cursor.MouseCursor),
-    disabledCursor: dart.finalFieldType(mouse_cursor.MouseCursor),
-    name: dart.finalFieldType(core.String)
-  }));
-  material_state.MaterialStateBorderSide = class MaterialStateBorderSide extends borders.BorderSide {
-    static resolveWith(callback) {
-      return new material_state._MaterialStateBorderSide.new(callback);
-    }
-  };
-  (material_state.MaterialStateBorderSide.new = function() {
-    material_state.MaterialStateBorderSide.__proto__.new.call(this);
-    ;
-  }).prototype = material_state.MaterialStateBorderSide.prototype;
-  dart.addTypeTests(material_state.MaterialStateBorderSide);
-  dart.addTypeCaches(material_state.MaterialStateBorderSide);
-  material_state.MaterialStateBorderSide[dart.implements] = () => [material_state.MaterialStateProperty$(dart.nullable(borders.BorderSide))];
-  dart.setLibraryUri(material_state.MaterialStateBorderSide, I[0]);
-  var _resolve$0 = dart.privateName(material_state, "_MaterialStateBorderSide._resolve");
-  material_state._MaterialStateBorderSide = class _MaterialStateBorderSide extends material_state.MaterialStateBorderSide {
-    get [_resolve$]() {
-      return this[_resolve$0];
-    }
-    set [_resolve$](value) {
-      super[_resolve$] = value;
-    }
-    resolve(states) {
-      let t0;
-      t0 = states;
-      return this[_resolve$](t0);
-    }
-  };
-  (material_state._MaterialStateBorderSide.new = function(_resolve) {
-    this[_resolve$0] = _resolve;
-    material_state._MaterialStateBorderSide.__proto__.new.call(this);
-    ;
-  }).prototype = material_state._MaterialStateBorderSide.prototype;
-  dart.addTypeTests(material_state._MaterialStateBorderSide);
-  dart.addTypeCaches(material_state._MaterialStateBorderSide);
-  dart.setMethodSignature(material_state._MaterialStateBorderSide, () => ({
-    __proto__: dart.getMethods(material_state._MaterialStateBorderSide.__proto__),
-    resolve: dart.fnType(dart.nullable(borders.BorderSide), [core.Set$(material_state.MaterialState)])
-  }));
-  dart.setLibraryUri(material_state._MaterialStateBorderSide, I[0]);
-  dart.setFieldSignature(material_state._MaterialStateBorderSide, () => ({
-    __proto__: dart.getFields(material_state._MaterialStateBorderSide.__proto__),
-    [_resolve$]: dart.finalFieldType(dart.fnType(dart.nullable(borders.BorderSide), [core.Set$(material_state.MaterialState)]))
-  }));
-  material_state.MaterialStateOutlinedBorder = class MaterialStateOutlinedBorder extends borders.OutlinedBorder {};
-  (material_state.MaterialStateOutlinedBorder.new = function() {
-    material_state.MaterialStateOutlinedBorder.__proto__.new.call(this);
-    ;
-  }).prototype = material_state.MaterialStateOutlinedBorder.prototype;
-  dart.addTypeTests(material_state.MaterialStateOutlinedBorder);
-  dart.addTypeCaches(material_state.MaterialStateOutlinedBorder);
-  material_state.MaterialStateOutlinedBorder[dart.implements] = () => [material_state.MaterialStateProperty$(dart.nullable(borders.OutlinedBorder))];
-  dart.setLibraryUri(material_state.MaterialStateOutlinedBorder, I[0]);
-  const _is_MaterialStateProperty_default = Symbol('_is_MaterialStateProperty_default');
-  material_state.MaterialStateProperty$ = dart.generic(T => {
-    class MaterialStateProperty extends core.Object {
-      static resolveAs(T, value, states) {
-        if (material_state.MaterialStateProperty$(T).is(value)) {
-          let property = value;
-          return property.resolve(states);
+  var I = [
+    "package:firebase_auth_web/src/firebase_auth_web_confirmation_result.dart",
+    "package:firebase_auth_web/src/firebase_auth_web_user_credential.dart",
+    "package:firebase_auth_web/src/firebase_auth_web_user.dart"
+  ];
+  var _auth$ = dart.privateName(firebase_auth_web_confirmation_result, "_auth");
+  var _webConfirmationResult$ = dart.privateName(firebase_auth_web_confirmation_result, "_webConfirmationResult");
+  firebase_auth_web_confirmation_result.ConfirmationResultWeb = class ConfirmationResultWeb extends platform_interface_confirmation_result.ConfirmationResultPlatform {
+    confirm(verificationCode) {
+      return async.async(platform_interface_user_credential.UserCredentialPlatform, (function* confirm() {
+        try {
+          return new firebase_auth_web_user_credential.UserCredentialWeb.new(this[_auth$], yield this[_webConfirmationResult$].confirm(verificationCode));
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (core.Object.is(e)) {
+            dart.throw(web_utils.getFirebaseAuthException(e));
+          } else
+            throw e$;
         }
-        return value;
-      }
-      static resolveWith(T, callback) {
-        return new (material_state._MaterialStatePropertyWith$(T)).new(callback);
-      }
-      static all(T, value) {
-        return new (material_state._MaterialStatePropertyAll$(T)).new(value);
+      }).bind(this));
+    }
+  };
+  (firebase_auth_web_confirmation_result.ConfirmationResultWeb.new = function(_auth, _webConfirmationResult) {
+    this[_auth$] = _auth;
+    this[_webConfirmationResult$] = _webConfirmationResult;
+    firebase_auth_web_confirmation_result.ConfirmationResultWeb.__proto__.new.call(this, _webConfirmationResult.verificationId);
+    ;
+  }).prototype = firebase_auth_web_confirmation_result.ConfirmationResultWeb.prototype;
+  dart.addTypeTests(firebase_auth_web_confirmation_result.ConfirmationResultWeb);
+  dart.addTypeCaches(firebase_auth_web_confirmation_result.ConfirmationResultWeb);
+  dart.setLibraryUri(firebase_auth_web_confirmation_result.ConfirmationResultWeb, I[0]);
+  dart.setFieldSignature(firebase_auth_web_confirmation_result.ConfirmationResultWeb, () => ({
+    __proto__: dart.getFields(firebase_auth_web_confirmation_result.ConfirmationResultWeb.__proto__),
+    [_auth$]: dart.finalFieldType(platform_interface_firebase_auth.FirebaseAuthPlatform),
+    [_webConfirmationResult$]: dart.finalFieldType(auth.ConfirmationResult)
+  }));
+  firebase_auth_web_user_credential.UserCredentialWeb = class UserCredentialWeb extends platform_interface_user_credential.UserCredentialPlatform {};
+  (firebase_auth_web_user_credential.UserCredentialWeb.new = function(auth, webUserCredential) {
+    firebase_auth_web_user_credential.UserCredentialWeb.__proto__.new.call(this, {auth: auth, additionalUserInfo: web_utils.convertWebAdditionalUserInfo(webUserCredential.additionalUserInfo), credential: web_utils.convertWebOAuthCredential(webUserCredential.credential), user: new firebase_auth_web_user.UserWeb.new(auth, dart.nullCheck(webUserCredential.user))});
+    ;
+  }).prototype = firebase_auth_web_user_credential.UserCredentialWeb.prototype;
+  dart.addTypeTests(firebase_auth_web_user_credential.UserCredentialWeb);
+  dart.addTypeCaches(firebase_auth_web_user_credential.UserCredentialWeb);
+  dart.setLibraryUri(firebase_auth_web_user_credential.UserCredentialWeb, I[1]);
+  var _webUser$ = dart.privateName(firebase_auth_web_user, "_webUser");
+  firebase_auth_web_user.UserWeb = class UserWeb extends platform_interface_user.UserPlatform {
+    delete() {
+      return async.async(dart.void, (function* $delete() {
+        firebase_auth_web_user._assertIsSignedOut(this.auth);
+        try {
+          yield this[_webUser$].delete();
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (core.Object.is(e)) {
+            dart.throw(web_utils.getFirebaseAuthException(e));
+          } else
+            throw e$;
+        }
+      }).bind(this));
+    }
+    getIdToken(forceRefresh) {
+      return async.async(core.String, (function* getIdToken() {
+        firebase_auth_web_user._assertIsSignedOut(this.auth);
+        try {
+          return yield this[_webUser$].getIdToken(forceRefresh);
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (core.Object.is(e)) {
+            dart.throw(web_utils.getFirebaseAuthException(e));
+          } else
+            throw e$;
+        }
+      }).bind(this));
+    }
+    getIdTokenResult(forceRefresh) {
+      return async.async(id_token_result.IdTokenResult, (function* getIdTokenResult() {
+        firebase_auth_web_user._assertIsSignedOut(this.auth);
+        return web_utils.convertWebIdTokenResult(yield this[_webUser$].getIdTokenResult(forceRefresh));
+      }).bind(this));
+    }
+    linkWithCredential(credential) {
+      return async.async(platform_interface_user_credential.UserCredentialPlatform, (function* linkWithCredential() {
+        firebase_auth_web_user._assertIsSignedOut(this.auth);
+        try {
+          return new firebase_auth_web_user_credential.UserCredentialWeb.new(this.auth, yield this[_webUser$].linkWithCredential(web_utils.convertPlatformCredential(credential)));
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (core.Object.is(e)) {
+            dart.throw(web_utils.getFirebaseAuthException(e));
+          } else
+            throw e$;
+        }
+      }).bind(this));
+    }
+    linkWithPopup(provider) {
+      return async.async(platform_interface_user_credential.UserCredentialPlatform, (function* linkWithPopup() {
+        firebase_auth_web_user._assertIsSignedOut(this.auth);
+        try {
+          return new firebase_auth_web_user_credential.UserCredentialWeb.new(this.auth, yield this[_webUser$].linkWithPopup(web_utils.convertPlatformAuthProvider(provider)));
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (core.Object.is(e)) {
+            dart.throw(web_utils.getFirebaseAuthException(e));
+          } else
+            throw e$;
+        }
+      }).bind(this));
+    }
+    linkWithPhoneNumber(phoneNumber, applicationVerifier) {
+      return async.async(platform_interface_confirmation_result.ConfirmationResultPlatform, (function* linkWithPhoneNumber() {
+        firebase_auth_web_user._assertIsSignedOut(this.auth);
+        try {
+          let verifier = auth.RecaptchaVerifier.as(applicationVerifier.delegate);
+          return new firebase_auth_web_confirmation_result.ConfirmationResultWeb.new(this.auth, yield this[_webUser$].linkWithPhoneNumber(phoneNumber, verifier));
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (core.Object.is(e)) {
+            dart.throw(web_utils.getFirebaseAuthException(e));
+          } else
+            throw e$;
+        }
+      }).bind(this));
+    }
+    reauthenticateWithCredential(credential) {
+      return async.async(platform_interface_user_credential.UserCredentialPlatform, (function* reauthenticateWithCredential() {
+        firebase_auth_web_user._assertIsSignedOut(this.auth);
+        try {
+          let userCredential = (yield this[_webUser$].reauthenticateWithCredential(dart.nullCheck(web_utils.convertPlatformCredential(credential))));
+          return new firebase_auth_web_user_credential.UserCredentialWeb.new(this.auth, userCredential);
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (core.Object.is(e)) {
+            dart.throw(web_utils.getFirebaseAuthException(e));
+          } else
+            throw e$;
+        }
+      }).bind(this));
+    }
+    reload() {
+      return async.async(dart.void, (function* reload() {
+        firebase_auth_web_user._assertIsSignedOut(this.auth);
+        try {
+          yield this[_webUser$].reload();
+          this.auth.sendAuthChangesEvent(this.auth.app.name, this.auth.currentUser);
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (core.Object.is(e)) {
+            dart.throw(web_utils.getFirebaseAuthException(e));
+          } else
+            throw e$;
+        }
+      }).bind(this));
+    }
+    sendEmailVerification(actionCodeSettings) {
+      firebase_auth_web_user._assertIsSignedOut(this.auth);
+      try {
+        return this[_webUser$].sendEmailVerification(web_utils.convertPlatformActionCodeSettings(actionCodeSettings));
+      } catch (e$) {
+        let e = dart.getThrown(e$);
+        if (core.Object.is(e)) {
+          dart.throw(web_utils.getFirebaseAuthException(e));
+        } else
+          throw e$;
       }
     }
-    (MaterialStateProperty.new = function() {
-      ;
-    }).prototype = MaterialStateProperty.prototype;
-    dart.addTypeTests(MaterialStateProperty);
-    MaterialStateProperty.prototype[_is_MaterialStateProperty_default] = true;
-    dart.addTypeCaches(MaterialStateProperty);
-    dart.setLibraryUri(MaterialStateProperty, I[0]);
-    return MaterialStateProperty;
-  });
-  material_state.MaterialStateProperty = material_state.MaterialStateProperty$();
-  dart.addTypeTests(material_state.MaterialStateProperty, _is_MaterialStateProperty_default);
-  const _is__MaterialStatePropertyWith_default = Symbol('_is__MaterialStatePropertyWith_default');
-  material_state._MaterialStatePropertyWith$ = dart.generic(T => {
-    class _MaterialStatePropertyWith extends core.Object {
-      resolve(states) {
-        let t0;
-        t0 = states;
-        return this[_resolve$](t0);
-      }
+    unlink(providerId) {
+      return async.async(platform_interface_user.UserPlatform, (function* unlink() {
+        firebase_auth_web_user._assertIsSignedOut(this.auth);
+        try {
+          return new firebase_auth_web_user.UserWeb.new(this.auth, yield this[_webUser$].unlink(providerId));
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (core.Object.is(e)) {
+            dart.throw(web_utils.getFirebaseAuthException(e));
+          } else
+            throw e$;
+        }
+      }).bind(this));
     }
-    (_MaterialStatePropertyWith.new = function(_resolve) {
-      this[_resolve$] = _resolve;
-      ;
-    }).prototype = _MaterialStatePropertyWith.prototype;
-    dart.addTypeTests(_MaterialStatePropertyWith);
-    _MaterialStatePropertyWith.prototype[_is__MaterialStatePropertyWith_default] = true;
-    dart.addTypeCaches(_MaterialStatePropertyWith);
-    _MaterialStatePropertyWith[dart.implements] = () => [material_state.MaterialStateProperty$(T)];
-    dart.setMethodSignature(_MaterialStatePropertyWith, () => ({
-      __proto__: dart.getMethods(_MaterialStatePropertyWith.__proto__),
-      resolve: dart.fnType(T, [core.Set$(material_state.MaterialState)])
-    }));
-    dart.setLibraryUri(_MaterialStatePropertyWith, I[0]);
-    dart.setFieldSignature(_MaterialStatePropertyWith, () => ({
-      __proto__: dart.getFields(_MaterialStatePropertyWith.__proto__),
-      [_resolve$]: dart.finalFieldType(dart.fnType(T, [core.Set$(material_state.MaterialState)]))
-    }));
-    return _MaterialStatePropertyWith;
-  });
-  material_state._MaterialStatePropertyWith = material_state._MaterialStatePropertyWith$();
-  dart.addTypeTests(material_state._MaterialStatePropertyWith, _is__MaterialStatePropertyWith_default);
-  const _is__MaterialStatePropertyAll_default = Symbol('_is__MaterialStatePropertyAll_default');
-  material_state._MaterialStatePropertyAll$ = dart.generic(T => {
-    class _MaterialStatePropertyAll extends core.Object {
-      resolve(states) {
-        return this.value;
-      }
-      toString() {
-        return "MaterialStateProperty.all(" + dart.str(this.value) + ")";
-      }
+    updateEmail(newEmail) {
+      return async.async(dart.void, (function* updateEmail() {
+        firebase_auth_web_user._assertIsSignedOut(this.auth);
+        try {
+          yield this[_webUser$].updateEmail(newEmail);
+          yield this[_webUser$].reload();
+          this.auth.sendAuthChangesEvent(this.auth.app.name, this.auth.currentUser);
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (core.Object.is(e)) {
+            dart.throw(web_utils.getFirebaseAuthException(e));
+          } else
+            throw e$;
+        }
+      }).bind(this));
     }
-    (_MaterialStatePropertyAll.new = function(value) {
-      this.value = value;
-      ;
-    }).prototype = _MaterialStatePropertyAll.prototype;
-    dart.addTypeTests(_MaterialStatePropertyAll);
-    _MaterialStatePropertyAll.prototype[_is__MaterialStatePropertyAll_default] = true;
-    dart.addTypeCaches(_MaterialStatePropertyAll);
-    _MaterialStatePropertyAll[dart.implements] = () => [material_state.MaterialStateProperty$(T)];
-    dart.setMethodSignature(_MaterialStatePropertyAll, () => ({
-      __proto__: dart.getMethods(_MaterialStatePropertyAll.__proto__),
-      resolve: dart.fnType(T, [core.Set$(material_state.MaterialState)])
-    }));
-    dart.setLibraryUri(_MaterialStatePropertyAll, I[0]);
-    dart.setFieldSignature(_MaterialStatePropertyAll, () => ({
-      __proto__: dart.getFields(_MaterialStatePropertyAll.__proto__),
-      value: dart.finalFieldType(T)
-    }));
-    dart.defineExtensionMethods(_MaterialStatePropertyAll, ['toString']);
-    return _MaterialStatePropertyAll;
-  });
-  material_state._MaterialStatePropertyAll = material_state._MaterialStatePropertyAll$();
-  dart.addTypeTests(material_state._MaterialStatePropertyAll, _is__MaterialStatePropertyAll_default);
-  dart.trackLibraries("packages/flutter/src/material/material_state.dart", {
-    "package:flutter/src/material/material_state.dart": material_state
+    updatePassword(newPassword) {
+      return async.async(dart.void, (function* updatePassword() {
+        firebase_auth_web_user._assertIsSignedOut(this.auth);
+        try {
+          yield this[_webUser$].updatePassword(newPassword);
+          yield this[_webUser$].reload();
+          this.auth.sendAuthChangesEvent(this.auth.app.name, this.auth.currentUser);
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (core.Object.is(e)) {
+            dart.throw(web_utils.getFirebaseAuthException(e));
+          } else
+            throw e$;
+        }
+      }).bind(this));
+    }
+    updatePhoneNumber(phoneCredential) {
+      return async.async(dart.void, (function* updatePhoneNumber() {
+        firebase_auth_web_user._assertIsSignedOut(this.auth);
+        try {
+          yield this[_webUser$].updatePhoneNumber(web_utils.convertPlatformCredential(phoneCredential));
+          yield this[_webUser$].reload();
+          this.auth.sendAuthChangesEvent(this.auth.app.name, this.auth.currentUser);
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (core.Object.is(e)) {
+            dart.throw(web_utils.getFirebaseAuthException(e));
+          } else
+            throw e$;
+        }
+      }).bind(this));
+    }
+    updateProfile(profile) {
+      return async.async(dart.void, (function* updateProfile() {
+        firebase_auth_web_user._assertIsSignedOut(this.auth);
+        try {
+          let newProfile = null;
+          if (profile[$containsKey]("displayName") && profile[$containsKey]("photoURL")) {
+            newProfile = {displayName: profile[$_get]("displayName"), photoURL: profile[$_get]("photoURL")};
+          } else if (profile[$containsKey]("displayName")) {
+            newProfile = {displayName: profile[$_get]("displayName")};
+          } else {
+            newProfile = {photoURL: profile[$_get]("photoURL")};
+          }
+          yield this[_webUser$].updateProfile(newProfile);
+          yield this[_webUser$].reload();
+          this.auth.sendAuthChangesEvent(this.auth.app.name, this.auth.currentUser);
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (core.Object.is(e)) {
+            dart.throw(web_utils.getFirebaseAuthException(e));
+          } else
+            throw e$;
+        }
+      }).bind(this));
+    }
+    verifyBeforeUpdateEmail(newEmail, actionCodeSettings = null) {
+      return async.async(dart.void, (function* verifyBeforeUpdateEmail() {
+        firebase_auth_web_user._assertIsSignedOut(this.auth);
+        try {
+          yield this[_webUser$].verifyBeforeUpdateEmail(newEmail, web_utils.convertPlatformActionCodeSettings(actionCodeSettings));
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (core.Object.is(e)) {
+            dart.throw(web_utils.getFirebaseAuthException(e));
+          } else
+            throw e$;
+        }
+      }).bind(this));
+    }
+  };
+  (firebase_auth_web_user.UserWeb.new = function(auth, _webUser) {
+    this[_webUser$] = _webUser;
+    firebase_auth_web_user.UserWeb.__proto__.new.call(this, auth, new (T.IdentityMapOfString$dynamic()).from(["displayName", _webUser.displayName, "email", _webUser.email, "emailVerified", _webUser.emailVerified, "isAnonymous", _webUser.isAnonymous, "metadata", new (T.IdentityMapOfString$int()).from(["creationTime", firebase_auth_web_user._dateFormat.parse(_webUser.metadata.creationTime).millisecondsSinceEpoch, "lastSignInTime", firebase_auth_web_user._dateFormat.parse(_webUser.metadata.lastSignInTime).millisecondsSinceEpoch]), "phoneNumber", _webUser.phoneNumber, "photoURL", _webUser.photoURL, "providerData", _webUser.providerData[$map](T.MapOfString$dynamic(), dart.fn(webUserInfo => new (T.IdentityMapOfString$dynamic()).from(["displayName", webUserInfo.displayName, "email", webUserInfo.email, "phoneNumber", webUserInfo.phoneNumber, "providerId", webUserInfo.providerId, "photoURL", webUserInfo.photoURL, "uid", webUserInfo.uid]), T.UserInfoOfUserInfoJsImplToMapOfString$dynamic()))[$toList](), "refreshToken", _webUser.refreshToken, "tenantId", _webUser.tenantId, "uid", _webUser.uid]));
+    ;
+  }).prototype = firebase_auth_web_user.UserWeb.prototype;
+  dart.addTypeTests(firebase_auth_web_user.UserWeb);
+  dart.addTypeCaches(firebase_auth_web_user.UserWeb);
+  dart.setLibraryUri(firebase_auth_web_user.UserWeb, I[2]);
+  dart.setFieldSignature(firebase_auth_web_user.UserWeb, () => ({
+    __proto__: dart.getFields(firebase_auth_web_user.UserWeb.__proto__),
+    [_webUser$]: dart.finalFieldType(auth.User)
+  }));
+  firebase_auth_web_user._assertIsSignedOut = function _assertIsSignedOut(instance) {
+    if (instance.currentUser == null) {
+      dart.throw(new firebase_auth_exception.FirebaseAuthException.new({code: "no-current-user", message: "No user currently signed in."}));
+    }
+  };
+  dart.defineLazy(firebase_auth_web_user, {
+    /*firebase_auth_web_user._dateFormat*/get _dateFormat() {
+      return new date_format.DateFormat.new("EEE, d MMM yyyy HH:mm:ss", "en_US");
+    }
+  }, false);
+  dart.trackLibraries("packages/firebase_auth_web/src/firebase_auth_web_confirmation_result.dart", {
+    "package:firebase_auth_web/src/firebase_auth_web_confirmation_result.dart": firebase_auth_web_confirmation_result,
+    "package:firebase_auth_web/src/firebase_auth_web_user_credential.dart": firebase_auth_web_user_credential,
+    "package:firebase_auth_web/src/firebase_auth_web_user.dart": firebase_auth_web_user
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["material_state.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IA6EA;;sDA7CK;;;;EA6CL;;;;;;;;;;;;;;;;;;;uBAoEwE;AAAa,wDAAoB,QAAQ;IAAC;;oDAVnF;AAAgB,+DAAM,YAAY;;EAAC;;;;;;;YAkC/B;;AAAW,WAAS,MAAM;YAAf,AAAQ;IAAQ;;;IARnC;AAAY,gEAAM,AAAQ,AAAiB,QAAjB,CAAC;;EAAsB;;;;;;;;;;;;;MAK1C,iDAAc;;;;;;;;;kBAqET;AACnC,YAAO,AAA2B,cAAJ,sDAAkB,MAAM;IACxD;;;AANM;;EAA0B;;;;;;;;;;MAsBM,iDAAS;;;MAaT,gDAAQ;;;;;;;;IAc5B;;;;;;IACA;;;;;;IACL;;;;;;YAG0B;AACrC,UAAI,AAAO,MAAD,UAAwB;AAChC,cAAO;;AAET,YAAO;IACT;;AAG+B,YAAA,AAAiC,+BAAN,YAAI;IAAE;;;QAlBhD;QACA;QACA;IAFA;IACA;IACA;AAHV;;EAIJ;;;;;;;;;;;;;;;;;;;uBAuG+E;AAC7E,6DAAyB,QAAQ;IAAC;;;AAzChC;;EAAyB;;;;;;;IAsDa;;;;;;YAGL;;AACrC,WAAgB,MAAM;YAAf,AAAQ;IACjB;;;IAPoC;AAA9B;;EAAuC;;;;;;;;;;;;;;AA+DvC;;EAA6B;;;;;;;;0BAkFX,OAA0B;AAChD,YAAU,4CAAN,KAAK;AACwB,yBAAW,KAAK;AAC/C,gBAAO,AAAS,SAAD,SAAS,MAAM;;AAEhC,cAAO,MAAK;MACd;4BAI2E;AAAa,uEAA8B,QAAQ;MAAC;oBAItF;AAAU,sEAA6B,KAAK;MAAC;;;;IACxF;;;;;;;;;;;;cAQ+B;;AAAW,aAAS,MAAM;cAAf,AAAQ;MAAQ;;;MALxB;;IAAS;;;;;;;;;;;;;;;;;;;;;cAcZ;AAAW;MAAK;;AAGxB,cAAA,AAAmC,yCAAP,cAAK;MAAE;;;MARzB;;IAAM","file":"../../../../../../../../../packages/flutter/src/material/material_state.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["firebase_auth_web_confirmation_result.dart","firebase_auth_web_user_credential.dart","firebase_auth_web_user.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../packages/firebase_auth_web/src/firebase_auth_web_confirmation_result.dart.lib.js"}');
   // Exports:
   return {
-    src__material__material_state: material_state
+    src__firebase_auth_web_confirmation_result: firebase_auth_web_confirmation_result,
+    src__firebase_auth_web_user_credential: firebase_auth_web_user_credential,
+    src__firebase_auth_web_user: firebase_auth_web_user
   };
 }));
 
-//# sourceMappingURL=material_state.dart.lib.js.map
+//# sourceMappingURL=firebase_auth_web_confirmation_result.dart.lib.js.map
