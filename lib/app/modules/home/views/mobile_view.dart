@@ -10,19 +10,19 @@ Scaffold mobileView(HomeController controller) {
         children: [Text('hi')],
       )),
       body: NestedScrollView(
-          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-            return <Widget>[
-              appBar(),
-            ];
-          },
-          body: ListView(
+        headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+          return <Widget>[
+            appBar(),
+          ];
+        },
+        body: GetBuilder(builder: (HomeController controller) {
+          return ListView(
             children: [
-              GetBuilder(builder: (HomeController controller) {
-                return getOffers(controller.offers);
-              }),
-             
+              getOffers(controller.offers),
               getCategories(controller.categories),
-              getServices(controller.categories)
+              getServices(controller.services)
             ],
-          )));
+          );
+        }),
+      ));
 }

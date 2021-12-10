@@ -1,6 +1,7 @@
 import 'package:amar_karigor/app/modules/auth/bindings/auth_binding.dart';
 import 'package:amar_karigor/app/modules/auth/views/auth_view.dart';
 import 'package:amar_karigor/app/modules/home/bindings/home_binding.dart';
+import 'package:amar_karigor/app/modules/home/views/change_location.dart';
 import 'package:amar_karigor/app/modules/home/views/home_view.dart';
 import 'package:amar_karigor/app/modules/landing_page/bindings/landing_page_binding.dart';
 import 'package:amar_karigor/app/modules/landing_page/views/landing_page_view.dart';
@@ -35,6 +36,11 @@ class AppPages {
       name: _Paths.SPLASH_SCREEN,
       page: () => SplashScreenView(),
       binding: SplashScreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.CHANGE_LOCATION_SCREEN,
+      page: () => ChangeLocationView(),
+      
     ),
   ];
 }

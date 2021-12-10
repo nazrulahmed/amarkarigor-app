@@ -1,8 +1,7 @@
-import 'package:amar_karigor/app/global/widget/shimmer.dart';
+import 'package:amar_karigor/app/global/widget/custom_shimmer.dart';
 import 'package:flutter/material.dart';
 
 Widget getOffers(List offers) {
-  print('getOffer() with length ${offers.length}');
   return Container(
       margin: EdgeInsets.only(top: 20.0, bottom: 20, left: 16),
       height: 150,
@@ -11,7 +10,7 @@ Widget getOffers(List offers) {
               scrollDirection: Axis.horizontal,
               itemCount: 2,
               itemBuilder: (context, index) {
-                return get_shimmer(height: 150, width: 350, radius: 20);
+                return CustomShimmer().getShimmerFromColor(height: 150, width: 350, radius: 20,margin:EdgeInsets.only(right:8));
               })
           : ListView.builder(
               scrollDirection: Axis.horizontal,

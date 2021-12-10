@@ -1,3 +1,4 @@
+import 'package:amar_karigor/app/global/widget/custom_shimmer.dart';
 import 'package:flutter/material.dart';
 
 Widget getCategories(List categories) {
@@ -12,12 +13,24 @@ Widget getCategories(List categories) {
       Container(
           margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 8),
           height: 120.0,
-          child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: categories.length,
-              itemBuilder: (context, index) {
-                return category(categories[index]);
-              })),
+          child: categories.length == 0
+              ? ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 4,
+                  itemBuilder: (context, index) {
+                    print('categories.length ${categories.length}');
+                    return CustomShimmer().getShimmerFromColor(
+                        width: 150,
+                        height: 150,
+                        radius: 12,
+                        margin: EdgeInsets.only(left: 8));
+                  })
+              : ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: categories.length,
+                  itemBuilder: (context, index) {
+                    return category(categories[index]);
+                  })),
     ],
   );
 }
@@ -34,7 +47,9 @@ Widget category(String category) {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Image.network(
-          'https://www.bajajallianz.com/content/dam/bagic/home-insurance/My-Home-Insurance.png',height: 40,),
+            'https://www.bajajallianz.com/content/dam/bagic/home-insurance/My-Home-Insurance.png',
+            height: 40,
+          ),
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),

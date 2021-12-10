@@ -1,5 +1,7 @@
 import 'package:amar_karigor/app/global/config/app_style.dart';
+import 'package:amar_karigor/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 Widget getHeader() {
   return FlexibleSpaceBar(
@@ -29,17 +31,22 @@ Widget getHeader() {
                         Text('Sylhet, Bangladesh',
                             style: MyTextStyle.textWhiteLargeBold),
                         SizedBox(width: 16),
-                        Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white, width: 1),
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 4, horizontal: 8),
-                            child: Text(
-                              'change',
-                              style: MyTextStyle.textWhiteSmall,
+                        GestureDetector(
+                          onTap: () {
+                            Get.toNamed(Routes.CHANGE_LOCATION_SCREEN);
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.white, width: 1),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 4, horizontal: 8),
+                              child: Text(
+                                'change',
+                                style: MyTextStyle.textWhiteSmall,
+                              ),
                             ),
                           ),
                         ),
@@ -48,11 +55,12 @@ Widget getHeader() {
                   ],
                 ),
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               Stack(
                 children: [
                   Positioned(
-                   
                     child: Container(
                       transform: Matrix4.translationValues(0.0, 25.0, 0.0),
                       color: Colors.grey[50],
