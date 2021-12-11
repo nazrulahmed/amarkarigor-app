@@ -1,13 +1,15 @@
+import 'package:get/get.dart';
+
 import 'package:amar_karigor/app/modules/auth/bindings/auth_binding.dart';
 import 'package:amar_karigor/app/modules/auth/views/auth_view.dart';
 import 'package:amar_karigor/app/modules/home/bindings/home_binding.dart';
-import 'package:amar_karigor/app/modules/home/views/change_location.dart';
 import 'package:amar_karigor/app/modules/home/views/home_view.dart';
 import 'package:amar_karigor/app/modules/landing_page/bindings/landing_page_binding.dart';
 import 'package:amar_karigor/app/modules/landing_page/views/landing_page_view.dart';
+import 'package:amar_karigor/app/modules/location/bindings/location_binding.dart';
+import 'package:amar_karigor/app/modules/location/views/location_view.dart';
 import 'package:amar_karigor/app/modules/splash_screen/bindings/splash_screen_binding.dart';
 import 'package:amar_karigor/app/modules/splash_screen/views/splash_screen_view.dart';
-import 'package:get/get.dart';
 
 part 'app_routes.dart';
 
@@ -37,10 +39,11 @@ class AppPages {
       page: () => SplashScreenView(),
       binding: SplashScreenBinding(),
     ),
+ 
     GetPage(
-      name: _Paths.CHANGE_LOCATION_SCREEN,
-      page: () => ChangeLocationView(),
-      
+      name: _Paths.LOCATION,
+      page: () => LocationView(),
+      binding: LocationBinding(),
     ),
   ];
 }

@@ -6,9 +6,7 @@ class SplashScreenController extends GetxController {
   AppPref pref = AppPref.instance;
   @override
   void onInit() {
-    
     super.onInit();
-
   }
 
   @override
@@ -16,10 +14,10 @@ class SplashScreenController extends GetxController {
     super.onReady();
     String? token = pref.retriveToken();
     String? phone = pref.retrivePhoneNumber();
-    if (token == null || phone==null) {
+    if (token == null || phone == null) {
       Get.offAndToNamed(Routes.AUTH);
-    }else{
-      Get.offAndToNamed(Routes.HOME);
+    } else {
+       Get.offAndToNamed(Routes.HOME);
     }
   }
 

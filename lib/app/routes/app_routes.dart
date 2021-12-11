@@ -7,7 +7,7 @@ abstract class Routes {
   static const AUTH = _Paths.AUTH;
   static const LANDING_PAGE = _Paths.LANDING_PAGE;
   static const SPLASH_SCREEN = _Paths.SPLASH_SCREEN;
-  static const CHANGE_LOCATION_SCREEN = _Paths.CHANGE_LOCATION_SCREEN;
+  static const LOCATION = _Paths.LOCATION;
 }
 
 abstract class _Paths {
@@ -15,5 +15,5 @@ abstract class _Paths {
   static const AUTH = '/auth';
   static const LANDING_PAGE = '/landing-page';
   static const SPLASH_SCREEN = '/splash-screen';
-  static const CHANGE_LOCATION_SCREEN = '/location-screen';
+  static const LOCATION = '/location';
 }

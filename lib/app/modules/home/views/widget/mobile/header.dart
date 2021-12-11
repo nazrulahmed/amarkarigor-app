@@ -1,9 +1,15 @@
 import 'package:amar_karigor/app/global/config/app_style.dart';
+import 'package:amar_karigor/app/modules/home/controllers/home_controller.dart';
+import 'package:amar_karigor/app/modules/location/controllers/location_controller.dart';
 import 'package:amar_karigor/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 Widget getHeader() {
+  print("GET HEADER CALLED");
+  LocationController locationController = Get.find();
+  
+  
   return FlexibleSpaceBar(
       background: Container(
           color: MyColors.colorPrimary,
@@ -28,12 +34,14 @@ Widget getHeader() {
                     Row(
                       children: [
                         Icon(Icons.location_on, color: Colors.white),
-                        Text('Sylhet, Bangladesh',
-                            style: MyTextStyle.textWhiteLargeBold),
-                        SizedBox(width: 16),
+                        Obx(() {
+                          return Text(locationController.currentLocation.value,
+                              style: MyTextStyle.textWhiteLargeBold);
+                        }),
+                        SizedBox(width: 14),
                         GestureDetector(
                           onTap: () {
-                            Get.toNamed(Routes.CHANGE_LOCATION_SCREEN);
+                            Get.toNamed(Routes.LOCATION);
                           },
                           child: Container(
                             decoration: BoxDecoration(

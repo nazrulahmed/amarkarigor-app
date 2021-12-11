@@ -1,3 +1,4 @@
+import 'package:amar_karigor/app/modules/home/controllers/home_controller.dart';
 import 'package:get/get.dart';
 
 import '../controllers/splash_screen_controller.dart';
@@ -8,5 +9,6 @@ class SplashScreenBinding extends Bindings {
     Get.put<SplashScreenController>(
       SplashScreenController(),
     );
+    
   }
 }
