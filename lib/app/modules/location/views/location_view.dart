@@ -1,5 +1,4 @@
 import 'package:amar_karigor/app/global/config/app_style.dart';
-import 'package:amar_karigor/app/modules/home/controllers/home_controller.dart';
 import 'package:amar_karigor/app/modules/home/model/city.dart';
 import 'package:amar_karigor/app/modules/home/model/country.dart';
 import 'package:amar_karigor/app/modules/location/controllers/location_controller.dart';

@@ -46,12 +46,3 @@ body{
   object-fit: cover;
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    margin:0;
-    height:100%;
-    background: #FFFFFF;
-    background-image: url("img/dark-background.png");
-    background-size: 100% 100%;
-  }
-}

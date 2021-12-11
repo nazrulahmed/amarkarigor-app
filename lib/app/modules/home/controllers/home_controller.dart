@@ -24,8 +24,8 @@ class HomeController extends GetxController {
   @override
   void onReady() async {
     super.onReady();
-    String token = pref.retriveToken()!;
-    String phone = pref.retrivePhoneNumber()!;
+    String token = pref.retriveToken()??"";
+    String phone = pref.retrivePhoneNumber()??"";
     http.Response response = await HomeProvider().homePageData(token, phone);
 
     if (response.statusCode == 200) {

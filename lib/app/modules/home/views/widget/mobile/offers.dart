@@ -1,3 +1,4 @@
+import 'package:amar_karigor/app/global/config/api.dart';
 import 'package:amar_karigor/app/global/widget/custom_shimmer.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,7 @@ Widget getOffers(List offers) {
                 return Container(
                   margin: EdgeInsets.only(right: 16),
                   child: Image.network(
-                    "https://imgur.com/zGKqKWe.png",
+                    '${Api.assets_url}${Api.banners}${offers[index]}',
                     fit: BoxFit.fill,
                   ),
                 );
