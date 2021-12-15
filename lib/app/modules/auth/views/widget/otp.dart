@@ -20,8 +20,8 @@ Widget OTP(AuthController controller) {
               hintText: 'OTP',
             ),
             onChanged: (num) {
-              controller.enableVerifyButton.value = num.length==6;
-           
+              controller.enableVerifyButton.value = num.length == 6;
+
               controller.isInvalidOTP.value = false;
             },
           )),
@@ -48,7 +48,7 @@ Widget OTP(AuthController controller) {
                 color: MyColors.colorPrimary,
               ))
             : ElevatedButton(
-                onPressed:controller.enableVerifyButton.value
+                onPressed: controller.enableVerifyButton.value
                     ? () {
                         controller.toggleVerificationIndicator();
                         controller
@@ -82,7 +82,8 @@ Widget OTP(AuthController controller) {
               },
               child: Text('Login')),
         ],
-      )
+      ),
+      SizedBox(height: 150),
     ],
   );
 }

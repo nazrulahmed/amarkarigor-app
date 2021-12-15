@@ -70,7 +70,8 @@ Widget phoneNumber(AuthController controller) {
               },
               child: Text('Login')),
         ],
-      )
+      ),
+       SizedBox(height: 150),
     ],
   );
 }

@@ -9,7 +9,7 @@ import 'package:http/http.dart' as http;
 import '../model/country.dart';
 
 class HomeController extends GetxController {
-  AppPref pref = AppPref.instance;
+  Future<AppPref?> myPref = AppPref.instance;
 
   List tags = ['New', 'Trending', 'Popular', 'Top Services'];
   List offers = [];
@@ -24,8 +24,9 @@ class HomeController extends GetxController {
   @override
   void onReady() async {
     super.onReady();
-    String token = pref.retriveToken()??"";
-    String phone = pref.retrivePhoneNumber()??"";
+    AppPref? pref = await myPref;
+    String token = pref!.retriveToken() ?? "";
+    String phone = pref.retrivePhoneNumber() ?? "";
     http.Response response = await HomeProvider().homePageData(token, phone);
 
     if (response.statusCode == 200) {
@@ -48,8 +49,9 @@ class HomeController extends GetxController {
           Country country = Country(locationData[i]['name'], cities);
           _locationController.countries.add(country);
         }
-        _locationController.filterCountries.addAll(_locationController.countries);
-        
+        _locationController.filterCountries
+            .addAll(_locationController.countries);
+
         _locationController.defineLocationType();
 
         final sliderData = data['slider'];
@@ -66,7 +68,6 @@ class HomeController extends GetxController {
         }
       }
     }
-    
 
     update();
   }

@@ -9,13 +9,14 @@ class AppPref {
 
   AppPref._() {}
 
-  static get instance {
-    if (_pref == null) {
+  static Future<AppPref?> get instance async {
+    if (_sharedPreferences == null) {
+      _sharedPreferences = await SharedPreferences.getInstance();
       _pref = AppPref._();
-      SharedPreferences.getInstance()
-          .then((value) => _sharedPreferences = value);
     }
+
     return _pref;
+    
   }
 
   void saveToken(token) {
@@ -29,13 +30,16 @@ class AppPref {
   void savePhoneNumber(String phone) {
     _sharedPreferences!.setString(KEY_PHONE, phone);
   }
+
   String? retrivePhoneNumber() {
     return _sharedPreferences!.getString(KEY_PHONE) ?? null;
   }
-  void setLocation(String location){
+
+  void setLocation(String location) {
     _sharedPreferences!.setString(KEY_LOCATION, location);
   }
-  String? getLocation(){
- return _sharedPreferences!.getString(KEY_LOCATION) ?? null;
+
+  String? getLocation() {
+    return _sharedPreferences!.getString(KEY_LOCATION) ?? null;
   }
 }

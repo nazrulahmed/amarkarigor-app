@@ -1,4 +1,6 @@
+import 'package:amar_karigor/app/global/widget/custom_image.dart';
 import 'package:amar_karigor/app/global/widget/custom_shimmer.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 
 Widget getCategories(List categories) {
@@ -46,10 +48,10 @@ Widget category(String category) {
       child: Column(children: [
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Image.network(
-            'https://www.bajajallianz.com/content/dam/bagic/home-insurance/My-Home-Insurance.png',
-            height: 40,
-          ),
+          child: kIsWeb? CustomImage(category,
+            'https://www.bajajallianz.com/content/dam/bagic/home-insurance/My-Home-Insurance.png',40,40
+           
+          ):Image.network('https://www.bajajallianz.com/content/dam/bagic/home-insurance/My-Home-Insurance.png',height:40),
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),

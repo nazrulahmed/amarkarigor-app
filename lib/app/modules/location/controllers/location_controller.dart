@@ -106,7 +106,7 @@ class LocationController extends GetxController {
     update();
   }
 
-  void setArea(String area) {
+  void setArea(String area) async{
     selectedArea = area;
     if (selectedArea != null ||
         selectedCity != null ||
@@ -122,8 +122,8 @@ class LocationController extends GetxController {
     if (selectedCountry != null) {
       currentLocation.value += ", " + selectedCountry!;
     }
-    AppPref pref = AppPref.instance;
-    pref.setLocation(currentLocation.value);
+    AppPref? pref = await AppPref.instance;
+    pref!.setLocation(currentLocation.value);
     Get.back();
   }
 }

@@ -14,7 +14,7 @@ enum AuthPages { LOGIN, REGISTER, OTP, PASSWORD }
 class AuthController extends GetxController {
   var verificationId;
   late ConfirmationResult confirmationResult;
-
+  var paddingBottomOnKeyboardOverlap = 0.0.obs;
   var activePage = AuthPages.LOGIN.obs;
   var lastPage = AuthPages.REGISTER.obs;
   var isWaitingForOTP = false.obs;
@@ -33,7 +33,7 @@ class AuthController extends GetxController {
   TextEditingController repeatPasswordFieldController = TextEditingController();
 
   final FirebaseAuth auth = FirebaseAuth.instance;
-  final AppPref appPref = AppPref.instance;
+  final Future<AppPref?> myPref = AppPref.instance;
 
   @override
   void onInit() {
@@ -180,7 +180,7 @@ class AuthController extends GetxController {
       String phoneNo = phoneInputFieldController.text.replaceFirst("+880", "");
       if (phoneNo[0] == '0') phoneNo = phoneNo.split("0")[1].toString();
       String phone = "+880" + phoneNo;
-      Map<String, dynamic> user = {'phone':  phone, 'password': pass};
+      Map<String, dynamic> user = {'phone': phone, 'password': pass};
 
       http.Response response = await AuthProvider().createUser(user);
 
@@ -188,7 +188,8 @@ class AuthController extends GetxController {
         final data = jsonDecode(response.body);
 
         if (data['status'] == true && data['token'] != null) {
-          appPref.saveToken(data['token']);
+          AppPref? appPref = await myPref;
+          appPref!.saveToken(data['token']);
           appPref.savePhoneNumber(phone);
           msg = SUCCESS_MSG;
         }
@@ -217,7 +218,8 @@ class AuthController extends GetxController {
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
         if (data['status'] == true && data['token'] != null) {
-          appPref.saveToken(data['token']);
+          AppPref? appPref = await myPref;
+          appPref!.saveToken(data['token']);
           appPref.savePhoneNumber(phone);
           msg = SUCCESS_MSG;
         } else {
