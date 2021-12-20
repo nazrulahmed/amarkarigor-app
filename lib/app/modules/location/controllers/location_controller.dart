@@ -1,6 +1,6 @@
 import 'package:amar_karigor/app/global/util/app_pref.dart';
-import 'package:amar_karigor/app/modules/home/model/city.dart';
-import 'package:amar_karigor/app/modules/home/model/country.dart';
+import 'package:amar_karigor/app/modules/location/model/city.dart';
+import 'package:amar_karigor/app/modules/location/model/country.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,6 +8,7 @@ enum LOCATION_TYPE { COUNTRY, CITY, AREA }
 
 class LocationController extends GetxController {
   LOCATION_TYPE currentLocationType = LOCATION_TYPE.COUNTRY;
+  LOCATION_TYPE startingLocation = LOCATION_TYPE.COUNTRY;
   TextEditingController searchInputController = TextEditingController();
   String? selectedCountry;
   String? selectedCity;
@@ -31,22 +32,32 @@ class LocationController extends GetxController {
   }
 
   void defineLocationType() {
+    print('define Location called');
     if (countries.length == 1) {
+      print('if 1 ');
       if (countries[0].cities.length == 1) {
+        print('if 2 ');
         currentLocationType = LOCATION_TYPE.AREA;
+        startingLocation = LOCATION_TYPE.AREA;
         areas.clear();
+        filterAreas.addAll(countries[0].cities[0].areas);
         areas.addAll(countries[0].cities[0].areas);
       } else {
+        print('else 1 ');
         currentLocationType = LOCATION_TYPE.CITY;
+        startingLocation = LOCATION_TYPE.CITY;
         cities.clear();
         cities.addAll(countries[0].cities);
+        filterCities.addAll(countries[0].cities);
+        print(cities.toString());
       }
     }
   }
 
   void setCountry(Country country) {
     userInterections.add(
-        {"keyword": searchInputController.text, "state": currentLocationType});
+        {"keyword": searchInputController.text,
+         "state": currentLocationType});
     searchInputController.clear();
     selectedCountry = country.name;
     currentLocationType = LOCATION_TYPE.CITY;
@@ -106,7 +117,7 @@ class LocationController extends GetxController {
     update();
   }
 
-  void setArea(String area) async{
+  void setArea(String area) async {
     selectedArea = area;
     if (selectedArea != null ||
         selectedCity != null ||

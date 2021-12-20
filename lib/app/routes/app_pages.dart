@@ -2,6 +2,10 @@ import 'package:get/get.dart';
 
 import 'package:amar_karigor/app/modules/auth/bindings/auth_binding.dart';
 import 'package:amar_karigor/app/modules/auth/views/auth_view.dart';
+import 'package:amar_karigor/app/modules/booking/bindings/booking_binding.dart';
+import 'package:amar_karigor/app/modules/booking/views/booking_view.dart';
+import 'package:amar_karigor/app/modules/category/bindings/category_binding.dart';
+import 'package:amar_karigor/app/modules/category/views/category_view.dart';
 import 'package:amar_karigor/app/modules/home/bindings/home_binding.dart';
 import 'package:amar_karigor/app/modules/home/views/home_view.dart';
 import 'package:amar_karigor/app/modules/landing_page/bindings/landing_page_binding.dart';
@@ -39,11 +43,20 @@ class AppPages {
       page: () => SplashScreenView(),
       binding: SplashScreenBinding(),
     ),
- 
     GetPage(
       name: _Paths.LOCATION,
       page: () => LocationView(),
       binding: LocationBinding(),
+    ),
+    GetPage(
+      name: _Paths.CATEGORY,
+      page: () => CategoryView(),
+      binding: CategoryBinding(),
+    ),
+    GetPage(
+      name: _Paths.BOOKING,
+      page: () => BookingView(),
+      binding: BookingBinding(),
     ),
   ];
 }

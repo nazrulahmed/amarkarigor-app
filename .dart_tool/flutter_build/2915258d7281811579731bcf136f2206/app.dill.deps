@@ -16,10 +16,13 @@ file:///Volumes/others/projects/amarkarigor/lib/app/modules/auth/views/register.
 file:///Volumes/others/projects/amarkarigor/lib/app/modules/auth/views/widget/otp.dart
 file:///Volumes/others/projects/amarkarigor/lib/app/modules/auth/views/widget/password.dart
 file:///Volumes/others/projects/amarkarigor/lib/app/modules/auth/views/widget/phone_number.dart
+file:///Volumes/others/projects/amarkarigor/lib/app/modules/category/bindings/category_binding.dart
+file:///Volumes/others/projects/amarkarigor/lib/app/modules/category/controllers/category_controller.dart
+file:///Volumes/others/projects/amarkarigor/lib/app/modules/category/views/category_view.dart
+file:///Volumes/others/projects/amarkarigor/lib/app/modules/category/views/widget/tags.dart
 file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/bindings/home_binding.dart
 file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/controllers/home_controller.dart
-file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/model/city.dart
-file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/model/country.dart
+file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/model/category.dart
 file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/provider/home_provider.dart
 file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/desktop_view.dart
 file:///Volumes/others/projects/amarkarigor/lib/app/modules/home/views/home_view.dart
@@ -35,6 +38,8 @@ file:///Volumes/others/projects/amarkarigor/lib/app/modules/landing_page/control
 file:///Volumes/others/projects/amarkarigor/lib/app/modules/landing_page/views/landing_page_view.dart
 file:///Volumes/others/projects/amarkarigor/lib/app/modules/location/bindings/location_binding.dart
 file:///Volumes/others/projects/amarkarigor/lib/app/modules/location/controllers/location_controller.dart
+file:///Volumes/others/projects/amarkarigor/lib/app/modules/location/model/city.dart
+file:///Volumes/others/projects/amarkarigor/lib/app/modules/location/model/country.dart
 file:///Volumes/others/projects/amarkarigor/lib/app/modules/location/views/location_view.dart
 file:///Volumes/others/projects/amarkarigor/lib/app/modules/splash_screen/bindings/splash_screen_binding.dart
 file:///Volumes/others/projects/amarkarigor/lib/app/modules/splash_screen/controllers/splash_screen_controller.dart

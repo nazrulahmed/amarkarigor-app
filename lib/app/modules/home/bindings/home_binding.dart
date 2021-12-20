@@ -7,8 +7,6 @@ class HomeBinding extends Bindings {
   @override
   void dependencies() {
     Get.put<HomeController>(HomeController());
-      Get.put<LocationController>(
-      LocationController(),
-    );
+    Get.put<LocationController>(LocationController());
   }
 }

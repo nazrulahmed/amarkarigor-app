@@ -1,0 +1,344 @@
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/get/get_rx/src/rx_types/rx_types.dart', 'packages/amar_karigor/app/modules/home/model/city.dart', 'packages/amar_karigor/app/modules/home/model/country.dart', 'packages/get/get_navigation/src/routes/route_middleware.dart', 'packages/get/get_core/src/get_main.dart', 'packages/amar_karigor/app/global/util/app_pref.dart'], (function load__packages__amar_karigor__app__modules__location__controllers__location_controller_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__get__get_rx__src__rx_types__rx_types$46dart, packages__amar_karigor__app__modules__home__model__city$46dart, packages__amar_karigor__app__modules__home__model__country$46dart, packages__get__get_navigation__src__routes__route_middleware$46dart, packages__get__get_core__src__get_main$46dart, packages__amar_karigor__app__global__util__app_pref$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _interceptors = dart_sdk._interceptors;
+  const _js_helper = dart_sdk._js_helper;
+  const async = dart_sdk.async;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const editable_text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__editable_text;
+  const rx_types = packages__get__get_rx__src__rx_types__rx_types$46dart.get_rx__src__rx_types__rx_types;
+  const city = packages__amar_karigor__app__modules__home__model__city$46dart.app__modules__home__model__city;
+  const country = packages__amar_karigor__app__modules__home__model__country$46dart.app__modules__home__model__country;
+  const extension_navigation = packages__get__get_navigation__src__routes__route_middleware$46dart.get_navigation__src__extension_navigation;
+  const get_controllers = packages__get__get_navigation__src__routes__route_middleware$46dart.get_state_manager__src__simple__get_controllers;
+  const get_main = packages__get__get_core__src__get_main$46dart.get_core__src__get_main;
+  const app_pref = packages__amar_karigor__app__global__util__app_pref$46dart.app__global__util__app_pref;
+  var location_controller = Object.create(dart.library);
+  var $length = dartx.length;
+  var $_get = dartx._get;
+  var $clear = dartx.clear;
+  var $addAll = dartx.addAll;
+  var $toString = dartx.toString;
+  var $add = dartx.add;
+  var $toLowerCase = dartx.toLowerCase;
+  var $contains = dartx.contains;
+  var $last = dartx.last;
+  var $removeLast = dartx.removeLast;
+  dart._checkModuleNullSafetyMode(true);
+  var T = {
+    JSArrayOfCity: () => (T.JSArrayOfCity = dart.constFn(_interceptors.JSArray$(city.City)))(),
+    JSArrayOfCountry: () => (T.JSArrayOfCountry = dart.constFn(_interceptors.JSArray$(country.Country)))(),
+    JSArrayOfString: () => (T.JSArrayOfString = dart.constFn(_interceptors.JSArray$(core.String)))(),
+    MapOfString$dynamic: () => (T.MapOfString$dynamic = dart.constFn(core.Map$(core.String, dart.dynamic)))(),
+    JSArrayOfMapOfString$dynamic: () => (T.JSArrayOfMapOfString$dynamic = dart.constFn(_interceptors.JSArray$(T.MapOfString$dynamic())))(),
+    IterableOfString: () => (T.IterableOfString = dart.constFn(core.Iterable$(core.String)))(),
+    IdentityMapOfString$dynamic: () => (T.IdentityMapOfString$dynamic = dart.constFn(_js_helper.IdentityMap$(core.String, dart.dynamic)))(),
+    StringN: () => (T.StringN = dart.constFn(dart.nullable(core.String)))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: location_controller.LOCATION_TYPE.prototype,
+        [_name$]: "LOCATION_TYPE.COUNTRY",
+        index: 0
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: location_controller.LOCATION_TYPE.prototype,
+        [_name$]: "LOCATION_TYPE.CITY",
+        index: 1
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: location_controller.LOCATION_TYPE.prototype,
+        [_name$]: "LOCATION_TYPE.AREA",
+        index: 2
+      });
+    },
+    get C3() {
+      return C[3] = dart.constList([C[0] || CT.C0, C[1] || CT.C1, C[2] || CT.C2], location_controller.LOCATION_TYPE);
+    }
+  }, false);
+  var C = Array(4).fill(void 0);
+  var I = ["package:amar_karigor/app/modules/location/controllers/location_controller.dart"];
+  var _name$ = dart.privateName(location_controller, "_name");
+  location_controller.LOCATION_TYPE = class LOCATION_TYPE extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (location_controller.LOCATION_TYPE.new = function(index, _name) {
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = location_controller.LOCATION_TYPE.prototype;
+  dart.addTypeTests(location_controller.LOCATION_TYPE);
+  dart.addTypeCaches(location_controller.LOCATION_TYPE);
+  dart.setLibraryUri(location_controller.LOCATION_TYPE, I[0]);
+  dart.setFieldSignature(location_controller.LOCATION_TYPE, () => ({
+    __proto__: dart.getFields(location_controller.LOCATION_TYPE.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(location_controller.LOCATION_TYPE, ['toString']);
+  location_controller.LOCATION_TYPE.COUNTRY = C[0] || CT.C0;
+  location_controller.LOCATION_TYPE.CITY = C[1] || CT.C1;
+  location_controller.LOCATION_TYPE.AREA = C[2] || CT.C2;
+  location_controller.LOCATION_TYPE.values = C[3] || CT.C3;
+  var currentLocationType = dart.privateName(location_controller, "LocationController.currentLocationType");
+  var searchInputController = dart.privateName(location_controller, "LocationController.searchInputController");
+  var selectedCountry = dart.privateName(location_controller, "LocationController.selectedCountry");
+  var selectedCity = dart.privateName(location_controller, "LocationController.selectedCity");
+  var selectedArea = dart.privateName(location_controller, "LocationController.selectedArea");
+  var currentLocation = dart.privateName(location_controller, "LocationController.currentLocation");
+  var cities = dart.privateName(location_controller, "LocationController.cities");
+  var countries = dart.privateName(location_controller, "LocationController.countries");
+  var areas = dart.privateName(location_controller, "LocationController.areas");
+  var filterCities = dart.privateName(location_controller, "LocationController.filterCities");
+  var filterCountries = dart.privateName(location_controller, "LocationController.filterCountries");
+  var filterAreas = dart.privateName(location_controller, "LocationController.filterAreas");
+  var userInterections = dart.privateName(location_controller, "LocationController.userInterections");
+  location_controller.LocationController = class LocationController extends get_controllers.GetxController {
+    get currentLocationType() {
+      return this[currentLocationType];
+    }
+    set currentLocationType(value) {
+      this[currentLocationType] = value;
+    }
+    get searchInputController() {
+      return this[searchInputController];
+    }
+    set searchInputController(value) {
+      this[searchInputController] = value;
+    }
+    get selectedCountry() {
+      return this[selectedCountry];
+    }
+    set selectedCountry(value) {
+      this[selectedCountry] = value;
+    }
+    get selectedCity() {
+      return this[selectedCity];
+    }
+    set selectedCity(value) {
+      this[selectedCity] = value;
+    }
+    get selectedArea() {
+      return this[selectedArea];
+    }
+    set selectedArea(value) {
+      this[selectedArea] = value;
+    }
+    get currentLocation() {
+      return this[currentLocation];
+    }
+    set currentLocation(value) {
+      this[currentLocation] = value;
+    }
+    get cities() {
+      return this[cities];
+    }
+    set cities(value) {
+      this[cities] = value;
+    }
+    get countries() {
+      return this[countries];
+    }
+    set countries(value) {
+      this[countries] = value;
+    }
+    get areas() {
+      return this[areas];
+    }
+    set areas(value) {
+      this[areas] = value;
+    }
+    get filterCities() {
+      return this[filterCities];
+    }
+    set filterCities(value) {
+      this[filterCities] = value;
+    }
+    get filterCountries() {
+      return this[filterCountries];
+    }
+    set filterCountries(value) {
+      this[filterCountries] = value;
+    }
+    get filterAreas() {
+      return this[filterAreas];
+    }
+    set filterAreas(value) {
+      this[filterAreas] = value;
+    }
+    get userInterections() {
+      return this[userInterections];
+    }
+    set userInterections(value) {
+      this[userInterections] = value;
+    }
+    onReady() {
+      super.onReady();
+    }
+    defineLocationType() {
+      core.print("define Location called");
+      if (this.countries[$length] === 1) {
+        core.print("if 1 ");
+        if (this.countries[$_get](0).cities[$length] === 1) {
+          core.print("if 2 ");
+          this.currentLocationType = location_controller.LOCATION_TYPE.AREA;
+          this.areas[$clear]();
+          this.areas[$addAll](T.IterableOfString().as(this.countries[$_get](0).cities[$_get](0).areas));
+        } else {
+          core.print("else 1 ");
+          this.currentLocationType = location_controller.LOCATION_TYPE.CITY;
+          this.cities[$clear]();
+          this.cities[$addAll](this.countries[$_get](0).cities);
+          core.print(this.cities[$toString]());
+        }
+      }
+    }
+    setCountry(country) {
+      this.userInterections[$add](new (T.IdentityMapOfString$dynamic()).from(["keyword", this.searchInputController.text, "state", this.currentLocationType]));
+      this.searchInputController.clear();
+      this.selectedCountry = country.name;
+      this.currentLocationType = location_controller.LOCATION_TYPE.CITY;
+      this.filterCities[$clear]();
+      this.filterCities[$addAll](country.cities);
+      this.update();
+    }
+    performSearch(val) {
+      if (this.currentLocationType === location_controller.LOCATION_TYPE.COUNTRY) {
+        this.filterCountries[$clear]();
+        for (let country of this.countries) {
+          if (country.name[$toLowerCase]()[$contains](val)) {
+            this.filterCountries[$add](country);
+          }
+        }
+      } else if (this.currentLocationType === location_controller.LOCATION_TYPE.CITY) {
+        this.filterCities[$clear]();
+        for (let city of this.cities) {
+          if (dart.dtest(dart.dsend(dart.dsend(city.name, 'toLowerCase', []), 'contains', [val]))) {
+            this.filterCities[$add](city);
+          }
+        }
+      } else {
+        this.filterAreas[$clear]();
+        for (let area of this.areas) {
+          if (area[$toLowerCase]()[$contains](val)) {
+            this.filterAreas[$add](area);
+          }
+        }
+      }
+      this.update();
+    }
+    goBack(opts) {
+      let finish = opts && 'finish' in opts ? opts.finish : false;
+      if (finish) {
+        extension_navigation['GetNavigation|back'](dart.dynamic, get_main.Get);
+      } else {
+        let interaction = this.userInterections[$last];
+        let lastState = location_controller.LOCATION_TYPE.as(interaction[$_get]("state"));
+        let lastKeyword = core.String.as(interaction[$_get]("keyword"));
+        this.searchInputController.text = lastKeyword;
+        this.currentLocationType = lastState;
+        this.userInterections[$removeLast]();
+        this.update();
+      }
+    }
+    setCity(city) {
+      this.userInterections[$add](new (T.IdentityMapOfString$dynamic()).from(["keyword", this.searchInputController.text, "state", this.currentLocationType]));
+      this.searchInputController.clear();
+      this.selectedCity = T.StringN().as(city.name);
+      this.currentLocationType = location_controller.LOCATION_TYPE.AREA;
+      this.filterAreas[$clear]();
+      this.filterAreas[$addAll](T.IterableOfString().as(city.areas));
+      this.update();
+    }
+    setArea(area) {
+      return async.async(dart.void, (function* setArea() {
+        let t0, t0$, t0$0;
+        this.selectedArea = area;
+        if (this.selectedArea != null || this.selectedCity != null || this.selectedCountry != null) {
+          this.currentLocation.value = "";
+        }
+        if (this.selectedArea != null) {
+          t0 = this.currentLocation;
+          t0.value = t0.value + dart.nullCheck(this.selectedArea);
+        }
+        if (this.selectedCity != null) {
+          t0$ = this.currentLocation;
+          t0$.value = t0$.value + (", " + dart.nullCheck(this.selectedCity));
+        }
+        if (this.selectedCountry != null) {
+          t0$0 = this.currentLocation;
+          t0$0.value = t0$0.value + (", " + dart.nullCheck(this.selectedCountry));
+        }
+        let pref = (yield app_pref.AppPref.instance);
+        dart.nullCheck(pref).setLocation(this.currentLocation.value);
+        extension_navigation['GetNavigation|back'](dart.dynamic, get_main.Get);
+      }).bind(this));
+    }
+  };
+  (location_controller.LocationController.new = function() {
+    this[currentLocationType] = location_controller.LOCATION_TYPE.COUNTRY;
+    this[searchInputController] = new editable_text.TextEditingController.new();
+    this[selectedCountry] = null;
+    this[selectedCity] = null;
+    this[selectedArea] = null;
+    this[currentLocation] = rx_types['StringExtension|get#obs']("Set your location");
+    this[cities] = T.JSArrayOfCity().of([]);
+    this[countries] = T.JSArrayOfCountry().of([]);
+    this[areas] = T.JSArrayOfString().of([]);
+    this[filterCities] = T.JSArrayOfCity().of([]);
+    this[filterCountries] = T.JSArrayOfCountry().of([]);
+    this[filterAreas] = T.JSArrayOfString().of([]);
+    this[userInterections] = T.JSArrayOfMapOfString$dynamic().of([]);
+    location_controller.LocationController.__proto__.new.call(this);
+    ;
+  }).prototype = location_controller.LocationController.prototype;
+  dart.addTypeTests(location_controller.LocationController);
+  dart.addTypeCaches(location_controller.LocationController);
+  dart.setMethodSignature(location_controller.LocationController, () => ({
+    __proto__: dart.getMethods(location_controller.LocationController.__proto__),
+    defineLocationType: dart.fnType(dart.void, []),
+    setCountry: dart.fnType(dart.void, [country.Country]),
+    performSearch: dart.fnType(dart.void, [core.String]),
+    goBack: dart.fnType(dart.void, [], {finish: core.bool}, {}),
+    setCity: dart.fnType(dart.void, [city.City]),
+    setArea: dart.fnType(dart.void, [core.String])
+  }));
+  dart.setLibraryUri(location_controller.LocationController, I[0]);
+  dart.setFieldSignature(location_controller.LocationController, () => ({
+    __proto__: dart.getFields(location_controller.LocationController.__proto__),
+    currentLocationType: dart.fieldType(location_controller.LOCATION_TYPE),
+    searchInputController: dart.fieldType(editable_text.TextEditingController),
+    selectedCountry: dart.fieldType(dart.nullable(core.String)),
+    selectedCity: dart.fieldType(dart.nullable(core.String)),
+    selectedArea: dart.fieldType(dart.nullable(core.String)),
+    currentLocation: dart.fieldType(rx_types.RxString),
+    cities: dart.fieldType(core.List$(city.City)),
+    countries: dart.fieldType(core.List$(country.Country)),
+    areas: dart.fieldType(core.List$(core.String)),
+    filterCities: dart.fieldType(core.List$(city.City)),
+    filterCountries: dart.fieldType(core.List$(country.Country)),
+    filterAreas: dart.fieldType(core.List$(core.String)),
+    userInterections: dart.fieldType(core.List$(core.Map$(core.String, dart.dynamic)))
+  }));
+  dart.trackLibraries("packages/amar_karigor/app/modules/location/controllers/location_controller.dart", {
+    "package:amar_karigor/app/modules/location/controllers/location_controller.dart": location_controller
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["location_controller.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/amar_karigor/app/modules/location/controllers/location_controller.dart.lib.js"}');
+  // Exports:
+  return {
+    app__modules__location__controllers__location_controller: location_controller
+  };
+}));
+
+//# sourceMappingURL=location_controller.dart.lib.js.map

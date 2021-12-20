@@ -20,7 +20,7 @@ Scaffold mobileView(HomeController controller) {
             children: [
               getOffers(controller.offers),
               getCategories(controller.categories),
-              getServices(controller.services)
+              getServices(controller.services,controller.mContext)
             ],
           );
         }),

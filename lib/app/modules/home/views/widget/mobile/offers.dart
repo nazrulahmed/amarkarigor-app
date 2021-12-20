@@ -1,5 +1,7 @@
 import 'package:amar_karigor/app/global/config/api.dart';
-import 'package:amar_karigor/app/global/widget/custom_image.dart';
+import 'package:amar_karigor/app/global/widget/custom_image_dummy.dart'
+    if (dart.library.html) 'package:amar_karigor/app/global/widget/custom_image.dart'
+    as ci;
 import 'package:amar_karigor/app/global/widget/custom_shimmer.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
@@ -24,10 +26,18 @@ Widget getOffers(List offers) {
               itemCount: offers.length,
               itemBuilder: (context, index) {
                 return Container(
-                  margin: EdgeInsets.only(right: 16),
-                  child: kIsWeb? CustomImage("offer$index",
-                    '${Api.assets_url}${Api.banners}${offers[index]}',350,150
-                  ):Image.network( '${Api.assets_url}${Api.banners}${offers[index]}',width: 350,),
-                );
+                    margin: EdgeInsets.only(right: 16),
+                    child: kIsWeb
+                        ? ci.CustomImage(
+                            "offer$index",
+                            '${Api.assets_url}${Api.banners}${offers[index]}',
+                            350,
+                            150)
+                        : FadeInImage(
+                            image: NetworkImage(
+                                '${Api.assets_url}${Api.banners}${offers[index]}'),
+                            placeholder: AssetImage(
+                                'assets/images/placeholder_image.png'),
+                            fit: BoxFit.cover,width: 300,));
               }));
 }

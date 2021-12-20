@@ -1,9 +1,9 @@
 import 'package:amar_karigor/app/global/config/app_style.dart';
-import 'package:amar_karigor/app/modules/home/model/city.dart';
-import 'package:amar_karigor/app/modules/home/model/country.dart';
+import 'package:amar_karigor/app/modules/location/model/city.dart';
+import 'package:amar_karigor/app/modules/location/model/country.dart';
 import 'package:amar_karigor/app/modules/location/controllers/location_controller.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:get/get.dart';
 
 import '../controllers/location_controller.dart';
@@ -11,12 +11,14 @@ import '../controllers/location_controller.dart';
 class LocationView extends GetView<LocationController> {
   @override
   Widget build(BuildContext context) {
+    print('build called');
     return Scaffold(
       body: LayoutBuilder(
         builder: (context, constraints) {
           if (constraints.maxWidth > 768) {
             return SizedBox();
           } else {
+            print('else called ${controller.currentLocationType}');
             return Column(
               children: [
                 searchBar(),
@@ -106,8 +108,8 @@ class LocationView extends GetView<LocationController> {
       backgroundColor: Colors.white,
       leading: IconButton(
           onPressed: () {
-            if (controller.currentLocationType == LOCATION_TYPE.COUNTRY) {
-             controller.goBack(finish: true);
+            if (controller.currentLocationType == controller.startingLocation) {
+              controller.goBack(finish: true);
             } else {
               controller.goBack();
             }
@@ -118,7 +120,7 @@ class LocationView extends GetView<LocationController> {
           decoration: BoxDecoration(
               color: Colors.grey[200], borderRadius: BorderRadius.circular(8)),
           child: Padding(
-              padding: const EdgeInsets.only(left: 8, bottom: 9),
+              padding: const EdgeInsets.only(left: 8, bottom: kIsWeb ? 9 : 0),
               child: TextFormField(
                   controller: controller.searchInputController,
                   onChanged: (val) {

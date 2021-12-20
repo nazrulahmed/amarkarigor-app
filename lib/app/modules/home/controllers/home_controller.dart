@@ -1,21 +1,25 @@
 import 'dart:convert';
 
+import 'package:amar_karigor/app/global/model/service.dart';
+import 'package:amar_karigor/app/global/model/sub_category.dart';
 import 'package:amar_karigor/app/global/util/app_pref.dart';
-import 'package:amar_karigor/app/modules/home/model/city.dart';
+import 'package:amar_karigor/app/global/model/category.dart';
+import 'package:amar_karigor/app/modules/location/model/city.dart';
+import 'package:amar_karigor/app/modules/location/model/country.dart';
 import 'package:amar_karigor/app/modules/home/provider/home_provider.dart';
 import 'package:amar_karigor/app/modules/location/controllers/location_controller.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-import '../model/country.dart';
 
 class HomeController extends GetxController {
   Future<AppPref?> myPref = AppPref.instance;
 
-  List tags = ['New', 'Trending', 'Popular', 'Top Services'];
   List offers = [];
-  List categories = [];
-  List services = [];
-
+  List<Category> categories = [];
+  List<Service> services = [];
+  BuildContext? mContext;
+  int selectedCategoryId = 0;
   @override
   void onInit() {
     super.onInit();
@@ -31,7 +35,7 @@ class HomeController extends GetxController {
 
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
-      print(data);
+
       if (data['status'] == true) {
         final locationData = data['location'];
         LocationController _locationController = Get.find();
@@ -60,11 +64,35 @@ class HomeController extends GetxController {
         }
         final categoryData = data['categories'];
         for (int i = 0; i < categoryData.length; i++) {
-          categories.add(categoryData[i]['name']);
+          List<SubCategory> subCategories = [];
+          final subCategoryData = categoryData[i]['sub_categories'];
+
+          for (int j = 0; j < subCategoryData.length; j++) {
+            SubCategory subCategory = SubCategory(
+                int.parse(subCategoryData[j]['id']),
+                subCategoryData[j]['name'],
+                subCategoryData[j]['attribute']);
+            subCategories.add(subCategory);
+          }
+
+          Category category = Category(int.parse(categoryData[i]['id']),
+              categoryData[i]['name'], categoryData[i]['icon'], subCategories);
+          categories.add(category);
         }
         final serviceData = data['services'];
+        print(serviceData);
         for (int i = 0; i < serviceData.length; i++) {
-          services.add(serviceData[i]['name']);
+          Service service = Service(
+            int.parse(serviceData[i]['id']),
+            serviceData[i]['name'],
+            double.parse(serviceData[i]['price']),
+            int.parse(serviceData[i]['cat_id']),
+            int.parse(serviceData[i]['sub_cat_id']),
+            serviceData[i]['icon'],
+            serviceData[i]['description'],
+            serviceData[i]['attribute'],
+          );
+          services.add(service);
         }
       }
     }
@@ -74,4 +102,40 @@ class HomeController extends GetxController {
 
   @override
   void onClose() {}
+
+  List<Service> getServicesByCatId(int id) {
+      print('getServicesByCatId...');
+
+    selectedCategoryId = id;
+    List<Service> servicesInCategory = [];
+    for (Service service in services) {
+      print('looping...');
+      if (service.catId == id) servicesInCategory.add(service);
+    }
+      print('return servicesInCategory...');
+
+    return servicesInCategory;
+  }
+
+  List<SubCategory> getSubCategoriesByCatId(int id) {
+    for (Category category in categories) {
+      if (category.id == id) return category.subCategories;
+    }
+    return <SubCategory>[];
+  }
+
+  List<Service> getServicesBySubCatId(int id) {
+    List<Service> servicesInSubCategory = [];
+    if (id == 0) {
+      print('id = $id');
+      print('selectedCategoryId $selectedCategoryId');
+      servicesInSubCategory = getServicesByCatId(selectedCategoryId);
+    } else {
+      for (Service service in services) {
+        if (service.subCatId == id) servicesInSubCategory.add(service);
+      }
+    }
+
+    return servicesInSubCategory;
+  }
 }

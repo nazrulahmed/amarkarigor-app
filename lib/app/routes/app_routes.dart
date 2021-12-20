@@ -8,6 +8,8 @@ abstract class Routes {
   static const LANDING_PAGE = _Paths.LANDING_PAGE;
   static const SPLASH_SCREEN = _Paths.SPLASH_SCREEN;
   static const LOCATION = _Paths.LOCATION;
+  static const CATEGORY = _Paths.CATEGORY;
+  static const BOOKING = _Paths.BOOKING;
 }
 
 abstract class _Paths {
@@ -16,4 +18,6 @@ abstract class _Paths {
   static const LANDING_PAGE = '/landing-page';
   static const SPLASH_SCREEN = '/splash-screen';
   static const LOCATION = '/location';
+  static const CATEGORY = '/category';
+  static const BOOKING = '/booking';
 }

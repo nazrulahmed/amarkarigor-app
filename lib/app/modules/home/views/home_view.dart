@@ -8,6 +8,7 @@ import 'mobile_view.dart';
 class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
-    return kIsWeb?desktopView(controller):mobileView(controller);
+    controller.mContext = context;
+    return kIsWeb ? desktopView(controller) : mobileView(controller);
   }
 }
