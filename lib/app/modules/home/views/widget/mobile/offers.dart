@@ -25,6 +25,7 @@ Widget getOffers(List offers) {
               scrollDirection: Axis.horizontal,
               itemCount: offers.length,
               itemBuilder: (context, index) {
+                print('I am inside itemBuilder with length  ${offers.length}');
                 return Container(
                     margin: EdgeInsets.only(right: 16),
                     child: kIsWeb
@@ -38,6 +39,8 @@ Widget getOffers(List offers) {
                                 '${Api.assets_url}${Api.banners}${offers[index]}'),
                             placeholder: AssetImage(
                                 'assets/images/placeholder_image.png'),
-                            fit: BoxFit.cover,width: 300,));
+                            fit: BoxFit.cover,
+                            width: 300,
+                          ));
               }));
 }

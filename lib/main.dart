@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'app/global/config/app_style.dart';
 import 'app/routes/app_pages.dart';
-import 'configure_nonweb.dart' if (dart.library.html) 'configure_web.dart';
+import 'app/global/config/configure_nonweb.dart' if (dart.library.html) 'app/global/config/configure_web.dart';
 
 void main() async {
   configureApp();

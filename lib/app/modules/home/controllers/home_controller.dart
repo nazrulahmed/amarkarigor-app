@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:amar_karigor/app/global/model/service.dart';
 import 'package:amar_karigor/app/global/model/sub_category.dart';
 import 'package:amar_karigor/app/global/util/app_pref.dart';
@@ -8,9 +7,12 @@ import 'package:amar_karigor/app/modules/location/model/city.dart';
 import 'package:amar_karigor/app/modules/location/model/country.dart';
 import 'package:amar_karigor/app/modules/home/provider/home_provider.dart';
 import 'package:amar_karigor/app/modules/location/controllers/location_controller.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
+import 'package:amar_karigor/app/global/widget/web_document.dart' as doc
+    if (dart.library.html) 'package:amar_karigor/app/global/widget/dummy_document.dart' ;
 
 class HomeController extends GetxController {
   Future<AppPref?> myPref = AppPref.instance;
@@ -20,9 +22,22 @@ class HomeController extends GetxController {
   List<Service> services = [];
   BuildContext? mContext;
   int selectedCategoryId = 0;
+
+  var currentIndex = 0.obs;
+
+  changePage(int index) {
+    currentIndex.value = index;
+  }
+
   @override
   void onInit() {
     super.onInit();
+    if (kIsWeb) {
+      final loader = doc.document.getElementsByClassName('loading');
+      if (loader.isNotEmpty) {
+        loader.first.remove();
+      }
+    }
   }
 
   @override
@@ -104,7 +119,7 @@ class HomeController extends GetxController {
   void onClose() {}
 
   List<Service> getServicesByCatId(int id) {
-      print('getServicesByCatId...');
+    print('getServicesByCatId...');
 
     selectedCategoryId = id;
     List<Service> servicesInCategory = [];
@@ -112,7 +127,7 @@ class HomeController extends GetxController {
       print('looping...');
       if (service.catId == id) servicesInCategory.add(service);
     }
-      print('return servicesInCategory...');
+    print('return servicesInCategory...');
 
     return servicesInCategory;
   }

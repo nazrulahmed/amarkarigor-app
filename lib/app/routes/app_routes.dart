@@ -10,6 +10,7 @@ abstract class Routes {
   static const LOCATION = _Paths.LOCATION;
   static const CATEGORY = _Paths.CATEGORY;
   static const BOOKING = _Paths.BOOKING;
+  static const SERVICE = _Paths.SERVICE;
 }
 
 abstract class _Paths {
@@ -20,4 +21,5 @@ abstract class _Paths {
   static const LOCATION = '/location';
   static const CATEGORY = '/category';
   static const BOOKING = '/booking';
+  static const SERVICE = '/service';
 }

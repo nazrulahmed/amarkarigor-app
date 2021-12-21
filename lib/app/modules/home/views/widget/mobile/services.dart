@@ -74,8 +74,8 @@ Widget service(Service service) {
                           ? ci.CustomImage(
                               service.name,
                               'https://www.bajajallianz.com/content/dam/bagic/home-insurance/My-Home-Insurance.png',
-                              400,
-                              500)
+                              40,
+                              40)
                           : Image.network(
                               '${Api.assets_url}${Api.services_icon}${service.icon}',
                               height: 40,

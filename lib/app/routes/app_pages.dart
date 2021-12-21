@@ -8,10 +8,10 @@ import 'package:amar_karigor/app/modules/category/bindings/category_binding.dart
 import 'package:amar_karigor/app/modules/category/views/category_view.dart';
 import 'package:amar_karigor/app/modules/home/bindings/home_binding.dart';
 import 'package:amar_karigor/app/modules/home/views/home_view.dart';
-import 'package:amar_karigor/app/modules/landing_page/bindings/landing_page_binding.dart';
-import 'package:amar_karigor/app/modules/landing_page/views/landing_page_view.dart';
 import 'package:amar_karigor/app/modules/location/bindings/location_binding.dart';
 import 'package:amar_karigor/app/modules/location/views/location_view.dart';
+import 'package:amar_karigor/app/modules/service/bindings/service_binding.dart';
+import 'package:amar_karigor/app/modules/service/views/service_view.dart';
 import 'package:amar_karigor/app/modules/splash_screen/bindings/splash_screen_binding.dart';
 import 'package:amar_karigor/app/modules/splash_screen/views/splash_screen_view.dart';
 
@@ -34,11 +34,6 @@ class AppPages {
       binding: AuthBinding(),
     ),
     GetPage(
-      name: _Paths.LANDING_PAGE,
-      page: () => LandingPageView(),
-      binding: LandingPageBinding(),
-    ),
-    GetPage(
       name: _Paths.SPLASH_SCREEN,
       page: () => SplashScreenView(),
       binding: SplashScreenBinding(),
@@ -57,6 +52,11 @@ class AppPages {
       name: _Paths.BOOKING,
       page: () => BookingView(),
       binding: BookingBinding(),
+    ),
+    GetPage(
+      name: _Paths.SERVICE,
+      page: () => ServiceView(),
+      binding: ServiceBinding(),
     ),
   ];
 }
