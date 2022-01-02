@@ -11,8 +11,8 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-import 'package:amar_karigor/app/global/widget/web_document.dart' as doc
-    if (dart.library.html) 'package:amar_karigor/app/global/widget/dummy_document.dart' ;
+import 'package:amar_karigor/app/global/widget/dummy_document.dart'
+    if (dart.library.html) 'package:amar_karigor/app/global/widget/web_document.dart'  as doc;
 
 class HomeController extends GetxController {
   Future<AppPref?> myPref = AppPref.instance;
@@ -100,12 +100,13 @@ class HomeController extends GetxController {
           Service service = Service(
             int.parse(serviceData[i]['id']),
             serviceData[i]['name'],
-            double.parse(serviceData[i]['price']),
+            double.parse(serviceData[i]['start_price']),
             int.parse(serviceData[i]['cat_id']),
             int.parse(serviceData[i]['sub_cat_id']),
             serviceData[i]['icon'],
             serviceData[i]['description'],
             serviceData[i]['attribute'],
+            serviceData[i]['option'],
           );
           services.add(service);
         }

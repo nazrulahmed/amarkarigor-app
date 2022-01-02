@@ -7,9 +7,10 @@ class Service {
   String _icon;
   String _description;
   String? _attribute;
+  String? _option;
 
   Service(this._id, this._name, this._price, this._catId, this._subcatId,
-      this._icon, this._description, this._attribute);
+      this._icon, this._description, this._attribute,this._option);
 
   int get id => _id;
   int get catId => _catId;
@@ -19,4 +20,5 @@ class Service {
   String get icon => _icon;
   String get description => _description;
   String? get attribute => _attribute;
+  String? get option => _option;
 }

@@ -1,12 +1,17 @@
+import 'package:amar_karigor/app/global/model/service.dart';
 import 'package:get/get.dart';
 
 class ServiceController extends GetxController {
-  
-
-  final count = 0.obs;
+  late final Service service;
+  List optionControllers = [];
+  List<Map<String, dynamic>> optionValues = [];
+  var totalPrice = 0.0.obs;
   @override
   void onInit() {
     super.onInit();
+    service = Get.arguments;
+    totalPrice.value = service.price;
+    
   }
 
   @override
@@ -16,5 +21,4 @@ class ServiceController extends GetxController {
 
   @override
   void onClose() {}
-  void increment() => count.value++;
 }

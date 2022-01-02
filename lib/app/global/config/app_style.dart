@@ -5,18 +5,25 @@ class MyColors {
 }
 
 class MyTextStyle {
+    static final textWhiteExtraLargeBold =
+      TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold);
+  static final textWhiteLargerBold =
+      TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold);
   static final textWhiteLargeBold =
       TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold);
-
+      
   static final textWhiteLarge =
       TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.normal);
 
   static final textWhiteMedium = TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.normal);  
+  static final textWhiteMediumBold = TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold);  
+  
   static final textWhiteSmall = TextStyle(
     color: Colors.white, fontSize: 14, fontWeight: FontWeight.normal);
 
 static final textBlackLargerBold =
       TextStyle(color: Colors.black, fontSize: 24, fontWeight: FontWeight.bold);  
   static final textBlackLargeBold =
-      TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold);  
+      TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold);
+ 
 }

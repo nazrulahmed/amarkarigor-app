@@ -21,7 +21,7 @@ Widget getHeader() {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      height: 60,
+                      height: 80,
                     ),
                     Text(
                       'Location for service',
