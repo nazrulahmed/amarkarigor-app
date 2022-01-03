@@ -45,7 +45,7 @@
     },
     {
       "name": "cupertino_icons",
-      "rootUri": "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.3",
+      "rootUri": "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.4",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -69,37 +69,37 @@
     },
     {
       "name": "firebase_auth",
-      "rootUri": "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.2.0",
+      "rootUri": "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.3.4",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "firebase_auth_platform_interface",
-      "rootUri": "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_platform_interface-6.1.4",
+      "rootUri": "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_platform_interface-6.1.9",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "firebase_auth_web",
-      "rootUri": "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-3.2.0",
+      "rootUri": "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-3.3.5",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "firebase_core",
-      "rootUri": "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.10.0",
+      "rootUri": "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.10.6",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "firebase_core_platform_interface",
-      "rootUri": "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_platform_interface-4.1.0",
+      "rootUri": "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_platform_interface-4.2.3",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "firebase_core_web",
-      "rootUri": "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.2.0",
+      "rootUri": "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.5.3",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -171,7 +171,7 @@
     },
     {
       "name": "path_provider_linux",
-      "rootUri": "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-2.1.2",
+      "rootUri": "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-2.1.4",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -195,7 +195,7 @@
     },
     {
       "name": "platform",
-      "rootUri": "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/platform-3.0.2",
+      "rootUri": "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/platform-3.1.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -213,7 +213,7 @@
     },
     {
       "name": "salomon_bottom_bar",
-      "rootUri": "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/salomon_bottom_bar-3.1.0",
+      "rootUri": "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/salomon_bottom_bar-3.2.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -260,6 +260,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "simple_gesture_detector",
+      "rootUri": "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/simple_gesture_detector-0.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "sky_engine",
       "rootUri": "file:///Volumes/others/sdk/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
@@ -298,6 +304,12 @@
     {
       "name": "syncfusion_flutter_sliders",
       "rootUri": "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/syncfusion_flutter_sliders-19.4.40",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "table_calendar",
+      "rootUri": "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/table_calendar-3.0.3",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -344,7 +356,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2022-01-01T22:54:16.459782Z",
+  "generated": "2022-01-03T06:53:53.702137Z",
   "generator": "pub",
   "generatorVersion": "2.13.4"
 }

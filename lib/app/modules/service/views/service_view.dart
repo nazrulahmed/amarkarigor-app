@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 
 import '../controllers/service_controller.dart';
 import 'widgets/service_bottom.dart';
+import 'widgets/service_datetime.dart';
 import 'widgets/service_header.dart';
 
 class ServiceView extends GetView<ServiceController> {
@@ -13,7 +14,8 @@ class ServiceView extends GetView<ServiceController> {
     return Scaffold(
       body: ListView(children: [
         serviceHeader(controller),
-        serviceOption(controller),
+        serviceDateTime(controller),
+       // serviceOption(controller),
         
        ]),
        bottomNavigationBar: serviceBottom(controller),

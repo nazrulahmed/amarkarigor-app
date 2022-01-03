@@ -16,6 +16,7 @@ dependencies:
   shimmer: ^2.0.0
   carousel_slider: ^4.0.0
   syncfusion_flutter_sliders: ^19.4.40
+  table_calendar: ^3.0.3
   flutter: 
     sdk: flutter
 
