@@ -1,0 +1,414 @@
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/widgets/scroll_view.dart', 'packages/flutter/src/painting/basic_types.dart', 'packages/amar_karigor/app/global/widget/custom_shimmer.dart', 'packages/shimmer/shimmer.dart', 'packages/amar_karigor/app/global/model/sub_category.dart', 'packages/get/get_instance/src/extension_instance.dart', 'packages/amar_karigor/app/modules/category/controllers/category_controller.dart', 'packages/get/get_core/src/get_main.dart', 'packages/flutter/src/painting/box_decoration.dart', 'packages/amar_karigor/app/global/config/app_style.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/painting/box_border.dart', 'packages/flutter/src/painting/borders.dart', 'packages/flutter/src/painting/border_radius.dart', 'packages/flutter/src/painting/strut_style.dart'], (function load__packages__amar_karigor__app__modules__category__views__widget__tags_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__widgets__scroll_view$46dart, packages__flutter__src__painting__basic_types$46dart, packages__amar_karigor__app__global__widget__custom_shimmer$46dart, packages__shimmer__shimmer$46dart, packages__amar_karigor__app__global__model__sub_category$46dart, packages__get__get_instance__src__extension_instance$46dart, packages__amar_karigor__app__modules__category__controllers__category_controller$46dart, packages__get__get_core__src__get_main$46dart, packages__flutter__src__painting__box_decoration$46dart, packages__amar_karigor__app__global__config__app_style$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__painting__box_border$46dart, packages__flutter__src__painting__borders$46dart, packages__flutter__src__painting__border_radius$46dart, packages__flutter__src__painting__strut_style$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _interceptors = dart_sdk._interceptors;
+  const ui = dart_sdk.ui;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const gesture_detector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__gesture_detector;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const scroll_view = packages__flutter__src__widgets__scroll_view$46dart.src__widgets__scroll_view;
+  const basic_types = packages__flutter__src__painting__basic_types$46dart.src__painting__basic_types;
+  const custom_shimmer = packages__amar_karigor__app__global__widget__custom_shimmer$46dart.app__global__widget__custom_shimmer;
+  const shimmer = packages__shimmer__shimmer$46dart.shimmer;
+  const sub_category = packages__amar_karigor__app__global__model__sub_category$46dart.app__global__model__sub_category;
+  const extension_instance = packages__get__get_instance__src__extension_instance$46dart.get_instance__src__extension_instance;
+  const category_controller = packages__amar_karigor__app__modules__category__controllers__category_controller$46dart.app__modules__category__controllers__category_controller;
+  const get_main = packages__get__get_core__src__get_main$46dart.get_core__src__get_main;
+  const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
+  const app_style = packages__amar_karigor__app__global__config__app_style$46dart.app__global__config__app_style;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const box_border = packages__flutter__src__painting__box_border$46dart.src__painting__box_border;
+  const borders = packages__flutter__src__painting__borders$46dart.src__painting__borders;
+  const border_radius = packages__flutter__src__painting__border_radius$46dart.src__painting__border_radius;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+  var tags = Object.create(dart.library);
+  var $length = dartx.length;
+  var $_get = dartx._get;
+  dart._checkModuleNullSafetyMode(true);
+  var T = {
+    BuildContextAndintToShimmer: () => (T.BuildContextAndintToShimmer = dart.constFn(dart.fnType(shimmer.Shimmer, [framework.BuildContext, core.int])))(),
+    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))(),
+    BuildContextAndintToWidget: () => (T.BuildContextAndintToWidget = dart.constFn(dart.fnType(framework.Widget, [framework.BuildContext, core.int])))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "scrollDirection",
+        [_Location_column]: 15,
+        [_Location_line]: 14,
+        [_Location_file]: null
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "itemCount",
+        [_Location_column]: 15,
+        [_Location_line]: 15,
+        [_Location_file]: null
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "itemBuilder",
+        [_Location_column]: 15,
+        [_Location_line]: 16,
+        [_Location_file]: null
+      });
+    },
+    get C1() {
+      return C[1] = dart.constList([C[2] || CT.C2, C[3] || CT.C3, C[4] || CT.C4], widget_inspector._Location);
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 13,
+        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/category/views/widget/tags.dart"
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 21,
+        [_Location_line]: 29,
+        [_Location_file]: null
+      });
+    },
+    get C6() {
+      return C[6] = dart.constList([C[7] || CT.C7], widget_inspector._Location);
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[6] || CT.C6,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 28,
+        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/category/views/widget/tags.dart"
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "scrollDirection",
+        [_Location_column]: 15,
+        [_Location_line]: 24,
+        [_Location_file]: null
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "itemCount",
+        [_Location_column]: 15,
+        [_Location_line]: 25,
+        [_Location_file]: null
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "itemBuilder",
+        [_Location_column]: 15,
+        [_Location_line]: 26,
+        [_Location_file]: null
+      });
+    },
+    get C9() {
+      return C[9] = dart.constList([C[10] || CT.C10, C[11] || CT.C11, C[12] || CT.C12], widget_inspector._Location);
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[9] || CT.C9,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 23,
+        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/category/views/widget/tags.dart"
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "margin",
+        [_Location_column]: 7,
+        [_Location_line]: 10,
+        [_Location_file]: null
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 7,
+        [_Location_line]: 11,
+        [_Location_file]: null
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 12,
+        [_Location_file]: null
+      });
+    },
+    get C14() {
+      return C[14] = dart.constList([C[15] || CT.C15, C[16] || CT.C16, C[17] || CT.C17], widget_inspector._Location);
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[14] || CT.C14,
+        [_Location_name]: null,
+        [_Location_column]: 10,
+        [_Location_line]: 9,
+        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/category/views/widget/tags.dart"
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 8,
+        [EdgeInsets_right]: 16,
+        [EdgeInsets_top]: 8,
+        [EdgeInsets_left]: 16
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 8,
+        [EdgeInsets_right]: 8,
+        [EdgeInsets_top]: 8,
+        [EdgeInsets_left]: 8
+      });
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 37,
+        [_Location_line]: 62,
+        [_Location_file]: null
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 17,
+        [_Location_line]: 63,
+        [_Location_file]: null
+      });
+    },
+    get C21() {
+      return C[21] = dart.constList([C[22] || CT.C22, C[23] || CT.C23], widget_inspector._Location);
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[21] || CT.C21,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 62,
+        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/category/views/widget/tags.dart"
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 13,
+        [_Location_line]: 57,
+        [_Location_file]: null
+      });
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 62,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C[25] = dart.constList([C[26] || CT.C26, C[27] || CT.C27], widget_inspector._Location);
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[25] || CT.C25,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 56,
+        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/category/views/widget/tags.dart"
+      });
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 56,
+        [_Location_file]: null
+      });
+    },
+    get C29() {
+      return C[29] = dart.constList([C[30] || CT.C30], widget_inspector._Location);
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[29] || CT.C29,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 55,
+        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/category/views/widget/tags.dart"
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 11,
+        [_Location_line]: 46,
+        [_Location_file]: null
+      });
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "margin",
+        [_Location_column]: 11,
+        [_Location_line]: 54,
+        [_Location_file]: null
+      });
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 55,
+        [_Location_file]: null
+      });
+    },
+    get C32() {
+      return C[32] = dart.constList([C[33] || CT.C33, C[34] || CT.C34, C[35] || CT.C35], widget_inspector._Location);
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[32] || CT.C32,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 45,
+        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/category/views/widget/tags.dart"
+      });
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 7,
+        [_Location_line]: 42,
+        [_Location_file]: null
+      });
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 45,
+        [_Location_file]: null
+      });
+    },
+    get C37() {
+      return C[37] = dart.constList([C[38] || CT.C38, C[39] || CT.C39], widget_inspector._Location);
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[37] || CT.C37,
+        [_Location_name]: null,
+        [_Location_column]: 10,
+        [_Location_line]: 41,
+        [_Location_file]: "file:///Volumes/others/projects/amarkarigor/lib/app/modules/category/views/widget/tags.dart"
+      });
+    }
+  }, false);
+  var C = Array(40).fill(void 0);
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
+  var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
+  var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
+  var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
+  tags.tags = function tags$(subCategories) {
+    return new container.Container.new({margin: new edge_insets.EdgeInsets.symmetric({vertical: 10.0, horizontal: 8.0}), height: 40.0, child: subCategories[$length] === 0 ? new scroll_view.ListView.builder({scrollDirection: basic_types.Axis.horizontal, itemCount: 4, itemBuilder: dart.fn((context, index) => new custom_shimmer.CustomShimmer.new().getShimmerFromColor({width: index === 0 ? 50.0 : 100.0, height: 30.0, radius: 8.0, margin: new edge_insets.EdgeInsets.only({left: 8.0})}), T.BuildContextAndintToShimmer()), $creationLocationd_0dea112b090073317d4: C[0] || CT.C0}) : new scroll_view.ListView.builder({scrollDirection: basic_types.Axis.horizontal, itemCount: subCategories[$length], itemBuilder: dart.fn((context, index) => {
+          if (index === 0) {
+            return new basic.Row.new({children: T.JSArrayOfWidget().of([tags.chip(new sub_category.SubCategory.new(0, "All", null)), tags.chip(subCategories[$_get](index))]), $creationLocationd_0dea112b090073317d4: C[5] || CT.C5});
+          }
+          return tags.chip(subCategories[$_get](index));
+        }, T.BuildContextAndintToWidget()), $creationLocationd_0dea112b090073317d4: C[8] || CT.C8}), $creationLocationd_0dea112b090073317d4: C[13] || CT.C13});
+  };
+  tags.chip = function chip(subCategory) {
+    let categoryController = extension_instance['Inst|find'](category_controller.CategoryController, get_main.Get);
+    return new gesture_detector.GestureDetector.new({onTap: dart.fn(() => {
+        categoryController.changeSelectedSubCategory(core.int.as(subCategory.id));
+      }, T.VoidTovoid()), child: new container.Container.new({decoration: new box_decoration.BoxDecoration.new({color: categoryController.selectedSubCategoryId === subCategory.id ? app_style.MyColors.colorPrimary : colors.Colors.white, border: box_border.Border.all({color: app_style.MyColors.colorPrimary, style: borders.BorderStyle.solid}), borderRadius: new border_radius.BorderRadius.circular(12.0)}), margin: new edge_insets.EdgeInsets.symmetric({horizontal: 8.0}), child: new basic.Center.new({child: new basic.Padding.new({padding: dart.equals(subCategory.id, 0) ? C[18] || CT.C18 : C[19] || CT.C19, child: new text.Text.new(core.String.as(subCategory.name), {style: new text_style.TextStyle.new({fontWeight: ui.FontWeight.bold, color: categoryController.selectedSubCategoryId === subCategory.id ? colors.Colors.white : colors.Colors.black}), $creationLocationd_0dea112b090073317d4: C[20] || CT.C20}), $creationLocationd_0dea112b090073317d4: C[24] || CT.C24}), $creationLocationd_0dea112b090073317d4: C[28] || CT.C28}), $creationLocationd_0dea112b090073317d4: C[31] || CT.C31}), $creationLocationd_0dea112b090073317d4: C[36] || CT.C36});
+  };
+  dart.trackLibraries("packages/amar_karigor/app/modules/category/views/widget/tags.dart", {
+    "package:amar_karigor/app/modules/category/views/widget/tags.dart": tags
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["tags.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;6BAO8B;AAC5B,UAAO,sCACgB,gDAAoB,kBAAkB,eACjD,aACD,AAAc,AAAO,aAAR,cAAW,IAChB,mDACe,wCACX,gBACE,SAAC,SAAS,UACd,AAAgB,mEACZ,AAAM,KAAD,KAAI,IAAI,OAAK,eACjB,cACA,aACW,uCAAW,qGAE7B,mDACe,wCACX,AAAc,aAAD,wBACX,SAAC,SAAS;AACrB,cAAI,AAAM,KAAD,KAAI;AACX,kBAAO,8BACK,wBACR,UAAK,iCAAY,GAAG,OAAO,QAC3B,UAAK,AAAa,aAAA,QAAC,KAAK;;AAI9B,gBAAO,WAAK,AAAa,aAAA,QAAC,KAAK;;EAE/C;4BAEwB;AACH,6BAAyB,wEAAJ;AACxC,UAAO,kDACI;AACuD,QAA5D,AAAmB,kBAAD,uCAA2B,AAAY,WAAD;iCAEnD,yCACS,6CACH,AAAmB,AAAsB,kBAAvB,2BAA0B,AAAY,WAAD,MAC/C,kCACF,6BACE,8BACK,wCAAiC,2CAC1B,wCAAS,iBAEnB,kDAAsB,cAClC,6BACI,gCACe,YAAf,AAAY,WAAD,KAAO,+CAKpB,iCAAK,AAAY,WAAD,gBACZ,0CACkB,2BAEnB,AAAmB,AAAsB,kBAAvB,2BAA0B,AAAY,WAAD,MAC1C,sBACA;EAGnC","file":"../../../../../../../../../../packages/amar_karigor/app/modules/category/views/widget/tags.dart.lib.js"}');
+  // Exports:
+  return {
+    app__modules__category__views__widget__tags: tags
+  };
+}));
+
+//# sourceMappingURL=tags.dart.lib.js.map

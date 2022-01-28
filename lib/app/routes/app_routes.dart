@@ -11,6 +11,10 @@ abstract class Routes {
   static const CATEGORY = _Paths.CATEGORY;
   static const BOOKING = _Paths.BOOKING;
   static const SERVICE = _Paths.SERVICE;
+  static const CHECKOUT = _Paths.CHECKOUT;
+  static const CHECKOUT_BOOKING_PREVIEW = _Paths.CHECKOUT_BOOKING_PREVIEW;
+  static const PROFILE = _Paths.PROFILE;
+  static const UPDATE_PROFILE = _Paths.UPDATE_PROFILE;
 }
 
 abstract class _Paths {
@@ -22,4 +26,8 @@ abstract class _Paths {
   static const CATEGORY = '/category';
   static const BOOKING = '/booking';
   static const SERVICE = '/service';
+  static const CHECKOUT = '/checkout';
+    static const CHECKOUT_BOOKING_PREVIEW = '/checkout_booking_preview';
+  static const PROFILE = '/profile';
+  static const UPDATE_PROFILE = '/update_profile';
 }

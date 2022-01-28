@@ -72,7 +72,7 @@ Widget serviceHeader(ServiceController controller) {
                 borderRadius:
                     BorderRadius.only(bottomRight: Radius.circular(8))),
             child: InkWell(
-              onTap: () => Get.back(),
+              onTap: () => controller.servicePage==ServicePages.SERVICE_TIME? controller.prevPage() :Get.back(),
               child: Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: Icon(

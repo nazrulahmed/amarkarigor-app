@@ -63,7 +63,11 @@ Scaffold login(AuthController controller) {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text('forgot password?'),
+                InkWell(
+                  onTap: (){
+                     controller.switchPage(AuthPages.FORGOT_PASSWORD);
+                  },
+                  child: Text('forgot password?')),
               ],
             ),
             SizedBox(height: 20),
@@ -91,13 +95,7 @@ Scaffold login(AuthController controller) {
                                 message: response));
                           }
                         },
-                        style: ElevatedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                            primary: MyColors.colorPrimary,
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 50, vertical: 20)),
+                        style: MyButtonStyle.submitButton,
                         child: Text('Login')),
               );
             }),

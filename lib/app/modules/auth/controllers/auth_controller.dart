@@ -9,7 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
-enum AuthPages { LOGIN, REGISTER, OTP, PASSWORD }
+enum AuthPages { LOGIN, REGISTER, OTP, PASSWORD, FORGOT_PASSWORD }
+enum AuthCode { TRUE, FALSE, ERROR }
 
 class AuthController extends GetxController {
   var verificationId;
@@ -26,6 +27,7 @@ class AuthController extends GetxController {
   var settingPassword = false.obs;
   var obscurePassword = true.obs;
   var obscureRepeatPassword = true.obs;
+  String otpMode = "register";
 
   TextEditingController phoneInputFieldController = TextEditingController();
   TextEditingController otpInputFieldController = TextEditingController();
@@ -34,6 +36,7 @@ class AuthController extends GetxController {
 
   final FirebaseAuth auth = FirebaseAuth.instance;
   final Future<AppPref?> myPref = AppPref.instance;
+  final AuthProvider _authProvider = AuthProvider();
 
   @override
   void onInit() {
@@ -63,6 +66,25 @@ class AuthController extends GetxController {
 
   void toggleSettingPasswordIndeicator() {
     settingPassword.value = !settingPassword.value;
+  }
+
+  Future<AuthCode> isUserExist(String phoneNumber) async {
+    String phoneNo = phoneNumber.replaceFirst("+880", "");
+    if (phoneNo[0] == '0') phoneNo = phoneNo.split("0")[1].toString();
+    String phone = "+880" + phoneNo;
+    http.Response response = await _authProvider.isUserExist(phone);
+
+    print(response.body);
+
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+      if (data['status'] == true) {
+        return AuthCode.TRUE;
+      } else {
+        return AuthCode.FALSE;
+      }
+    }
+    return AuthCode.ERROR;
   }
 
   void phoneSignIn(String phoneNumber) async {
@@ -192,6 +214,8 @@ class AuthController extends GetxController {
           appPref!.saveToken(data['token']);
           appPref.savePhoneNumber(phone);
           msg = SUCCESS_MSG;
+        } else {
+          msg = data['response'];
         }
       }
     }
@@ -217,6 +241,44 @@ class AuthController extends GetxController {
 
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
+        if (data['status'] == true && data['token'] != null) {
+          AppPref? appPref = await myPref;
+          appPref!.saveToken(data['token']);
+          appPref.savePhoneNumber(phone);
+          msg = SUCCESS_MSG;
+        } else {
+          
+          msg = data['response'];
+        }
+      }
+    }
+    return msg;
+  }
+
+  Future<String> updatePassword() async {
+    String msg = FAILED_MSG;
+    String pass = passwordFieldController.text;
+    String repeatPass = repeatPasswordFieldController.text;
+
+    if (pass.isEmpty) {
+      msg = 'Password can\'t be empty!';
+    } else if (pass.length < 6) {
+      msg = 'Password should contain at least 6 character!';
+    } else if (repeatPass.isEmpty) {
+      msg = 'Repeat password can\'t be empty!';
+    } else if (pass != repeatPass) {
+      msg = 'Password doesn\'t match';
+    } else {
+      String phoneNo = phoneInputFieldController.text.replaceFirst("+880", "");
+      if (phoneNo[0] == '0') phoneNo = phoneNo.split("0")[1].toString();
+      String phone = "+880" + phoneNo;
+      Map<String, dynamic> user = {'phone': phone, 'password': pass};
+
+      http.Response response = await AuthProvider().updatePassword(user);
+
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        print(data);
         if (data['status'] == true && data['token'] != null) {
           AppPref? appPref = await myPref;
           appPref!.saveToken(data['token']);

@@ -7,6 +7,9 @@ import 'package:amar_karigor/app/modules/location/model/city.dart';
 import 'package:amar_karigor/app/modules/location/model/country.dart';
 import 'package:amar_karigor/app/modules/home/provider/home_provider.dart';
 import 'package:amar_karigor/app/modules/location/controllers/location_controller.dart';
+
+import 'package:amar_karigor/app/global/model/user.dart' as AppUser;
+import 'package:amar_karigor/app/global/util/localdata.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -52,6 +55,9 @@ class HomeController extends GetxController {
       final data = jsonDecode(response.body);
 
       if (data['status'] == true) {
+
+        AppUser.User? user = null; 
+          LocalData.user = user;
         final locationData = data['location'];
         LocationController _locationController = Get.find();
         for (int i = 0; i < locationData.length; i++) {

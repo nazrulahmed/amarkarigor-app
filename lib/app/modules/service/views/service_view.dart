@@ -12,14 +12,15 @@ class ServiceView extends GetView<ServiceController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(children: [
-        serviceHeader(controller),
-        serviceDateTime(controller),
-       // serviceOption(controller),
-        
-       ]),
-       bottomNavigationBar: serviceBottom(controller),
+      body: GetBuilder(builder: (ServiceController controller) {
+        return ListView(children: [
+          serviceHeader(controller),
+          controller.servicePage.value == ServicePages.SERVICE_TIME?
+         serviceDateTime(controller): 
+          serviceOption(controller),
+        ]);
+      }),
+      bottomNavigationBar: serviceBottom(controller),
     );
-
   }
 }

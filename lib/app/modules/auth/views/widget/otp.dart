@@ -14,10 +14,12 @@ Widget OTP(AuthController controller) {
               color: Colors.white, borderRadius: BorderRadius.circular(20)),
           child: TextFormField(
             controller: controller.otpInputFieldController,
+            keyboardType: TextInputType.number,
             decoration: InputDecoration(
               prefixIcon: Icon(Icons.sms),
               border: InputBorder.none,
               hintText: 'OTP',
+              
             ),
             onChanged: (num) {
               controller.enableVerifyButton.value = num.length == 6;
@@ -64,26 +66,7 @@ Widget OTP(AuthController controller) {
                         EdgeInsets.symmetric(horizontal: 50, vertical: 20)),
                 child: Text('Next')),
       ),
-      SizedBox(
-        height: 12,
-      ),
-      Center(child: Text('or')),
-      SizedBox(
-        height: 12,
-      ),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text('Already have an account?'),
-          SizedBox(width: 2),
-          InkWell(
-              onTap: () {
-                controller.switchPage(AuthPages.LOGIN);
-              },
-              child: Text('Login')),
-        ],
-      ),
-      SizedBox(height: 150),
+     
     ],
   );
 }

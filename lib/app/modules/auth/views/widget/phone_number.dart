@@ -1,4 +1,5 @@
 import 'package:amar_karigor/app/global/config/app_style.dart';
+import 'package:amar_karigor/app/global/config/constant.dart';
 import 'package:amar_karigor/app/modules/auth/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -35,12 +36,30 @@ Widget phoneNumber(AuthController controller) {
               ))
             : ElevatedButton(
                 onPressed: controller.isValidPhoneNumber.value
-                    ? () {
+                    ? () async {
+                        String phone =
+                            "+880" + controller.phoneInputFieldController.text;
                         controller.toggleOTPIndicator();
-                      
-                          controller.phoneSignIn("+880" +
-                              controller.phoneInputFieldController.text);
-                        
+                        AuthCode authCode = await controller.isUserExist(phone);
+                        if (authCode == AuthCode.FALSE) {
+                          controller.otpMode = 'register';
+                          controller.phoneSignIn(phone);
+                        } else if (authCode == AuthCode.TRUE) {
+                          controller.toggleOTPIndicator();
+
+                          Get.showSnackbar(GetBar(
+                              isDismissible: true,
+                              duration: Duration(seconds: 2),
+                              message:
+                                  "User already exist with this phone number. Please try to login!"));
+                        } else {
+                          controller.toggleOTPIndicator();
+
+                          Get.showSnackbar(GetBar(
+                              isDismissible: true,
+                              duration: Duration(seconds: 2),
+                              message: FAILED_MSG));
+                        }
                       }
                     : null,
                 style: ElevatedButton.styleFrom(
@@ -71,7 +90,7 @@ Widget phoneNumber(AuthController controller) {
               child: Text('Login')),
         ],
       ),
-       SizedBox(height: 150),
+      SizedBox(height: 150),
     ],
   );
 }

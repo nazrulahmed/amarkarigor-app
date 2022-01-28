@@ -84,7 +84,11 @@ Widget password(AuthController controller) {
               ))
             : ElevatedButton(
                 onPressed: () async {
-                  String response = await controller.createUser();
+                  controller.settingPassword.value = true;
+                  String response = controller.otpMode == 'register'
+                      ? await controller.createUser()
+                      : await controller.updatePassword();
+                      controller.settingPassword.value = false;
                   if (response == SUCCESS_MSG) {
                     Get.offAndToNamed(Routes.HOME);
                   } else {
@@ -103,26 +107,6 @@ Widget password(AuthController controller) {
                         EdgeInsets.symmetric(horizontal: 50, vertical: 20)),
                 child: Text('Submit')),
       ),
-      SizedBox(
-        height: 12,
-      ),
-      Center(child: Text('or')),
-      SizedBox(
-        height: 12,
-      ),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text('Already have an account?'),
-          SizedBox(width: 2),
-          InkWell(
-              onTap: () {
-                controller.switchPage(AuthPages.LOGIN);
-              },
-              child: Text('Login')),
-        ],
-      ),
-      SizedBox(height: 150),
     ],
   );
 }
