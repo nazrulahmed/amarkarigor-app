@@ -14,45 +14,51 @@ class CheckoutView extends GetView<CheckoutController> {
         appBar: AppBar(
           title: Text('Checkout'),
         ),
-        body: ListView(
-          children: [
-            SizedBox(height: 8),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Text(
-                'I want to process this booking for',
-                style: MyTextStyle.textBlackLargeBold,
+        body: GetBuilder(
+          builder: (CheckoutController checkoutController) => ListView(
+            children: [
+              SizedBox(height: 8),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Text(
+                  'I want to process this booking for',
+                  style: MyTextStyle.textBlackLargeBold,
+                ),
               ),
-            ),
-            Row(
-              children: [
-                Radio(
-                  value: 2,
-                  groupValue: 1,
-                  onChanged: (value) {},
-                  activeColor: Colors.green,
-                ),
-                Text("Myself"),
-              ],
-            ),
-            Row(
-              children: [
-                Radio(
-                  value: 1,
-                  groupValue: 1,
-                  onChanged: (value) {},
-                  activeColor: Colors.green,
-                ),
-                Text("Someone I know"),
-              ],
-            ),
-            Divider(),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: 1==1?selftCheckout(controller):otherUserCheckout(controller)
-            
-            ),
-          ],
+              Row(
+                children: [
+                  Radio(
+                    value: 1,
+                    groupValue: controller.consumerType,
+                    onChanged: (value) {
+                      controller.setConsumerType(value as int);
+                    },
+                    activeColor: Colors.green,
+                  ),
+                  Text("Myself"),
+                ],
+              ),
+              Row(
+                children: [
+                  Radio(
+                    value: 2,
+                    groupValue: controller.consumerType,
+                    onChanged: (value) {
+                       controller.setConsumerType(value as int);
+                    },
+                    activeColor: Colors.green,
+                  ),
+                  Text("Someone I know"),
+                ],
+              ),
+              Divider(),
+              Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: controller.consumerType == 1
+                      ? selftCheckout(controller)
+                      : otherUserCheckout(controller)),
+            ],
+          ),
         ));
   }
 }

@@ -7,6 +7,8 @@ import 'package:hive/hive.dart';
 class CheckoutController extends GetxController {
   late Box bookingBox;
   List<MyBookingData> bookings = [];
+  int consumerType = 1;
+  var isLoading = false.obs;
   @override
   void onInit() async {
     super.onInit();
@@ -34,6 +36,11 @@ class CheckoutController extends GetxController {
   void removeBooking(int index) {
     bookingBox.deleteAt(index);
     bookings.removeAt(index);
+    update();
+  }
+
+  void setConsumerType(int value) {
+    consumerType = value;
     update();
   }
 }

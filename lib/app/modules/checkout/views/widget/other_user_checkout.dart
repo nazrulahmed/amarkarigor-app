@@ -83,7 +83,7 @@ Widget otherUserCheckout(controller) {
         child: Obx(() {
           return Container(
             width: double.infinity,
-            child: controller.count.value == 1
+            child: controller.isLoading.value == 1
                 ? Center(
                     child: CircularProgressIndicator(
                     color: MyColors.colorPrimary,
