@@ -1,9 +1,11 @@
 import 'dart:collection';
 
 import 'package:amar_karigor/app/global/config/constant.dart';
+import 'package:amar_karigor/app/global/model/my_booking_data.dart';
 import 'package:amar_karigor/app/global/model/service.dart';
 import 'package:amar_karigor/app/routes/app_pages.dart';
 import 'package:get/get.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 enum ServicePages { SERVICE_OPTION, SERVICE_TIME }
 
@@ -16,8 +18,8 @@ class ServiceController extends GetxController {
   var currentDate = DateTime.now().obs;
   var servicePage = ServicePages.SERVICE_OPTION.obs;
 
-  String selectedTime = "";
-  String selectedDateString = "";
+  String bookingTime = "";
+  String bookingDate = "";
 
   @override
   void onInit() {
@@ -28,7 +30,7 @@ class ServiceController extends GetxController {
     }
     service = Get.arguments;
     totalPrice.value = service.price;
-    selectedDateString =
+    bookingDate =
         "${selectedDate.value.day}-${selectedDate.value.month}-${selectedDate.value.year}";
   }
 
@@ -41,7 +43,7 @@ class ServiceController extends GetxController {
   void onClose() {}
 
   void setSelectedDate(DateTime d1) {
-    selectedDateString = "${d1.day}-${d1.month}-${d1.year}";
+    bookingDate = "${d1.day}-${d1.month}-${d1.year}";
     selectedDate.value = d1;
     update();
   }
@@ -56,29 +58,35 @@ class ServiceController extends GetxController {
     update();
   }
 
-  String? proceedBooking() {
+  Future<String?> proceedBooking() async {
     if (servicePage.value == ServicePages.SERVICE_OPTION) {
       servicePage.value = ServicePages.SERVICE_TIME;
       update();
       return null;
     }
-    if (selectedTime.isEmpty) {
+    if (bookingTime.isEmpty) {
       return "Please select wanted time!";
     }
-    optionValues.add({'selected_date': selectedDateString});
-    optionValues.add({'selected_time': selectedTime});
+    
 
     //TO DO: Restructure mapping system
-    Map<String, dynamic> finalMap = HashMap();
+    Map<String, dynamic> services = HashMap();
     for (var optionValues in optionValues) {
-      finalMap.addAll(optionValues);
+      services.addAll(optionValues);
     }
     print('GOING TO FINAL MAP');
-    Get.toNamed(Routes.CHECKOUT, arguments: finalMap);
+    var box = await Hive.openBox(BOOKING_BOX_NAME);
+
+    var booking = MyBookingData(services,bookingDate,bookingTime);
+    box.add(booking);
+
+    print('box.length after added ${box.length}');
+
+    Get.toNamed(Routes.CHECKOUT);
   }
 
   void setSelectedTime(String time) {
-    selectedTime = time;
+    bookingTime = time;
     update();
   }
 }

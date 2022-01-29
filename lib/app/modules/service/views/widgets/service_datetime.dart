@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 Widget serviceDateTime(ServiceController controller) {
-
   return Padding(
     padding: const EdgeInsets.all(0.0),
     child: Column(
@@ -38,7 +37,8 @@ Widget serviceDateTime(ServiceController controller) {
           child: Text('Wanted time', style: MyTextStyle.textBlackLargeBold),
         ),
         SizedBox(height: 8),
-        horizontalTime(controller)
+        horizontalTime(controller),
+        SizedBox(height: 12)
       ],
     ),
   );

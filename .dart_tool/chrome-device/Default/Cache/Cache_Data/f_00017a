@@ -1,0 +1,2395 @@
+define(['dart_sdk', 'packages/syncfusion_flutter_sliders/src/constants.dart', 'packages/flutter/src/animation/listener_helpers.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/syncfusion_flutter_core/src/theme/theme_widget.dart', 'packages/syncfusion_flutter_sliders/src/common.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/painting/placeholder_span.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/flutter/src/gestures/hit_test.dart', 'packages/flutter/src/gestures/events.dart', 'packages/flutter/src/rendering/proxy_box.dart', 'packages/flutter/src/gestures/tap.dart', 'packages/intl/src/intl/number_parser.dart', 'packages/intl/src/intl/date_format.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/gestures/monodrag.dart'], (function load__packages__syncfusion_flutter_sliders__src__slider_shapes_dart(dart_sdk, packages__syncfusion_flutter_sliders__src__constants$46dart, packages__flutter__src__animation__listener_helpers$46dart, packages__flutter__src__rendering__layer$46dart, packages__syncfusion_flutter_core__src__theme__theme_widget$46dart, packages__syncfusion_flutter_sliders__src__common$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__painting__placeholder_span$46dart, packages__flutter__src__painting__strut_style$46dart, packages__flutter__src__gestures__hit_test$46dart, packages__flutter__src__gestures__events$46dart, packages__flutter__src__rendering__proxy_box$46dart, packages__flutter__src__gestures__tap$46dart, packages__intl__src__intl__number_parser$46dart, packages__intl__src__intl__date_format$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__gestures__monodrag$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const math = dart_sdk.math;
+  const ui = dart_sdk.ui;
+  const _internal = dart_sdk._internal;
+  const _interceptors = dart_sdk._interceptors;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const constants = packages__syncfusion_flutter_sliders__src__constants$46dart.src__constants;
+  const tween = packages__flutter__src__animation__listener_helpers$46dart.src__animation__tween;
+  const animation = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animation;
+  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
+  const object = packages__flutter__src__rendering__layer$46dart.src__rendering__object;
+  const slider_theme = packages__syncfusion_flutter_core__src__theme__theme_widget$46dart.src__theme__slider_theme;
+  const range_slider_theme = packages__syncfusion_flutter_core__src__theme__theme_widget$46dart.src__theme__range_slider_theme;
+  const range_selector_theme = packages__syncfusion_flutter_core__src__theme__theme_widget$46dart.src__theme__range_selector_theme;
+  const common = packages__syncfusion_flutter_sliders__src__common$46dart.src__common;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const text_painter = packages__flutter__src__painting__placeholder_span$46dart.src__painting__text_painter;
+  const text_span = packages__flutter__src__painting__placeholder_span$46dart.src__painting__text_span;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+  const hit_test = packages__flutter__src__gestures__hit_test$46dart.src__gestures__hit_test;
+  const events = packages__flutter__src__gestures__events$46dart.src__gestures__events;
+  const proxy_box = packages__flutter__src__rendering__proxy_box$46dart.src__rendering__proxy_box;
+  const tap = packages__flutter__src__gestures__tap$46dart.src__gestures__tap;
+  const number_format = packages__intl__src__intl__number_parser$46dart.src__intl__number_format;
+  const date_format = packages__intl__src__intl__date_format$46dart.src__intl__date_format;
+  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
+  const monodrag = packages__flutter__src__gestures__monodrag$46dart.src__gestures__monodrag;
+  var slider_shapes = Object.create(dart.library);
+  var slider_base = Object.create(dart.library);
+  var $toDouble = dartx.toDouble;
+  var $_equals = dartx._equals;
+  var $runtimeType = dartx.runtimeType;
+  var $reduce = dartx.reduce;
+  var $toString = dartx.toString;
+  var $clear = dartx.clear;
+  var $add = dartx.add;
+  var $contains = dartx.contains;
+  var $length = dartx.length;
+  var $_get = dartx._get;
+  var $ceil = dartx.ceil;
+  var $clamp = dartx.clamp;
+  var $round = dartx.round;
+  var $abs = dartx.abs;
+  var $toInt = dartx.toInt;
+  var $toStringAsFixed = dartx.toStringAsFixed;
+  dart._checkModuleNullSafetyMode(true);
+  var T = {
+    VoidTobool: () => (T.VoidTobool = dart.constFn(dart.fnType(core.bool, [])))(),
+    boolTodynamic: () => (T.boolTodynamic = dart.constFn(dart.fnType(dart.dynamic, [core.bool])))(),
+    TweenOfdouble: () => (T.TweenOfdouble = dart.constFn(tween.Tween$(core.double)))(),
+    JSArrayOfString: () => (T.JSArrayOfString = dart.constFn(_interceptors.JSArray$(core.String)))(),
+    JSArrayOfdouble: () => (T.JSArrayOfdouble = dart.constFn(_interceptors.JSArray$(core.double)))(),
+    TAndTToT: () => (T.TAndTToT = dart.constFn(dart.gFnType(T => [T, [T, T]], T => [core.num])))(),
+    doubleN: () => (T.doubleN = dart.constFn(dart.nullable(core.double)))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.fn(math.max, T.TAndTToT());
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: common.DateIntervalType.prototype,
+        [_name]: "DateIntervalType.months",
+        index: 1
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: common.DateIntervalType.prototype,
+        [_name]: "DateIntervalType.days",
+        index: 2
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: common.DateIntervalType.prototype,
+        [_name]: "DateIntervalType.hours",
+        index: 3
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: common.DateIntervalType.prototype,
+        [_name]: "DateIntervalType.minutes",
+        index: 4
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: common.DateIntervalType.prototype,
+        [_name]: "DateIntervalType.seconds",
+        index: 5
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: common.DateIntervalType.prototype,
+        [_name]: "DateIntervalType.years",
+        index: 0
+      });
+    }
+  }, false);
+  var C = Array(7).fill(void 0);
+  var I = [
+    "package:syncfusion_flutter_sliders/src/slider_shapes.dart",
+    "file:///Volumes/others/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/syncfusion_flutter_sliders-19.4.40/lib/src/slider_base.dart",
+    "package:syncfusion_flutter_sliders/src/slider_base.dart"
+  ];
+  var _isVertical = dart.privateName(slider_shapes, "_isVertical");
+  var _drawTrackRect = dart.privateName(slider_shapes, "_drawTrackRect");
+  var _drawRangeSliderTrack = dart.privateName(slider_shapes, "_drawRangeSliderTrack");
+  var _drawSliderTrack = dart.privateName(slider_shapes, "_drawSliderTrack");
+  slider_shapes.SfTrackShape = class SfTrackShape extends core.Object {
+    [_isVertical](parentBox) {
+      return parentBox.sliderType === constants.SliderType.vertical;
+    }
+    getPreferredRect(parentBox, themeData, offset, opts) {
+      let isActive = opts && 'isActive' in opts ? opts.isActive : null;
+      let overlayPreferredSize = slider_base.RenderBaseSlider.as(parentBox).overlayShape.getPreferredSize(themeData);
+      let thumbPreferredSize = parentBox.thumbShape.getPreferredSize(themeData);
+      let tickPreferredSize = parentBox.tickShape.getPreferredSize(themeData);
+      let maxRadius = null;
+      if (this[_isVertical](parentBox)) {
+        maxRadius = math.max(core.double, overlayPreferredSize.height / 2, math.max(core.double, thumbPreferredSize.height / 2, tickPreferredSize.height / 2));
+      } else {
+        maxRadius = math.max(core.double, overlayPreferredSize.width / 2, math.max(core.double, thumbPreferredSize.width / 2, tickPreferredSize.width / 2));
+      }
+      let maxTrackHeight = math.max(core.double, themeData.activeTrackHeight, themeData.inactiveTrackHeight);
+      if (this[_isVertical](parentBox)) {
+        let left = offset.dx;
+        if (isActive != null) {
+          left = left + (dart.test(isActive) ? (maxTrackHeight - themeData.activeTrackHeight) / 2 : (maxTrackHeight - themeData.inactiveTrackHeight) / 2);
+        }
+        let right = left + (isActive == null ? maxTrackHeight : dart.test(isActive) ? themeData.activeTrackHeight : themeData.inactiveTrackHeight);
+        let top = offset.dy + maxRadius;
+        let bottom = top + parentBox.size.height - 2 * maxRadius;
+        return new ui.Rect.fromLTRB(math.min(core.double, left, right), top, math.max(core.double, left, right), bottom);
+      } else {
+        let left = offset.dx + maxRadius;
+        let top = offset.dy;
+        if (isActive != null) {
+          top = top + (dart.test(isActive) ? (maxTrackHeight - themeData.activeTrackHeight) / 2 : (maxTrackHeight - themeData.inactiveTrackHeight) / 2);
+        }
+        let right = left + parentBox.size.width - 2 * maxRadius;
+        let bottom = top + (isActive == null ? maxTrackHeight : dart.test(isActive) ? themeData.activeTrackHeight : themeData.inactiveTrackHeight);
+        return new ui.Rect.fromLTRB(math.min(core.double, left, right), top, math.max(core.double, left, right), bottom);
+      }
+    }
+    paint(context, offset, thumbCenter, startThumbCenter, endThumbCenter, opts) {
+      let parentBox = opts && 'parentBox' in opts ? opts.parentBox : null;
+      let themeData = opts && 'themeData' in opts ? opts.themeData : null;
+      let currentValues = opts && 'currentValues' in opts ? opts.currentValues : null;
+      let currentValue = opts && 'currentValue' in opts ? opts.currentValue : null;
+      let enableAnimation = opts && 'enableAnimation' in opts ? opts.enableAnimation : null;
+      let inactivePaint = opts && 'inactivePaint' in opts ? opts.inactivePaint : null;
+      let activePaint = opts && 'activePaint' in opts ? opts.activePaint : null;
+      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+      let radius = new ui.Radius.circular(dart.nullCheck(themeData.trackCornerRadius));
+      let inactiveTrackRect = this.getPreferredRect(parentBox, themeData, offset, {isActive: false});
+      let activeTrackRect = this.getPreferredRect(parentBox, themeData, offset, {isActive: true});
+      if (inactivePaint == null) {
+        inactivePaint = ui.Paint.new();
+        let inactiveTrackColorTween = new tween.ColorTween.new({begin: themeData.disabledInactiveTrackColor, end: themeData.inactiveTrackColor});
+        inactivePaint.color = dart.nullCheck(inactiveTrackColorTween.evaluate(enableAnimation));
+      }
+      if (activePaint == null) {
+        activePaint = ui.Paint.new();
+        let activeTrackColorTween = new tween.ColorTween.new({begin: themeData.disabledActiveTrackColor, end: themeData.activeTrackColor});
+        activePaint.color = dart.nullCheck(activeTrackColorTween.evaluate(enableAnimation));
+      }
+      this[_drawTrackRect](textDirection, thumbCenter, startThumbCenter, endThumbCenter, activePaint, inactivePaint, inactiveTrackRect, radius, context, activeTrackRect, {isVertical: this[_isVertical](slider_base.RenderBaseSlider.as(parentBox)), isInversed: parentBox.isInversed});
+    }
+    [_drawTrackRect](textDirection, thumbCenter, startThumbCenter, endThumbCenter, activePaint, inactivePaint, inactiveTrackRect, radius, context, activeTrackRect, opts) {
+      let isVertical = opts && 'isVertical' in opts ? opts.isVertical : null;
+      let isInversed = opts && 'isInversed' in opts ? opts.isInversed : null;
+      let leftThumbCenter = null;
+      let rightThumbCenter = null;
+      let leftTrackPaint = null;
+      let rightTrackPaint = null;
+      let leftTrackRect = null;
+      let rightTrackRect = null;
+      if (isInversed) {
+        if (startThumbCenter != null) {
+          leftThumbCenter = endThumbCenter;
+          rightThumbCenter = startThumbCenter;
+        } else {
+          leftTrackPaint = inactivePaint;
+          rightTrackPaint = activePaint;
+          leftTrackRect = inactiveTrackRect;
+          rightTrackRect = activeTrackRect;
+        }
+      } else {
+        if (startThumbCenter != null) {
+          leftThumbCenter = startThumbCenter;
+          rightThumbCenter = endThumbCenter;
+        } else {
+          leftTrackPaint = activePaint;
+          rightTrackPaint = inactivePaint;
+          leftTrackRect = activeTrackRect;
+          rightTrackRect = inactiveTrackRect;
+        }
+      }
+      if (leftThumbCenter != null && rightThumbCenter != null) {
+        this[_drawRangeSliderTrack](inactiveTrackRect, leftThumbCenter, radius, context, inactivePaint, activeTrackRect, rightThumbCenter, activePaint, {isVertical: isVertical});
+      } else {
+        this[_drawSliderTrack](dart.nullCheck(leftTrackRect), dart.nullCheck(thumbCenter), radius, context, dart.nullCheck(leftTrackPaint), dart.nullCheck(rightTrackRect), dart.nullCheck(rightTrackPaint), {isVertical: isVertical});
+      }
+    }
+    [_drawSliderTrack](activeTrackRect, thumbCenter, radius, context, activePaint, inactiveTrackRect, inactivePaint, opts) {
+      let isVertical = opts && 'isVertical' in opts ? opts.isVertical : null;
+      let inactiveTrackRRect = null;
+      if (!isVertical) {
+        let trackRect = new ui.Rect.fromLTRB(activeTrackRect.left, activeTrackRect.top, thumbCenter.dx, activeTrackRect.bottom);
+        let activeTrackRRect = new ui.RRect.fromRectAndCorners(trackRect, {topLeft: radius, bottomLeft: radius});
+        context.canvas.drawRRect(activeTrackRRect, activePaint);
+        trackRect = new ui.Rect.fromLTRB(thumbCenter.dx, inactiveTrackRect.top, inactiveTrackRect.width + inactiveTrackRect.left, inactiveTrackRect.bottom);
+        inactiveTrackRRect = new ui.RRect.fromRectAndCorners(trackRect, {topLeft: ui.Radius.zero, topRight: radius, bottomLeft: ui.Radius.zero, bottomRight: radius});
+        context.canvas.drawRRect(inactiveTrackRRect, inactivePaint);
+      } else {
+        let trackRect = new ui.Rect.fromLTRB(activeTrackRect.left, thumbCenter.dy, activeTrackRect.right, activeTrackRect.bottom);
+        let activeTrackRRect = new ui.RRect.fromRectAndCorners(trackRect, {bottomRight: radius, bottomLeft: radius});
+        context.canvas.drawRRect(activeTrackRRect, activePaint);
+        trackRect = new ui.Rect.fromLTRB(inactiveTrackRect.left, inactiveTrackRect.top, inactiveTrackRect.right, thumbCenter.dy);
+        inactiveTrackRRect = new ui.RRect.fromRectAndCorners(trackRect, {topLeft: radius, topRight: radius, bottomLeft: ui.Radius.zero, bottomRight: ui.Radius.zero});
+        context.canvas.drawRRect(inactiveTrackRRect, inactivePaint);
+      }
+    }
+    [_drawRangeSliderTrack](inactiveTrackRect, startThumbCenter, radius, context, inactivePaint, activeTrackRect, endThumbCenter, activePaint, opts) {
+      let isVertical = opts && 'isVertical' in opts ? opts.isVertical : false;
+      let inactiveTrackRRect = null;
+      if (!isVertical) {
+        let trackRect = new ui.Rect.fromLTRB(inactiveTrackRect.left, inactiveTrackRect.top, startThumbCenter.dx, inactiveTrackRect.bottom);
+        inactiveTrackRRect = new ui.RRect.fromRectAndCorners(trackRect, {topLeft: radius, bottomLeft: radius});
+        context.canvas.drawRRect(inactiveTrackRRect, inactivePaint);
+        let activeTrackRRect = new ui.Rect.fromLTRB(startThumbCenter.dx, activeTrackRect.top, endThumbCenter.dx, activeTrackRect.bottom);
+        context.canvas.drawRect(activeTrackRRect, activePaint);
+        trackRect = new ui.Rect.fromLTRB(endThumbCenter.dx, inactiveTrackRect.top, inactiveTrackRect.width + inactiveTrackRect.left, inactiveTrackRect.bottom);
+        inactiveTrackRRect = new ui.RRect.fromRectAndCorners(trackRect, {topLeft: ui.Radius.zero, topRight: radius, bottomLeft: ui.Radius.zero, bottomRight: radius});
+        context.canvas.drawRRect(inactiveTrackRRect, inactivePaint);
+      } else {
+        let trackRect = new ui.Rect.fromLTRB(inactiveTrackRect.left, startThumbCenter.dy, inactiveTrackRect.right, inactiveTrackRect.bottom);
+        inactiveTrackRRect = new ui.RRect.fromRectAndCorners(trackRect, {bottomLeft: radius, bottomRight: radius});
+        context.canvas.drawRRect(inactiveTrackRRect, inactivePaint);
+        let activeTrackRRect = new ui.Rect.fromLTRB(activeTrackRect.left, startThumbCenter.dy, activeTrackRect.right, endThumbCenter.dy);
+        context.canvas.drawRect(activeTrackRRect, activePaint);
+        trackRect = new ui.Rect.fromLTRB(inactiveTrackRect.left, inactiveTrackRect.top, inactiveTrackRect.right, endThumbCenter.dy);
+        inactiveTrackRRect = new ui.RRect.fromRectAndCorners(trackRect, {topLeft: radius, topRight: radius, bottomLeft: ui.Radius.zero, bottomRight: ui.Radius.zero});
+        context.canvas.drawRRect(inactiveTrackRRect, inactivePaint);
+      }
+    }
+  };
+  (slider_shapes.SfTrackShape.new = function() {
+    ;
+  }).prototype = slider_shapes.SfTrackShape.prototype;
+  dart.addTypeTests(slider_shapes.SfTrackShape);
+  dart.addTypeCaches(slider_shapes.SfTrackShape);
+  dart.setMethodSignature(slider_shapes.SfTrackShape, () => ({
+    __proto__: dart.getMethods(slider_shapes.SfTrackShape.__proto__),
+    [_isVertical]: dart.fnType(core.bool, [slider_base.RenderBaseSlider]),
+    getPreferredRect: dart.fnType(ui.Rect, [box.RenderBox, slider_theme.SfSliderThemeData, ui.Offset], {isActive: dart.nullable(core.bool)}, {}),
+    paint: dart.fnType(dart.void, [object.PaintingContext, ui.Offset, dart.nullable(ui.Offset), dart.nullable(ui.Offset), dart.nullable(ui.Offset)], {currentValue: dart.dynamic, currentValues: dart.nullable(common.SfRangeValues)}, {activePaint: dart.nullable(ui.Paint), enableAnimation: animation.Animation$(core.double), inactivePaint: dart.nullable(ui.Paint), parentBox: box.RenderBox, textDirection: ui.TextDirection, themeData: slider_theme.SfSliderThemeData}),
+    [_drawTrackRect]: dart.fnType(dart.void, [dart.nullable(ui.TextDirection), dart.nullable(ui.Offset), dart.nullable(ui.Offset), dart.nullable(ui.Offset), ui.Paint, ui.Paint, ui.Rect, ui.Radius, object.PaintingContext, ui.Rect], {}, {isInversed: core.bool, isVertical: core.bool}),
+    [_drawSliderTrack]: dart.fnType(dart.void, [ui.Rect, ui.Offset, ui.Radius, object.PaintingContext, ui.Paint, ui.Rect, ui.Paint], {}, {isVertical: core.bool}),
+    [_drawRangeSliderTrack]: dart.fnType(dart.void, [ui.Rect, ui.Offset, ui.Radius, object.PaintingContext, ui.Paint, ui.Rect, ui.Offset, ui.Paint], {isVertical: core.bool}, {})
+  }));
+  dart.setLibraryUri(slider_shapes.SfTrackShape, I[0]);
+  var _isThumbOverlapping = dart.privateName(slider_shapes, "_isThumbOverlapping");
+  slider_shapes.SfThumbShape = class SfThumbShape extends core.Object {
+    [_isThumbOverlapping](parentBox) {
+      return parentBox.showOverlappingThumbStroke;
+    }
+    getPreferredSize(themeData) {
+      return new ui.Size.fromRadius(themeData.thumbRadius);
+    }
+    paint(context, center, opts) {
+      let t0, t0$;
+      let parentBox = opts && 'parentBox' in opts ? opts.parentBox : null;
+      let child = opts && 'child' in opts ? opts.child : null;
+      let themeData = opts && 'themeData' in opts ? opts.themeData : null;
+      let currentValues = opts && 'currentValues' in opts ? opts.currentValues : null;
+      let currentValue = opts && 'currentValue' in opts ? opts.currentValue : null;
+      let paint = opts && 'paint' in opts ? opts.paint : null;
+      let enableAnimation = opts && 'enableAnimation' in opts ? opts.enableAnimation : null;
+      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+      let thumb = opts && 'thumb' in opts ? opts.thumb : null;
+      let radius = this.getPreferredSize(themeData).width / 2;
+      let hasThumbStroke = themeData.thumbStrokeColor != null && !dart.equals(themeData.thumbStrokeColor, colors.Colors.transparent) && themeData.thumbStrokeWidth != null && dart.nullCheck(themeData.thumbStrokeWidth) > 0;
+      let showThumbShadow = !dart.equals(themeData.thumbColor, colors.Colors.transparent);
+      let parentRenderBox = slider_base.RenderBaseSlider.as(parentBox);
+      if (showThumbShadow) {
+        let path = ui.Path.new();
+        let isThumbActive = (parentRenderBox.activeThumb == thumb || thumb == null) && parentRenderBox.currentPointerType != null && parentRenderBox.currentPointerType !== constants.PointerType.up;
+        path.addOval(new ui.Rect.fromCircle({center: center, radius: radius}));
+        let thumbElevation = isThumbActive ? parentRenderBox.thumbElevationTween.evaluate(enableAnimation) : 1;
+        context.canvas.drawShadow(path, constants.shadowColor, thumbElevation, true);
+      }
+      if (range_slider_theme.SfRangeSliderThemeData.is(themeData) && !hasThumbStroke && this[_isThumbOverlapping](parentBox) && !dart.equals(themeData.thumbColor, colors.Colors.transparent) && themeData.overlappingThumbStrokeColor != null) {
+        context.canvas.drawCircle(center, radius, (t0 = ui.Paint.new(), (() => {
+          t0.color = dart.nullCheck(themeData.overlappingThumbStrokeColor);
+          t0.style = ui.PaintingStyle.stroke;
+          t0.isAntiAlias = true;
+          t0.strokeWidth = 1.0;
+          return t0;
+        })()));
+      }
+      if (paint == null) {
+        paint = ui.Paint.new();
+        paint.isAntiAlias = true;
+        paint.color = dart.nullCheck(new tween.ColorTween.new({begin: themeData.disabledThumbColor, end: themeData.thumbColor}).evaluate(enableAnimation));
+      }
+      context.canvas.drawCircle(center, radius, paint);
+      if (child != null) {
+        context.paintChild(child, new ui.Offset.new(center.dx - child.size.width / 2, center.dy - child.size.height / 2));
+      }
+      if (themeData.thumbStrokeColor != null && themeData.thumbStrokeWidth != null && dart.nullCheck(themeData.thumbStrokeWidth) > 0) {
+        let strokePaint = (t0$ = ui.Paint.new(), (() => {
+          t0$.color = dart.nullCheck(themeData.thumbStrokeColor);
+          t0$.style = ui.PaintingStyle.stroke;
+          t0$.strokeWidth = dart.nullCheck(themeData.thumbStrokeWidth) > radius ? radius : dart.nullCheck(themeData.thumbStrokeWidth);
+          return t0$;
+        })());
+        context.canvas.drawCircle(center, dart.nullCheck(themeData.thumbStrokeWidth) > radius ? radius / 2 : radius - dart.nullCheck(themeData.thumbStrokeWidth) / 2, strokePaint);
+      }
+    }
+  };
+  (slider_shapes.SfThumbShape.new = function() {
+    ;
+  }).prototype = slider_shapes.SfThumbShape.prototype;
+  dart.addTypeTests(slider_shapes.SfThumbShape);
+  dart.addTypeCaches(slider_shapes.SfThumbShape);
+  dart.setMethodSignature(slider_shapes.SfThumbShape, () => ({
+    __proto__: dart.getMethods(slider_shapes.SfThumbShape.__proto__),
+    [_isThumbOverlapping]: dart.fnType(core.bool, [slider_base.RenderBaseSlider]),
+    getPreferredSize: dart.fnType(ui.Size, [slider_theme.SfSliderThemeData]),
+    paint: dart.fnType(dart.void, [object.PaintingContext, ui.Offset], {currentValue: dart.dynamic, currentValues: dart.nullable(common.SfRangeValues)}, {child: dart.nullable(box.RenderBox), enableAnimation: animation.Animation$(core.double), paint: dart.nullable(ui.Paint), parentBox: box.RenderBox, textDirection: ui.TextDirection, themeData: slider_theme.SfSliderThemeData, thumb: dart.nullable(common.SfThumb)})
+  }));
+  dart.setLibraryUri(slider_shapes.SfThumbShape, I[0]);
+  slider_shapes.SfDividerShape = class SfDividerShape extends core.Object {
+    [_isVertical](parentBox) {
+      return parentBox.sliderType === constants.SliderType.vertical;
+    }
+    getPreferredSize(themeData, opts) {
+      let isActive = opts && 'isActive' in opts ? opts.isActive : null;
+      return new ui.Size.fromRadius(isActive != null ? dart.test(isActive) ? dart.nullCheck(themeData.activeDividerRadius) : dart.nullCheck(themeData.inactiveDividerRadius) : 0.0);
+    }
+    paint(context, center, thumbCenter, startThumbCenter, endThumbCenter, opts) {
+      let t4;
+      let parentBox = opts && 'parentBox' in opts ? opts.parentBox : null;
+      let themeData = opts && 'themeData' in opts ? opts.themeData : null;
+      let currentValues = opts && 'currentValues' in opts ? opts.currentValues : null;
+      let currentValue = opts && 'currentValue' in opts ? opts.currentValue : null;
+      let paint = opts && 'paint' in opts ? opts.paint : null;
+      let enableAnimation = opts && 'enableAnimation' in opts ? opts.enableAnimation : null;
+      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+      let isActive = null;
+      function isActive$35get() {
+        let t1;
+        t1 = isActive;
+        return t1 == null ? dart.throw(new _internal.LateError.localNI("isActive")) : t1;
+      }
+      dart.fn(isActive$35get, T.VoidTobool());
+      function isActive$35set(t2) {
+        return isActive = t2;
+      }
+      dart.fn(isActive$35set, T.boolTodynamic());
+      let isVertical = this[_isVertical](slider_base.RenderBaseSlider.as(parentBox));
+      if (!isVertical) {
+        if (startThumbCenter != null) {
+          if (!parentBox.isInversed) {
+            isActive$35set(center.dx >= startThumbCenter.dx && center.dx <= dart.nullCheck(endThumbCenter).dx);
+          } else {
+            isActive$35set(center.dx >= dart.nullCheck(endThumbCenter).dx && center.dx <= startThumbCenter.dx);
+          }
+        } else {
+          if (!parentBox.isInversed) {
+            isActive$35set(center.dx <= dart.nullCheck(thumbCenter).dx);
+          } else {
+            isActive$35set(center.dx >= dart.nullCheck(thumbCenter).dx);
+          }
+        }
+      } else {
+        if (startThumbCenter != null) {
+          if (!parentBox.isInversed) {
+            isActive$35set(center.dy <= startThumbCenter.dy && center.dy >= dart.nullCheck(endThumbCenter).dy);
+          } else {
+            isActive$35set(center.dy >= startThumbCenter.dy && center.dy <= dart.nullCheck(endThumbCenter).dy);
+          }
+        } else {
+          if (!parentBox.isInversed) {
+            isActive$35set(center.dy >= dart.nullCheck(thumbCenter).dy);
+          } else {
+            isActive$35set(center.dy <= dart.nullCheck(thumbCenter).dy);
+          }
+        }
+      }
+      if (paint == null) {
+        paint = ui.Paint.new();
+        let begin = isActive$35get() ? dart.nullCheck(themeData.disabledActiveDividerColor) : dart.nullCheck(themeData.disabledInactiveDividerColor);
+        let end = isActive$35get() ? dart.nullCheck(themeData.activeDividerColor) : dart.nullCheck(themeData.inactiveDividerColor);
+        paint.color = dart.nullCheck(new tween.ColorTween.new({begin: begin, end: end}).evaluate(enableAnimation));
+      }
+      let dividerRadius = this.getPreferredSize(themeData, {isActive: isActive$35get()}).width / 2;
+      context.canvas.drawCircle(center, dividerRadius, paint);
+      let dividerStrokeWidth = isActive$35get() ? themeData.activeDividerStrokeWidth : themeData.inactiveDividerStrokeWidth;
+      let dividerStrokeColor = isActive$35get() ? themeData.activeDividerStrokeColor : themeData.inactiveDividerStrokeColor;
+      if (dividerStrokeColor != null && dividerStrokeWidth != null && dart.notNull(dividerStrokeWidth) > 0) {
+        context.canvas.drawCircle(center, dart.notNull(dividerStrokeWidth) > dividerRadius ? dividerRadius / 2 : dividerRadius - dart.notNull(dividerStrokeWidth) / 2, (t4 = paint, (() => {
+          t4.color = dividerStrokeColor;
+          t4.style = ui.PaintingStyle.stroke;
+          t4.strokeWidth = dart.notNull(dividerStrokeWidth) > dividerRadius ? dividerRadius : dividerStrokeWidth;
+          return t4;
+        })()));
+      }
+    }
+  };
+  (slider_shapes.SfDividerShape.new = function() {
+    ;
+  }).prototype = slider_shapes.SfDividerShape.prototype;
+  dart.addTypeTests(slider_shapes.SfDividerShape);
+  dart.addTypeCaches(slider_shapes.SfDividerShape);
+  dart.setMethodSignature(slider_shapes.SfDividerShape, () => ({
+    __proto__: dart.getMethods(slider_shapes.SfDividerShape.__proto__),
+    [_isVertical]: dart.fnType(core.bool, [slider_base.RenderBaseSlider]),
+    getPreferredSize: dart.fnType(ui.Size, [slider_theme.SfSliderThemeData], {isActive: dart.nullable(core.bool)}, {}),
+    paint: dart.fnType(dart.void, [object.PaintingContext, ui.Offset, dart.nullable(ui.Offset), dart.nullable(ui.Offset), dart.nullable(ui.Offset)], {currentValue: dart.dynamic, currentValues: dart.nullable(common.SfRangeValues)}, {enableAnimation: animation.Animation$(core.double), paint: dart.nullable(ui.Paint), parentBox: box.RenderBox, textDirection: ui.TextDirection, themeData: slider_theme.SfSliderThemeData})
+  }));
+  dart.setLibraryUri(slider_shapes.SfDividerShape, I[0]);
+  slider_shapes.SfOverlayShape = class SfOverlayShape extends core.Object {
+    getPreferredSize(themeData) {
+      return new ui.Size.fromRadius(themeData.overlayRadius);
+    }
+    paint(context, center, opts) {
+      let parentBox = opts && 'parentBox' in opts ? opts.parentBox : null;
+      let themeData = opts && 'themeData' in opts ? opts.themeData : null;
+      let currentValues = opts && 'currentValues' in opts ? opts.currentValues : null;
+      let currentValue = opts && 'currentValue' in opts ? opts.currentValue : null;
+      let paint = opts && 'paint' in opts ? opts.paint : null;
+      let animation = opts && 'animation' in opts ? opts.animation : null;
+      let thumb = opts && 'thumb' in opts ? opts.thumb : null;
+      let radius = this.getPreferredSize(themeData).width / 2;
+      let tween = new (T.TweenOfdouble()).new({begin: 0.0, end: radius});
+      if (paint == null) {
+        paint = ui.Paint.new();
+        paint.color = dart.nullCheck(themeData.overlayColor);
+      }
+      context.canvas.drawCircle(center, tween.evaluate(animation), paint);
+    }
+  };
+  (slider_shapes.SfOverlayShape.new = function() {
+    ;
+  }).prototype = slider_shapes.SfOverlayShape.prototype;
+  dart.addTypeTests(slider_shapes.SfOverlayShape);
+  dart.addTypeCaches(slider_shapes.SfOverlayShape);
+  dart.setMethodSignature(slider_shapes.SfOverlayShape, () => ({
+    __proto__: dart.getMethods(slider_shapes.SfOverlayShape.__proto__),
+    getPreferredSize: dart.fnType(ui.Size, [slider_theme.SfSliderThemeData]),
+    paint: dart.fnType(dart.void, [object.PaintingContext, ui.Offset], {currentValue: dart.dynamic, currentValues: dart.nullable(common.SfRangeValues)}, {animation: animation.Animation$(core.double), paint: dart.nullable(ui.Paint), parentBox: box.RenderBox, themeData: slider_theme.SfSliderThemeData, thumb: dart.nullable(common.SfThumb)})
+  }));
+  dart.setLibraryUri(slider_shapes.SfOverlayShape, I[0]);
+  slider_shapes.SfTickShape = class SfTickShape extends core.Object {
+    [_isVertical](parentBox) {
+      return parentBox.sliderType === constants.SliderType.vertical;
+    }
+    getPreferredSize(themeData) {
+      return new ui.Size.copy(dart.nullCheck(themeData.tickSize));
+    }
+    paint(context, offset, thumbCenter, startThumbCenter, endThumbCenter, opts) {
+      let t4;
+      let parentBox = opts && 'parentBox' in opts ? opts.parentBox : null;
+      let themeData = opts && 'themeData' in opts ? opts.themeData : null;
+      let currentValues = opts && 'currentValues' in opts ? opts.currentValues : null;
+      let currentValue = opts && 'currentValue' in opts ? opts.currentValue : null;
+      let enableAnimation = opts && 'enableAnimation' in opts ? opts.enableAnimation : null;
+      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+      let isInactive = false;
+      let tickSize = this.getPreferredSize(themeData);
+      let isVertical = this[_isVertical](slider_base.RenderBaseSlider.as(parentBox));
+      if (!isVertical) {
+        if (startThumbCenter != null) {
+          if (!parentBox.isInversed) {
+            isInactive = offset.dx < startThumbCenter.dx || offset.dx > dart.nullCheck(endThumbCenter).dx;
+          } else {
+            isInactive = offset.dx > startThumbCenter.dx || offset.dx < dart.nullCheck(endThumbCenter).dx;
+          }
+        } else {
+          if (!parentBox.isInversed) {
+            isInactive = offset.dx > dart.nullCheck(thumbCenter).dx;
+          } else {
+            isInactive = offset.dx < dart.nullCheck(thumbCenter).dx;
+          }
+        }
+      } else {
+        if (startThumbCenter != null) {
+          if (!parentBox.isInversed) {
+            isInactive = offset.dy > startThumbCenter.dy || offset.dy < dart.nullCheck(endThumbCenter).dy;
+          } else {
+            isInactive = offset.dy < startThumbCenter.dy || offset.dy > dart.nullCheck(endThumbCenter).dy;
+          }
+        } else {
+          if (!parentBox.isInversed) {
+            isInactive = offset.dy < dart.nullCheck(thumbCenter).dy;
+          } else {
+            isInactive = offset.dy > dart.nullCheck(thumbCenter).dy;
+          }
+        }
+      }
+      let begin = isInactive ? dart.nullCheck(themeData.disabledInactiveTickColor) : dart.nullCheck(themeData.disabledActiveTickColor);
+      let end = isInactive ? dart.nullCheck(themeData.inactiveTickColor) : dart.nullCheck(themeData.activeTickColor);
+      let paint = (t4 = ui.Paint.new(), (() => {
+        t4.isAntiAlias = true;
+        t4.strokeWidth = this[_isVertical](parentBox) ? tickSize.height : tickSize.width;
+        t4.color = dart.nullCheck(new tween.ColorTween.new({begin: begin, end: end}).evaluate(enableAnimation));
+        return t4;
+      })());
+      if (this[_isVertical](parentBox)) {
+        context.canvas.drawLine(offset, new ui.Offset.new(offset.dx + tickSize.width, offset.dy), paint);
+      } else {
+        context.canvas.drawLine(offset, new ui.Offset.new(offset.dx, offset.dy + tickSize.height), paint);
+      }
+    }
+  };
+  (slider_shapes.SfTickShape.new = function() {
+    ;
+  }).prototype = slider_shapes.SfTickShape.prototype;
+  dart.addTypeTests(slider_shapes.SfTickShape);
+  dart.addTypeCaches(slider_shapes.SfTickShape);
+  dart.setMethodSignature(slider_shapes.SfTickShape, () => ({
+    __proto__: dart.getMethods(slider_shapes.SfTickShape.__proto__),
+    [_isVertical]: dart.fnType(core.bool, [slider_base.RenderBaseSlider]),
+    getPreferredSize: dart.fnType(ui.Size, [slider_theme.SfSliderThemeData]),
+    paint: dart.fnType(dart.void, [object.PaintingContext, ui.Offset, dart.nullable(ui.Offset), dart.nullable(ui.Offset), dart.nullable(ui.Offset)], {currentValue: dart.dynamic, currentValues: dart.nullable(common.SfRangeValues)}, {enableAnimation: animation.Animation$(core.double), parentBox: box.RenderBox, textDirection: ui.TextDirection, themeData: slider_theme.SfSliderThemeData})
+  }));
+  dart.setLibraryUri(slider_shapes.SfTickShape, I[0]);
+  slider_shapes.SfTooltipShape = class SfTooltipShape extends core.Object {};
+  (slider_shapes.SfTooltipShape.new = function() {
+    ;
+  }).prototype = slider_shapes.SfTooltipShape.prototype;
+  dart.addTypeTests(slider_shapes.SfTooltipShape);
+  dart.addTypeCaches(slider_shapes.SfTooltipShape);
+  dart.setLibraryUri(slider_shapes.SfTooltipShape, I[0]);
+  slider_shapes.SfMinorTickShape = class SfMinorTickShape extends slider_shapes.SfTickShape {
+    getPreferredSize(themeData) {
+      return new ui.Size.copy(dart.nullCheck(themeData.minorTickSize));
+    }
+    paint(context, offset, thumbCenter, startThumbCenter, endThumbCenter, opts) {
+      let t4;
+      let parentBox = opts && 'parentBox' in opts ? opts.parentBox : null;
+      let currentValues = opts && 'currentValues' in opts ? opts.currentValues : null;
+      let currentValue = opts && 'currentValue' in opts ? opts.currentValue : null;
+      let themeData = opts && 'themeData' in opts ? opts.themeData : null;
+      let enableAnimation = opts && 'enableAnimation' in opts ? opts.enableAnimation : null;
+      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+      let isInactive = null;
+      let minorTickSize = this.getPreferredSize(themeData);
+      let isVertical = this[_isVertical](slider_base.RenderBaseSlider.as(parentBox));
+      if (!isVertical) {
+        if (startThumbCenter != null) {
+          if (!parentBox.isInversed) {
+            isInactive = offset.dx < startThumbCenter.dx || offset.dx > dart.nullCheck(endThumbCenter).dx;
+          } else {
+            isInactive = offset.dx > startThumbCenter.dx || offset.dx < dart.nullCheck(endThumbCenter).dx;
+          }
+        } else {
+          if (!parentBox.isInversed) {
+            isInactive = offset.dx > dart.nullCheck(thumbCenter).dx;
+          } else {
+            isInactive = offset.dx < dart.nullCheck(thumbCenter).dx;
+          }
+        }
+      } else {
+        if (startThumbCenter != null) {
+          if (!parentBox.isInversed) {
+            isInactive = offset.dy > startThumbCenter.dy || offset.dy < dart.nullCheck(endThumbCenter).dy;
+          } else {
+            isInactive = offset.dy < startThumbCenter.dy || offset.dy > dart.nullCheck(endThumbCenter).dy;
+          }
+        } else {
+          if (!parentBox.isInversed) {
+            isInactive = offset.dy < dart.nullCheck(thumbCenter).dy;
+          } else {
+            isInactive = offset.dy > dart.nullCheck(thumbCenter).dy;
+          }
+        }
+      }
+      let begin = isInactive ? dart.nullCheck(themeData.disabledInactiveMinorTickColor) : dart.nullCheck(themeData.disabledActiveMinorTickColor);
+      let end = isInactive ? dart.nullCheck(themeData.inactiveMinorTickColor) : dart.nullCheck(themeData.activeMinorTickColor);
+      let paint = (t4 = ui.Paint.new(), (() => {
+        t4.isAntiAlias = true;
+        t4.strokeWidth = this[_isVertical](parentBox) ? minorTickSize.height : minorTickSize.width;
+        t4.color = dart.nullCheck(new tween.ColorTween.new({begin: begin, end: end}).evaluate(enableAnimation));
+        return t4;
+      })());
+      if (this[_isVertical](parentBox)) {
+        context.canvas.drawLine(offset, new ui.Offset.new(offset.dx + minorTickSize.width, offset.dy), paint);
+      } else {
+        context.canvas.drawLine(offset, new ui.Offset.new(offset.dx, offset.dy + minorTickSize.height), paint);
+      }
+    }
+  };
+  (slider_shapes.SfMinorTickShape.new = function() {
+    slider_shapes.SfMinorTickShape.__proto__.new.call(this);
+    ;
+  }).prototype = slider_shapes.SfMinorTickShape.prototype;
+  dart.addTypeTests(slider_shapes.SfMinorTickShape);
+  dart.addTypeCaches(slider_shapes.SfMinorTickShape);
+  dart.setLibraryUri(slider_shapes.SfMinorTickShape, I[0]);
+  var _hasTooltipOverlapStroke = dart.privateName(slider_shapes, "_hasTooltipOverlapStroke");
+  var _getPaddleTooltipPath = dart.privateName(slider_shapes, "_getPaddleTooltipPath");
+  var _drawPaddleTooltip = dart.privateName(slider_shapes, "_drawPaddleTooltip");
+  slider_shapes.SfPaddleTooltipShape = class SfPaddleTooltipShape extends slider_shapes.SfTooltipShape {
+    [_hasTooltipOverlapStroke](parentBox) {
+      return parentBox.showOverlappingTooltipStroke;
+    }
+    [_drawPaddleTooltip](parentBox, textPainter, minPaddleTopCircleRadius, neckDifference, sliderThemeData, defaultThumbRadius, minBottomNeckRadius, textPadding, offset, moveNeckValue, thumbCenter, trackRect, context, animation, paint) {
+      let t4, t4$;
+      let thumbRadius = slider_base.RenderBaseSlider.as(parentBox).thumbShape.getPreferredSize(sliderThemeData).width / 2;
+      let paddleTopCircleRadius = textPainter.height > minPaddleTopCircleRadius ? textPainter.height : minPaddleTopCircleRadius;
+      let topNeckRadius = paddleTopCircleRadius - neckDifference;
+      let bottomNeckRadius = thumbRadius > defaultThumbRadius ? thumbRadius - neckDifference * 2 : minBottomNeckRadius;
+      let halfTextWidth = textPainter.width / 2 + textPadding;
+      let paddleTopCircleX = halfTextWidth > paddleTopCircleRadius ? halfTextWidth - paddleTopCircleRadius : 0.0;
+      let minPaddleWidth = paddleTopCircleRadius + topNeckRadius + neckDifference / 2;
+      let topNeckCenter = new ui.Offset.new(topNeckRadius + neckDifference / 2, -offset.dy - bottomNeckRadius);
+      let paddleTopCircleCenter = new ui.Offset.new(paddleTopCircleX, -paddleTopCircleRadius * (1.0 - moveNeckValue) - topNeckRadius - offset.dy - bottomNeckRadius);
+      let bottomNeckCenter = new ui.Offset.new(bottomNeckRadius + neckDifference / 2, -thumbRadius - bottomNeckRadius * (1.0 - moveNeckValue));
+      let leftShiftWidth = thumbCenter.dx - offset.dx - halfTextWidth;
+      let shiftPaddleWidth = leftShiftWidth < 0 ? leftShiftWidth : 0.0;
+      let rightEndPosition = trackRect.right + trackRect.left - offset.dx;
+      shiftPaddleWidth = thumbCenter.dx + halfTextWidth > rightEndPosition ? thumbCenter.dx + halfTextWidth - rightEndPosition : shiftPaddleWidth;
+      let leftPaddleWidth = paddleTopCircleRadius + paddleTopCircleCenter.dx + shiftPaddleWidth;
+      let rightPaddleWidth = paddleTopCircleRadius + paddleTopCircleCenter.dx - shiftPaddleWidth;
+      let moveLeftTopNeckY = leftPaddleWidth > paddleTopCircleRadius ? leftPaddleWidth < minPaddleWidth ? (leftPaddleWidth - topNeckRadius) * moveNeckValue : paddleTopCircleRadius * moveNeckValue : 0.0;
+      let moveLeftTopNeckAngle = leftPaddleWidth > paddleTopCircleRadius ? leftPaddleWidth < minPaddleWidth ? moveLeftTopNeckY * 3.141592653589793 / 180 : 30 * 3.141592653589793 / 180 : 0.0;
+      let moveRightTopNeckY = rightPaddleWidth > paddleTopCircleRadius ? rightPaddleWidth < minPaddleWidth ? (rightPaddleWidth - topNeckRadius) * moveNeckValue : paddleTopCircleRadius * moveNeckValue : 0.0;
+      let moveRightTopNeckAngle = rightPaddleWidth > paddleTopCircleRadius ? rightPaddleWidth < minPaddleWidth ? moveRightTopNeckY * 3.141592653589793 / 180 : 30 * 3.141592653589793 / 180 : 0.0;
+      let leftNeckStretchValue = leftPaddleWidth < minPaddleWidth ? 1.0 - leftPaddleWidth / minPaddleWidth : 0.0;
+      let rightNeckStretchValue = rightPaddleWidth < minPaddleWidth ? 1.0 - rightPaddleWidth / minPaddleWidth : 0.0;
+      let adjustPaddleCircleLeftArcAngle = shiftPaddleWidth < 0 && leftPaddleWidth < minPaddleWidth ? leftNeckStretchValue * (3.141592653589793 / 2 + moveLeftTopNeckAngle) : 0.0;
+      let adjustPaddleCircleRightArcAngle = shiftPaddleWidth > 0 && rightPaddleWidth < minPaddleWidth ? rightNeckStretchValue * (3.141592653589793 / 2 + moveRightTopNeckAngle) : 0.0;
+      let adjustLeftNeckArcAngle = adjustPaddleCircleLeftArcAngle * (1.0 - moveNeckValue);
+      let adjustRightNeckArcAngle = adjustPaddleCircleRightArcAngle * (1.0 - moveNeckValue);
+      let path = this[_getPaddleTooltipPath](neckDifference, topNeckCenter, moveRightTopNeckY, topNeckRadius, moveRightTopNeckAngle, adjustRightNeckArcAngle, paddleTopCircleCenter, shiftPaddleWidth, paddleTopCircleRadius, adjustPaddleCircleRightArcAngle, adjustPaddleCircleLeftArcAngle, moveLeftTopNeckY, moveLeftTopNeckAngle, adjustLeftNeckArcAngle, bottomNeckCenter, bottomNeckRadius, thumbRadius, sliderThemeData);
+      context.canvas.save();
+      context.canvas.translate(thumbCenter.dx, thumbCenter.dy);
+      context.canvas.scale(animation.value);
+      let strokePaint = ui.Paint.new();
+      if (this[_hasTooltipOverlapStroke](parentBox) && range_slider_theme.SfRangeSliderThemeData.is(sliderThemeData) && !dart.equals(sliderThemeData.tooltipBackgroundColor, colors.Colors.transparent)) {
+        t4 = strokePaint;
+        (() => {
+          t4.color = dart.nullCheck(sliderThemeData.overlappingTooltipStrokeColor);
+          t4.style = ui.PaintingStyle.stroke;
+          t4.strokeWidth = 1.0;
+          return t4;
+        })();
+      } else {
+        t4$ = strokePaint;
+        (() => {
+          t4$.color = colors.Colors.transparent;
+          t4$.style = ui.PaintingStyle.stroke;
+          return t4$;
+        })();
+      }
+      context.canvas.drawPath(path, strokePaint);
+      context.canvas.drawPath(path, dart.nullCheck(paint));
+      textPainter.paint(context.canvas, new ui.Offset.new(-textPainter.width / 2 - shiftPaddleWidth, paddleTopCircleCenter.dy - textPainter.height / 2));
+      context.canvas.restore();
+    }
+    [_getPaddleTooltipPath](neckDifference, topNeckCenter, moveRightTopNeckY, topNeckRadius, moveRightTopNeckAngle, adjustRightNeckArcAngle, paddleTopCircleCenter, shiftPaddleWidth, paddleTopCircleRadius, adjustPaddleCircleRightArcAngle, adjustPaddleCircleLeftArcAngle, moveLeftTopNeckY, moveLeftTopNeckAngle, adjustLeftNeckArcAngle, bottomNeckCenter, bottomNeckRadius, thumbRadius, sliderThemeData) {
+      let path = ui.Path.new();
+      path.moveTo(neckDifference / 2, topNeckCenter.dy + topNeckRadius * 0.25);
+      path.arcTo(new ui.Rect.fromCircle({center: new ui.Offset.new(topNeckCenter.dx, topNeckCenter.dy + moveRightTopNeckY), radius: topNeckRadius}), 3.141592653589793, 3.141592653589793 / 3 + moveRightTopNeckAngle - adjustRightNeckArcAngle, false);
+      path.arcTo(new ui.Rect.fromCircle({center: new ui.Offset.new(paddleTopCircleCenter.dx - shiftPaddleWidth, paddleTopCircleCenter.dy), radius: paddleTopCircleRadius}), 3.141592653589793 / 2 - adjustPaddleCircleRightArcAngle, -3.141592653589793 + adjustPaddleCircleRightArcAngle, false);
+      path.arcTo(new ui.Rect.fromCircle({center: new ui.Offset.new(-paddleTopCircleCenter.dx - shiftPaddleWidth, paddleTopCircleCenter.dy), radius: paddleTopCircleRadius}), 3 * 3.141592653589793 / 2, -3.141592653589793 + adjustPaddleCircleLeftArcAngle, false);
+      path.arcTo(new ui.Rect.fromCircle({center: new ui.Offset.new(-topNeckCenter.dx, topNeckCenter.dy + moveLeftTopNeckY), radius: topNeckRadius}), 5 * 3.141592653589793 / 3 - moveLeftTopNeckAngle + adjustLeftNeckArcAngle, 3.141592653589793 / 3 + moveLeftTopNeckAngle - adjustLeftNeckArcAngle, false);
+      path.arcTo(new ui.Rect.fromCircle({center: new ui.Offset.new(-bottomNeckCenter.dx, bottomNeckCenter.dy), radius: bottomNeckRadius}), 0.0, 3.141592653589793 / 3, false);
+      path.arcTo(new ui.Rect.fromCircle({center: ui.Offset.zero, radius: thumbRadius}), 3 * 3.141592653589793 / 2, -3.141592653589793, false);
+      path.arcTo(new ui.Rect.fromCircle({center: ui.Offset.zero, radius: thumbRadius}), 3.141592653589793 / 2, -3.141592653589793, false);
+      path.arcTo(new ui.Rect.fromCircle({center: bottomNeckCenter, radius: bottomNeckRadius}), 2 * 3.141592653589793 / 3, 3.141592653589793 / 3, false);
+      return path;
+    }
+    paint(context, thumbCenter, offset, textPainter, opts) {
+      let parentBox = opts && 'parentBox' in opts ? opts.parentBox : null;
+      let sliderThemeData = opts && 'sliderThemeData' in opts ? opts.sliderThemeData : null;
+      let paint = opts && 'paint' in opts ? opts.paint : null;
+      let animation = opts && 'animation' in opts ? opts.animation : null;
+      let trackRect = opts && 'trackRect' in opts ? opts.trackRect : null;
+      this[_drawPaddleTooltip](parentBox, textPainter, 16, 3, sliderThemeData, 10, 4, 8, offset, 0.25, thumbCenter, trackRect, context, animation, paint);
+    }
+  };
+  (slider_shapes.SfPaddleTooltipShape.new = function() {
+    slider_shapes.SfPaddleTooltipShape.__proto__.new.call(this);
+    ;
+  }).prototype = slider_shapes.SfPaddleTooltipShape.prototype;
+  dart.addTypeTests(slider_shapes.SfPaddleTooltipShape);
+  dart.addTypeCaches(slider_shapes.SfPaddleTooltipShape);
+  dart.setMethodSignature(slider_shapes.SfPaddleTooltipShape, () => ({
+    __proto__: dart.getMethods(slider_shapes.SfPaddleTooltipShape.__proto__),
+    [_hasTooltipOverlapStroke]: dart.fnType(core.bool, [slider_base.RenderBaseSlider]),
+    [_drawPaddleTooltip]: dart.fnType(dart.void, [box.RenderBox, text_painter.TextPainter, core.double, core.double, slider_theme.SfSliderThemeData, core.double, core.double, core.double, ui.Offset, core.double, ui.Offset, ui.Rect, object.PaintingContext, animation.Animation$(core.double), dart.nullable(ui.Paint)]),
+    [_getPaddleTooltipPath]: dart.fnType(ui.Path, [core.double, ui.Offset, core.double, core.double, core.double, core.double, ui.Offset, core.double, core.double, core.double, core.double, core.double, core.double, core.double, ui.Offset, core.double, core.double, slider_theme.SfSliderThemeData]),
+    paint: dart.fnType(dart.void, [object.PaintingContext, ui.Offset, ui.Offset, text_painter.TextPainter], {}, {animation: animation.Animation$(core.double), paint: ui.Paint, parentBox: box.RenderBox, sliderThemeData: slider_theme.SfSliderThemeData, trackRect: ui.Rect})
+  }));
+  dart.setLibraryUri(slider_shapes.SfPaddleTooltipShape, I[0]);
+  var _isLeftTooltip = dart.privateName(slider_shapes, "_isLeftTooltip");
+  var _getRectangularPath = dart.privateName(slider_shapes, "_getRectangularPath");
+  var _updateRectangularTooltipWidth = dart.privateName(slider_shapes, "_updateRectangularTooltipWidth");
+  slider_shapes.SfRectangularTooltipShape = class SfRectangularTooltipShape extends slider_shapes.SfTooltipShape {
+    [_hasTooltipOverlapStroke](parentBox) {
+      return parentBox.showOverlappingTooltipStroke;
+    }
+    [_isVertical](parentBox) {
+      return parentBox.sliderType === constants.SliderType.vertical;
+    }
+    [_isLeftTooltip](parentBox) {
+      return parentBox.tooltipPosition === common.SliderTooltipPosition.left;
+    }
+    [_updateRectangularTooltipWidth](textSize, tooltipStartY, trackRect, dx, opts) {
+      let isVertical = opts && 'isVertical' in opts ? opts.isVertical : null;
+      let isLeftTooltip = opts && 'isLeftTooltip' in opts ? opts.isLeftTooltip : null;
+      let dy = tooltipStartY + 7;
+      let tooltipWidth = textSize.width < 47 ? 47 : textSize.width;
+      let tooltipHeight = textSize.height < 37 ? 37 : textSize.height;
+      let halfTooltipWidth = tooltipWidth / 2;
+      let halfTooltipHeight = tooltipHeight / 2;
+      if (isVertical) {
+        if (dart.nullCheck(isLeftTooltip)) {
+          let topLineHeight = dx - halfTooltipHeight < trackRect.top ? dx - trackRect.top : halfTooltipHeight;
+          let bottomLineHeight = dx + halfTooltipHeight > trackRect.bottom ? trackRect.bottom - dx : tooltipHeight - topLineHeight;
+          topLineHeight = bottomLineHeight < halfTooltipHeight ? halfTooltipHeight - bottomLineHeight + topLineHeight : topLineHeight;
+          return this[_getRectangularPath](tooltipStartY, topLineHeight, 6, dy, tooltipHeight, bottomLineHeight, {isVertical: isVertical, toolTipWidth: tooltipWidth, isLeftTooltip: isLeftTooltip});
+        } else {
+          let topLineHeight = dx - halfTooltipHeight < trackRect.top ? dx - trackRect.top : halfTooltipHeight;
+          let bottomLineHeight = dx + halfTooltipHeight > trackRect.bottom ? trackRect.bottom - dx : tooltipHeight - topLineHeight;
+          topLineHeight = bottomLineHeight < halfTooltipHeight ? halfTooltipHeight - bottomLineHeight + topLineHeight : topLineHeight;
+          return this[_getRectangularPath](tooltipStartY, topLineHeight, 6, dy, tooltipHeight, bottomLineHeight, {isVertical: isVertical, toolTipWidth: tooltipWidth, isLeftTooltip: isLeftTooltip});
+        }
+      } else {
+        let rightLineWidth = dx + halfTooltipWidth > trackRect.right ? trackRect.right - dx : halfTooltipWidth;
+        let leftLineWidth = isVertical ? tooltipWidth - rightLineWidth : dx - halfTooltipWidth < trackRect.left ? dx - trackRect.left : tooltipWidth - rightLineWidth;
+        if (!isVertical) {
+          rightLineWidth = leftLineWidth < halfTooltipWidth ? halfTooltipWidth - leftLineWidth + rightLineWidth : rightLineWidth;
+        }
+        return this[_getRectangularPath](tooltipStartY, rightLineWidth, 6, dy, tooltipHeight, leftLineWidth, {isVertical: isVertical});
+      }
+    }
+    [_getRectangularPath](tooltipStartY, rightLineWidth, halfTooltipTriangleWidth, dy, tooltipHeight, leftLineWidth, opts) {
+      let isVertical = opts && 'isVertical' in opts ? opts.isVertical : null;
+      let toolTipWidth = opts && 'toolTipWidth' in opts ? opts.toolTipWidth : null;
+      let isLeftTooltip = opts && 'isLeftTooltip' in opts ? opts.isLeftTooltip : null;
+      let path = ui.Path.new();
+      if (isVertical && toolTipWidth != null) {
+        if (dart.nullCheck(isLeftTooltip)) {
+          path.moveTo(-tooltipStartY, 0.0);
+          let canAdjustTooltipNose = rightLineWidth < halfTooltipTriangleWidth;
+          path.lineTo(-dy, canAdjustTooltipNose ? -rightLineWidth : -halfTooltipTriangleWidth);
+          if (!canAdjustTooltipNose) {
+            path.lineTo(-dy, -rightLineWidth + 4 / 2);
+          }
+          path.quadraticBezierTo(-dy, canAdjustTooltipNose ? -rightLineWidth : -rightLineWidth + 4 / 2, -dy - 4 / 2, -rightLineWidth);
+          path.lineTo(-dy - dart.notNull(toolTipWidth) + 4 / 2, -rightLineWidth);
+          path.quadraticBezierTo(-dy - dart.notNull(toolTipWidth) + 4 / 2, -rightLineWidth, -dy - dart.notNull(toolTipWidth), -rightLineWidth + 4 / 2);
+          path.lineTo(-dy - dart.notNull(toolTipWidth), leftLineWidth - 4 / 2);
+          path.quadraticBezierTo(-dy - dart.notNull(toolTipWidth), leftLineWidth - 4 / 2, -dy - dart.notNull(toolTipWidth) + 4 / 2, leftLineWidth);
+          path.lineTo(-dy - 4 / 2, leftLineWidth);
+          if (leftLineWidth > halfTooltipTriangleWidth) {
+            path.quadraticBezierTo(-dy - 4 / 2, leftLineWidth, -dy, leftLineWidth - 4 / 2);
+            path.lineTo(-dy, halfTooltipTriangleWidth);
+          }
+          path.close();
+        } else {
+          path.moveTo(tooltipStartY, 0.0);
+          let canAdjustTooltipNose = rightLineWidth < halfTooltipTriangleWidth;
+          path.lineTo(dy, canAdjustTooltipNose ? -rightLineWidth : -halfTooltipTriangleWidth);
+          if (!canAdjustTooltipNose) {
+            path.lineTo(dy, -rightLineWidth + 4 / 2);
+          }
+          path.quadraticBezierTo(dy, canAdjustTooltipNose ? -rightLineWidth : -rightLineWidth + 4 / 2, dy + 4 / 2, -rightLineWidth);
+          path.lineTo(dy + dart.notNull(toolTipWidth) - 4 / 2, -rightLineWidth);
+          path.quadraticBezierTo(dy + dart.notNull(toolTipWidth) - 4 / 2, -rightLineWidth, dy + dart.notNull(toolTipWidth), -rightLineWidth + 4 / 2);
+          path.lineTo(dy + dart.notNull(toolTipWidth), leftLineWidth - 4 / 2);
+          path.quadraticBezierTo(dy + dart.notNull(toolTipWidth), leftLineWidth - 4 / 2, dy + dart.notNull(toolTipWidth) - 4 / 2, leftLineWidth);
+          path.lineTo(dy + 4 / 2, leftLineWidth);
+          if (leftLineWidth > halfTooltipTriangleWidth) {
+            path.quadraticBezierTo(dy + 4 / 2, leftLineWidth, dy, leftLineWidth - 4 / 2);
+            path.lineTo(dy, halfTooltipTriangleWidth);
+          }
+          path.close();
+        }
+      } else {
+        path.moveTo(0.0, -tooltipStartY);
+        let canAdjustTooltipNose = rightLineWidth > halfTooltipTriangleWidth + 4 / 2;
+        path.lineTo(canAdjustTooltipNose ? halfTooltipTriangleWidth : rightLineWidth, -dy - (canAdjustTooltipNose ? 0 : 4 / 2));
+        path.lineTo(rightLineWidth - 4, -dy);
+        path.quadraticBezierTo(rightLineWidth, -dy, rightLineWidth, -dy - 4);
+        path.lineTo(rightLineWidth, -dy - tooltipHeight + 4);
+        path.quadraticBezierTo(rightLineWidth, -dy - tooltipHeight, rightLineWidth - 4, -dy - tooltipHeight);
+        path.lineTo(-leftLineWidth + 4, -dy - tooltipHeight);
+        path.quadraticBezierTo(-leftLineWidth, -dy - tooltipHeight, -leftLineWidth, -dy - tooltipHeight + 4);
+        path.lineTo(-leftLineWidth, -dy - 4);
+        if (leftLineWidth > halfTooltipTriangleWidth) {
+          path.quadraticBezierTo(-leftLineWidth, -dy, -leftLineWidth + 4, -dy);
+          path.lineTo(-halfTooltipTriangleWidth, -dy);
+        }
+        path.close();
+      }
+      return path;
+    }
+    paint(context, thumbCenter, offset, textPainter, opts) {
+      let t4;
+      let parentBox = opts && 'parentBox' in opts ? opts.parentBox : null;
+      let sliderThemeData = opts && 'sliderThemeData' in opts ? opts.sliderThemeData : null;
+      let paint = opts && 'paint' in opts ? opts.paint : null;
+      let animation = opts && 'animation' in opts ? opts.animation : null;
+      let trackRect = opts && 'trackRect' in opts ? opts.trackRect : null;
+      let leftPadding = constants.tooltipTextPadding.dx / 2;
+      let minLeftX = trackRect.left;
+      let path = this[_isVertical](slider_base.RenderBaseSlider.as(parentBox)) ? this[_updateRectangularTooltipWidth](textPainter.size['+'](constants.tooltipTextPadding), offset.dy, trackRect, thumbCenter.dy, {isVertical: this[_isVertical](parentBox), isLeftTooltip: this[_isLeftTooltip](parentBox)}) : this[_updateRectangularTooltipWidth](textPainter.size['+'](constants.tooltipTextPadding), offset.dy, trackRect, thumbCenter.dx, {isVertical: this[_isVertical](parentBox)});
+      context.canvas.save();
+      context.canvas.translate(thumbCenter.dx, thumbCenter.dy);
+      context.canvas.scale(animation.value);
+      let strokePaint = ui.Paint.new();
+      if (this[_hasTooltipOverlapStroke](parentBox) && !dart.equals(sliderThemeData.tooltipBackgroundColor, colors.Colors.transparent)) {
+        if (range_slider_theme.SfRangeSliderThemeData.is(sliderThemeData)) {
+          strokePaint.color = dart.nullCheck(sliderThemeData.overlappingTooltipStrokeColor);
+          strokePaint.style = ui.PaintingStyle.stroke;
+          strokePaint.strokeWidth = 1.0;
+        } else if (range_selector_theme.SfRangeSelectorThemeData.is(sliderThemeData)) {
+          strokePaint.color = dart.nullCheck(sliderThemeData.overlappingTooltipStrokeColor);
+          strokePaint.style = ui.PaintingStyle.stroke;
+          strokePaint.strokeWidth = 1.0;
+        }
+      } else {
+        t4 = strokePaint;
+        (() => {
+          t4.color = colors.Colors.transparent;
+          t4.style = ui.PaintingStyle.stroke;
+          return t4;
+        })();
+      }
+      context.canvas.drawPath(path, strokePaint);
+      context.canvas.drawPath(path, paint);
+      let pathRect = path.getBounds();
+      let halfPathWidth = pathRect.width / 2;
+      let halfTextPainterWidth = textPainter.width / 2;
+      let rectLeftPosition = thumbCenter.dx - halfPathWidth;
+      if (this[_isVertical](parentBox)) {
+        let halfPathHeight = pathRect.height / 2;
+        let halfTextPainterHeight = textPainter.height / 2;
+        let rectTopPosition = thumbCenter.dy - halfPathHeight;
+        if (this[_isLeftTooltip](parentBox)) {
+          let dx = -offset.dy - 7 - (pathRect.size.width - 7) / 2 - textPainter.width / 2;
+          let dy = rectTopPosition >= trackRect.top ? thumbCenter.dy + halfPathHeight >= trackRect.bottom ? -halfTextPainterHeight - halfPathHeight - thumbCenter.dy + trackRect.bottom : -halfTextPainterHeight : -halfTextPainterHeight + halfPathHeight - thumbCenter.dy + trackRect.top;
+          textPainter.paint(context.canvas, new ui.Offset.new(dx, dy));
+        } else {
+          let dx = offset.dy + 7 + (pathRect.size.width - 7) / 2 - textPainter.width / 2;
+          let dy = rectTopPosition >= trackRect.top ? thumbCenter.dy + halfPathHeight >= trackRect.bottom ? -halfTextPainterHeight - halfPathHeight - thumbCenter.dy + trackRect.bottom : -halfTextPainterHeight : -halfTextPainterHeight + halfPathHeight - thumbCenter.dy + trackRect.top;
+          textPainter.paint(context.canvas, new ui.Offset.new(dx, dy));
+        }
+      } else {
+        let dx = rectLeftPosition >= minLeftX ? thumbCenter.dx + halfTextPainterWidth + leftPadding > trackRect.right ? -halfTextPainterWidth - halfPathWidth + trackRect.right - thumbCenter.dx : -halfTextPainterWidth : -halfTextPainterWidth + halfPathWidth + trackRect.left - thumbCenter.dx;
+        let dy = offset.dy + 7 + (pathRect.size.height - 7) / 2 + textPainter.height / 2;
+        textPainter.paint(context.canvas, new ui.Offset.new(dx, -dy));
+      }
+      context.canvas.restore();
+    }
+  };
+  (slider_shapes.SfRectangularTooltipShape.new = function() {
+    slider_shapes.SfRectangularTooltipShape.__proto__.new.call(this);
+    ;
+  }).prototype = slider_shapes.SfRectangularTooltipShape.prototype;
+  dart.addTypeTests(slider_shapes.SfRectangularTooltipShape);
+  dart.addTypeCaches(slider_shapes.SfRectangularTooltipShape);
+  dart.setMethodSignature(slider_shapes.SfRectangularTooltipShape, () => ({
+    __proto__: dart.getMethods(slider_shapes.SfRectangularTooltipShape.__proto__),
+    [_hasTooltipOverlapStroke]: dart.fnType(core.bool, [slider_base.RenderBaseSlider]),
+    [_isVertical]: dart.fnType(core.bool, [slider_base.RenderBaseSlider]),
+    [_isLeftTooltip]: dart.fnType(core.bool, [slider_base.RenderBaseSlider]),
+    [_updateRectangularTooltipWidth]: dart.fnType(ui.Path, [ui.Size, core.double, ui.Rect, core.double], {isLeftTooltip: dart.nullable(core.bool)}, {isVertical: core.bool}),
+    [_getRectangularPath]: dart.fnType(ui.Path, [core.double, core.double, core.double, core.double, core.double, core.double], {isLeftTooltip: dart.nullable(core.bool), toolTipWidth: dart.nullable(core.double)}, {isVertical: core.bool}),
+    paint: dart.fnType(dart.void, [object.PaintingContext, ui.Offset, ui.Offset, text_painter.TextPainter], {}, {animation: animation.Animation$(core.double), paint: ui.Paint, parentBox: box.RenderBox, sliderThemeData: slider_theme.SfSliderThemeData, trackRect: ui.Rect})
+  }));
+  dart.setLibraryUri(slider_shapes.SfRectangularTooltipShape, I[0]);
+  var minTrackWidth = dart.privateName(slider_base, "RenderBaseSlider.minTrackWidth");
+  var textPainter = dart.privateName(slider_base, "RenderBaseSlider.textPainter");
+  var sliderType$ = dart.privateName(slider_base, "RenderBaseSlider.sliderType");
+  var divisions = dart.privateName(slider_base, "RenderBaseSlider.divisions");
+  var willDrawTooltip = dart.privateName(slider_base, "RenderBaseSlider.willDrawTooltip");
+  var isInteractionEnd = dart.privateName(slider_base, "RenderBaseSlider.isInteractionEnd");
+  var unformattedLabels = dart.privateName(slider_base, "RenderBaseSlider.unformattedLabels");
+  var horizontalDragGestureRecognizer = dart.privateName(slider_base, "RenderBaseSlider.horizontalDragGestureRecognizer");
+  var verticalDragGestureRecognizer = dart.privateName(slider_base, "RenderBaseSlider.verticalDragGestureRecognizer");
+  var showOverlappingTooltipStroke = dart.privateName(slider_base, "RenderBaseSlider.showOverlappingTooltipStroke");
+  var showOverlappingThumbStroke = dart.privateName(slider_base, "RenderBaseSlider.showOverlappingThumbStroke");
+  var mainAxisOffset = dart.privateName(slider_base, "RenderBaseSlider.mainAxisOffset");
+  var activeThumb = dart.privateName(slider_base, "RenderBaseSlider.activeThumb");
+  var currentPointerType = dart.privateName(slider_base, "RenderBaseSlider.currentPointerType");
+  var __RenderBaseSlider__minInMilliseconds = dart.privateName(slider_base, "_#RenderBaseSlider#_minInMilliseconds");
+  var __RenderBaseSlider__maxInMilliseconds = dart.privateName(slider_base, "_#RenderBaseSlider#_maxInMilliseconds");
+  var __RenderBaseSlider__visibleLabels = dart.privateName(slider_base, "_#RenderBaseSlider#_visibleLabels");
+  var __RenderBaseSlider__majorTickPositions = dart.privateName(slider_base, "_#RenderBaseSlider#_majorTickPositions");
+  var __RenderBaseSlider__minorTickPositions = dart.privateName(slider_base, "_#RenderBaseSlider#_minorTickPositions");
+  var __RenderBaseSlider_tapGestureRecognizer = dart.privateName(slider_base, "_#RenderBaseSlider#tapGestureRecognizer");
+  var __RenderBaseSlider_actualHeight = dart.privateName(slider_base, "_#RenderBaseSlider#actualHeight");
+  var __RenderBaseSlider_trackOffset = dart.privateName(slider_base, "_#RenderBaseSlider#trackOffset");
+  var __RenderBaseSlider_maxTrackHeight = dart.privateName(slider_base, "_#RenderBaseSlider#maxTrackHeight");
+  var __RenderBaseSlider_thumbElevationTween = dart.privateName(slider_base, "_#RenderBaseSlider#thumbElevationTween");
+  var _min = dart.privateName(slider_base, "_min");
+  var _max = dart.privateName(slider_base, "_max");
+  var _interval = dart.privateName(slider_base, "_interval");
+  var _stepSize = dart.privateName(slider_base, "_stepSize");
+  var _stepDuration = dart.privateName(slider_base, "_stepDuration");
+  var _minorTicksPerInterval = dart.privateName(slider_base, "_minorTicksPerInterval");
+  var _showTicks = dart.privateName(slider_base, "_showTicks");
+  var _showLabels = dart.privateName(slider_base, "_showLabels");
+  var _showDividers = dart.privateName(slider_base, "_showDividers");
+  var _enableTooltip = dart.privateName(slider_base, "_enableTooltip");
+  var _shouldAlwaysShowTooltip = dart.privateName(slider_base, "_shouldAlwaysShowTooltip");
+  var _isInversed = dart.privateName(slider_base, "_isInversed");
+  var _labelPlacement = dart.privateName(slider_base, "_labelPlacement");
+  var _numberFormat = dart.privateName(slider_base, "_numberFormat");
+  var _dateFormat = dart.privateName(slider_base, "_dateFormat");
+  var _dateIntervalType = dart.privateName(slider_base, "_dateIntervalType");
+  var _labelFormatterCallback = dart.privateName(slider_base, "_labelFormatterCallback");
+  var _tooltipTextFormatterCallback = dart.privateName(slider_base, "_tooltipTextFormatterCallback");
+  var _trackShape = dart.privateName(slider_base, "_trackShape");
+  var _dividerShape = dart.privateName(slider_base, "_dividerShape");
+  var _overlayShape = dart.privateName(slider_base, "_overlayShape");
+  var _thumbShape = dart.privateName(slider_base, "_thumbShape");
+  var _tickShape = dart.privateName(slider_base, "_tickShape");
+  var _minorTickShape = dart.privateName(slider_base, "_minorTickShape");
+  var _tooltipShape = dart.privateName(slider_base, "_tooltipShape");
+  var _sliderThemeData = dart.privateName(slider_base, "_sliderThemeData");
+  var _textDirection = dart.privateName(slider_base, "_textDirection");
+  var _mediaQueryData = dart.privateName(slider_base, "_mediaQueryData");
+  var _tooltipPosition = dart.privateName(slider_base, "_tooltipPosition");
+  var _getTrackOffset = dart.privateName(slider_base, "_getTrackOffset");
+  var _minInMilliseconds = dart.privateName(slider_base, "_minInMilliseconds");
+  var _maxInMilliseconds = dart.privateName(slider_base, "_maxInMilliseconds");
+  var _visibleLabels = dart.privateName(slider_base, "_visibleLabels");
+  var _majorTickPositions = dart.privateName(slider_base, "_majorTickPositions");
+  var _minorTickPositions = dart.privateName(slider_base, "_minorTickPositions");
+  var _actualDividerSize = dart.privateName(slider_base, "_actualDividerSize");
+  var _generateLabelsAndMajorTicksBasedOnInterval = dart.privateName(slider_base, "_generateLabelsAndMajorTicksBasedOnInterval");
+  var _generateEdgeLabelsAndMajorTicks = dart.privateName(slider_base, "_generateEdgeLabelsAndMajorTicks");
+  var _getDateTimeDifference = dart.privateName(slider_base, "_getDateTimeDifference");
+  var _getNextDate = dart.privateName(slider_base, "_getNextDate");
+  var _generateDateTimeMinorTicks = dart.privateName(slider_base, "_generateDateTimeMinorTicks");
+  var _generateNumericMinorTicks = dart.privateName(slider_base, "_generateNumericMinorTicks");
+  var _updateMinorTicksPosition = dart.privateName(slider_base, "_updateMinorTicksPosition");
+  var _name = dart.privateName(common, "_name");
+  var _getAdjustPaddleWidth = dart.privateName(slider_base, "_getAdjustPaddleWidth");
+  var _drawTick = dart.privateName(slider_base, "_drawTick");
+  var _drawMinorTick = dart.privateName(slider_base, "_drawMinorTick");
+  var _drawDivider = dart.privateName(slider_base, "_drawDivider");
+  var _drawLabel = dart.privateName(slider_base, "_drawLabel");
+  var _drawText = dart.privateName(slider_base, "_drawText");
+  var _textSize = dart.privateName(slider_base, "_textSize");
+  var _edgeLabelWidth = dart.privateName(slider_base, "_edgeLabelWidth");
+  var _maximumLabelWidth = dart.privateName(slider_base, "_maximumLabelWidth");
+  const RenderProxyBox_RelayoutWhenSystemFontsChangeMixin$36 = class RenderProxyBox_RelayoutWhenSystemFontsChangeMixin extends proxy_box.RenderProxyBox {};
+  (RenderProxyBox_RelayoutWhenSystemFontsChangeMixin$36.new = function(child) {
+    RenderProxyBox_RelayoutWhenSystemFontsChangeMixin$36.__proto__.new.call(this, child);
+  }).prototype = RenderProxyBox_RelayoutWhenSystemFontsChangeMixin$36.prototype;
+  dart.applyMixin(RenderProxyBox_RelayoutWhenSystemFontsChangeMixin$36, object.RelayoutWhenSystemFontsChangeMixin);
+  slider_base.RenderBaseSlider = class RenderBaseSlider extends RenderProxyBox_RelayoutWhenSystemFontsChangeMixin$36 {
+    get minTrackWidth() {
+      return this[minTrackWidth];
+    }
+    set minTrackWidth(value) {
+      super.minTrackWidth = value;
+    }
+    get textPainter() {
+      return this[textPainter];
+    }
+    set textPainter(value) {
+      super.textPainter = value;
+    }
+    get sliderType() {
+      return this[sliderType$];
+    }
+    set sliderType(value) {
+      super.sliderType = value;
+    }
+    get divisions() {
+      return this[divisions];
+    }
+    set divisions(value) {
+      this[divisions] = value;
+    }
+    get willDrawTooltip() {
+      return this[willDrawTooltip];
+    }
+    set willDrawTooltip(value) {
+      this[willDrawTooltip] = value;
+    }
+    get isInteractionEnd() {
+      return this[isInteractionEnd];
+    }
+    set isInteractionEnd(value) {
+      this[isInteractionEnd] = value;
+    }
+    get unformattedLabels() {
+      return this[unformattedLabels];
+    }
+    set unformattedLabels(value) {
+      this[unformattedLabels] = value;
+    }
+    get horizontalDragGestureRecognizer() {
+      return this[horizontalDragGestureRecognizer];
+    }
+    set horizontalDragGestureRecognizer(value) {
+      this[horizontalDragGestureRecognizer] = value;
+    }
+    get verticalDragGestureRecognizer() {
+      return this[verticalDragGestureRecognizer];
+    }
+    set verticalDragGestureRecognizer(value) {
+      this[verticalDragGestureRecognizer] = value;
+    }
+    get showOverlappingTooltipStroke() {
+      return this[showOverlappingTooltipStroke];
+    }
+    set showOverlappingTooltipStroke(value) {
+      this[showOverlappingTooltipStroke] = value;
+    }
+    get showOverlappingThumbStroke() {
+      return this[showOverlappingThumbStroke];
+    }
+    set showOverlappingThumbStroke(value) {
+      this[showOverlappingThumbStroke] = value;
+    }
+    get mainAxisOffset() {
+      return this[mainAxisOffset];
+    }
+    set mainAxisOffset(value) {
+      this[mainAxisOffset] = value;
+    }
+    get activeThumb() {
+      return this[activeThumb];
+    }
+    set activeThumb(value) {
+      this[activeThumb] = value;
+    }
+    get currentPointerType() {
+      return this[currentPointerType];
+    }
+    set currentPointerType(value) {
+      this[currentPointerType] = value;
+    }
+    set [_minInMilliseconds](t4) {
+      this[__RenderBaseSlider__minInMilliseconds] = t4;
+    }
+    get [_minInMilliseconds]() {
+      let t5;
+      t5 = this[__RenderBaseSlider__minInMilliseconds];
+      return t5 == null ? dart.throw(new _internal.LateError.fieldNI("_minInMilliseconds")) : t5;
+    }
+    get [_maxInMilliseconds]() {
+      let t5;
+      t5 = this[__RenderBaseSlider__maxInMilliseconds];
+      return t5 == null ? dart.throw(new _internal.LateError.fieldNI("_maxInMilliseconds")) : t5;
+    }
+    set [_maxInMilliseconds](t5) {
+      this[__RenderBaseSlider__maxInMilliseconds] = t5;
+    }
+    get [_visibleLabels]() {
+      let t6;
+      t6 = this[__RenderBaseSlider__visibleLabels];
+      return t6 == null ? dart.throw(new _internal.LateError.fieldNI("_visibleLabels")) : t6;
+    }
+    set [_visibleLabels](t6) {
+      this[__RenderBaseSlider__visibleLabels] = t6;
+    }
+    get [_majorTickPositions]() {
+      let t7;
+      t7 = this[__RenderBaseSlider__majorTickPositions];
+      return t7 == null ? dart.throw(new _internal.LateError.fieldNI("_majorTickPositions")) : t7;
+    }
+    set [_majorTickPositions](t7) {
+      this[__RenderBaseSlider__majorTickPositions] = t7;
+    }
+    get [_minorTickPositions]() {
+      let t8;
+      t8 = this[__RenderBaseSlider__minorTickPositions];
+      return t8 == null ? dart.throw(new _internal.LateError.fieldNI("_minorTickPositions")) : t8;
+    }
+    set [_minorTickPositions](t8) {
+      this[__RenderBaseSlider__minorTickPositions] = t8;
+    }
+    get tapGestureRecognizer() {
+      let t9;
+      t9 = this[__RenderBaseSlider_tapGestureRecognizer];
+      return t9 == null ? dart.throw(new _internal.LateError.fieldNI("tapGestureRecognizer")) : t9;
+    }
+    set tapGestureRecognizer(t9) {
+      this[__RenderBaseSlider_tapGestureRecognizer] = t9;
+    }
+    get actualHeight() {
+      let t10;
+      t10 = this[__RenderBaseSlider_actualHeight];
+      return t10 == null ? dart.throw(new _internal.LateError.fieldNI("actualHeight")) : t10;
+    }
+    set actualHeight(t10) {
+      this[__RenderBaseSlider_actualHeight] = t10;
+    }
+    get trackOffset() {
+      let t11;
+      t11 = this[__RenderBaseSlider_trackOffset];
+      return t11 == null ? dart.throw(new _internal.LateError.fieldNI("trackOffset")) : t11;
+    }
+    set trackOffset(t11) {
+      this[__RenderBaseSlider_trackOffset] = t11;
+    }
+    get maxTrackHeight() {
+      let t12;
+      t12 = this[__RenderBaseSlider_maxTrackHeight];
+      return t12 == null ? dart.throw(new _internal.LateError.fieldNI("maxTrackHeight")) : t12;
+    }
+    set maxTrackHeight(t12) {
+      this[__RenderBaseSlider_maxTrackHeight] = t12;
+    }
+    get thumbElevationTween() {
+      let t13;
+      t13 = this[__RenderBaseSlider_thumbElevationTween];
+      return t13 == null ? dart.throw(new _internal.LateError.fieldNI("thumbElevationTween")) : t13;
+    }
+    set thumbElevationTween(t13) {
+      this[__RenderBaseSlider_thumbElevationTween] = t13;
+    }
+    get min() {
+      return this[_min];
+    }
+    set min(value) {
+      if (dart.equals(this[_min], value)) {
+        return;
+      }
+      this[_min] = value;
+      if (core.DateTime.is(this[_min])) {
+        this[_minInMilliseconds] = core.DateTime.as(this[_min]).millisecondsSinceEpoch[$toDouble]();
+      }
+      this.generateLabelsAndMajorTicks();
+      this.generateMinorTicks();
+      this.markNeedsPaint();
+    }
+    get max() {
+      return this[_max];
+    }
+    set max(value) {
+      if (dart.equals(this[_max], value)) {
+        return;
+      }
+      this[_max] = value;
+      if (core.DateTime.is(this[_max])) {
+        this[_maxInMilliseconds] = core.DateTime.as(this[_max]).millisecondsSinceEpoch[$toDouble]();
+      }
+      this.generateLabelsAndMajorTicks();
+      this.generateMinorTicks();
+      this.markNeedsPaint();
+    }
+    get interval() {
+      return this[_interval];
+    }
+    set interval(value) {
+      if (this[_interval] == value) {
+        return;
+      }
+      this[_interval] = value;
+      this.generateLabelsAndMajorTicks();
+      this.generateMinorTicks();
+      this.markNeedsPaint();
+    }
+    get stepSize() {
+      return this[_stepSize];
+    }
+    set stepSize(value) {
+      if (this[_stepSize] == value) {
+        return;
+      }
+      this[_stepSize] = value;
+      this.markNeedsPaint();
+    }
+    get stepDuration() {
+      return this[_stepDuration];
+    }
+    set stepDuration(value) {
+      if (dart.equals(this[_stepDuration], value)) {
+        return;
+      }
+      this[_stepDuration] = value;
+    }
+    get minorTicksPerInterval() {
+      return this[_minorTicksPerInterval];
+    }
+    set minorTicksPerInterval(value) {
+      if (this[_minorTicksPerInterval] === value) {
+        return;
+      }
+      this[_minorTicksPerInterval] = value;
+      this.generateMinorTicks();
+      this.markNeedsPaint();
+    }
+    get showTicks() {
+      return this[_showTicks];
+    }
+    set showTicks(value) {
+      if (this[_showTicks] === value) {
+        return;
+      }
+      this[_showTicks] = value;
+      this.markNeedsLayout();
+    }
+    get showLabels() {
+      return this[_showLabels];
+    }
+    set showLabels(value) {
+      if (this[_showLabels] === value) {
+        return;
+      }
+      this[_showLabels] = value;
+      this.markNeedsLayout();
+    }
+    get showDividers() {
+      return this[_showDividers];
+    }
+    set showDividers(value) {
+      if (this[_showDividers] === value) {
+        return;
+      }
+      this[_showDividers] = value;
+      this.markNeedsLayout();
+    }
+    get enableTooltip() {
+      return this[_enableTooltip];
+    }
+    set enableTooltip(value) {
+      if (this[_enableTooltip] === value) {
+        return;
+      }
+      this[_enableTooltip] = value;
+    }
+    get shouldAlwaysShowTooltip() {
+      return this[_shouldAlwaysShowTooltip];
+    }
+    set shouldAlwaysShowTooltip(value) {
+      if (this[_shouldAlwaysShowTooltip] === value) {
+        return;
+      }
+      this[_shouldAlwaysShowTooltip] = value;
+      this.markNeedsPaint();
+    }
+    get isInversed() {
+      return this[_isInversed];
+    }
+    set isInversed(value) {
+      if (this[_isInversed] === value) {
+        return;
+      }
+      this[_isInversed] = value;
+      this.markNeedsLayout();
+    }
+    get labelPlacement() {
+      return this[_labelPlacement];
+    }
+    set labelPlacement(value) {
+      if (this[_labelPlacement] === value) {
+        return;
+      }
+      this[_labelPlacement] = value;
+      this.markNeedsPaint();
+    }
+    get numberFormat() {
+      return this[_numberFormat];
+    }
+    set numberFormat(value) {
+      if (this[_numberFormat][$_equals](value)) {
+        return;
+      }
+      this[_numberFormat] = value;
+      this.generateLabelsAndMajorTicks();
+      this.markNeedsPaint();
+    }
+    get dateIntervalType() {
+      return this[_dateIntervalType];
+    }
+    set dateIntervalType(value) {
+      if (this[_dateIntervalType] == value) {
+        return;
+      }
+      this[_dateIntervalType] = value;
+      this.generateLabelsAndMajorTicks();
+      this.generateMinorTicks();
+      this.markNeedsPaint();
+    }
+    get dateFormat() {
+      return this[_dateFormat];
+    }
+    set dateFormat(value) {
+      if (dart.equals(this[_dateFormat], value)) {
+        return;
+      }
+      this[_dateFormat] = value;
+      this.generateLabelsAndMajorTicks();
+      this.markNeedsPaint();
+    }
+    get labelFormatterCallback() {
+      return this[_labelFormatterCallback];
+    }
+    set labelFormatterCallback(value) {
+      if (this[_labelFormatterCallback][$_equals](value)) {
+        return;
+      }
+      this[_labelFormatterCallback] = value;
+      this.markNeedsSemanticsUpdate();
+    }
+    get tooltipTextFormatterCallback() {
+      return this[_tooltipTextFormatterCallback];
+    }
+    set tooltipTextFormatterCallback(value) {
+      if (this[_tooltipTextFormatterCallback][$_equals](value)) {
+        return;
+      }
+      this[_tooltipTextFormatterCallback] = value;
+      this.markNeedsSemanticsUpdate();
+    }
+    get thumbShape() {
+      return this[_thumbShape];
+    }
+    set thumbShape(value) {
+      if (this[_thumbShape][$_equals](value)) {
+        return;
+      }
+      this[_thumbShape] = value;
+      this.markNeedsLayout();
+    }
+    get overlayShape() {
+      return this[_overlayShape];
+    }
+    set overlayShape(value) {
+      if (this[_overlayShape][$_equals](value)) {
+        return;
+      }
+      this[_overlayShape] = value;
+    }
+    get trackShape() {
+      return this[_trackShape];
+    }
+    set trackShape(value) {
+      if (this[_trackShape][$_equals](value)) {
+        return;
+      }
+      this[_trackShape] = value;
+      this.markNeedsLayout();
+    }
+    get dividerShape() {
+      return this[_dividerShape];
+    }
+    set dividerShape(value) {
+      if (this[_dividerShape][$_equals](value)) {
+        return;
+      }
+      this[_dividerShape] = value;
+      this.markNeedsLayout();
+    }
+    get tickShape() {
+      return this[_tickShape];
+    }
+    set tickShape(value) {
+      if (this[_tickShape][$_equals](value)) {
+        return;
+      }
+      this[_tickShape] = value;
+      this.markNeedsLayout();
+    }
+    get minorTickShape() {
+      return this[_minorTickShape];
+    }
+    set minorTickShape(value) {
+      if (this[_minorTickShape][$_equals](value)) {
+        return;
+      }
+      this[_minorTickShape] = value;
+      this.markNeedsLayout();
+    }
+    get tooltipShape() {
+      return this[_tooltipShape];
+    }
+    set tooltipShape(value) {
+      if (this[_tooltipShape][$_equals](value)) {
+        return;
+      }
+      this[_tooltipShape] = value;
+    }
+    get sliderThemeData() {
+      return this[_sliderThemeData];
+    }
+    set sliderThemeData(value) {
+      if (this[_sliderThemeData]._equals(value)) {
+        return;
+      }
+      this[_sliderThemeData] = value;
+      this.markNeedsPaint();
+    }
+    get textDirection() {
+      return this[_textDirection];
+    }
+    set textDirection(value) {
+      if (this[_textDirection] === value) {
+        return;
+      }
+      this[_textDirection] = value;
+      this.updateTextPainter();
+      this.markNeedsLayout();
+    }
+    get tooltipPosition() {
+      return this[_tooltipPosition];
+    }
+    set tooltipPosition(value) {
+      if (this[_tooltipPosition] == value) {
+        return;
+      }
+      this[_tooltipPosition] = value;
+      this.markNeedsPaint();
+    }
+    get mediaQueryData() {
+      return this[_mediaQueryData];
+    }
+    set mediaQueryData(value) {
+      if (this[_mediaQueryData]._equals(value)) {
+        return;
+      }
+      this[_mediaQueryData] = value;
+      this.updateTextPainter();
+      this.markNeedsLayout();
+    }
+    get isInteractive() {
+      return false;
+    }
+    get isDateTime() {
+      return dart.runtimeType(this[_min])._equals(dart.wrapType(core.DateTime)) && dart.runtimeType(this[_max])._equals(dart.wrapType(core.DateTime));
+    }
+    get actualMin() {
+      return this.isDateTime ? this[_minInMilliseconds] : core.double.as(dart.dsend(this[_min], 'toDouble', []));
+    }
+    get actualMax() {
+      return this.isDateTime ? this[_maxInMilliseconds] : core.double.as(dart.dsend(this[_max], 'toDouble', []));
+    }
+    get isDiscrete() {
+      return this[_stepSize] != null && dart.nullCheck(this[_stepSize]) > 0 || this[_stepDuration] != null;
+    }
+    get [_actualDividerSize]() {
+      return this[_dividerShape].getPreferredSize(this[_sliderThemeData]);
+    }
+    get actualTickSize() {
+      return this[_tickShape].getPreferredSize(this[_sliderThemeData]);
+    }
+    get actualMinorTickSize() {
+      return this[_minorTickShape].getPreferredSize(this[_sliderThemeData]);
+    }
+    get maximumFontSize() {
+      return math.max(core.double, dart.nullCheck(dart.nullCheck(this[_sliderThemeData].inactiveLabelStyle).fontSize), dart.nullCheck(dart.nullCheck(this[_sliderThemeData].activeLabelStyle).fontSize));
+    }
+    get actualLabelSize() {
+      return new ui.Size.fromHeight(this.maximumFontSize);
+    }
+    get actualTrackRect() {
+      return this[_trackShape].getPreferredRect(this, this[_sliderThemeData], ui.Offset.zero);
+    }
+    get actualThumbSize() {
+      return this[_thumbShape].getPreferredSize(this[_sliderThemeData]);
+    }
+    get actualOverlaySize() {
+      return this[_overlayShape].getPreferredSize(this[_sliderThemeData]);
+    }
+    get actualTickHeight() {
+      return this[_showTicks] ? dart.nullCheck(this[_sliderThemeData].tickSize).height + (this[_sliderThemeData].tickOffset != null ? dart.nullCheck(this[_sliderThemeData].tickOffset).dy : 0) : 0.0;
+    }
+    get actualTickWidth() {
+      return this[_showTicks] ? dart.nullCheck(this[_sliderThemeData].tickSize).width + (this[_sliderThemeData].tickOffset != null ? dart.nullCheck(this[_sliderThemeData].tickOffset).dx : 0) : 0.0;
+    }
+    get actualMinorTickHeight() {
+      return this[_minorTicksPerInterval] > 0 ? this.actualMinorTickSize.height : 0.0;
+    }
+    get actualMinorTickWidth() {
+      return this[_minorTicksPerInterval] > 0 ? this.actualMinorTickSize.width : 0.0;
+    }
+    get actualLabelHeight() {
+      return this[_showLabels] ? this.actualLabelSize.height * this.textPainter.textScaleFactor + (this[_sliderThemeData].labelOffset != null ? dart.nullCheck(this[_sliderThemeData].labelOffset).dy : 0) : 0.0;
+    }
+    get actualLabelOffset() {
+      return this[_showLabels] ? this[_sliderThemeData].labelOffset != null ? dart.nullCheck(this[_sliderThemeData].labelOffset).dx : 0.0 : 0.0;
+    }
+    get tooltipStartY() {
+      return this.sliderType === constants.SliderType.horizontal ? slider_shapes.SfPaddleTooltipShape.is(this[_tooltipShape]) ? math.max(core.double, this.actualThumbSize.height, this.actualTrackRect.height) / 2 : math.max(core.double, this.actualThumbSize.height, this.actualTrackRect.height) / 2 + 10 : math.max(core.double, this.actualThumbSize.width, this.actualTrackRect.width) / 2 + 10;
+    }
+    get adjustmentUnit() {
+      return (this.actualMax - this.actualMin) / 10;
+    }
+    get semanticActionUnit() {
+      let t14, t14$;
+      return this.isDateTime ? (t14 = this[_stepDuration], t14 == null ? this.adjustmentUnit : t14) : (t14$ = this[_stepSize], t14$ == null ? this.adjustmentUnit : t14$);
+    }
+    updateTextPainter() {
+      let t14;
+      t14 = this.textPainter;
+      (() => {
+        t14.textDirection = this[_textDirection];
+        t14.textScaleFactor = this[_mediaQueryData].textScaleFactor;
+        return t14;
+      })();
+    }
+    [_getTrackOffset]() {
+      let dx = T.JSArrayOfdouble().of([this.actualOverlaySize.width, this.actualThumbSize.width, this.actualTickSize.width, this.actualMinorTickSize.width])[$reduce](dart.gbind(C[0] || CT.C0, core.double)) / 2;
+      let dy = T.JSArrayOfdouble().of([this.actualOverlaySize.height, this.actualThumbSize.height, this[_actualDividerSize].height, this.maxTrackHeight])[$reduce](dart.gbind(C[0] || CT.C0, core.double)) / 2;
+      return new ui.Offset.new(dx, dy);
+    }
+    getMaxTrackHeight() {
+      return math.max(core.double, this[_sliderThemeData].activeTrackHeight, this[_sliderThemeData].inactiveTrackHeight);
+    }
+    getFormattedText(value) {
+      if (this.isDateTime) {
+        return this[_dateFormat] != null ? dart.nullCheck(this[_dateFormat]).format(core.DateTime.as(value)) : dart.toString(value);
+      }
+      return this[_numberFormat].format(value);
+    }
+    getFactorFromValue(value) {
+      let factor = value == null || this.actualMax <= this.actualMin ? 0.0 : core.double.as(dart.dsend(dart.dsend(value, '-', [this.actualMin]), '/', [this.actualMax - this.actualMin]));
+      if (this[_isInversed]) {
+        return 1.0 - factor;
+      } else {
+        return factor;
+      }
+    }
+    getPositionFromValue(value) {
+      return this.sliderType === constants.SliderType.horizontal ? this.getFactorFromValue(value) * this.actualTrackRect.width + this.actualTrackRect.left : this.actualTrackRect.bottom - this.getFactorFromValue(value) * this.actualTrackRect.height;
+    }
+    generateLabelsAndMajorTicks() {
+      let t14;
+      this[_visibleLabels][$clear]();
+      t14 = this.unformattedLabels;
+      t14 == null ? null : t14[$clear]();
+      this[_majorTickPositions][$clear]();
+      if (this[_interval] != null && dart.nullCheck(this[_interval]) > 0) {
+        this[_generateLabelsAndMajorTicksBasedOnInterval]();
+      } else if (this[_showTicks] || this[_showLabels]) {
+        this[_generateEdgeLabelsAndMajorTicks]();
+      }
+    }
+    [_generateLabelsAndMajorTicksBasedOnInterval]() {
+      let t15, t14, t14$;
+      let label = null;
+      let labelPosition = null;
+      let valueInMilliseconds = null;
+      let currentValue = this[_min];
+      this.divisions = core.double.as(dart.dsend(dart.dsend(this.isDateTime ? this[_getDateTimeDifference](core.DateTime.as(this[_min]), core.DateTime.as(this[_max]), this[_dateIntervalType]) : dart.dsend(this[_max], '-', [this[_min]]), 'toDouble', []), '/', [this[_interval]]));
+      for (let i = 0; i <= dart.nullCheck(this.divisions); i = i + 1) {
+        label = (t14 = currentValue, t15 = this.getFormattedText(currentValue), this[_labelFormatterCallback](t14, t15));
+        if (this.isDateTime) {
+          valueInMilliseconds = core.DateTime.as(currentValue).millisecondsSinceEpoch;
+        }
+        this[_visibleLabels][$add](label);
+        t14$ = this.unformattedLabels;
+        t14$ == null ? null : t14$[$add](core.double.as(this.isDateTime ? dart.nullCheck(valueInMilliseconds)[$toDouble]() : dart.dsend(currentValue, 'toDouble', [])));
+        if (this.sliderType === constants.SliderType.horizontal) {
+          labelPosition = this.getFactorFromValue(this.isDateTime ? valueInMilliseconds : currentValue) * this.actualTrackRect.width;
+        } else {
+          labelPosition = this.getFactorFromValue(this.isDateTime ? valueInMilliseconds : currentValue) * this.actualTrackRect.height;
+        }
+        if (!this[_majorTickPositions][$contains](labelPosition)) {
+          this[_majorTickPositions][$add](labelPosition);
+        }
+        currentValue = this.isDateTime ? this[_getNextDate](core.DateTime.as(currentValue), this[_dateIntervalType], dart.nullCheck(this[_interval])) : dart.dsend(currentValue, '+', [this[_interval]]);
+      }
+    }
+    [_generateEdgeLabelsAndMajorTicks]() {
+      let t15, t14, t14$, t15$, t14$0, t14$1;
+      let label = null;
+      this.divisions = 1.0;
+      label = (t14 = this[_min], t15 = this.getFormattedText(this[_min]), this[_labelFormatterCallback](t14, t15));
+      this[_visibleLabels][$add](label);
+      t14$ = this.unformattedLabels;
+      t14$ == null ? null : t14$[$add](core.double.as(this.isDateTime ? dart.dsend(dart.dload(this[_min], 'millisecondsSinceEpoch'), 'toDouble', []) : dart.dsend(this[_min], 'toDouble', [])));
+      label = (t14$0 = this[_max], t15$ = this.getFormattedText(this[_max]), this[_labelFormatterCallback](t14$0, t15$));
+      this[_visibleLabels][$add](label);
+      t14$1 = this.unformattedLabels;
+      t14$1 == null ? null : t14$1[$add](core.double.as(this.isDateTime ? dart.dsend(dart.dload(this[_max], 'millisecondsSinceEpoch'), 'toDouble', []) : dart.dsend(this[_max], 'toDouble', [])));
+      if (this.sliderType === constants.SliderType.horizontal) {
+        this[_majorTickPositions][$add](this.getFactorFromValue(this.actualMin) * this.actualTrackRect.width);
+        this[_majorTickPositions][$add](this.getFactorFromValue(this.actualMax) * this.actualTrackRect.width);
+      } else {
+        this[_majorTickPositions][$add](this.getFactorFromValue(this.actualMin) * this.actualTrackRect.height);
+        this[_majorTickPositions][$add](this.getFactorFromValue(this.actualMax) * this.actualTrackRect.height);
+      }
+    }
+    generateMinorTicks() {
+      if (this[_interval] != null && dart.nullCheck(this[_interval]) > 0) {
+        this[_minorTickPositions][$clear]();
+        if (this[_minorTicksPerInterval] > 0) {
+          if (this.isDateTime) {
+            this[_generateDateTimeMinorTicks]();
+          } else {
+            this[_generateNumericMinorTicks]();
+          }
+        }
+      }
+    }
+    [_generateDateTimeMinorTicks]() {
+      let majorTicksCount = this[_majorTickPositions][$length];
+      let minorTickPosition = null;
+      let nextDate = this[_getNextDate](core.DateTime.as(this[_min]), this[_dateIntervalType], dart.nullCheck(this[_interval]));
+      let currentActualDate = this[_getNextDate](nextDate, this[_dateIntervalType], -dart.nullCheck(this[_interval]));
+      for (let i = 1; i <= majorTicksCount; i = i + 1) {
+        let intervalDiff = this[_getDateTimeDifference](currentActualDate, nextDate, this[_dateIntervalType]) / (this[_minorTicksPerInterval] + 1);
+        if (intervalDiff === 1.0) {
+          for (let j = 1.0; j <= this[_minorTicksPerInterval]; j = j + 1) {
+            let nextMinorDate = this[_getNextDate](currentActualDate, this[_dateIntervalType], j);
+            minorTickPosition = this[_updateMinorTicksPosition](nextMinorDate.millisecondsSinceEpoch[$toDouble]());
+            this[_minorTickPositions][$add](minorTickPosition);
+          }
+        } else {
+          let minorPositionDiff = (nextDate.millisecondsSinceEpoch - currentActualDate.millisecondsSinceEpoch) / (this[_minorTicksPerInterval] + 1);
+          for (let j = 1; j <= this[_minorTicksPerInterval]; j = j + 1) {
+            minorTickPosition = this[_updateMinorTicksPosition](currentActualDate.millisecondsSinceEpoch + j * minorPositionDiff);
+            this[_minorTickPositions][$add](minorTickPosition);
+          }
+        }
+        currentActualDate = nextDate;
+        nextDate = this[_getNextDate](currentActualDate, this[_dateIntervalType], dart.nullCheck(this[_interval]));
+      }
+    }
+    [_updateMinorTicksPosition](value) {
+      return this.getFactorFromValue(value) * (this.sliderType === constants.SliderType.horizontal ? this.actualTrackRect.width : this.actualTrackRect.height);
+    }
+    [_generateNumericMinorTicks]() {
+      let majorTicksCount = this[_majorTickPositions][$length];
+      for (let i = 0; i <= majorTicksCount - 1; i = i + 1) {
+        let minorPositionDiff = (i + 1 < majorTicksCount ? this[_majorTickPositions][$_get](i + 1) - this[_majorTickPositions][$_get](i) : (this.sliderType === constants.SliderType.horizontal ? this.actualTrackRect.width : this.actualTrackRect.height) - (this.isInversed ? this[_majorTickPositions][$_get](0) : this[_majorTickPositions][$_get](majorTicksCount - 1))) / (this[_minorTicksPerInterval] + 1);
+        for (let j = 1; j <= this[_minorTicksPerInterval]; j = j + 1) {
+          this[_minorTickPositions][$add](this[_majorTickPositions][$_get](i) + j * minorPositionDiff);
+        }
+      }
+    }
+    [_getDateTimeDifference](min, max, intervalType) {
+      if (!(intervalType != null)) dart.assertFailed(null, I[1], 774, 12, "intervalType != null");
+      let diff = max.difference(min);
+      switch (dart.nullCheck(intervalType)) {
+        case C[1] || CT.C1:
+        {
+          return (max.year - min.year) * 12 + max.month - min.month;
+        }
+        case C[2] || CT.C2:
+        {
+          return diff.inDays;
+        }
+        case C[3] || CT.C3:
+        {
+          return diff.inHours;
+        }
+        case C[4] || CT.C4:
+        {
+          return diff.inMinutes;
+        }
+        case C[5] || CT.C5:
+        {
+          return diff.inSeconds;
+        }
+        case C[6] || CT.C6:
+        {
+          return max.year - min.year;
+        }
+      }
+    }
+    [_getNextDate](currentDate, intervalType, interval) {
+      if (!(intervalType != null)) dart.assertFailed(null, I[1], 798, 12, "intervalType != null");
+      switch (dart.nullCheck(intervalType)) {
+        case C[1] || CT.C1:
+        {
+          return new core.DateTime.new(currentDate.year, currentDate.month + interval[$ceil](), 1);
+        }
+        case C[2] || CT.C2:
+        {
+          currentDate = currentDate.add(new core.Duration.new({days: interval[$ceil]()}));
+          return new core.DateTime.new(currentDate.year, currentDate.month, currentDate.day);
+        }
+        case C[3] || CT.C3:
+        {
+          currentDate = currentDate.add(new core.Duration.new({hours: interval[$ceil]()}));
+          return new core.DateTime.new(currentDate.year, currentDate.month, currentDate.day, currentDate.hour);
+        }
+        case C[4] || CT.C4:
+        {
+          return currentDate.add(new core.Duration.new({minutes: interval[$ceil]()}));
+        }
+        case C[5] || CT.C5:
+        {
+          return currentDate.add(new core.Duration.new({seconds: interval[$ceil]()}));
+        }
+        case C[6] || CT.C6:
+        {
+          return new core.DateTime.new(currentDate.year + interval[$ceil](), 1, 1);
+        }
+      }
+    }
+    getValueFromPosition(position) {
+      let valueFactor = null;
+      if (this.sliderType === constants.SliderType.horizontal) {
+        valueFactor = (position - this.actualTrackRect.left) / this.actualTrackRect.width;
+        if (this[_isInversed]) {
+          valueFactor = 1.0 - valueFactor;
+        }
+      } else {
+        valueFactor = (this.actualTrackRect.height - position) / this.actualTrackRect.height;
+        if (!this[_isInversed]) {
+          valueFactor = 1.0 - valueFactor;
+        }
+      }
+      let actualValue = this.getValueFromFactor(valueFactor[$clamp](0.0, 1.0));
+      return this.getActualValue({valueInDouble: T.doubleN().as(actualValue)});
+    }
+    getActualValue(opts) {
+      let t14, t14$, t14$0, t14$1;
+      let value = opts && 'value' in opts ? opts.value : null;
+      let valueInDouble = opts && 'valueInDouble' in opts ? opts.valueInDouble : null;
+      if (this.isDiscrete) {
+        if (!this.isDateTime) {
+          let maxMinDiff = this.getNumerizedValue(dart.dsend(this[_max], '-', [this[_min]]));
+          let factorValue = (this.getFactorFromValue((t14 = valueInDouble, t14 == null ? value : t14)) * (maxMinDiff / dart.nullCheck(this[_stepSize])))[$round]() / (maxMinDiff / dart.nullCheck(this[_stepSize]));
+          if (this[_isInversed]) {
+            factorValue = 1.0 - factorValue;
+          }
+          value = this.getValueFromFactor(factorValue[$clamp](0.0, 1.0));
+        } else {
+          let currentDate = core.DateTime.as(this[_min]);
+          let nextDate = null;
+          value = (t14$ = valueInDouble, t14$ == null ? dart.dsend(dart.dload(value, 'millisecondsSinceEpoch'), 'toDouble', []) : t14$);
+          let clampedValue = core.double.as(dart.dsend(value, 'clamp', [this.actualMin, this.actualMax]));
+          for (let i = this.actualMin; i < this.actualMax;) {
+            nextDate = new core.DateTime.new(currentDate.year + dart.nullCheck(this[_stepDuration]).years, currentDate.month + dart.nullCheck(this[_stepDuration]).months, currentDate.day + dart.nullCheck(this[_stepDuration]).days, currentDate.hour + dart.nullCheck(this[_stepDuration]).days, currentDate.minute + dart.nullCheck(this[_stepDuration]).minutes, currentDate.second + dart.nullCheck(this[_stepDuration]).seconds);
+            let currentDateInms = currentDate.millisecondsSinceEpoch[$toDouble]();
+            let nextDateInms = nextDate.millisecondsSinceEpoch[$toDouble]();
+            if (clampedValue >= currentDateInms && clampedValue <= nextDateInms) {
+              let dateDiff = (nextDateInms - currentDateInms)[$abs]();
+              let halfDateDiff = dateDiff / 2;
+              let shouldMoveNextInterval = clampedValue >= currentDateInms + halfDateDiff;
+              value = shouldMoveNextInterval ? nextDate : currentDate;
+              break;
+            }
+            i = nextDateInms;
+            currentDate = nextDate;
+          }
+        }
+      }
+      return this.isDateTime ? (t14$0 = value, t14$0 == null ? new core.DateTime.fromMillisecondsSinceEpoch(dart.nullCheck(valueInDouble)[$toInt]()) : t14$0) : (t14$1 = value, t14$1 == null ? valueInDouble : t14$1);
+    }
+    getValueFromFactor(factor) {
+      return factor * (this.actualMax - this.actualMin) + this.actualMin;
+    }
+    getFactorFromCurrentPosition() {
+      let factor = this.sliderType === constants.SliderType.horizontal ? ((this.mainAxisOffset - this.actualTrackRect.left) / this.actualTrackRect.width)[$clamp](0.0, 1.0) : ((this.actualTrackRect.bottom - this.mainAxisOffset) / this.actualTrackRect.height)[$clamp](0.0, 1.0);
+      if (this[_isInversed]) {
+        return 1.0 - factor;
+      } else {
+        return factor;
+      }
+    }
+    getRectangularTooltipRect(textPainter, offset, thumbCenter, trackRect, themeData) {
+      let rectangularTooltipHeight = textPainter.height + constants.tooltipTextPadding.dy > 37 ? textPainter.height + constants.tooltipTextPadding.dy : 37;
+      let halfTextWidth = textPainter.width + constants.tooltipTextPadding.dx > 47 ? (textPainter.width + constants.tooltipTextPadding.dx) / 2 : 47 / 2;
+      let rightLineWidth = thumbCenter.dx + halfTextWidth > trackRect.right ? trackRect.right - thumbCenter.dx : halfTextWidth;
+      let leftLineWidth = thumbCenter.dx - halfTextWidth < trackRect.left ? thumbCenter.dx - trackRect.left : halfTextWidth * 2 - rightLineWidth;
+      rightLineWidth = leftLineWidth < halfTextWidth ? halfTextWidth - leftLineWidth + rightLineWidth : rightLineWidth;
+      let left = thumbCenter.dx - leftLineWidth;
+      let right = thumbCenter.dx + rightLineWidth;
+      let top = thumbCenter.dy - rectangularTooltipHeight - offset.dy - 7;
+      let bottom = thumbCenter.dy - offset.dy;
+      return new ui.Rect.fromLTRB(left, top, right, bottom);
+    }
+    getPaddleTooltipRect(textPainter, thumbRadius, offset, thumbCenter, trackRect, themeData) {
+      let paddleTooltipRadius = textPainter.height > 16 ? textPainter.height : 16;
+      let topNeckRadius = paddleTooltipRadius - 3;
+      let bottomNeckRadius = thumbRadius > 16 * 0.25 ? thumbRadius - 3 : 4.0;
+      let halfTextWidth = textPainter.width / 2 + 8;
+      let halfPaddleWidth = halfTextWidth > paddleTooltipRadius ? halfTextWidth : paddleTooltipRadius;
+      let shift = this[_getAdjustPaddleWidth](thumbCenter, offset, halfTextWidth - paddleTooltipRadius, paddleTooltipRadius, trackRect);
+      let left = thumbCenter.dx - halfPaddleWidth - shift;
+      let right = thumbCenter.dx + halfPaddleWidth - shift;
+      let top = thumbCenter.dy - paddleTooltipRadius - paddleTooltipRadius * (1.0 - 0.25) - topNeckRadius - offset.dy * (1.0 - 0.25) - bottomNeckRadius;
+      let bottom = thumbCenter.dy + thumbRadius;
+      return new ui.Rect.fromLTRB(left, top, right, bottom);
+    }
+    [_getAdjustPaddleWidth](thumbCenter, offset, halfTextWidth, paddleTopCircleRadius, trackRect) {
+      let leftShiftWidth = thumbCenter.dx - offset.dx - halfTextWidth - paddleTopCircleRadius;
+      let shiftPaddleWidth = leftShiftWidth < 0 ? leftShiftWidth : 0.0;
+      let rightEndPosition = trackRect.right + trackRect.left - offset.dx;
+      shiftPaddleWidth = thumbCenter.dx + halfTextWidth + paddleTopCircleRadius > rightEndPosition ? thumbCenter.dx + halfTextWidth + paddleTopCircleRadius - rightEndPosition : shiftPaddleWidth;
+      return shiftPaddleWidth;
+    }
+    drawLabelsTicksAndDividers(context, trackRect, offset, thumbCenter, startThumbCenter, endThumbCenter, stateAnimation, value, values) {
+      let dateTimePos = 0;
+      let isActive = null;
+      let dx = this.sliderType === constants.SliderType.horizontal ? trackRect.left : trackRect.bottom;
+      let dy = this.sliderType === constants.SliderType.horizontal ? trackRect.top : trackRect.left;
+      let halfTrackHeight = this.sliderType === constants.SliderType.horizontal ? trackRect.height / 2 : trackRect.width / 2;
+      if (startThumbCenter != null) {
+        if (this.sliderType === constants.SliderType.horizontal) {
+          isActive = offset.dx >= startThumbCenter.dx && offset.dx <= dart.nullCheck(endThumbCenter).dx;
+        } else {
+          isActive = offset.dy <= startThumbCenter.dy && offset.dy >= dart.nullCheck(endThumbCenter).dy;
+        }
+      } else {
+        if (this.sliderType === constants.SliderType.horizontal) {
+          isActive = offset.dx <= dart.nullCheck(thumbCenter).dx;
+        } else {
+          isActive = offset.dy <= dart.nullCheck(thumbCenter).dy;
+        }
+      }
+      let dividerRadius = this[_dividerShape].getPreferredSize(this[_sliderThemeData], {isActive: isActive}).width / 2;
+      let tickRadius = this.sliderType === constants.SliderType.horizontal ? this[_tickShape].getPreferredSize(this[_sliderThemeData]).width / 2 : this[_tickShape].getPreferredSize(this[_sliderThemeData]).height / 2;
+      let textValue = this.isDateTime ? 0.0 : core.double.as(dart.dsend(this[_min], 'toDouble', []));
+      let minorTickIndex = 0;
+      let maxRange = core.double.as(this.isDateTime ? this.divisions : dart.dsend(this[_max], 'toDouble', []));
+      if (this.divisions != null && dart.nullCheck(this.divisions) > 0) {
+        while (textValue <= maxRange) {
+          let tickPosition = this[_majorTickPositions][$_get](dateTimePos);
+          if (this[_showTicks]) {
+            this[_drawTick](dx, tickPosition, dy, trackRect, dateTimePos, tickRadius, context, thumbCenter, startThumbCenter, endThumbCenter, value, values, stateAnimation);
+          }
+          if (this[_interval] != null && dart.nullCheck(this[_interval]) > 0) {
+            if (this[_minorTicksPerInterval] > 0) {
+              for (let j = 0; j < this[_minorTicksPerInterval]; j = j + 1) {
+                let currentMinorTickPosition = this[_minorTickPositions][$_get](minorTickIndex);
+                minorTickIndex = minorTickIndex + 1;
+                this[_drawMinorTick](currentMinorTickPosition, trackRect, dx, dy, context, thumbCenter, startThumbCenter, endThumbCenter, value, values, stateAnimation);
+              }
+            }
+            if (this[_showDividers]) {
+              this[_drawDivider](dx, tickPosition, dy, halfTrackHeight, dateTimePos, dividerRadius, trackRect, context, thumbCenter, startThumbCenter, endThumbCenter, value, values, stateAnimation);
+            }
+          }
+          if (this[_showLabels]) {
+            let dx = this.sliderType === constants.SliderType.horizontal ? trackRect.left : trackRect.bottom;
+            let offsetX = this.sliderType === constants.SliderType.horizontal ? dx + tickPosition : dx - tickPosition;
+            if (this[_labelPlacement] === common.LabelPlacement.betweenTicks) {
+              if (this.sliderType === constants.SliderType.horizontal) {
+                offsetX = offsetX + ((dateTimePos + 1 <= dart.nullCheck(this.divisions) ? this[_majorTickPositions][$_get](dateTimePos + 1) : this[_isInversed] ? trackRect.left : trackRect.width) - tickPosition) / 2;
+                if (this[_isInversed] ? offsetX <= trackRect.left : offsetX - dx >= trackRect.width) {
+                  break;
+                }
+              } else {
+                if (dateTimePos + 1 <= dart.nullCheck(this.divisions)) {
+                  offsetX = offsetX - (this[_majorTickPositions][$_get](dateTimePos + 1) - tickPosition) / 2;
+                } else {
+                  break;
+                }
+              }
+            }
+            this[_drawLabel](dateTimePos, dx, tickPosition, trackRect, dy, context, thumbCenter, startThumbCenter, endThumbCenter, value, values, stateAnimation, offsetX);
+          }
+          let intervalDiff = core.double.as(this.isDateTime ? 1.0 : this[_interval] != null && dart.nullCheck(this[_interval]) > 0 ? this[_interval] : dart.dsend(dart.dsend(this[_max], 'toDouble', []), '-', [dart.dsend(this[_min], 'toDouble', [])]));
+          textValue = textValue + intervalDiff;
+          dateTimePos = dateTimePos + 1;
+        }
+      }
+    }
+    [_drawTick](dx, tickPosition, dy, trackRect, dateTimePos, tickRadius, context, thumbCenter, startThumbCenter, endThumbCenter, value, values, stateAnimation) {
+      let t14, t14$, t14$0, t14$1, t14$2, t14$3;
+      let actualTickOffset = null;
+      if (this.sliderType === constants.SliderType.horizontal) {
+        if (this[_majorTickPositions][$_get](dateTimePos) === 0.0) {
+          actualTickOffset = new ui.Offset.new(dx + tickPosition + tickRadius, dy + trackRect.height)['+']((t14 = this[_sliderThemeData].tickOffset, t14 == null ? ui.Offset.zero : t14));
+        } else if (this[_majorTickPositions][$_get](dateTimePos)[$toStringAsFixed](8) === trackRect.width[$toStringAsFixed](8)) {
+          actualTickOffset = new ui.Offset.new(dx + tickPosition - tickRadius, dy + trackRect.height)['+']((t14$ = this[_sliderThemeData].tickOffset, t14$ == null ? ui.Offset.zero : t14$));
+        } else {
+          actualTickOffset = new ui.Offset.new(dx + tickPosition, dy + trackRect.height)['+']((t14$0 = this[_sliderThemeData].tickOffset, t14$0 == null ? ui.Offset.zero : t14$0));
+        }
+      } else {
+        if (this[_majorTickPositions][$_get](dateTimePos) === 0.0) {
+          actualTickOffset = new ui.Offset.new(dy + trackRect.width, dx - tickPosition - tickRadius)['+']((t14$1 = this[_sliderThemeData].tickOffset, t14$1 == null ? ui.Offset.zero : t14$1));
+        } else if (this[_majorTickPositions][$_get](dateTimePos)[$toStringAsFixed](8) === trackRect.height[$toStringAsFixed](8)) {
+          actualTickOffset = new ui.Offset.new(dy + trackRect.width, dx - tickPosition + tickRadius)['+']((t14$2 = this[_sliderThemeData].tickOffset, t14$2 == null ? ui.Offset.zero : t14$2));
+        } else {
+          actualTickOffset = new ui.Offset.new(dy + trackRect.width, dx - tickPosition)['+']((t14$3 = this[_sliderThemeData].tickOffset, t14$3 == null ? ui.Offset.zero : t14$3));
+        }
+      }
+      this[_tickShape].paint(context, actualTickOffset, thumbCenter, startThumbCenter, endThumbCenter, {parentBox: this, themeData: this[_sliderThemeData], currentValue: value, currentValues: values, enableAnimation: stateAnimation, textDirection: this[_textDirection]});
+    }
+    [_drawMinorTick](currentMinorTickPosition, trackRect, dx, dy, context, thumbCenter, startThumbCenter, endThumbCenter, value, values, stateAnimation) {
+      let t14, t14$;
+      if (currentMinorTickPosition < (this.sliderType === constants.SliderType.horizontal ? trackRect.width : trackRect.height) && currentMinorTickPosition > 0) {
+        let actualTickOffset = this.sliderType === constants.SliderType.horizontal ? new ui.Offset.new(dx + currentMinorTickPosition, dy + trackRect.height)['+']((t14 = this[_sliderThemeData].tickOffset, t14 == null ? ui.Offset.zero : t14)) : new ui.Offset.new(dy + trackRect.width, dx - currentMinorTickPosition)['+']((t14$ = this[_sliderThemeData].tickOffset, t14$ == null ? ui.Offset.zero : t14$));
+        this[_minorTickShape].paint(context, actualTickOffset, thumbCenter, startThumbCenter, endThumbCenter, {parentBox: this, themeData: this[_sliderThemeData], currentValue: value, currentValues: values, enableAnimation: stateAnimation, textDirection: this[_textDirection]});
+      }
+    }
+    [_drawDivider](dx, tickPosition, dy, halfTrackHeight, _dateTimePos, dividerRadius, trackRect, context, thumbCenter, startThumbCenter, endThumbCenter, value, values, stateAnimation) {
+      let dividerCenter = null;
+      if (this.sliderType === constants.SliderType.horizontal) {
+        if (this[_majorTickPositions][$_get](_dateTimePos) === 0.0) {
+          dividerCenter = new ui.Offset.new(dx + tickPosition + dividerRadius, dy + halfTrackHeight);
+        } else if (this[_majorTickPositions][$_get](_dateTimePos)[$toStringAsFixed](8) === trackRect.width[$toStringAsFixed](8)) {
+          dividerCenter = new ui.Offset.new(dx + tickPosition - dividerRadius, dy + halfTrackHeight);
+        } else {
+          dividerCenter = new ui.Offset.new(dx + tickPosition, dy + halfTrackHeight);
+        }
+      } else {
+        if (this[_majorTickPositions][$_get](_dateTimePos) === 0.0) {
+          dividerCenter = new ui.Offset.new(dy + halfTrackHeight, dx - tickPosition - dividerRadius);
+        } else if (this[_majorTickPositions][$_get](_dateTimePos)[$toStringAsFixed](8) === trackRect.height[$toStringAsFixed](8)) {
+          dividerCenter = new ui.Offset.new(dy + halfTrackHeight, dx - tickPosition + dividerRadius);
+        } else {
+          dividerCenter = new ui.Offset.new(dy + halfTrackHeight, dx - tickPosition);
+        }
+      }
+      this[_dividerShape].paint(context, dividerCenter, thumbCenter, startThumbCenter, endThumbCenter, {parentBox: this, themeData: this[_sliderThemeData], currentValue: value, currentValues: values, enableAnimation: stateAnimation, textDirection: this[_textDirection], paint: null});
+    }
+    [_drawLabel](_dateTimePos, dx, tickPosition, trackRect, dy, context, thumbCenter, startThumbCenter, endThumbCenter, value, values, stateAnimation, offsetX) {
+      let t14, t14$;
+      {
+        let dy = this.sliderType === constants.SliderType.horizontal ? trackRect.top : trackRect.left;
+        let labelText = this[_visibleLabels][$_get](_dateTimePos);
+        let actualLabelOffset = this.sliderType === constants.SliderType.horizontal ? new ui.Offset.new(offsetX, dy + trackRect.height + this.actualTickHeight)['+']((t14 = this[_sliderThemeData].labelOffset, t14 == null ? ui.Offset.zero : t14)) : new ui.Offset.new(dy + trackRect.width + this.actualTickWidth, offsetX)['+']((t14$ = this[_sliderThemeData].labelOffset, t14$ == null ? ui.Offset.zero : t14$));
+        this[_drawText](context, actualLabelOffset, thumbCenter, startThumbCenter, endThumbCenter, labelText, {parentBox: this, themeData: this[_sliderThemeData], currentValue: value, currentValues: values, enableAnimation: stateAnimation, textPainter: this.textPainter, textDirection: this[_textDirection]});
+      }
+    }
+    [_drawText](context, center, thumbCenter, startThumbCenter, endThumbCenter, text, opts) {
+      let parentBox = opts && 'parentBox' in opts ? opts.parentBox : null;
+      let themeData = opts && 'themeData' in opts ? opts.themeData : null;
+      let currentValue = opts && 'currentValue' in opts ? opts.currentValue : null;
+      let currentValues = opts && 'currentValues' in opts ? opts.currentValues : null;
+      let enableAnimation = opts && 'enableAnimation' in opts ? opts.enableAnimation : null;
+      let textPainter = opts && 'textPainter' in opts ? opts.textPainter : null;
+      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+      let isInactive = null;
+      if (this.sliderType === constants.SliderType.horizontal) {
+        if (startThumbCenter != null) {
+          if (!this[_isInversed]) {
+            isInactive = center.dx < startThumbCenter.dx || center.dx > dart.nullCheck(endThumbCenter).dx;
+          } else {
+            isInactive = center.dx > startThumbCenter.dx || center.dx < dart.nullCheck(endThumbCenter).dx;
+          }
+        } else {
+          if (!this[_isInversed]) {
+            isInactive = center.dx > dart.nullCheck(thumbCenter).dx;
+          } else {
+            isInactive = center.dx < dart.nullCheck(thumbCenter).dx;
+          }
+        }
+      } else {
+        if (startThumbCenter != null) {
+          if (!this[_isInversed]) {
+            isInactive = center.dy > startThumbCenter.dy || center.dy < dart.nullCheck(endThumbCenter).dy;
+          } else {
+            isInactive = center.dy < startThumbCenter.dy || center.dy > dart.nullCheck(endThumbCenter).dy;
+          }
+        } else {
+          if (!this[_isInversed]) {
+            isInactive = center.dy < dart.nullCheck(thumbCenter).dy;
+          } else {
+            isInactive = center.dy > dart.nullCheck(thumbCenter).dy;
+          }
+        }
+      }
+      let textSpan = new text_span.TextSpan.new({text: text, style: isInactive ? themeData.inactiveLabelStyle : themeData.activeLabelStyle});
+      textPainter.text = textSpan;
+      textPainter.layout();
+      if (this.sliderType === constants.SliderType.horizontal) {
+        textPainter.paint(context.canvas, new ui.Offset.new(center.dx - textPainter.width / 2, center.dy));
+      } else {
+        textPainter.paint(context.canvas, new ui.Offset.new(center.dx, center.dy - textPainter.height / 2));
+      }
+    }
+    getNextSemanticValue(value, semanticActionUnit, opts) {
+      let actualValue = opts && 'actualValue' in opts ? opts.actualValue : null;
+      if (this.isDateTime) {
+        if (this[_stepDuration] == null) {
+          return new core.DateTime.fromMillisecondsSinceEpoch((actualValue + core.num.as(semanticActionUnit))[$clamp](this.actualMin, this.actualMax)[$toInt]());
+        } else {
+          let nextDate = new core.DateTime.new(core.int.as(dart.dsend(dart.dload(value, 'year'), '+', [dart.dload(semanticActionUnit, 'years')])), core.int.as(dart.dsend(dart.dload(value, 'month'), '+', [dart.dload(semanticActionUnit, 'months')])), core.int.as(dart.dsend(dart.dload(value, 'day'), '+', [dart.dload(semanticActionUnit, 'days')])), core.int.as(dart.dsend(dart.dload(value, 'hour'), '+', [dart.dload(semanticActionUnit, 'days')])), core.int.as(dart.dsend(dart.dload(value, 'minute'), '+', [dart.dload(semanticActionUnit, 'minutes')])), core.int.as(dart.dsend(dart.dload(value, 'second'), '+', [dart.dload(semanticActionUnit, 'seconds')])));
+          let nextDateInms = nextDate.millisecondsSinceEpoch[$toDouble]();
+          return nextDateInms < this.actualMax ? nextDate : this[_max];
+        }
+      } else {
+        return dart.dsend(dart.dsend(value, '+', [semanticActionUnit]), 'clamp', [this[_min], this[_max]]);
+      }
+    }
+    getPrevSemanticValue(value, semanticActionUnit, opts) {
+      let actualValue = opts && 'actualValue' in opts ? opts.actualValue : null;
+      if (this.isDateTime) {
+        if (this[_stepDuration] == null) {
+          return new core.DateTime.fromMillisecondsSinceEpoch((actualValue - core.num.as(semanticActionUnit))[$clamp](this.actualMin, this.actualMax)[$toInt]());
+        } else {
+          let prevDate = new core.DateTime.new(core.int.as(dart.dsend(dart.dload(value, 'year'), '-', [dart.dload(semanticActionUnit, 'years')])), core.int.as(dart.dsend(dart.dload(value, 'month'), '-', [dart.dload(semanticActionUnit, 'months')])), core.int.as(dart.dsend(dart.dload(value, 'day'), '-', [dart.dload(semanticActionUnit, 'days')])), core.int.as(dart.dsend(dart.dload(value, 'hour'), '-', [dart.dload(semanticActionUnit, 'days')])), core.int.as(dart.dsend(dart.dload(value, 'minute'), '-', [dart.dload(semanticActionUnit, 'minutes')])), core.int.as(dart.dsend(dart.dload(value, 'second'), '-', [dart.dload(semanticActionUnit, 'seconds')])));
+          let prevDateInms = prevDate.millisecondsSinceEpoch[$toDouble]();
+          return prevDateInms > this.actualMin ? prevDate : this[_min];
+        }
+      } else {
+        return dart.dsend(dart.dsend(value, '-', [semanticActionUnit]), 'clamp', [this[_min], this[_max]]);
+      }
+    }
+    getNumerizedValue(value) {
+      if (this.isDateTime) {
+        return core.DateTime.as(value).millisecondsSinceEpoch[$toDouble]();
+      }
+      return core.double.as(dart.dsend(value, 'toDouble', []));
+    }
+    [_textSize](text, fontSize) {
+      let t14;
+      let textPainter = (t14 = new text_painter.TextPainter.new({text: new text_span.TextSpan.new({text: text, style: new text_style.TextStyle.new({fontSize: fontSize})}), maxLines: 1, textDirection: ui.TextDirection.ltr}), (() => {
+        t14.layout({minWidth: 0.0, maxWidth: 1 / 0});
+        return t14;
+      })());
+      return textPainter.size;
+    }
+    [_maximumLabelWidth]() {
+      let t15, t14;
+      let maxLabelWidth = 0.0;
+      if (this[_showLabels] && this[_interval] != null && dart.nullCheck(this[_interval]) > 0) {
+        let label = null;
+        let currentValue = this[_min];
+        let labelLength = null;
+        this.divisions = core.double.as(dart.dsend(dart.dsend(this.isDateTime ? this[_getDateTimeDifference](core.DateTime.as(this[_min]), core.DateTime.as(this[_max]), this[_dateIntervalType]) : dart.dsend(this[_max], '-', [this[_min]]), 'toDouble', []), '/', [this[_interval]]));
+        for (let i = 0; i <= dart.nullCheck(this.divisions)[$toInt](); i = i + 1) {
+          label = (t14 = currentValue, t15 = this.getFormattedText(currentValue), this[_labelFormatterCallback](t14, t15));
+          labelLength = this[_textSize](label, this.maximumFontSize).width;
+          if (maxLabelWidth < labelLength) {
+            maxLabelWidth = labelLength;
+          }
+          currentValue = this.isDateTime ? this[_getNextDate](core.DateTime.as(currentValue), this[_dateIntervalType], dart.nullCheck(this[_interval])) : dart.dsend(currentValue, '+', [this[_interval]]);
+        }
+      } else if (this[_showLabels]) {
+        maxLabelWidth = this[_edgeLabelWidth]();
+      }
+      return maxLabelWidth;
+    }
+    [_edgeLabelWidth]() {
+      let t15, t14, t15$, t14$;
+      let minLabel = null;
+      let maxLabel = null;
+      let maxLabelWidth = null;
+      minLabel = (t14 = this[_min], t15 = this.getFormattedText(this[_min]), this[_labelFormatterCallback](t14, t15));
+      maxLabel = (t14$ = this[_max], t15$ = this.getFormattedText(this[_max]), this[_labelFormatterCallback](t14$, t15$));
+      let minLabelLength = this[_textSize](minLabel, this.maximumFontSize).width;
+      let maxLabelLength = this[_textSize](maxLabel, this.maximumFontSize).width;
+      maxLabelWidth = math.max(core.double, minLabelLength, maxLabelLength);
+      return maxLabelWidth;
+    }
+    systemFontsDidChange() {
+      super.systemFontsDidChange();
+      this.textPainter.markNeedsLayout();
+      this.updateTextPainter();
+    }
+    setupParentData(child) {
+      object.RenderObject.as(child);
+      if (!box.BoxParentData.is(child.parentData)) {
+        child.parentData = new box.BoxParentData.new();
+      }
+    }
+    performLayout() {
+      if (this.sliderType === constants.SliderType.horizontal) {
+        this.actualHeight = math.max(core.double, 2 * this.trackOffset.dy, this.trackOffset.dy + this.maxTrackHeight / 2 + math.max(core.num, this.actualTickHeight, this.actualMinorTickHeight) + this.actualLabelHeight);
+        this.size = new ui.Size.new(this.constraints.hasBoundedWidth ? this.constraints.maxWidth : this.minTrackWidth + 2 * this.trackOffset.dx, this.constraints.hasBoundedHeight ? this.constraints.maxHeight : this.actualHeight);
+      } else {
+        this.actualHeight = math.max(core.double, 2 * this.trackOffset.dx, this.trackOffset.dx + this.maxTrackHeight / 2 + math.max(core.num, this.actualTickWidth, this.actualMinorTickWidth) + this[_maximumLabelWidth]() + this.actualLabelOffset);
+        this.size = new ui.Size.new(this.constraints.hasBoundedWidth ? this.constraints.maxWidth : this.actualHeight, this.constraints.hasBoundedHeight ? this.constraints.maxHeight : this.minTrackWidth + 2 * this.trackOffset.dy);
+      }
+      this.generateLabelsAndMajorTicks();
+      this.generateMinorTicks();
+    }
+    handleEvent(event, entry) {
+      hit_test.HitTestEntry.as(entry);
+      if (this.isInteractionEnd && event.down && events.PointerDownEvent.is(event)) {
+        if (this.sliderType === constants.SliderType.horizontal) {
+          dart.nullCheck(this.horizontalDragGestureRecognizer).addPointer(event);
+        } else {
+          dart.nullCheck(this.verticalDragGestureRecognizer).addPointer(event);
+        }
+        this.tapGestureRecognizer.addPointer(event);
+      }
+    }
+  };
+  (slider_base.RenderBaseSlider.new = function(opts) {
+    let min = opts && 'min' in opts ? opts.min : null;
+    let max = opts && 'max' in opts ? opts.max : null;
+    let interval = opts && 'interval' in opts ? opts.interval : null;
+    let stepSize = opts && 'stepSize' in opts ? opts.stepSize : null;
+    let stepDuration = opts && 'stepDuration' in opts ? opts.stepDuration : null;
+    let minorTicksPerInterval = opts && 'minorTicksPerInterval' in opts ? opts.minorTicksPerInterval : null;
+    let showTicks = opts && 'showTicks' in opts ? opts.showTicks : null;
+    let showLabels = opts && 'showLabels' in opts ? opts.showLabels : null;
+    let showDividers = opts && 'showDividers' in opts ? opts.showDividers : null;
+    let enableTooltip = opts && 'enableTooltip' in opts ? opts.enableTooltip : null;
+    let shouldAlwaysShowTooltip = opts && 'shouldAlwaysShowTooltip' in opts ? opts.shouldAlwaysShowTooltip : null;
+    let labelPlacement = opts && 'labelPlacement' in opts ? opts.labelPlacement : null;
+    let isInversed = opts && 'isInversed' in opts ? opts.isInversed : null;
+    let numberFormat = opts && 'numberFormat' in opts ? opts.numberFormat : null;
+    let dateFormat = opts && 'dateFormat' in opts ? opts.dateFormat : null;
+    let dateIntervalType = opts && 'dateIntervalType' in opts ? opts.dateIntervalType : null;
+    let labelFormatterCallback = opts && 'labelFormatterCallback' in opts ? opts.labelFormatterCallback : null;
+    let tooltipTextFormatterCallback = opts && 'tooltipTextFormatterCallback' in opts ? opts.tooltipTextFormatterCallback : null;
+    let trackShape = opts && 'trackShape' in opts ? opts.trackShape : null;
+    let dividerShape = opts && 'dividerShape' in opts ? opts.dividerShape : null;
+    let overlayShape = opts && 'overlayShape' in opts ? opts.overlayShape : null;
+    let thumbShape = opts && 'thumbShape' in opts ? opts.thumbShape : null;
+    let tickShape = opts && 'tickShape' in opts ? opts.tickShape : null;
+    let minorTickShape = opts && 'minorTickShape' in opts ? opts.minorTickShape : null;
+    let tooltipShape = opts && 'tooltipShape' in opts ? opts.tooltipShape : null;
+    let sliderThemeData = opts && 'sliderThemeData' in opts ? opts.sliderThemeData : null;
+    let sliderType = opts && 'sliderType' in opts ? opts.sliderType : null;
+    let tooltipPosition = opts && 'tooltipPosition' in opts ? opts.tooltipPosition : null;
+    let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+    let mediaQueryData = opts && 'mediaQueryData' in opts ? opts.mediaQueryData : null;
+    this[minTrackWidth] = 48 * 3;
+    this[textPainter] = new text_painter.TextPainter.new();
+    this[__RenderBaseSlider__minInMilliseconds] = null;
+    this[__RenderBaseSlider__maxInMilliseconds] = null;
+    this[divisions] = null;
+    this[willDrawTooltip] = false;
+    this[isInteractionEnd] = true;
+    this[__RenderBaseSlider__visibleLabels] = null;
+    this[__RenderBaseSlider__majorTickPositions] = null;
+    this[__RenderBaseSlider__minorTickPositions] = null;
+    this[unformattedLabels] = null;
+    this[horizontalDragGestureRecognizer] = null;
+    this[verticalDragGestureRecognizer] = null;
+    this[__RenderBaseSlider_tapGestureRecognizer] = null;
+    this[__RenderBaseSlider_actualHeight] = null;
+    this[__RenderBaseSlider_trackOffset] = null;
+    this[__RenderBaseSlider_maxTrackHeight] = null;
+    this[showOverlappingTooltipStroke] = false;
+    this[showOverlappingThumbStroke] = false;
+    this[mainAxisOffset] = 0.0;
+    this[activeThumb] = null;
+    this[__RenderBaseSlider_thumbElevationTween] = null;
+    this[currentPointerType] = null;
+    this[sliderType$] = sliderType;
+    this[_min] = min;
+    this[_max] = max;
+    this[_interval] = interval;
+    this[_stepSize] = stepSize;
+    this[_stepDuration] = stepDuration;
+    this[_minorTicksPerInterval] = minorTicksPerInterval;
+    this[_showTicks] = showTicks;
+    this[_showLabels] = showLabels;
+    this[_showDividers] = showDividers;
+    this[_enableTooltip] = enableTooltip;
+    this[_shouldAlwaysShowTooltip] = shouldAlwaysShowTooltip;
+    this[_isInversed] = isInversed;
+    this[_labelPlacement] = labelPlacement;
+    this[_numberFormat] = numberFormat;
+    this[_dateFormat] = dateFormat;
+    this[_dateIntervalType] = dateIntervalType;
+    this[_labelFormatterCallback] = labelFormatterCallback;
+    this[_tooltipTextFormatterCallback] = tooltipTextFormatterCallback;
+    this[_trackShape] = trackShape;
+    this[_dividerShape] = dividerShape;
+    this[_overlayShape] = overlayShape;
+    this[_thumbShape] = thumbShape;
+    this[_tickShape] = tickShape;
+    this[_minorTickShape] = minorTickShape;
+    this[_tooltipShape] = tooltipShape;
+    this[_sliderThemeData] = sliderThemeData;
+    this[_textDirection] = textDirection;
+    this[_mediaQueryData] = mediaQueryData;
+    this[_tooltipPosition] = tooltipPosition;
+    slider_base.RenderBaseSlider.__proto__.new.call(this);
+    this.maxTrackHeight = this.getMaxTrackHeight();
+    this.trackOffset = this[_getTrackOffset]();
+    if (this.isDateTime) {
+      this[_minInMilliseconds] = core.DateTime.as(min).millisecondsSinceEpoch[$toDouble]();
+      this[_maxInMilliseconds] = core.DateTime.as(max).millisecondsSinceEpoch[$toDouble]();
+    }
+    this[_visibleLabels] = T.JSArrayOfString().of([]);
+    this[_majorTickPositions] = T.JSArrayOfdouble().of([]);
+    this[_minorTickPositions] = T.JSArrayOfdouble().of([]);
+    this.thumbElevationTween = new (T.TweenOfdouble()).new({begin: 1, end: 6});
+  }).prototype = slider_base.RenderBaseSlider.prototype;
+  dart.addTypeTests(slider_base.RenderBaseSlider);
+  dart.addTypeCaches(slider_base.RenderBaseSlider);
+  dart.setMethodSignature(slider_base.RenderBaseSlider, () => ({
+    __proto__: dart.getMethods(slider_base.RenderBaseSlider.__proto__),
+    updateTextPainter: dart.fnType(dart.void, []),
+    [_getTrackOffset]: dart.fnType(ui.Offset, []),
+    getMaxTrackHeight: dart.fnType(core.double, []),
+    getFormattedText: dart.fnType(core.String, [dart.dynamic]),
+    getFactorFromValue: dart.fnType(core.double, [dart.dynamic]),
+    getPositionFromValue: dart.fnType(core.double, [core.double]),
+    generateLabelsAndMajorTicks: dart.fnType(dart.void, []),
+    [_generateLabelsAndMajorTicksBasedOnInterval]: dart.fnType(dart.void, []),
+    [_generateEdgeLabelsAndMajorTicks]: dart.fnType(dart.void, []),
+    generateMinorTicks: dart.fnType(dart.void, []),
+    [_generateDateTimeMinorTicks]: dart.fnType(dart.void, []),
+    [_updateMinorTicksPosition]: dart.fnType(core.double, [core.double]),
+    [_generateNumericMinorTicks]: dart.fnType(dart.void, []),
+    [_getDateTimeDifference]: dart.fnType(core.int, [core.DateTime, core.DateTime, dart.nullable(common.DateIntervalType)]),
+    [_getNextDate]: dart.fnType(core.DateTime, [core.DateTime, dart.nullable(common.DateIntervalType), core.double]),
+    getValueFromPosition: dart.fnType(dart.dynamic, [core.double]),
+    getActualValue: dart.fnType(dart.dynamic, [], {value: dart.dynamic, valueInDouble: dart.nullable(core.double)}, {}),
+    getValueFromFactor: dart.fnType(core.double, [core.double]),
+    getFactorFromCurrentPosition: dart.fnType(core.double, []),
+    getRectangularTooltipRect: dart.fnType(ui.Rect, [text_painter.TextPainter, ui.Offset, ui.Offset, ui.Rect, slider_theme.SfSliderThemeData]),
+    getPaddleTooltipRect: dart.fnType(ui.Rect, [text_painter.TextPainter, core.double, ui.Offset, ui.Offset, ui.Rect, slider_theme.SfSliderThemeData]),
+    [_getAdjustPaddleWidth]: dart.fnType(core.double, [ui.Offset, ui.Offset, core.double, core.double, ui.Rect]),
+    drawLabelsTicksAndDividers: dart.fnType(dart.void, [object.PaintingContext, ui.Rect, ui.Offset, dart.nullable(ui.Offset), dart.nullable(ui.Offset), dart.nullable(ui.Offset), animation.Animation$(core.double), dart.dynamic, dart.nullable(common.SfRangeValues)]),
+    [_drawTick]: dart.fnType(dart.void, [core.double, core.double, core.double, ui.Rect, core.int, core.double, object.PaintingContext, dart.nullable(ui.Offset), dart.nullable(ui.Offset), dart.nullable(ui.Offset), dart.dynamic, dart.nullable(common.SfRangeValues), animation.Animation$(core.double)]),
+    [_drawMinorTick]: dart.fnType(dart.void, [core.double, ui.Rect, core.double, core.double, object.PaintingContext, dart.nullable(ui.Offset), dart.nullable(ui.Offset), dart.nullable(ui.Offset), dart.dynamic, dart.nullable(common.SfRangeValues), animation.Animation$(core.double)]),
+    [_drawDivider]: dart.fnType(dart.void, [core.double, core.double, core.double, core.double, core.int, core.double, ui.Rect, object.PaintingContext, dart.nullable(ui.Offset), dart.nullable(ui.Offset), dart.nullable(ui.Offset), dart.dynamic, dart.nullable(common.SfRangeValues), animation.Animation$(core.double)]),
+    [_drawLabel]: dart.fnType(dart.void, [core.int, core.double, core.double, ui.Rect, core.double, object.PaintingContext, dart.nullable(ui.Offset), dart.nullable(ui.Offset), dart.nullable(ui.Offset), dart.dynamic, dart.nullable(common.SfRangeValues), animation.Animation$(core.double), core.double]),
+    [_drawText]: dart.fnType(dart.void, [object.PaintingContext, ui.Offset, dart.nullable(ui.Offset), dart.nullable(ui.Offset), dart.nullable(ui.Offset), core.String], {currentValue: dart.dynamic, currentValues: dart.nullable(common.SfRangeValues)}, {enableAnimation: animation.Animation$(core.double), parentBox: proxy_box.RenderProxyBox, textDirection: ui.TextDirection, textPainter: text_painter.TextPainter, themeData: slider_theme.SfSliderThemeData}),
+    getNextSemanticValue: dart.fnType(dart.dynamic, [dart.dynamic, dart.dynamic], {}, {actualValue: core.double}),
+    getPrevSemanticValue: dart.fnType(dart.dynamic, [dart.dynamic, dart.dynamic], {}, {actualValue: core.double}),
+    getNumerizedValue: dart.fnType(core.double, [dart.dynamic]),
+    [_textSize]: dart.fnType(ui.Size, [core.String, core.double]),
+    [_maximumLabelWidth]: dart.fnType(core.double, []),
+    [_edgeLabelWidth]: dart.fnType(core.double, [])
+  }));
+  dart.setGetterSignature(slider_base.RenderBaseSlider, () => ({
+    __proto__: dart.getGetters(slider_base.RenderBaseSlider.__proto__),
+    [_minInMilliseconds]: core.double,
+    [_maxInMilliseconds]: core.double,
+    [_visibleLabels]: core.List$(core.String),
+    [_majorTickPositions]: core.List$(core.double),
+    [_minorTickPositions]: core.List$(core.double),
+    tapGestureRecognizer: tap.TapGestureRecognizer,
+    actualHeight: core.double,
+    trackOffset: ui.Offset,
+    maxTrackHeight: core.double,
+    thumbElevationTween: tween.Tween$(core.double),
+    min: dart.dynamic,
+    max: dart.dynamic,
+    interval: dart.nullable(core.double),
+    stepSize: dart.nullable(core.double),
+    stepDuration: dart.nullable(common.SliderStepDuration),
+    minorTicksPerInterval: core.int,
+    showTicks: core.bool,
+    showLabels: core.bool,
+    showDividers: core.bool,
+    enableTooltip: core.bool,
+    shouldAlwaysShowTooltip: core.bool,
+    isInversed: core.bool,
+    labelPlacement: common.LabelPlacement,
+    numberFormat: number_format.NumberFormat,
+    dateIntervalType: dart.nullable(common.DateIntervalType),
+    dateFormat: dart.nullable(date_format.DateFormat),
+    labelFormatterCallback: dart.fnType(core.String, [dart.dynamic, core.String]),
+    tooltipTextFormatterCallback: dart.fnType(core.String, [dart.dynamic, core.String]),
+    thumbShape: slider_shapes.SfThumbShape,
+    overlayShape: slider_shapes.SfOverlayShape,
+    trackShape: slider_shapes.SfTrackShape,
+    dividerShape: slider_shapes.SfDividerShape,
+    tickShape: slider_shapes.SfTickShape,
+    minorTickShape: slider_shapes.SfTickShape,
+    tooltipShape: slider_shapes.SfTooltipShape,
+    sliderThemeData: slider_theme.SfSliderThemeData,
+    textDirection: ui.TextDirection,
+    tooltipPosition: dart.nullable(common.SliderTooltipPosition),
+    mediaQueryData: media_query.MediaQueryData,
+    isInteractive: core.bool,
+    isDateTime: core.bool,
+    actualMin: core.double,
+    actualMax: core.double,
+    isDiscrete: core.bool,
+    [_actualDividerSize]: ui.Size,
+    actualTickSize: ui.Size,
+    actualMinorTickSize: ui.Size,
+    maximumFontSize: core.double,
+    actualLabelSize: ui.Size,
+    actualTrackRect: ui.Rect,
+    actualThumbSize: ui.Size,
+    actualOverlaySize: ui.Size,
+    actualTickHeight: core.double,
+    actualTickWidth: core.double,
+    actualMinorTickHeight: core.double,
+    actualMinorTickWidth: core.double,
+    actualLabelHeight: core.double,
+    actualLabelOffset: core.double,
+    tooltipStartY: core.double,
+    adjustmentUnit: core.double,
+    semanticActionUnit: dart.dynamic
+  }));
+  dart.setSetterSignature(slider_base.RenderBaseSlider, () => ({
+    __proto__: dart.getSetters(slider_base.RenderBaseSlider.__proto__),
+    [_minInMilliseconds]: core.double,
+    [_maxInMilliseconds]: core.double,
+    [_visibleLabels]: core.List$(core.String),
+    [_majorTickPositions]: core.List$(core.double),
+    [_minorTickPositions]: core.List$(core.double),
+    tapGestureRecognizer: tap.TapGestureRecognizer,
+    actualHeight: core.double,
+    trackOffset: ui.Offset,
+    maxTrackHeight: core.double,
+    thumbElevationTween: tween.Tween$(core.double),
+    min: dart.dynamic,
+    max: dart.dynamic,
+    interval: dart.nullable(core.double),
+    stepSize: dart.nullable(core.double),
+    stepDuration: dart.nullable(common.SliderStepDuration),
+    minorTicksPerInterval: core.int,
+    showTicks: core.bool,
+    showLabels: core.bool,
+    showDividers: core.bool,
+    enableTooltip: core.bool,
+    shouldAlwaysShowTooltip: core.bool,
+    isInversed: core.bool,
+    labelPlacement: common.LabelPlacement,
+    numberFormat: number_format.NumberFormat,
+    dateIntervalType: dart.nullable(common.DateIntervalType),
+    dateFormat: dart.nullable(date_format.DateFormat),
+    labelFormatterCallback: dart.fnType(core.String, [dart.dynamic, core.String]),
+    tooltipTextFormatterCallback: dart.fnType(core.String, [dart.dynamic, core.String]),
+    thumbShape: slider_shapes.SfThumbShape,
+    overlayShape: slider_shapes.SfOverlayShape,
+    trackShape: slider_shapes.SfTrackShape,
+    dividerShape: slider_shapes.SfDividerShape,
+    tickShape: slider_shapes.SfTickShape,
+    minorTickShape: slider_shapes.SfTickShape,
+    tooltipShape: slider_shapes.SfTooltipShape,
+    sliderThemeData: slider_theme.SfSliderThemeData,
+    textDirection: ui.TextDirection,
+    tooltipPosition: dart.nullable(common.SliderTooltipPosition),
+    mediaQueryData: media_query.MediaQueryData
+  }));
+  dart.setLibraryUri(slider_base.RenderBaseSlider, I[2]);
+  dart.setFieldSignature(slider_base.RenderBaseSlider, () => ({
+    __proto__: dart.getFields(slider_base.RenderBaseSlider.__proto__),
+    minTrackWidth: dart.finalFieldType(core.double),
+    textPainter: dart.finalFieldType(text_painter.TextPainter),
+    [__RenderBaseSlider__minInMilliseconds]: dart.fieldType(dart.nullable(core.double)),
+    [__RenderBaseSlider__maxInMilliseconds]: dart.fieldType(dart.nullable(core.double)),
+    sliderType: dart.finalFieldType(dart.nullable(constants.SliderType)),
+    divisions: dart.fieldType(dart.nullable(core.double)),
+    willDrawTooltip: dart.fieldType(core.bool),
+    isInteractionEnd: dart.fieldType(core.bool),
+    [__RenderBaseSlider__visibleLabels]: dart.fieldType(dart.nullable(core.List$(core.String))),
+    [__RenderBaseSlider__majorTickPositions]: dart.fieldType(dart.nullable(core.List$(core.double))),
+    [__RenderBaseSlider__minorTickPositions]: dart.fieldType(dart.nullable(core.List$(core.double))),
+    unformattedLabels: dart.fieldType(dart.nullable(core.List$(core.double))),
+    horizontalDragGestureRecognizer: dart.fieldType(dart.nullable(monodrag.HorizontalDragGestureRecognizer)),
+    verticalDragGestureRecognizer: dart.fieldType(dart.nullable(monodrag.VerticalDragGestureRecognizer)),
+    [__RenderBaseSlider_tapGestureRecognizer]: dart.fieldType(dart.nullable(tap.TapGestureRecognizer)),
+    [__RenderBaseSlider_actualHeight]: dart.fieldType(dart.nullable(core.double)),
+    [__RenderBaseSlider_trackOffset]: dart.fieldType(dart.nullable(ui.Offset)),
+    [__RenderBaseSlider_maxTrackHeight]: dart.fieldType(dart.nullable(core.double)),
+    showOverlappingTooltipStroke: dart.fieldType(core.bool),
+    showOverlappingThumbStroke: dart.fieldType(core.bool),
+    mainAxisOffset: dart.fieldType(core.double),
+    activeThumb: dart.fieldType(dart.nullable(common.SfThumb)),
+    [__RenderBaseSlider_thumbElevationTween]: dart.fieldType(dart.nullable(tween.Tween$(core.double))),
+    currentPointerType: dart.fieldType(dart.nullable(constants.PointerType)),
+    [_min]: dart.fieldType(dart.dynamic),
+    [_max]: dart.fieldType(dart.dynamic),
+    [_interval]: dart.fieldType(dart.nullable(core.double)),
+    [_stepSize]: dart.fieldType(dart.nullable(core.double)),
+    [_stepDuration]: dart.fieldType(dart.nullable(common.SliderStepDuration)),
+    [_minorTicksPerInterval]: dart.fieldType(core.int),
+    [_showTicks]: dart.fieldType(core.bool),
+    [_showLabels]: dart.fieldType(core.bool),
+    [_showDividers]: dart.fieldType(core.bool),
+    [_enableTooltip]: dart.fieldType(core.bool),
+    [_shouldAlwaysShowTooltip]: dart.fieldType(core.bool),
+    [_isInversed]: dart.fieldType(core.bool),
+    [_labelPlacement]: dart.fieldType(common.LabelPlacement),
+    [_numberFormat]: dart.fieldType(number_format.NumberFormat),
+    [_dateIntervalType]: dart.fieldType(dart.nullable(common.DateIntervalType)),
+    [_dateFormat]: dart.fieldType(dart.nullable(date_format.DateFormat)),
+    [_labelFormatterCallback]: dart.fieldType(dart.fnType(core.String, [dart.dynamic, core.String])),
+    [_tooltipTextFormatterCallback]: dart.fieldType(dart.fnType(core.String, [dart.dynamic, core.String])),
+    [_thumbShape]: dart.fieldType(slider_shapes.SfThumbShape),
+    [_overlayShape]: dart.fieldType(slider_shapes.SfOverlayShape),
+    [_trackShape]: dart.fieldType(slider_shapes.SfTrackShape),
+    [_dividerShape]: dart.fieldType(slider_shapes.SfDividerShape),
+    [_tickShape]: dart.fieldType(slider_shapes.SfTickShape),
+    [_minorTickShape]: dart.fieldType(slider_shapes.SfTickShape),
+    [_tooltipShape]: dart.fieldType(slider_shapes.SfTooltipShape),
+    [_sliderThemeData]: dart.fieldType(slider_theme.SfSliderThemeData),
+    [_textDirection]: dart.fieldType(ui.TextDirection),
+    [_tooltipPosition]: dart.fieldType(dart.nullable(common.SliderTooltipPosition)),
+    [_mediaQueryData]: dart.fieldType(media_query.MediaQueryData)
+  }));
+  dart.trackLibraries("packages/syncfusion_flutter_sliders/src/slider_shapes.dart", {
+    "package:syncfusion_flutter_sliders/src/slider_shapes.dart": slider_shapes,
+    "package:syncfusion_flutter_sliders/src/slider_base.dart": slider_base
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["slider_shapes.dart","../../../../../../packages/flutter/lib/src/rendering/proxy_box.dart","slider_base.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../packages/syncfusion_flutter_sliders/src/slider_shapes.dart.lib.js"}');
+  // Exports:
+  return {
+    src__slider_shapes: slider_shapes,
+    src__slider_base: slider_base
+  };
+}));
+
+//# sourceMappingURL=slider_shapes.dart.lib.js.map

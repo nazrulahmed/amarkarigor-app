@@ -5,8 +5,8 @@ import 'package:get/get.dart';
 
 Widget serviceBottom(ServiceController controller) {
   return GestureDetector(
-      onTap: () {
-        String? response = controller.proceedBooking();
+      onTap: () async{
+        String? response = await controller.proceedBooking();
         if(response!=null){
           Get.showSnackbar(GetBar(
                                 isDismissible: true,

@@ -12,3 +12,5 @@ const FILED_RADIO = 'radio';
 const FILED_TEXT = 'text';
 
 const MAX_TIME = 20;
+
+const BOOKING_BOX_NAME = "booking_box";

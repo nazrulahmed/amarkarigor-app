@@ -12,7 +12,7 @@ Widget selftCheckout(CheckoutController controller) {
               style: MyTextStyle.textBlackMediumBold),
               SizedBox(height: 4,),
           Text(
-              'Once your profile is completd, you will be automatically taken to he checkout process.'),
+              'Once your profile is completd, you will be automatically taken to the checkout process.'),
 
               Padding(
                 padding: const EdgeInsets.all(16.0),

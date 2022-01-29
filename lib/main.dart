@@ -1,16 +1,24 @@
 import 'dart:io';
+import 'package:amar_karigor/app/global/model/my_booking_data.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'app/global/config/app_style.dart';
 import 'app/routes/app_pages.dart';
-import 'app/global/config/configure_nonweb.dart' if (dart.library.html) 'app/global/config/configure_web.dart';
+
+import 'app/global/config/configure_nonweb.dart'
+    if (dart.library.html) 'app/global/config/configure_web.dart';
 
 void main() async {
   configureApp();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   HttpOverrides.global = MyHttpOverrides();
+  Hive.initFlutter();
+  Hive.registerAdapter(MyBookingDataAdapter());
+
   runApp(
     GetMaterialApp(
       title: "Amar Karigor",
@@ -37,4 +45,3 @@ class MyHttpOverrides extends HttpOverrides {
           (X509Certificate cert, String host, int port) => true;
   }
 }
-  

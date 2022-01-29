@@ -1,5 +1,6 @@
 import 'package:amar_karigor/app/global/config/app_style.dart';
 import 'package:amar_karigor/app/global/config/constant.dart';
+import 'package:amar_karigor/app/global/util/my_formatter.dart';
 import 'package:amar_karigor/app/modules/service/controllers/service_controller.dart';
 import 'package:flutter/material.dart';
 
@@ -18,15 +19,13 @@ Widget horizontalTime(ServiceController controller) {
   }
   while (addedTime.hour < MAX_TIME) {
     addedTime = addedTime.add(Duration(minutes: 30));
-    if (addedTime.minute >= MAX_TIME) {
+    if (addedTime.minute >= 30) {
       min = 30;
     } else {
       min = 0;
     }
-    String hours = addedTime.hour.toString();
-    String minutes = min < 10 ? '0$min' : min.toString();
 
-    timeSlots.add(getTimeSlot(controller, "${addedTime.hour}:$minutes"));
+    timeSlots.add(getTimeSlot(controller, "${MyFormatter.convertTo12hrFormat(addedTime.hour,min)}"));
   }
 
   return Container(
@@ -47,7 +46,7 @@ Widget getTimeSlot(ServiceController controller, String time) {
     child: Container(
       margin: EdgeInsets.only(left: 8),
       decoration: BoxDecoration(
-          color: controller.selectedTime == time
+          color: controller.bookingTime == time
               ? MyColors.colorPrimary
               : Colors.white,
           border: Border.all(color: MyColors.colorPrimary),
@@ -57,7 +56,7 @@ Widget getTimeSlot(ServiceController controller, String time) {
         child: Center(
           child: Text(
             time,
-            style: controller.selectedTime == time
+            style: controller.bookingTime == time
                 ? MyTextStyle.textWhiteMediumBold
                 : MyTextStyle.textBlackMediumBold,
           ),

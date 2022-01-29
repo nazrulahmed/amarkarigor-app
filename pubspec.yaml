@@ -17,12 +17,16 @@ dependencies:
   carousel_slider: ^4.0.0
   syncfusion_flutter_sliders: ^19.4.40
   table_calendar: ^3.0.3
+  hive: ^2.0.5
+  hive_flutter: ^1.1.0
   flutter: 
     sdk: flutter
 
 dev_dependencies: 
   flutter_test: 
     sdk: flutter
+  hive_generator: ^1.1.0
+  build_runner: ^2.0.1  
 
 flutter: 
   uses-material-design: true
