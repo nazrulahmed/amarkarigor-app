@@ -1,7 +1,9 @@
 import 'dart:convert';
 
 import 'package:amar_karigor/app/global/config/constant.dart';
+import 'package:amar_karigor/app/global/model/user.dart' as AppUser;
 import 'package:amar_karigor/app/global/util/app_pref.dart';
+import 'package:amar_karigor/app/global/util/local_data.dart';
 import 'package:amar_karigor/app/modules/auth/provider/auth_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
@@ -212,7 +214,8 @@ class AuthController extends GetxController {
         if (data['status'] == true && data['token'] != null) {
           AppPref? appPref = await myPref;
           appPref!.saveToken(data['token']);
-          appPref.savePhoneNumber(phone);
+          appPref.saveUserId(data['uid']);
+          LocalData.user = AppUser.User(data['uid'],data['token']);
           msg = SUCCESS_MSG;
         } else {
           msg = data['response'];
@@ -244,10 +247,10 @@ class AuthController extends GetxController {
         if (data['status'] == true && data['token'] != null) {
           AppPref? appPref = await myPref;
           appPref!.saveToken(data['token']);
-          appPref.savePhoneNumber(phone);
+          appPref.saveUserId(data['uid']);
+          LocalData.user = AppUser.User(data['uid'],data['token']);
           msg = SUCCESS_MSG;
         } else {
-          
           msg = data['response'];
         }
       }
@@ -282,7 +285,6 @@ class AuthController extends GetxController {
         if (data['status'] == true && data['token'] != null) {
           AppPref? appPref = await myPref;
           appPref!.saveToken(data['token']);
-          appPref.savePhoneNumber(phone);
           msg = SUCCESS_MSG;
         } else {
           msg = data['response'];

@@ -1,4 +1,4 @@
-import 'package:amar_karigor/app/global/model/service.dart';
+import 'package:amar_karigor/app/global/data/model/service.dart';
 import 'package:amar_karigor/app/global/widget/custom_shimmer.dart';
 import 'package:amar_karigor/app/routes/app_pages.dart';
 import 'package:flutter/foundation.dart';

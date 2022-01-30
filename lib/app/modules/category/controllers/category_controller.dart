@@ -1,5 +1,5 @@
-import 'package:amar_karigor/app/global/model/service.dart';
-import 'package:amar_karigor/app/global/model/sub_category.dart';
+import 'package:amar_karigor/app/global/data/model/service.dart';
+import 'package:amar_karigor/app/global/data/model/sub_category.dart';
 import 'package:amar_karigor/app/modules/home/controllers/home_controller.dart';
 import 'package:get/get.dart';
 

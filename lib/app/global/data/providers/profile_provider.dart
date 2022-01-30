@@ -1,8 +1,9 @@
 import 'package:amar_karigor/app/global/config/api.dart';
+import 'package:amar_karigor/app/global/data/model/user.dart';
 import 'package:http/http.dart' as http;
 /*
     @author: Nazrul Chowdhury
-    @date: 06 December 2021
+    @date: 29 January 2022
 
     |----------------------------------------------------------|
     | Using http library for API calling instead of GetConnect |
@@ -14,13 +15,13 @@ import 'package:http/http.dart' as http;
 
  */
 
-class HomeProvider {
-  Future<http.Response> homePageData(String uid, String token) async {
-    String url = '${Api.base_url}${Api.home_data_url}';
-    print("URL IS $url token is $token phone is $uid");
+class ProfileProvider {
+  Future<http.Response> updateProfile(Map<String,dynamic> userInfo) async {
+    String url = '${Api.base_url}${Api.update_profile_url}';
+  
     http.Response response = await http.post(Uri.parse(url),
-         headers: {"Authorization": token},
-        body: {"uid": uid});
+         headers: {"Authorization": userInfo['token']},
+        body: {"uid": userInfo});
     print(response.statusCode);
     print(response.body);
     return response;

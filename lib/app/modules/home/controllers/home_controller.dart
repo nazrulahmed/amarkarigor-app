@@ -1,21 +1,22 @@
 import 'dart:convert';
-import 'package:amar_karigor/app/global/model/service.dart';
-import 'package:amar_karigor/app/global/model/sub_category.dart';
+import 'package:amar_karigor/app/global/data/model/service.dart';
+import 'package:amar_karigor/app/global/data/model/sub_category.dart';
 import 'package:amar_karigor/app/global/util/app_pref.dart';
-import 'package:amar_karigor/app/global/model/category.dart';
+import 'package:amar_karigor/app/global/data/model/category.dart';
 import 'package:amar_karigor/app/modules/location/model/city.dart';
 import 'package:amar_karigor/app/modules/location/model/country.dart';
 import 'package:amar_karigor/app/modules/home/provider/home_provider.dart';
 import 'package:amar_karigor/app/modules/location/controllers/location_controller.dart';
 
-import 'package:amar_karigor/app/global/model/user.dart' as AppUser;
-import 'package:amar_karigor/app/global/util/localdata.dart';
+import 'package:amar_karigor/app/global/util/local_data.dart';
+import 'package:amar_karigor/app/routes/app_pages.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:amar_karigor/app/global/widget/dummy_document.dart'
-    if (dart.library.html) 'package:amar_karigor/app/global/widget/web_document.dart'  as doc;
+    if (dart.library.html) 'package:amar_karigor/app/global/widget/web_document.dart'
+    as doc;
 
 class HomeController extends GetxController {
   Future<AppPref?> myPref = AppPref.instance;
@@ -46,18 +47,22 @@ class HomeController extends GetxController {
   @override
   void onReady() async {
     super.onReady();
-    AppPref? pref = await myPref;
-    String token = pref!.retriveToken() ?? "";
-    String phone = pref.retrivePhoneNumber() ?? "";
-    http.Response response = await HomeProvider().homePageData(token, phone);
+
+    if (LocalData.user == null) {
+      Get.offAndToNamed(Routes.AUTH);
+    }
+    http.Response response = await HomeProvider()
+        .homePageData(LocalData.user!.uid, LocalData.user!.token);
 
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
 
       if (data['status'] == true) {
+        final userInfoData = data['user_info'];
+        if (userInfoData != null) {
+          LocalData.user = 
+        }
 
-        AppUser.User? user = null; 
-          LocalData.user = user;
         final locationData = data['location'];
         LocationController _locationController = Get.find();
         for (int i = 0; i < locationData.length; i++) {

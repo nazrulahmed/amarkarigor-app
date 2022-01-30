@@ -30,7 +30,7 @@ class UpdateProfileView extends GetView<ProfileController> {
                           border: Border.all(color: Color(0xffeeeeee)),
                           borderRadius: BorderRadius.circular(20)),
                       child: TextFormField(
-                        //  controller: controller.phoneInputFieldController,
+                        controller: controller.nameInputFieldController,
                         decoration: InputDecoration(
                           floatingLabelBehavior: FloatingLabelBehavior.auto,
                           prefixIcon: Icon(Icons.person),
@@ -72,7 +72,7 @@ class UpdateProfileView extends GetView<ProfileController> {
                           border: Border.all(color: Color(0xffeeeeee)),
                           borderRadius: BorderRadius.circular(20)),
                       child: TextFormField(
-                        //  controller: controller.phoneInputFieldController,
+                        controller: controller.emailInputFieldController,
                         decoration: InputDecoration(
                           floatingLabelBehavior: FloatingLabelBehavior.auto,
                           prefixIcon: Icon(Icons.mail),
@@ -100,7 +100,7 @@ class UpdateProfileView extends GetView<ProfileController> {
                           border: Border.all(color: Color(0xffeeeeee)),
                           borderRadius: BorderRadius.circular(20)),
                       child: TextFormField(
-                        //  controller: controller.phoneInputFieldController,
+                        
                         decoration: InputDecoration(
                           floatingLabelBehavior: FloatingLabelBehavior.auto,
                           prefixIcon: Icon(Icons.mobile_friendly,

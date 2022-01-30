@@ -1,11 +1,11 @@
 import 'package:amar_karigor/app/global/config/app_style.dart';
-import 'package:amar_karigor/app/global/util/localdata.dart';
 import 'package:amar_karigor/app/modules/checkout/controllers/checkout_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 Widget selftCheckout(CheckoutController controller) {
-  return LocalData.user == null
+
+  
+  return !controller.hasInformation()
       ? Column(children: [
           Text(
               'Your profile is not completed yet! Please complete the required information to continue.',
@@ -19,5 +19,8 @@ Widget selftCheckout(CheckoutController controller) {
                 child: ElevatedButton(onPressed: ()=>controller.updateProfile(), child: Text('Update profile'),style: MyButtonStyle.submitButton,),
               )
         ])
-      : Text('');
+      : Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: ElevatedButton(onPressed: ()=>controller.updateProfile(), child: Text('Next'),style: MyButtonStyle.submitButton,),
+              );
 }

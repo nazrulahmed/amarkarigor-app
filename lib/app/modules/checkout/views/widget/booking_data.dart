@@ -1,4 +1,4 @@
-import 'package:amar_karigor/app/global/model/my_booking_data.dart';
+import 'package:amar_karigor/app/global/data/model/my_booking_data.dart';
 import 'package:amar_karigor/app/global/widget/custom_shimmer.dart';
 import 'package:amar_karigor/app/modules/checkout/controllers/checkout_controller.dart';
 import 'package:flutter/material.dart';

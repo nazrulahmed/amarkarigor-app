@@ -1,5 +1,5 @@
 import 'package:amar_karigor/app/global/config/app_style.dart';
-import 'package:amar_karigor/app/global/model/sub_category.dart';
+import 'package:amar_karigor/app/global/data/model/sub_category.dart';
 import 'package:amar_karigor/app/global/widget/custom_shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

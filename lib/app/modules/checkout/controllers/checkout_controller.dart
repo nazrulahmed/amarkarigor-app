@@ -1,5 +1,6 @@
 import 'package:amar_karigor/app/global/config/constant.dart';
-import 'package:amar_karigor/app/global/model/my_booking_data.dart';
+import 'package:amar_karigor/app/global/data/model/my_booking_data.dart';
+import 'package:amar_karigor/app/global/util/local_data.dart';
 import 'package:amar_karigor/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
@@ -42,5 +43,9 @@ class CheckoutController extends GetxController {
   void setConsumerType(int value) {
     consumerType = value;
     update();
+  }
+
+  bool hasInformation() {
+    return LocalData.user != null && LocalData.user!.profileCompleted();
   }
 }

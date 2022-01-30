@@ -2,7 +2,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class AppPref {
   final String KEY_TOKEN = "auth_token";
-  final String KEY_PHONE = "phone";
+  final String KEY_USER_ID = "uid";
   final String KEY_LOCATION = "location";
   static AppPref? _pref;
   static SharedPreferences? _sharedPreferences;
@@ -27,12 +27,12 @@ class AppPref {
     return _sharedPreferences!.getString(KEY_TOKEN) ?? null;
   }
 
-  void savePhoneNumber(String phone) {
-    _sharedPreferences!.setString(KEY_PHONE, phone);
+  void saveUserId(String uid) {
+    _sharedPreferences!.setString(KEY_USER_ID, uid);
   }
 
-  String? retrivePhoneNumber() {
-    return _sharedPreferences!.getString(KEY_PHONE) ?? null;
+  String? retriveUserId() {
+    return _sharedPreferences!.getString(KEY_USER_ID) ?? null;
   }
 
   void setLocation(String location) {

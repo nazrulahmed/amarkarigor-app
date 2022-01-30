@@ -11,11 +11,11 @@ Widget horizontalTime(ServiceController controller) {
   DateTime addedTime = currentTime;
   int min = 0;
 
-  if (currentTime.hour > MAX_TIME) {
+  if (currentTime.hour >= MAX_TIME) {
     addedTime = addedTime.add(Duration(days: 1));
     print('1 day added. and time after aded is');
     print(addedTime.toString());
-    addedTime = DateTime(addedTime.year, addedTime.month, addedTime.day, 8, 0);
+    addedTime = DateTime(addedTime.year, addedTime.month, addedTime.day, 7, 30);
   }
   while (addedTime.hour < MAX_TIME) {
     addedTime = addedTime.add(Duration(minutes: 30));

@@ -1,8 +1,8 @@
 import 'dart:collection';
 
 import 'package:amar_karigor/app/global/config/constant.dart';
-import 'package:amar_karigor/app/global/model/my_booking_data.dart';
-import 'package:amar_karigor/app/global/model/service.dart';
+import 'package:amar_karigor/app/global/data/model/my_booking_data.dart';
+import 'package:amar_karigor/app/global/data/model/service.dart';
 import 'package:amar_karigor/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -24,10 +24,13 @@ class ServiceController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    if (currentDate.value.hour > MAX_TIME) {
+
+    if (currentDate.value.hour >= MAX_TIME) {
       currentDate.value = currentDate.value.add(Duration(days: 1));
       selectedDate.value = currentDate.value;
     }
+    
+    print('currentDate is OUT ${currentDate.value.hour}');
     service = Get.arguments;
     totalPrice.value = service.price;
     bookingDate =
@@ -67,7 +70,6 @@ class ServiceController extends GetxController {
     if (bookingTime.isEmpty) {
       return "Please select wanted time!";
     }
-    
 
     //TO DO: Restructure mapping system
     Map<String, dynamic> services = HashMap();
@@ -77,7 +79,7 @@ class ServiceController extends GetxController {
     print('GOING TO FINAL MAP');
     var box = await Hive.openBox(BOOKING_BOX_NAME);
 
-    var booking = MyBookingData(services,bookingDate,bookingTime);
+    var booking = MyBookingData(services, bookingDate, bookingTime);
     box.add(booking);
 
     print('box.length after added ${box.length}');

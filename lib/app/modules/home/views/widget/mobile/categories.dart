@@ -3,7 +3,7 @@ import 'package:amar_karigor/app/global/widget/custom_image_dummy.dart'
     if (dart.library.html) 'package:amar_karigor/app/global/widget/custom_image.dart'
     as ci;
 import 'package:amar_karigor/app/global/widget/custom_shimmer.dart';
-import 'package:amar_karigor/app/global/model/category.dart';
+import 'package:amar_karigor/app/global/data/model/category.dart';
 import 'package:amar_karigor/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 import '../../../../../global/config/api.dart';
