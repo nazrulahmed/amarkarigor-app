@@ -11,6 +11,7 @@ class Api {
   static String update_password = 'update_password';
   static String home_data_url = 'home';
   static String update_profile_url = 'update_profile';
+    static String create_booking_url = 'create_booking';
 
   
 }
