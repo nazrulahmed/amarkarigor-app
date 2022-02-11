@@ -4,7 +4,7 @@ import 'package:amar_karigor/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-Widget selftCheckout(CheckoutController controller) {
+Widget selfCheckout(CheckoutController controller) {
 
   
   return !controller.hasInformation()

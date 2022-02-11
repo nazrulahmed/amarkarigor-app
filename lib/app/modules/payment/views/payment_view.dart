@@ -1,62 +1,68 @@
 import 'package:amar_karigor/app/global/config/app_style.dart';
-import 'package:amar_karigor/app/modules/checkout/views/widget/other_user_checkout.dart';
-import 'package:amar_karigor/app/modules/checkout/views/widget/self_checkout.dart';
+import 'package:amar_karigor/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import '../controllers/checkout_controller.dart';
+import '../controllers/payment_controller.dart';
+import 'widget/cost_card.dart';
 
-class CheckoutView extends GetView<CheckoutController> {
+class PaymentView extends GetView<PaymentController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Checkout'),
+          title: Text('Payment'),
         ),
         body: GetBuilder(
-          builder: (CheckoutController checkoutController) => ListView(
+          builder: (PaymentController checkoutController) => ListView(
             children: [
               SizedBox(height: 8),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Text(
-                  'I want to process this booking for',
+                  'Select your payment method',
                   style: MyTextStyle.textBlackLargeBold,
                 ),
               ),
               Row(
                 children: [
                   Radio(
-                    value: 1,
-                    groupValue: controller.consumerType,
+                    value: 'cos',
+                    groupValue:controller.paymentType,
                     onChanged: (value) {
-                      controller.setConsumerType(value as int);
+                      controller.setPaymentType(value as String);
                     },
                     activeColor: Colors.green,
                   ),
-                  Text("Myself"),
+                  Text("Cash on service"),
                 ],
               ),
               Row(
                 children: [
                   Radio(
-                    value: 2,
-                    groupValue: controller.consumerType,
+                    value: 'bKash',
+                    groupValue: controller.paymentType,
                     onChanged: (value) {
-                       controller.setConsumerType(value as int);
+                      controller.setPaymentType(value as String);
                     },
                     activeColor: Colors.green,
                   ),
-                  Text("Someone I know"),
+                  Text("bKash"),
                 ],
               ),
               Divider(),
-              Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: controller.consumerType == 1
-                      ? selfCheckout(controller)
-                      : otherUserCheckout(controller)),
+
+              costCard(controller),
+
+               Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: ElevatedButton(onPressed: ()=> controller.calculateCost(),
+                 child: controller.paymentType=='cos'? Text('Proceed'):Text('Pay now'),
+                 style: MyButtonStyle.submitButton,),
+              )
+
+
             ],
           ),
         ));

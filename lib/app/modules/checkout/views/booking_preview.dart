@@ -32,7 +32,7 @@ class BookingPreview extends GetView<CheckoutController> {
                     child: Text('Add more')),
                 ElevatedButton(
                     onPressed: () {
-                      
+                      Get.toNamed(Routes.PAYMENT);
                     },
                     style: MyButtonStyle.submitButton,
                     child: Text('Next')),
