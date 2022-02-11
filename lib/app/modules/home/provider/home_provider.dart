@@ -9,7 +9,7 @@ import 'package:http/http.dart' as http;
     |----------------------------------------------------------|
     
     * GetConnect (get,post) methods are not working properly in Flutter Web.
-    * Getting response as null instad of actual response. 
+    * Getting response as null instead of actual response. 
     * Same codebase work well on the Android device.
 
  */

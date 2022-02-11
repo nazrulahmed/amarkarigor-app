@@ -39,7 +39,7 @@ class User {
     return User(uid, token)
       .._address = json['address'] as String
       .._email = json['email'] as String
-      .._firstName = json['name'] as String
+      .._firstName = json['first_name'] as String
       .._phone = json['phone'] as String;
   }
 

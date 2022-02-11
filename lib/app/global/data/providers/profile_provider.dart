@@ -1,5 +1,4 @@
 import 'package:amar_karigor/app/global/config/api.dart';
-import 'package:amar_karigor/app/global/data/model/user.dart';
 import 'package:http/http.dart' as http;
 /*
     @author: Nazrul Chowdhury

@@ -1,13 +1,13 @@
 import 'dart:convert';
 import 'package:amar_karigor/app/global/data/model/service.dart';
 import 'package:amar_karigor/app/global/data/model/sub_category.dart';
+import 'package:amar_karigor/app/global/data/model/user.dart';
 import 'package:amar_karigor/app/global/util/app_pref.dart';
 import 'package:amar_karigor/app/global/data/model/category.dart';
 import 'package:amar_karigor/app/modules/location/model/city.dart';
 import 'package:amar_karigor/app/modules/location/model/country.dart';
 import 'package:amar_karigor/app/modules/home/provider/home_provider.dart';
 import 'package:amar_karigor/app/modules/location/controllers/location_controller.dart';
-
 import 'package:amar_karigor/app/global/util/local_data.dart';
 import 'package:amar_karigor/app/routes/app_pages.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
@@ -60,7 +60,7 @@ class HomeController extends GetxController {
       if (data['status'] == true) {
         final userInfoData = data['user_info'];
         if (userInfoData != null) {
-          LocalData.user = 
+          LocalData.user = User.fromJson(LocalData.user!.uid, LocalData.user!.token, userInfoData);
         }
 
         final locationData = data['location'];

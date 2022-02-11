@@ -17,21 +17,27 @@ class MyBookingDataAdapter extends TypeAdapter<MyBookingData> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return MyBookingData(
-      (fields[0] as Map).cast<String, dynamic>(),
-      fields[1] as String,
-      fields[2] as String,
+      fields[0] as Service,
+      (fields[1] as Map).cast<String, dynamic>(),
+      fields[2] as double,
+      fields[3] as String,
+      fields[4] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, MyBookingData obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(5)
       ..writeByte(0)
-      ..write(obj.bookedService)
+      ..write(obj.service)
       ..writeByte(1)
-      ..write(obj.bookingDate)
+      ..write(obj.bookedService)
       ..writeByte(2)
+      ..write(obj.totalPrice)
+      ..writeByte(3)
+      ..write(obj.bookingDate)
+      ..writeByte(4)
       ..write(obj.bookingTime);
   }
 

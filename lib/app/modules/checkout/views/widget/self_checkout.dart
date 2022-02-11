@@ -1,6 +1,8 @@
 import 'package:amar_karigor/app/global/config/app_style.dart';
 import 'package:amar_karigor/app/modules/checkout/controllers/checkout_controller.dart';
+import 'package:amar_karigor/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 Widget selftCheckout(CheckoutController controller) {
 
@@ -21,6 +23,6 @@ Widget selftCheckout(CheckoutController controller) {
         ])
       : Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: ElevatedButton(onPressed: ()=>controller.updateProfile(), child: Text('Next'),style: MyButtonStyle.submitButton,),
+                child: ElevatedButton(onPressed: ()=>Get.toNamed(Routes.CHECKOUT_BOOKING_PREVIEW), child: Text('Next'),style: MyButtonStyle.submitButton,),
               );
 }

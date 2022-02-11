@@ -1,4 +1,4 @@
-import 'package:amar_karigor/app/global/model/user.dart';
+import 'package:amar_karigor/app/global/data/model/user.dart';
 import 'package:amar_karigor/app/global/util/app_pref.dart';
 import 'package:amar_karigor/app/global/util/local_data.dart';
 import 'package:amar_karigor/app/routes/app_pages.dart';

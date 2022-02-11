@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:amar_karigor/app/global/data/model/my_booking_data.dart';
+import 'package:amar_karigor/app/global/data/model/service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,6 +19,7 @@ void main() async {
   HttpOverrides.global = MyHttpOverrides();
   Hive.initFlutter();
   Hive.registerAdapter(MyBookingDataAdapter());
+  Hive.registerAdapter(ServiceAdapter());
 
   runApp(
     GetMaterialApp(

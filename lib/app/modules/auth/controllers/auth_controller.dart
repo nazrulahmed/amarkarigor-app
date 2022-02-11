@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:amar_karigor/app/global/config/constant.dart';
-import 'package:amar_karigor/app/global/model/user.dart' as AppUser;
+import 'package:amar_karigor/app/global/data/model/user.dart' as AppUser;
 import 'package:amar_karigor/app/global/util/app_pref.dart';
 import 'package:amar_karigor/app/global/util/local_data.dart';
 import 'package:amar_karigor/app/modules/auth/provider/auth_provider.dart';

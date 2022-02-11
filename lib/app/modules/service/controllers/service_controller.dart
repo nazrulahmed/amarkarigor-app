@@ -72,14 +72,14 @@ class ServiceController extends GetxController {
     }
 
     //TO DO: Restructure mapping system
-    Map<String, dynamic> services = HashMap();
+    Map<String, dynamic> selectedAttributes = HashMap();
     for (var optionValues in optionValues) {
-      services.addAll(optionValues);
+      selectedAttributes.addAll(optionValues);
     }
     print('GOING TO FINAL MAP');
     var box = await Hive.openBox(BOOKING_BOX_NAME);
 
-    var booking = MyBookingData(services, bookingDate, bookingTime);
+    var booking = MyBookingData(service,selectedAttributes, totalPrice.value,bookingDate, bookingTime);
     box.add(booking);
 
     print('box.length after added ${box.length}');
