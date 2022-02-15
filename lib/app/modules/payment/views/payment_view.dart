@@ -1,4 +1,5 @@
 import 'package:amar_karigor/app/global/config/app_style.dart';
+import 'package:amar_karigor/app/global/config/constant.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -27,7 +28,7 @@ class PaymentView extends GetView<PaymentController> {
               Row(
                 children: [
                   Radio(
-                    value: 'cos',
+                    value: PAYMENT_CASH_ON_SERVICE,
                     groupValue:controller.paymentType,
                     onChanged: (value) {
                       controller.setPaymentType(value as String);
@@ -40,14 +41,14 @@ class PaymentView extends GetView<PaymentController> {
               Row(
                 children: [
                   Radio(
-                    value: 'bKash',
+                    value: PAYMENT_GATEWAY_BKASH,
                     groupValue: controller.paymentType,
                     onChanged: (value) {
                       controller.setPaymentType(value as String);
                     },
                     activeColor: Colors.green,
                   ),
-                  Text("bKash"),
+                  Text(PAYMENT_GATEWAY_BKASH),
                 ],
               ),
               Divider(),
@@ -57,7 +58,8 @@ class PaymentView extends GetView<PaymentController> {
                Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: ElevatedButton(onPressed: ()=> controller.calculateCost(),
-                 child: controller.paymentType=='cos'? Text('Proceed'):Text('Pay now'),
+                 child: controller.paymentType==PAYMENT_CASH_ON_SERVICE? Text('Proceed')
+                 :Text('Pay now'),
                  style: MyButtonStyle.submitButton,),
               )
 

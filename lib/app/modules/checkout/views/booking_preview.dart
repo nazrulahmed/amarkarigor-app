@@ -1,6 +1,5 @@
 import 'package:amar_karigor/app/global/config/app_style.dart';
 import 'package:amar_karigor/app/global/config/constant.dart';
-import 'package:amar_karigor/app/global/data/providers/book_service_provider.dart';
 import 'package:amar_karigor/app/modules/checkout/views/widget/booking_data.dart';
 import 'package:amar_karigor/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
@@ -17,9 +16,7 @@ class BookingPreview extends GetView<CheckoutController> {
         title: Text('Booking Preview'),
       ),
       body: GetBuilder(builder: (CheckoutController checkoutController) {
-        return Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
+        return ListView(
           children: [
             bookingData(checkoutController, context),
             SizedBox(height: 8),
