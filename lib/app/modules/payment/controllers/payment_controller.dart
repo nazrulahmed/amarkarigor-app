@@ -4,11 +4,12 @@ class PaymentController extends GetxController {
   String paymentType = 'cos';
 
   bool showCost = false;
-  double costToPay = 0.0;
+  double grossTotal = 0.0;
 
   @override
   void onInit() {
     super.onInit();
+    grossTotal = Get.arguments as double;
   }
 
   @override
@@ -21,11 +22,6 @@ class PaymentController extends GetxController {
 
   void setPaymentType(String value) {
     this.paymentType = value;
-    update();
-  }
-
-  void calculateCost() {
-    costToPay = 76.0;
     update();
   }
 }

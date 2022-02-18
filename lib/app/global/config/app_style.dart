@@ -10,7 +10,7 @@ class MyButtonStyle {
         borderRadius: BorderRadius.circular(10.0),
       ),
       primary: MyColors.colorPrimary,
-      padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20));
+      padding: EdgeInsets.symmetric(horizontal: 50, vertical: 5));
 }
 
 class MyTextStyle {

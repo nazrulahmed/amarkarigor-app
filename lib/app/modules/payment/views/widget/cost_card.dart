@@ -23,7 +23,7 @@ Widget costCard(PaymentController controller) {
         child: Column(
           children: [
              Center(child: Text(controller.paymentType=='cos'?'You will be billed ':'Please pay ',style: MyTextStyle.textWhiteExtraLargeBold)),
-            Center(child: Text('BDT ${controller.costToPay}',style: MyTextStyle.textWhiteExtraLargeBold)),
+            Center(child: Text('BDT ${controller.grossTotal}',style: MyTextStyle.textWhiteExtraLargeBold)),
 
            
           ],

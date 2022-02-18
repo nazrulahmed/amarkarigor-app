@@ -56,6 +56,8 @@ Widget bookingData(CheckoutController checkoutController, context) {
 }
 
 Widget item(CheckoutController checkoutController, int index) {
+  print(
+      'checkoutController.bookings.length ${checkoutController.bookings.length}');
   MyBookingData bookingData = checkoutController.bookings[index];
   return InkWell(
     onTap: () => checkoutController.removeBooking(index),
@@ -78,15 +80,15 @@ Widget item(CheckoutController checkoutController, int index) {
                           ? Padding(
                               padding: const EdgeInsets.only(top: 8.0),
                               child: ci.CustomImage(
-                                  bookingData.service.name,
-                                  '${Api.assets_url}${Api.services_icon}${bookingData.service.icon}',
+                                  bookingData.service['name'],
+                                  '${Api.assets_url}${Api.services_icon}${bookingData.service['icon']}',
                                   40,
                                   40),
                             )
                           : Padding(
                               padding: const EdgeInsets.only(top: 8.0),
                               child: Image.network(
-                                '${Api.assets_url}${Api.services_icon}${bookingData.service.icon}',
+                                '${Api.assets_url}${Api.services_icon}${bookingData.service['icon']}',
                                 height: 40,
                                 width: 40,
                               ),
@@ -100,7 +102,7 @@ Widget item(CheckoutController checkoutController, int index) {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              bookingData.service.name + " cleaning Service",
+                              bookingData.service['name'] + " cleaning Service",
                               style: TextStyle(
                                   fontSize: 22, fontWeight: FontWeight.bold),
                             ),

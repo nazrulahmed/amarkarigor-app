@@ -19,13 +19,13 @@ import 'package:http/http.dart' as http;
  */
 
 class BookServiceProvider {
-  Future<http.Response> createBooking(List<MyBookingData> bookings) async {
+  Future<http.Response> createBooking(List<MyBookingData> bookings,double totalToPay) async {
     String url = '${Api.base_url}${Api.create_booking_url}';
-    print(jsonEncode(bookings));
+   
 
     http.Response response = await http.post(Uri.parse(url),
         headers: {"Authorization": LocalData.user!.token},
-        body: {"uid": LocalData.user!.uid, "bookings": jsonEncode(bookings)});
+        body: {"uid": LocalData.user!.uid,"total_to_pay":totalToPay.toString(), "bookings": jsonEncode(bookings)});
     print(response.statusCode);
     print(url);
     print(response.body);

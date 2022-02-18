@@ -79,7 +79,7 @@ class ServiceController extends GetxController {
     print('GOING TO FINAL MAP');
     var box = await Hive.openBox(BOOKING_BOX_NAME);
 
-    var booking = MyBookingData(service,selectedAttributes, totalPrice.value,bookingDate, bookingTime);
+    var booking = MyBookingData(service.toJson(),selectedAttributes, totalPrice.value,bookingDate, bookingTime);
     box.add(booking);
 
     print('box.length after added ${box.length}');

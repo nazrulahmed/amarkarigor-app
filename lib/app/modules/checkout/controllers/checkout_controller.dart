@@ -15,17 +15,11 @@ class CheckoutController extends GetxController {
   List<MyBookingData> bookings = [];
   int consumerType = 1;
   var isLoading = false.obs;
+  double grossTotal = 0.0;
   @override
   void onInit() async {
     super.onInit();
     bookingBox = await Hive.openBox(BOOKING_BOX_NAME);
-
-    for (int i = 0; i < bookingBox.length; i++) {
-      MyBookingData bookingData = bookingBox.getAt(i);
-      
-      bookings.add(bookingData);
-    }
-    update();
   }
 
   @override
@@ -37,8 +31,8 @@ class CheckoutController extends GetxController {
   void onClose() {}
 
   Future<int> createBooking() async {
-  
-    http.Response response = await _bookServiceProvider.createBooking(bookings);
+    http.Response response =
+        await _bookServiceProvider.createBooking(bookings, grossTotal);
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
       if (data['status'] == true) {
@@ -68,4 +62,18 @@ class CheckoutController extends GetxController {
   }
 
   void clearBooking() {}
+  void previewBooking() {
+    bookings.clear();
+    grossTotal = 0;
+
+    for (int i = 0; i < bookingBox.length; i++) {
+      MyBookingData bookingData = bookingBox.getAt(i);
+
+      grossTotal += bookingData.totalPrice;
+
+      bookings.add(bookingData);
+    }
+    update();
+    Get.toNamed(Routes.CHECKOUT_BOOKING_PREVIEW);
+  }
 }

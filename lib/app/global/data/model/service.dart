@@ -33,4 +33,18 @@ class Service {
   String get description => _description;
   String? get attribute => _attribute;
   String? get option => _option;
+
+   Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      'id': id,
+      'cat_id': catId,
+      'name': name,
+      'price': price,
+      'subCatId': subCatId,
+      'icon':icon,
+      'description':description,
+      'attribute':attribute,
+      'option':option
+    };
+  }
 }

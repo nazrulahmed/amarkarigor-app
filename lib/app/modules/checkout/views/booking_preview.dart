@@ -33,7 +33,7 @@ class BookingPreview extends GetView<CheckoutController> {
                     onPressed: () async {
                       int bookingId = await checkoutController.createBooking();
                       if (bookingId > 0) {
-                        Get.toNamed(Routes.PAYMENT);
+                        Get.toNamed(Routes.PAYMENT,arguments: controller.grossTotal);
                       } else {
                         Get.showSnackbar(GetBar(
                             isDismissible: true,

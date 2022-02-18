@@ -57,7 +57,7 @@ class PaymentView extends GetView<PaymentController> {
 
                Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: ElevatedButton(onPressed: ()=> controller.calculateCost(),
+                child: ElevatedButton(onPressed: ()=> null,
                  child: controller.paymentType==PAYMENT_CASH_ON_SERVICE? Text('Proceed')
                  :Text('Pay now'),
                  style: MyButtonStyle.submitButton,),

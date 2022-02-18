@@ -17,7 +17,7 @@ class MyBookingDataAdapter extends TypeAdapter<MyBookingData> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return MyBookingData(
-      fields[0] as Service,
+      (fields[0] as Map).cast<String, dynamic>(),
       (fields[1] as Map).cast<String, dynamic>(),
       fields[2] as double,
       fields[3] as String,
