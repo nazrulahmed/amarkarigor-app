@@ -16,6 +16,7 @@ abstract class Routes {
   static const PROFILE = _Paths.PROFILE;
   static const UPDATE_PROFILE = _Paths.UPDATE_PROFILE;
   static const PAYMENT = _Paths.PAYMENT;
+  static const PAYMENT_COMPLETE = _Paths.PAYMENT_COMPLETE;
 }
 
 abstract class _Paths {
@@ -32,4 +33,5 @@ abstract class _Paths {
   static const PROFILE = '/profile';
   static const UPDATE_PROFILE = '/update_profile';
   static const PAYMENT = '/payment';
+    static const PAYMENT_COMPLETE = '/payment_complete';
 }

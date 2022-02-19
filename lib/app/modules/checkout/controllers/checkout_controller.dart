@@ -36,6 +36,7 @@ class CheckoutController extends GetxController {
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
       if (data['status'] == true) {
+        bookingBox.clear();
         return data['booking_id'] as int;
       }
     }

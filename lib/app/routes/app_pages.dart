@@ -1,3 +1,4 @@
+import 'package:amar_karigor/app/modules/payment/views/payment_complete.dart';
 import 'package:get/get.dart';
 
 import 'package:amar_karigor/app/modules/auth/bindings/auth_binding.dart';
@@ -89,6 +90,11 @@ class AppPages {
     GetPage(
       name: _Paths.PAYMENT,
       page: () => PaymentView(),
+      binding: PaymentBinding(),
+    ),
+      GetPage(
+      name: _Paths.PAYMENT_COMPLETE,
+      page: () => PaymentComplete(),
       binding: PaymentBinding(),
     ),
   ];

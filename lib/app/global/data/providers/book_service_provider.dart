@@ -31,4 +31,19 @@ class BookServiceProvider {
     print(response.body);
     return response;
   }
+
+  Future<http.Response> updateBookingPaymentStatus(int bookingId) async {
+    String url = '${Api.base_url}${Api.update_booking_payment_status_url}';
+   
+
+    http.Response response = await http.post(Uri.parse(url),
+        headers: {"Authorization": LocalData.user!.token},
+        body: {"uid": LocalData.user!.uid,"booking_id":bookingId.toString()});
+    print(response.statusCode);
+    print(url);
+    print(response.body);
+    return response;
+  }
+
+
 }

@@ -29,7 +29,7 @@ class PaymentView extends GetView<PaymentController> {
                 children: [
                   Radio(
                     value: PAYMENT_CASH_ON_SERVICE,
-                    groupValue:controller.paymentType,
+                    groupValue: controller.paymentType,
                     onChanged: (value) {
                       controller.setPaymentType(value as String);
                     },
@@ -52,18 +52,39 @@ class PaymentView extends GetView<PaymentController> {
                 ],
               ),
               Divider(),
-
               costCard(controller),
-
-               Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: ElevatedButton(onPressed: ()=> null,
-                 child: controller.paymentType==PAYMENT_CASH_ON_SERVICE? Text('Proceed')
-                 :Text('Pay now'),
-                 style: MyButtonStyle.submitButton,),
+              SizedBox(
+                height: 8,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 150,
+                      child: ElevatedButton(
+                        onPressed: () => controller.cancelBooking(),
+                        child: Text('Cancel'),
+                        style: MyButtonStyle.cancelButton,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 8,
+                    ),
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () =>
+                            controller.completeBooking(),
+                        child: controller.paymentType == PAYMENT_CASH_ON_SERVICE
+                            ? Text('Proceed')
+                            : Text('Pay now'),
+                        style: MyButtonStyle.submitButton,
+                      ),
+                    ),
+                  ],
+                ),
               )
-
-
             ],
           ),
         ));

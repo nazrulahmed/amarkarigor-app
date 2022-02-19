@@ -1,15 +1,21 @@
+import 'package:amar_karigor/app/global/config/constant.dart';
+import 'package:amar_karigor/app/global/data/providers/book_service_provider.dart';
+import 'package:amar_karigor/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 
 class PaymentController extends GetxController {
   String paymentType = 'cos';
 
   bool showCost = false;
-  double grossTotal = 0.0;
+  late double grossTotal;
+  late int bookingId;
 
   @override
   void onInit() {
     super.onInit();
-    grossTotal = Get.arguments as double;
+    var data = [1,2];
+    bookingId = data[0];
+    grossTotal = 4.3;
   }
 
   @override
@@ -24,4 +30,14 @@ class PaymentController extends GetxController {
     this.paymentType = value;
     update();
   }
+
+  void completeBooking() {
+    if (paymentType == PAYMENT_CASH_ON_SERVICE) {
+      Get.offAndToNamed(Routes.PAYMENT_COMPLETE);
+
+      BookServiceProvider().updateBookingPaymentStatus(bookingId);
+    }
+  }
+
+  void cancelBooking() {}
 }

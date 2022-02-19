@@ -11,6 +11,13 @@ class MyButtonStyle {
       ),
       primary: MyColors.colorPrimary,
       padding: EdgeInsets.symmetric(horizontal: 50, vertical: 5));
+
+  static var cancelButton = ElevatedButton.styleFrom(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      primary: Colors.grey,
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5));
 }
 
 class MyTextStyle {
