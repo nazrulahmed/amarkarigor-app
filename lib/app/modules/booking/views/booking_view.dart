@@ -9,13 +9,20 @@ class BookingView extends GetView<BookingController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BookingView'),
+        title: Text('Booking'),
         centerTitle: true,
       ),
       body: Center(
-        child: Text(
-          'BookingView is working',
-          style: TextStyle(fontSize: 20),
+        child: InkWell(
+          onTap: () {
+            controller.increment();
+          },
+          child: Obx(
+            () => Text(
+              'BookingView is working ${controller.count.value}',
+              style: TextStyle(fontSize: 20),
+            ),
+          ),
         ),
       ),
     );

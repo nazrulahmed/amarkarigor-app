@@ -1,14 +1,12 @@
 import 'package:amar_karigor/app/global/config/app_style.dart';
 import 'package:amar_karigor/app/modules/location/controllers/location_controller.dart';
 import 'package:amar_karigor/app/routes/app_pages.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 Widget getHeader() {
-  print("GET HEADER CALLED");
   LocationController locationController = Get.find();
-  
-  
   return FlexibleSpaceBar(
       background: Container(
           color: MyColors.colorPrimary,
@@ -21,7 +19,7 @@ Widget getHeader() {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      height: 80,
+                      height: kIsWeb? 60:80 ,
                     ),
                     Text(
                       'Location for service',

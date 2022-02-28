@@ -1,3 +1,4 @@
+import 'package:amar_karigor/app/global/widget/custom_webview.dart';
 import 'package:amar_karigor/app/modules/payment/views/payment_complete.dart';
 import 'package:get/get.dart';
 
@@ -97,5 +98,7 @@ class AppPages {
       page: () => PaymentComplete(),
       binding: PaymentBinding(),
     ),
+
+    
   ];
 }

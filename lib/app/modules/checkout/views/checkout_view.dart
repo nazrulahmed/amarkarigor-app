@@ -22,9 +22,10 @@ class CheckoutView extends GetView<CheckoutController> {
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Text(
                   'I want to process this booking for',
-                  style: MyTextStyle.textBlackLargeBold,
+                  style: MyTextStyle.textBlackLargerBold,
                 ),
               ),
+              SizedBox(height: 8),
               Row(
                 children: [
                   Radio(
@@ -35,16 +36,19 @@ class CheckoutView extends GetView<CheckoutController> {
                     },
                     activeColor: Colors.green,
                   ),
-                  Text("Myself"),
+                  Text(
+                    "Myself",
+                  ),
                 ],
               ),
+              SizedBox(height: 8),
               Row(
                 children: [
                   Radio(
                     value: 2,
                     groupValue: controller.consumerType,
                     onChanged: (value) {
-                       controller.setConsumerType(value as int);
+                      controller.setConsumerType(value as int);
                     },
                     activeColor: Colors.green,
                   ),

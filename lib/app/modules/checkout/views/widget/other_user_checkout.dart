@@ -1,8 +1,9 @@
 import 'package:amar_karigor/app/global/config/app_style.dart';
+import 'package:amar_karigor/app/modules/checkout/controllers/checkout_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-Widget otherUserCheckout(controller) {
+Widget otherUserCheckout(CheckoutController controller) {
   return Column(
     children: [
       Container(
@@ -11,7 +12,7 @@ Widget otherUserCheckout(controller) {
             border: Border.all(color: Color(0xffeeeeee)),
             borderRadius: BorderRadius.circular(20)),
         child: TextFormField(
-          //  controller: controller.phoneInputFieldController,
+          controller: controller.consumerNameFieldController,
           decoration: InputDecoration(
             prefixIcon: Icon(Icons.person),
             border: InputBorder.none,
@@ -49,7 +50,7 @@ Widget otherUserCheckout(controller) {
             border: Border.all(color: Color(0xffeeeeee)),
             borderRadius: BorderRadius.circular(20)),
         child: TextFormField(
-          //  controller: controller.phoneInputFieldController,
+            controller: controller.consumerPhoneFieldController,
           decoration: InputDecoration(
             prefixIcon: Icon(Icons.phone),
             border: InputBorder.none,
@@ -68,7 +69,7 @@ Widget otherUserCheckout(controller) {
             border: Border.all(color: Color(0xffeeeeee)),
             borderRadius: BorderRadius.circular(20)),
         child: TextFormField(
-          //  controller: controller.phoneInputFieldController,
+          controller: controller.consumerEmailFieldController,
           decoration: InputDecoration(
             prefixIcon: Icon(Icons.mail),
             border: InputBorder.none,
@@ -89,9 +90,11 @@ Widget otherUserCheckout(controller) {
                     color: MyColors.colorPrimary,
                   ))
                 : ElevatedButton(
-                    onPressed: () async {},
+                    onPressed: () async {
+                      controller.previewBooking();
+                    },
                     style: MyButtonStyle.submitButton,
-                    child: Text('Login')),
+                    child: Text('Next')),
           );
         }),
       ),

@@ -19,7 +19,7 @@ void main() async {
   HttpOverrides.global = MyHttpOverrides();
   Hive.initFlutter();
   Hive.registerAdapter(MyBookingDataAdapter());
-  Hive.registerAdapter(ServiceAdapter());
+  Hive.registerAdapter(ServiceAdapter());  
 
   runApp(
     GetMaterialApp(
@@ -47,3 +47,6 @@ class MyHttpOverrides extends HttpOverrides {
           (X509Certificate cert, String host, int port) => true;
   }
 }
+
+
+

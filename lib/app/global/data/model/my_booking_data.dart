@@ -1,4 +1,3 @@
-import 'package:amar_karigor/app/global/data/model/service.dart';
 import 'package:hive/hive.dart';
 part 'my_booking_data.g.dart';
 

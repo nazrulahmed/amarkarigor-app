@@ -8,17 +8,18 @@ Widget getBottomNavbar(HomeController controller) {
   return Obx(() {
     return Container(
       decoration: BoxDecoration(
-        border: Border( top: BorderSide(width: 1.0, color: Color(0xffeeeeee)))
-      ),
+          border:
+              Border(top: BorderSide(width: 1.0, color: Color(0xffeeeeee)))),
       child: SalomonBottomBar(
         currentIndex: controller.currentIndex.value,
         onTap: (index) {
+          print('current index is $index');
           controller.changePage(index);
         },
         items: [
           /// Home
           SalomonBottomBarItem(
-            icon: Icon(Icons.home, color: MyColors.colorPrimary),
+            icon: Icon(Icons.home),
             title: Text("Home"),
             selectedColor: MyColors.colorPrimary,
             unselectedColor: Colors.grey[400],
@@ -34,18 +35,18 @@ Widget getBottomNavbar(HomeController controller) {
             unselectedColor: Colors.grey[400],
           ),
 
-          /// Search
+          /// Profile
           SalomonBottomBarItem(
-            icon: Icon(Icons.person),
-            title: Text("Profile"),
+            icon: Icon(Icons.bookmarks),
+            title: Text("Booking"),
             selectedColor: MyColors.colorPrimary,
             unselectedColor: Colors.grey[400],
           ),
 
-          /// Profile
+          /// Search
           SalomonBottomBarItem(
-            icon: Icon(Icons.bookmarks),
-            title: Text("Bookings"),
+            icon: Icon(Icons.more_horiz),
+            title: Text("More"),
             selectedColor: MyColors.colorPrimary,
             unselectedColor: Colors.grey[400],
           ),

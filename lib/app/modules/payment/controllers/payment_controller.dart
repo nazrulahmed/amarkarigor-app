@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 class PaymentController extends GetxController {
   String paymentType = 'cos';
-
+  bool isCancelBooking = false;
   bool showCost = false;
   late double grossTotal;
   late int bookingId;
@@ -13,9 +13,9 @@ class PaymentController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    var data = [1,2];
+    var data = Get.arguments;
     bookingId = data[0];
-    grossTotal = 4.3;
+    grossTotal = data[1];
   }
 
   @override
@@ -39,5 +39,9 @@ class PaymentController extends GetxController {
     }
   }
 
-  void cancelBooking() {}
+  Future<bool> cancelBooking() async {
+    await Future.delayed(Duration(seconds: 2));
+    for (int i = 0; i < 22; i++) print('doing work with $i');
+    return true;
+  }
 }

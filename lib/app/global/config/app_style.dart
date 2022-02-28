@@ -1,23 +1,37 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';                                          
 
-class MyColors {
-  static final colorPrimary = Color(0xff1DBF73);
+class MyColors {                                                                
+  static final colorPrimary = Color(0xff1DBF73);                                
 }
-
+                                                                                  
 class MyButtonStyle {
   static final submitButton = ElevatedButton.styleFrom(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0),
       ),
       primary: MyColors.colorPrimary,
-      padding: EdgeInsets.symmetric(horizontal: 50, vertical: 5));
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15));
 
   static var cancelButton = ElevatedButton.styleFrom(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0),
       ),
       primary: Colors.grey,
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5));
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20));
+
+  static final alertCancelButton = ElevatedButton.styleFrom(
+    primary: Colors.grey,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(0.0),
+    ),
+  );
+
+  static final alertConfirmButton = ElevatedButton.styleFrom(
+    primary: Colors.redAccent,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(0.0),
+    ),
+  );
 }
 
 class MyTextStyle {
@@ -45,4 +59,8 @@ class MyTextStyle {
       TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold);
   static final textBlackMediumBold =
       TextStyle(color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold);
+  static final textBlackMedium = TextStyle(
+      color: Colors.black, fontSize: 16, fontWeight: FontWeight.normal);
+  static final textBlackSmall = TextStyle(
+      color: Colors.black, fontSize: 14, fontWeight: FontWeight.normal);
 }
