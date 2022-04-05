@@ -63,4 +63,8 @@ class MyTextStyle {
       color: Colors.black, fontSize: 16, fontWeight: FontWeight.normal);
   static final textBlackSmall = TextStyle(
       color: Colors.black, fontSize: 14, fontWeight: FontWeight.normal);
+
+
+      static final textGreenMediumBold =
+      TextStyle(color: Colors.green[800], fontSize: 16, fontWeight: FontWeight.bold);
 }

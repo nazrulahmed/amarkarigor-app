@@ -19,7 +19,7 @@ Widget getHeader() {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      height: kIsWeb? 60:80 ,
+                      height: kIsWeb ? 60 : 80,
                     ),
                     Text(
                       'Location for service',
@@ -32,8 +32,11 @@ Widget getHeader() {
                       children: [
                         Icon(Icons.location_on, color: Colors.white),
                         Obx(() {
-                          return Text(locationController.currentLocation.value,
-                              style: MyTextStyle.textWhiteLargeBold);
+                          return Expanded(
+                            child: Text(
+                                locationController.currentLocation.value,
+                                style: MyTextStyle.textWhiteLargeBold),
+                          );
                         }),
                         SizedBox(width: 14),
                         GestureDetector(
@@ -69,7 +72,6 @@ Widget getHeader() {
                     child: Container(
                       transform: Matrix4.translationValues(0.0, 25.0, 0.0),
                       color: Colors.grey[50],
-                      height: 30,
                     ),
                   ),
                   Padding(
@@ -87,6 +89,11 @@ Widget getHeader() {
                               Expanded(
                                 flex: 10,
                                 child: TextFormField(
+                                  showCursor: false,
+                                  readOnly: true,
+                                  onTap: () {
+                                    Get.toNamed(Routes.SEARCH);
+                                  },
                                   decoration: InputDecoration(
                                     border: InputBorder.none,
                                     hintText: 'Search Here',

@@ -64,7 +64,7 @@ class PaymentView extends GetView<PaymentController> {
                     Container(
                       width: 150,
                       child: ElevatedButton(
-                        onPressed: () => cancelBookingAlert(),
+                        onPressed: () => Get.toNamed(Routes.HOME),
                         child: Text('Cancel'),
                         style: MyButtonStyle.cancelButton,
                       ),

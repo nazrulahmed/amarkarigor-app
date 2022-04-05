@@ -13,5 +13,9 @@ class Api {
   static String update_profile_url = 'update_profile';
   
   static String create_booking_url = 'create_booking';
+  static String get_booking_url = 'bookings';
+    static String get_consumer_info_url = 'consumer_info';
   static String update_booking_payment_status_url = 'update_payment_status';
+
+  
 }

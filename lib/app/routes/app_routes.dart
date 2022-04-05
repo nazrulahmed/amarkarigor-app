@@ -18,6 +18,11 @@ abstract class Routes {
   static const PAYMENT = _Paths.PAYMENT;
   static const PAYMENT_COMPLETE = _Paths.PAYMENT_COMPLETE;
   static const CUSTOM_WEB_VIEW = _Paths.CUSTOM_WEB_VIEW;
+  static const BOOKING_DETAILS = _Paths.BOOKING_DETAILS;
+  static const SUPPORT = _Paths.SUPPORT;
+  static const MORE = _Paths.MORE;
+  static const SEARCH = _Paths.SEARCH;
+  static const NOTIFICATION = _Paths.NOTIFICATION;
 }
 
 abstract class _Paths {
@@ -36,4 +41,9 @@ abstract class _Paths {
   static const PAYMENT = '/payment';
   static const PAYMENT_COMPLETE = '/payment_complete';
   static const CUSTOM_WEB_VIEW = '/custom_web_view';
+  static const BOOKING_DETAILS = '/booking_details';
+  static const SUPPORT = '/support';
+  static const MORE = '/more';
+  static const SEARCH = '/search';
+  static const NOTIFICATION = '/notification';
 }

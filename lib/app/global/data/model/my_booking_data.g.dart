@@ -18,7 +18,7 @@ class MyBookingDataAdapter extends TypeAdapter<MyBookingData> {
     };
     return MyBookingData(
       (fields[0] as Map).cast<String, dynamic>(),
-      (fields[1] as Map).cast<String, dynamic>(),
+      fields[1] as String,
       fields[2] as double,
       fields[3] as String,
       fields[4] as String,
@@ -32,7 +32,7 @@ class MyBookingDataAdapter extends TypeAdapter<MyBookingData> {
       ..writeByte(0)
       ..write(obj.service)
       ..writeByte(1)
-      ..write(obj.bookedService)
+      ..write(obj.selectedOptions)
       ..writeByte(2)
       ..write(obj.totalPrice)
       ..writeByte(3)

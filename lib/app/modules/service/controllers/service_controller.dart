@@ -1,4 +1,5 @@
 import 'dart:collection';
+import 'dart:convert';
 
 import 'package:amar_karigor/app/global/config/constant.dart';
 import 'package:amar_karigor/app/global/data/model/my_booking_data.dart';
@@ -29,7 +30,7 @@ class ServiceController extends GetxController {
       currentDate.value = currentDate.value.add(Duration(days: 1));
       selectedDate.value = currentDate.value;
     }
-    
+
     print('currentDate is OUT ${currentDate.value.hour}');
     service = Get.arguments;
     totalPrice.value = service.price;
@@ -76,10 +77,12 @@ class ServiceController extends GetxController {
     for (var optionValues in optionValues) {
       selectedAttributes.addAll(optionValues);
     }
+    final finalAttribute = json.encode(selectedAttributes);
     print('GOING TO FINAL MAP');
     var box = await Hive.openBox(BOOKING_BOX_NAME);
 
-    var booking = MyBookingData(service.toJson(),selectedAttributes, totalPrice.value,bookingDate, bookingTime);
+    var booking = MyBookingData(service.toJson(), finalAttribute,
+        totalPrice.value, bookingDate, bookingTime);
     box.add(booking);
 
     print('box.length after added ${box.length}');

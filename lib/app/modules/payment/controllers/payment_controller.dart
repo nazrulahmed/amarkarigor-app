@@ -35,13 +35,11 @@ class PaymentController extends GetxController {
     if (paymentType == PAYMENT_CASH_ON_SERVICE) {
       Get.offAndToNamed(Routes.PAYMENT_COMPLETE);
 
-      BookServiceProvider().updateBookingPaymentStatus(bookingId);
+      BookServiceProvider().updateBookingPaymentStatus(bookingId, 1);
     }
   }
 
-  Future<bool> cancelBooking() async {
-    await Future.delayed(Duration(seconds: 2));
-    for (int i = 0; i < 22; i++) print('doing work with $i');
-    return true;
+ cancelBooking()  {
+    Get.toNamed(Routes.HOME);
   }
 }

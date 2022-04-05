@@ -17,3 +17,7 @@ const BOOKING_BOX_NAME = "booking_box";
 const PAYMENT_GATEWAY_ONLINE = 'online';
 const PAYMENT_CASH_ON_SERVICE = 'cos';
 
+const BOOKING_STATUS_PENDING = 1;
+const BOOKING_STATUS_ACCEPTED = 2;
+const BOOKING_STATUS_CANCELLED = 3;
+

@@ -8,10 +8,9 @@ import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'app/global/config/app_style.dart';
 import 'app/routes/app_pages.dart';
-
 import 'app/global/config/configure_nonweb.dart'
-    if (dart.library.html) 'app/global/config/configure_web.dart';
-
+if (dart.library.html) 'app/global/config/configure_web.dart';
+    
 void main() async {
   configureApp();
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,7 +18,8 @@ void main() async {
   HttpOverrides.global = MyHttpOverrides();
   Hive.initFlutter();
   Hive.registerAdapter(MyBookingDataAdapter());
-  Hive.registerAdapter(ServiceAdapter());  
+  Hive.registerAdapter(ServiceAdapter());
+  
 
   runApp(
     GetMaterialApp(

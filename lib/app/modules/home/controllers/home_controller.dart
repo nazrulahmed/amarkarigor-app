@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:amar_karigor/app/global/data/model/provider_info.dart';
 import 'package:amar_karigor/app/global/data/model/service.dart';
 import 'package:amar_karigor/app/global/data/model/sub_category.dart';
 import 'package:amar_karigor/app/global/data/model/user.dart';
@@ -58,9 +59,16 @@ class HomeController extends GetxController {
       final data = jsonDecode(response.body);
 
       if (data['status'] == true) {
+        final providerInfo = data['provider_info'];
+        if (providerInfo != null) {
+          LocalData.providerInfo = ProviderInfo(providerInfo['phone'],providerInfo['whatsapp'],providerInfo['email']);
+
+
+        }
         final userInfoData = data['user_info'];
         if (userInfoData != null) {
-          LocalData.user = User.fromJson(LocalData.user!.uid, LocalData.user!.token, userInfoData);
+          LocalData.user = User.fromJson(
+              LocalData.user!.uid, LocalData.user!.token, userInfoData);
         }
 
         final locationData = data['location'];
@@ -106,7 +114,7 @@ class HomeController extends GetxController {
           categories.add(category);
         }
         final serviceData = data['services'];
-        print(serviceData);
+
         for (int i = 0; i < serviceData.length; i++) {
           Service service = Service(
             int.parse(serviceData[i]['id']),

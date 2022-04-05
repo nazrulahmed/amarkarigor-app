@@ -13,7 +13,7 @@ Widget getBottomNavbar(HomeController controller) {
       child: SalomonBottomBar(
         currentIndex: controller.currentIndex.value,
         onTap: (index) {
-          print('current index is $index');
+          
           controller.changePage(index);
         },
         items: [
@@ -28,9 +28,9 @@ Widget getBottomNavbar(HomeController controller) {
           /// Likes
           SalomonBottomBarItem(
             icon: Icon(
-              Icons.favorite,
+              Icons.headphones,
             ),
-            title: Text("Wishlist"),
+            title: Text("Support"),
             selectedColor: MyColors.colorPrimary,
             unselectedColor: Colors.grey[400],
           ),

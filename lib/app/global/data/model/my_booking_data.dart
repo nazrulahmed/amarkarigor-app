@@ -6,7 +6,7 @@ class MyBookingData extends HiveObject {
   @HiveField(0)
   Map<String, dynamic>  service;
   @HiveField(1)
-  Map<String, dynamic> bookedService;
+  String selectedOptions;
   @HiveField(2)
   double totalPrice;
   @HiveField(3)
@@ -14,13 +14,15 @@ class MyBookingData extends HiveObject {
   @HiveField(4)
   String bookingTime;
 
-  MyBookingData(this.service, this.bookedService, this.totalPrice,
+  MyBookingData(this.service, this.selectedOptions, this.totalPrice,
       this.bookingDate, this.bookingTime);
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       'service_id': service['id'],
-      'selected_attributes': bookedService.toString(),
+      'service_name': service['name'],
+      'service_icon': service['icon'],
+      'selected_attributes': selectedOptions.toString(),
       'total_price': totalPrice,
       'booking_date': bookingDate,
       'booking_time': bookingTime

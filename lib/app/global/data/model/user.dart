@@ -9,6 +9,7 @@ class User {
 
   User(this.uid, this.token);
 
+
   String? get phone => this._phone;
   String? get firstName => this._firstName;
   String? get lastName => this._lastName;
