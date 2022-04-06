@@ -1,5 +1,6 @@
 import 'package:amar_karigor/app/global/config/app_style.dart';
 import 'package:amar_karigor/app/global/config/constant.dart';
+import 'package:amar_karigor/app/global/widget/custom_webview.dart';
 import 'package:amar_karigor/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -77,7 +78,7 @@ class PaymentView extends GetView<PaymentController> {
                         onPressed: () =>
                             controller.paymentType == PAYMENT_CASH_ON_SERVICE
                                 ? controller.completeBooking()
-                                : showPaymentView(),
+                                : showPaymentView(context),
                         child: controller.paymentType == PAYMENT_CASH_ON_SERVICE
                             ? Text('Proceed')
                             : Text('Pay now'),
@@ -176,7 +177,7 @@ class PaymentView extends GetView<PaymentController> {
     Get.back();
   }
 
-  void showPaymentView() {
-    Get.toNamed(Routes.CUSTOM_WEB_VIEW);
+  void showPaymentView(context) {
+    Navigator.push(context, MaterialPageRoute(builder: (context)=>CustomWebView(controller.bookingId,controller.grossTotal,controller.serviceName)));
   }
 }

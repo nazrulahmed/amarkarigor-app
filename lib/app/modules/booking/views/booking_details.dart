@@ -1,6 +1,7 @@
 import 'package:amar_karigor/app/global/config/app_style.dart';
 import 'package:amar_karigor/app/global/data/model/booking.dart';
 import 'package:amar_karigor/app/global/data/model/user.dart';
+import 'package:amar_karigor/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/booking_controller.dart';
@@ -204,6 +205,15 @@ class BookingDetails extends GetView<BookingController> {
                                   '',
                                   style: MyTextStyle.textBlackMediumBold,
                                 ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: ElevatedButton(
+                            onPressed: () =>
+                                Get.toNamed(Routes.PAYMENT, arguments: {'booking_id':int.parse(bookingData!.id!),'gross_total':bookingData.totalToPay}),
+                            child: Text('Complete Now'),
+                            style: MyButtonStyle.submitButton,
+                          ),
                         )
                       ],
                     ),

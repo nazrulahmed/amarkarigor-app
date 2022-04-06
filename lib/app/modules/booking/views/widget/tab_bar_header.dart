@@ -10,7 +10,7 @@ class TabBarHeader extends StatelessWidget implements PreferredSizeWidget {
       bottom: const TabBar(
         indicatorColor: Colors.white,
         tabs: [
-          Tab(text: 'My cart'),
+         // Tab(text: 'My cart'),
           Tab(text: 'Incomplete'),
           Tab(text: 'Completed'),
         ],

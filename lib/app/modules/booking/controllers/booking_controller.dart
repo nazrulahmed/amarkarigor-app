@@ -19,7 +19,6 @@ class BookingController extends GetxController {
 
     await getBookings(1);
     await getBookings(2);
-
   }
 
   @override
@@ -34,9 +33,10 @@ class BookingController extends GetxController {
 
       if (data['status'] == true) {
         final bookingData = data['response'];
-       
+
         for (int i = 0; i < bookingData.length; i++) {
-          var serviceOptions = jsonDecode(bookingData[i]['options'])[0];
+          var serviceOptions = jsonDecode(bookingData[i]['options']);
+
           String statusName = '';
           if (bookingData[i]['status'] == '2') {
             statusName = 'Processing';
@@ -44,8 +44,8 @@ class BookingController extends GetxController {
             statusName = 'Accepted';
           } else if (bookingData[i]['status'] == '4') {
             statusName = 'Cancelled';
-          }else{
-             statusName = 'Incomplete';
+          } else {
+            statusName = 'Incomplete';
           }
           Booking booking = Booking(
               id: bookingData[i]['id'],
@@ -59,11 +59,9 @@ class BookingController extends GetxController {
               bookingType: serviceOptions['booking_type'],
               status: statusName);
 
-          if(type==1) 
+          if (type == 1)
             incompleteBookings.add(booking);
-          else if(type==2)
-            completeBookings.add(booking);
-
+          else if (type == 2) completeBookings.add(booking);
         }
       }
     }
@@ -79,22 +77,18 @@ class BookingController extends GetxController {
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
 
-      
       if (data['status'] == true) {
-      final response  = data['response'];
-       if(response!=null){
+        final response = data['response'];
+        if (response != null) {
+          User consumer = User('', '');
 
-         User consumer = User('', '');
-        
-        consumer.setFirstName = response['consumer_name'];
-        consumer.setAddress = response['consumer_address'];
-        consumer.setPhone = response['consumer_phone'];
-        consumer.setEmail = response['consumer_email'];
+          consumer.setFirstName = response['consumer_name'];
+          consumer.setAddress = response['consumer_address'];
+          consumer.setPhone = response['consumer_phone'];
+          consumer.setEmail = response['consumer_email'];
 
-        return consumer;
-
-       }
-        
+          return consumer;
+        }
       }
     }
     return null;

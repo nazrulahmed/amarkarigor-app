@@ -32,7 +32,7 @@ class PaymentComplete extends GetView<PaymentController> {
           ),
           Center(
             child: Text(
-              'Booking ref. ${controller.bookingId + 100}',
+              'Booking ref. AK-000${controller.bookingId}',
               style: TextStyle(
                   color: MyColors.colorPrimary,
                   fontSize: 24,

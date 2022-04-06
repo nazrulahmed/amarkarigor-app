@@ -79,15 +79,15 @@ class ServiceController extends GetxController {
     }
     final finalAttribute = json.encode(selectedAttributes);
     print('GOING TO FINAL MAP');
-    var box = await Hive.openBox(BOOKING_BOX_NAME);
+    //var box = await Hive.openBox(BOOKING_BOX_NAME);
 
-    var booking = MyBookingData(service.toJson(), finalAttribute,
+    MyBookingData booking = MyBookingData(service.toJson(), finalAttribute,
         totalPrice.value, bookingDate, bookingTime);
-    box.add(booking);
+    //box.add(booking);
 
-    print('box.length after added ${box.length}');
+    //print('box.length after added ${box.length}');
 
-    Get.toNamed(Routes.CHECKOUT);
+    Get.toNamed(Routes.CHECKOUT,arguments: {'booking':booking,'total_price':totalPrice.value});
   }
 
   void setSelectedTime(String time) {

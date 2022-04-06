@@ -22,7 +22,7 @@ Widget selfCheckout(CheckoutController controller) {
         ])
       : Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: ElevatedButton(onPressed: ()=>controller.previewBooking(), child: Text('Next'),
+                child: ElevatedButton(onPressed: ()=>controller.previewBooking(true), child: Text('Next'),
                 style: MyButtonStyle.submitButton,),
               );
 }

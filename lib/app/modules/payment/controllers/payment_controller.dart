@@ -9,13 +9,17 @@ class PaymentController extends GetxController {
   bool showCost = false;
   late double grossTotal;
   late int bookingId;
+  late String serviceName;
 
   @override
   void onInit() {
     super.onInit();
     var data = Get.arguments;
-    bookingId = data[0];
-    grossTotal = data[1];
+    print('data found with the value of $data');
+    bookingId = data['booking_id'];
+    grossTotal = data['gross_total'];
+    serviceName = data['service_name'];
+
   }
 
   @override
@@ -39,7 +43,7 @@ class PaymentController extends GetxController {
     }
   }
 
- cancelBooking()  {
+  cancelBooking() {
     Get.toNamed(Routes.HOME);
   }
 }

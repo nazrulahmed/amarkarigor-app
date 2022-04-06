@@ -1,23 +1,24 @@
 import 'dart:convert';
 
-import 'package:amar_karigor/app/global/config/constant.dart';
 import 'package:amar_karigor/app/global/data/model/consumer.dart';
 import 'package:amar_karigor/app/global/data/model/my_booking_data.dart';
+import 'package:amar_karigor/app/global/data/model/user.dart';
 import 'package:amar_karigor/app/global/data/providers/book_service_provider.dart';
 import 'package:amar_karigor/app/global/util/local_data.dart';
 import 'package:amar_karigor/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
 
 class CheckoutController extends GetxController {
-  late Box bookingBox;
+  //late Box bookingBox;
+  late MyBookingData booking;
   final BookServiceProvider _bookServiceProvider = BookServiceProvider();
-  List<MyBookingData> bookings = [];
+  // List<MyBookingData> bookings = [];
   int consumerType = 1;
   var isLoading = false.obs;
   double grossTotal = 0.0;
+  var creatingBooking = false.obs;
 
   TextEditingController consumerNameFieldController = TextEditingController();
   TextEditingController consumerAddressFieldController =
@@ -28,8 +29,12 @@ class CheckoutController extends GetxController {
   @override
   void onInit() async {
     super.onInit();
-    bookingBox = await Hive.openBox(BOOKING_BOX_NAME);
-    retriveCartData();
+    //bookingBox = await Hive.openBox(BOOKING_BOX_NAME);
+    print('ON INIT WITH ${Get.arguments}');
+    if (Get.arguments != null) {
+      booking = Get.arguments['booking'];
+      grossTotal = Get.arguments['total_price'];
+    }
   }
 
   @override
@@ -40,7 +45,8 @@ class CheckoutController extends GetxController {
   @override
   void onClose() {}
 
-  Future<int> createBooking() async {
+  Future<void> createBooking() async {
+    creatingBooking.value = true;
     Consumer? consumer;
     if (consumerType == 2) {
       consumer = Consumer(
@@ -49,17 +55,19 @@ class CheckoutController extends GetxController {
           consumerPhoneFieldController.text,
           consumerEmailFieldController.text);
     }
-    http.Response response = await _bookServiceProvider.createBooking(
-        bookings, grossTotal, consumer);
+    http.Response response =
+        await _bookServiceProvider.createBooking(booking, grossTotal, consumer);
+    creatingBooking.value = false;
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
       if (data['status'] == true) {
-        bookingBox.clear();
-        bookings.clear();
-        return data['booking_id'] as int;
+        int bookingId = data['booking_id'] as int;
+        Get.toNamed(Routes.PAYMENT,
+            arguments: {'booking_id': bookingId, 'gross_total': grossTotal,'service_name':booking.service['name']});
       }
     }
-    return -1;
+
+    return;
   }
 
   void updateProfile() {
@@ -67,8 +75,6 @@ class CheckoutController extends GetxController {
   }
 
   void removeBooking(int index) {
-    bookingBox.deleteAt(index);
-    bookings.removeAt(index);
     update();
   }
 
@@ -81,36 +87,17 @@ class CheckoutController extends GetxController {
     return LocalData.user != null && LocalData.user!.profileCompleted();
   }
 
-  void clearBooking() {}
-
-  void retriveCartData() {
-    isLoading.value = true;
-    bookings.clear();
-    grossTotal = 0;
-
-    for (int i = 0; i < bookingBox.length; i++) {
-      MyBookingData bookingData = bookingBox.getAt(i);
-
-      grossTotal += bookingData.totalPrice;
-
-      bookings.add(bookingData);
+  void previewBooking(bool isSelf) {
+    User? consumer;
+    if (!isSelf) {
+      print('consumer data mode');
+      consumer = User('', '');
+      consumer.setFirstName = consumerNameFieldController.text;
+      consumer.setPhone = consumerPhoneFieldController.text;
+      consumer.setAddress = consumerAddressFieldController.text;
+      consumer.setEmail = consumerEmailFieldController.text;
     }
-     isLoading.value = false;
-    update();
-  }
-
-  void previewBooking() {
-    bookings.clear();
-    grossTotal = 0;
-
-    for (int i = 0; i < bookingBox.length; i++) {
-      MyBookingData bookingData = bookingBox.getAt(i);
-
-      grossTotal += bookingData.totalPrice;
-
-      bookings.add(bookingData);
-    }
-    update();
-    Get.toNamed(Routes.CHECKOUT_BOOKING_PREVIEW);
+    Get.toNamed(Routes.CHECKOUT_BOOKING_PREVIEW,
+        arguments: {'booking': booking, 'consumer': consumer});
   }
 }

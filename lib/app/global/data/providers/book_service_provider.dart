@@ -20,7 +20,7 @@ import 'package:http/http.dart' as http;
  */
 
 class BookServiceProvider {
-  Future<http.Response> createBooking(List<MyBookingData> bookings,
+  Future<http.Response> createBooking(MyBookingData booking,
       double totalToPay, Consumer? consumer) async {
     String url = '${Api.base_url}${Api.create_booking_url}';
 
@@ -29,7 +29,7 @@ class BookServiceProvider {
     }, body: {
       "uid": LocalData.user!.uid,
       "total_to_pay": totalToPay.toString(),
-      "bookings": jsonEncode(bookings),
+      "booking": jsonEncode(booking),
       "consumer": consumer == null ? '' : jsonEncode(consumer.toJSON())
     });
     print(response.statusCode);

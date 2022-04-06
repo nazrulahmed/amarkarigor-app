@@ -91,7 +91,7 @@ Widget otherUserCheckout(CheckoutController controller) {
                   ))
                 : ElevatedButton(
                     onPressed: () async {
-                      controller.previewBooking();
+                      controller.previewBooking(false);
                     },
                     style: MyButtonStyle.submitButton,
                     child: Text('Next')),

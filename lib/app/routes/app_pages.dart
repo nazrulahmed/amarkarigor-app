@@ -112,11 +112,7 @@ class AppPages {
       page: () => PaymentComplete(),
       binding: PaymentBinding(),
     ),
-    GetPage(
-      name: _Paths.CUSTOM_WEB_VIEW,
-      page: () => CustomWebView(),
-      binding: PaymentBinding(),
-    ),
+  
     GetPage(
       name: _Paths.SUPPORT,
       page: () => SupportView(),
