@@ -1,8 +1,10 @@
+import 'package:amar_karigor/app/modules/home/views/widget/desktop/appbar.dart';
 import 'package:amar_karigor/app/modules/service/views/widgets/service_option.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
+import '../../../global/util/platform_helper.dart';
 import '../controllers/service_controller.dart';
 import 'widgets/service_bottom.dart';
 import 'widgets/service_datetime.dart';
@@ -14,13 +16,24 @@ class ServiceView extends GetView<ServiceController> {
     return Scaffold(
       body: GetBuilder(builder: (ServiceController controller) {
         return ListView(children: [
-          serviceHeader(controller),
-          controller.servicePage.value == ServicePages.SERVICE_TIME?
-         serviceDateTime(controller): 
-          serviceOption(controller),
+          isDesktopView(context)?CustomAppBar():SizedBox(),
+          Center(
+            child: Container(
+              width: isDesktopView(context)?MediaQuery.of(context).size.width*.6:double.infinity,
+              child: Column(
+              children: [
+                serviceHeader(controller),
+                controller.servicePage.value == ServicePages.SERVICE_TIME
+                ? serviceDateTime(controller)
+                : serviceOption(controller),
+                 isDesktopView(context)?serviceBottom(controller):SizedBox()
+              ],
+            )
+            ,),
+          )
         ]);
       }),
-      bottomNavigationBar: serviceBottom(controller),
+      bottomNavigationBar: isDesktopView(context)?SizedBox(): serviceBottom(controller),
     );
   }
 }

@@ -8,10 +8,10 @@ Widget serviceBottom(ServiceController controller) {
       onTap: () async{
         String? response = await controller.proceedBooking();
         if(response!=null){
-          Get.showSnackbar(GetBar(
-                                isDismissible: true,
-                                duration: Duration(seconds: 2),
-                                message: response));
+          // Get.showSnackbar(GetBar(
+          //                       isDismissible: true,
+          //                       duration: Duration(seconds: 2),
+          //                       message: response));
         }
       },
       child: Container(

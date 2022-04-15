@@ -10,39 +10,11 @@ import '../../../../../global/config/api.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 
-Widget getCategories(List<Category> categories) {
-  return Column(
-    mainAxisAlignment: MainAxisAlignment.start,
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Text('Categories'),
-      ),
-      Container(
-          margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 8),
-          height: 100.0,
-          child: categories.length == 0
-              ? ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 4,
-                  itemBuilder: (context, index) {
-                    return CustomShimmer().getShimmerFromColor(
-                        width: 150,
-                        height: 150,
-                        radius: 12,
-                        margin: EdgeInsets.only(left: 8));
-                  })
-              : ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: categories.length,
-                  itemBuilder: (context, index) {
-                    return category(categories[index]);
-                  })),
-    ],
-  );
-}
+import '../../../controllers/home_controller.dart';
 
+class Categories extends StatelessWidget {
+
+  final HomeController homeController = Get.find();
 Widget category(Category category) {
   return InkWell(
     onTap: () {
@@ -86,4 +58,40 @@ Widget category(Category category) {
           )
         ])),
   );
+}
+
+  @override
+  Widget build(BuildContext context) {
+      return Column(
+    mainAxisAlignment: MainAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text('Categories'),
+      ),
+      Container(
+          margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 8),
+          height: 100.0,
+          child: homeController.categories.length == 0
+              ? ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 4,
+                  itemBuilder: (context, index) {
+                    return CustomShimmer().getShimmerFromColor(
+                        width: 150,
+                        height: 150,
+                        radius: 12,
+                        margin: EdgeInsets.only(left: 8));
+                  })
+              : ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: homeController.categories.length,
+                  itemBuilder: (context, index) {
+                    return category(homeController.categories[index]);
+                  })),
+    ],
+  );
+
+  }
 }

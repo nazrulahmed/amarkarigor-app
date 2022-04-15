@@ -27,6 +27,6 @@ class SearchView extends GetView<SearchController> {
         ),
         body: GetBuilder(
             builder: (SearchController controller) => SingleChildScrollView(
-                child: getServices(controller.services, context))));
+                child: Services())));
   }
 }

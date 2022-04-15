@@ -19,7 +19,7 @@ class CategoryView extends GetView<CategoryController> {
           return ListView(
             children: [
               tags(controller.subCategories),
-              getServices(controller.servicesInCategory,context),
+              Services(),
               
             ],
           );

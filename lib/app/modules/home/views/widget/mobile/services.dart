@@ -8,10 +8,16 @@ import 'package:amar_karigor/app/global/widget/custom_image_dummy.dart'
     as ci;
 import 'package:get/get.dart';
 import '../../../../../global/config/api.dart';
+import '../../../controllers/home_controller.dart';
 
-Widget getServices(List<Service> services, context) {
-  CustomShimmer customShimmer = CustomShimmer();
-  return Column(
+class Services extends StatelessWidget {
+   final CustomShimmer customShimmer = CustomShimmer();
+  final HomeController homeController = Get.find();
+
+
+  @override
+  Widget build(BuildContext context) {
+      return Column(
     mainAxisAlignment: MainAxisAlignment.start,
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -20,8 +26,9 @@ Widget getServices(List<Service> services, context) {
         child: Text('Services'),
       ),
       Container(
-          child: services.length == 0
+          child: homeController.services.length == 0
               ? ListView.builder(
+                  
                   itemCount: 4,
                   shrinkWrap: true,
                   physics: ClampingScrollPhysics(),
@@ -33,15 +40,15 @@ Widget getServices(List<Service> services, context) {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           customShimmer.getShimmerFromColor(
-                              width: MediaQuery.of(context).size.width * .7,
+                              width: 20,
                               height: 10,
                               margin: EdgeInsets.only(bottom: 4, left: 8)),
                           customShimmer.getShimmerFromColor(
-                              width: MediaQuery.of(context).size.width * .65,
+                              width: 20,
                               height: 8,
                               margin: EdgeInsets.only(bottom: 4, left: 8)),
                           customShimmer.getShimmerFromColor(
-                              width: MediaQuery.of(context).size.width * .6,
+                              width: 20,
                               height: 8,
                               margin: EdgeInsets.only(bottom: 4, left: 8)),
                         ],
@@ -49,15 +56,18 @@ Widget getServices(List<Service> services, context) {
                     ]);
                   })
               : ListView.builder(
-                  itemCount: services.length,
+                  itemCount: homeController.services.length,
                   shrinkWrap: true,
                   physics: ClampingScrollPhysics(),
                   itemBuilder: (context, index) {
-                    return service(services[index]);
+                    return service(homeController.services[index]);
                   })),
     ],
   );
+
+  }
 }
+
 
 Widget service(Service service) {
   return InkWell(     

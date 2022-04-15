@@ -17,9 +17,9 @@ class HomePage extends StatelessWidget {
       body: GetBuilder(builder: (HomeController controller) {
         return ListView(
           children: [
-            getOffers(controller.offers),
-            getCategories(controller.categories),
-            getServices(controller.services, controller.mContext)
+            Offers(),
+            Categories(),
+            Services()
           ],
         );
       }),

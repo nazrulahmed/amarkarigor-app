@@ -1,5 +1,5 @@
 import 'package:amar_karigor/app/global/config/app_style.dart';
-import 'package:amar_karigor/app/global/widget/horizontal_time.dart';
+import 'package:amar_karigor/app/global/widget/custom_time_selector.dart';
 import 'package:amar_karigor/app/modules/service/controllers/service_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -37,7 +37,7 @@ Widget serviceDateTime(ServiceController controller) {
           child: Text('Wanted time', style: MyTextStyle.textBlackLargeBold),
         ),
         SizedBox(height: 8),
-        horizontalTime(controller),
+        CustomTimeSelector(),
         SizedBox(height: 12)
       ],
     ),

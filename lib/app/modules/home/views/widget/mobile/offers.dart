@@ -5,12 +5,18 @@ import 'package:amar_karigor/app/global/widget/custom_image_dummy.dart'
 import 'package:amar_karigor/app/global/widget/custom_shimmer.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-Widget getOffers(List offers) {
-  return Container(
+import '../../../controllers/home_controller.dart';
+class Offers extends StatelessWidget {
+  final HomeController homeController = Get.find();
+  
+  @override
+  Widget build(BuildContext context) {
+      return Container(
       margin: EdgeInsets.only(top: 20.0, bottom: 20, left: 16),
       height: 150,
-      child: offers.length == 0
+      child: homeController.offers.length == 0
           ? ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: 2,
@@ -23,24 +29,25 @@ Widget getOffers(List offers) {
               })
           : ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: offers.length,
+              itemCount: homeController.offers.length,
               itemBuilder: (context, index) {
-                print('I am inside itemBuilder with length  ${offers.length}');
                 return Container(
                     margin: EdgeInsets.only(right: 16),
                     child: kIsWeb
                         ? ci.CustomImage(
                             "offer$index",
-                            '${Api.assets_url}${Api.banners}${offers[index]}',
+                            '${Api.assets_url}${Api.banners}${homeController.offers[index]}',
                             350,
                             150)
                         : FadeInImage(
                             image: NetworkImage(
-                                '${Api.assets_url}${Api.banners}${offers[index]}'),
+                                '${Api.assets_url}${Api.banners}${homeController.offers[index]}'),
                             placeholder: AssetImage(
                                 'assets/images/placeholder_image.png'),
                             fit: BoxFit.cover,
                             width: 300,
                           ));
               }));
+
+  }
 }

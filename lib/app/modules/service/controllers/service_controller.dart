@@ -79,7 +79,16 @@ class ServiceController extends GetxController {
     final finalAttribute = json.encode(selectedAttributes);
     MyBookingData booking = MyBookingData(service.toJson(), finalAttribute,
         totalPrice.value, bookingDate, bookingTime);
-    Get.toNamed(Routes.CHECKOUT,arguments: {'booking':booking,'total_price':totalPrice.value});
+    print('IS BOOOOKINGG DATAAA NULLL???????????????????');
+    print('IS BOOOOKINGG DATAAA NULLL???????????????????');
+
+    print(booking==null);
+
+    print('IS BOOOOKINGG DATAAA NULLL???????????????????');
+    print('IS BOOOOKINGG DATAAA NULLL???????????????????');
+
+    Get.toNamed(Routes.CHECKOUT,
+        arguments: {'booking': booking, 'total_price': totalPrice.value});
     return '';
   }
 
