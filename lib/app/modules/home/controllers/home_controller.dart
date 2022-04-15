@@ -55,15 +55,19 @@ class HomeController extends GetxController {
     http.Response response = await HomeProvider()
         .homePageData(LocalData.user!.uid, LocalData.user!.token);
 
+    print('response status: ${response.statusCode}');
+
+    print('response--------');
+    print(response.body);
+
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
 
       if (data['status'] == true) {
         final providerInfo = data['provider_info'];
         if (providerInfo != null) {
-          LocalData.providerInfo = ProviderInfo(providerInfo['phone'],providerInfo['whatsapp'],providerInfo['email']);
-
-
+          LocalData.providerInfo = ProviderInfo(providerInfo['phone'],
+              providerInfo['whatsapp'], providerInfo['email']);
         }
         final userInfoData = data['user_info'];
         if (userInfoData != null) {

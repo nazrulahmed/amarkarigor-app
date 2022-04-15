@@ -210,7 +210,7 @@ class BookingDetails extends GetView<BookingController> {
                           padding: const EdgeInsets.all(16.0),
                           child: ElevatedButton(
                             onPressed: () =>
-                                Get.toNamed(Routes.PAYMENT, arguments: {'booking_id':int.parse(bookingData!.id!),'gross_total':bookingData.totalToPay}),
+                                Get.toNamed(Routes.PAYMENT, arguments: {'booking_id':int.parse(bookingData!.id!),'gross_total':bookingData.totalToPay,'service_name':bookingData.serviceName}),
                             child: Text('Complete Now'),
                             style: MyButtonStyle.submitButton,
                           ),

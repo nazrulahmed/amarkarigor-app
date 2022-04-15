@@ -15,16 +15,16 @@ import 'package:http/http.dart' as http;
  */
 
 class ProfileProvider {
-  Future<http.Response> updateProfile(Map<String,dynamic> userInfo) async {
+  Future<http.Response> updateProfile(Map<String, dynamic> userInfo) async {
     String url = '${Api.base_url}${Api.update_profile_url}';
-  
+
+    print('USER INFO');
+    print(userInfo);
+
     http.Response response = await http.post(Uri.parse(url),
-         headers: {"Authorization": userInfo['token']},
-        body: {"uid": userInfo});
+        headers: {"Authorization": userInfo['token']}, body: userInfo);
     print(response.statusCode);
     print(response.body);
     return response;
   }
-
-
 }

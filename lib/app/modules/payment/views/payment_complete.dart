@@ -1,4 +1,5 @@
 import 'package:amar_karigor/app/global/config/app_style.dart';
+import 'package:amar_karigor/app/modules/booking/controllers/booking_controller.dart';
 import 'package:amar_karigor/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -6,6 +7,7 @@ import 'package:get/get.dart';
 import '../controllers/payment_controller.dart';
 
 class PaymentComplete extends GetView<PaymentController> {
+  final BookingController bookingController = Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,7 +57,10 @@ class PaymentComplete extends GetView<PaymentController> {
           Container(
               margin: EdgeInsets.symmetric(horizontal: 32),
               child: ElevatedButton(
-                onPressed: () {
+                onPressed: () async{
+                  await bookingController.getBookings(1);
+                  await bookingController.getBookings(2);
+                  
                   Get.offAllNamed(Routes.HOME);
                 },
                 child: Text('Home'),

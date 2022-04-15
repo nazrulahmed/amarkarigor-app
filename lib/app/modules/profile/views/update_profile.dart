@@ -1,5 +1,4 @@
 import 'package:amar_karigor/app/global/config/app_style.dart';
-import 'package:amar_karigor/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -51,7 +50,7 @@ class UpdateProfileView extends GetView<ProfileController> {
                           border: Border.all(color: Color(0xffeeeeee)),
                           borderRadius: BorderRadius.circular(20)),
                       child: TextFormField(
-                        //  controller: controller.phoneInputFieldController,
+                        controller: controller.addressInputFieldController,
                         decoration: InputDecoration(
                           floatingLabelBehavior: FloatingLabelBehavior.auto,
                           prefixIcon: Icon(Icons.apartment),
@@ -88,6 +87,7 @@ class UpdateProfileView extends GetView<ProfileController> {
                             return controller
                                 .generateErrorMsg('Enter a valid email');
                           }
+                          return '';
                         },
                       ),
                     ),
@@ -100,7 +100,7 @@ class UpdateProfileView extends GetView<ProfileController> {
                           border: Border.all(color: Color(0xffeeeeee)),
                           borderRadius: BorderRadius.circular(20)),
                       child: TextFormField(
-                        
+                        controller: controller.phoneInputFieldController,
                         decoration: InputDecoration(
                           floatingLabelBehavior: FloatingLabelBehavior.auto,
                           prefixIcon: Icon(Icons.mobile_friendly,
@@ -128,8 +128,7 @@ class UpdateProfileView extends GetView<ProfileController> {
                                   onPressed: () async {
                                     if (_formKey.currentState!.validate()) {
                                       controller.updateInfo();
-                                      Get.toNamed(
-                                          Routes.CHECKOUT_BOOKING_PREVIEW);
+                                      
                                     }
                                   },
                                   style: MyButtonStyle.submitButton,

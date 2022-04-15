@@ -11,10 +11,9 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 class CheckoutController extends GetxController {
-  //late Box bookingBox;
+ 
   late MyBookingData booking;
   final BookServiceProvider _bookServiceProvider = BookServiceProvider();
-  // List<MyBookingData> bookings = [];
   int consumerType = 1;
   var isLoading = false.obs;
   double grossTotal = 0.0;
@@ -29,8 +28,6 @@ class CheckoutController extends GetxController {
   @override
   void onInit() async {
     super.onInit();
-    //bookingBox = await Hive.openBox(BOOKING_BOX_NAME);
-    print('ON INIT WITH ${Get.arguments}');
     if (Get.arguments != null) {
       booking = Get.arguments['booking'];
       grossTotal = Get.arguments['total_price'];
@@ -90,7 +87,6 @@ class CheckoutController extends GetxController {
   void previewBooking(bool isSelf) {
     User? consumer;
     if (!isSelf) {
-      print('consumer data mode');
       consumer = User('', '');
       consumer.setFirstName = consumerNameFieldController.text;
       consumer.setPhone = consumerPhoneFieldController.text;

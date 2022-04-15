@@ -4,10 +4,16 @@ import 'package:amar_karigor/app/global/widget/custom_webview.dart';
 import 'package:amar_karigor/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
+
+import 'package:amar_karigor/app/global/data/model/user.dart';
+import 'package:amar_karigor/app/global/util/local_data.dart';
+
+import 'package:url_launcher/url_launcher.dart';
 
 import '../controllers/payment_controller.dart';
 import 'widget/cost_card.dart';
-
+import 'dart:convert';
 class PaymentView extends GetView<PaymentController> {
   @override
   Widget build(BuildContext context) {
@@ -177,7 +183,17 @@ class PaymentView extends GetView<PaymentController> {
     Get.back();
   }
 
-  void showPaymentView(context) {
+  void showPaymentView(context) async{
+    if(kIsWeb){
+      User user = LocalData.user!;
+      String payload =
+        "{\"token\":\"80535d79-b11a-447e-b9b4-1b941c2a3a6f\",\"booking_id\":${controller.bookingId},\"uid\":${user.uid},\"amount\":${controller.grossTotal},\"cus_name\":\"${user.firstName}\",\"cus_email\":\"${user.email}\",\"cus_phone\":\"${user.phone}\",\"cus_address\":\"${user.address}\",\"service_name\":\"${controller.serviceName}\"}";
+    Codec<String, String> stringToBase64 = utf8.fuse(base64);
+    String encoded = stringToBase64.encode(payload);
+      await launch('https://amarkarigor.com/api/v1/payment/ssl_commerz?payload='+encoded);
+    }else{
     Navigator.push(context, MaterialPageRoute(builder: (context)=>CustomWebView(controller.bookingId,controller.grossTotal,controller.serviceName)));
+
+    }
   }
 }

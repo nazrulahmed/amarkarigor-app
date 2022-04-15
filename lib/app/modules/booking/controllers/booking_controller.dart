@@ -27,13 +27,18 @@ class BookingController extends GetxController {
   }
 
   Future<void> getBookings(int type) async {
+    
     http.Response response = await bookServiceProvider.getBookings(type);
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
 
       if (data['status'] == true) {
         final bookingData = data['response'];
-
+        if (type == 1) {
+          incompleteBookings.clear();
+        } else {
+          completeBookings.clear();
+        }
         for (int i = 0; i < bookingData.length; i++) {
           var serviceOptions = jsonDecode(bookingData[i]['options']);
 

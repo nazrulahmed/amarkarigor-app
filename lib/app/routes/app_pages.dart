@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 
-import 'package:amar_karigor/app/global/widget/custom_webview.dart';
 import 'package:amar_karigor/app/modules/auth/bindings/auth_binding.dart';
 import 'package:amar_karigor/app/modules/auth/views/auth_view.dart';
 import 'package:amar_karigor/app/modules/booking/bindings/booking_binding.dart';

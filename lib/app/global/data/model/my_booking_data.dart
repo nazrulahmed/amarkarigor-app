@@ -1,17 +1,10 @@
-import 'package:hive/hive.dart';
-part 'my_booking_data.g.dart';
 
-@HiveType(typeId: 0)
-class MyBookingData extends HiveObject {
-  @HiveField(0)
+
+class MyBookingData  {
   Map<String, dynamic>  service;
-  @HiveField(1)
   String selectedOptions;
-  @HiveField(2)
   double totalPrice;
-  @HiveField(3)
   String bookingDate;
-  @HiveField(4)
   String bookingTime;
 
   MyBookingData(this.service, this.selectedOptions, this.totalPrice,

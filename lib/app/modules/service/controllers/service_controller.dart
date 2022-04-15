@@ -6,7 +6,6 @@ import 'package:amar_karigor/app/global/data/model/my_booking_data.dart';
 import 'package:amar_karigor/app/global/data/model/service.dart';
 import 'package:amar_karigor/app/routes/app_pages.dart';
 import 'package:get/get.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 
 enum ServicePages { SERVICE_OPTION, SERVICE_TIME }
 
@@ -78,16 +77,10 @@ class ServiceController extends GetxController {
       selectedAttributes.addAll(optionValues);
     }
     final finalAttribute = json.encode(selectedAttributes);
-    print('GOING TO FINAL MAP');
-    //var box = await Hive.openBox(BOOKING_BOX_NAME);
-
     MyBookingData booking = MyBookingData(service.toJson(), finalAttribute,
         totalPrice.value, bookingDate, bookingTime);
-    //box.add(booking);
-
-    //print('box.length after added ${box.length}');
-
     Get.toNamed(Routes.CHECKOUT,arguments: {'booking':booking,'total_price':totalPrice.value});
+    return '';
   }
 
   void setSelectedTime(String time) {

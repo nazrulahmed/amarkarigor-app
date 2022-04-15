@@ -15,11 +15,9 @@ class PaymentController extends GetxController {
   void onInit() {
     super.onInit();
     var data = Get.arguments;
-    print('data found with the value of $data');
     bookingId = data['booking_id'];
     grossTotal = data['gross_total'];
     serviceName = data['service_name'];
-
   }
 
   @override

@@ -21,7 +21,7 @@ class CheckoutView extends GetView<CheckoutController> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Text(
-                  'I want to process this booking for',
+                  'Booking type',
                   style: MyTextStyle.textBlackLargerBold,
                 ),
               ),
@@ -37,7 +37,7 @@ class CheckoutView extends GetView<CheckoutController> {
                     activeColor: Colors.green,
                   ),
                   Text(
-                    "Myself",
+                    "Personal",
                   ),
                 ],
               ),
@@ -52,7 +52,7 @@ class CheckoutView extends GetView<CheckoutController> {
                     },
                     activeColor: Colors.green,
                   ),
-                  Text("Someone I know"),
+                  Text("Corporate"),
                 ],
               ),
               Divider(),

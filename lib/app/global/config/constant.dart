@@ -14,7 +14,7 @@ const FILED_TEXT = 'text';
 const MAX_TIME = 20;
 const BOOKING_BOX_NAME = "booking_box";
 
-const PAYMENT_GATEWAY_ONLINE = 'online';
+const PAYMENT_GATEWAY_ONLINE = 'Online';
 const PAYMENT_CASH_ON_SERVICE = 'cos';
 
 const BOOKING_STATUS_PENDING = 1;
