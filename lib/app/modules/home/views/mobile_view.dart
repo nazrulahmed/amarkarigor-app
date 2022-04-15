@@ -7,10 +7,23 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 import '../../home/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
 
-List<Widget> pages = [HomePage(), SupportView(), BookingView(),MoreView()];
+List<Widget> pages = [HomePage(), SupportView(), BookingView(), MoreView()];
 Scaffold mobileView(HomeController controller) {
   return Scaffold(
-    body: Obx(() => pages[controller.currentIndex.value]),
+    body: Obx(() => controller.isLoggingOut.value
+        ? Column(
+         mainAxisAlignment: MainAxisAlignment.center,
+
+          crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Spacer(),
+              Center(child: CircularProgressIndicator()),
+              SizedBox(height:16),
+              Center(child: Text('Logging out...')),
+              Spacer(),
+            ],
+          )
+        : pages[controller.currentIndex.value]),
     bottomNavigationBar: getBottomNavbar(controller),
   );
 }

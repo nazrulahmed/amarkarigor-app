@@ -16,7 +16,6 @@ class AppPref {
     }
 
     return _pref;
-    
   }
 
   void saveToken(token) {
@@ -41,5 +40,9 @@ class AppPref {
 
   String? getLocation() {
     return _sharedPreferences!.getString(KEY_LOCATION) ?? null;
+  }
+
+  Future<bool> logout() async{
+    return await _sharedPreferences!.clear();
   }
 }

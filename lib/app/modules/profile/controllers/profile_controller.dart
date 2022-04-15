@@ -15,12 +15,13 @@ class ProfileController extends GetxController {
   TextEditingController addressInputFieldController = TextEditingController();
   TextEditingController emailInputFieldController = TextEditingController();
   TextEditingController phoneInputFieldController = TextEditingController();
+  late User user;
 
   @override
   void onInit() {
     super.onInit();
-    User user = LocalData.user!;
-    print('user address is : ${user.address}');
+    user = LocalData.user!;
+    print('user phone is : ${user.phone}');
     nameInputFieldController.text = user.firstName ?? '';
     addressInputFieldController.text = user.address ?? '';
     emailInputFieldController.text = user.email ?? '';
@@ -40,6 +41,7 @@ class ProfileController extends GetxController {
   }
 
   void updateInfo() async {
+    print('update info called');
     Map<String, dynamic> userInfo = {
       'uid': LocalData.user!.uid,
       'token': LocalData.user!.token,
@@ -48,19 +50,23 @@ class ProfileController extends GetxController {
       'email': emailInputFieldController.text
     };
     http.Response response = await _profileProvider.updateProfile(userInfo);
+    print('response.statusCode ${response.statusCode}');
+
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
       if (data['status'] == true && data['response'] == 'success') {
-        print("IF");
+        user.setFirstName = nameInputFieldController.text;
+        user.setAddress = addressInputFieldController.text;
+        user.setEmail = emailInputFieldController.text;
+
         await Get.showSnackbar(GetBar(
             isDismissible: true,
             duration: Duration(seconds: 2),
             message: "successfully updated."));
+        update();
         Get.back();
-
       } else {
-        print("else");
-
+        
         await Get.showSnackbar(GetBar(
             isDismissible: true,
             duration: Duration(seconds: 2),

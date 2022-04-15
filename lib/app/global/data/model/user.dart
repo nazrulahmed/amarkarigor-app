@@ -38,9 +38,9 @@ class User {
 
   factory User.fromJson(String uid, String token, dynamic json) {
     return User(uid, token)
-      .._address = json['address'] as String
-      .._email = json['email'] as String
-      .._firstName = json['first_name'] as String
+      .._address = json['address'] as String?
+      .._email = json['email'] as String?
+      .._firstName = json['first_name'] as String?
       .._phone = json['phone'] as String;
   }
 

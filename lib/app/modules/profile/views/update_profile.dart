@@ -126,10 +126,9 @@ class UpdateProfileView extends GetView<ProfileController> {
                                 ))
                               : ElevatedButton(
                                   onPressed: () async {
-                                    if (_formKey.currentState!.validate()) {
                                       controller.updateInfo();
                                       
-                                    }
+                                    
                                   },
                                   style: MyButtonStyle.submitButton,
                                   child: Text('Update')),

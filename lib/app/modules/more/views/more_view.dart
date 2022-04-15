@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import '../controllers/more_controller.dart';
+import '../../home/controllers/home_controller.dart';
 
-class MoreView extends GetView<MoreController> {
+class MoreView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,6 +51,31 @@ class MoreView extends GetView<MoreController> {
                     ],
                   ),
                 )),
+           GestureDetector(
+              onTap: ()async {
+                if(await controller.logout()){
+                  Get.offAndToNamed(Routes.AUTH);
+                }
+                
+              },
+              child: Container(
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(color: Color(0xffeeeeee), width: 1)),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        Icon(Icons.subdirectory_arrow_left_sharp),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        Text('Logout', style: TextStyle(fontSize: 16)),
+                      ],
+                    ),
+                  )),
+            ),
+           
           ],
         ));
   }

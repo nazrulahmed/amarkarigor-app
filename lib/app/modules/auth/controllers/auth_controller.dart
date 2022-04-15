@@ -201,21 +201,29 @@ class AuthController extends GetxController {
     } else if (pass != repeatPass) {
       msg = 'Password doesn\'t match';
     } else {
+      phoneInputFieldController.text = "01745267119";
       String phoneNo = phoneInputFieldController.text.replaceFirst("+880", "");
       if (phoneNo[0] == '0') phoneNo = phoneNo.split("0")[1].toString();
       String phone = "+880" + phoneNo;
       Map<String, dynamic> user = {'phone': phone, 'password': pass};
+
+      print("USER'S MAP ");
+      print(user);
+      print("USER'S MAP ");
 
       http.Response response = await AuthProvider().createUser(user);
 
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
 
+        print('data of response ');
+        print(data);
+
         if (data['status'] == true && data['token'] != null) {
           AppPref? appPref = await myPref;
           appPref!.saveToken(data['token']);
-          appPref.saveUserId(data['uid']);
-          LocalData.user = AppUser.User(data['uid'],data['token']);
+          appPref.saveUserId(data['uid'].toString());
+          LocalData.user = AppUser.User(data['uid'].toString(), data['token']);
           msg = SUCCESS_MSG;
         } else {
           msg = data['response'];
@@ -248,7 +256,7 @@ class AuthController extends GetxController {
           AppPref? appPref = await myPref;
           appPref!.saveToken(data['token']);
           appPref.saveUserId(data['uid']);
-          LocalData.user = AppUser.User(data['uid'],data['token']);
+          LocalData.user = AppUser.User(data['uid'], data['token']);
           msg = SUCCESS_MSG;
         } else {
           msg = data['response'];

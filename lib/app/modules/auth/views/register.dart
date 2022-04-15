@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'widget/otp.dart';
 import 'widget/password.dart';
-import 'widget/phone_number.dart';
 
 Scaffold register(AuthController controller) {
   return Scaffold(
@@ -12,10 +11,10 @@ Scaffold register(AuthController controller) {
       margin: EdgeInsets.all(32),
       child: Obx(() {
         if (controller.activePage == AuthPages.REGISTER)
-          return phoneNumber(controller);
+          return password(controller);
         else if (controller.activePage == AuthPages.OTP)
           return OTP(controller);
-        else 
+        else
           return password(controller);
       }),
     ),

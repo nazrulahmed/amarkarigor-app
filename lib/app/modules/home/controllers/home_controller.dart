@@ -27,9 +27,8 @@ class HomeController extends GetxController {
   List<Service> services = [];
   BuildContext? mContext;
   int selectedCategoryId = 0;
-
   var currentIndex = 0.obs;
-
+  var isLoggingOut = false.obs;
   changePage(int index) {
     currentIndex.value = index;
   }
@@ -74,6 +73,8 @@ class HomeController extends GetxController {
           LocalData.user = User.fromJson(
               LocalData.user!.uid, LocalData.user!.token, userInfoData);
         }
+
+        print('user data ${LocalData.user!.phone}');
 
         final locationData = data['location'];
         LocationController _locationController = Get.find();
@@ -137,6 +138,12 @@ class HomeController extends GetxController {
     }
 
     update();
+  }
+
+  Future<bool> logout() async {
+    AppPref? appPref = await myPref;
+    isLoggingOut.value =  true;
+    return await appPref!.logout();
   }
 
   @override
