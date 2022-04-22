@@ -52,7 +52,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSize {
             press: () {},
           ),
           MenuItem(
-            title: "Login",
+            title: "Support",
             press: () {},
           ),
          
