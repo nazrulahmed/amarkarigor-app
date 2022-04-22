@@ -28,7 +28,7 @@ class Service {
       'cat_id': catId,
       'name': name,
       'price': price,
-      'subCatId': subCatId,
+      'sub_cat_id': subCatId,
       'icon':icon,
       'description':description,
       'attribute':attribute,

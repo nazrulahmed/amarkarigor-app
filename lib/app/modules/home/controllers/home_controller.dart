@@ -14,6 +14,7 @@ import 'package:amar_karigor/app/routes/app_pages.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:amar_karigor/app/global/data/model/user.dart' as AppUser;
 import 'package:http/http.dart' as http;
 import 'package:amar_karigor/app/global/widget/dummy_document.dart'
     if (dart.library.html) 'package:amar_karigor/app/global/widget/web_document.dart'
@@ -47,16 +48,20 @@ class HomeController extends GetxController {
   @override
   void onReady() async {
     super.onReady();
-
-    if (LocalData.user == null) {
+    AppPref? appPref = await myPref;
+    if (kIsWeb) {
+      if (appPref!.retriveToken() == null) {
+        Get.offAndToNamed(Routes.AUTH);
+      } else {
+        LocalData.user =
+            AppUser.User(appPref.retriveUserId()!, appPref.retriveToken()!);
+      }
+    } else if (LocalData.user == null) {
       Get.offAndToNamed(Routes.AUTH);
     }
     http.Response response = await HomeProvider()
         .homePageData(LocalData.user!.uid, LocalData.user!.token);
 
-    print('response status: ${response.statusCode}');
-
-    print('response--------');
     print(response.body);
 
     if (response.statusCode == 200) {
@@ -72,9 +77,9 @@ class HomeController extends GetxController {
         if (userInfoData != null) {
           LocalData.user = User.fromJson(
               LocalData.user!.uid, LocalData.user!.token, userInfoData);
+          AppPref? appPref = await myPref;
+          appPref!.saveUserInfo(json.encode(userInfoData!));
         }
-
-        print('user data ${LocalData.user!.phone}');
 
         final locationData = data['location'];
         LocationController _locationController = Get.find();
@@ -142,7 +147,7 @@ class HomeController extends GetxController {
 
   Future<bool> logout() async {
     AppPref? appPref = await myPref;
-    isLoggingOut.value =  true;
+    isLoggingOut.value = true;
     return await appPref!.logout();
   }
 

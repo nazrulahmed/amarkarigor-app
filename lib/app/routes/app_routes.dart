@@ -17,6 +17,8 @@ abstract class Routes {
   static const UPDATE_PROFILE = _Paths.UPDATE_PROFILE;
   static const PAYMENT = _Paths.PAYMENT;
   static const PAYMENT_COMPLETE = _Paths.PAYMENT_COMPLETE;
+  static const PAYMENT_DECLINE = _Paths.PAYMENT_DECLINE;
+
   static const BOOKING_DETAILS = _Paths.BOOKING_DETAILS;
   static const SUPPORT = _Paths.SUPPORT;
   static const MORE = _Paths.MORE;
@@ -39,6 +41,8 @@ abstract class _Paths {
   static const UPDATE_PROFILE = '/update_profile';
   static const PAYMENT = '/payment';
   static const PAYMENT_COMPLETE = '/payment_complete';
+  static const PAYMENT_DECLINE = '/payment_decline';
+
   static const BOOKING_DETAILS = '/booking_details';
   static const SUPPORT = '/support';
   static const MORE = '/more';

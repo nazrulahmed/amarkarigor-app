@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 Widget serviceDateTime(ServiceController controller) {
+  if (controller.service == null) return Container();
+
   return Padding(
     padding: const EdgeInsets.all(0.0),
     child: Column(

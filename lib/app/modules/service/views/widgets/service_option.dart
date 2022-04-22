@@ -8,9 +8,10 @@ import 'package:get/get.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
 
 Widget serviceOption(ServiceController controller) {
+  if (controller.service == null) return Container();
   controller.optionControllers.clear();
   controller.optionValues.clear();
-  final option = controller.service.option;
+  final option = controller.service!.option;
   List<Widget> optionWidgets = [];
   var optionValues;
   if (option != null) {
@@ -33,9 +34,9 @@ Widget serviceOption(ServiceController controller) {
         List<String> fieldValues = value['value'].toString().split(',');
         List<int> numberValues = fieldValues.map(int.parse).toList();
         numberValues.sort();
-        if(extraCostApplicableFrom==numberValues[0]){
-         controller.totalPrice.value = controller.service.price +
-                        extraCostPerUnit;
+        if (extraCostApplicableFrom == numberValues[0]) {
+          controller.totalPrice.value =
+              controller.service!.price + extraCostPerUnit;
         }
         controller.optionControllers.add(RxInt(numberValues[0]));
         controller.optionValues.add({value['label']: numberValues[0]});
@@ -51,7 +52,7 @@ Widget serviceOption(ServiceController controller) {
                 min: numberValues[0],
                 max: numberValues[numberValues.length - 1],
                 value: sliderCurrentValue.value,
-                interval: (numberValues[1]-numberValues[0]).toDouble(),
+                interval: (numberValues[1] - numberValues[0]).toDouble(),
                 showLabels: true,
                 enableTooltip: true,
                 onChangeEnd: (sliderValue) {
@@ -62,15 +63,18 @@ Widget serviceOption(ServiceController controller) {
                       currentValue;
 
                   if (currentValue >= extraCostApplicableFrom) {
-                    controller.totalPrice.value = controller.service.price +
-                        ((currentValue-extraCostApplicableFrom+1) * extraCostPerUnit);
+                    controller.totalPrice.value = controller.service!.price +
+                        ((currentValue - extraCostApplicableFrom + 1) *
+                            extraCostPerUnit);
                   } else {
-                    controller.totalPrice.value = controller.service.price;
+                    controller.totalPrice.value = controller.service!.price;
                   }
                 },
-                onChanged: (sliderValue) {int currentValue = sliderValue.toInt();
+                onChanged: (sliderValue) {
+                  int currentValue = sliderValue.toInt();
                   controller.optionControllers[sliderValueIndex].value =
-                      currentValue;},
+                      currentValue;
+                },
               );
             },
           ),

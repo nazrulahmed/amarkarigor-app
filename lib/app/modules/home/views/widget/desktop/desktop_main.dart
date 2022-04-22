@@ -13,11 +13,7 @@ class DesktopMainView extends StatelessWidget {
       body:  GetBuilder(builder: (HomeController controller)=> ListView(
         children: <Widget>[
           CustomAppBar(),
-     
-          // It will cover 1/3 of free spaces
           Body(),
-          
-          // it will cover 2/3 of free spaces
         ],
       ),
     ));

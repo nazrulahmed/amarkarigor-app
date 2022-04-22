@@ -1,6 +1,7 @@
 import 'package:amar_karigor/app/global/config/app_style.dart';
 import 'package:amar_karigor/app/global/config/constant.dart';
 import 'package:amar_karigor/app/global/widget/custom_webview.dart';
+import 'package:amar_karigor/app/modules/home/views/widget/desktop/appbar.dart';
 import 'package:amar_karigor/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,90 +12,109 @@ import 'package:amar_karigor/app/global/util/local_data.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../global/util/platform_helper.dart';
 import '../controllers/payment_controller.dart';
 import 'widget/cost_card.dart';
 import 'dart:convert';
+
 class PaymentView extends GetView<PaymentController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Payment'),
-        ),
+        appBar: isDesktopView(context)
+            ? CustomAppBar()
+            : AppBar(
+                title: Text('Payment'),
+              ),
         body: GetBuilder(
-          builder: (PaymentController checkoutController) => ListView(
-            children: [
-              SizedBox(height: 8),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Text(
-                  'Select your payment method',
-                  style: MyTextStyle.textBlackLargeBold,
-                ),
-              ),
-              Row(
+          builder: (PaymentController checkoutController) => Center(
+            child: Container(
+              width: isDesktopView(context)
+                  ? MediaQuery.of(context).size.width * .6
+                  : double.infinity,
+              height: isDesktopView(context) ? 500 : double.infinity,
+              decoration: isDesktopView(context)
+                  ? BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(color: Color(0xffeeeeee), width: 1),
+                    )
+                  : null,
+              child: ListView(
                 children: [
-                  Radio(
-                    value: PAYMENT_CASH_ON_SERVICE,
-                    groupValue: controller.paymentType,
-                    onChanged: (value) {
-                      controller.setPaymentType(value as String);
-                    },
-                    activeColor: Colors.green,
+                  SizedBox(height: 8),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Text(
+                      'Select your payment method',
+                      style: MyTextStyle.textBlackLargeBold,
+                    ),
                   ),
-                  Text("Cash on service"),
-                ],
-              ),
-              Row(
-                children: [
-                  Radio(
-                    value: PAYMENT_GATEWAY_ONLINE,
-                    groupValue: controller.paymentType,
-                    onChanged: (value) {
-                      controller.setPaymentType(value as String);
-                    },
-                    activeColor: Colors.green,
-                  ),
-                  Text(PAYMENT_GATEWAY_ONLINE),
-                ],
-              ),
-              Divider(),
-              costCard(controller),
-              SizedBox(
-                height: 8,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 150,
-                      child: ElevatedButton(
-                        onPressed: () => Get.toNamed(Routes.HOME),
-                        child: Text('Cancel'),
-                        style: MyButtonStyle.cancelButton,
+                  Row(
+                    children: [
+                      Radio(
+                        value: PAYMENT_CASH_ON_SERVICE,
+                        groupValue: controller.paymentType,
+                        onChanged: (value) {
+                          controller.setPaymentType(value as String);
+                        },
+                        activeColor: Colors.green,
                       ),
-                    ),
-                    SizedBox(
-                      width: 8,
-                    ),
-                    Expanded(
-                      child: ElevatedButton(
-                        onPressed: () =>
-                            controller.paymentType == PAYMENT_CASH_ON_SERVICE
+                      Text("Cash on service"),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Radio(
+                        value: PAYMENT_GATEWAY_ONLINE,
+                        groupValue: controller.paymentType,
+                        onChanged: (value) {
+                          controller.setPaymentType(value as String);
+                        },
+                        activeColor: Colors.green,
+                      ),
+                      Text(PAYMENT_GATEWAY_ONLINE),
+                    ],
+                  ),
+                  Divider(),
+                  costCard(controller),
+                  SizedBox(
+                    height: 8,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 150,
+                          child: ElevatedButton(
+                            onPressed: () => Get.toNamed(Routes.HOME),
+                            child: Text('Cancel'),
+                            style: MyButtonStyle.cancelButton,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        Expanded(
+                          child: ElevatedButton(
+                            onPressed: () => controller.paymentType ==
+                                    PAYMENT_CASH_ON_SERVICE
                                 ? controller.completeBooking()
                                 : showPaymentView(context),
-                        child: controller.paymentType == PAYMENT_CASH_ON_SERVICE
-                            ? Text('Proceed')
-                            : Text('Pay now'),
-                        style: MyButtonStyle.submitButton,
-                      ),
+                            child: controller.paymentType ==
+                                    PAYMENT_CASH_ON_SERVICE
+                                ? Text('Proceed')
+                                : Text('Pay now'),
+                            style: MyButtonStyle.submitButton,
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              )
-            ],
+                  )
+                ],
+              ),
+            ),
           ),
         ));
   }
@@ -183,17 +203,23 @@ class PaymentView extends GetView<PaymentController> {
     Get.back();
   }
 
-  void showPaymentView(context) async{
-    if(kIsWeb){
+  void showPaymentView(context) async {
+    controller.startTimer();
+    if (kIsWeb) {
       User user = LocalData.user!;
       String payload =
-        "{\"token\":\"80535d79-b11a-447e-b9b4-1b941c2a3a6f\",\"booking_id\":${controller.bookingId},\"uid\":${user.uid},\"amount\":${controller.grossTotal},\"cus_name\":\"${user.firstName}\",\"cus_email\":\"${user.email}\",\"cus_phone\":\"${user.phone}\",\"cus_address\":\"${user.address}\",\"service_name\":\"${controller.serviceName}\"}";
-    Codec<String, String> stringToBase64 = utf8.fuse(base64);
-    String encoded = stringToBase64.encode(payload);
-      await launch('https://amarkarigor.com/api/v1/payment/ssl_commerz?payload='+encoded);
-    }else{
-    Navigator.push(context, MaterialPageRoute(builder: (context)=>CustomWebView(controller.bookingId,controller.grossTotal,controller.serviceName)));
-
+          "{\"token\":\"80535d79-b11a-447e-b9b4-1b941c2a3a6f\",\"booking_id\":${controller.bookingId},\"uid\":${user.uid},\"amount\":${controller.grossTotal},\"cus_name\":\"${user.firstName}\",\"cus_email\":\"${user.email}\",\"cus_phone\":\"${user.phone}\",\"cus_address\":\"${user.address}\",\"service_name\":\"${controller.serviceName}\"}";
+      Codec<String, String> stringToBase64 = utf8.fuse(base64);
+      String encoded = stringToBase64.encode(payload);
+      await launch(
+          'https://amarkarigor.com/api/v1/payment/ssl_commerz?payload=' +
+              encoded);
+    } else {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => CustomWebView(controller.bookingId,
+                  controller.grossTotal, controller.serviceName)));
     }
   }
 }

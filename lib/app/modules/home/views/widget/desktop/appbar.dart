@@ -1,9 +1,10 @@
-import 'package:amar_karigor/app/global/config/app_style.dart';
+import 'package:amar_karigor/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'menu_item.dart';
 
-class CustomAppBar extends StatelessWidget {
+class CustomAppBar extends StatelessWidget implements PreferredSize {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,11 +32,16 @@ class CustomAppBar extends StatelessWidget {
           Spacer(),
           MenuItem(
             title: "Home",
-            press: () {},
+            press: () {
+              Get.toNamed(Routes.HOME);
+            },
           ),
           MenuItem(
-            title: "about",
-            press: () {},
+            title: "Bookings",
+            press: () {
+              Get.toNamed(Routes.BOOKING);
+
+            },
           ),
           MenuItem(
             title: "Pricing",
@@ -49,13 +55,15 @@ class CustomAppBar extends StatelessWidget {
             title: "Login",
             press: () {},
           ),
-          // ElevatedButton(
-          //   child: Text('Book a service'),
-          //   onPressed: () {},
-          //   style: MyButtonStyle.submitButton,
-          // ),
+         
         ],
       ),
     );
   }
+
+  @override
+  Widget get child => Text('');
+
+  @override
+  Size get preferredSize => Size(double.infinity, 150);
 }

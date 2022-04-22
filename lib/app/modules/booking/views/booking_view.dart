@@ -1,3 +1,4 @@
+import 'package:amar_karigor/app/global/util/platform_helper.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -9,7 +10,7 @@ import 'widget/tab_bar_header.dart';
 class BookingView extends GetView<BookingController> {
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
+    return isDesktopView(context)?SizedBox(): DefaultTabController(
       length: 2,
       child: Scaffold(
         appBar: TabBarHeader(),

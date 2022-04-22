@@ -10,9 +10,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
+import '../../../global/util/app_pref.dart';
+
 class CheckoutController extends GetxController {
- 
-  late MyBookingData booking;
+  Future<AppPref?> myPref = AppPref.instance;
+
+  MyBookingData? booking;
   final BookServiceProvider _bookServiceProvider = BookServiceProvider();
   int consumerType = 1;
   var isLoading = false.obs;
@@ -28,23 +31,37 @@ class CheckoutController extends GetxController {
   @override
   void onInit() async {
     super.onInit();
+    AppPref? pref = await myPref;
     if (Get.arguments != null) {
       booking = Get.arguments['booking'];
       grossTotal = Get.arguments['total_price'];
+      pref!.saveBooking(json.encode(booking!.toJson()));
+      pref.saveGrossTotal(grossTotal);
+    } else {
+      String userData = pref!.retriveUserInfo();
+      var ud = json.decode(userData);
+      User user =
+          User.fromJson(pref.retriveUserId()!, pref.retriveToken()!, ud);
+      LocalData.user = user;
+      Map<String, dynamic> bookingData = json.decode(pref.retriveBooking());
+      MyBookingData myBookingData = MyBookingData({
+        "id": bookingData['service_id'],
+        "name": bookingData['service_name'],
+        "icon": bookingData['service_icon']
+      }, bookingData['selected_attributes'], bookingData['total_price'],
+          bookingData['booking_date'], bookingData['booking_time']);
+
+      booking = myBookingData;
+
+      grossTotal = pref.retriveGrossTotal();
+
+      update();
     }
   }
 
   @override
   void onReady() {
     super.onReady();
-    print('IS CHECKOUT DATAAA NULLL???????????????????');
-    print('IS CHECKOUT DATAAA NULLL???????????????????');
-
-    print(booking);
-
-    print('IS CHECKOUT DATAAA NULLL???????????????????');
-    print('IS CHECKOUT DATAAA NULLL???????????????????');
-
   }
 
   @override
@@ -60,15 +77,18 @@ class CheckoutController extends GetxController {
           consumerPhoneFieldController.text,
           consumerEmailFieldController.text);
     }
-    http.Response response =
-        await _bookServiceProvider.createBooking(booking, grossTotal, consumer);
+    http.Response response = await _bookServiceProvider.createBooking(
+        booking!, grossTotal, consumer);
     creatingBooking.value = false;
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
       if (data['status'] == true) {
         int bookingId = data['booking_id'] as int;
-        Get.toNamed(Routes.PAYMENT,
-            arguments: {'booking_id': bookingId, 'gross_total': grossTotal,'service_name':booking.service['name']});
+        Get.toNamed(Routes.PAYMENT, arguments: {
+          'booking_id': bookingId,
+          'gross_total': grossTotal,
+          'service_name': booking!.service['name']
+        });
       }
     }
 
@@ -89,6 +109,7 @@ class CheckoutController extends GetxController {
   }
 
   bool hasInformation() {
+    print("LocalData.user::::::::: ${LocalData.user}");
     return LocalData.user != null && LocalData.user!.profileCompleted();
   }
 
@@ -101,6 +122,10 @@ class CheckoutController extends GetxController {
       consumer.setAddress = consumerAddressFieldController.text;
       consumer.setEmail = consumerEmailFieldController.text;
     }
+    print('booking::::::::::from PREVIEEW::::::::::: ');
+    print('booking info');
+    print(booking!.service);
+    print(booking!.selectedOptions);
     Get.toNamed(Routes.CHECKOUT_BOOKING_PREVIEW,
         arguments: {'booking': booking, 'consumer': consumer});
   }

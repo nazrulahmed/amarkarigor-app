@@ -14,18 +14,19 @@ class ServiceView extends GetView<ServiceController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar:  isDesktopView(context)?CustomAppBar():null,
       body: GetBuilder(builder: (ServiceController controller) {
         return ListView(children: [
-          isDesktopView(context)?CustomAppBar():SizedBox(),
+         
           Center(
             child: Container(
               width: isDesktopView(context)?MediaQuery.of(context).size.width*.6:double.infinity,
               child: Column(
               children: [
                 serviceHeader(controller),
-                controller.servicePage.value == ServicePages.SERVICE_TIME
-                ? serviceDateTime(controller)
-                : serviceOption(controller),
+                 controller.servicePage.value == ServicePages.SERVICE_TIME
+                 ? serviceDateTime(controller)
+                 : serviceOption(controller),
                  isDesktopView(context)?serviceBottom(controller):SizedBox()
               ],
             )

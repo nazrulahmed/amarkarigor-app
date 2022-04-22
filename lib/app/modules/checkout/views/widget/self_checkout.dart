@@ -3,26 +3,34 @@ import 'package:amar_karigor/app/modules/checkout/controllers/checkout_controlle
 import 'package:flutter/material.dart';
 
 Widget selfCheckout(CheckoutController controller) {
-
+  
+ 
   
   return !controller.hasInformation()
       ? Column(children: [
           Text(
               'Your profile is not completed yet! Please complete the required information to continue.',
               style: MyTextStyle.textBlackMediumBold),
-              SizedBox(height: 4,),
+          SizedBox(
+            height: 4,
+          ),
           Text(
               'Once your profile is completd, you will be automatically taken to the checkout process.'),
-
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: ElevatedButton(onPressed: ()=>controller.updateProfile(), child: Text('Update profile'),
-                style: MyButtonStyle.submitButton,),
-              )
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: ElevatedButton(
+              onPressed: () => controller.updateProfile(),
+              child: Text('Update profile'),
+              style: MyButtonStyle.submitButton,
+            ),
+          )
         ])
       : Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: ElevatedButton(onPressed: ()=>controller.previewBooking(true), child: Text('Next'),
-                style: MyButtonStyle.submitButton,),
-              );
+          padding: const EdgeInsets.all(16.0),
+          child: ElevatedButton(
+            onPressed: () => controller.previewBooking(true),
+            child: Text('Next'),
+            style: MyButtonStyle.submitButton,
+          ),
+        );
 }

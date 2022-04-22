@@ -4,10 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 Widget serviceBottom(ServiceController controller) {
+  if (controller.service == null) return Container();
   return GestureDetector(
-      onTap: () async{
+      onTap: () async {
         String? response = await controller.proceedBooking();
-        if(response!=null){
+        if (response != null) {
           // Get.showSnackbar(GetBar(
           //                       isDismissible: true,
           //                       duration: Duration(seconds: 2),

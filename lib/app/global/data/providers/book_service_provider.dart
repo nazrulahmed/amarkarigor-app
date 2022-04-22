@@ -30,6 +30,7 @@ class BookServiceProvider {
       "uid": LocalData.user!.uid,
       "total_to_pay": totalToPay.toString(),
       "booking": jsonEncode(booking),
+      "date_time": booking.bookingDate+" "+booking.bookingTime,
       "consumer": consumer == null ? '' : jsonEncode(consumer.toJSON())
     });
     print(response.statusCode);
@@ -80,6 +81,20 @@ class BookServiceProvider {
     }, body: {
       "uid": LocalData.user!.uid,
       "booking_id": id,
+    });
+    print(response.statusCode);
+    print(url);
+    print(response.body);
+    return response;
+  }
+
+  Future<http.Response> getPaymentStatus(int id) async {
+    String url = '${Api.base_url}${Api.get_payment_status_url}';
+    http.Response response = await http.post(Uri.parse(url), headers: {
+      "Authorization": LocalData.user!.token
+    }, body: {
+     
+      "booking_id": id.toString(),
     });
     print(response.statusCode);
     print(url);

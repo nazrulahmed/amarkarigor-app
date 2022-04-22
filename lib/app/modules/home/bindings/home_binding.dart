@@ -2,7 +2,6 @@ import 'package:amar_karigor/app/modules/booking/controllers/booking_controller.
 import 'package:amar_karigor/app/modules/location/controllers/location_controller.dart';
 import 'package:amar_karigor/app/modules/support/controllers/support_controller.dart';
 import 'package:get/get.dart';
-
 import '../controllers/home_controller.dart';
 
 class HomeBinding extends Bindings {
@@ -12,5 +11,6 @@ class HomeBinding extends Bindings {
     Get.put<LocationController>(LocationController());
     Get.put<BookingController>(BookingController());
     Get.put<SupportController>(SupportController());
+   
   }
 }
