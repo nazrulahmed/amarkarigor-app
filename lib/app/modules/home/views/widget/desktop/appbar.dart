@@ -1,8 +1,7 @@
 import 'package:amar_karigor/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'menu_item.dart';
+import 'menu_item.dart' as myMenuItem;
 
 class CustomAppBar extends StatelessWidget implements PreferredSize {
   @override
@@ -28,34 +27,31 @@ class CustomAppBar extends StatelessWidget implements PreferredSize {
             height: 50,
             alignment: Alignment.topCenter,
           ),
-
           Spacer(),
-          MenuItem(
+          myMenuItem.MenuItem(
             title: "Home",
             press: () {
               Get.toNamed(Routes.HOME);
             },
           ),
-          MenuItem(
+          myMenuItem.MenuItem(
             title: "Bookings",
             press: () {
               Get.toNamed(Routes.BOOKING);
-
             },
           ),
-          MenuItem(
+          myMenuItem.MenuItem(
             title: "Pricing",
             press: () {},
           ),
-          MenuItem(
+          myMenuItem.MenuItem(
             title: "Contact",
             press: () {},
           ),
-          MenuItem(
+          myMenuItem.MenuItem(
             title: "Support",
             press: () {},
           ),
-         
         ],
       ),
     );
