@@ -219,7 +219,8 @@ class PaymentView extends GetView<PaymentController> {
           context,
           MaterialPageRoute(
               builder: (context) => CustomWebView(controller.bookingId,
-                  controller.grossTotal, controller.serviceName)));
+                  controller.grossTotal, controller.serviceName,controller.categoryId)));
     }
+   
   }
 }

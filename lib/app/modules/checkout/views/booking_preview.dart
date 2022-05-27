@@ -55,10 +55,12 @@ class BookingPreview extends GetView<CheckoutController> {
               padding: isDesktopView(context) ? EdgeInsets.all(20) : null,
               child: ListView(
                 children: [
+                  SizedBox(height: 16,),
                   Text(
                     controller.booking!.service['name'],
                     style: MyTextStyle.textBlackLargerBold,
                   ),
+                   SizedBox(height: 16,),
                   Card(
                       child: Padding(
                     padding: const EdgeInsets.all(8.0),

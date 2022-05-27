@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:amar_karigor/app/global/data/model/user.dart';
 import 'package:amar_karigor/app/global/util/local_data.dart';
 import 'package:amar_karigor/app/routes/app_pages.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -11,8 +12,11 @@ class CustomWebView extends StatelessWidget {
   final User user = LocalData.user!;
   final amount;
   final bookingId;
+  final categoryId;
   final serviceName;
-  CustomWebView(this.bookingId, this.amount, this.serviceName);
+  final DatabaseReference bookingRef = FirebaseDatabase.instance.ref('booking');
+  
+  CustomWebView(this.bookingId, this.amount, this.serviceName,this.categoryId);
 
   @override
   Widget build(BuildContext context) {
@@ -40,8 +44,8 @@ class CustomWebView extends StatelessWidget {
                 print('onpage finish: $url');
                 if (url.contains('api/v1/payment/ssl_payment_success')) {
                   print('Condition matched');
-                 
-                   Get.toNamed(Routes.PAYMENT_COMPLETE);
+                  sendToWorkerApp();
+                  Get.toNamed(Routes.PAYMENT_COMPLETE);
                 }
               },
               javascriptMode: JavascriptMode.unrestricted,
@@ -54,5 +58,14 @@ class CustomWebView extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void sendToWorkerApp() {
+    bookingRef.child("cid-$categoryId").child("bid-$bookingId").set({
+      "bid": bookingId.toString(),
+      "current_status": 1,
+      "receiver_id": "-1",
+      "uid": int.parse(LocalData.user!.uid)
+    });
   }
 }

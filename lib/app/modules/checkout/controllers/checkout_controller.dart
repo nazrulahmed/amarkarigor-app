@@ -21,6 +21,7 @@ class CheckoutController extends GetxController {
   var isLoading = false.obs;
   double grossTotal = 0.0;
   var creatingBooking = false.obs;
+  int categoryId = 0;
 
   TextEditingController consumerNameFieldController = TextEditingController();
   TextEditingController consumerAddressFieldController =
@@ -34,9 +35,11 @@ class CheckoutController extends GetxController {
     AppPref? pref = await myPref;
     if (Get.arguments != null) {
       booking = Get.arguments['booking'];
+      categoryId = Get.arguments['category_id'];
       grossTotal = Get.arguments['total_price'];
       pref!.saveBooking(json.encode(booking!.toJson()));
       pref.saveGrossTotal(grossTotal);
+      pref.saveCategoryId(categoryId);
     } else {
       String userData = pref!.retriveUserInfo();
       var ud = json.decode(userData);
@@ -86,6 +89,7 @@ class CheckoutController extends GetxController {
         int bookingId = data['booking_id'] as int;
         Get.toNamed(Routes.PAYMENT, arguments: {
           'booking_id': bookingId,
+          'category_id': categoryId,
           'gross_total': grossTotal,
           'service_name': booking!.service['name']
         });

@@ -11,6 +11,7 @@ import 'package:amar_karigor/app/modules/home/provider/home_provider.dart';
 import 'package:amar_karigor/app/modules/location/controllers/location_controller.dart';
 import 'package:amar_karigor/app/global/util/local_data.dart';
 import 'package:amar_karigor/app/routes/app_pages.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -22,7 +23,7 @@ import 'package:amar_karigor/app/global/widget/dummy_document.dart'
 
 class HomeController extends GetxController {
   Future<AppPref?> myPref = AppPref.instance;
-
+  final DatabaseReference bookingRef = FirebaseDatabase.instance.ref('booking');
   List offers = [];
   List<Category> categories = [];
   List<Service> services = [];
@@ -155,13 +156,16 @@ class HomeController extends GetxController {
   void onClose() {}
 
   List<Service> getServicesByCatId(int id) {
-    print('getServicesByCatId...');
+    print('getServicesByCatId... $id');
 
     selectedCategoryId = id;
     List<Service> servicesInCategory = [];
     for (Service service in services) {
       print('looping...');
-      if (service.catId == id) servicesInCategory.add(service);
+      if (service.catId == id) {
+        print("service.catId ${service.catId}");
+        servicesInCategory.add(service);
+      }
     }
     print('return servicesInCategory...');
 

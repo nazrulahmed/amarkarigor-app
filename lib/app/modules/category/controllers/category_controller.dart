@@ -23,6 +23,7 @@ class CategoryController extends GetxController {
     int id = arguments['id'];
     categoryName.value = arguments['name'];
 
+    print("id ===== $id");
     servicesInCategory = _homeController.getServicesByCatId(id);
     subCategories = _homeController.getSubCategoriesByCatId(id);
    

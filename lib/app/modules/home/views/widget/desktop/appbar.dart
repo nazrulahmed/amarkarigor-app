@@ -42,7 +42,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSize {
           ),
           myMenuItem.MenuItem(
             title: "Pricing",
-            press: () {},
+            press: () {
+               
+              
+            },
           ),
           myMenuItem.MenuItem(
             title: "Contact",

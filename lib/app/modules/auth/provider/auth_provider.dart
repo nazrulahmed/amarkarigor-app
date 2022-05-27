@@ -22,9 +22,8 @@ class AuthProvider {
     return response;
   }
 
-
-  Future<http.Response> updatePassword(Map<String, dynamic> user) async{
-     String url = '${Api.base_url}${Api.update_password}';
+  Future<http.Response> updatePassword(Map<String, dynamic> user) async {
+    String url = '${Api.base_url}${Api.update_password}';
     http.Response response = await http.post(Uri.parse(url), body: user);
 
     return response;
@@ -32,6 +31,7 @@ class AuthProvider {
 
   Future<http.Response> login(Map<String, dynamic> user) async {
     String url = '${Api.base_url}${Api.login_url}';
+    print(url);
     try {
       http.Response response = await http.post(Uri.parse(url), body: user);
 
@@ -45,7 +45,8 @@ class AuthProvider {
   Future<http.Response> isUserExist(String phone) async {
     String url = '${Api.base_url}${Api.check_user}';
     try {
-      http.Response response = await http.post(Uri.parse(url), body: {'phone':phone});
+      http.Response response =
+          await http.post(Uri.parse(url), body: {'phone': phone});
 
       return response;
     } catch (e) {
@@ -53,5 +54,4 @@ class AuthProvider {
       return http.Response(e.toString(), 502);
     }
   }
-
 }

@@ -59,7 +59,7 @@ class BookingController extends GetxController {
               attribute: serviceOptions['selected_attributes'],
               bookingDate: serviceOptions['booking_date'],
               bookingTime: serviceOptions['booking_time'],
-              totalToPay: serviceOptions['total_price'],
+              totalToPay:  serviceOptions['total_price'].toDouble(),
               icon: serviceOptions['service_icon'],
               bookingType: serviceOptions['booking_type'],
               status: statusName);

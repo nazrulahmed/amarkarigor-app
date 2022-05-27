@@ -1,4 +1,5 @@
 import 'package:amar_karigor/app/modules/category/views/widget/tags.dart';
+import 'package:amar_karigor/app/modules/home/views/widget/mobile/category_services.dart';
 import 'package:amar_karigor/app/modules/home/views/widget/mobile/services.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
@@ -34,7 +35,7 @@ class CategoryView extends GetView<CategoryController> {
                     child: Text(controller.categoryName.value,style: TextStyle(color: Colors.black, fontSize: 24),),
                   )):SizedBox(),
                   tags(controller.subCategories),
-                  Services(),
+                  CategoryServices(),
                   
                 ],
               ),

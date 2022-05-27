@@ -10,6 +10,9 @@ class AppPref {
   final String KEY_GROSS_TOTAL = "gross_total";
   final String KEY_BOOKING_ID = "booking_id";
   final String KEY_SERVICE_NAME = "service_name";
+  final String KEY_CATEGORY_ID = "cat_id";
+
+  
 
 
   static AppPref? _pref;
@@ -93,5 +96,12 @@ class AppPref {
   }
   String retriveServiceName() {
     return _sharedPreferences!.getString(KEY_SERVICE_NAME)??"home service";
+  }
+
+    void saveCategoryId(int bookingId) {
+    _sharedPreferences!.setInt(KEY_CATEGORY_ID, bookingId);
+  }
+  int retriveCategoryId() {
+    return _sharedPreferences!.getInt(KEY_CATEGORY_ID)??0;
   }
 }

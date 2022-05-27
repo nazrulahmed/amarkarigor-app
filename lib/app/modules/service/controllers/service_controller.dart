@@ -135,7 +135,7 @@ class ServiceController extends GetxController {
         totalPrice.value, bookingDate, bookingTime);
 
     Get.toNamed(Routes.CHECKOUT,
-        arguments: {'booking': booking, 'total_price': totalPrice.value});
+        arguments: {'booking': booking, 'total_price': totalPrice.value,'category_id':service!.catId});
     return '';
   }
 

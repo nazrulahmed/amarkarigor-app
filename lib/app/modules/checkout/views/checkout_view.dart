@@ -5,7 +5,7 @@ import 'package:amar_karigor/app/modules/home/views/widget/desktop/appbar.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-
+import 'package:flutter/foundation.dart' show kIsWeb;
 import '../../../global/util/platform_helper.dart';
 import '../controllers/checkout_controller.dart';
 
@@ -20,22 +20,23 @@ class CheckoutView extends GetView<CheckoutController> {
               ),
         body: GetBuilder(
           builder: (CheckoutController checkoutController) => Column(
-
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              
               Center(
                 child: Container(
+                  margin: EdgeInsets.all(5),
                   color: Colors.white,
-                  width: MediaQuery.of(context).size.width*.5,
+                  width: kIsWeb
+                      ? MediaQuery.of(context).size.width * .5: double.infinity
+                      ,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                    
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16.0,vertical: 16.0),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16.0, vertical: 16.0),
                         child: Text(
                           'Booking type',
                           style: MyTextStyle.textBlackLargerBold,
