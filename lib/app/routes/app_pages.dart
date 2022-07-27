@@ -17,8 +17,8 @@ import 'package:amar_karigor/app/modules/location/bindings/location_binding.dart
 import 'package:amar_karigor/app/modules/location/views/location_view.dart';
 import 'package:amar_karigor/app/modules/more/bindings/more_binding.dart';
 import 'package:amar_karigor/app/modules/more/views/more_view.dart';
-import 'package:amar_karigor/app/modules/notification/bindings/notification_binding.dart';
-import 'package:amar_karigor/app/modules/notification/views/notification_view.dart';
+import 'package:amar_karigor/app/modules/notifications/bindings/notification_binding.dart';
+import 'package:amar_karigor/app/modules/notifications/views/notification_view.dart';
 import 'package:amar_karigor/app/modules/payment/bindings/payment_binding.dart';
 import 'package:amar_karigor/app/modules/payment/views/payment_complete.dart';
 import 'package:amar_karigor/app/modules/payment/views/payment_view.dart';

@@ -121,7 +121,7 @@ Scaffold login(AuthController controller) {
                     SizedBox(width: 2),
                     InkWell(
                         onTap: () {
-                          controller.switchPage(controller.lastPage.value);
+                          controller.switchPage(AuthPages.REGISTER);
                         },
                         child: Text('Register')),
                   ],

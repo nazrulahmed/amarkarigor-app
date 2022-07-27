@@ -47,5 +47,5 @@ abstract class _Paths {
   static const SUPPORT = '/support';
   static const MORE = '/more';
   static const SEARCH = '/search';
-  static const NOTIFICATION = '/notification';
+  static const NOTIFICATION = '/notifications';
 }

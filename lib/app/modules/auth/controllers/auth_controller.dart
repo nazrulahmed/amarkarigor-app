@@ -66,7 +66,7 @@ class AuthController extends GetxController {
     isWaitingForVerification.value = !isWaitingForVerification.value;
   }
 
-  void toggleSettingPasswordIndeicator() {
+  void toggleSettingPasswordIndicator() {
     settingPassword.value = !settingPassword.value;
   }
 
@@ -153,7 +153,7 @@ class AuthController extends GetxController {
   }
 
   void signInWithApp(String phoneNumber) {
-    print('sign in with app');
+    print('sign in with app where phonee $phoneNumber');
     auth.verifyPhoneNumber(
         phoneNumber: phoneNumber,
         verificationCompleted: _onVerificationCompleted,
@@ -201,7 +201,6 @@ class AuthController extends GetxController {
     } else if (pass != repeatPass) {
       msg = 'Password doesn\'t match';
     } else {
-      phoneInputFieldController.text = "01745267119";
       String phoneNo = phoneInputFieldController.text.replaceFirst("+880", "");
       if (phoneNo[0] == '0') phoneNo = phoneNo.split("0")[1].toString();
       String phone = "+880" + phoneNo;

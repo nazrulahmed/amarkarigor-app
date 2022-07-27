@@ -8,9 +8,10 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 Widget phoneNumber(AuthController controller) {
   return Center(
     child: Container(
+
       padding:  kIsWeb ? EdgeInsets.all(32):EdgeInsets.all(0),
       width: kIsWeb ? 600 : double.infinity,
-      height: kIsWeb ? 700 : double.infinity,
+      height: 700,
       decoration: kIsWeb
           ? BoxDecoration(border: Border.all(color: Color(0xffdddddd)))
           : null,
