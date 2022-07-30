@@ -26,18 +26,24 @@ Widget bookingData(BookingController bookingController, context, int status) {
           ? Column(
               children: [
                 Spacer(),
+                Icon(Icons.event_note_outlined,size: 60,),
                 Center(
                   child: Padding(
-                    padding: const EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.all(24.0),
                     child: Text(
                       'You don\'t have any $bookingType booking.',
-                      style: MyTextStyle.textBlackMedium,
+                      style: MyTextStyle.textBlackLargeBold,
+                      textAlign: TextAlign.center,
                     ),
                   ),
                 ),
+                SizedBox(height: 12,),
                 ElevatedButton(
                   onPressed: () => homeController.changePage(0),
-                  child: Text('Book now'),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 6.0,horizontal: 12,),
+                    child: Text('Book now',style: MyTextStyle.textWhiteMedium,),
+                  ),
                   style: MyButtonStyle.submitButton,
                 ),
                 Spacer(),

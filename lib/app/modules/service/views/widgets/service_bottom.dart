@@ -6,25 +6,29 @@ import 'package:get/get.dart';
 Widget serviceBottom(ServiceController controller) {
   if (controller.service == null) return Container();
   return GestureDetector(
-      onTap: () async {
-        String? response = await controller.proceedBooking();
-        if (response != null) {
-          // Get.showSnackbar(GetBar(
-          //                       isDismissible: true,
-          //                       duration: Duration(seconds: 2),
-          //                       message: response));
-        }
-      },
-      child: Container(
-          color: MyColors.colorPrimary,
-          width: double.infinity,
-          height: 40,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Obx(() => Text('\$${controller.totalPrice}',
-                  style: MyTextStyle.textWhiteMediumBold)),
-              Text('Next', style: MyTextStyle.textWhiteMediumBold),
-            ],
-          )));
+    onTap: () async {
+      String? response = await controller.proceedBooking();
+      if (response != null) {
+        Get.showSnackbar(
+          GetBar(
+              isDismissible: true,
+              duration: Duration(seconds: 2),
+              message: response),
+        );
+      }
+    },
+    child: Container(
+      color: MyColors.colorPrimary,
+      width: double.infinity,
+      height: 60,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Obx(() => Text('৳ ${controller.totalPrice}',
+              style: MyTextStyle.textWhiteMediumBold)),
+          Text('Next', style: MyTextStyle.textWhiteMediumBold),
+        ],
+      ),
+    ),
+  );
 }

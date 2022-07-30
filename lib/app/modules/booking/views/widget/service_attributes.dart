@@ -15,18 +15,21 @@ class ServiceAttribute extends StatelessWidget {
     void addAttributeItem(k, v) {
       i++;
       attributeWidget.add(
-        Row(children: [
-          Text(
-            '$k: ',
-            style: MyTextStyle.textBlackMediumBold,
-          ),
-          Text(
-            '$v',
-            style: MyTextStyle.textBlackMedium,
-          )
-        ]),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(children: [
+            Text(
+              '$k: ',
+              style: MyTextStyle.textBlackMediumBold,
+            ),
+            Text(
+              '$v',
+              style: MyTextStyle.textBlackMedium,
+            )
+          ]),
+        ),
       );
-      if(i!=data.length) attributeWidget.add(Divider());
+      if (i != data.length) attributeWidget.add(Divider());
     }
 
     data.forEach((k, v) => addAttributeItem(k, v));

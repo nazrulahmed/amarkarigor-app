@@ -75,14 +75,9 @@ class ServiceController extends GetxController {
         print('service converted to obj');
         print('service json');
 
-           
-      totalPrice.value = service!.price;
-      bookingDate =
-          "${selectedDate.value.day}-${selectedDate.value.month}-${selectedDate.value.year}";
-        
-
-
-
+        totalPrice.value = service!.price;
+        bookingDate =
+            "${selectedDate.value.day}-${selectedDate.value.month}-${selectedDate.value.year}";
 
         update();
       }
@@ -134,9 +129,12 @@ class ServiceController extends GetxController {
     MyBookingData booking = MyBookingData(service!.toJson(), finalAttribute,
         totalPrice.value, bookingDate, bookingTime);
 
-    Get.toNamed(Routes.CHECKOUT,
-        arguments: {'booking': booking, 'total_price': totalPrice.value,'category_id':service!.catId});
-    return '';
+    Get.toNamed(Routes.CHECKOUT, arguments: {
+      'booking': booking,
+      'total_price': totalPrice.value,
+      'category_id': service!.catId
+    });
+    return null;
   }
 
   void setSelectedTime(String time) {

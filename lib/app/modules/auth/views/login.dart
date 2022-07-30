@@ -2,9 +2,9 @@ import 'package:amar_karigor/app/global/config/app_style.dart';
 import 'package:amar_karigor/app/global/config/constant.dart';
 import 'package:amar_karigor/app/modules/auth/controllers/auth_controller.dart';
 import 'package:amar_karigor/app/routes/app_pages.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
 
 Scaffold login(AuthController controller) {
   return Scaffold(
@@ -12,8 +12,9 @@ Scaffold login(AuthController controller) {
     child: Container(
       width: kIsWeb ? 600 : double.infinity,
       height: kIsWeb ? 700 : double.infinity,
-      decoration:
-          kIsWeb ? BoxDecoration(border: Border.all(color: Color(0xffdddddd))) : null,
+      decoration: kIsWeb
+          ? BoxDecoration(border: Border.all(color: Color(0xffdddddd)))
+          : null,
       child: ListView(
         children: [
           Container(
@@ -73,6 +74,7 @@ Scaffold login(AuthController controller) {
                   children: [
                     InkWell(
                         onTap: () {
+                          controller.phoneInputFieldController.text = '';
                           controller.switchPage(AuthPages.FORGOT_PASSWORD);
                         },
                         child: Text('forgot password?')),
@@ -82,6 +84,7 @@ Scaffold login(AuthController controller) {
                 Obx(() {
                   return Container(
                     width: double.infinity,
+                    height: 40,
                     child: controller.isLoading.value
                         ? Center(
                             child: CircularProgressIndicator(

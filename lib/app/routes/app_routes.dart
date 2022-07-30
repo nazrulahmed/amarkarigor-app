@@ -24,6 +24,7 @@ abstract class Routes {
   static const MORE = _Paths.MORE;
   static const SEARCH = _Paths.SEARCH;
   static const NOTIFICATION = _Paths.NOTIFICATION;
+  static const FEEDBACK = _Paths.FEEDBACK;
 }
 
 abstract class _Paths {
@@ -48,4 +49,5 @@ abstract class _Paths {
   static const MORE = '/more';
   static const SEARCH = '/search';
   static const NOTIFICATION = '/notifications';
+  static const FEEDBACK = '/feedback';
 }

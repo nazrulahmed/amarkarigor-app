@@ -8,6 +8,7 @@ import 'package:amar_karigor/app/routes/app_pages.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
+
 import '../../../global/util/app_pref.dart';
 
 class PaymentController extends GetxController {
@@ -22,6 +23,7 @@ class PaymentController extends GetxController {
   BookServiceProvider bookServiceProvider = BookServiceProvider();
   late Timer timer;
   final DatabaseReference bookingRef = FirebaseDatabase.instance.ref('booking');
+  RxBool isLoading = false.obs;
 
   @override
   void onInit() async {

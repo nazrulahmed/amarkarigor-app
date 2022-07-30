@@ -1,3 +1,4 @@
+import 'package:amar_karigor/app/modules/more/views/feedback.dart';
 import 'package:amar_karigor/app/modules/payment/views/payment_decline.dart';
 import 'package:get/get.dart';
 
@@ -137,6 +138,11 @@ class AppPages {
       name: _Paths.NOTIFICATION,
       page: () => NotificationView(),
       binding: NotificationBinding(),
+    ),
+    GetPage(
+      name: _Paths.FEEDBACK,
+      page: () => FeedBackView(),
+      binding: MoreBinding(),
     ),
   ];
 }

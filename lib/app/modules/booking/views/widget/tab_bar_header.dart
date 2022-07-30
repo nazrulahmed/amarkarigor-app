@@ -1,3 +1,5 @@
+import 'package:amar_karigor/app/global/util/platform_helper.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class TabBarHeader extends StatelessWidget implements PreferredSizeWidget {
@@ -6,11 +8,11 @@ class TabBarHeader extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text('Booking'),
+      title: isDesktopView(context) ? null : Text('Booking'),
       bottom: const TabBar(
         indicatorColor: Colors.white,
         tabs: [
-         // Tab(text: 'My cart'),
+          // Tab(text: 'My cart'),
           Tab(text: 'Incomplete'),
           Tab(text: 'Completed'),
         ],

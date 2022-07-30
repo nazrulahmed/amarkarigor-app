@@ -126,9 +126,12 @@ class UpdateProfileView extends GetView<ProfileController> {
                                 ))
                               : ElevatedButton(
                                   onPressed: () async {
-                                      controller.updateInfo();
-                                      
-                                    
+                                    controller.isLoading(true);
+                                    await controller.updateInfo();
+                                    controller.isLoading(false);
+
+
+
                                   },
                                   style: MyButtonStyle.submitButton,
                                   child: Text('Update')),

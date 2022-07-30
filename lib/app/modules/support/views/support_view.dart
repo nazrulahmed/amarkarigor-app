@@ -16,7 +16,7 @@ class SupportView extends GetView<SupportController> {
       body: ListView(
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(16.0),
             child: Text('Please feel free to reach us',
                 style: TextStyle(
                   fontSize: 20,
@@ -24,7 +24,7 @@ class SupportView extends GetView<SupportController> {
           ),
           Card(
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(12.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -45,7 +45,7 @@ class SupportView extends GetView<SupportController> {
        
        Card(
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(12.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -66,7 +66,7 @@ class SupportView extends GetView<SupportController> {
        
        Card(
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(12.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 Widget costCard(PaymentController controller) {
   return Card(
     child: Container(
- 
+      height: 200,
       width: 150,
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -21,14 +21,20 @@ Widget costCard(PaymentController controller) {
       child: Padding(
         padding: const EdgeInsets.all(32.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-             Center(child: Text(controller.paymentType=='cos'?'You will be billed ':'Please pay ',style: MyTextStyle.textWhiteExtraLargeBold)),
-            Center(child: Text('BDT ${controller.grossTotal}',style: MyTextStyle.textWhiteExtraLargeBold)),
-
-           
+            Center(
+                child: Text(
+                    controller.paymentType == 'cos'
+                        ? 'You will be billed '
+                        : 'Please pay ',
+                    style: MyTextStyle.textWhiteExtraLargeBold)),
+            Center(
+                child: Text('BDT ${controller.grossTotal}',
+                    style: MyTextStyle.textWhiteExtraLargeBold)),
           ],
         ),
-      ), 
+      ),
     ),
   );
 }

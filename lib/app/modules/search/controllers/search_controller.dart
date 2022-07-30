@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 class SearchController extends GetxController {
   late HomeController homeController;
+  RxBool isLoadingServices = false.obs;
   List<Service> services = [];
   @override
   void onInit() {
@@ -14,12 +15,14 @@ class SearchController extends GetxController {
   }
 
   void performSearch(String query) {
+    isLoadingServices(true);
     services.clear();
     for (Service service in homeController.services) {
       if (service.name.contains(query)) {
         services.add(service);
       }
     }
+    isLoadingServices(false);
 
     update();
   }

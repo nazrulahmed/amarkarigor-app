@@ -131,6 +131,7 @@ class AuthController extends GetxController {
     try {
       await auth.signInWithCredential(credential);
       toggleVerificationIndicator();
+      passwordFieldController.text="";
       switchPage(AuthPages.PASSWORD);
     } catch (e) {
       isInvalidOTP.value = true;
@@ -206,18 +207,10 @@ class AuthController extends GetxController {
       String phone = "+880" + phoneNo;
       Map<String, dynamic> user = {'phone': phone, 'password': pass};
 
-      print("USER'S MAP ");
-      print(user);
-      print("USER'S MAP ");
-
       http.Response response = await AuthProvider().createUser(user);
 
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
-
-        print('data of response ');
-        print(data);
-
         if (data['status'] == true && data['token'] != null) {
           AppPref? appPref = await myPref;
           appPref!.saveToken(data['token']);

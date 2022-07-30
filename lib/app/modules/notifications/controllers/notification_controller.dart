@@ -6,13 +6,13 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 class NotificationController extends GetxController {
-  RxBool isNotificationLoading = false.obs;
+  RxBool isNotificationLoading = true.obs;
   List<NotificationModel> notificationList = [];
 
   @override
   void onInit() async {
     super.onInit();
-    isNotificationLoading(false);
+    isNotificationLoading(true);
     http.Response response = await NotificationsProvider().notifications();
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);

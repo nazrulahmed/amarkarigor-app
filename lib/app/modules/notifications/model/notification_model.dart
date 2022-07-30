@@ -14,7 +14,7 @@ class NotificationModel {
     return NotificationModel(
       int.parse(json['id']),
       json['title'],
-      json['image'],
+      json['image'] ?? '',
       json['content'],
     );
   }

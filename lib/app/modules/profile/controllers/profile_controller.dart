@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:amar_karigor/app/global/config/constant.dart';
 import 'package:amar_karigor/app/global/data/model/user.dart';
 import 'package:amar_karigor/app/global/data/providers/profile_provider.dart';
 import 'package:amar_karigor/app/global/util/local_data.dart';
@@ -40,7 +41,7 @@ class ProfileController extends GetxController {
     return "          $msg\n";
   }
 
-  void updateInfo() async {
+  Future<String> updateInfo() async {
     print('update info called');
     Map<String, dynamic> userInfo = {
       'uid': LocalData.user!.uid,
@@ -49,29 +50,33 @@ class ProfileController extends GetxController {
       'address': addressInputFieldController.text,
       'email': emailInputFieldController.text
     };
-    http.Response response = await _profileProvider.updateProfile(userInfo);
-    print('response.statusCode ${response.statusCode}');
+    try {
+      http.Response response = await _profileProvider.updateProfile(userInfo);
 
-    if (response.statusCode == 200) {
-      final data = jsonDecode(response.body);
-      if (data['status'] == true && data['response'] == 'success') {
-        user.setFirstName = nameInputFieldController.text;
-        user.setAddress = addressInputFieldController.text;
-        user.setEmail = emailInputFieldController.text;
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        if (data['status'] == true && data['response'] == 'success') {
+          user.setFirstName = nameInputFieldController.text;
+          user.setAddress = addressInputFieldController.text;
+          user.setEmail = emailInputFieldController.text;
 
-        await Get.showSnackbar(GetBar(
-            isDismissible: true,
-            duration: Duration(seconds: 2),
-            message: "successfully updated."));
-        update();
-        Get.back();
-      } else {
-        
-        await Get.showSnackbar(GetBar(
-            isDismissible: true,
-            duration: Duration(seconds: 2),
-            message: data['response']));
+          await Get.showSnackbar(GetBar(
+              isDismissible: true,
+              duration: Duration(seconds: 2),
+              message: "successfully updated."));
+          update();
+          Get.back();
+        } else {
+          await Get.showSnackbar(GetBar(
+              isDismissible: true,
+              duration: Duration(seconds: 2),
+              message: data['response']));
+        }
       }
+    }catch(e){
+      return FAILED_MSG;
+
     }
+    return FAILED_MSG;
   }
 }

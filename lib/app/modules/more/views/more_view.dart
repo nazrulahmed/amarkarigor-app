@@ -12,71 +12,86 @@ class MoreView extends GetView<HomeController> {
         appBar: AppBar(
           title: Text('More'),
         ),
-        body: ListView(
-          children: [
-            GestureDetector(
-              onTap: () {
-                Get.toNamed(Routes.PROFILE);
-              },
-              child: Container(
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(color: Color(0xffeeeeee), width: 1)),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      children: [
-                        Icon(Icons.person),
-                        SizedBox(
-                          width: 8,
-                        ),
-                        Text('Profile', style: TextStyle(fontSize: 16)),
-                      ],
-                    ),
-                  )),
-            ),
-            Container(
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(color: Color(0xffeeeeee), width: 1)),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    children: [
-                      Icon(Icons.chat),
-                      SizedBox(
-                        width: 8,
+        body: Container(
+
+          child: ListView(
+            children: [
+
+              GestureDetector(
+                onTap: () {
+                  Get.toNamed(Routes.PROFILE);
+                },
+                child: Container(
+                  margin: EdgeInsets.symmetric(horizontal: 8),
+                  height: 60,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(color: Color(0xffeeeeee), width: 1)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        children: [
+                          Icon(Icons.person,size: 36,),
+                          SizedBox(
+                            width: 16,
+                          ),
+                          Text('Profile', style: TextStyle(fontSize: 16)),
+                        ],
                       ),
-                      Text('Feedback', style: TextStyle(fontSize: 16)),
-                    ],
-                  ),
-                )),
-           GestureDetector(
-              onTap: ()async {
-                if(await controller.logout()){
-                  Get.offAndToNamed(Routes.AUTH);
-                }
-                
-              },
-              child: Container(
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(color: Color(0xffeeeeee), width: 1)),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      children: [
-                        Icon(Icons.subdirectory_arrow_left_sharp),
-                        SizedBox(
-                          width: 8,
-                        ),
-                        Text('Logout', style: TextStyle(fontSize: 16)),
-                      ],
-                    ),
-                  )),
-            ),
-           
-          ],
+                    )),
+              ),
+              GestureDetector(
+                onTap: (){
+                    Get.toNamed(Routes.FEEDBACK);
+                },
+                child: Container(
+                    height: 60,
+                    margin: EdgeInsets.symmetric(horizontal: 8),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(color: Color(0xffeeeeee), width: 1)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        children: [
+                          Icon(Icons.chat),
+                          SizedBox(
+                            width: 16,
+                          ),
+                          Text('Feedback', style: TextStyle(fontSize: 16)),
+                        ],
+                      ),
+                    )),
+              ),
+             GestureDetector(
+                onTap: ()async {
+                  if(await controller.logout()){
+                    Get.offAndToNamed(Routes.AUTH);
+                  }
+
+                },
+                child: Container(
+                    height: 60,
+                    margin: EdgeInsets.symmetric(horizontal: 8),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(color: Color(0xffeeeeee), width: 1)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        children: [
+                          Icon(Icons.subdirectory_arrow_left_sharp),
+                          SizedBox(
+                            width: 16,
+                          ),
+                          Text('Logout', style: TextStyle(fontSize: 16)),
+                        ],
+                      ),
+                    )),
+              ),
+
+            ],
+          ),
         ));
   }
 }

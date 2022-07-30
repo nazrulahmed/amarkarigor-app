@@ -1,21 +1,20 @@
+import 'dart:convert';
+
+import 'package:amar_karigor/app/global/config/api.dart';
 import 'package:amar_karigor/app/global/config/app_style.dart';
 import 'package:amar_karigor/app/global/config/constant.dart';
-import 'package:amar_karigor/app/global/widget/custom_webview.dart';
-import 'package:amar_karigor/app/modules/home/views/widget/desktop/appbar.dart';
-import 'package:amar_karigor/app/routes/app_pages.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
-
 import 'package:amar_karigor/app/global/data/model/user.dart';
 import 'package:amar_karigor/app/global/util/local_data.dart';
-
+import 'package:amar_karigor/app/global/util/platform_helper.dart';
+import 'package:amar_karigor/app/global/widget/custom_webview.dart';
+import 'package:amar_karigor/app/modules/home/views/widget/desktop/appbar.dart';
+import 'package:amar_karigor/app/modules/payment/controllers/payment_controller.dart';
+import 'package:amar_karigor/app/modules/payment/views/widget/cost_card.dart';
+import 'package:amar_karigor/app/routes/app_pages.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import '../../../global/util/platform_helper.dart';
-import '../controllers/payment_controller.dart';
-import 'widget/cost_card.dart';
-import 'dart:convert';
 
 class PaymentView extends GetView<PaymentController> {
   @override
@@ -32,50 +31,89 @@ class PaymentView extends GetView<PaymentController> {
               width: isDesktopView(context)
                   ? MediaQuery.of(context).size.width * .6
                   : double.infinity,
-              height: isDesktopView(context) ? 500 : double.infinity,
+              height: 600,
               decoration: isDesktopView(context)
                   ? BoxDecoration(
                       color: Colors.white,
-                      border: Border.all(color: Color(0xffeeeeee), width: 1),
+                      border: Border.all(color: Color(0xffEEEEEE), width: 1),
                     )
                   : null,
               child: ListView(
                 children: [
-                  SizedBox(height: 8),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16.0, vertical: 16.0),
                     child: Text(
                       'Select your payment method',
-                      style: MyTextStyle.textBlackLargeBold,
+                      style: MyTextStyle.textBlackLargerBold,
                     ),
                   ),
-                  Row(
-                    children: [
-                      Radio(
-                        value: PAYMENT_CASH_ON_SERVICE,
-                        groupValue: controller.paymentType,
-                        onChanged: (value) {
-                          controller.setPaymentType(value as String);
-                        },
-                        activeColor: Colors.green,
-                      ),
-                      Text("Cash on service"),
-                    ],
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 12,
+                            vertical: 8,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Color(0xffFFFFFF),
+                            border: Border.all(
+                              color: Color(0xffEEEEEE),
+                            ),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Row(
+                            children: [
+                              Radio(
+                                value: PAYMENT_CASH_ON_SERVICE,
+                                groupValue: controller.paymentType,
+                                onChanged: (value) {
+                                  controller.setPaymentType(value as String);
+                                },
+                                activeColor: Colors.green,
+                              ),
+                              Text(
+                                "Cash on service",
+                                style: MyTextStyle.textBlackLargeBold,
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 12,
+                            vertical: 8,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Color(0xffFFFFFF),
+                            border: Border.all(
+                              color: Color(0xffEEEEEE),
+                            ),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Row(
+                            children: [
+                              Radio(
+                                value: PAYMENT_GATEWAY_ONLINE,
+                                groupValue: controller.paymentType,
+                                onChanged: (value) {
+                                  controller.setPaymentType(value as String);
+                                },
+                                activeColor: Colors.green,
+                              ),
+                              Text(
+                                "Pay via Online",
+                                style: MyTextStyle.textBlackLargeBold,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                  Row(
-                    children: [
-                      Radio(
-                        value: PAYMENT_GATEWAY_ONLINE,
-                        groupValue: controller.paymentType,
-                        onChanged: (value) {
-                          controller.setPaymentType(value as String);
-                        },
-                        activeColor: Colors.green,
-                      ),
-                      Text(PAYMENT_GATEWAY_ONLINE),
-                    ],
-                  ),
-                  Divider(),
                   costCard(controller),
                   SizedBox(
                     height: 8,
@@ -86,9 +124,13 @@ class PaymentView extends GetView<PaymentController> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          width: 150,
+                          width: 200,
+                          height: 50,
                           child: ElevatedButton(
-                            onPressed: () => Get.toNamed(Routes.HOME),
+                            //onPressed: () => Get.toNamed(Routes.HOME),
+                            onPressed: () {
+                              cancelBookingAlert();
+                            },
                             child: Text('Cancel'),
                             style: MyButtonStyle.cancelButton,
                           ),
@@ -96,7 +138,9 @@ class PaymentView extends GetView<PaymentController> {
                         SizedBox(
                           width: 8,
                         ),
-                        Expanded(
+                        Container(
+                          width: 200,
+                          height: 50,
                           child: ElevatedButton(
                             onPressed: () => controller.paymentType ==
                                     PAYMENT_CASH_ON_SERVICE
@@ -104,8 +148,14 @@ class PaymentView extends GetView<PaymentController> {
                                 : showPaymentView(context),
                             child: controller.paymentType ==
                                     PAYMENT_CASH_ON_SERVICE
-                                ? Text('Proceed')
-                                : Text('Pay now'),
+                                ? Padding(
+                                    padding: const EdgeInsets.all(6.0),
+                                    child: Text('Proceed'),
+                                  )
+                                : Padding(
+                                    padding: const EdgeInsets.all(6.0),
+                                    child: Text('Pay now'),
+                                  ),
                             style: MyButtonStyle.submitButton,
                           ),
                         ),
@@ -122,11 +172,11 @@ class PaymentView extends GetView<PaymentController> {
   void cancelBookingAlert() {
     Get.dialog(Dialog(
       child: Container(
-        height: 164,
-        child: ListView(
+        height: 190,
+        child: Column(
           children: [
             SizedBox(
-              height: 8,
+              height: 12,
             ),
             Center(
                 child: Icon(Icons.info_outline_rounded,
@@ -145,8 +195,9 @@ class PaymentView extends GetView<PaymentController> {
               style: MyTextStyle.textBlackSmall,
             )),
             SizedBox(
-              height: 12,
+              height: 18,
             ),
+            Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -158,11 +209,11 @@ class PaymentView extends GetView<PaymentController> {
                   ),
                 ),
                 SizedBox(
-                  width: 1,
+                  width: 8,
                 ),
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: () => showLoadingDialog(),
+                    onPressed: () => Get.to(Routes.HOME),
                     child: Text('Yes'),
                     style: MyButtonStyle.alertConfirmButton,
                   ),
@@ -208,19 +259,26 @@ class PaymentView extends GetView<PaymentController> {
     if (kIsWeb) {
       User user = LocalData.user!;
       String payload =
-          "{\"token\":\"80535d79-b11a-447e-b9b4-1b941c2a3a6f\",\"booking_id\":${controller.bookingId},\"uid\":${user.uid},\"amount\":${controller.grossTotal},\"cus_name\":\"${user.firstName}\",\"cus_email\":\"${user.email}\",\"cus_phone\":\"${user.phone}\",\"cus_address\":\"${user.address}\",\"service_name\":\"${controller.serviceName}\"}";
+          "{\"token\":\"80535d79-b11a-447e-b9b4-1b941c2a3a6f\",\"booking_id\":"
+          "${controller.bookingId},\"uid\":${user.uid},\"amount\":"
+          "${controller.grossTotal},\"cus_name\":\"${user.firstName}\","
+          "\"cus_email\":\"${user.email}\",\"cus_phone\":\"${user.phone}\","
+          "\"cus_address\":\"${user.address}\","
+          "\"service_name\":\"${controller.serviceName}\"}";
       Codec<String, String> stringToBase64 = utf8.fuse(base64);
       String encoded = stringToBase64.encode(payload);
+
       await launch(
-          'https://amarkarigor.com/api/v1/payment/ssl_commerz?payload=' +
-              encoded);
+          '${Api.ssl_payment_url}payment/ssl_commerz?payload=' + encoded);
     } else {
       Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) => CustomWebView(controller.bookingId,
-                  controller.grossTotal, controller.serviceName,controller.categoryId)));
+              builder: (context) => CustomWebView(
+                  controller.bookingId,
+                  controller.grossTotal,
+                  controller.serviceName,
+                  controller.categoryId)));
     }
-   
   }
 }

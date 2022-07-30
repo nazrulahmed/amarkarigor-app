@@ -1,13 +1,14 @@
 import 'package:amar_karigor/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import 'menu_item.dart' as myMenuItem;
 
 class CustomAppBar extends StatelessWidget implements PreferredSize {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(20),
+      margin: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
       padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -42,10 +43,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSize {
           ),
           myMenuItem.MenuItem(
             title: "Pricing",
-            press: () {
-               
-              
-            },
+            press: () {},
           ),
           myMenuItem.MenuItem(
             title: "Contact",

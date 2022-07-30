@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:amar_karigor/app/global/config/api.dart';
 import 'package:amar_karigor/app/global/data/model/user.dart';
 import 'package:amar_karigor/app/global/util/local_data.dart';
 import 'package:amar_karigor/app/routes/app_pages.dart';
@@ -15,8 +16,8 @@ class CustomWebView extends StatelessWidget {
   final categoryId;
   final serviceName;
   final DatabaseReference bookingRef = FirebaseDatabase.instance.ref('booking');
-  
-  CustomWebView(this.bookingId, this.amount, this.serviceName,this.categoryId);
+
+  CustomWebView(this.bookingId, this.amount, this.serviceName, this.categoryId);
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +31,8 @@ class CustomWebView extends StatelessWidget {
         child: Stack(
           children: [
             WebView(
-              initialUrl:
-                  "https://amarkarigor.com/api/v1/payment/ssl_commerz?payload=" +
-                      encoded,
+              initialUrl: "${Api.ssl_payment_url}payment/ssl_commerz?payload=" +
+                  encoded,
               onPageStarted: (String url) {
                 print('onpage start: $url');
 

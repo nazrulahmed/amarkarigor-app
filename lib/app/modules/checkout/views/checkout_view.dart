@@ -2,10 +2,10 @@ import 'package:amar_karigor/app/global/config/app_style.dart';
 import 'package:amar_karigor/app/modules/checkout/views/widget/other_user_checkout.dart';
 import 'package:amar_karigor/app/modules/checkout/views/widget/self_checkout.dart';
 import 'package:amar_karigor/app/modules/home/views/widget/desktop/appbar.dart';
-import 'package:flutter/material.dart';
-
-import 'package:get/get.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
 import '../../../global/util/platform_helper.dart';
 import '../controllers/checkout_controller.dart';
 
@@ -28,8 +28,8 @@ class CheckoutView extends GetView<CheckoutController> {
                   margin: EdgeInsets.all(5),
                   color: Colors.white,
                   width: kIsWeb
-                      ? MediaQuery.of(context).size.width * .5: double.infinity
-                      ,
+                      ? MediaQuery.of(context).size.width * .5
+                      : double.infinity,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -80,6 +80,14 @@ class CheckoutView extends GetView<CheckoutController> {
                               : otherUserCheckout(controller)),
                     ],
                   ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(32.0),
+                child: Text(
+                  'If you\'re booking the services for your '
+                  'office/workplace please select corporate!',
+                  style: MyTextStyle.textBlackMediumBold,
                 ),
               )
             ],

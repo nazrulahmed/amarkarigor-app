@@ -4,6 +4,7 @@ import 'package:amar_karigor/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+
 import '../../../global/util/platform_helper.dart';
 import '../controllers/payment_controller.dart';
 
@@ -14,8 +15,11 @@ class PaymentComplete extends GetView<PaymentController> {
     return Scaffold(
       body: Center(
         child: Container(
-          width: isDesktopView(context)?MediaQuery.of(context).size.width*.5:double.infinity,
-          child: ListView(
+          width: isDesktopView(context)
+              ? MediaQuery.of(context).size.width * .5
+              : double.infinity,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
                 height: 50,
@@ -49,7 +53,7 @@ class PaymentComplete extends GetView<PaymentController> {
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Text(
-                    'You wil receive an confirmaton email along with your booking details.',
+                    'You will receive an confirmation email along with your booking details.',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         color: Colors.grey,
@@ -60,15 +64,25 @@ class PaymentComplete extends GetView<PaymentController> {
               ),
               Container(
                   margin: EdgeInsets.symmetric(horizontal: 32),
-                  child: ElevatedButton(
-                    onPressed: () async{
-                      await bookingController.getBookings(1);
-                      await bookingController.getBookings(2);
-                      
-                      Get.offAllNamed(Routes.HOME);
-                    },
-                    child: Text('Home'),
-                    style: MyButtonStyle.submitButton,
+                  child: Obx(
+                    () => controller.isLoading.value
+                        ? Center(
+                            child: CircularProgressIndicator(),
+                          )
+                        : ElevatedButton(
+                            onPressed: () async {
+                              controller.isLoading(true);
+                              Get.put(BookingController());
+
+                              Get.offAllNamed(Routes.HOME);
+                            },
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 24.0),
+                              child: Text('Home'),
+                            ),
+                            style: MyButtonStyle.submitButton,
+                          ),
                   ))
             ],
           ),

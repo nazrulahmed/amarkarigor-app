@@ -1,9 +1,7 @@
-import 'package:flutter/material.dart';
-
-import 'package:get/get.dart';
-
-import '../controllers/notification_controller.dart';
+import 'package:amar_karigor/app/modules/notifications/controllers/notification_controller.dart';
 import 'package:amar_karigor/app/modules/notifications/widgets/notification_item.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class NotificationView extends GetView<NotificationController> {
   @override
@@ -13,16 +11,19 @@ class NotificationView extends GetView<NotificationController> {
         title: Text('Notifications'),
       ),
       body: Obx(
-          ()=>controller.isNotificationLoading.value?
-              Center(child: CircularProgressIndicator(),):
-              Container(
+        () => controller.isNotificationLoading.value
+            ? Center(
+                child: CircularProgressIndicator(),
+              )
+            : Container(
                 child: ListView.builder(
                     itemCount: controller.notificationList.length,
-                    itemBuilder: (context,index){
-                      return NotificationItem(controller.notificationList[index]);
+                    itemBuilder: (context, index) {
+                      return NotificationItem(
+                          controller.notificationList[index]);
                     }),
-              )
-      )
+              ),
+      ),
     );
   }
 }

@@ -3,6 +3,9 @@ import 'dart:convert';
 import 'package:amar_karigor/app/global/data/model/booking.dart';
 import 'package:amar_karigor/app/global/data/model/user.dart';
 import 'package:amar_karigor/app/global/data/providers/book_service_provider.dart';
+import 'package:amar_karigor/app/modules/home/controllers/home_controller.dart';
+import 'package:amar_karigor/app/modules/location/controllers/location_controller.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
@@ -16,6 +19,10 @@ class BookingController extends GetxController {
   @override
   void onInit() async {
     super.onInit();
+    if (kIsWeb) {
+      Get.put(HomeController());
+      Get.put(LocationController());
+    }
 
     await getBookings(1);
     await getBookings(2);
@@ -27,7 +34,6 @@ class BookingController extends GetxController {
   }
 
   Future<void> getBookings(int type) async {
-    
     http.Response response = await bookServiceProvider.getBookings(type);
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
@@ -59,7 +65,7 @@ class BookingController extends GetxController {
               attribute: serviceOptions['selected_attributes'],
               bookingDate: serviceOptions['booking_date'],
               bookingTime: serviceOptions['booking_time'],
-              totalToPay:  serviceOptions['total_price'].toDouble(),
+              totalToPay: serviceOptions['total_price'].toDouble(),
               icon: serviceOptions['service_icon'],
               bookingType: serviceOptions['booking_type'],
               status: statusName);
