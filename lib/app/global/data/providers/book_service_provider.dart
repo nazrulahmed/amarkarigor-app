@@ -20,8 +20,8 @@ import 'package:http/http.dart' as http;
  */
 
 class BookServiceProvider {
-  Future<http.Response> createBooking(MyBookingData booking,
-      double totalToPay, Consumer? consumer) async {
+  Future<http.Response> createBooking(
+      MyBookingData booking, double totalToPay, Consumer? consumer) async {
     String url = '${Api.base_url}${Api.create_booking_url}';
 
     http.Response response = await http.post(Uri.parse(url), headers: {
@@ -30,7 +30,7 @@ class BookServiceProvider {
       "uid": LocalData.user!.uid,
       "total_to_pay": totalToPay.toString(),
       "booking": jsonEncode(booking),
-      "date_time": booking.bookingDate+" "+booking.bookingTime,
+      "date_time": booking.bookingDate + " " + booking.bookingTime,
       "consumer": consumer == null ? '' : jsonEncode(consumer.toJSON())
     });
     print(response.statusCode);
@@ -67,9 +67,11 @@ class BookServiceProvider {
     });
     print(response.statusCode);
     print(url);
-    print('-------- RESPONSE ------------ get booking data -------------------------');
+    print(
+        '-------- RESPONSE ------------ get booking data -------------------------');
     print(response.body);
-    print('--------  RESPONSE  ------------ get booking data -------------------------');
+    print(
+        '--------  RESPONSE  ------------ get booking data -------------------------');
 
     return response;
   }
@@ -93,12 +95,25 @@ class BookServiceProvider {
     http.Response response = await http.post(Uri.parse(url), headers: {
       "Authorization": LocalData.user!.token
     }, body: {
-     
       "booking_id": id.toString(),
     });
     print(response.statusCode);
     print(url);
     print(response.body);
+    return response;
+  }
+
+  Future<http.Response> updateBookingStatus(String id, int status) async {
+    String url = '${Api.base_url}${Api.update_booking_status}';
+    print('url: $url');
+    http.Response response = await http.post(Uri.parse(url), headers: {
+      "Authorization": LocalData.user!.token
+    }, body: {
+      "booking_id": id,
+      "uid": LocalData.user!.uid,
+      "status": status.toString(),
+    });
+
     return response;
   }
 }

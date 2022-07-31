@@ -59,8 +59,12 @@ class TabView extends StatelessWidget {
         appBar: TabBarHeader(),
         body: TabBarView(
           children: [
-            bookingData(controller, context, 1),
-            bookingData(controller, context, 2),
+            GetBuilder(builder: (BookingController bc) {
+              return bookingData(controller, context, 1);
+            }),
+            GetBuilder(builder: (BookingController bc) {
+              return bookingData(controller, context, 2);
+            }),
           ],
         ),
       ),

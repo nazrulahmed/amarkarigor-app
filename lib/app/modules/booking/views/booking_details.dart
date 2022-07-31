@@ -4,6 +4,7 @@ import 'package:amar_karigor/app/global/data/model/user.dart';
 import 'package:amar_karigor/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import '../controllers/booking_controller.dart';
 import 'widget/service_attributes.dart';
 
@@ -59,6 +60,9 @@ class BookingDetails extends GetView<BookingController> {
                     padding: const EdgeInsets.all(0.0),
                     child: ListView(
                       children: [
+                        SizedBox(
+                          height: 30,
+                        ),
                         Center(
                           child: Container(
                               decoration: BoxDecoration(
@@ -210,7 +214,11 @@ class BookingDetails extends GetView<BookingController> {
                           padding: const EdgeInsets.all(16.0),
                           child: ElevatedButton(
                             onPressed: () =>
-                                Get.toNamed(Routes.PAYMENT, arguments: {'booking_id':int.parse(bookingData!.id!),'gross_total':bookingData.totalToPay,'service_name':bookingData.serviceName}),
+                                Get.toNamed(Routes.PAYMENT, arguments: {
+                              'booking_id': int.parse(bookingData!.id!),
+                              'gross_total': bookingData.totalToPay,
+                              'service_name': bookingData.serviceName
+                            }),
                             child: Text('Complete Now'),
                             style: MyButtonStyle.submitButton,
                           ),

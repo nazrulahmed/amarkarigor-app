@@ -104,4 +104,10 @@ class BookingController extends GetxController {
     }
     return null;
   }
+
+  Future removeBooking(String id, int type) async {
+    await bookServiceProvider.updateBookingStatus(id, 4);
+    await getBookings(type);
+    update();
+  }
 }

@@ -123,40 +123,39 @@ class PaymentView extends GetView<PaymentController> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Container(
-                          width: 200,
-                          height: 50,
-                          child: ElevatedButton(
-                            //onPressed: () => Get.toNamed(Routes.HOME),
-                            onPressed: () {
-                              cancelBookingAlert();
-                            },
-                            child: Text('Cancel'),
-                            style: MyButtonStyle.cancelButton,
+                        Expanded(
+                          child: Container(
+                            height: 60,
+                            child: ElevatedButton(
+                              onPressed: () => Get.toNamed(Routes.HOME),
+                              child: Text('Cancel'),
+                              style: MyButtonStyle.cancelButton,
+                            ),
                           ),
                         ),
                         SizedBox(
                           width: 8,
                         ),
-                        Container(
-                          width: 200,
-                          height: 50,
-                          child: ElevatedButton(
-                            onPressed: () => controller.paymentType ==
-                                    PAYMENT_CASH_ON_SERVICE
-                                ? controller.completeBooking()
-                                : showPaymentView(context),
-                            child: controller.paymentType ==
-                                    PAYMENT_CASH_ON_SERVICE
-                                ? Padding(
-                                    padding: const EdgeInsets.all(6.0),
-                                    child: Text('Proceed'),
-                                  )
-                                : Padding(
-                                    padding: const EdgeInsets.all(6.0),
-                                    child: Text('Pay now'),
-                                  ),
-                            style: MyButtonStyle.submitButton,
+                        Expanded(
+                          child: Container(
+                            height: 60,
+                            child: ElevatedButton(
+                              onPressed: () => controller.paymentType ==
+                                      PAYMENT_CASH_ON_SERVICE
+                                  ? controller.completeBooking()
+                                  : showPaymentView(context),
+                              child: controller.paymentType ==
+                                      PAYMENT_CASH_ON_SERVICE
+                                  ? Padding(
+                                      padding: const EdgeInsets.all(6.0),
+                                      child: Text('Proceed'),
+                                    )
+                                  : Padding(
+                                      padding: const EdgeInsets.all(6.0),
+                                      child: Text('Pay now'),
+                                    ),
+                              style: MyButtonStyle.submitButton,
+                            ),
                           ),
                         ),
                       ],
@@ -213,7 +212,7 @@ class PaymentView extends GetView<PaymentController> {
                 ),
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: () => Get.to(Routes.HOME),
+                    onPressed: () {},
                     child: Text('Yes'),
                     style: MyButtonStyle.alertConfirmButton,
                   ),

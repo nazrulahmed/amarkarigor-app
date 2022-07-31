@@ -1,14 +1,14 @@
 import 'package:amar_karigor/app/global/config/api.dart';
 import 'package:amar_karigor/app/global/config/app_style.dart';
 import 'package:amar_karigor/app/global/data/model/booking.dart';
+import 'package:amar_karigor/app/global/widget/custom_image_dummy.dart'
+    if (dart.library.html) 'package:amar_karigor/app/global/widget/custom_image.dart'
+    as ci;
 import 'package:amar_karigor/app/modules/booking/controllers/booking_controller.dart';
 import 'package:amar_karigor/app/modules/home/controllers/home_controller.dart';
 import 'package:amar_karigor/app/routes/app_pages.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:amar_karigor/app/global/widget/custom_image_dummy.dart'
-    if (dart.library.html) 'package:amar_karigor/app/global/widget/custom_image.dart'
-    as ci;
 import 'package:get/get.dart';
 
 Widget bookingData(BookingController bookingController, context, int status) {
@@ -21,12 +21,16 @@ Widget bookingData(BookingController bookingController, context, int status) {
     len = bookingController.completeBookings.length;
     bookingType = 'completed';
   }
+
   return Container(
       child: len == 0
           ? Column(
               children: [
                 Spacer(),
-                Icon(Icons.event_note_outlined,size: 60,),
+                Icon(
+                  Icons.event_note_outlined,
+                  size: 60,
+                ),
                 Center(
                   child: Padding(
                     padding: const EdgeInsets.all(24.0),
@@ -37,12 +41,20 @@ Widget bookingData(BookingController bookingController, context, int status) {
                     ),
                   ),
                 ),
-                SizedBox(height: 12,),
+                SizedBox(
+                  height: 12,
+                ),
                 ElevatedButton(
                   onPressed: () => homeController.changePage(0),
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 6.0,horizontal: 12,),
-                    child: Text('Book now',style: MyTextStyle.textWhiteMedium,),
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 6.0,
+                      horizontal: 12,
+                    ),
+                    child: Text(
+                      'Book now',
+                      style: MyTextStyle.textWhiteMedium,
+                    ),
                   ),
                   style: MyButtonStyle.submitButton,
                 ),
@@ -67,9 +79,12 @@ Widget item(BookingController bookingController, int index, int status) {
     onTap: () => Get.toNamed(Routes.BOOKING_DETAILS,
         arguments: {'index': index, 'status': status}),
     child: Dismissible(
-      key: Key(index.toString()),
+      key: UniqueKey(),
       background: Container(color: Colors.red[400]),
-      onDismissed: (DismissDirection direction) {},
+      onDismissed: (DismissDirection direction) async {
+        await bookingController.removeBooking(
+            bookingData.id!, int.parse(bookingData.status!));
+      },
       direction: DismissDirection.endToStart,
       child: Container(
         child: Card(

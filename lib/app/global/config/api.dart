@@ -20,6 +20,7 @@ class Api {
 
   static String get_payment_status_url = 'payment_status';
   static String update_booking_payment_status_url = 'update_payment_status';
+  static String update_booking_status = 'update_booking';
 
   static String notifications_url = 'notifications';
   static String write_feedback_url = 'write_feedback';
