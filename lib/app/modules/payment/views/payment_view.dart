@@ -21,149 +21,157 @@ class PaymentView extends GetView<PaymentController> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: isDesktopView(context)
-            ? CustomAppBar()
+            ? null
             : AppBar(
                 title: Text('Payment'),
               ),
         body: GetBuilder(
-          builder: (PaymentController checkoutController) => Center(
-            child: Container(
-              width: isDesktopView(context)
-                  ? MediaQuery.of(context).size.width * .6
-                  : double.infinity,
-              height: 600,
-              decoration: isDesktopView(context)
-                  ? BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(color: Color(0xffEEEEEE), width: 1),
-                    )
-                  : null,
-              child: ListView(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 16.0, vertical: 16.0),
-                    child: Text(
-                      'Select your payment method',
-                      style: MyTextStyle.textBlackLargerBold,
-                    ),
+          builder: (PaymentController checkoutController) => Column(
+            children: [
+              kIsWeb ? CustomAppBar() : SizedBox(),
+              Center(
+                child: Container(
+                  width: isDesktopView(context)
+                      ? MediaQuery.of(context).size.width * .6
+                      : double.infinity,
+                  height: 600,
+                  decoration: isDesktopView(context)
+                      ? BoxDecoration(
+                          color: Colors.white,
+                          border:
+                              Border.all(color: Color(0xffEEEEEE), width: 1),
+                        )
+                      : null,
+                  child: ListView(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16.0, vertical: 16.0),
+                        child: Text(
+                          'Select your payment method',
+                          style: MyTextStyle.textBlackLargerBold,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 12,
+                                vertical: 8,
+                              ),
+                              decoration: BoxDecoration(
+                                color: Color(0xffFFFFFF),
+                                border: Border.all(
+                                  color: Color(0xffEEEEEE),
+                                ),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: Row(
+                                children: [
+                                  Radio(
+                                    value: PAYMENT_CASH_ON_SERVICE,
+                                    groupValue: controller.paymentType,
+                                    onChanged: (value) {
+                                      controller
+                                          .setPaymentType(value as String);
+                                    },
+                                    activeColor: Colors.green,
+                                  ),
+                                  Text(
+                                    "Cash on service",
+                                    style: MyTextStyle.textBlackLargeBold,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 12,
+                                vertical: 8,
+                              ),
+                              decoration: BoxDecoration(
+                                color: Color(0xffFFFFFF),
+                                border: Border.all(
+                                  color: Color(0xffEEEEEE),
+                                ),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: Row(
+                                children: [
+                                  Radio(
+                                    value: PAYMENT_GATEWAY_ONLINE,
+                                    groupValue: controller.paymentType,
+                                    onChanged: (value) {
+                                      controller
+                                          .setPaymentType(value as String);
+                                    },
+                                    activeColor: Colors.green,
+                                  ),
+                                  Text(
+                                    "Pay via Online",
+                                    style: MyTextStyle.textBlackLargeBold,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      costCard(controller),
+                      SizedBox(
+                        height: 8,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              child: Container(
+                                height: 60,
+                                child: ElevatedButton(
+                                  onPressed: () => Get.toNamed(Routes.HOME),
+                                  child: Text('Cancel'),
+                                  style: MyButtonStyle.cancelButton,
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 8,
+                            ),
+                            Expanded(
+                              child: Container(
+                                height: 60,
+                                child: ElevatedButton(
+                                  onPressed: () => controller.paymentType ==
+                                          PAYMENT_CASH_ON_SERVICE
+                                      ? controller.completeBooking()
+                                      : showPaymentView(context),
+                                  child: controller.paymentType ==
+                                          PAYMENT_CASH_ON_SERVICE
+                                      ? Padding(
+                                          padding: const EdgeInsets.all(6.0),
+                                          child: Text('Proceed'),
+                                        )
+                                      : Padding(
+                                          padding: const EdgeInsets.all(6.0),
+                                          child: Text('Pay now'),
+                                        ),
+                                  style: MyButtonStyle.submitButton,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: 12,
-                            vertical: 8,
-                          ),
-                          decoration: BoxDecoration(
-                            color: Color(0xffFFFFFF),
-                            border: Border.all(
-                              color: Color(0xffEEEEEE),
-                            ),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Row(
-                            children: [
-                              Radio(
-                                value: PAYMENT_CASH_ON_SERVICE,
-                                groupValue: controller.paymentType,
-                                onChanged: (value) {
-                                  controller.setPaymentType(value as String);
-                                },
-                                activeColor: Colors.green,
-                              ),
-                              Text(
-                                "Cash on service",
-                                style: MyTextStyle.textBlackLargeBold,
-                              ),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: 12,
-                            vertical: 8,
-                          ),
-                          decoration: BoxDecoration(
-                            color: Color(0xffFFFFFF),
-                            border: Border.all(
-                              color: Color(0xffEEEEEE),
-                            ),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Row(
-                            children: [
-                              Radio(
-                                value: PAYMENT_GATEWAY_ONLINE,
-                                groupValue: controller.paymentType,
-                                onChanged: (value) {
-                                  controller.setPaymentType(value as String);
-                                },
-                                activeColor: Colors.green,
-                              ),
-                              Text(
-                                "Pay via Online",
-                                style: MyTextStyle.textBlackLargeBold,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  costCard(controller),
-                  SizedBox(
-                    height: 8,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Expanded(
-                          child: Container(
-                            height: 60,
-                            child: ElevatedButton(
-                              onPressed: () => Get.toNamed(Routes.HOME),
-                              child: Text('Cancel'),
-                              style: MyButtonStyle.cancelButton,
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 8,
-                        ),
-                        Expanded(
-                          child: Container(
-                            height: 60,
-                            child: ElevatedButton(
-                              onPressed: () => controller.paymentType ==
-                                      PAYMENT_CASH_ON_SERVICE
-                                  ? controller.completeBooking()
-                                  : showPaymentView(context),
-                              child: controller.paymentType ==
-                                      PAYMENT_CASH_ON_SERVICE
-                                  ? Padding(
-                                      padding: const EdgeInsets.all(6.0),
-                                      child: Text('Proceed'),
-                                    )
-                                  : Padding(
-                                      padding: const EdgeInsets.all(6.0),
-                                      child: Text('Pay now'),
-                                    ),
-                              style: MyButtonStyle.submitButton,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  )
-                ],
+                ),
               ),
-            ),
+            ],
           ),
         ));
   }

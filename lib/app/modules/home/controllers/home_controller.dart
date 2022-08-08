@@ -1,25 +1,26 @@
 import 'dart:convert';
+
+import 'package:amar_karigor/app/global/data/model/category.dart';
 import 'package:amar_karigor/app/global/data/model/provider_info.dart';
 import 'package:amar_karigor/app/global/data/model/service.dart';
 import 'package:amar_karigor/app/global/data/model/sub_category.dart';
 import 'package:amar_karigor/app/global/data/model/user.dart';
+import 'package:amar_karigor/app/global/data/model/user.dart' as AppUser;
 import 'package:amar_karigor/app/global/util/app_pref.dart';
-import 'package:amar_karigor/app/global/data/model/category.dart';
-import 'package:amar_karigor/app/modules/location/model/city.dart';
-import 'package:amar_karigor/app/modules/location/model/country.dart';
+import 'package:amar_karigor/app/global/util/local_data.dart';
+import 'package:amar_karigor/app/global/widget/dummy_document.dart'
+    if (dart.library.html) 'package:amar_karigor/app/global/widget/web_document.dart'
+    as doc;
 import 'package:amar_karigor/app/modules/home/provider/home_provider.dart';
 import 'package:amar_karigor/app/modules/location/controllers/location_controller.dart';
-import 'package:amar_karigor/app/global/util/local_data.dart';
+import 'package:amar_karigor/app/modules/location/model/city.dart';
+import 'package:amar_karigor/app/modules/location/model/country.dart';
 import 'package:amar_karigor/app/routes/app_pages.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:amar_karigor/app/global/data/model/user.dart' as AppUser;
 import 'package:http/http.dart' as http;
-import 'package:amar_karigor/app/global/widget/dummy_document.dart'
-    if (dart.library.html) 'package:amar_karigor/app/global/widget/web_document.dart'
-    as doc;
 
 class HomeController extends GetxController {
   Future<AppPref?> myPref = AppPref.instance;

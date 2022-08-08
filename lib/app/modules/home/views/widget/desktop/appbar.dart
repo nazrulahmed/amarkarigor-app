@@ -1,13 +1,17 @@
+import 'package:amar_karigor/app/global/util/platform_helper.dart';
 import 'package:amar_karigor/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'menu_item.dart' as myMenuItem;
 
-class CustomAppBar extends StatelessWidget implements PreferredSize {
+class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: MediaQuery.of(context).size.width > desktopWindowIdealSize
+          ? desktopWindowIdealSize
+          : MediaQuery.of(context).size.width,
       margin: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
       padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
@@ -42,25 +46,19 @@ class CustomAppBar extends StatelessWidget implements PreferredSize {
             },
           ),
           myMenuItem.MenuItem(
-            title: "Pricing",
-            press: () {},
-          ),
-          myMenuItem.MenuItem(
-            title: "Contact",
-            press: () {},
-          ),
-          myMenuItem.MenuItem(
             title: "Support",
-            press: () {},
+            press: () {
+              Get.toNamed(Routes.SUPPORT);
+            },
+          ),
+          myMenuItem.MenuItem(
+            title: "More",
+            press: () {
+              Get.toNamed(Routes.MORE);
+            },
           ),
         ],
       ),
     );
   }
-
-  @override
-  Widget get child => Text('');
-
-  @override
-  Size get preferredSize => Size(double.infinity, 150);
 }

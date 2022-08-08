@@ -17,14 +17,17 @@ import 'package:http/http.dart' as http;
 class HomeProvider {
   Future<http.Response> homePageData(String uid, String token) async {
     String url = '${Api.base_url}${Api.home_data_url}';
-    print("URL IS $url token is $token phone is $uid");
-    http.Response response = await http.post(Uri.parse(url),
-         headers: {"Authorization": token},
-        body: {"uid": uid});
-    print(response.statusCode);
-    print(response.body);
-    return response;
+    print("URL IS $url token is $token uid is $uid");
+    try {
+      print("INSIDE TRY");
+      http.Response response = await http.post(Uri.parse(url),
+          headers: {"Authorization": token}, body: {"uid": uid});
+      print(' response:::: ${response}');
+
+      return response;
+    } catch (e, st) {
+      print(st.toString());
+    }
+    return http.Response("null", 404);
   }
-
-
 }

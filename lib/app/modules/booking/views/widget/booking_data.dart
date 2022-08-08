@@ -83,7 +83,7 @@ Widget item(BookingController bookingController, int index, int status) {
       background: Container(color: Colors.red[400]),
       onDismissed: (DismissDirection direction) async {
         await bookingController.removeBooking(
-            bookingData.id!, int.parse(bookingData.status!));
+            bookingData.id!,status);
       },
       direction: DismissDirection.endToStart,
       child: Container(

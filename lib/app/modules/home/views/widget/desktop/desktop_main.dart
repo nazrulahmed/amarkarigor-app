@@ -10,11 +10,14 @@ class DesktopMainView extends StatelessWidget {
   Widget build(BuildContext context) {
     // This size provide us total height and width  of our screen
     return Scaffold(
-      body:  GetBuilder(builder: (HomeController controller)=> ListView(
-        children: <Widget>[
-          CustomAppBar(),
-          Body(),
-        ],
+        body: GetBuilder(
+      builder: (HomeController controller) => SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            CustomAppBar(),
+            Body(),
+          ],
+        ),
       ),
     ));
   }

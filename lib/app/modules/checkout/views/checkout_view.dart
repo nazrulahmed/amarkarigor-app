@@ -14,15 +14,16 @@ class CheckoutView extends GetView<CheckoutController> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: isDesktopView(context)
-            ? CustomAppBar()
+            ? null
             : AppBar(
                 title: Text('Checkout'),
               ),
         body: GetBuilder(
           builder: (CheckoutController checkoutController) => Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              CustomAppBar(),
               Center(
                 child: Container(
                   margin: EdgeInsets.all(5),

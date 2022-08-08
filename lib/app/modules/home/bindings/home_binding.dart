@@ -9,7 +9,7 @@ class HomeBinding extends Bindings {
   @override
   void dependencies() {
     Get.put<HomeController>(HomeController());
-    Get.put<LocationController>(LocationController());
+    Get.put<LocationController>(LocationController(), permanent: true);
     Get.put<BookingController>(BookingController(), permanent: true);
     Get.put<SupportController>(SupportController());
   }

@@ -13,6 +13,7 @@ class BookingController extends GetxController {
   final bookServiceProvider = BookServiceProvider();
   List<Booking> incompleteBookings = [];
   List<Booking> completeBookings = [];
+  var activeTab = 1.obs;
 
   var hasConsumerData = false.obs;
 
@@ -26,6 +27,7 @@ class BookingController extends GetxController {
 
     await getBookings(1);
     await getBookings(2);
+    update();
   }
 
   @override
@@ -37,6 +39,8 @@ class BookingController extends GetxController {
     http.Response response = await bookServiceProvider.getBookings(type);
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
+      print('data--------------');
+      print(data);
 
       if (data['status'] == true) {
         final bookingData = data['response'];

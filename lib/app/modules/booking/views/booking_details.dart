@@ -58,7 +58,7 @@ class BookingDetails extends GetView<BookingController> {
                   padding: const EdgeInsets.all(8.0),
                   child: Padding(
                     padding: const EdgeInsets.all(0.0),
-                    child: ListView(
+                    child: Column(
                       children: [
                         SizedBox(
                           height: 30,

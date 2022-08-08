@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const desktopWindowIdealSize = 768;
+const double desktopWindowIdealSize = 1200;
 bool isDesktopView(BuildContext context) {
   return MediaQuery.of(context).size.width >= desktopWindowIdealSize;
 }
