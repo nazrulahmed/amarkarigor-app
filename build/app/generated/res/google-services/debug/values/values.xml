@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="default_web_client_id" translatable="false">760012543825-veqa6dtlpkdhhn8oqe64p338fpi7n96k.apps.googleusercontent.com</string>
-    <string name="firebase_database_url" translatable="false">https://amrkarigor-default-rtdb.asia-southeast1.firebasedatabase.app</string>
-    <string name="gcm_defaultSenderId" translatable="false">760012543825</string>
-    <string name="google_api_key" translatable="false">AIzaSyCvCYD35T0iBTKlMNSpWRhPsiksn4KsMPE</string>
-    <string name="google_app_id" translatable="false">1:760012543825:android:b2eda0941c69b13a74a570</string>
-    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCvCYD35T0iBTKlMNSpWRhPsiksn4KsMPE</string>
-    <string name="google_storage_bucket" translatable="false">amrkarigor.appspot.com</string>
-    <string name="project_id" translatable="false">amrkarigor</string>
+    <string name="default_web_client_id" translatable="false">717347672529-3gsqrfn976j5n9rvrqguudlqp29ja397.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">717347672529</string>
+    <string name="google_api_key" translatable="false">AIzaSyAMMa5ACfuyHA-1YH_U39yXXv8iB7vq_H8</string>
+    <string name="google_app_id" translatable="false">1:717347672529:android:a7e299b43561efcd74d0f0</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAMMa5ACfuyHA-1YH_U39yXXv8iB7vq_H8</string>
+    <string name="google_storage_bucket" translatable="false">amarkarigor-f892f.appspot.com</string>
+    <string name="project_id" translatable="false">amarkarigor-f892f</string>
 </resources>

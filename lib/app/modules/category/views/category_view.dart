@@ -34,7 +34,7 @@ class CategoryView extends GetView<CategoryController> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  CustomAppBar(),
+                  isDesktopView(context)?CustomAppBar():SizedBox(),
                   isDesktopView(context)
                       ? Obx(() => Padding(
                             padding: const EdgeInsets.all(8.0),

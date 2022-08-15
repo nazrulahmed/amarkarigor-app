@@ -1,4 +1,4 @@
-#Sat Aug 06 21:42:01 BDT 2022
-base.0=/Volumes/others/projects/amarkarigor/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+#Mon Aug 15 07:57:44 BST 2022
+base.0=E\:\\amarkarigor-app\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

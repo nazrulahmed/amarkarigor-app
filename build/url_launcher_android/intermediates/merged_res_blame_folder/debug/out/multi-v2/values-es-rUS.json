@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Volumes/others/projects/amarkarigor/build/url_launcher_android/intermediates/incremental/mergeDebugResources/merged.dir/values-es-rUS/values-es-rUS.xml",
+            "outputFile": "E:\\amarkarigor-app\\build\\url_launcher_android\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-es-rUS\\values-es-rUS.xml",
             "map": [
                 {
-                    "source": "/Users/nazrulchowdhury/.gradle/caches/transforms-2/files-2.1/96c09106850c7523644a266476c422c5/core-1.6.0/res/values-es-rUS/values-es-rUS.xml",
+                    "source": "C:\\Users\\nazrul\\.gradle\\caches\\transforms-2\\files-2.1\\96c09106850c7523644a266476c422c5\\core-1.6.0\\res\\values-es-rUS\\values-es-rUS.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -16,10 +16,10 @@
             ]
         },
         {
-            "outputFile": "/Volumes/others/projects/amarkarigor/build/url_launcher_android/intermediates/res/merged/debug/values-es-rUS/values-es-rUS.xml",
+            "outputFile": "E:\\amarkarigor-app\\build\\url_launcher_android\\intermediates\\res\\merged\\debug\\values-es-rUS\\values-es-rUS.xml",
             "map": [
                 {
-                    "source": "/Users/nazrulchowdhury/.gradle/caches/transforms-2/files-2.1/96c09106850c7523644a266476c422c5/core-1.6.0/res/values-es-rUS/values-es-rUS.xml",
+                    "source": "C:\\Users\\nazrul\\.gradle\\caches\\transforms-2\\files-2.1\\96c09106850c7523644a266476c422c5\\core-1.6.0\\res\\values-es-rUS\\values-es-rUS.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
