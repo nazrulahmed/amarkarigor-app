@@ -12,7 +12,7 @@ class ServiceView extends GetView<ServiceController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GetBuilder(builder: (ServiceController controller) {
+      body: GetBuilder(builder: (ServiceController sController) {
         return ListView(children: [
           Center(
             child: Container(
@@ -21,7 +21,7 @@ class ServiceView extends GetView<ServiceController> {
                   : double.infinity,
               child: Column(
                 children: [
-                  serviceHeader(controller),
+                  serviceHeader(controller, context),
                   controller.servicePage.value == ServicePages.SERVICE_TIME
                       ? serviceDateTime(controller)
                       : serviceOption(controller),

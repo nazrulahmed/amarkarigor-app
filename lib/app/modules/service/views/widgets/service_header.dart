@@ -6,7 +6,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-Widget serviceHeader(ServiceController controller) {
+Widget serviceHeader(ServiceController controller, context) {
   CustomShimmer customShimmer = CustomShimmer();
   if (controller.service == null) {
     return Container(
@@ -34,7 +34,7 @@ Widget serviceHeader(ServiceController controller) {
                 Image.asset('assets/images/clean_bg.png', fit: BoxFit.cover)),
         Container(
           color: Colors.black45,
-          height: 200,
+          height: 250,
           width: double.infinity,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -62,7 +62,8 @@ Widget serviceHeader(ServiceController controller) {
                           recognizer: new TapGestureRecognizer()
                             ..onTap = () async => await customDialog(
                                 controller.service!.name,
-                                controller.service!.description),
+                                controller.service!.description,
+                                context),
                         )
                       ]),
                 ),
@@ -79,7 +80,7 @@ Widget serviceHeader(ServiceController controller) {
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(8))),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text(' Start from \$${controller.service!.price}',
+                child: Text(' Start from ৳${controller.service!.price}',
                     style: MyTextStyle.textWhiteMedium),
               )),
         ),

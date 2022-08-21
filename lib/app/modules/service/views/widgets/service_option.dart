@@ -29,8 +29,10 @@ Widget serviceOption(ServiceController controller) {
         ),
       ));
       if (value['field_type'] == FILED_SLIDER) {
-        int extraCostApplicableFrom = value['extra_cost_applicable_from'];
-        double extraCostPerUnit = value['extra_cost_per_unit'].toDouble();
+        int extraCostApplicableFrom = value['extra_cost_applicable_from'] ?? 0;
+        double extraCostPerUnit = value['extra_cost_per_unit'] == null
+            ? 0
+            : value['extra_cost_per_unit'].toDouble();
         List<String> fieldValues = value['value'].toString().split(',');
         List<int> numberValues = fieldValues.map(int.parse).toList();
         numberValues.sort();
@@ -145,9 +147,9 @@ Widget serviceOption(ServiceController controller) {
 
         optionWidgets.add(Divider());
       } else {
-        controller.optionControllers.add(RxString(""));
-        controller.optionValues.add({value['label']: ""});
-        int textFiledControllerIndex = controller.optionControllers.length - 1;
+        // controller.optionControllers.add(RxString(""));
+        // controller.optionValues.add({value['label']: ""});
+        // int textFiledControllerIndex = controller.optionControllers.length - 1;
 
         optionWidgets.add(
           Padding(
@@ -160,10 +162,10 @@ Widget serviceOption(ServiceController controller) {
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: TextFormField(
                     onChanged: (val) {
-                      controller.optionControllers[textFiledControllerIndex]
-                          .value = val;
-                      controller.optionValues[textFiledControllerIndex]
-                          [value['label']] = val;
+                      // controller.optionControllers[textFiledControllerIndex]
+                      //     .value = val;
+                      // controller.optionValues[textFiledControllerIndex]
+                      //     [value['label']] = val;
                     },
                     decoration: InputDecoration(
                       hintText: value['value'],

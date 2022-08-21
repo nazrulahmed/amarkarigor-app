@@ -23,7 +23,7 @@ class CheckoutView extends GetView<CheckoutController> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              isDesktopView(context)?CustomAppBar():SizedBox(),
+              isDesktopView(context) ? CustomAppBar() : SizedBox(),
               Center(
                 child: Container(
                   margin: EdgeInsets.all(5),

@@ -208,6 +208,7 @@ class ProfileView extends GetView<ProfileController> {
                                 ),
                               ),
                             ),
+                            Spacer()
                           ],
                         ),
                       ),

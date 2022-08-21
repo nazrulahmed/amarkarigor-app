@@ -38,7 +38,7 @@ class BookingPreview extends GetView<CheckoutController> {
                 ? SizedBox()
                 : Column(
                     children: [
-                     isDesktopView(context)? CustomAppBar():SizedBox(),
+                      isDesktopView(context) ? CustomAppBar() : SizedBox(),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Center(
