@@ -1,5 +1,4 @@
 
-```markdown
 # Amarkarigor (My Handyman)
 
 This project aims to provide handyman services such as electrical service, cleaning, plumbing, and repairing. To avail any service, end users need to sign up for the application. This promises to fulfill your household chores without hassle.
@@ -70,4 +69,4 @@ For this particular project, we have selected specific technologies and framewor
 8. Admin and User management Module
 9. Booking management module
 10. Expert Application modules
-```
+
